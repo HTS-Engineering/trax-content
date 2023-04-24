@@ -1,0 +1,486 @@
+:root {
+	--dateBorderColor: #E4E4E4;
+	--dayOfWeekTodayColor: #13528E;
+	--technicianUnassignedRowBackgroundColor: #EAEAEA;
+	--technicianRowBackgroundColor: #FFFFFF;
+	--dayCellWidth: 172px;
+	--curvatureForBar: 5px;
+	--tripTypeDefaultBarColor: #E56820;
+	--tripTypeDefaultMainColor: #FAC880;
+	--tripTypeOwnerTrainingBarColor: #6955D3;
+	--tripTypeOwnerTrainingMainColor: #C2B7FB;
+	--tripTypePreventativeBarColor: #13528E;
+	--tripTypePreventativeMainColor: #9AD1FF;
+	--tripTypeRepairBarColor: #D2283B;
+	--tripTypeRepairMainColor: #FFA9A7;
+	--tripTypeServiceBarColor: #D2283B;
+	--tripTypeServiceMainColor: #FFA9A7;
+	--tripTypeWalkthroughBarColor: #6955D3;
+	--tripTypeWalkthroughMainColor: #6955D3;
+	--tripTypeStartupBarColor: #299F79;
+	--tripTypeStartupMainColor: #A1EBD3;
+	--tripTypeWarrantyBarColor: #E56820;
+	--tripTypeWarrantyMainColor: #FAC880;
+	--tripTypeWarrantyCallbackBarColor: #E56820;
+	--tripTypeWarrantyCallbackMainColor: #FAC880;
+	--technicianLabelHeight: 18px;
+	--technicianBoxHeight: 19px;
+	--todayHighlightColor: #13528E;
+}
+
+.kuiCalendarTable{
+	border-collapse: collapse; 
+	min-width: 100%;  
+}
+
+.kuiCalendarDayOfWeek{
+	text-align: left; font-weight: bold; 
+}
+
+.kuiCalendarDayOfWeekToday{
+	text-align: left; font-weight: bold; 
+	color: var(--dayOfWeekTodayColor);
+}
+
+.kuiCalendar0Trip{
+	height: 0px;
+}
+
+.kuiCalendar1Trip{
+	height: 20px;
+}
+
+.kuiCalendar2Trip{
+	height: 40px;
+}
+
+.kuiCalendar3Trip{
+	height: 60px;
+}
+
+.kuiCalendar4Trip{
+	height: 80px;
+}
+
+.kuiCalendarTechnicianRow{
+	border: solid var(--dateBorderColor);
+	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1); 
+	height: 80px;
+}
+
+.kuiCalendarTechnicianUnassignedRowBackgroundColor{
+	background-color: solid var(--technicianUnassignedRowBackgroundColor);
+}
+
+.kuiCalendarTechnicianRowBackgroundColor{
+	background-color: var(--technicianRowBackgroundColor);
+}
+
+.kuiCalendarTechnicianNameCell{
+	min-width: 150px;
+}
+
+.kuiCalendarTechnicianSwap{
+	display: none; border: 0px; position: relative; 
+}
+
+.kuiCalendarTechnicianDayCell{
+	width: var(--dayCellWidth)px;
+	border-left: 1px solid var(--dateBorderColor);
+	border-right: 1px solid var(--dateBorderColor);
+	vertical-align:top;
+}
+
+.kuiCalendarTechnicianDayCellLeft{
+	height: var(technicianLabelHeight);
+	border-radius: var(--curvatureForBar) 0px 0px var(--curvatureForBar);
+	padding: 0px; 
+	margin: 0px
+}
+
+.kuiCalendarDateTodayOpacity{
+	opacity: 30%; 
+}
+
+.kuiCalendarTripTypeDefaultColor{
+	border: 1px solid var(--tripTypeDefaultBarColor);
+ 		}
+
+.kuiCalendarTripStatusDefaultDispatched{
+	background-color: var(--tripTypeDefaultBarColor);
+ 			
+}
+
+.kuiCalendarTripStatusDefaultScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeDefaultBarColor) 3px,
+		var(--tripTypeDefaultBarColor) 6px)				
+}		
+
+.kuiCalendarTripTypeOwnerTrainingColor{
+	border: 1px solid var(--tripTypeOwnerTrainingBarColor);
+ 		}
+
+.kuiCalendarTripStatusOwnerTrainingDispatched{
+	background-color: var(--tripTypeOwnerTrainingBarColor);
+ 			
+}
+
+.kuiCalendarTripStatusOwnerTrainingScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeOwnerTrainingBarColor) 3px,
+		var(--tripTypeOwnerTrainingBarColor) 6px)				
+}
+
+.kuiCalendarTripTypePreventativeColor{
+	border: 1px solid var(--tripTypePreventativeBarColor);
+ 			
+}
+
+.kuiCalendarTripStatusPreventativeDispatched{
+	background-color: var(--tripTypePreventativeBarColor);
+ 			
+}
+
+.kuiCalendarTripStatusPreventativeScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypePreventativeBarColor) 3px,
+		var(--tripTypePreventativeBarColor) 6px)				
+}
+
+
+.kuiCalendarTripTypeRepairColor{
+	border: 1px solid var(--tripTypeRepairBarColor);
+ 			
+}
+
+.kuiCalendarTripStatusRepairDispatched{
+	background-color: var(--tripTypeRepairBarColor);
+ 			
+}
+
+.kuiCalendarTripStatusRepairScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeRepairBarColor) 3px,
+		var(--tripTypeRepairBarColor) 6px)				
+}	
+
+.kuiCalendarTripTypeServiceColor{
+	border: 1px solid var(--tripTypeServiceBarColor);		
+}
+
+.kuiCalendarTripStatusServiceDispatched{
+	background-color: var(--tripTypeServiceBarColor);			
+}
+
+.kuiCalendarTripStatusServiceScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeServiceBarColor) 3px,
+		var(--tripTypeServiceBarColor) 6px)				
+}	
+
+.kuiCalendarTripTypeWalkthroughColor{
+	border: 1px solid var(--tripTypeWalkthroughBarColor);			
+}
+
+.kuiCalendarTripStatusWalkthroughDispatched{
+	background-color: var(--tripTypeWalkthroughBarColor);			
+}
+
+.kuiCalendarTripStatusWalkthroughScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeWalkthroughBarColor) 3px,
+		var(--tripTypeWalkthroughBarColor) 6px)				
+}	
+
+.kuiCalendarTripTypeStartupColor{
+	border: 1px solid var(--tripTypeStartupBarColor);			
+}
+
+.kuiCalendarTripStatusStartupDispatched{
+	background-color: var(--tripTypeStartupBarColor);			
+}
+
+.kuiCalendarTripStatusStartupScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeStartupBarColor) 3px,
+		var(--tripTypeStartupBarColor) 6px)				
+}	
+
+.kuiCalendarTripTypeWarrantyColor{
+	border: 1px solid var(--tripTypeWarrantyBarColor);			
+}
+
+.kuiCalendarTripStatusWarrantyDispatched{
+	background-color: var(--tripTypeWarrantyBarColor);			
+}
+
+.kuiCalendarTripStatusWarrantyScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeWarrantyBarColor) 3px,
+		var(--tripTypeWarrantyBarColor) 6px)				
+}	
+
+.kuiCalendarTripTypeWarrantyColor{
+	border: 1px solid var(--tripTypeWarrantyBarColor);			
+}
+
+.kuiCalendarTripStatusWarrantyDispatched{
+	background-color: var(--tripTypeWarrantyBarColor);			
+}
+
+.kuiCalendarTripStatusWarrantyScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeWarrantyBarColor) 3px,
+		var(--tripTypeWarrantyBarColor) 6px)				
+}
+
+.kuiCalendarTripTypeWarrantyCallbackColor{
+	border: 1px solid var(--tripTypeWarrantyCallbackBarColor);			
+}
+
+.kuiCalendarTripStatusWarrantyCallbackDispatched{
+	background-color: var(--tripTypeWarrantyCallbackBarColor);			
+}
+
+.kuiCalendarTripStatusWarrantyCallbackScheduled{
+	  background: repeating-linear-gradient(
+		-30deg,
+		white 0px, 
+		white 3px, 
+		var(--tripTypeWarrantyCallbackBarColor) 3px,
+		var(--tripTypeWarrantyCallbackBarColor) 6px)				
+}				
+
+.kuiCalendarTechnicianStackedTripTable{
+	width: 100%;
+}
+
+.kuiCalendarTechnicianFullWidth{
+	top: 0px;
+	height: var(--technicianBoxHeight);
+	vertical-align: top; 
+	position: relative; 
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	border-radius: 0px 0px 0px 0px;
+	padding: 0px; 
+	margin: 0px; 
+}
+
+.kuiCalendarTechnicianFullWidthSelected{
+	border: 2px dashed black; 
+}
+
+.kuiCalendarTechnicianFullWidthNotSelected{
+	border: 1px solid white;  
+}
+
+.kuiCalendarTripTypeDefaultMainColor{
+	background-color: var(--tripTypeDefaultMainColor);			
+}
+.kuiCalendarTripTypeOwnerTrainingMainColor{
+	background-color: var(--tripTypeOwnerTrainingMainColor);			
+}
+
+.kuiCalendarTripTypePreventativeMainColor{
+	background-color: var(--tripTypePreventativeMainColor);			
+}
+
+.kuiCalendarTripTypeRepairMainColor{
+	background-color: var(--tripTypeRepairMainColor);			
+}		
+
+.kuiCalendarTripTypeServiceMainColor{
+	background-color: var(--tripTypeServiceMainColor);			
+}			
+
+.kuiCalendarTripTypeWalkthroughMainColor{
+	background-color: var(--tripTypeWalkthroughMainColor);			
+}	
+		
+.kuiCalendarTripTypeStartupMainColor{
+	background-color: var(--tripTypeStartupMainColor);			
+}			
+
+.kuiCalendarTripTypeWarrantyMainColor{
+	background-color: var(--tripTypeWarrantyMainColor);			
+}			
+ 
+.kuiCalendarTripTypeWarrantyCallbackMainColor{
+	background-color: var(--tripTypeWarrantyCallbackMainColor);			
+}			
+
+.kuiCalendarMove{
+	cursor: move;			
+}	
+
+.kuiCalendarTripTypeDefaultConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeDefaultMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeOwnerTrainingConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeOwnerTrainingMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypePreventativeConflict{
+	background: repeating-linear-gradient(
+	75deg,
+	white 0 10px, 
+	var(--tripTypePreventativeMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeRepairConflict{
+	background: repeating-linear-gradient(
+	75deg, white 0 10px, 
+	var(--tripTypeRepairMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeServiceConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeServiceMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeWalkthroughConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeWalkthroughMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeStartupConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeStartupMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeWarrantyConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeWarrantyMainColor) 10px 20px);			
+}	
+
+.kuiCalendarTripTypeWarrantyCallbackConflict{
+	background: repeating-linear-gradient(
+	75deg, 
+	white 0 10px, 
+	var(--tripTypeWarrantyCallbackMainColor) 10px 20px);			
+}
+
+.kuiCalendarWeekdayHeaderName{
+	color: var(--todayHighlightColor); 
+}
+
+.kuiCalendarWeekdayDateHeader{
+	background-color: #F2F6F7; 
+	border: 1px solid #E4E4E4; 
+	border-top: 1px solid #E4E4E4; 
+	text-align: left; 
+	font-weight: normal; 
+	color: #D3D3D3; 
+}
+
+.kuiCalendarWeekdayDateTodayHeader{
+	background-color: #F2F6F7; 
+	border: 1px solid #E4E4E4; 
+	border-top: 2px solid #13528E; 
+	text-align: left; 
+	font-weight: normal; 
+	color: #D3D3D3; 
+}
+
+.kuiCalendarDayQuickAction{
+	display: inline; 
+	border: 0px; 
+	position: relative; 
+	float: right;
+}
+
+.kuiCalendarVerticalDotButton{
+	height: 16px; 
+	width: 14px; 
+	padding-top: 2px; 
+	padding-right: 2px;
+}
+
+.kuiCalendarTripPickups{
+	display: inline; 
+	border: 0px; 
+	position: relative; 
+	float: right;
+}
+
+.kuiCalendarTripPickupsEmpty{
+	display: none; 
+	border: 0px; 
+	position: relative; 
+	float: right; 
+}
+
+.kuiCalendarPickupButton{
+	height: 14px; 
+	width: 14px; 
+	padding-top: 2px; 
+	padding-right: 2px;
+}
+
+.kuiCalendarCell{
+	width: 1320px; 
+	padding-left: 5px; 
+	padding-right: 5px; 
+	padding-bottom: 5px;
+}
+
+.kuiCalendarPart{
+	border-style: solid; 
+	padding-left: 5px; 
+	border-width: 1px; 
+	border-color: lightgray; 
+}
+
+.kuiCalendarUnscheduledTripsCell{
+	max-width: 350px; 
+	padding: 5px; 
+	margin: 0px; 
+	vertical-align: top; 
+	border-right: solid; 
+	border-width: 1px;  
+	border-color: lightgray; 
+}

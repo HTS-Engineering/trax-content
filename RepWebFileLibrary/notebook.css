@@ -1,0 +1,212 @@
+
+.notebookLabel {
+	color:#0085CF; 
+	background-color: white;
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:18px; 
+	font-weight:normal;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle; 
+	margin:0px;
+	padding:0px 14px 0px 14px;
+	border: 1px solid lightgrey;
+	white-space: nowrap;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.notebookLabel a:link, notebookLabel a:active, notebookLabel a:visited {
+ 	color:#0085CF; 
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:18px; 
+	font-weight:normal;
+}
+
+.notebookLabel a:hover {
+	color: red; 
+}
+
+.notebookSelectedLabel {
+	color:#0085CF; 
+	background-color: #F9F9F9;
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:18px; 
+	font-weight:bold;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle; 
+	margin:0px;
+	padding:5px 14px 4px 14px;
+	border-bottom: 0px solid #000000;
+	border-left: 1px solid lightgrey;
+	border-top: 1px solid lightgrey;
+	border-right: 1px solid lightgrey;
+	border-bottom: 0px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	vertical-align: top; 
+}
+
+.notebookSelectedLabel a {
+	display:block; 
+}
+
+.notebookWideLabel {
+	padding-top: 3px; 
+	padding-bottom: 3px; 
+	padding-left: 5px; 
+	color: #0085CF; 
+	white-space: nowrap; 
+	font-size: 14px; 
+}
+
+.notebookSelectedWideLabel {
+	border: 1px solid lightgrey; 	
+	border-right: 0px; 
+	padding: 2px; 
+	position: relative; left: 2px; 
+	width: 100%; 
+	background-color: #F9F9F9; 
+	white-space: nowrap; 
+	font-size: 14px; 
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px; 
+}
+
+.notebookSelectedWideLabel a {
+	display:block; 
+}
+
+
+.notebookTab {
+	display: block; 
+	padding-top: 2px; 
+	padding-bottom: 2px; 
+}
+
+.notebookPage {
+	display: table-cell;
+	width: 100%;
+	height: 100%; 
+	vertical-align: top; 
+	background-color: #F9F9F9;
+	padding:5px;
+	border-left: 1px solid lightgrey;
+	border-top: 0px;
+	border-right: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.notebookLayoutTable {
+	display: table;
+	width: 100%; 
+	height: 100%; 
+}
+
+.notebookLayoutRow {
+	display: table-row; 
+	width: 100%; 
+}
+
+.notebookLayoutCell {
+	display: table-cell;
+	vertical-align: middle; 
+	width: 100%; 
+}
+
+.breadcrumbs {
+	cursor:pointer;
+	color: #0085CF;
+	background-color: #DEF0F7;
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size: 14px;
+	font-weight:normal;
+	padding: 3px; 
+	margin-right: 4px; 
+	margin-bottom: 4px; 
+	border: 1px solid lightgrey;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: 4px 4px 4px lightgray;
+	float: left;
+	padding: 2px; 
+}
+
+.shortcut {
+	color: black; 
+	cursor:pointer;
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size: 14px;
+	float: left;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
+	padding: 3px 6px 3px 6px;
+	margin-right: 5px; 
+	margin-bottom: 4px;
+	border: 1px solid gray;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.shortcut a:link, a:visited, a:active {
+	color: black; 
+}
+
+.shortcut:hover { 
+	color: black; 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
+}
+
+.shortcut:active {
+	color: black; 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408ABB', endColorstr='#FFFFFF'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#408ABB), to(#FFFFFF)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #408ABB,  #FFFFFF); /* for firefox 3.6+ */ 
+	border: 1px solid black; 
+}
+
+.componentPage {
+	width: 100%;
+	height: 100%; 
+	vertical-align: top; 
+	background-color: white;
+	padding:5px;
+	border: 1px solid lightgrey;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.notebookWideTabs {
+	padding: 6px; 
+	border: 1px solid lightgrey;
+	margin-right: 2px; 
+	background: #DEF0F7; 
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+

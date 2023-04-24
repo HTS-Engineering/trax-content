@@ -1,0 +1,33 @@
+
+
+.tsTableComponent {
+	font-family: Myriad, Tahoma, sans-serif;
+	font-size: small;
+	width: 100%;
+}
+
+.tsReviewTable {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tsReviewTableHeader {
+	font-weight: normal;
+	text-align: left;
+}
+
+.selectRow {
+}
+
+.selectRow a:link, .selectRow a:active, .selectRow a:visited {
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+	display: block;
+}
+
+.selectRow a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	color: black; 
+}

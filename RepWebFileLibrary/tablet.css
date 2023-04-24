@@ -1,0 +1,257 @@
+
+html {
+	height: 100%;
+	}
+
+body {
+	height: 80%;
+	background-color:#FFFFFF;
+	background-image:url("/files/RepWebFileLibrary/bodybg.jpg");
+	background-position:center top;
+	background-repeat:no-repeat;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+}
+
+body a:link, a:visited {
+	text-decoration:none;
+	color:#0085CF; 
+}
+
+body a:active {
+	color: red; 
+}
+
+body a:hover {
+	color: red; 
+}
+
+h1 {
+	color: #0066A4;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+
+h2 {
+	color: #0066A4;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin:0;
+	padding:0;
+}
+
+h3 {
+	color: #0066A4;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	margin:0;
+	padding:0;
+}
+
+.treeNode {
+	color: black; 
+}
+
+.treeNode a:link, a:visited {
+	text-decoration:none;
+	color: black; 
+}
+
+.treeNode a:hover {
+	color: red; 
+}
+
+#mainDiv {
+	margin: 0 auto; 
+	height: 95%; 
+}
+.topmenu {
+	background-color: white;
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:24px; 
+	font-weight:normal;
+}
+
+.topmenu a:link {
+	color: #0085CF;
+}
+
+.topmenu a:hover {
+	color: red;
+}
+
+table.topmenucell td {
+	border: 1px solid lightgrey; 
+	backgroundcolor: white;
+	align: center;
+	padding:6px 18px 6px 18px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+table.productcell td {
+	border: 1px solid #0064A5;
+	border-radius: 5px 5px 5px 5px;
+	padding: 4px;
+}
+
+#topmenuselected {
+	color: #0066A4;
+	border: 3px solid #0066A4; 
+	background-color: #DEF0F7;
+}
+
+#topmenuselected a:link {
+	color: #0066A4;
+	background-color: #DEF0F7;
+}
+
+#headerTop {
+	background-position:center top;
+	background-repeat:repeat-x;
+	border:medium none;
+	height:34px;
+	margin:0;
+	padding:0;
+	position:relative;
+	width:100%;
+}
+
+#topWrap {
+	margin:0 auto;
+	width:942px;
+}
+
+.notebookpageborder {
+ 	background-color: white;
+	border: 1px solid lightgrey;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 2px;
+}
+
+#footer {
+	background-position:center top;
+	background-repeat:repeat-x;
+	border:medium none;
+	height:35px;
+	margin:0;
+	padding:0;
+	position: fixed;
+	bottom: 0; 
+	left: 0; 
+	right: 0;
+	width:100%;
+}
+
+#footerWrap {
+	margin:0 auto;
+	vertical-align:middle;
+	width:942px;
+}
+
+.footerText {
+	color:#A3DAF9;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:9px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#footerLeft {
+	float:left;
+	margin:0;
+	padding:14px 0 0 0;
+	position:relative;
+}
+
+#footerLeft a, #footerLeft a:link, #footerLeft a:active, #footerLeft a:visited {
+	color:#A3DAF9;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:9px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#footerLeft a:hover {
+	color:#FFFFFF;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:9px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#footerRight {
+	float:right;
+	margin:0;
+	padding:14px 0 0;
+	position:relative;
+}
+
+#footerRight2 {
+	float:right;
+	margin:0;
+	padding:10px 0 0 10px;
+	position:relative;
+}
+
+.tsReviewTable {
+	border-collapse:collapse;
+}
+
+.tsReviewTable td { 
+	border-top: 1px solid lightgrey; 
+}
+
+.tsReviewTable th {
+	padding: 2px 4px 0px 4px;
+}
+
+.tsReviewTable td {
+	padding: 2px 4px 0px 4px;
+}
+
+.login {
+	width: 300px; 
+	margin-left: auto; 
+	margin-right: auto; 
+	background-color: white;
+	padding:5px;
+	border: 1px solid lightgrey;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.reportPage {
+	background: #EDEDED; 
+	border: 1px solid black; 
+	padding: 10px; 
+}
+
+.reportSection {
+	background: white; 
+	border: 1px solid black; 
+	width: 100%; 
+}
+
+.flyover {
+	display: none; 
+	position: absolute; 
+	background-color: #DEF0F7;
+	padding: 5px;
+	border: 1px solid lightgrey;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+

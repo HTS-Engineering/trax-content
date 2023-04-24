@@ -1,0 +1,12 @@
+
+html {
+    -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
+}
+
+.narrowContent {
+	display: none;
+}
+
+.wideContent {
+	display: block;
+}

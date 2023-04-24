@@ -1,0 +1,63 @@
+
+.tsTableComponent {
+	background: white; 
+	font-family: Myriad, Tahoma, sans-serif;
+	font-size: small;
+	padding: 4px;
+	border: 1px solid lightgrey;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.tsReviewTable {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.tsReviewTable td { 
+	border-top: 1px solid lightgrey; 
+}
+
+.tsReviewTable th {
+	padding: 2px 4px 0px 4px;
+}
+
+.tsReviewTable td {
+	padding: 1px 4px 1px 4px;
+}
+
+.tsReviewTableHeader {
+	font-weight: normal;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.selectRow {
+	white-space: nowrap;
+	overflow: hidden; 
+}
+
+.selectRow a:link, .selectRow a:active, .selectRow a:visited {
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+	display: block;
+}
+
+.selectRow a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	color: black; 
+}
+
+.selectedRow {
+	overflow: hidden; 
+}
+
+.selectedRow a:link, .selectedRow a:active, .selectedRow a:visited, .selectedRow a:hover {
+	cursor: pointer;
+	text-decoration: none;
+	color: lightgray; 
+	display: block;
+}

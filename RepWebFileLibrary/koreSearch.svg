@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="61px" height="62px" viewBox="0 0 61 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Artboard" transform="translate(-3.000000, 0.000000)" stroke="#13528E" stroke-width="2">
+            <g id="Group" transform="translate(4.000000, 1.000000)">
+                <path d="M59,60 L37,38 L59,60 Z" id="Path"></path>
+                <path d="M44,22 C44,34.1513333 34.1513333,44 22,44 C9.84866667,44 0,34.1513333 0,22 C0,9.84866667 9.84866667,0 22,0 C34.1513333,0 44,9.84866667 44,22 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>
