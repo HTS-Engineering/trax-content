@@ -1,12 +1,22 @@
  
+:root {
+	--traxEmphasisColorVariable: #0085CF;
+	--traxEmphasisSvgColorVariable: invert(30%) sepia(86%) saturate(974%) hue-rotate(170deg) brightness(113%) contrast(106%);
+	--traxTextColorVariable: #000000;
+	--buttonBackgroundColor: #EBEDF0;
+
+	/* a white variant */
+	--tabSelectedIconSvgColor: invert(99%) sepia(69%) saturate(538%) hue-rotate(267deg) brightness(116%) contrast(100%);
+	/* a medium blue variant */
+	--tabNotSelectedIconSvgColor: brightness(0) saturate(100%) invert(35%) sepia(75%) saturate(3007%) hue-rotate(180deg) brightness(94%) contrast(101%);
+}
+
 html, body {
   height:100%;
 }
 
-
 body {
 	background-color:#FFFFFF;
-	background-image:url("/files/RepWebFileLibrary/bodybg.jpg");
 	background-position:center top;
 	background-repeat:no-repeat;
 	font-family:Arial,Helvetica,sans-serif;
@@ -381,7 +391,7 @@ background: linear-gradient(to right,  #1e5799 0%,#def0f7 0%,#ffffff 0%,#def0f7 
 
 input.linkButton { 
 	height: 22px; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#CBDFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
 	padding:1px 4px 1px 4px;
@@ -390,7 +400,7 @@ input.linkButton {
 }
 
 input.linkButtonHover { 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#408ABB''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
 }
@@ -399,7 +409,7 @@ input.linkButtonHover {
 	cursor:pointer;
 	height: 17px; 
 	font-size: 10px; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#CBDFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
 	padding: 1px 4px 1px 4px;
@@ -408,13 +418,13 @@ input.linkButtonHover {
 }
 
 .htsButton:hover { 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#408ABB''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
 }
 
 .htsButton:active {
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#408ABB'', endColorstr=''#FFFFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408ABB', endColorstr='#FFFFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#408ABB), to(#FFFFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #408ABB,  #FFFFFF); /* for firefox 3.6+ */ 
 	border: 1px solid black; 
@@ -441,7 +451,7 @@ input.linkButtonHover {
 .promptButton {
 	height: 26px; 
 	font-size: 18px; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#CBDFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
 	padding: 1px 4px 1px 4px;
@@ -450,13 +460,13 @@ input.linkButtonHover {
 }
 
 .promptButton:hover { 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#408ABB''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
 }
 
 .promptButton:active {
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#408ABB'', endColorstr=''#FFFFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408ABB', endColorstr='#FFFFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#408ABB), to(#FFFFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #408ABB,  #FFFFFF); /* for firefox 3.6+ */ 
 	border: 1px solid black; 
@@ -465,7 +475,7 @@ input.linkButtonHover {
 .promptDefaultButton {
 	height: 26px; 
 	font-size: 18px; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#CBDFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
 	padding: 1px 4px 1px 4px;
@@ -474,13 +484,13 @@ input.linkButtonHover {
 }
 
 .promptDefaultButton:hover { 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#408ABB''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
 }
 
 .promptDefaultButton:active {
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#408ABB'', endColorstr=''#FFFFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408ABB', endColorstr='#FFFFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#408ABB), to(#FFFFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #408ABB,  #FFFFFF); /* for firefox 3.6+ */ 
 	border: 1px solid black; 
@@ -492,7 +502,7 @@ input.linkButtonHover {
 	font-family:Arial,Helvetica,sans-serif; 
 	font-size: 12px;
 	white-space: nowrap; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#CBDFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
 	padding: 1px 4px 1px 4px;
@@ -507,14 +517,14 @@ input.linkButtonHover {
 
 .reportButton:hover { 
 	color: black; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#408ABB''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
 }
 
 .reportButton:active {
 	color: black; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#408ABB'', endColorstr=''#FFFFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408ABB', endColorstr='#FFFFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#408ABB), to(#FFFFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #408ABB,  #FFFFFF); /* for firefox 3.6+ */ 
 	border: 1px solid black; 
@@ -525,7 +535,7 @@ input.linkButtonHover {
 	cursor:pointer;
 	font-family:Arial,Helvetica,sans-serif; 
 	font-size: 12px;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=''#FFFFFF'', endColorstr=''#CBDFFF''); /* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
 	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
 	padding: 1px 4px 1px 4px;
@@ -614,4 +624,265 @@ div.trax-notify-recipients dd {
 
 .layoutCell {
 	display:table-cell;
+	}
+	
+.largeIcon {
+	height: 48px;
+	width: 48px;
+	}
+
+.mediumIcon {
+	height:24px;
+	width: 24px;
+	}
+	
+.smallMediumIcon {
+	height: 18px;
+	width: 18px;
+	}
+
+.smallIcon {
+	height: 16px;
+	width: 16px;
+	}
+
+.extraSmallIcon {
+	height: 14px;
+	width: 14px;
+	}
+	
+.tinyIcon {
+	height: 12px;
+	width: 12px;
+	}
+
+.traxErrorFilter {
+	filter: invert(21%) sepia(97%) saturate(3984%) hue-rotate(343deg) brightness(79%) contrast(105%)
+	}
+
+/* green */
+.traxSuccessfulFilter {
+	 filter: brightness(0) saturate(100%) invert(64%) sepia(67%) saturate(475%) hue-rotate(41deg) brightness(96%) contrast(88%)
+	}
+	
+/* lightblue */
+.lightblueFilter {
+	 filter: brightness(0) saturate(100%) invert(90%) sepia(21%) saturate(145%) hue-rotate(155deg) brightness(102%) contrast(94%)
+	}
+
+/* red */
+.redFilter {
+	 filter: brightness(0) saturate(100%) invert(41%) sepia(91%) saturate(7263%) hue-rotate(353deg) brightness(101%) contrast(131%)
+	}
+
+	
+.yellowFilter {
+	filter: brightness(0) saturate(100%) invert(83%) sepia(43%) saturate(3433%) hue-rotate(0deg) brightness(105%) contrast(104%)
+	}
+
+/* ========== */
+.traxBlueFilter {
+	filter: brightness(0) saturate(100%) invert(23%) sepia(71%) saturate(1219%) hue-rotate(181deg) brightness(97%) contrast(92%)
+	}
+	
+/* button icon default  */
+.buttonIconDefaultColor {
+	background: #15294B;
+	}
+.buttonIconDefaultColorFilter {
+	filter: invert(10%) sepia(60%) saturate(1815%) hue-rotate(200deg) brightness(96%) contrast(91%);
+	}
+.buttonIconDefaultBackground {
+	background: none;
+	}
+
+/* button icon disabled */
+.buttonIconDefaultDisabledColor {
+	background: #C2C7D0
+	}
+.buttonIconDefaultDisabledColorFilter {
+	filter: invert(74%) sepia(3%) saturate(582%) hue-rotate(180deg) brightness(110%) contrast(86%);
+	}
+.buttonIconDefaultDisabledBackground {
+	background: none
+	}
+.buttonWhiteFilter{
+	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(340deg) brightness(107%) contrast(108%);
+	}
+/*
+.searchLayoutBorder {
+    border: 1px solid lightgrey;
+    background: #F9F9F9;
+    border-radius: 5px;
+    padding-left: 3px;
+    margin-right: 20px; 
+    margin-top: 3px;
+}
+*/
+.toolbar{
+	display: flex; 
+	}
+.toolbarWithSmallGap{
+	display: flex; 
+	gap: 1px;
+	}
+.boldText{
+	font-weight: 700; 
+	}
+.normalText{
+	font-weight: 400;
+	}
+.menuGroupContainer{
+	width: 175px; 
+	z-index: 200; 
+	font-size: 14px; 
+	text-align: left; 
+	}
+.moveCursor{
+	cursor: move;
+	}
+.paddingTopStandard{
+	padding-top: 2px;
+	}
+.traxEmphasisColor{
+	color: var(--traxEmphasisColorVariable);
+	}
+.traxTextColor{
+	color: var(--traxTextColorVariable);
+	}
+.displayGrid{
+	display: grid;
+	}
+.displayNone{
+	display: none;
+	}
+.displayBlock{
+	display: block;
+	}
+.traxIconButton {
+	cursor: pointer;
+	border: 0px;
+	background: none;
+	border-radius: 6px;
+	justify-self: center;
+	}
+
+.traxButton {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	}
+	
+.traxMultiselectButtonBase {
+	cursor: pointer;
+	display: grid;
+	gap: 1px;
+	border: none; 
+	background: none;
+	align-items: center;
+	justify-items: left;
+	}
+.traxMultiselectButtonLabelSelectedIcon{
+	grid-template-columns: 1fr 12px;
+	}
+.traxMultiselectButtonSelectedIconLabel{
+	grid-template-columns: 15px 1fr;
+	}
+.traxMultiselectButtonIconLabelSelectedIcon{
+	grid-template-columns: 15px 1fr 12px;
+	}
+.traxMultiselectButtonSelectedIconIconLabel{
+	grid-template-columns: 15px 15px 1fr ;
+	}
+	
+.traxIconButton:hover {
+	background: #F5F6F7
+	}
+.traxIconButton[disabled="disabled"]:hover {
+	background: none;
+	}
+.traxIconButton:active {
+	background-color: var(--buttonBackgroundColor);
+	}
+.standardLabel{
+	text-align: left; 
+	}
+.boldLabel{
+	font-weight: bold; 
+	text-align: left; 
+	}
+.traxToolbarUnselectedButton{
+	color: gray; 
+	border: 1px solid gray; 
+	font-weight: bold; 
+	background-color: white;
+	 }
+.traxToolbarSelectedButton{
+	color: #13528E; 
+	border: 1px solid #13528E; 
+	font-weight: bold; 
+	background-color: white; 
+	 }
+.redBorder{
+	border-color: red;
+	}
+.expandCollapseDivider{
+	height: 85vh;
+	display: flex;
+	border-left: 1px solid lightgray;
+	position: relative;
+	margin-left: 15px;
+	}
+.expandCollapseDividerButton{
+	margin-left: -18px;
+	}
+.verticalAlignMiddle{
+	vertical-align: middle;
+	}
+.lightboxWindow{
+	display: grid; 
+	grid-template-rows: 22px 1fr 22px; 
+	border: 1px solid lightgray;
+	z-index: 100;
+	position: fixed;
+	background-color: #DEF0F7;
+	padding: 5px;
+	border: 1px solid #0064A5;
+	border-radius: 5px;
+	}
+.lightboxWindowHeaderBar{
+	display: grid; 
+	grid-template-columns: 1fr 22px; 
+	align-items: center; 
+	background: lightgray
+	}
+.lightboxWindowDialogButtonBar{
+	display: flex; 
+	gap: 1px; 
+	justify-content: center;
+	}
+.headingBar{
+	vertical-align: top; 
+	padding-top: 4px; 
+	padding-left: 4px; 
+	margin-bottom: 4px;
+	}
+.justifySelfStart{
+	justify-self: self-start;
+	}
+	
+.textEntryArea{
+	border: 1px solid #A9A9A9;
+	padding: 2px;
+	min-height: 100px;
+	overflow: auto;
+	white-space: normal;  
+	}
+.stringInputField{
+	height: 16px; 
+	border: 2px solid #196BB4; 
+	background-color: #C6E2FF; 
+	}
+.standardGridRowHeight{
+	grid-template-rows: 24px
 	}

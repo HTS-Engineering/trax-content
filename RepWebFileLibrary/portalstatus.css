@@ -14,3 +14,11 @@ body {
 	border-radius: 5px;
 }
 
+.searchLayoutBorder {
+    border: 1px solid lightgrey;
+    background: #F9F9F9;
+    border-radius: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 3px;
+}

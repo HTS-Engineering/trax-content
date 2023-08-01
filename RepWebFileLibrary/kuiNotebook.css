@@ -1,0 +1,138 @@
+
+.kuiTabTopUnselected {
+	color:#0085CF; 
+	font-weight: normal;
+	border: 1px solid lightgrey; 	
+}
+
+.kuiTabTopSelected {
+	color: #F9F9F9;
+	background: #13528E;
+}
+	
+.kuiTabTopBase {
+	display: grid;
+	grid-gap: 5px;
+	align-items: center;
+	font-family:Arial,Helvetica,sans-serif; 
+	font-size:18px; 
+	white-space: nowrap; 
+	padding-left: 32px; 
+	padding-right: 32px;
+}
+.kuiTabTopBase1Column{
+	grid-template-columns: 1fr;
+	}
+.kuiTabTopBase2Column{
+	grid-template-columns: 1fr 1fr;
+}
+.kuiTabTopBase3Column{
+	grid-template-columns: 24px 1fr auto;
+}
+
+.kuiNotebookSelectedLeftTab {
+	display: grid;
+	align-items: center;
+	border-top: 1px solid lightgrey;
+	border-left: 1px solid lightgrey;
+	border-bottom: 1px solid lightgrey;
+	padding: 2px;
+	font-size: 14px;
+	background-color: #F9F9F9;
+	white-space: nowrap;
+}
+
+.kuiNotebookLeftTab {
+	display: grid;
+	align-items: center;
+	padding: 2px;
+	width: 100%;
+	font-size: 14px;
+	white-space: nowrap;
+}
+
+.kuiNotebookLefthandTabContents{
+	display: grid;
+	align-content: baseline;
+	padding-top: 2px; 
+	padding-left: 2px;
+	padding-bottom: 2px;
+	background: #DEF0F7; 
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	}
+
+.kuiLefthandNotebook{
+	display: grid;
+	grid-template-columns: auto 1fr;
+	border: 1px solid lightgrey;
+	background: #F9F9F9; 
+	border-radius: 5px;
+	float: left; 
+}
+
+.kuiNotebookPagePanel{
+	padding: 4px;
+	}
+
+.kuiNotebookTopTabs{
+	display: grid;
+	grid-template-rows: 40px;
+	border-bottom: 1px solid lightgrey;
+	}
+.kuiNotebookTop1Tab{
+	grid-template-columns: repeat(1, min-content);
+	}
+.kuiNotebookTop2Tab{
+	grid-template-columns: repeat(2, min-content);
+	}
+.kuiNotebookTop3Tab{
+	grid-template-columns: repeat(3, min-content);
+	}
+.kuiNotebookTop4Tab{
+	grid-template-columns: repeat(4, min-content);
+	}
+.kuiNotebookTop5Tab{
+	grid-template-columns: repeat(5, min-content);
+	}
+.kuiNotebookTop6Tab{
+	grid-template-columns: repeat(5, min-content);
+	}
+.kuiNotebookTop7Tab{
+	grid-template-columns: repeat(7, min-content);
+	}
+.kuiNotebookTop8Tab{
+	grid-template-columns: repeat(8, min-content);
+	}
+.kuiNotebookTop9Tab{
+	grid-template-columns: repeat(9, min-content);
+	}
+.kuiNotebookTop10Tab{
+	grid-template-columns: repeat(10, min-content);
+	}
+	
+.kuiTabSelectedIcon {
+	filter: var(--tabSelectedIconSvgColor);
+	}
+
+.kuiTabNotSelectedIcon {
+       filter: var(--tabNotSelectedIconSvgColor);
+	}
+.kuiAccordionTabButtonAndLabel{
+	display: grid;
+	grid-template-columns: 24px 1fr;
+	align-items: center;
+	}
+.kuiAccordionTabButtonAndLabelWithStateIcon{
+	display: grid;
+	grid-template-columns: 24px 1fr auto;
+	align-items: center;
+	}
+.kuiAccordionPage{
+	display: grid; 
+	grid-template-rows: 24px 1fr; 
+	border-top: 1px solid lightgray; 
+	border-bottom: 1px solid lightgray; 
+	padding: 2px; 
+	background-color: #F9F9F9;  
+	}
