@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,50;0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url(''https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,50;0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'');
 
 
 html {
@@ -19,7 +19,7 @@ html {
 	--koreButtonActiveColor: #1EBC8A;
 	--koreBodyFont: Arial, sans-serif;
 	--koreBodyFontSize: 16px;
-	--koreHeadingFont: 'Roboto', sans-serif, regular;
+	--koreHeadingFont: ''Roboto'', sans-serif, regular;
 	--koreHeadingFontSize: 18px;
 	--koreSubHeadingFont: Roboto, sans-serif, medium;
 	--koreSubHeadingFontSize: 16px;
@@ -133,15 +133,6 @@ textInput{
 	outline-color: var(--koreBrightBlue);
 }
 
-.koreTimesheetEntry{
-	display: grid;
-	background: white;
- 	border: 3px solid lightgrey;
-	border-radius: 5px;
-	padding: 20px;
-	margin: 20px 20px 30px 20px;
-}
-
 .koreMobileLargeButton {
   	display: flex;  
         justify-content: center;
@@ -154,8 +145,6 @@ textInput{
 	font-weight: 700;
  	background-color: var(--koreDarkBlue);
 	color: white;
-	position: fixed;
-	bottom: 40px;
 	margin: 1em;
 	border: 0px;
  }
@@ -230,220 +219,6 @@ h1.koreMobileHeading {
 	color: black;
 }
 
-.koreMobileTimeSectionBox {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 50px 50px 30px 50px 1fr 50px;
-	grid-gap: 10px;
-	grid-template-areas:
-		"start start"
-		"end end"
-		"duration  ."
-		"hourType hourType"
-		"alocations alocations"
-		"button button";
-	background: white;
- 	border: 3px solid lightgrey;
-	border-radius: 3px;
-	padding: 10px;
-	margin: 20px 20px 20px 20px;
-}
-
-.koreMobileTimeStart {
-	grid-area: start;
-	height: var(--koreTextInputHeight);
-}
-
-.koreMobileTimeEnd {
-	grid-area: end;
-	height: var(--koreTextInputHeight);
-}
-
-.koreMobileTimeDuration {
-	grid-area: duration;
-}
-
-.koreMobileTimeHourType {
-	grid-area: hourType;
-}
-
-.koreMobileTimeAllocations {
-	grid-area: alocations;
-}
-
-.koreMobileTimeAdd {
-	grid-area: button;
-	border-color: green;
-}
-
-.koreMobileTripReportEntry {
-	grid-area: entry-type;
-}
-
-.koreMobileTripReportContents {
-	grid-area: note;
-}
-
-.koreMobileTripReportButton {
-	grid-area: button;
-}
-
-.koreMobileTripReportEntrySectionBox {
-	display: grid;
-	grid-template-columns: 4fr 1fr 1fr 1fr;
-	grid-template-rows: 20px 40px 1fr;
-	grid-template-areas:
-		"title title title title button1 button2 button3"
-		"date date date date date date date"
-		"note note note note note note note";
-	background: white;
- 	border: 3px solid lightgrey;
-	border-radius: 5px;
-	padding: 10px;
-	margin: 5px 20px 0px 20px;
-}
-
-.koreMobileTripReportEntryTitle{
-	grid-area: title;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTripReportEntryEdit{
-	grid-area: button1;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTripReportEntrySeparater{
-	grid-area: button2;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTripReportEntryDelete{
-	grid-area: button3;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTripReportEntryTime{
-	grid-area: date;
-	font-family: var(--koreBodyFont);
-	font-size: var(--koreBodyFontSize);
-	color: var(--koreDarkGreyText);
-}
-
-.koreMobileTripReportEntryNote{
-	grid-area: note;
-	font-family: var(--koreBodyFont);
-	font-size: var(--koreBodyFontSize);
-	color: var(--koreDarkGreyText);
-}
-
-
-
-.koreMobileTimesheetEntrySectionBox {
-	display: grid;
-	grid-template-columns: 4fr 1fr 1fr 1fr;
-	grid-template-rows: 40px 1fr;
-	grid-template-areas:
-		"title title title title button1 button2 button3"
-		"contentString contentString contentString contentString contentString contentString contentString";
-	align-items: start;
-	background: white;
- 	border: 3px solid lightgrey;
-	border-radius: 5px;
-	padding: 20px;
-	margin: 5px 20px 5px 20px;
-}
-
-.koreMobileTimesheetEntryTime{
-	grid-area: title;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTimesheetEntryEdit{
-	grid-area: button1;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTimesheetEntrySeparater{
-	grid-area: button2;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTimesheetEntryDelete{
-	grid-area: button3;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight: 500;
-}
-
-.koreMobileTimesheetEntryContentString{
-	grid-area: contentString;
-	font-family: var(--koreBodyFont);
-	font-size: var(--koreBodyFontSize);
-	color: var(--koreDarkGreyText);
-}
-
-.koreMobileSectionBox {
-	display: grid;
-	background: white;
- 	border: 3px solid lightgrey;
-	border-radius: 5px;
-	padding: 20px;
-	margin: 20px 20px 30px 20px;
-}
-
-.koreMobileSectionBoxSub {
-	display: grid; 
-	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 1fr ;
-}
-
-.koreMobileSectionBoxSub2 {
-	display: flex; 
-	justify-content: flex-end; 
-	color: value(--koreDarkBlue);
-}
-
-.koreMobileSectionBoxSub3{
-	margin: 5px;
-}
-
-koreMobileSectionBoxSub4 {
-	grid-area: grid; 
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr;
-}
-
-.koreMobileSectionBoxWide {
-	display: grid;
-  	margin-left: 20px;
-	background-color: var(--koreBackgroundBlue);
-}
-
-.sectionClickableBox {
-	display: grid;
- 	border: 1px solid var(--koreSectionBorder);
-	background-color: white;
-	border-radius: 5px;
-	padding: 20px;
-	box-shadow: 3px 3px 10px #348;
-	margin: 30px;
-}
-
 .koreMobileNotebookContainer{
 	position: relative;  
 	background: var(--koreTitleBarBlue);
@@ -475,227 +250,25 @@ koreMobileSectionBoxSub4 {
 	overflow: none;
 }
 
-.koreMobileCard {
-	font-family: var(--koreHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	color: var(--koreDarkGreyText); 
-	padding: 10px;
-}
-
-
-.koreNotebookLabel {
-	color: white; 
+.mobileFilledButton {
 	background-color: var(--koreDarkBlue);
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight:normal;
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle; 
-	margin:0px;
-	padding:0px 14px 0px 14px;
-	border: 1px solid lightgrey;
-	white-space: nowrap;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-color: var(--koreDarkBlue);
+	border-radius: 10px;
+	color: white;
+	height: 40px;
+	cursor: pointer;
 }
 
-.koreNotebookLabel a:link, koreNotebookLabel a:active, koreNotebookLabel a:visited {
- 	color: white; 
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	font-weight:normal;
-}
-
-.koreNotebookLabel a:hover {
-	color: var(--koreBrightBlue); 
-}
-
-.koreNotebookSelectedLabel {
-	color:var(--koreDarkBlue);; 
-	background-color: white;
-	font-family: var(--koreSubHeadingFont);
-	font-size: var(--koreSubHeadingFontSize);
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle; 
-	margin:0px;
-	padding: 15px 5px 15px 5px;
-	border-left: 1px solid lightgrey;
-	border-top: 1px solid lightgrey;
-	border-right: 1px solid lightgrey;
-	border-bottom: 0px;
-	-moz-border-radius-topleft: 5px;
-	-moz-border-radius-topright: 5px;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	vertical-align: top; 
-}
-
-.koreNotebookSelectedTab{
-}
-
-.koreNotebookSelectedLabel a {
-	colore: var(--koreDarkBlue);
-	display:block; 
-	height: 48px;
-	background: #F9F9F9; white-space: nowrap;
-}
-
-.koreNotebookWideLabel {
-	padding-top: 3px; 
-	padding-bottom: 3px; 
-	padding-left: 5px; 
-	color: #0085CF; 
-	white-space: nowrap; 
-	font-size: 14px; 
-}
-
-.koreNotebookSelectedWideLabel {
-	border: 1px solid lightgrey; 	
-	border-right: 0px; 
-	padding: 2px; 
-	position: relative; left: 2px; 
-	width: 100%; 
-	background-color: #F9F9F9; 
-	white-space: nowrap; 
-	font-size: 14px; 
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-bottomleft: 4px;
-	-webkit-border-top-left-radius: 4px;
-	-webkit-border-bottom-left-radius: 4px;
-	border-top-left-radius: 4px;
-	border-bottom-left-radius: 4px; 
-}
-
-.koreNotebookSelectedWideLabel a {
-	display:block; 
-}
-
-
-.koreNotebookTab {
-	display: block; 
-	padding-top: 10px; 
-	padding-bottom: 10px; 
-	font-size: 14px; 
-	position: relative; left: 0px;  
-}
-
-.koreNotebookPage {
-	display: table-cell;
-	width: 100%;
-	height: 100%; 
-	vertical-align: top; 
+.mobileFilledButton:disabled {
 	background-color: var(--koreStatusBackgroundGrey);
-	padding:5px;
-	border-top: 0px;
-	border-right: 1px solid lightgrey;
-	border-bottom: 1px solid lightgrey;
-	-moz-border-radius-bottomleft: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-color: var(--koreDarkBlue);
+	color: var(--koreDarkBlue);
+	cursor: auto;
 }
 
-.koreNotebookLayoutTable {
-	display: table;
-	width: 100%; 
-	height: 100%; 
-}
-
-.koreNotebookLayoutRow {
-	display: table-row; 
-	width: 100%; 
-}
-
-.koreNotebookLayoutCell {
-	display: table-cell;
-	vertical-align: middle; 
-	width: 100%; 
-}
-
-.koreNotebookBreadcrumbs {
-	cursor:pointer;
-	color: #0085CF;
-	background-color: #DEF0F7;
-	font-family: var(--koreSubHeadingFont);
-	font-size: 14px;
-	font-weight:normal;
-	padding: 3px; 
-	margin-right: 4px; 
-	margin-bottom: 4px; 
-	border: 1px solid lightgrey;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	box-shadow: 4px 4px 4px lightgray;
-	float: left;
-	padding: 2px; 
-}
-
-.koreNotebookShortcut {
-	color: black; 
-	cursor:pointer;
-	font-family: var(--koreSubHeadingFont);
-	font-size: 14px;
-	float: left;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CBDFFF'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CBDFFF)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #FFFFFF,  #CBDFFF); /* for firefox 3.6+ */ 
-	padding: 3px 6px 3px 6px;
-	margin-right: 5px; 
-	margin-bottom: 4px;
-	border: 1px solid gray;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-}
-
-.koreNotebookShortcut a:link, a:visited, a:active {
-	color: red; 
-}
-
-.koreNotebookShortcut:hover { 
-	color: black; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#408ABB'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#408ABB)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #FFFFFF,  #408ABB); /* for firefox 3.6+ */ 
-}
-
-.koreNotebookShortcut:active {
-	color: black; 
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#408ABB', endColorstr='#FFFFFF'); /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#408ABB), to(#FFFFFF)); /* for webkit browsers */
-	background: -moz-linear-gradient(top,  #408ABB,  #FFFFFF); /* for firefox 3.6+ */ 
-	border: 1px solid black; 
-}
-
-.koreNotebookComponentPage {
-	width: 100%;
-	height: 100%; 
-	vertical-align: top; 
-	background-color: white;
-	padding:5px;
-	border: 1px solid lightgrey;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-}
-
-.koreNotebookWideTabs {
-	padding: 6px; 
-	border: 1px solid lightgrey;
-	margin-right: 2px; 
-	background: #DEF0F7; 
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+.mobileButtonContainer {
+	display: grid; 
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px; margin: 20px;
 }
 

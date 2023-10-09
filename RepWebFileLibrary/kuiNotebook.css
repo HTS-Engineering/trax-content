@@ -3,6 +3,7 @@
 	color:#0085CF; 
 	font-weight: normal;
 	border: 1px solid lightgrey; 	
+	cursor: pointer;
 }
 
 .kuiTabTopSelected {
@@ -45,6 +46,7 @@
 .kuiNotebookLeftTab {
 	display: grid;
 	align-items: center;
+	cursor: pointer;
 	padding: 2px;
 	width: 100%;
 	font-size: 14px;
@@ -58,8 +60,6 @@
 	padding-left: 2px;
 	padding-bottom: 2px;
 	background: #DEF0F7; 
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
 	}
 
 .kuiLefthandNotebook{
@@ -67,12 +67,11 @@
 	grid-template-columns: auto 1fr;
 	border: 1px solid lightgrey;
 	background: #F9F9F9; 
-	border-radius: 5px;
-	float: left; 
 }
 
 .kuiNotebookPagePanel{
 	padding: 4px;
+	background: white;
 	}
 
 .kuiNotebookTopTabs{
@@ -122,11 +121,13 @@
 	display: grid;
 	grid-template-columns: 24px 1fr;
 	align-items: center;
+	cursor: pointer;
 	}
 .kuiAccordionTabButtonAndLabelWithStateIcon{
 	display: grid;
 	grid-template-columns: 24px 1fr auto;
 	align-items: center;
+	cursor: pointer;
 	}
 .kuiAccordionPage{
 	display: grid; 
@@ -135,4 +136,15 @@
 	border-bottom: 1px solid lightgray; 
 	padding: 2px; 
 	background-color: #F9F9F9;  
+	}
+.kuiNotebook {
+	display: grid;
+	border: 1px solid lightgrey;
+	background: white; 
+	border-radius: 5px;
+	padding: 8px;
+	font-size: 14px;
+}
+.kuiNotebookPage{
+	display: grid;
 	}

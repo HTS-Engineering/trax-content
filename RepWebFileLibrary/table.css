@@ -1,0 +1,299 @@
+
+.tableLabelAndInputFieldColumn{
+	display: grid; 
+	grid-template-columns: minmax(50px, 150px) minmax(100px, 220px); 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	}
+
+.tableMediumLabelAndInputFieldColumn{
+	display: grid; 
+	grid-template-columns: minmax(50px, 100px) minmax(100px, 220px); 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	}
+
+.invoiceEntryHeaderColumn{
+	display: grid; 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	align-self: center;
+	}
+
+.invoiceEntryHeaderFirstColumn{
+	display: grid; 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	align-self: center;
+	grid-template-columns: minmax(50px, 90px) minmax(50px, 450px) 40px; 
+	}
+	
+.invoiceEntryHeaderSecondColumn{
+	display: grid; 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	align-self: center;
+	grid-template-columns: 120px 1fr 40px; 
+	}
+
+.tableInputFieldColumn{
+	display: grid; 
+	grid-template-columns: minmax(100px, 220px); 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	}
+
+.tableNarrowInputFieldColumn{
+	display: grid; 
+	grid-template-columns: minmax(20px, 40px); 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	}
+
+.tableNarrowMediumInputFieldColumn{
+	grid-template-columns: minmax(20px, 60px); 
+	}
+.tableMediumInputFieldColumn{
+	grid-template-columns: minmax(20px, 80px); 
+	}
+.tableNormalInputFieldColumn{
+	grid-template-columns: minmax(20px, 100px); 
+	}
+
+.tableLabelColumn{
+	display: grid; 
+	grid-template-columns: minmax(50px, 100px); 
+	grid-template-rows: 24px; 
+	gap: 1px; 
+	}
+.tableWith1Columns{
+	display: grid; 
+	grid-template-columns: repeat(1, minmax(25px, 320px)); 
+	grid-column-gap: 10px;
+	}
+.tableWith2Columns{
+	display: grid; 
+	grid-template-columns: repeat(2, minmax(25px, 370px)); 
+	grid-column-gap: 10px;
+	}
+.tableWith3Columns{
+	display: grid; 
+	grid-template-columns: repeat(3, minmax(25px, auto)); 
+	grid-column-gap: 10px;
+	}
+.tableWith4Columns{
+	display: grid; 
+	grid-template-columns: repeat(4, minmax(25px, 320px)); 
+	grid-column-gap: 10px;
+	}
+.tableWith5Columns{
+	display: grid; 
+	grid-template-columns: repeat(5, minmax(25px, auto)); 
+	grid-column-gap: 10px;
+	}
+.invoiceEntryOtherColumn{
+	display: grid; 
+	grid-template-columns: 400px; 
+	grid-template-rows: 24px 110px 24px
+	}
+.contentGroupTitle{
+	display: flex;
+	border-bottom: 2px solid lightgray;
+	font-weight: bold;
+	align-self: center;
+	}
+.contentGroupTitle2Columns{
+	grid-column-start: span 2;
+	}
+.contentGroupTitle3Columns{
+	grid-column-start: span 3;
+	}
+.contentGroupTitle4Columns{
+	grid-column-start: span 4;
+	}
+.contentGroupTitle5Columns{
+	grid-column-start: span 5;
+	}
+.contentGroupTitle6Columns{
+	grid-column-start: span 6;
+	}
+.contentGroupTitle7Columns{
+	grid-column-start: span 7;
+	}
+.contentGroupTitle8Columns{
+	grid-column-start: span 8;
+	}
+.contentGroupTitle9Columns{
+	grid-column-start: span 9;
+	}
+.contentGroupTitle10Columns{
+	grid-column-start: span 10;
+	}
+.mainTable{
+	display: grid; 
+	grid-template-rows: auto; 
+	grid-row-gap: 10px;
+	}
+.tableLabel{
+	display: flex;
+	align-content: center;
+	flex-wrap: wrap;
+	height: 24px;
+	}
+
+.invoiceEntryContentGroups{
+	display: grid;
+	grid-template-columns: 550px 700px;
+	grid-template-rows: auto;
+	grid-gap: 10px;
+	align-items: baseline;
+	}
+.creditNoteContentGroups{
+	display: grid;
+	grid-template-columns: 425px 700px;
+	grid-template-rows: auto;
+	grid-gap: 50px;
+	align-items: baseline;
+	}
+.invoiceEntryDocumentGroup{
+	display: grid;
+	grid-template-columns: 1280px;
+	margin-top: 10px;
+	}
+.creditNoteDocumentGroup{
+	display: grid;
+	grid-template-columns: 1180px;
+	margin-top: 10px;
+	}
+.invoiceEntryAmountsContentGroup{
+	display: grid; 
+	grid-template-columns: 120px 100px 110px 70px 110px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	}
+.creditNoteAmountsContentGroup{
+	display: grid; 
+	grid-template-columns: 120px 110px 70px 110px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	}
+.invoiceEntryDetailsContentGroup{
+	display: grid;
+	grid-template-columns: 400px 140px;
+	grid-template-rows: 24px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	}
+.purchaseOrderDetailsContentGroup{
+	display: grid;
+	grid-template-columns: 175px 110px;
+	grid-template-rows: 24px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	}
+.invoiceEntryApprovalContentGroup{
+	display: grid;
+	grid-template-columns: 550px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	grid-template-rows: 24px 24px auto;
+	}
+.creditNoteApprovalContentGroup{
+	display: grid;
+	grid-template-columns: 425px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	grid-template-rows: 24px 24px auto;
+	}
+.taxesContentTable{
+	display: grid;
+	grid-template-columns: 700px;
+	align-items: baseline;
+	margin-bottom: 10px;
+	}
+.taxesContentGroupTitle{
+	display: flex;
+	border-bottom: 2px solid lightgray;
+	font-weight: bold;
+	align-self: center;
+	margin-bottom: 5px;
+	}
+.invoicesReducedContentGroup{
+	display: grid;
+	grid-template-columns: 200px 250px 250px;
+	grid-column-gap: 5px;
+	align-items: baseline;
+	grid-template-rows: 24px 24px 24px auto;
+	}
+.invoiceEntryDueDateTable{
+	display: grid; 
+	grid-template-columns: 100px 40px  40px 100px;
+	grid-column-gap: 5px;
+	padding-top: 3px;
+	}
+.invoiceEntryHeaderTable{
+	display: grid; 
+	grid-template-columns: 550px 370px;
+	grid-column-gap: 100px;
+	}
+.invoiceEntryDueTable{
+	display: grid;
+	grid-template-columns: 120px 1fr 80px;
+	grid-template-rows: 24px;
+	align-items: baseline;
+	}
+.standardRowHeight{
+	height: 24px;
+	}
+.twoColumnHeaderTable{
+	display: grid; 
+	grid-template-columns: 350px 350px;
+	grid-column-gap: 5px;
+	}
+.apCreditNoteEntryHeaderTable{
+	display: grid; 	
+	grid-template-columns: 600px 370px;
+	grid-column-gap: 5px;
+	}
+.labelInputSuffixRow{
+	display: grid;
+	grid-template-columns: 120px 1fr 40px;
+	grid-template-rows: 24px;
+	}
+.veryNarrowLabelInputSuffixRow{
+	display: grid;
+	grid-template-columns: 20px 1fr 40px;
+	grid-template-rows: 24px;
+	}
+.invoiceEntryDateDueRow{
+	display: grid;
+	grid-template-columns: 80px 1fr 100px;
+	grid-template-rows: 24px;
+	align-items: start;
+	grid-gap: 5px;
+	}
+.labelInputRow{
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	grid-template-rows: 24px;
+	}
+.mediumLabelInputRow{
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	grid-template-rows: 24px;
+	}
+.narrowLabelInputRow{
+	display: grid;
+	grid-template-columns: 60px 1fr;
+	grid-template-rows: 24px;
+	}
+.veryNarrowLabelInputRow{
+	display: grid;
+	grid-template-columns: 40px 1fr;
+	grid-template-rows: 24px;
+	}
+.extremelyNarrowLabelInputRow{
+	display: grid;
+	grid-template-columns: 20px 1fr;
+	grid-template-rows: 24px;
+	}
