@@ -1,6 +1,7 @@
 .icon-list {
     display: flex;
     flex-wrap: wrap;
+    background-color: #F9F9F9;
   }
  
   .icon-item {
