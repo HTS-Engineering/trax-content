@@ -1,22 +1,32 @@
 /**
- * Ultra-Simple CSS Scoping MFE Loader - Self-Contained
+ * CSS Scoping Loader for Tailwind MFE - Hardcoded Configuration
  * 
- * This loader automatically detects its own location and loads assets
- * from the same base path, making it cross-origin compatible.
- * 
- * Features:
- * 1. Auto-detects its own script location
- * 2. Loads CSS via link tag with proper base path
- * 3. Loads bootstrap module with proper base path
- * 4. Mounts MFE with CSS scoping class
+ * This loader has all URLs hardcoded to eliminate configuration complexity
+ * and ensure reliable loading in any environment.
  */
 
 (function() {
   'use strict';
   
-  console.log('🚀 Ultra-Simple CSS Scoping Loader starting...');
+  console.log('🚀 CSS Scoping Loader starting...');
   
   const CONTAINER_ID = 'tailwind-mfe-container';
+  
+  // Hardcoded configuration - NO CONFIGURATION NEEDED!
+  const HARDCODED_CONFIG = {
+    baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary',
+    css: 'style-DQMKYuWw.css',
+    bootstrap: '__federation_expose_Mount-lj_xqXyM.js',
+    mfeFolder: 'tailwind-mfe'
+  };
+  
+  /**
+   * Get hardcoded base path - no detection needed
+   */
+  function getBasePath() {
+    console.log('✅ Using hardcoded base path:', HARDCODED_CONFIG.baseUrl);
+    return HARDCODED_CONFIG.baseUrl;
+  }
   
   /**
    * Get the current script element
@@ -30,25 +40,6 @@
     // Fallback for older browsers
     const scripts = document.getElementsByTagName('script');
     return scripts[scripts.length - 1];
-  }
-  
-  /**
-   * Get the base path where this script is located
-   */
-  function getBasePath() {
-    const currentScript = getCurrentScript();
-    
-    if (currentScript && currentScript.src) {
-      const scriptSrc = currentScript.src;
-      const lastSlash = scriptSrc.lastIndexOf('/');
-      const basePath = lastSlash !== -1 ? scriptSrc.substring(0, lastSlash) : '';
-      console.log('📍 Derived base path from script source:', basePath);
-      console.log('📍 Script source URL:', scriptSrc);
-      return basePath;
-    }
-    
-    console.error('❌ Could not determine script source URL');
-    return '';
   }
   
   async function loadMFE() {
@@ -71,16 +62,11 @@
       
       console.log('✅ Container found');
       
-      // Step 3: Load manifest to get dynamic file paths
-      console.log('📋 Loading manifest...');
-      const manifestUrl = `${basePath}/mfe-manifest.json`;
-      console.log('📋 Manifest URL:', manifestUrl);
-      const manifestResponse = await fetch(manifestUrl);
-      const manifest = await manifestResponse.json();
-      console.log('✅ Manifest loaded:', manifest);
+      // Step 3: Use hardcoded asset names (no manifest needed)
+      console.log('📋 Using hardcoded asset configuration');
       
       // Step 4: Load CSS
-      const cssUrl = `${basePath}/assets/${manifest.css}`;
+      const cssUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.css}`;
       console.log('🎨 CSS URL:', cssUrl);
       const cssLink = document.createElement('link');
       cssLink.rel = 'stylesheet';
@@ -91,7 +77,7 @@
       
       // Step 5: Load bootstrap module
       console.log('📥 Loading bootstrap module...');
-      const bootstrapUrl = `${basePath}/assets/${manifest.bootstrap}`;
+      const bootstrapUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.bootstrap}`;
       console.log('📥 Bootstrap URL:', bootstrapUrl);
       
       const bootstrap = await import(bootstrapUrl);

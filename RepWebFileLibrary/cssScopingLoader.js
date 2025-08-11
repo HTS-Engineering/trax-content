@@ -1,247 +1,120 @@
 /**
- * Self-Contained Tailwind MFE Loader - No External Dependencies
+ * CSS Scoping Loader for Tailwind MFE - Hardcoded Configuration
  * 
- * This loader embeds all necessary configuration and bypasses CORS issues
- * by using a hardcoded approach that doesn't require external asset loading.
- * 
- * Usage:
- * <div id="tailwind-mfe-container"></div>
- * <script>
- *   window.MFE_CONFIG = {
- *     baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary'
- *   };
- * </script>
- * <script src="http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary/selfContainedLoader.js"></script>
+ * This loader has all URLs hardcoded to eliminate configuration complexity
+ * and ensure reliable loading in any environment.
  */
 
 (function() {
   'use strict';
   
-  console.log('🚀 Self-Contained MFE Loader starting...');
+  console.log('🚀 CSS Scoping Loader starting...');
   
   const CONTAINER_ID = 'tailwind-mfe-container';
   
-  // Hardcoded configuration to bypass CORS issues
+  // Hardcoded configuration - NO CONFIGURATION NEEDED!
   const HARDCODED_CONFIG = {
+    baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary',
     css: 'style-DQMKYuWw.css',
     bootstrap: '__federation_expose_Mount-lj_xqXyM.js',
     mfeFolder: 'tailwind-mfe'
   };
   
   /**
-   * Get base URL from multiple sources
+   * Get hardcoded base path - no detection needed
    */
-  function getBaseUrl() {
-    // Method 1: Global configuration
-    if (window.MFE_CONFIG && window.MFE_CONFIG.baseUrl) {
-      console.log('✅ Using global MFE_CONFIG.baseUrl:', window.MFE_CONFIG.baseUrl);
-      return window.MFE_CONFIG.baseUrl;
+  function getBasePath() {
+    console.log('✅ Using hardcoded base path:', HARDCODED_CONFIG.baseUrl);
+    return HARDCODED_CONFIG.baseUrl;
+  }
+  
+  /**
+   * Get the current script element
+   */
+  function getCurrentScript() {
+    // Modern browsers
+    if (document.currentScript) {
+      return document.currentScript;
     }
     
-    // Method 2: Try to detect from script
-    try {
-      const scripts = document.getElementsByTagName('script');
-      for (let i = 0; i < scripts.length; i++) {
-        const script = scripts[i];
-        if (script.src && script.src.includes('selfContainedLoader.js')) {
-          const scriptSrc = script.src;
-          const lastSlash = scriptSrc.lastIndexOf('/');
-          const baseUrl = lastSlash !== -1 ? scriptSrc.substring(0, lastSlash) : '';
-          console.log('✅ Detected base URL from script:', baseUrl);
-          return baseUrl;
-        }
-      }
-    } catch (error) {
-      console.warn('⚠️ Script detection failed:', error);
-    }
-    
-    // Method 3: Fallback - ask user to configure
-    console.error('❌ Could not determine base URL');
-    console.error('💡 Please add this before the script tag:');
-    console.error(`<script>
-  window.MFE_CONFIG = {
-    baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary'
-  };
-</script>`);
-    
-    return '';
+    // Fallback for older browsers
+    const scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
   }
   
-  /**
-   * Create asset URLs
-   */
-  function createAssetUrls(baseUrl) {
-    return {
-      css: `${baseUrl}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.css}`,
-      bootstrap: `${baseUrl}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.bootstrap}`
-    };
-  }
-  
-  /**
-   * Load CSS with error handling
-   */
-  function loadCSS(url) {
-    return new Promise((resolve) => {
-      console.log('🎨 Loading CSS:', url);
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = url;
-      link.onload = () => {
-        console.log('✅ CSS loaded successfully');
-        resolve(true);
-      };
-      link.onerror = () => {
-        console.warn('⚠️ CSS failed to load, continuing anyway');
-        resolve(false);
-      };
-      document.head.appendChild(link);
-    });
-  }
-  
-  /**
-   * Load bootstrap module with error handling
-   */
-  async function loadBootstrap(url) {
-    try {
-      console.log('📥 Loading bootstrap module:', url);
-      const module = await import(url);
-      console.log('✅ Bootstrap module loaded successfully');
-      return module;
-    } catch (error) {
-      console.error('❌ Bootstrap module failed to load:', error);
-      throw error;
-    }
-  }
-  
-  /**
-   * Show error message in container
-   */
-  function showError(container, message, details = '') {
-    container.innerHTML = `
-      <div style="
-        padding: 20px; 
-        border: 2px solid #ef4444; 
-        border-radius: 8px; 
-        background: #fef2f2; 
-        color: #dc2626;
-        font-family: Arial, sans-serif;
-        max-width: 600px;
-        margin: 20px auto;
-      ">
-        <h3 style="margin: 0 0 10px 0; color: #dc2626;">⚠️ Microfrontend Loading Failed</h3>
-        <p style="margin: 0 0 10px 0; font-size: 14px;">${message}</p>
-        ${details ? `<details style="margin-top: 10px;">
-          <summary style="cursor: pointer; font-weight: bold;">Technical Details</summary>
-          <pre style="margin: 10px 0; padding: 10px; background: #fee2e2; border-radius: 4px; font-size: 12px; overflow-x: auto;">${details}</pre>
-        </details>` : ''}
-        <p style="margin: 10px 0 0 0; font-size: 12px; color: #991b1b;">
-          Check browser console for detailed error information.
-        </p>
-      </div>
-    `;
-  }
-  
-  /**
-   * Show loading message
-   */
-  function showLoading(container) {
-    container.innerHTML = `
-      <div style="
-        padding: 20px; 
-        text-align: center; 
-        color: #6b7280;
-        font-family: Arial, sans-serif;
-      ">
-        <div style="
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          border: 2px solid #e5e7eb;
-          border-top: 2px solid #3b82f6;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-          margin-right: 10px;
-        "></div>
-        Loading Microfrontend...
-        <style>
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        </style>
-      </div>
-    `;
-  }
-  
-  /**
-   * Main loader function
-   */
   async function loadMFE() {
-    const container = document.getElementById(CONTAINER_ID);
-    if (!container) {
-      console.error(`❌ Container #${CONTAINER_ID} not found`);
-      return;
-    }
-    
     try {
-      console.log('📦 Starting MFE loading...');
-      showLoading(container);
+      console.log('📦 Loading MFE...');
       
-      // Get base URL
-      const baseUrl = getBaseUrl();
-      if (!baseUrl) {
-        throw new Error('Base URL not configured. Please set window.MFE_CONFIG.baseUrl');
+      // Step 1: Get the base path from our own script location
+      const basePath = getBasePath();
+      if (!basePath) {
+        console.error('❌ Could not determine base path for loading assets');
+        return;
       }
       
-      // Create asset URLs
-      const urls = createAssetUrls(baseUrl);
-      console.log('🔗 Asset URLs:', urls);
-      
-      // Load CSS (non-blocking)
-      await loadCSS(urls.css);
-      
-      // Load bootstrap module
-      const bootstrap = await loadBootstrap(urls.bootstrap);
-      
-      // Add scoping class
-      container.classList.add('tailwind-mfe-scope');
-      console.log('✅ Added CSS scoping class');
-      
-      // Clear loading message
-      container.innerHTML = '';
-      
-      // Mount MFE
-      if (bootstrap.mount) {
-        console.log('🎯 Mounting MFE...');
-        await bootstrap.mount(container);
-        console.log('✅ MFE mounted successfully!');
-      } else {
-        throw new Error('Bootstrap module does not export mount function');
+      // Step 2: Find container
+      const container = document.getElementById(CONTAINER_ID);
+      if (!container) {
+        console.error(`❌ Container #${CONTAINER_ID} not found`);
+        return;
       }
+      
+      console.log('✅ Container found');
+      
+      // Step 3: Use hardcoded asset names (no manifest needed)
+      console.log('📋 Using hardcoded asset configuration');
+      
+      // Step 4: Load CSS
+      const cssUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.css}`;
+      console.log('🎨 CSS URL:', cssUrl);
+      const cssLink = document.createElement('link');
+      cssLink.rel = 'stylesheet';
+      cssLink.href = cssUrl;
+      cssLink.onload = () => console.log('✅ CSS loaded');
+      cssLink.onerror = () => console.warn('⚠️ CSS loading failed');
+      document.head.appendChild(cssLink);
+      
+      // Step 5: Load bootstrap module
+      console.log('📥 Loading bootstrap module...');
+      const bootstrapUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.bootstrap}`;
+      console.log('📥 Bootstrap URL:', bootstrapUrl);
+      
+      const bootstrap = await import(bootstrapUrl);
+      console.log('✅ Bootstrap module loaded');
+      
+      if (!bootstrap.mount) {
+        throw new Error('Mount function not found');
+      }
+      
+      // Step 4: Mount MFE
+      console.log('🎯 Mounting MFE...');
+      const result = await bootstrap.mount(container);
+      
+      console.log('🎉 MFE mounted successfully with CSS scoping!');
+      
+      // Dispatch success event
+      window.dispatchEvent(new CustomEvent('mfe:loaded', {
+        detail: { container: CONTAINER_ID }
+      }));
+      
+      return result;
       
     } catch (error) {
-      console.error('❌ MFE Loading failed:', error);
-      showError(
-        container, 
-        error.message,
-        `Error: ${error.name}\nMessage: ${error.message}\nStack: ${error.stack}`
-      );
+      console.error('❌ MFE loading failed:', error);
+      
+      // Dispatch error event
+      window.dispatchEvent(new CustomEvent('mfe:error', {
+        detail: error.message
+      }));
     }
   }
   
-  /**
-   * Initialize when DOM is ready
-   */
-  function initialize() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadMFE);
-    } else {
-      // Small delay to ensure script has finished loading
-      setTimeout(loadMFE, 100);
-    }
+  // Auto-start when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadMFE);
+  } else {
+    loadMFE();
   }
-  
-  // Start the process
-  initialize();
   
 })();
