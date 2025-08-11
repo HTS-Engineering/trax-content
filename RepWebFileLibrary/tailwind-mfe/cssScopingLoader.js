@@ -1,10 +1,14 @@
 /**
- * Ultra-Simple CSS Scoping MFE Loader
+ * Ultra-Simple CSS Scoping MFE Loader - Self-Contained
  * 
- * This is the simplest possible loader that just:
- * 1. Loads CSS via link tag
- * 2. Loads bootstrap module
- * 3. Mounts MFE with CSS scoping class
+ * This loader automatically detects its own location and loads assets
+ * from the same base path, making it cross-origin compatible.
+ * 
+ * Features:
+ * 1. Auto-detects its own script location
+ * 2. Loads CSS via link tag with proper base path
+ * 3. Loads bootstrap module with proper base path
+ * 4. Mounts MFE with CSS scoping class
  */
 
 (function() {
@@ -12,14 +16,53 @@
   
   console.log('🚀 Ultra-Simple CSS Scoping Loader starting...');
   
-  const BASE_PATH = '/tailwind-mfe';
   const CONTAINER_ID = 'tailwind-mfe-container';
+  
+  /**
+   * Get the current script element
+   */
+  function getCurrentScript() {
+    // Modern browsers
+    if (document.currentScript) {
+      return document.currentScript;
+    }
+    
+    // Fallback for older browsers
+    const scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+  }
+  
+  /**
+   * Get the base path where this script is located
+   */
+  function getBasePath() {
+    const currentScript = getCurrentScript();
+    
+    if (currentScript && currentScript.src) {
+      const scriptSrc = currentScript.src;
+      const lastSlash = scriptSrc.lastIndexOf('/');
+      const basePath = lastSlash !== -1 ? scriptSrc.substring(0, lastSlash) : '';
+      console.log('📍 Derived base path from script source:', basePath);
+      console.log('📍 Script source URL:', scriptSrc);
+      return basePath;
+    }
+    
+    console.error('❌ Could not determine script source URL');
+    return '';
+  }
   
   async function loadMFE() {
     try {
       console.log('📦 Loading MFE...');
       
-      // Step 1: Find container
+      // Step 1: Get the base path from our own script location
+      const basePath = getBasePath();
+      if (!basePath) {
+        console.error('❌ Could not determine base path for loading assets');
+        return;
+      }
+      
+      // Step 2: Find container
       const container = document.getElementById(CONTAINER_ID);
       if (!container) {
         console.error(`❌ Container #${CONTAINER_ID} not found`);
@@ -28,23 +71,28 @@
       
       console.log('✅ Container found');
       
-      // Step 2: Load manifest to get dynamic file paths
+      // Step 3: Load manifest to get dynamic file paths
       console.log('📋 Loading manifest...');
-      const manifestResponse = await fetch(`${BASE_PATH}/mfe-manifest.json`);
+      const manifestUrl = `${basePath}/mfe-manifest.json`;
+      console.log('📋 Manifest URL:', manifestUrl);
+      const manifestResponse = await fetch(manifestUrl);
       const manifest = await manifestResponse.json();
       console.log('✅ Manifest loaded:', manifest);
       
-      // Step 3: Load CSS
+      // Step 4: Load CSS
+      const cssUrl = `${basePath}/assets/${manifest.css}`;
+      console.log('🎨 CSS URL:', cssUrl);
       const cssLink = document.createElement('link');
       cssLink.rel = 'stylesheet';
-      cssLink.href = `${BASE_PATH}/assets/${manifest.css}`;
+      cssLink.href = cssUrl;
       cssLink.onload = () => console.log('✅ CSS loaded');
       cssLink.onerror = () => console.warn('⚠️ CSS loading failed');
       document.head.appendChild(cssLink);
       
-      // Step 4: Load bootstrap module
+      // Step 5: Load bootstrap module
       console.log('📥 Loading bootstrap module...');
-      const bootstrapUrl = `${BASE_PATH}/assets/${manifest.bootstrap}`;
+      const bootstrapUrl = `${basePath}/assets/${manifest.bootstrap}`;
+      console.log('📥 Bootstrap URL:', bootstrapUrl);
       
       const bootstrap = await import(bootstrapUrl);
       console.log('✅ Bootstrap module loaded');
