@@ -8,7 +8,6 @@
  */
 
 (function() {
-  'use strict';
   
   console.log('🚀 Ultra-Simple CSS Scoping Loader starting...');
   
@@ -30,21 +29,21 @@
       
       // Step 2: Load manifest to get dynamic file paths
       console.log('📋 Loading manifest...');
-      const manifestResponse = await fetch(`${BASE_PATH}/mfe-manifest.json`);
+      const manifestResponse = await fetch(`${BASE_PATH}/mfeTailwind/mfe-manifest.json`);
       const manifest = await manifestResponse.json();
       console.log('✅ Manifest loaded:', manifest);
       
       // Step 3: Load CSS
       const cssLink = document.createElement('link');
       cssLink.rel = 'stylesheet';
-      cssLink.href = `${BASE_PATH}/assets/${manifest.css}`;
+      cssLink.href = `${BASE_PATH}/mfeTailwind/assets/${manifest.css}`;
       cssLink.onload = () => console.log('✅ CSS loaded');
       cssLink.onerror = () => console.warn('⚠️ CSS loading failed');
       document.head.appendChild(cssLink);
       
       // Step 4: Load bootstrap module
       console.log('📥 Loading bootstrap module...');
-      const bootstrapUrl = `${BASE_PATH}/assets/${manifest.bootstrap}`;
+      const bootstrapUrl = `${BASE_PATH}/mfeTailwind/assets/${manifest.bootstrap}`;
       
       const bootstrap = await import(bootstrapUrl);
       console.log('✅ Bootstrap module loaded');

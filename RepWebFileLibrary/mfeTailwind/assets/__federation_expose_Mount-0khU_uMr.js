@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from './jsx-runtime-XI9uIe3W.js';
 import { r as requireReact } from './index-CIQ6_Rzc.js';
 import { r as requireReactDom } from './index-DPp_4SNT.js';
-import App from './__federation_expose_App-DwG_12xm.js';
+import App from './__federation_expose_App-B5QF-kAC.js';
 
 var client = {exports: {}};
 

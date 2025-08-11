@@ -3,25 +3,25 @@ const currentImports = {};
       let moduleMap = {
 "./mount":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './mount');
-      return __federation_import('./__federation_expose_Mount-DkbMNdr3.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_Mount-0khU_uMr.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
 "./App":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './App');
-      return __federation_import('./__federation_expose_App-DwG_12xm.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_App-B5QF-kAC.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
 "./Navigation":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './Navigation');
-      return __federation_import('./__federation_expose_Navigation-C1b5tCXL.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_Navigation-C1b5tCXL.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
 "./HomePage":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './HomePage');
-      return __federation_import('./__federation_expose_HomePage-ClZNp4IW.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_HomePage-CgUha-n_.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
 "./InputPage":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './InputPage');
-      return __federation_import('./__federation_expose_InputPage-FEFI7kDA.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_InputPage-FEFI7kDA.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
 "./ButtonPage":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './ButtonPage');
-      return __federation_import('./__federation_expose_ButtonPage-CrzyuLJM.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_ButtonPage-CrzyuLJM.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},
 "./DatepickerPage":()=>{
       dynamicLoadingCss(["style-DQMKYuWw.css"], false, './DatepickerPage');
-      return __federation_import('./__federation_expose_DatepickerPage-BKl_JwCP.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},};
+      return __federation_import('./../mfeTailwind/assets/__federation_expose_DatepickerPage-BKl_JwCP.js').then(module =>Object.keys(module).every(item => exportSet.has(item)) ? () => module.default : () => module)},};
       const seen = {};
       const dynamicLoadingCss = (cssFilePaths, dontAppendStylesToHead, exposeItemName) => {
         const metaUrl = import.meta.url;
