@@ -65,6 +65,7 @@
   .tailwind-mfe-scope, .tailwind-mfe-scope :host {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --color-red-50: oklch(97.1% .013 17.38);
     --color-red-300: oklch(80.8% .114 19.571);
     --color-red-400: oklch(70.4% .191 22.216);
     --color-red-500: oklch(63.7% .237 25.331);
@@ -414,12 +415,12 @@
     position: absolute;
   }
 
-  .tailwind-mfe-scope .fixed {
-    position: fixed;
-  }
-
   .tailwind-mfe-scope .relative {
     position: relative;
+  }
+
+  .tailwind-mfe-scope .static {
+    position: static;
   }
 
   .tailwind-mfe-scope .inset-y-0 {
@@ -512,6 +513,10 @@
     display: grid;
   }
 
+  .tailwind-mfe-scope .hidden {
+    display: none;
+  }
+
   .tailwind-mfe-scope .inline-flex {
     display: inline-flex;
   }
@@ -543,6 +548,14 @@
 
   .tailwind-mfe-scope .h-16 {
     height: calc(var(--spacing) * 16);
+  }
+
+  .tailwind-mfe-scope .h-96 {
+    height: calc(var(--spacing) * 96);
+  }
+
+  .tailwind-mfe-scope .min-h-96 {
+    min-height: calc(var(--spacing) * 96);
   }
 
   .tailwind-mfe-scope .min-h-screen {
@@ -675,6 +688,10 @@
     margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .tailwind-mfe-scope .rounded {
+    border-radius: .25rem;
+  }
+
   .tailwind-mfe-scope .rounded-full {
     border-radius: 3.40282e38px;
   }
@@ -763,6 +780,10 @@
     background-color: var(--color-blue-50);
   }
 
+  .tailwind-mfe-scope .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+
   .tailwind-mfe-scope .bg-blue-600 {
     background-color: var(--color-blue-600);
   }
@@ -801,6 +822,10 @@
 
   .tailwind-mfe-scope .bg-purple-600 {
     background-color: var(--color-purple-600);
+  }
+
+  .tailwind-mfe-scope .bg-red-50 {
+    background-color: var(--color-red-50);
   }
 
   .tailwind-mfe-scope .bg-red-600 {
@@ -986,6 +1011,10 @@
     color: var(--primary-foreground);
   }
 
+  .tailwind-mfe-scope .text-red-700 {
+    color: var(--color-red-700);
+  }
+
   .tailwind-mfe-scope .text-secondary-foreground {
     color: var(--secondary-foreground);
   }
@@ -1058,6 +1087,10 @@
   .tailwind-mfe-scope .outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+
+  .tailwind-mfe-scope .running {
+    animation-play-state: running;
   }
 
   @media (hover: hover) {
