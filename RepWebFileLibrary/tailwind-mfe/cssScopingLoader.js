@@ -15,8 +15,8 @@
   // Hardcoded configuration - NO CONFIGURATION NEEDED!
   const HARDCODED_CONFIG = {
     baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary',
-    css: 'style-DQMKYuWw.css',
-    bootstrap: '__federation_expose_Mount-lj_xqXyM.js',
+    css: 'style-i_jNjutn.css',
+    bootstrap: '__federation_expose_Mount-BlhroOrS.js',
     mfeFolder: 'tailwind-mfe'
   };
   
