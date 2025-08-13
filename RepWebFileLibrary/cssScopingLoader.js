@@ -1,18 +1,18 @@
 /**
- * CORS Workaround MFE Loader - Uses Script Tags Instead of ES Modules
+ * CSS Scoping Loader for Tailwind MFE - Hardcoded Configuration
  * 
- * This loader bypasses CORS issues by using traditional script tags
- * instead of ES module imports, which don't require CORS headers.
+ * This loader has all URLs hardcoded to eliminate configuration complexity
+ * and ensure reliable loading in any environment.
  */
 
 (function() {
   'use strict';
   
-  console.log('🚀 CORS Workaround MFE Loader starting...');
+  console.log('🚀 CSS Scoping Loader starting...');
   
   const CONTAINER_ID = 'tailwind-mfe-container';
   
-  // Hardcoded configuration
+  // Hardcoded configuration - NO CONFIGURATION NEEDED!
   const HARDCODED_CONFIG = {
     baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary',
     css: 'style-DQMKYuWw.css',
@@ -21,236 +21,100 @@
   };
   
   /**
-   * Load CSS with promise
+   * Get hardcoded base path - no detection needed
    */
-  function loadCSS(url) {
-    return new Promise((resolve, reject) => {
-      console.log('🎨 Loading CSS:', url);
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = url;
-      link.onload = () => {
-        console.log('✅ CSS loaded successfully');
-        resolve();
-      };
-      link.onerror = () => {
-        console.error('❌ CSS failed to load');
-        reject(new Error('CSS loading failed'));
-      };
-      document.head.appendChild(link);
-    });
+  function getBasePath() {
+    console.log('✅ Using hardcoded base path:', HARDCODED_CONFIG.baseUrl);
+    return HARDCODED_CONFIG.baseUrl;
   }
   
   /**
-   * Load JavaScript with script tag (bypasses CORS for modules)
+   * Get the current script element
    */
-  function loadScript(url) {
-    return new Promise((resolve, reject) => {
-      console.log('📥 Loading script:', url);
-      const script = document.createElement('script');
-      script.src = url;
-      script.type = 'module'; // Still use module type but via script tag
-      script.onload = () => {
-        console.log('✅ Script loaded successfully');
-        resolve();
-      };
-      script.onerror = () => {
-        console.error('❌ Script failed to load');
-        reject(new Error('Script loading failed'));
-      };
-      document.head.appendChild(script);
-    });
-  }
-  
-  /**
-   * Wait for global mount function to be available
-   */
-  function waitForMount(timeout = 10000) {
-    return new Promise((resolve, reject) => {
-      const startTime = Date.now();
-      
-      function checkMount() {
-        // Check if the mount function is available globally
-        if (window.__MFE_MOUNT__) {
-          console.log('✅ Mount function found');
-          resolve(window.__MFE_MOUNT__);
-          return;
-        }
-        
-        // Check for federation runtime
-        if (window.__webpack_require__ && window.__webpack_require__.cache) {
-          console.log('✅ Webpack runtime detected, trying to find mount...');
-          // Try to find the mount function in the webpack cache
-          const cache = window.__webpack_require__.cache;
-          for (const key in cache) {
-            const module = cache[key];
-            if (module && module.exports && module.exports.mount) {
-              console.log('✅ Mount function found in webpack cache');
-              resolve(module.exports.mount);
-              return;
-            }
-          }
-        }
-        
-        if (Date.now() - startTime > timeout) {
-          reject(new Error('Mount function not found within timeout'));
-          return;
-        }
-        
-        setTimeout(checkMount, 100);
-      }
-      
-      checkMount();
-    });
-  }
-  
-  /**
-   * Show error message in container
-   */
-  function showError(container, message, details = '') {
-    container.innerHTML = `
-      <div style="
-        padding: 20px; 
-        border: 2px solid #ef4444; 
-        border-radius: 8px; 
-        background: #fef2f2; 
-        color: #dc2626;
-        font-family: Arial, sans-serif;
-        max-width: 600px;
-        margin: 20px auto;
-      ">
-        <h3 style="margin: 0 0 10px 0; color: #dc2626;">⚠️ Microfrontend Loading Failed</h3>
-        <p style="margin: 0 0 10px 0; font-size: 14px;">${message}</p>
-        ${details ? `<details style="margin-top: 10px;">
-          <summary style="cursor: pointer; font-weight: bold;">Technical Details</summary>
-          <pre style="margin: 10px 0; padding: 10px; background: #fee2e2; border-radius: 4px; font-size: 12px; overflow-x: auto;">${details}</pre>
-        </details>` : ''}
-        <div style="margin: 15px 0; padding: 10px; background: #fef3c7; border: 1px solid #f59e0b; border-radius: 4px;">
-          <h4 style="margin: 0 0 5px 0; color: #92400e;">💡 Server Configuration Needed</h4>
-          <p style="margin: 0; font-size: 12px; color: #92400e;">
-            The static file server needs CORS headers for JavaScript files. 
-            Add <code>Access-Control-Allow-Origin: *</code> header for .js files.
-          </p>
-        </div>
-      </div>
-    `;
-  }
-  
-  /**
-   * Show loading message
-   */
-  function showLoading(container) {
-    container.innerHTML = `
-      <div style="
-        padding: 20px; 
-        text-align: center; 
-        color: #6b7280;
-        font-family: Arial, sans-serif;
-      ">
-        <div style="
-          display: inline-block;
-          width: 20px;
-          height: 20px;
-          border: 2px solid #e5e7eb;
-          border-top: 2px solid #3b82f6;
-          border-radius: 50%;
-          animation: spin 1s linear infinite;
-          margin-right: 10px;
-        "></div>
-        Loading Microfrontend...
-        <style>
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        </style>
-      </div>
-    `;
-  }
-  
-  /**
-   * Main loader function
-   */
-  async function loadMFE() {
-    const container = document.getElementById(CONTAINER_ID);
-    if (!container) {
-      console.error(`❌ Container #${CONTAINER_ID} not found`);
-      return;
+  function getCurrentScript() {
+    // Modern browsers
+    if (document.currentScript) {
+      return document.currentScript;
     }
     
+    // Fallback for older browsers
+    const scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+  }
+  
+  async function loadMFE() {
     try {
-      console.log('📦 Starting MFE loading...');
-      showLoading(container);
+      console.log('📦 Loading MFE...');
       
-      // Create asset URLs
-      const cssUrl = `${HARDCODED_CONFIG.baseUrl}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.css}`;
-      const bootstrapUrl = `${HARDCODED_CONFIG.baseUrl}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.bootstrap}`;
-      
-      console.log('🔗 Asset URLs:', { cssUrl, bootstrapUrl });
-      
-      // Load CSS (this should work)
-      await loadCSS(cssUrl);
-      
-      // Try to load the bootstrap script
-      try {
-        await loadScript(bootstrapUrl);
-        
-        // Wait for mount function to be available
-        const mountFunction = await waitForMount();
-        
-        // Add scoping class
-        container.classList.add('tailwind-mfe-scope');
-        console.log('✅ Added CSS scoping class');
-        
-        // Clear loading message
-        container.innerHTML = '';
-        
-        // Mount MFE
-        console.log('🎯 Mounting MFE...');
-        await mountFunction(container);
-        console.log('✅ MFE mounted successfully!');
-        
-      } catch (scriptError) {
-        console.error('❌ Script loading failed:', scriptError);
-        
-        // Show CORS-specific error message
-        if (scriptError.message.includes('CORS') || scriptError.message.includes('cross-origin')) {
-          showError(
-            container,
-            'CORS Error: The static file server is blocking cross-origin JavaScript module loading.',
-            `The server at ${HARDCODED_CONFIG.baseUrl} needs to be configured to send CORS headers for JavaScript files.\n\nRequired header: Access-Control-Allow-Origin: *\n\nError: ${scriptError.message}`
-          );
-        } else {
-          showError(
-            container,
-            'JavaScript Loading Failed: The microfrontend bootstrap script could not be loaded.',
-            `URL: ${bootstrapUrl}\nError: ${scriptError.message}`
-          );
-        }
+      // Step 1: Get the base path from our own script location
+      const basePath = getBasePath();
+      if (!basePath) {
+        console.error('❌ Could not determine base path for loading assets');
+        return;
       }
       
+      // Step 2: Find container
+      const container = document.getElementById(CONTAINER_ID);
+      if (!container) {
+        console.error(`❌ Container #${CONTAINER_ID} not found`);
+        return;
+      }
+      
+      console.log('✅ Container found');
+      
+      // Step 3: Use hardcoded asset names (no manifest needed)
+      console.log('📋 Using hardcoded asset configuration');
+      
+      // Step 4: Load CSS
+      const cssUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.css}`;
+      console.log('🎨 CSS URL:', cssUrl);
+      const cssLink = document.createElement('link');
+      cssLink.rel = 'stylesheet';
+      cssLink.href = cssUrl;
+      cssLink.onload = () => console.log('✅ CSS loaded');
+      cssLink.onerror = () => console.warn('⚠️ CSS loading failed');
+      document.head.appendChild(cssLink);
+      
+      // Step 5: Load bootstrap module
+      console.log('📥 Loading bootstrap module...');
+      const bootstrapUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.bootstrap}`;
+      console.log('📥 Bootstrap URL:', bootstrapUrl);
+      
+      const bootstrap = await import(bootstrapUrl);
+      console.log('✅ Bootstrap module loaded');
+      
+      if (!bootstrap.mount) {
+        throw new Error('Mount function not found');
+      }
+      
+      // Step 4: Mount MFE
+      console.log('🎯 Mounting MFE...');
+      const result = await bootstrap.mount(container);
+      
+      console.log('🎉 MFE mounted successfully with CSS scoping!');
+      
+      // Dispatch success event
+      window.dispatchEvent(new CustomEvent('mfe:loaded', {
+        detail: { container: CONTAINER_ID }
+      }));
+      
+      return result;
+      
     } catch (error) {
-      console.error('❌ MFE Loading failed:', error);
-      showError(
-        container, 
-        error.message,
-        `Error: ${error.name}\nMessage: ${error.message}\nStack: ${error.stack}`
-      );
+      console.error('❌ MFE loading failed:', error);
+      
+      // Dispatch error event
+      window.dispatchEvent(new CustomEvent('mfe:error', {
+        detail: error.message
+      }));
     }
   }
   
-  /**
-   * Initialize when DOM is ready
-   */
-  function initialize() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', loadMFE);
-    } else {
-      setTimeout(loadMFE, 100);
-    }
+  // Auto-start when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadMFE);
+  } else {
+    loadMFE();
   }
-  
-  // Start the process
-  initialize();
   
 })();
