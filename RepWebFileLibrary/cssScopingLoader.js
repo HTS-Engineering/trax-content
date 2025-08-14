@@ -1,32 +1,17 @@
 /**
- * CSS Scoping Loader for Tailwind MFE - Hardcoded Configuration
+ * Dynamic CSS Scoping Loader for Tailwind MFE
  * 
- * This loader has all URLs hardcoded to eliminate configuration complexity
- * and ensure reliable loading in any environment.
+ * This loader dynamically detects its own location and loads assets
+ * from manifest.json without any hardcoded paths.
  */
 
 (function() {
   'use strict';
   
-  console.log('🚀 CSS Scoping Loader starting...');
+  console.log('🚀 Dynamic CSS Scoping Loader starting...');
   
   const CONTAINER_ID = 'tailwind-mfe-container';
-  
-  // Hardcoded configuration - NO CONFIGURATION NEEDED!
-  const HARDCODED_CONFIG = {
-    baseUrl: 'http://nor-vltrx-t02.htseng.com/files/RepWebFileLibrary',
-    css: 'style-i_jNjutn.css',
-    bootstrap: '__federation_expose_Mount-BlhroOrS.js',
-    mfeFolder: 'tailwind-mfe'
-  };
-  
-  /**
-   * Get hardcoded base path - no detection needed
-   */
-  function getBasePath() {
-    console.log('✅ Using hardcoded base path:', HARDCODED_CONFIG.baseUrl);
-    return HARDCODED_CONFIG.baseUrl;
-  }
+  const SCOPE_CLASS = 'tailwind-mfe-scope';
   
   /**
    * Get the current script element
@@ -39,74 +24,212 @@
     
     // Fallback for older browsers
     const scripts = document.getElementsByTagName('script');
-    return scripts[scripts.length - 1];
+    console.log('Scripts:', scripts);
+    const theScript = scripts[scripts.length - 1];
+    console.log('The script:', theScript);
+    
+    return theScript;
+  }
+  
+  /**
+   * Dynamically detect base path from current script location
+   */
+  function getBasePath() {
+    // Get the script's directory (where cssScopingLoader.js is located)
+    const currentScript = getCurrentScript();
+    if (!currentScript?.src) {
+      console.error('❌ Could not detect current script location');
+      return null;
+    }
+    
+    try {
+      const scriptUrl = new URL(currentScript.src);
+      // Get the directory where cssScopingLoader.js is located
+      // This will be the parent directory of the tailwind-mfe folder
+      const scriptPath = scriptUrl.pathname.replace(/\/[^\/]*$/, '');
+      const basePath = scriptUrl.origin + scriptPath;
+      
+      console.log('✅ Detected base path:', basePath);
+      return basePath;
+    } catch (error) {
+      console.error('❌ Error determining base path:', error);
+      return null;
+    }
+  }
+  
+  /**
+   * Load and parse manifest.json to get dynamic asset names
+   */
+  async function loadManifest(basePath) {
+    // Try multiple possible manifest locations
+    const possibleManifestPaths = [
+      `${basePath}/tailwind-mfe/mfe-manifest.json`,
+      `${basePath}/mfe-manifest.json`,
+      `${window.location.origin}/tailwind-mfe/mfe-manifest.json`,
+      `${window.location.origin}/mfe-manifest.json`
+    ];
+    
+    let lastError = null;
+    
+    for (const manifestUrl of possibleManifestPaths) {
+      try {
+        console.log('🔍 Trying to load manifest from:', manifestUrl);
+        const response = await fetch(manifestUrl);
+        if (response.ok) {
+          const manifest = await response.json();
+          console.log('✅ Manifest loaded from:', manifestUrl);
+          return manifest;
+        }
+      } catch (error) {
+        lastError = error;
+        console.warn(`⚠️ Failed to load manifest from ${manifestUrl}:`, error);
+      }
+    }
+    
+    throw lastError || new Error('Failed to load manifest from all possible locations');
+  }
+  
+  /**
+   * Add CSS scoping class to container
+   */
+  function addScopingClass(container) {
+    if (!container.classList.contains(SCOPE_CLASS)) {
+      container.classList.add(SCOPE_CLASS);
+      console.log(`✅ Added scoping class: ${SCOPE_CLASS}`);
+    }
   }
   
   async function loadMFE() {
     try {
-      console.log('📦 Loading MFE...');
+      console.log('📦 Loading MFE dynamically...');
       
-      // Step 1: Get the base path from our own script location
-      const basePath = getBasePath();
+      // Step 1: Get the base path
+      let basePath = getBasePath();
       if (!basePath) {
-        console.error('❌ Could not determine base path for loading assets');
-        return;
+        console.warn('⚠️ Could not determine base path, falling back to current location');
+        basePath = window.location.origin;
       }
       
       // Step 2: Find container
       const container = document.getElementById(CONTAINER_ID);
       if (!container) {
-        console.error(`❌ Container #${CONTAINER_ID} not found`);
-        return;
+        throw new Error(`Container #${CONTAINER_ID} not found`);
       }
       
-      console.log('✅ Container found');
+      console.log('✅ Container found, base path:', basePath);
       
-      // Step 3: Use hardcoded asset names (no manifest needed)
-      console.log('📋 Using hardcoded asset configuration');
+      // Step 3: Add CSS scoping class
+      addScopingClass(container);
       
-      // Step 4: Load CSS
-      const cssUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.css}`;
-      console.log('🎨 CSS URL:', cssUrl);
-      const cssLink = document.createElement('link');
-      cssLink.rel = 'stylesheet';
-      cssLink.href = cssUrl;
-      cssLink.onload = () => console.log('✅ CSS loaded');
-      cssLink.onerror = () => console.warn('⚠️ CSS loading failed');
-      document.head.appendChild(cssLink);
-      
-      // Step 5: Load bootstrap module
-      console.log('📥 Loading bootstrap module...');
-      const bootstrapUrl = `${basePath}/${HARDCODED_CONFIG.mfeFolder}/assets/${HARDCODED_CONFIG.bootstrap}`;
-      console.log('📥 Bootstrap URL:', bootstrapUrl);
-      
-      const bootstrap = await import(bootstrapUrl);
-      console.log('✅ Bootstrap module loaded');
-      
-      if (!bootstrap.mount) {
-        throw new Error('Mount function not found');
+      // Step 4: Load manifest
+      const manifest = await loadManifest(basePath);
+      if (!manifest) {
+        throw new Error('Failed to load manifest');
       }
       
-      // Step 4: Mount MFE
+      // Function to get asset URL with fallbacks
+      const getAssetUrl = (filename) => {
+        const possiblePaths = [
+          `${basePath}/tailwind-mfe/assets/${filename}`,
+          `${basePath}/assets/${filename}`,
+          `/tailwind-mfe/assets/${filename}`,
+          `/assets/${filename}`,
+          `${window.location.origin}/tailwind-mfe/assets/${filename}`,
+          `${window.location.origin}/assets/${filename}`
+        ];
+        
+        // Log for debugging
+        console.log(`🔍 Possible paths for ${filename}:`, possiblePaths);
+        
+        // Return the first path that works when fetched
+        return possiblePaths[0];
+      };
+      
+      // Step 6: Load CSS
+      const cssUrl = getAssetUrl(manifest.css);
+      console.log('🎨 Loading CSS from:', cssUrl);
+      
+      await new Promise((resolve, reject) => {
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        cssLink.href = cssUrl;
+        cssLink.onload = () => {
+          console.log('✅ CSS loaded successfully');
+          resolve(true);
+        };
+        cssLink.onerror = () => {
+          console.warn('⚠️ CSS loading failed, continuing without it');
+          resolve(false); // Don't reject, the app might still work
+        };
+        document.head.appendChild(cssLink);
+      });
+      
+      // Step 7: Load bootstrap module
+      const bootstrapUrl = getAssetUrl(manifest.bootstrap);
+      console.log('📥 Loading bootstrap from:', bootstrapUrl);
+      
+      // Use dynamic import with error handling
+      const bootstrap = await import(/* @vite-ignore */bootstrapUrl).catch(error => {
+        console.error('❌ Failed to load bootstrap module:', error);
+        throw new Error(`Failed to load bootstrap module: ${error.message}`);
+      });
+      
+      if (!bootstrap?.mount) {
+        throw new Error('Mount function not found in bootstrap module');
+      }
+      
+      console.log('✅ Bootstrap module loaded successfully');
+      
+      // Step 8: Mount MFE
       console.log('🎯 Mounting MFE...');
       const result = await bootstrap.mount(container);
       
-      console.log('🎉 MFE mounted successfully with CSS scoping!');
+      console.log('🎉 MFE mounted successfully!');
       
       // Dispatch success event
       window.dispatchEvent(new CustomEvent('mfe:loaded', {
-        detail: { container: CONTAINER_ID }
+        detail: { 
+          container: CONTAINER_ID, 
+          basePath,
+          manifest,
+          timestamp: new Date().toISOString()
+        }
       }));
       
       return result;
       
     } catch (error) {
-      console.error('❌ MFE loading failed:', error);
+      const errorMsg = `❌ MFE loading failed: ${error.message}`;
+      console.error(errorMsg, error);
       
       // Dispatch error event
       window.dispatchEvent(new CustomEvent('mfe:error', {
-        detail: error.message
+        detail: {
+          message: error.message,
+          stack: error.stack,
+          timestamp: new Date().toISOString()
+        }
       }));
+      
+      // Show user-friendly error message
+      const container = document.getElementById(CONTAINER_ID);
+      if (container) {
+        container.innerHTML = `
+          <div style="color: #721c24; background-color: #f8d7da; 
+                     border: 1px solid #f5c6cb; padding: 10px; border-radius: 4px;">
+            <h3>Application Error</h3>
+            <p>${error.message}</p>
+            <p>Please try refreshing the page or contact support if the problem persists.</p>
+            <button onclick="window.location.reload()" 
+                    style="background: #dc3545; color: white; border: none; 
+                           padding: 5px 10px; border-radius: 3px; cursor: pointer;">
+              Reload Page
+            </button>
+          </div>
+        `;
+      }
+      
+      throw error;
     }
   }
   

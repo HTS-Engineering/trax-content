@@ -1,6 +1,6 @@
 import { importShared } from './__federation_fn_import-Bi7vPVnK.js';
-import { j as jsxRuntimeExports } from './__federation_expose_Mount-BlhroOrS.js';
-import { N as Navigation, B as Button } from './Navigation-CsZ1fjOa.js';
+import { j as jsxRuntimeExports } from './__federation_expose_Mount-Dx-cylFR.js';
+import { N as Navigation, B as Button } from './Navigation-DlVJUbRY.js';
 
 const {useState} = await importShared('react');
 
