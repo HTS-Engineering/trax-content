@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-CMA_d3M5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-QmXiNhj4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/NewExpensePage-Cyv9Mn71.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-Bs9n4Ima.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-DWSOxi1-.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/NewExpensePage-DyWIHu3z.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
 import { r as requireReactDom } from "./index-BZmWk3Ws.js";
@@ -32893,39 +32893,38 @@ const Upload = createLucideIcon("upload", __iconNode);
 const Header = () => {
   const navigate = useNavigate();
   const handleNewExpense = () => {
-    navigate("/expenses/new");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "bg-white border-b border-gray-200 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-6 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold text-[--exp-blue-500] cursor-pointer", onClick: () => navigate("/expenses"), children: "Expenses" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/expenses", className: "text-2xl font-bold text-[--exp-blue-500] hover:text-[--exp-blue-600]", children: "Expenses" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
+          Link,
           {
+            to: "/expenses",
             className: "text-sm text-gray-600 hover:text-gray-900",
-            onClick: () => navigate("/expenses"),
             children: "Expenses"
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
+          Link,
           {
+            to: "/reports",
             className: "text-sm text-gray-600 hover:text-gray-900",
-            onClick: () => navigate("/reports"),
             children: "Reports"
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
+          Link,
           {
+            to: "/settings",
             className: "text-sm text-gray-600 hover:text-gray-900",
-            onClick: () => navigate("/settings"),
             children: "Settings"
           }
         )
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       Be,
       {
         variant: "primary",
@@ -32954,9 +32953,9 @@ const Header = () => {
             onClick: () => navigate("/settings")
           }
         ],
-        children: "New Expense"
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/expenses/new", className: "inline-block w-full h-full px-4 py-2", children: "New Expense" })
       }
-    )
+    ) })
   ] }) }) });
 };
 const Layout = () => {
@@ -32967,10 +32966,10 @@ const Layout = () => {
 };
 const { lazy, Suspense } = await importShared("react");
 const LoadingSpinner = () => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center min-h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
-const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-CMA_d3M5.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpensePage = lazy(() => __vitePreload(() => import("./NewExpensePage-Cyv9Mn71.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const SettingsPage = lazy(() => __vitePreload(() => import("./SettingsPage-CrEaD0sf.js"), true ? [] : void 0, import.meta.url));
-const ReportsPage = lazy(() => __vitePreload(() => import("./ReportsPage-B5dL_Z88.js"), true ? [] : void 0, import.meta.url));
+const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-Bs9n4Ima.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpensePage = lazy(() => __vitePreload(() => import("./NewExpensePage-DyWIHu3z.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
+const SettingsPage = lazy(() => __vitePreload(() => import("./SettingsPage-4jOVXh7d.js"), true ? [] : void 0, import.meta.url));
+const ReportsPage = lazy(() => __vitePreload(() => import("./ReportsPage-D2DcGanX.js"), true ? [] : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: "/",
