@@ -1,5 +1,5 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, e as et, t as tt, K, F as FileText, o as ot, I as Ie, J, R as Re, L as Le, Z as Ze, a as Fe, C as ChartColumn, M as Me, u as useNavigate, _ as _t, A as Ae, G as Ge, $ as $e, H as He, U as Ue, b as I } from "./__federation_expose_Mount-k9zrPodp.js";
-import { E as ExpensesList } from "./ExpensesList-ByQaF5Ca.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, e as et, t as tt, K, F as FileText, o as ot, I as Ie, J, R as Re, L as Le, Z as Ze, a as Fe, C as ChartColumn, M as Me, u as useNavigate, _ as _t, A as Ae, G as Ge, $ as $e, b as I, U as Ue } from "./__federation_expose_Mount-B-4As_8k.js";
+import { E as ExpensesList } from "./ExpensesList-BJ8W7qp1.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 /**
  * @license lucide-react v0.542.0 - ISC
@@ -7,7 +7,23 @@ import { importShared } from "./__federation_fn_import-CFnudcB9.js";
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$1 = [
+const __iconNode$4 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$4);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$3 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$3);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$2 = [
   ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
   ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
   ["path", { d: "M8 13h2", key: "yr2amv" }],
@@ -15,14 +31,14 @@ const __iconNode$1 = [
   ["path", { d: "M8 17h2", key: "2yhykz" }],
   ["path", { d: "M14 17h2", key: "10kma7" }]
 ];
-const FileSpreadsheet = createLucideIcon("file-spreadsheet", __iconNode$1);
+const FileSpreadsheet = createLucideIcon("file-spreadsheet", __iconNode$2);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode = [
+const __iconNode$1 = [
   [
     "path",
     {
@@ -34,7 +50,24 @@ const __iconNode = [
   ["path", { d: "M16 11h.01", key: "xkw8gn" }],
   ["path", { d: "M8 11h.01", key: "1dfujw" }]
 ];
-const MessageSquareMore = createLucideIcon("message-square-more", __iconNode);
+const MessageSquareMore = createLucideIcon("message-square-more", __iconNode$1);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode = [
+  [
+    "path",
+    {
+      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
+      key: "1ffxy3"
+    }
+  ],
+  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
+];
+const Send = createLucideIcon("send", __iconNode);
 const { useState } = await importShared("react");
 const ExpenseForm = ({ onSubmit }) => {
   console.log("onSubmit", onSubmit);
@@ -57,6 +90,13 @@ const ExpenseForm = ({ onSubmit }) => {
       percentage: 50,
       amount: 35.8,
       type: "project"
+    },
+    {
+      id: "2",
+      name: "Admin",
+      percentage: 25,
+      amount: 17.9,
+      type: "admin"
     },
     {
       id: "3",
@@ -143,6 +183,7 @@ const ExpenseForm = ({ onSubmit }) => {
             label: "Payment method",
             placeholder: "Select payment method",
             options: paymentMethodOptions,
+            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-4 h-4 text-trax-neutral-950" }),
             value: formData.paymentMethod,
             onValueChange: (value) => handleInputChange("paymentMethod", value)
           }
@@ -151,7 +192,7 @@ const ExpenseForm = ({ onSubmit }) => {
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             Le,
             {
-              label: "NET/HST Amount",
+              label: "HST/GST Amount",
               placeholder: "0.00",
               currencyCode: "USD",
               locale: "en-US",
@@ -272,27 +313,36 @@ const NewExpensePage = () => {
     console.log("Expense submitted");
     navigate("/expenses");
   };
-  const handleCancel = (e) => {
-    e == null ? void 0 : e.preventDefault();
-    navigate("/expenses");
-  };
   const handleOpenChange = (open) => {
     if (!open) {
       navigate("/expenses");
     }
   };
+  const handleClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    console.log("Click navigation");
+    return false;
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesList, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(_t, { open: true, onOpenChange: handleOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Ae, { className: "max-w-4xl max-h-[90vh] overflow-hidden flex flex-col", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Ge, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx($e, { children: "New Expense" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(He, { children: "Fill in the details for your new expense submission." })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Ge, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-2 relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx($e, { className: "text-exp-neutral-950", children: "New Expense" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-7 top-[-24px] flex flex-nowrap", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(I, { variant: "outlined", iconPosition: "center", className: "text-exp-neutral-70 hover:text-exp-neutral-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "size-5" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(I, { variant: "outlined", iconPosition: "center", className: "text-exp-neutral-70 hover:text-exp-neutral-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "size-5" }) })
+        ] }) })
+      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "flex-1 overflow-y-auto flex flex-col", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpenseForm, { onSubmit: handleSubmit, onCancel: handleCancel }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Ue, { className: "border-t pt-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(I, { type: "button", variant: "outlined", onClick: handleCancel, children: "Cancel" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(I, { type: "submit", variant: "primary", children: "Save Expense" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpenseForm, { onSubmit: handleSubmit }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Ue, { className: "pt-4 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(I, { type: "button", variant: "outlined", onClick: handleClick, children: "Save Draft" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(I, { type: "submit", variant: "primary", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "size-5" }),
+            "Submit Expense"
+          ] })
         ] })
       ] })
     ] }) })

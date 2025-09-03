@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-HJxmFBki.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-ByQaF5Ca.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/NewExpensePage-rkpx37Yn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-BMM7nQ_t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-BJ8W7qp1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/NewExpensePage-BIvMXKja.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
 import { r as requireReactDom } from "./index-BZmWk3Ws.js";
@@ -12474,7 +12474,7 @@ function createRouter(init) {
     let blockers = state.blockers;
     if (blockers.size > 0) {
       blockers = new Map(blockers);
-      blockers.forEach((_, k) => blockers.set(k, IDLE_BLOCKER));
+      blockers.forEach((_, k2) => blockers.set(k2, IDLE_BLOCKER));
     }
     let restoreScrollPosition = isUninterruptedRevalidation ? false : getSavedScrollPosition(location, newState.matches || state.matches);
     let preventScrollReset = pendingPreventScrollReset === true || state.navigation.formMethod != null && isMutationMethod(state.navigation.formMethod) && ((_b = location.state) == null ? void 0 : _b._isRedirect) !== true;
@@ -15137,8 +15137,8 @@ function processLoaderData(state, matches, results, pendingActionResult, revalid
   return { loaderData, errors };
 }
 function mergeLoaderData(loaderData, newLoaderData, matches, errors) {
-  let mergedLoaderData = Object.entries(newLoaderData).filter(([, v]) => v !== ResetLoaderDataSymbol).reduce((merged, [k, v]) => {
-    merged[k] = v;
+  let mergedLoaderData = Object.entries(newLoaderData).filter(([, v]) => v !== ResetLoaderDataSymbol).reduce((merged, [k2, v]) => {
+    merged[k2] = v;
     return merged;
   }, {});
   for (let match2 of matches) {
@@ -15422,9 +15422,9 @@ function restoreAppliedTransitions(_window, transitions) {
     );
     if (sessionPositions) {
       let json = JSON.parse(sessionPositions);
-      for (let [k, v] of Object.entries(json || {})) {
+      for (let [k2, v] of Object.entries(json || {})) {
         if (v && Array.isArray(v)) {
-          transitions.set(k, new Set(v || []));
+          transitions.set(k2, new Set(v || []));
         }
       }
     }
@@ -15434,8 +15434,8 @@ function restoreAppliedTransitions(_window, transitions) {
 function persistAppliedTransitions(_window, transitions) {
   if (transitions.size > 0) {
     let json = {};
-    for (let [k, v] of transitions) {
-      json[k] = [...v];
+    for (let [k2, v] of transitions) {
+      json[k2] = [...v];
     }
     try {
       _window.sessionStorage.setItem(
@@ -18047,9 +18047,9 @@ const toValue = (mix) => {
   }
   let resolvedValue;
   let string = "";
-  for (let k = 0; k < mix.length; k++) {
-    if (mix[k]) {
-      if (resolvedValue = toValue(mix[k])) {
+  for (let k2 = 0; k2 < mix.length; k2++) {
+    if (mix[k2]) {
+      if (resolvedValue = toValue(mix[k2])) {
         string && (string += " ");
         string += resolvedValue;
       }
@@ -31355,7 +31355,7 @@ const ce = "trax-ui-component";
 function o(...t) {
   return twMerge(clsx(t));
 }
-function C(...t) {
+function k(...t) {
   return twMerge(clsx(ce, t));
 }
 const F = cva(
@@ -31411,7 +31411,7 @@ const F = cva(
     children: l,
     ...f
   }, d) => {
-    const c = i ? Slot$4 : "button", g = n === "center" || !l && u;
+    const c = i ? Slot$4 : "button", p = n === "center" || !l && u;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       c,
       {
@@ -31420,8 +31420,8 @@ const F = cva(
         className: o(
           F({
             variant: a,
-            size: g ? "icon" : r2,
-            iconPosition: g ? "center" : n,
+            size: p ? "icon" : r2,
+            iconPosition: p ? "center" : n,
             className: t
           })
         ),
@@ -31614,7 +31614,7 @@ function xe({
     {
       "data-slot": "dropdown-menu-content",
       sideOffset: a,
-      className: C(
+      className: k(
         "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md",
         t
       ),
@@ -31696,7 +31696,7 @@ const Y = m.forwardRef(({ className: t, children: a, position: r2 = "popper", ..
   Content2$1,
   {
     ref: i,
-    className: C(
+    className: k(
       "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
       r2 === "popper" && "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
       t
@@ -31776,7 +31776,7 @@ function ke({
       "data-slot": "popover-content",
       align: a,
       sideOffset: r2,
-      className: C(
+      className: k(
         "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden",
         t
       ),
@@ -31917,24 +31917,24 @@ function ze({
         ...a
       },
       components: {
-        Root: ({ className: c, rootRef: g, ...p }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Root: ({ className: c, rootRef: p, ...g }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "div",
           {
             "data-slot": "calendar",
-            ref: g,
+            ref: p,
             className: o(c),
-            ...p
+            ...g
           }
         ),
-        Chevron: ({ className: c, orientation: g, ...p }) => g === "left" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: o("size-4", c), ...p }) : g === "right" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Chevron: ({ className: c, orientation: p, ...g }) => p === "left" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: o("size-4", c), ...g }) : p === "right" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
           ChevronRight,
           {
             className: o("size-4", c),
-            ...p
+            ...g
           }
-        ) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: o("size-4", c), ...p }),
+        ) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: o("size-4", c), ...g }),
         DayButton: Se,
-        WeekNumber: ({ children: c, ...g }) => /* @__PURE__ */ jsxRuntimeExports.jsx("td", { ...g, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-(--cell-size) items-center justify-center text-center", children: c }) }),
+        WeekNumber: ({ children: c, ...p }) => /* @__PURE__ */ jsxRuntimeExports.jsx("td", { ...p, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-(--cell-size) items-center justify-center text-center", children: c }) }),
         ...l
       },
       ...f
@@ -32063,40 +32063,45 @@ const Ie = m.forwardRef(
     onValueChange: f,
     disabled: d = false,
     className: c,
+    icon: p,
     ...g
-  }, p) => {
-    const y = `select-${Math.random().toString(36).substr(2, 9)}`;
+  }, y) => {
+    const C = `select-${Math.random().toString(36).substr(2, 9)}`;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: o("flex flex-col gap-1 w-full", c), children: [
       t && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           z,
           {
-            htmlFor: y,
+            htmlFor: C,
             className: "text-xs font-medium text-trax-neutral-900",
             children: t
           }
         ),
         a && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400", children: "*" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(he, { value: l, onValueChange: f, disabled: d, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          V,
-          {
-            ref: p,
-            id: y,
-            className: o(
-              "h-8 rounded-md px-2 py-1.5 text-sm font-normal",
-              "border border-input bg-white shadow-input",
-              "hover:border-primary-200",
-              "focus:border-primary-200 focus:ring-[3px] focus:ring-focus-ring focus:ring-offset-0",
-              r2 && "border-trax-red-400 focus:border-trax-red-400 focus:ring-trax-red-400/20",
-              !l && "text-muted-foreground"
-            ),
-            ...g,
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx(ve, { placeholder: i })
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Y, { children: u.map((N) => /* @__PURE__ */ jsxRuntimeExports.jsx(q, { value: N.value, children: N.label }, N.value)) })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+        p && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-trax-grey-500 z-10 pointer-events-none", children: p }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(he, { value: l, onValueChange: f, disabled: d, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            V,
+            {
+              ref: y,
+              id: C,
+              className: o(
+                "h-8 rounded-md px-2 py-1.5 text-sm font-normal w-full",
+                "border border-input bg-white shadow-input",
+                "hover:border-primary-200",
+                "focus:border-primary-200 focus:ring-[3px] focus:ring-focus-ring focus:ring-offset-0",
+                r2 && "border-trax-red-400 focus:border-trax-red-400 focus:ring-trax-red-400/20",
+                !l && "text-muted-foreground",
+                p && "pl-10"
+              ),
+              ...g,
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(ve, { placeholder: i })
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Y, { children: u.map((w) => /* @__PURE__ */ jsxRuntimeExports.jsx(q, { value: w.value, children: w.label }, w.value)) })
+        ] })
       ] }),
       r2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-red-400", children: r2 }),
       n && !r2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-grey-600", children: n })
@@ -32116,31 +32121,31 @@ const Re = m.forwardRef(
     onChange: f,
     disabled: d = false,
     id: c,
-    name: g,
-    minDate: p,
+    name: p,
+    minDate: g,
     maxDate: y,
-    ...N
-  }, _) => {
-    const k = c || `date-picker-${Math.random().toString(36).substr(2, 9)}`, [D, v] = m.useState(false);
+    ...C
+  }, w) => {
+    const D = c || `date-picker-${Math.random().toString(36).substr(2, 9)}`, [_, v] = m.useState(false);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1 w-full", children: [
       a && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           z,
           {
-            htmlFor: k,
+            htmlFor: D,
             className: "text-xs font-medium text-trax-neutral-900",
             children: a
           }
         ),
         r2 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400", children: "*" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Ne, { open: D, onOpenChange: v, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Ne, { open: _, onOpenChange: v, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Ce, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           I,
           {
-            ref: _,
-            id: k,
-            name: g,
+            ref: w,
+            id: D,
+            name: p,
             variant: "field",
             disabled: d,
             className: o(
@@ -32156,7 +32161,7 @@ const Re = m.forwardRef(
               !l && "text-muted-foreground",
               t
             ),
-            ...N,
+            ...C,
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: o(
                 "text-left",
@@ -32171,12 +32176,12 @@ const Re = m.forwardRef(
           {
             mode: "single",
             selected: l,
-            onSelect: (w) => {
-              f == null ? void 0 : f(w), v(false);
+            onSelect: (N) => {
+              f == null ? void 0 : f(N), v(false);
             },
-            disabled: (w) => !!(p && w < p || y && w > y),
+            disabled: (N) => !!(g && N < g || y && N > y),
             captionLayout: "label",
-            fromYear: (p == null ? void 0 : p.getFullYear()) || 1900,
+            fromYear: (g == null ? void 0 : g.getFullYear()) || 1900,
             toYear: (y == null ? void 0 : y.getFullYear()) || (/* @__PURE__ */ new Date()).getFullYear() + 10,
             className: "rounded-lg  border-0",
             classNames: {
@@ -32274,19 +32279,19 @@ const Pe = m.forwardRef(
     disabled: l = false,
     ...f
   }, d) => {
-    const [c, g] = m.useState(false), p = m.useRef(null), y = (v) => {
-      v.preventDefault(), l || g(true);
-    }, N = (v) => {
-      v.preventDefault(), g(false);
+    const [c, p] = m.useState(false), g = m.useRef(null), y = (v) => {
+      v.preventDefault(), l || p(true);
+    }, C = (v) => {
+      v.preventDefault(), p(false);
+    }, w = (v) => {
+      if (v.preventDefault(), p(false), l) return;
+      const N = v.dataTransfer.files;
+      N && N.length > 0 && (a == null ? void 0 : a(N));
+    }, D = () => {
+      !l && g.current && g.current.click();
     }, _ = (v) => {
-      if (v.preventDefault(), g(false), l) return;
-      const w = v.dataTransfer.files;
-      w && w.length > 0 && (a == null ? void 0 : a(w));
-    }, k = () => {
-      !l && p.current && p.current.click();
-    }, D = (v) => {
-      const w = v.target.files;
-      a == null ? void 0 : a(w);
+      const N = v.target.files;
+      a == null ? void 0 : a(N);
     };
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
@@ -32299,18 +32304,18 @@ const Pe = m.forwardRef(
           t
         ),
         onDragOver: y,
-        onDragLeave: N,
-        onDrop: _,
-        onClick: k,
+        onDragLeave: C,
+        onDrop: w,
+        onClick: D,
         ...f,
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
-              ref: p,
+              ref: g,
               type: "file",
               accept: r2,
-              onChange: D,
+              onChange: _,
               className: "hidden",
               disabled: l
             }
@@ -32431,7 +32436,7 @@ const Me = m.forwardRef(
     onRemoveAllocation: f,
     ...d
   }, c) => {
-    const g = r2.reduce((p, y) => p + y.percentage, 0);
+    const p = r2.reduce((g, y) => g + y.percentage, 0);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
@@ -32448,43 +32453,43 @@ const Me = m.forwardRef(
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0.5 right-0.5 w-4 h-4 bg-trax-blue-600 rounded-full" })
               ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-medium text-trax-neutral-900", children: [
-                g,
+                p,
                 "%"
               ] })
             ] })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(X, { value: g, className: "h-2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(X, { value: p, className: "h-2" }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between text-xs text-trax-neutral-600", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "0%" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "100%" })
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: r2.map((p) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between p-3 bg-grey-50 rounded-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: r2.map((g) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between p-3 bg-grey-50 rounded-lg", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(_e, { variant: p.type || "category", children: p.name }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-trax-neutral-600", children: p.name })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(_e, { variant: g.type || "category", children: g.name }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-trax-neutral-600", children: g.name })
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm font-medium text-trax-neutral-900", children: [
                 i,
                 " ",
-                p.amount.toFixed(2)
+                g.amount.toFixed(2)
               ] }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm text-trax-neutral-600", children: [
-                p.percentage.toFixed(1),
+                g.percentage.toFixed(1),
                 "%"
               ] }),
               f && /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "button",
                 {
-                  onClick: () => f(p.id),
+                  onClick: () => f(g.id),
                   className: "text-grey-400 hover:text-red-500 transition-colors",
                   children: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M6 18L18 6M6 6l12 12" }) })
                 }
               )
             ] })
-          ] }, p.id)) }),
+          ] }, g.id)) }),
           u && l && /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
@@ -32524,17 +32529,17 @@ const Le = m.forwardRef(
     label: f,
     required: d = false,
     error: c,
-    helperText: g,
-    id: p,
+    helperText: p,
+    id: g,
     ...y
-  }, N) => {
-    const _ = p || `currency-input-${Math.random().toString(36).substr(2, 9)}`, k = r2 ?? (a ? Te(a, n, l) : void 0), D = i ?? (k ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: k }) : null), v = u ?? (a ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: a }) : null);
+  }, C) => {
+    const w = g || `currency-input-${Math.random().toString(36).substr(2, 9)}`, D = r2 ?? (a ? Te(a, n, l) : void 0), _ = i ?? (D ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: D }) : null), v = u ?? (a ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute right-3 top-1/2 -translate-y-1/2 text-xs text-trax-grey-900", "aria-hidden": true, children: a }) : null);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1 w-full", children: [
       f && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Label$2,
           {
-            htmlFor: _,
+            htmlFor: w,
             className: "text-xs font-medium text-trax-neutral-900",
             children: f
           }
@@ -32545,25 +32550,25 @@ const Le = m.forwardRef(
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           J,
           {
-            ref: N,
-            id: _,
+            ref: C,
+            id: w,
             type: "number",
             step: "0.01",
             min: "0",
             className: o(
               "text-right font-normal",
-              D && "pl-8",
+              _ && "pl-8",
               v && "pr-10",
               t
             ),
             ...y
           }
         ),
-        D && D,
+        _ && _,
         v && v
       ] }),
       c && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-red-400", children: c }),
-      g && !c && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-grey-600", children: g })
+      p && !c && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-grey-600", children: p })
     ] });
   }
 );
@@ -32607,7 +32612,7 @@ const Be = m.forwardRef(
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "size-4" })
             }
           ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(xe, { align: "end", className: "min-w-[200px]", children: r2.map((c, g) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(xe, { align: "end", className: "min-w-[200px]", children: r2.map((c, p) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
             be,
             {
               onClick: c.onClick,
@@ -32617,7 +32622,7 @@ const Be = m.forwardRef(
                 c.label
               ]
             },
-            g
+            p
           )) })
         ] })
       ]
@@ -32629,7 +32634,7 @@ const _t = Root$4, Oe = Portal$3, Q = m.forwardRef(({ className: t, ...a }, r2) 
   Overlay,
   {
     ref: r2,
-    className: C(
+    className: k(
       "fixed inset-0 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       t
     ),
@@ -32648,7 +32653,7 @@ const Ae = m.forwardRef(({ className: t, children: a, showCloseButton: r2 = true
     Content$1,
     {
       ref: i,
-      className: C(
+      className: k(
         "fixed left-[50%] top-[50%] z-50 w-full max-w-[733px] translate-x-[-50%] translate-y-[-50%] rounded-[16px] bg-white p-8 shadow-[0px_8px_16px_0px_rgba(8,34,60,0.16)] duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         t
       ),
@@ -32892,38 +32897,12 @@ const __iconNode = [
 const Upload = createLucideIcon("upload", __iconNode);
 const Header = () => {
   const navigate = useNavigate();
-  const handleNewExpense = () => {
+  const handleNewExpense = (e) => {
+    e == null ? void 0 : e.preventDefault();
+    navigate("/expenses/new");
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "bg-white border-b border-gray-200 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-6 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/expenses", className: "text-2xl font-bold text-exp-blue-500", children: "Expenses" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex gap-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Link,
-          {
-            to: "/expenses",
-            className: "text-sm text-gray-600 hover:text-gray-900",
-            children: "Expenses"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Link,
-          {
-            to: "/reports",
-            className: "text-sm text-gray-600 hover:text-gray-900",
-            children: "Reports"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Link,
-          {
-            to: "/settings",
-            className: "text-sm text-gray-600 hover:text-gray-900",
-            children: "Settings"
-          }
-        )
-      ] })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/expenses", className: "text-2xl font-bold !text-exp-blue-500", children: "Expenses" }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       Be,
       {
@@ -32953,7 +32932,7 @@ const Header = () => {
             onClick: () => navigate("/settings")
           }
         ],
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/expenses/new", className: "inline-block w-full h-full px-4 py-2", children: "New Expense" })
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-block w-full h-full px-4 py-2 text-sm", children: "New Expense" })
       }
     ) })
   ] }) }) });
@@ -32966,10 +32945,10 @@ const Layout = () => {
 };
 const { lazy, Suspense } = await importShared("react");
 const LoadingSpinner = () => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center min-h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
-const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-HJxmFBki.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpensePage = lazy(() => __vitePreload(() => import("./NewExpensePage-rkpx37Yn.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const SettingsPage = lazy(() => __vitePreload(() => import("./SettingsPage-Bnemg8gs.js"), true ? [] : void 0, import.meta.url));
-const ReportsPage = lazy(() => __vitePreload(() => import("./ReportsPage-BSB1L4KR.js"), true ? [] : void 0, import.meta.url));
+const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-BMM7nQ_t.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpensePage = lazy(() => __vitePreload(() => import("./NewExpensePage-BIvMXKja.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
+const SettingsPage = lazy(() => __vitePreload(() => import("./SettingsPage-EaabvGD9.js"), true ? [] : void 0, import.meta.url));
+const ReportsPage = lazy(() => __vitePreload(() => import("./ReportsPage-Cj-NMKKT.js"), true ? [] : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: "/",
@@ -33117,7 +33096,6 @@ export {
   ChartColumn as C,
   FileText as F,
   Ge as G,
-  He as H,
   Ie as I,
   J,
   K,
