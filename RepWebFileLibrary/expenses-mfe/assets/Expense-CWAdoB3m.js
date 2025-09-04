@@ -1,5 +1,5 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, u as useNavigate, e as jt, E as Ee, W as We, X as Xe, I, Y as Ye } from "./__federation_expose_Mount-Bmy6dmCZ.js";
-import { E as ExpensesList } from "./ExpensesList-QIQLiagS.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, u as useNavigate, e as jt, E as Ee, W as We, X as Xe, I, Y as Ye } from "./__federation_expose_Mount-Cxu65dEw.js";
+import { E as ExpensesList } from "./ExpensesList-E6csSPnD.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 /**
  * @license lucide-react v0.542.0 - ISC
@@ -95,16 +95,50 @@ const { useState } = await importShared("react");
 const ExpenseForm = ({ onSubmit }) => {
   console.log("onSubmit", onSubmit);
   const [formData, setFormData] = useState({
-    expenseType: "",
-    vendor: "",
-    expenseDate: "",
-    expenseLocation: "",
-    paymentMethod: "",
-    netAmount: "",
-    totalAmount: "",
-    businessPurpose: "",
-    expenseDescription: "",
-    additionalComments: ""
+    [
+      "expenseType"
+      /* ExpenseType */
+    ]: "",
+    [
+      "vendor"
+      /* Vendor */
+    ]: "",
+    [
+      "expenseDate"
+      /* ExpenseDate */
+    ]: "",
+    [
+      "expenseLocation"
+      /* ExpenseLocation */
+    ]: "",
+    [
+      "paymentMethod"
+      /* PaymentMethod */
+    ]: "",
+    [
+      "netAmount"
+      /* NetAmount */
+    ]: "",
+    [
+      "totalAmount"
+      /* TotalAmount */
+    ]: "",
+    [
+      "businessPurpose"
+      /* BusinessPurpose */
+    ]: "",
+    [
+      "expenseDescription"
+      /* ExpenseDescription */
+    ]: "",
+    [
+      "personsEntertained"
+      /* PersonsEntertained */
+    ]: "",
+    [
+      "additionalComments"
+      /* AdditionalComments */
+    ]: ""
   });
   const [allocations, setAllocations] = useState([
     {
@@ -319,7 +353,7 @@ const ExpenseForm = ({ onSubmit }) => {
             label: "Persons entertained",
             placeholder: "Enter the full names of clients/guests entertained",
             rows: 1,
-            value: formData.additionalComments,
+            value: formData.personsEntertained,
             onChange: (e) => handleInputChange("personsEntertained", e.target.value)
           }
         )
