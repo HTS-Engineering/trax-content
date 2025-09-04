@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-BMM7nQ_t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-BJ8W7qp1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/NewExpensePage-BIvMXKja.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-D-zcSmbQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-QIQLiagS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/NewExpensePage-DEFG-MLN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
 import { r as requireReactDom } from "./index-BZmWk3Ws.js";
@@ -12474,7 +12474,7 @@ function createRouter(init) {
     let blockers = state.blockers;
     if (blockers.size > 0) {
       blockers = new Map(blockers);
-      blockers.forEach((_, k2) => blockers.set(k2, IDLE_BLOCKER));
+      blockers.forEach((_, k) => blockers.set(k, IDLE_BLOCKER));
     }
     let restoreScrollPosition = isUninterruptedRevalidation ? false : getSavedScrollPosition(location, newState.matches || state.matches);
     let preventScrollReset = pendingPreventScrollReset === true || state.navigation.formMethod != null && isMutationMethod(state.navigation.formMethod) && ((_b = location.state) == null ? void 0 : _b._isRedirect) !== true;
@@ -15137,8 +15137,8 @@ function processLoaderData(state, matches, results, pendingActionResult, revalid
   return { loaderData, errors };
 }
 function mergeLoaderData(loaderData, newLoaderData, matches, errors) {
-  let mergedLoaderData = Object.entries(newLoaderData).filter(([, v]) => v !== ResetLoaderDataSymbol).reduce((merged, [k2, v]) => {
-    merged[k2] = v;
+  let mergedLoaderData = Object.entries(newLoaderData).filter(([, v]) => v !== ResetLoaderDataSymbol).reduce((merged, [k, v]) => {
+    merged[k] = v;
     return merged;
   }, {});
   for (let match2 of matches) {
@@ -15422,9 +15422,9 @@ function restoreAppliedTransitions(_window, transitions) {
     );
     if (sessionPositions) {
       let json = JSON.parse(sessionPositions);
-      for (let [k2, v] of Object.entries(json || {})) {
+      for (let [k, v] of Object.entries(json || {})) {
         if (v && Array.isArray(v)) {
-          transitions.set(k2, new Set(v || []));
+          transitions.set(k, new Set(v || []));
         }
       }
     }
@@ -15434,8 +15434,8 @@ function restoreAppliedTransitions(_window, transitions) {
 function persistAppliedTransitions(_window, transitions) {
   if (transitions.size > 0) {
     let json = {};
-    for (let [k2, v] of transitions) {
-      json[k2] = [...v];
+    for (let [k, v] of transitions) {
+      json[k] = [...v];
     }
     try {
       _window.sessionStorage.setItem(
@@ -18047,9 +18047,9 @@ const toValue = (mix) => {
   }
   let resolvedValue;
   let string = "";
-  for (let k2 = 0; k2 < mix.length; k2++) {
-    if (mix[k2]) {
-      if (resolvedValue = toValue(mix[k2])) {
+  for (let k = 0; k < mix.length; k++) {
+    if (mix[k]) {
+      if (resolvedValue = toValue(mix[k])) {
         string && (string += " ");
         string += resolvedValue;
       }
@@ -21015,7 +21015,7 @@ const __iconNode$5 = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const X$1 = createLucideIcon$1("x", __iconNode$5);
+const X = createLucideIcon$1("x", __iconNode$5);
 const React$R = await importShared("react");
 var useReactId = React$R[" useId ".trim().toString()] || (() => void 0);
 var count$1 = 0;
@@ -27597,10 +27597,10 @@ class TZDateMini extends Date {
   }
   //#endregion
 }
-const re = /^(get|set)(?!UTC)/;
+const re$1 = /^(get|set)(?!UTC)/;
 Object.getOwnPropertyNames(Date.prototype).forEach((method) => {
-  if (!re.test(method)) return;
-  const utcMethod = method.replace(re, "$1UTC");
+  if (!re$1.test(method)) return;
+  const utcMethod = method.replace(re$1, "$1UTC");
   if (!TZDateMini.prototype[utcMethod]) return;
   if (method.startsWith("get")) {
     TZDateMini.prototype[method] = function() {
@@ -31351,14 +31351,14 @@ Defaulting to \`null\`.`;
 var Root = Progress;
 var Indicator = ProgressIndicator;
 const m = await importShared("react");
-const ce = "trax-ui-component";
+const ve = "trax-ui-component";
 function o(...t) {
   return twMerge(clsx(t));
 }
-function k(...t) {
-  return twMerge(clsx(ce, t));
+function D(...t) {
+  return twMerge(clsx(ve, t));
 }
-const F = cva(
+const T = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded font-semibold transition-all outline-none disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
@@ -31409,23 +31409,23 @@ const F = cva(
     asChild: i = false,
     icon: u,
     children: l,
-    ...f
-  }, d) => {
-    const c = i ? Slot$4 : "button", p = n === "center" || !l && u;
+    ...p
+  }, s) => {
+    const c = i ? Slot$4 : "button", f = n === "center" || !l && u;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       c,
       {
-        ref: d,
+        ref: s,
         "data-slot": "button",
         className: o(
-          F({
+          T({
             variant: a,
-            size: p ? "icon" : r2,
-            iconPosition: p ? "center" : n,
+            size: f ? "icon" : r2,
+            iconPosition: f ? "center" : n,
             className: t
           })
         ),
-        ...f,
+        ...p,
         children: [
           u && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "inline-flex items-center justify-center [&>svg]:size-4", children: u }),
           l && l
@@ -31435,7 +31435,7 @@ const F = cva(
   }
 );
 I.displayName = "Button";
-const $ = m.forwardRef(
+const K = m.forwardRef(
   ({ className: t, type: a, ...r2 }, n) => /* @__PURE__ */ jsxRuntimeExports.jsx(
     "input",
     {
@@ -31459,19 +31459,19 @@ const $ = m.forwardRef(
     }
   )
 );
-$.displayName = "Input";
-const ue = cva(
+K.displayName = "Input";
+const ye = cva(
   "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 ), z = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Root$5,
   {
     ref: r2,
-    className: o(ue(), t),
+    className: o(ye(), t),
     ...a
   }
 ));
 z.displayName = Root$5.displayName;
-const H = m.forwardRef(
+const Q = m.forwardRef(
   ({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
     "textarea",
     {
@@ -31490,8 +31490,8 @@ const H = m.forwardRef(
     }
   )
 );
-H.displayName = "Textarea";
-function Ze({
+Q.displayName = "Textarea";
+function nt({
   className: t,
   label: a,
   labelClassName: r2,
@@ -31499,12 +31499,12 @@ function Ze({
   disabled: i,
   ...u
 }) {
-  const l = m.useId(), f = n ?? `cb-${l}`;
+  const l = m.useId(), p = n ?? `cb-${l}`;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-1", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Checkbox,
       {
-        id: f,
+        id: p,
         "data-slot": "checkbox",
         className: o(
           // base box per Figma: 12x12, r=2px, 1px border
@@ -31541,7 +31541,7 @@ function Ze({
     a && /* @__PURE__ */ jsxRuntimeExports.jsx(
       z,
       {
-        htmlFor: f,
+        htmlFor: p,
         className: o(
           "select-none text-xs leading-3 text-trax-neutral-1000 font-medium",
           i && "text-muted-foreground cursor-not-allowed",
@@ -31552,7 +31552,7 @@ function Ze({
     )
   ] });
 }
-function et({ className: t, ...a }) {
+function st({ className: t, ...a }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
     {
@@ -31565,7 +31565,7 @@ function et({ className: t, ...a }) {
     }
   );
 }
-function tt({ className: t, ...a }) {
+function dt({ className: t, ...a }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
     {
@@ -31578,7 +31578,7 @@ function tt({ className: t, ...a }) {
     }
   );
 }
-function ot({ className: t, ...a }) {
+function ct({ className: t, ...a }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
     {
@@ -31588,12 +31588,12 @@ function ot({ className: t, ...a }) {
     }
   );
 }
-function pe({
+function ke({
   ...t
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2$2, { "data-slot": "dropdown-menu", ...t });
 }
-function ge({
+function Ce({
   ...t
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -31604,7 +31604,7 @@ function ge({
     }
   );
 }
-function xe({
+function De({
   className: t,
   sideOffset: a = 4,
   ...r2
@@ -31614,7 +31614,7 @@ function xe({
     {
       "data-slot": "dropdown-menu-content",
       sideOffset: a,
-      className: k(
+      className: D(
         "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 max-h-(--radix-dropdown-menu-content-available-height) min-w-[8rem] origin-(--radix-dropdown-menu-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md",
         t
       ),
@@ -31622,7 +31622,7 @@ function xe({
     }
   ) });
 }
-function be({
+function _e({
   className: t,
   inset: a,
   variant: r2 = "default",
@@ -31642,7 +31642,7 @@ function be({
     }
   );
 }
-const he = Root2$1, ve = Value, V = m.forwardRef(({ className: t, children: a, ...r2 }, n) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+const Z = Root2$1, ee = Value, A = m.forwardRef(({ className: t, children: a, ...r2 }, n) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
   Trigger$1,
   {
     ref: n,
@@ -31665,8 +31665,8 @@ const he = Root2$1, ve = Value, V = m.forwardRef(({ className: t, children: a, .
     ]
   }
 ));
-V.displayName = Trigger$1.displayName;
-const E = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+A.displayName = Trigger$1.displayName;
+const te = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   ScrollUpButton,
   {
     ref: r2,
@@ -31678,8 +31678,8 @@ const E = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntim
     children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "h-4 w-4" })
   }
 ));
-E.displayName = ScrollUpButton.displayName;
-const W = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+te.displayName = ScrollUpButton.displayName;
+const ae = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   ScrollDownButton,
   {
     ref: r2,
@@ -31691,12 +31691,12 @@ const W = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntim
     children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "h-4 w-4" })
   }
 ));
-W.displayName = ScrollDownButton.displayName;
-const Y = m.forwardRef(({ className: t, children: a, position: r2 = "popper", ...n }, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+ae.displayName = ScrollDownButton.displayName;
+const O = m.forwardRef(({ className: t, children: a, position: r2 = "popper", ...n }, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
   Content2$1,
   {
     ref: i,
-    className: k(
+    className: D(
       "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
       r2 === "popper" && "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
       t
@@ -31704,7 +31704,7 @@ const Y = m.forwardRef(({ className: t, children: a, position: r2 = "popper", ..
     position: r2,
     ...n,
     children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(E, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(te, {}),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Viewport,
         {
@@ -31715,12 +31715,12 @@ const Y = m.forwardRef(({ className: t, children: a, position: r2 = "popper", ..
           children: a
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(W, {})
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ae, {})
     ]
   }
 ) }));
-Y.displayName = Content2$1.displayName;
-const ye = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+O.displayName = Content2$1.displayName;
+const ze = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Label,
   {
     ref: r2,
@@ -31728,8 +31728,8 @@ const ye = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRunti
     ...a
   }
 ));
-ye.displayName = Label.displayName;
-const q = m.forwardRef(({ className: t, children: a, ...r2 }, n) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+ze.displayName = Label.displayName;
+const G = m.forwardRef(({ className: t, children: a, ...r2 }, n) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
   Item,
   {
     ref: n,
@@ -31744,8 +31744,8 @@ const q = m.forwardRef(({ className: t, children: a, ...r2 }, n) => /* @__PURE__
     ]
   }
 ));
-q.displayName = Item.displayName;
-const we = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+G.displayName = Item.displayName;
+const Se = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Separator,
   {
     ref: r2,
@@ -31753,18 +31753,18 @@ const we = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRunti
     ...a
   }
 ));
-we.displayName = Separator.displayName;
-function Ne({
+Se.displayName = Separator.displayName;
+function Re({
   ...t
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2, { "data-slot": "popover", ...t });
 }
-function Ce({
+function Ie({
   ...t
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Trigger, { "data-slot": "popover-trigger", ...t });
 }
-function ke({
+function Pe({
   className: t,
   align: a = "center",
   sideOffset: r2 = 4,
@@ -31776,7 +31776,7 @@ function ke({
       "data-slot": "popover-content",
       align: a,
       sideOffset: r2,
-      className: k(
+      className: D(
         "bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border p-4 shadow-md outline-hidden",
         t
       ),
@@ -31784,8 +31784,8 @@ function ke({
     }
   ) });
 }
-const De = cva(
-  "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+const Fe = cva(
+  "inline-flex items-center rounded-lg px-2 py-1.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
   {
     variants: {
       variant: {
@@ -31797,7 +31797,7 @@ const De = cva(
         project: "bg-blue-100 text-blue-800 border border-blue-200",
         admin: "bg-purple-100 text-purple-800 border border-purple-200",
         team: "bg-green-100 text-green-800 border border-green-200",
-        category: "bg-grey-100 text-grey-800 border border-grey-200"
+        category: "bg-trax-neutral-10 text-trax-neutral-80 border border-trax-neutral-40 "
       }
     },
     defaultVariants: {
@@ -31805,10 +31805,10 @@ const De = cva(
     }
   }
 );
-function _e({ className: t, variant: a, ...r2 }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: o(De({ variant: a }), t), ...r2 });
+function je({ className: t, variant: a, ...r2 }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: o(Fe({ variant: a }), t), ...r2 });
 }
-function ze({
+function Me({
   className: t,
   classNames: a,
   showOutsideDays: r2 = true,
@@ -31816,9 +31816,9 @@ function ze({
   buttonVariant: i = "ghost",
   formatters: u,
   components: l,
-  ...f
+  ...p
 }) {
-  const d = getDefaultClassNames();
+  const s = getDefaultClassNames();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     DayPicker,
     {
@@ -31835,113 +31835,113 @@ function ze({
         ...u
       },
       classNames: {
-        root: o("w-fit", d.root),
+        root: o("w-fit", s.root),
         months: o(
           "flex gap-4 flex-col md:flex-row relative",
-          d.months
+          s.months
         ),
-        month: o("flex flex-col w-full gap-4", d.month),
+        month: o("flex flex-col w-full gap-4", s.month),
         nav: o(
           "flex items-center gap-1 w-full absolute top-0 inset-x-0 justify-between",
-          d.nav
+          s.nav
         ),
         button_previous: o(
-          F({ variant: i }),
+          T({ variant: i }),
           "size-(--cell-size) aria-disabled:opacity-50 p-0 select-none",
-          d.button_previous
+          s.button_previous
         ),
         button_next: o(
-          F({ variant: i }),
+          T({ variant: i }),
           "size-(--cell-size) aria-disabled:opacity-50 p-0 select-none",
-          d.button_next
+          s.button_next
         ),
         month_caption: o(
           "flex items-center justify-center h-(--cell-size) w-full px-(--cell-size)",
-          d.month_caption
+          s.month_caption
         ),
         dropdowns: o(
           "w-full flex items-center text-sm font-medium justify-center h-(--cell-size) gap-1.5",
-          d.dropdowns
+          s.dropdowns
         ),
         dropdown_root: o(
           "relative has-focus:border-ring border border-input shadow-xs has-focus:ring-ring/50 has-focus:ring-[3px] rounded-md",
-          d.dropdown_root
+          s.dropdown_root
         ),
         dropdown: o(
           "absolute bg-popover inset-0 opacity-0",
-          d.dropdown
+          s.dropdown
         ),
         caption_label: o(
           "select-none font-medium",
           n === "label" ? "text-sm" : "rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5",
-          d.caption_label
+          s.caption_label
         ),
         table: "w-full border-collapse",
-        weekdays: o("flex", d.weekdays),
+        weekdays: o("flex", s.weekdays),
         weekday: o(
           "text-muted-foreground rounded-md flex-1 font-normal text-[0.8rem] select-none",
-          d.weekday
+          s.weekday
         ),
-        week: o("flex w-full mt-2", d.week),
+        week: o("flex w-full mt-2", s.week),
         week_number_header: o(
           "select-none w-(--cell-size)",
-          d.week_number_header
+          s.week_number_header
         ),
         week_number: o(
           "text-[0.8rem] select-none text-muted-foreground",
-          d.week_number
+          s.week_number
         ),
         day: o(
           "relative w-full h-full p-0 text-center [&:first-child[data-selected=true]_button]:rounded-l-md [&:last-child[data-selected=true]_button]:rounded-r-md group/day aspect-square select-none",
-          d.day
+          s.day
         ),
         range_start: o(
           "rounded-l-md bg-accent",
-          d.range_start
+          s.range_start
         ),
-        range_middle: o("rounded-none", d.range_middle),
-        range_end: o("rounded-r-md bg-accent", d.range_end),
+        range_middle: o("rounded-none", s.range_middle),
+        range_end: o("rounded-r-md bg-accent", s.range_end),
         today: o(
           "bg-accent text-accent-foreground rounded-md data-[selected=true]:rounded-none",
-          d.today
+          s.today
         ),
         outside: o(
           "text-muted-foreground aria-selected:text-muted-foreground",
-          d.outside
+          s.outside
         ),
         disabled: o(
           "text-muted-foreground opacity-50",
-          d.disabled
+          s.disabled
         ),
-        hidden: o("invisible", d.hidden),
+        hidden: o("invisible", s.hidden),
         ...a
       },
       components: {
-        Root: ({ className: c, rootRef: p, ...g }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Root: ({ className: c, rootRef: f, ...g }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "div",
           {
             "data-slot": "calendar",
-            ref: p,
+            ref: f,
             className: o(c),
             ...g
           }
         ),
-        Chevron: ({ className: c, orientation: p, ...g }) => p === "left" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: o("size-4", c), ...g }) : p === "right" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Chevron: ({ className: c, orientation: f, ...g }) => f === "left" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: o("size-4", c), ...g }) : f === "right" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
           ChevronRight,
           {
             className: o("size-4", c),
             ...g
           }
         ) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: o("size-4", c), ...g }),
-        DayButton: Se,
-        WeekNumber: ({ children: c, ...p }) => /* @__PURE__ */ jsxRuntimeExports.jsx("td", { ...p, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-(--cell-size) items-center justify-center text-center", children: c }) }),
+        DayButton: Te,
+        WeekNumber: ({ children: c, ...f }) => /* @__PURE__ */ jsxRuntimeExports.jsx("td", { ...f, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-(--cell-size) items-center justify-center text-center", children: c }) }),
         ...l
       },
-      ...f
+      ...p
     }
   );
 }
-function Se({
+function Te({
   className: t,
   day: a,
   modifiers: r2,
@@ -31987,26 +31987,29 @@ function Se({
     }
   );
 }
-const X = m.forwardRef(({ className: t, value: a, ...r2 }, n) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const re = m.forwardRef(({ className: t, indicatorClassName: a, value: r2, ...n }, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Root,
   {
-    ref: n,
+    ref: i,
     className: o(
-      "relative h-4 w-full overflow-hidden rounded-full bg-secondary",
+      "relative h-4 w-full overflow-hidden rounded-full bg-trax-neutral-30",
       t
     ),
-    ...r2,
+    ...n,
     children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       Indicator,
       {
-        className: "h-full w-full flex-1 bg-primary transition-all",
-        style: { transform: `translateX(-${100 - (a || 0)}%)` }
+        className: o(
+          "h-full w-full flex-1 bg-primary transition-all rounded-sm",
+          a
+        ),
+        style: { transform: `translateX(-${100 - (r2 || 0)}%)` }
       }
     )
   }
 ));
-X.displayName = Root.displayName;
-const J = m.forwardRef(
+re.displayName = Root.displayName;
+const oe = m.forwardRef(
   ({
     className: t,
     label: a,
@@ -32015,8 +32018,8 @@ const J = m.forwardRef(
     icon: i,
     helperText: u,
     id: l,
-    ...f
-  }, d) => {
+    ...p
+  }, s) => {
     const c = l || `input-${Math.random().toString(36).substr(2, 9)}`;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1 w-full", children: [
       a && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
@@ -32033,15 +32036,15 @@ const J = m.forwardRef(
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
         i && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-trax-grey-500", children: i }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          $,
+          K,
           {
-            ref: d,
+            ref: s,
             id: c,
             className: o(
               i && "pl-10",
               t
             ),
-            ...f
+            ...p
           }
         )
       ] }),
@@ -32050,8 +32053,8 @@ const J = m.forwardRef(
     ] });
   }
 );
-J.displayName = "FormInput";
-const Ie = m.forwardRef(
+oe.displayName = "FormInput";
+const Be = m.forwardRef(
   ({
     label: t,
     required: a = false,
@@ -32060,19 +32063,19 @@ const Ie = m.forwardRef(
     placeholder: i = "Select an option",
     options: u,
     value: l,
-    onValueChange: f,
-    disabled: d = false,
+    onValueChange: p,
+    disabled: s = false,
     className: c,
-    icon: p,
+    icon: f,
     ...g
-  }, y) => {
-    const C = `select-${Math.random().toString(36).substr(2, 9)}`;
+  }, w) => {
+    const N = `select-${Math.random().toString(36).substr(2, 9)}`;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: o("flex flex-col gap-1 w-full", c), children: [
       t && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           z,
           {
-            htmlFor: C,
+            htmlFor: N,
             className: "text-xs font-medium text-trax-neutral-900",
             children: t
           }
@@ -32080,13 +32083,13 @@ const Ie = m.forwardRef(
         a && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400", children: "*" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-        p && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-trax-grey-500 z-10 pointer-events-none", children: p }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(he, { value: l, onValueChange: f, disabled: d, children: [
+        f && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-trax-grey-500 z-10 pointer-events-none", children: f }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Z, { value: l, onValueChange: p, disabled: s, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            V,
+            A,
             {
-              ref: y,
-              id: C,
+              ref: w,
+              id: N,
               className: o(
                 "h-8 rounded-md px-2 py-1.5 text-sm font-normal w-full",
                 "border border-input bg-white shadow-input",
@@ -32094,13 +32097,13 @@ const Ie = m.forwardRef(
                 "focus:border-primary-200 focus:ring-[3px] focus:ring-focus-ring focus:ring-offset-0",
                 r2 && "border-trax-red-400 focus:border-trax-red-400 focus:ring-trax-red-400/20",
                 !l && "text-muted-foreground",
-                p && "pl-10"
+                f && "pl-10"
               ),
               ...g,
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(ve, { placeholder: i })
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(ee, { placeholder: i })
             }
           ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Y, { children: u.map((w) => /* @__PURE__ */ jsxRuntimeExports.jsx(q, { value: w.value, children: w.label }, w.value)) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(O, { children: u.map((k) => /* @__PURE__ */ jsxRuntimeExports.jsx(G, { value: k.value, children: k.label }, k.value)) })
         ] })
       ] }),
       r2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-red-400", children: r2 }),
@@ -32108,8 +32111,8 @@ const Ie = m.forwardRef(
     ] });
   }
 );
-Ie.displayName = "FormSelect";
-const Re = m.forwardRef(
+Be.displayName = "FormSelect";
+const Le = m.forwardRef(
   ({
     className: t,
     label: a,
@@ -32118,36 +32121,36 @@ const Re = m.forwardRef(
     helperText: i,
     placeholder: u = "Select date",
     value: l,
-    onChange: f,
-    disabled: d = false,
+    onChange: p,
+    disabled: s = false,
     id: c,
-    name: p,
+    name: f,
     minDate: g,
-    maxDate: y,
-    ...C
-  }, w) => {
-    const D = c || `date-picker-${Math.random().toString(36).substr(2, 9)}`, [_, v] = m.useState(false);
+    maxDate: w,
+    ...N
+  }, k) => {
+    const _ = c || `date-picker-${Math.random().toString(36).substr(2, 9)}`, [S, v] = m.useState(false);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1 w-full", children: [
       a && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           z,
           {
-            htmlFor: D,
+            htmlFor: _,
             className: "text-xs font-medium text-trax-neutral-900",
             children: a
           }
         ),
         r2 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400", children: "*" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(Ne, { open: _, onOpenChange: v, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Ce, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(Re, { open: S, onOpenChange: v, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Ie, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           I,
           {
-            ref: w,
-            id: D,
-            name: p,
+            ref: k,
+            id: _,
+            name: f,
             variant: "field",
-            disabled: d,
+            disabled: s,
             className: o(
               "h-8 w-full justify-between rounded-md px-2 py-1.5 text-sm font-normal",
               // default
@@ -32161,7 +32164,7 @@ const Re = m.forwardRef(
               !l && "text-muted-foreground",
               t
             ),
-            ...C,
+            ...N,
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: o(
                 "text-left",
@@ -32171,18 +32174,18 @@ const Re = m.forwardRef(
             ]
           }
         ) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ke, { className: "w-auto p-0 bg-white", align: "start", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          ze,
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Pe, { className: "w-auto p-0 bg-white", align: "start", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Me,
           {
             mode: "single",
             selected: l,
-            onSelect: (N) => {
-              f == null ? void 0 : f(N), v(false);
+            onSelect: (y) => {
+              p == null ? void 0 : p(y), v(false);
             },
-            disabled: (N) => !!(g && N < g || y && N > y),
+            disabled: (y) => !!(g && y < g || w && y > w),
             captionLayout: "label",
             fromYear: (g == null ? void 0 : g.getFullYear()) || 1900,
-            toYear: (y == null ? void 0 : y.getFullYear()) || (/* @__PURE__ */ new Date()).getFullYear() + 10,
+            toYear: (w == null ? void 0 : w.getFullYear()) || (/* @__PURE__ */ new Date()).getFullYear() + 10,
             className: "rounded-lg  border-0",
             classNames: {
               months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 relative",
@@ -32241,19 +32244,19 @@ const Re = m.forwardRef(
     ] });
   }
 );
-Re.displayName = "FormDatePicker";
-const Fe = m.forwardRef(
-  ({ label: t, required: a = false, helperText: r2, error: n, id: i, className: u, ...l }, f) => {
-    const d = m.useId(), c = i ?? `textarea-${d}`;
+Le.displayName = "FormDatePicker";
+const Ae = m.forwardRef(
+  ({ label: t, required: a = false, helperText: r2, error: n, id: i, className: u, ...l }, p) => {
+    const s = m.useId(), c = i ?? `textarea-${s}`;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex w-full flex-col gap-1", children: [
       t && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(z, { htmlFor: c, className: "text-xs font-medium text-trax-neutral-900", children: t }),
         a && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400", children: "*" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
-        H,
+        Q,
         {
-          ref: f,
+          ref: p,
           id: c,
           "aria-invalid": !!n || void 0,
           className: o(
@@ -32267,8 +32270,8 @@ const Fe = m.forwardRef(
     ] });
   }
 );
-Fe.displayName = "FormTextarea";
-const Pe = m.forwardRef(
+Ae.displayName = "FormTextarea";
+const Oe = m.forwardRef(
   ({
     className: t,
     onFileSelect: a,
@@ -32277,37 +32280,37 @@ const Pe = m.forwardRef(
     heading: i = "Drop file here or browse",
     subheading: u = "PNG, JPG, or PDF (max. 5MB)",
     disabled: l = false,
-    ...f
-  }, d) => {
-    const [c, p] = m.useState(false), g = m.useRef(null), y = (v) => {
-      v.preventDefault(), l || p(true);
-    }, C = (v) => {
-      v.preventDefault(), p(false);
-    }, w = (v) => {
-      if (v.preventDefault(), p(false), l) return;
-      const N = v.dataTransfer.files;
-      N && N.length > 0 && (a == null ? void 0 : a(N));
-    }, D = () => {
+    ...p
+  }, s) => {
+    const [c, f] = m.useState(false), g = m.useRef(null), w = (v) => {
+      v.preventDefault(), l || f(true);
+    }, N = (v) => {
+      v.preventDefault(), f(false);
+    }, k = (v) => {
+      if (v.preventDefault(), f(false), l) return;
+      const y = v.dataTransfer.files;
+      y && y.length > 0 && (a == null ? void 0 : a(y));
+    }, _ = () => {
       !l && g.current && g.current.click();
-    }, _ = (v) => {
-      const N = v.target.files;
-      a == null ? void 0 : a(N);
+    }, S = (v) => {
+      const y = v.target.files;
+      a == null ? void 0 : a(y);
     };
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
-        ref: d,
+        ref: s,
         className: o(
           "relative cursor-pointer rounded-t-[56px] rounded-b-[4px] border-2 border-dashed border-trax-teal-200 bg-trax-neutral-10 p-8 transition-colors",
           c && "border-trax-blue-600 bg-trax-blue-600/5",
           l && "cursor-not-allowed opacity-50",
           t
         ),
-        onDragOver: y,
-        onDragLeave: C,
-        onDrop: w,
-        onClick: D,
-        ...f,
+        onDragOver: w,
+        onDragLeave: N,
+        onDrop: k,
+        onClick: _,
+        ...p,
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
@@ -32315,7 +32318,7 @@ const Pe = m.forwardRef(
               ref: g,
               type: "file",
               accept: r2,
-              onChange: _,
+              onChange: S,
               className: "hidden",
               disabled: l
             }
@@ -32335,8 +32338,8 @@ const Pe = m.forwardRef(
     );
   }
 );
-Pe.displayName = "FileUpload";
-const K = m.forwardRef(
+Oe.displayName = "FileUpload";
+const ne = m.forwardRef(
   ({
     className: t,
     title: a,
@@ -32345,8 +32348,8 @@ const K = m.forwardRef(
     required: i = false,
     collapsible: u = false,
     collapsed: l = false,
-    onToggle: f,
-    ...d
+    onToggle: p,
+    ...s
   }, c) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
@@ -32356,8 +32359,8 @@ const K = m.forwardRef(
         u && "cursor-pointer",
         t
       ),
-      onClick: u ? f : void 0,
-      ...d,
+      onClick: u ? p : void 0,
+      ...s,
       children: [
         r2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: o(
           "bg-green-100 p-1.5 rounded",
@@ -32384,8 +32387,8 @@ const K = m.forwardRef(
     }
   )
 );
-K.displayName = "SectionHeader";
-const je = m.forwardRef(
+ne.displayName = "SectionHeader";
+const Ge = m.forwardRef(
   ({
     className: t,
     title: a,
@@ -32394,37 +32397,37 @@ const je = m.forwardRef(
     defaultCollapsed: i = false,
     children: u,
     ...l
-  }, f) => {
-    const [d, c] = m.useState(i);
+  }, p) => {
+    const [s, c] = m.useState(i);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
-        ref: f,
+        ref: p,
         className: o("space-y-4", t),
         ...l,
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            K,
+            ne,
             {
               title: a,
               icon: r2,
               required: n,
               collapsible: true,
-              collapsed: d,
-              onToggle: () => c(!d)
+              collapsed: s,
+              onToggle: () => c(!s)
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: o(
             "transition-all duration-200 ease-in-out overflow-hidden",
-            d ? "max-h-0 opacity-0" : "max-h-none opacity-100"
+            s ? "max-h-0 opacity-0" : "max-h-none opacity-100"
           ), children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: u }) })
         ]
       }
     );
   }
 );
-je.displayName = "CollapsibleSection";
-const Me = m.forwardRef(
+Ge.displayName = "CollapsibleSection";
+const Ue = m.forwardRef(
   ({
     className: t,
     title: a,
@@ -32433,63 +32436,25 @@ const Me = m.forwardRef(
     currency: i = "CAD",
     showAddButton: u = true,
     onAddAllocation: l,
-    onRemoveAllocation: f,
-    ...d
+    onRemoveAllocation: p,
+    ...s
   }, c) => {
-    const p = r2.reduce((g, y) => g + y.percentage, 0);
+    const f = r2.reduce((g, w) => g + w.percentage, 0);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
         ref: c,
         className: o("space-y-4", t),
-        ...d,
+        ...s,
         children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-semibold text-trax-neutral-900 uppercase tracking-wide", children: a }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-trax-neutral-600", children: "Equal Split" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-5 bg-grey-200 rounded-full" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0.5 right-0.5 w-4 h-4 bg-trax-blue-600 rounded-full" })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-medium text-trax-neutral-900", children: [
-                p,
-                "%"
-              ] })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-row items-center justify-center f-full gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(re, { value: f || 3, className: "h-2", indicatorClassName: "bg-trax-neutral-100" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-medium text-trax-neutral-100", children: [
+              f,
+              "%"
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(X, { value: p, className: "h-2" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between text-xs text-trax-neutral-600", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "0%" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "100%" })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: r2.map((g) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between p-3 bg-grey-50 rounded-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(_e, { variant: g.type || "category", children: g.name }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-trax-neutral-600", children: g.name })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm font-medium text-trax-neutral-900", children: [
-                i,
-                " ",
-                g.amount.toFixed(2)
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm text-trax-neutral-600", children: [
-                g.percentage.toFixed(1),
-                "%"
-              ] }),
-              f && /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  onClick: () => f(g.id),
-                  className: "text-grey-400 hover:text-red-500 transition-colors",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx("svg", { className: "w-4 h-4", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M6 18L18 6M6 6l12 12" }) })
-                }
-              )
-            ] })
-          ] }, g.id)) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-row gap-1.5", children: r2.map((g) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between bg-grey-50 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsx(je, { variant: "category", children: g.name }) }, g.id)) }),
           u && l && /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
@@ -32506,8 +32471,8 @@ const Me = m.forwardRef(
     );
   }
 );
-Me.displayName = "CostAllocation";
-function Te(t, a, r2 = "narrow") {
+Ue.displayName = "CostAllocation";
+function $(t, a, r2 = "narrow") {
   var _a;
   return ((_a = new Intl.NumberFormat(a, {
     style: "currency",
@@ -32517,7 +32482,7 @@ function Te(t, a, r2 = "narrow") {
     maximumFractionDigits: 0
   }).formatToParts(1).find((u) => u.type === "currency")) == null ? void 0 : _a.value) ?? t;
 }
-const Le = m.forwardRef(
+const Ve = m.forwardRef(
   ({
     className: t,
     currencyCode: a,
@@ -32526,54 +32491,76 @@ const Le = m.forwardRef(
     startAdornment: i,
     endAdornment: u,
     symbolStyle: l,
-    label: f,
-    required: d = false,
+    label: p,
+    required: s = false,
     error: c,
-    helperText: p,
+    helperText: f,
     id: g,
-    ...y
-  }, C) => {
-    const w = g || `currency-input-${Math.random().toString(36).substr(2, 9)}`, D = r2 ?? (a ? Te(a, n, l) : void 0), _ = i ?? (D ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: D }) : null), v = u ?? (a ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute right-3 top-1/2 -translate-y-1/2 text-xs text-trax-grey-900", "aria-hidden": true, children: a }) : null);
+    enableCurrencySelector: w = false,
+    currencyOptions: N = [],
+    onCurrencyChange: k,
+    ..._
+  }, S) => {
+    const v = g || `currency-input-${Math.random().toString(36).substring(2, 11)}`, y = r2 ?? (a ? $(a, n, l) : void 0), F = i ?? (y ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: y }) : null), j = u ?? (w && N.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute right-2 top-1/2 -translate-y-1/2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Z,
+      {
+        value: a,
+        onValueChange: (C) => {
+          const P = N.find((de) => de.code === C);
+          P && k && k(P);
+        },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(A, { className: "h-6 border-0 shadow-none bg-transparent hover:bg-gray-50 focus:ring-0 focus:ring-offset-0 px-2 py-1 text-xs font-medium text-trax-grey-900", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ee, { children: a }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(O, { children: N.map((C) => {
+            const P = C.symbol ?? $(C.code, C.locale || n, l);
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(G, { value: C.code, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: P }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: C.code })
+            ] }) }, C.code);
+          }) })
+        ]
+      }
+    ) }) : a ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute right-3 top-1/2 -translate-y-1/2 text-xs text-trax-grey-900", "aria-hidden": true, children: a }) : null);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1 w-full", children: [
-      f && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
+      p && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Label$2,
           {
-            htmlFor: w,
+            htmlFor: v,
             className: "text-xs font-medium text-trax-neutral-900",
-            children: f
+            children: p
           }
         ),
-        d && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400 leading-0", children: "*" })
+        s && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-semibold text-trax-red-400 leading-0", children: "*" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          J,
+          oe,
           {
-            ref: C,
-            id: w,
+            ref: S,
+            id: v,
             type: "number",
             step: "0.01",
             min: "0",
             className: o(
               "text-right font-normal",
-              _ && "pl-8",
-              v && "pr-10",
+              F && "pl-8",
+              j && (w ? "pr-16" : "pr-10"),
               t
             ),
-            ...y
+            ..._
           }
         ),
-        _ && _,
-        v && v
+        F && F,
+        j && j
       ] }),
       c && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-red-400", children: c }),
-      p && !c && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-grey-600", children: p })
+      f && !c && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-trax-grey-600", children: f })
     ] });
   }
 );
-Le.displayName = "CurrencyInput";
-const Be = m.forwardRef(
+Ve.displayName = "CurrencyInput";
+const $e = m.forwardRef(
   ({
     children: t,
     onClick: a,
@@ -32582,12 +32569,12 @@ const Be = m.forwardRef(
     variant: i = "primary",
     size: u = "default",
     disabled: l = false,
-    className: f
-  }, d) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    className: p
+  }, s) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
-      ref: d,
-      className: o("inline-flex gap-[1px]", f),
+      ref: s,
+      className: o("inline-flex gap-[1px]", p),
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           I,
@@ -32601,8 +32588,8 @@ const Be = m.forwardRef(
             children: t
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(pe, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(ge, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(ke, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Ce, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             I,
             {
               disabled: l,
@@ -32612,8 +32599,8 @@ const Be = m.forwardRef(
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "size-4" })
             }
           ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(xe, { align: "end", className: "min-w-[200px]", children: r2.map((c, p) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            be,
+          /* @__PURE__ */ jsxRuntimeExports.jsx(De, { align: "end", className: "min-w-[200px]", children: r2.map((c, f) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            _e,
             {
               onClick: c.onClick,
               className: "flex items-center gap-2",
@@ -32622,19 +32609,19 @@ const Be = m.forwardRef(
                 c.label
               ]
             },
-            p
+            f
           )) })
         ] })
       ]
     }
   )
 );
-Be.displayName = "SplitButton";
-const _t = Root$4, Oe = Portal$3, Q = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+$e.displayName = "SplitButton";
+const jt = Root$4, He = Portal$3, se = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Overlay,
   {
     ref: r2,
-    className: k(
+    className: D(
       "fixed inset-0 z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       t
     ),
@@ -32646,14 +32633,14 @@ const _t = Root$4, Oe = Portal$3, Q = m.forwardRef(({ className: t, ...a }, r2) 
     ...a
   }
 ));
-Q.displayName = Overlay.displayName;
-const Ae = m.forwardRef(({ className: t, children: a, showCloseButton: r2 = true, ...n }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(Oe, { children: [
-  /* @__PURE__ */ jsxRuntimeExports.jsx(Q, {}),
+se.displayName = Overlay.displayName;
+const Ee = m.forwardRef(({ className: t, children: a, showCloseButton: r2 = true, ...n }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(He, { children: [
+  /* @__PURE__ */ jsxRuntimeExports.jsx(se, {}),
   /* @__PURE__ */ jsxRuntimeExports.jsxs(
     Content$1,
     {
       ref: i,
-      className: k(
+      className: D(
         "fixed left-[50%] top-[50%] z-50 w-full max-w-[733px] translate-x-[-50%] translate-y-[-50%] rounded-[16px] bg-white p-8 shadow-[0px_8px_16px_0px_rgba(8,34,60,0.16)] duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         t
       ),
@@ -32668,7 +32655,7 @@ const Ae = m.forwardRef(({ className: t, children: a, showCloseButton: r2 = true
           {
             className: "absolute right-6 top-6 opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none",
             children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(X$1, { className: "h-6 w-6" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-6 w-6" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: "Close" })
             ]
           }
@@ -32677,8 +32664,8 @@ const Ae = m.forwardRef(({ className: t, children: a, showCloseButton: r2 = true
     }
   )
 ] }));
-Ae.displayName = Content$1.displayName;
-const Ge = ({
+Ee.displayName = Content$1.displayName;
+const We = ({
   className: t,
   ...a
 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -32691,8 +32678,8 @@ const Ge = ({
     ...a
   }
 );
-Ge.displayName = "CustomDialogHeader";
-const Ue = ({
+We.displayName = "CustomDialogHeader";
+const Ye = ({
   className: t,
   ...a
 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -32705,8 +32692,8 @@ const Ue = ({
     ...a
   }
 );
-Ue.displayName = "CustomDialogFooter";
-const $e = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+Ye.displayName = "CustomDialogFooter";
+const Xe = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Title,
   {
     ref: r2,
@@ -32717,8 +32704,8 @@ const $e = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRunti
     ...a
   }
 ));
-$e.displayName = Title.displayName;
-const He = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+Xe.displayName = Title.displayName;
+const qe = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Description,
   {
     ref: r2,
@@ -32726,7 +32713,7 @@ const He = m.forwardRef(({ className: t, ...a }, r2) => /* @__PURE__ */ jsxRunti
     ...a
   }
 ));
-He.displayName = Description.displayName;
+qe.displayName = Description.displayName;
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -32904,7 +32891,7 @@ const Header = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("header", { className: "bg-white border-b border-gray-200 shadow-sm", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-6 py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex justify-between items-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/expenses", className: "text-2xl font-bold !text-exp-blue-500", children: "Expenses" }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Be,
+      $e,
       {
         variant: "primary",
         size: "sm",
@@ -32945,10 +32932,10 @@ const Layout = () => {
 };
 const { lazy, Suspense } = await importShared("react");
 const LoadingSpinner = () => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center min-h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
-const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-BMM7nQ_t.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpensePage = lazy(() => __vitePreload(() => import("./NewExpensePage-BIvMXKja.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const SettingsPage = lazy(() => __vitePreload(() => import("./SettingsPage-EaabvGD9.js"), true ? [] : void 0, import.meta.url));
-const ReportsPage = lazy(() => __vitePreload(() => import("./ReportsPage-Cj-NMKKT.js"), true ? [] : void 0, import.meta.url));
+const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-D-zcSmbQ.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpensePage = lazy(() => __vitePreload(() => import("./NewExpensePage-DEFG-MLN.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
+const SettingsPage = lazy(() => __vitePreload(() => import("./SettingsPage-OUEesoTI.js"), true ? [] : void 0, import.meta.url));
+const ReportsPage = lazy(() => __vitePreload(() => import("./ReportsPage-CuGsrDFz.js"), true ? [] : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: "/",
@@ -33091,30 +33078,30 @@ const bootstrap = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   unmount
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  $e as $,
   Ae as A,
+  Be as B,
   ChartColumn as C,
+  Ee as E,
   FileText as F,
-  Ge as G,
-  Ie as I,
-  J,
-  K,
+  I,
   Le as L,
-  Me as M,
-  Re as R,
   Settings as S,
   Ue as U,
-  Ze as Z,
-  _t as _,
-  Fe as a,
-  I as b,
+  Ve as V,
+  We as W,
+  Xe as X,
+  Ye as Y,
+  ct as a,
+  nt as b,
   createLucideIcon as c,
-  bootstrap as d,
-  et as e,
+  dt as d,
+  jt as e,
+  bootstrap as f,
   jsxRuntimeExports as j,
   mount,
-  ot as o,
-  tt as t,
+  ne as n,
+  oe as o,
+  st as s,
   useNavigate as u,
   unmount
 };

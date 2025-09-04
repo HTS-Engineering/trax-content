@@ -1,5 +1,5 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, e as et, t as tt, K, F as FileText, o as ot, I as Ie, J, R as Re, L as Le, Z as Ze, a as Fe, C as ChartColumn, M as Me, u as useNavigate, _ as _t, A as Ae, G as Ge, $ as $e, b as I, U as Ue } from "./__federation_expose_Mount-B-4As_8k.js";
-import { E as ExpensesList } from "./ExpensesList-BJ8W7qp1.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, u as useNavigate, e as jt, E as Ee, W as We, X as Xe, I, Y as Ye } from "./__federation_expose_Mount-Bmy6dmCZ.js";
+import { E as ExpensesList } from "./ExpensesList-QIQLiagS.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 /**
  * @license lucide-react v0.542.0 - ISC
@@ -7,16 +7,39 @@ import { importShared } from "./__federation_fn_import-CFnudcB9.js";
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$4 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$4);
+const __iconNode$6 = [
+  ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
+  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
+  ["path", { d: "M6 12h.01M18 12h.01", key: "113zkx" }]
+];
+const Banknote = createLucideIcon("banknote", __iconNode$6);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$3 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$3);
+const __iconNode$5 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$5);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$4 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$4);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$3 = [
+  ["rect", { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" }],
+  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
+];
+const CreditCard = createLucideIcon("credit-card", __iconNode$3);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -87,22 +110,29 @@ const ExpenseForm = ({ onSubmit }) => {
     {
       id: "1",
       name: "Project",
-      percentage: 50,
-      amount: 35.8,
+      percentage: 0,
+      amount: 0,
       type: "project"
     },
     {
       id: "2",
       name: "Admin",
-      percentage: 25,
-      amount: 17.9,
+      percentage: 0,
+      amount: 0,
       type: "admin"
     },
     {
       id: "3",
-      name: "CCR Team",
-      percentage: 25,
-      amount: 17.9,
+      name: "CCB Team",
+      percentage: 0,
+      amount: 0,
+      type: "team"
+    },
+    {
+      id: "4",
+      name: "CCB Rep",
+      percentage: 0,
+      amount: 0,
       type: "team"
     }
   ]);
@@ -117,8 +147,14 @@ const ExpenseForm = ({ onSubmit }) => {
     { value: "other", label: "Other" }
   ];
   const paymentMethodOptions = [
-    { value: "ca6252", label: "CA****6252" },
-    { value: "ca1234", label: "CA****1234" },
+    { value: "ca6252", label: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(CreditCard, { className: "size-5 text-trax-neutral-1000" }),
+      "CA****6252"
+    ] }) },
+    { value: "ca1234", label: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Banknote, { className: "size-5 text-exp-yellow-y-700" }),
+      "CA****1234"
+    ] }) },
     { value: "cash", label: "Cash" },
     { value: "personal", label: "Personal Card" }
   ];
@@ -128,19 +164,43 @@ const ExpenseForm = ({ onSubmit }) => {
     { value: "alberta", label: "Alberta, Canada" },
     { value: "quebec", label: "Quebec, Canada" }
   ];
+  const currencyOptions = [
+    { code: "USD", locale: "en-US" },
+    { code: "CAD", locale: "en-CA" },
+    { code: "EUR", locale: "de-DE" }
+  ];
+  const [formCurrencyData, setCurrencyFormData] = useState({
+    netAmount: "",
+    totalAmount: "",
+    netCurrency: { code: "USD", locale: "en-US" },
+    totalCurrency: { code: "CAD", locale: "en-CA" }
+  });
+  const [isDifferentCurrency, setEnableSelector] = useState(false);
+  const handleCurrencyInputChange = (field, value) => {
+    setCurrencyFormData((prev) => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+  const handleCurrencyChange = (field, currency) => {
+    setCurrencyFormData((prev) => ({
+      ...prev,
+      [field]: currency
+    }));
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(et, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(tt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        K,
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(st, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(dt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ne,
         {
           title: "EXPENSE DETAILS",
           icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-4 h-4 text-trax-neutral-950" }),
           required: true
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ot, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ct, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Ie,
+          Be,
           {
             label: "Expense type",
             placeholder: "Select expense type",
@@ -150,7 +210,7 @@ const ExpenseForm = ({ onSubmit }) => {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          J,
+          oe,
           {
             label: "Vendor",
             placeholder: "Enter vendor name",
@@ -159,7 +219,7 @@ const ExpenseForm = ({ onSubmit }) => {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Re,
+          Le,
           {
             label: "Expense date",
             placeholder: "Select date expense incurred",
@@ -168,7 +228,7 @@ const ExpenseForm = ({ onSubmit }) => {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Ie,
+          Be,
           {
             label: "Expense location",
             placeholder: "Select location",
@@ -178,47 +238,53 @@ const ExpenseForm = ({ onSubmit }) => {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Ie,
+          Be,
           {
             label: "Payment method",
             placeholder: "Select payment method",
             options: paymentMethodOptions,
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "w-4 h-4 text-trax-neutral-950" }),
             value: formData.paymentMethod,
             onValueChange: (value) => handleInputChange("paymentMethod", value)
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Le,
+            Ve,
             {
-              label: "HST/GST Amount",
+              label: isDifferentCurrency ? "Total (foreign)" : "NET/HST Amount",
               placeholder: "0.00",
-              currencyCode: "USD",
-              locale: "en-US",
+              currencyCode: formCurrencyData.netCurrency.code,
+              locale: formCurrencyData.netCurrency.locale,
               symbolStyle: "narrow",
-              value: formData.netAmount,
-              onChange: (e) => handleInputChange("netAmount", e.target.value)
+              value: formCurrencyData.netAmount,
+              onChange: (e) => handleCurrencyInputChange("netAmount", e.target.value),
+              enableCurrencySelector: isDifferentCurrency,
+              currencyOptions,
+              onCurrencyChange: (currency) => handleCurrencyChange("netCurrency", currency)
             }
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Le,
+            Ve,
             {
-              label: "Total (including taxes)",
+              label: isDifferentCurrency ? "Total (converted)" : "Total (including taxes)",
               placeholder: "0.00",
-              currencyCode: "CAD",
+              currencyCode: formCurrencyData.totalCurrency.code,
+              locale: formCurrencyData.totalCurrency.locale,
               symbolStyle: "narrow",
-              value: formData.totalAmount,
-              onChange: (e) => handleInputChange("totalAmount", e.target.value)
+              value: formCurrencyData.totalAmount,
+              onChange: (e) => handleCurrencyInputChange("totalAmount", e.target.value),
+              enableCurrencySelector: isDifferentCurrency,
+              currencyOptions,
+              onCurrencyChange: (currency) => handleCurrencyChange("totalCurrency", currency)
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Ze, { label: "Expense made in a different currency" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(nt, { label: "Expense made in a different currency", checked: isDifferentCurrency, onCheckedChange: (checked) => setEnableSelector(checked) })
       ] }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(et, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(tt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        K,
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(st, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(dt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ne,
         {
           iconClassName: "bg-trax-blue-100",
           title: "EXPENSE JUSTIFICATION",
@@ -226,9 +292,9 @@ const ExpenseForm = ({ onSubmit }) => {
           required: true
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ot, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ct, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Ie,
+          Be,
           {
             label: "Business purpose",
             placeholder: "Specify what this expense was for",
@@ -238,7 +304,7 @@ const ExpenseForm = ({ onSubmit }) => {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Fe,
+          Ae,
           {
             label: "Expense description",
             placeholder: "Describe what was purchased",
@@ -248,7 +314,7 @@ const ExpenseForm = ({ onSubmit }) => {
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Fe,
+          Ae,
           {
             label: "Persons entertained",
             placeholder: "Enter the full names of clients/guests entertained",
@@ -259,9 +325,9 @@ const ExpenseForm = ({ onSubmit }) => {
         )
       ] }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(et, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(tt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        K,
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(st, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(dt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ne,
         {
           iconClassName: "bg-trax-yellow-600",
           title: "COST ALLOCATION",
@@ -269,12 +335,13 @@ const ExpenseForm = ({ onSubmit }) => {
           required: true
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ot, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Me,
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ct, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Ue,
         {
           allocations,
           totalAmount: 71.6,
           currency: "CAD",
+          showAddButton: false,
           onAddAllocation: () => {
             console.log("Add allocation clicked");
           },
@@ -284,9 +351,9 @@ const ExpenseForm = ({ onSubmit }) => {
         }
       ) }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(et, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(tt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        K,
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(st, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(dt, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ne,
         {
           iconClassName: "bg-trax-violet-100",
           title: "ADDITIONAL COMMENTS",
@@ -294,8 +361,8 @@ const ExpenseForm = ({ onSubmit }) => {
           required: true
         }
       ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ot, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        Fe,
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ct, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Ae,
         {
           placeholder: "Add any additional comments...",
           rows: 1,
@@ -327,9 +394,9 @@ const NewExpensePage = () => {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesList, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(_t, { open: true, onOpenChange: handleOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Ae, { className: "max-w-4xl max-h-[90vh] overflow-hidden flex flex-col", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Ge, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-2 relative", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx($e, { className: "text-exp-neutral-950", children: "New Expense" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(jt, { open: true, onOpenChange: handleOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Ee, { className: "max-w-4xl max-h-[90vh] overflow-hidden flex flex-col", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(We, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-2 relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Xe, { className: "text-exp-neutral-950", children: "New Expense" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-7 top-[-24px] flex flex-nowrap", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(I, { variant: "outlined", iconPosition: "center", className: "text-exp-neutral-70 hover:text-exp-neutral-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "size-5" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(I, { variant: "outlined", iconPosition: "center", className: "text-exp-neutral-70 hover:text-exp-neutral-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "size-5" }) })
@@ -337,7 +404,7 @@ const NewExpensePage = () => {
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "flex-1 overflow-y-auto flex flex-col", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto py-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpenseForm, { onSubmit: handleSubmit }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(Ue, { className: "pt-4 gap-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(Ye, { className: "pt-4 gap-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(I, { type: "button", variant: "outlined", onClick: handleClick, children: "Save Draft" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(I, { type: "submit", variant: "primary", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "size-5" }),

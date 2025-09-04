@@ -1,4 +1,4 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, e as et } from "./__federation_expose_Mount-B-4As_8k.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, s as st } from "./__federation_expose_Mount-Bmy6dmCZ.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -15,7 +15,7 @@ const __iconNode = [
 ];
 const Receipt = createLucideIcon("receipt", __iconNode);
 const ExpensesList = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(et, { className: "p-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-gray-500", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(st, { className: "p-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-gray-500", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Receipt, { className: "w-12 h-12 mx-auto mb-4 text-gray-400" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg font-medium", children: "No expenses yet" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm mt-2", children: 'Click "New Expense" to add your first expense' })
