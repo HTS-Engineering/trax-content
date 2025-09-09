@@ -1,5 +1,5 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, u as useNavigate, e as jt, E as Ee, W as We, X as Xe, I, Y as Ye } from "./__federation_expose_Mount-Cxu65dEw.js";
-import { E as ExpensesList } from "./ExpensesList-E6csSPnD.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, e as CreditCard, u as useNavigate, f as jt, E as Ee, W as We, X as Xe, I, g as ChevronRight, Y as Ye, R as RoutePaths } from "./__federation_expose_Mount-lVT4YM6Q.js";
+import { E as ExpensesList } from "./ExpensesList-iJ8E3aAL.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 /**
  * @license lucide-react v0.542.0 - ISC
@@ -7,39 +7,20 @@ import { importShared } from "./__federation_fn_import-CFnudcB9.js";
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$6 = [
+const __iconNode$4 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
   ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
   ["path", { d: "M6 12h.01M18 12h.01", key: "113zkx" }]
 ];
-const Banknote = createLucideIcon("banknote", __iconNode$6);
+const Banknote = createLucideIcon("banknote", __iconNode$4);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$5 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$5);
-/**
- * @license lucide-react v0.542.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$4 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$4);
-/**
- * @license lucide-react v0.542.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$3 = [
-  ["rect", { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" }],
-  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
-];
-const CreditCard = createLucideIcon("credit-card", __iconNode$3);
+const __iconNode$3 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$3);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -92,8 +73,7 @@ const __iconNode = [
 ];
 const Send = createLucideIcon("send", __iconNode);
 const { useState } = await importShared("react");
-const ExpenseForm = ({ onSubmit }) => {
-  console.log("onSubmit", onSubmit);
+const ExpenseForm = (_) => {
   const [formData, setFormData] = useState({
     [
       "expenseType"
@@ -412,11 +392,11 @@ const NewExpensePage = () => {
   const handleSubmit = (e) => {
     e == null ? void 0 : e.preventDefault();
     console.log("Expense submitted");
-    navigate("/expenses");
+    navigate(RoutePaths.Expenses);
   };
   const handleOpenChange = (open) => {
     if (!open) {
-      navigate("/expenses");
+      navigate(RoutePaths.Expenses);
     }
   };
   const handleClick = (e) => {
