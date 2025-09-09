@@ -1,6 +1,6 @@
-import { S as Subscribable, p as shallowEqualObjects, q as hashKey, r as getDefaultState, t as notifyManager, v as useQueryClient, w as noop, x as shouldThrowError, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner } from "./__federation_expose_Mount-lVT4YM6Q.js";
+import { S as Subscribable, p as shallowEqualObjects, q as hashKey, r as getDefaultState, t as notifyManager, v as useQueryClient, w as noop, x as shouldThrowError, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner } from "./__federation_expose_Mount-eg6rHv_b.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { u as useExpenseStore, F as ForwardRef$1, a as ForwardRef$2, b as ForwardRef$3, c as ForwardRef$4, d as ForwardRef$5 } from "./XCircleIcon-DXgUexzJ.js";
+import { u as useExpenseStore, F as ForwardRef$1, a as ForwardRef$2, b as ForwardRef$3, c as ForwardRef$4, d as ForwardRef$5 } from "./XCircleIcon-B88oo_Sx.js";
 var MutationObserver = class extends Subscribable {
   #client;
   #currentResult = void 0;
@@ -231,7 +231,7 @@ const BusinessPurposeTable = () => {
   const [pageSize, setPageSize] = useState(15);
   const processedData = useMemo(() => {
     if (!businessPurposes) return [];
-    let filtered = [...Array.isArray(businessPurposes) ? businessPurposes : []];
+    const filtered = [...Array.isArray(businessPurposes) ? businessPurposes : []];
     filtered.sort((a, b) => {
       const aValue = a[sortField];
       const bValue = b[sortField];

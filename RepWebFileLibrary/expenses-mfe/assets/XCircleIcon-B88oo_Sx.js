@@ -1,4 +1,4 @@
-import { y as create, z as devtools, D as subscribeWithSelector, G as immer } from "./__federation_expose_Mount-lVT4YM6Q.js";
+import { y as create, z as devtools, D as subscribeWithSelector, G as immer } from "./__federation_expose_Mount-eg6rHv_b.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 const initialState = () => ({
   expenseTypes: [],

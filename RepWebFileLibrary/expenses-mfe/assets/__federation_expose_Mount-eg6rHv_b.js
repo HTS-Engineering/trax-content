@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/Expenses-C6oVypy1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-iJ8E3aAL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Expense-DOh8KSEB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesType-BGbNhUv7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/XCircleIcon-DXgUexzJ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-SHEV7wcb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-CTxXy3UN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-DQ2k4CX0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-B2WTvYPX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseTypePage-BD-tsZBe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/XCircleIcon-B88oo_Sx.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurposePage-CwUOAnNz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-Be6eT6eU.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
@@ -33226,6 +33226,12 @@ const NavigationSidebar = ({
     });
     return defaultExpanded;
   });
+  const handleExpandClick = (label) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    toggleExpanded(label);
+  };
   const toggleExpanded = useCallback$1((label) => {
     setExpandedItems((prev) => {
       const newExpanded = new Set(prev);
@@ -33237,6 +33243,12 @@ const NavigationSidebar = ({
       return newExpanded;
     });
   }, []);
+  const handleExpandSectionClick = (sectionId) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    toggleSection(sectionId);
+  };
   const toggleSection = useCallback$1((sectionId) => {
     setExpandedSections((prev) => {
       const newExpanded = new Set(prev);
@@ -33267,10 +33279,11 @@ const NavigationSidebar = ({
     const navPath = getCompanyNavigationPath(item.path, selectedCompany);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: hasChildren ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "button",
+        I,
         {
-          onClick: () => toggleExpanded(String(item.label)),
-          className: `w-full flex items-center justify-between px-2 py-1.5 text-left hover:bg-gray-100 transition-colors ${level > 0 ? "pl-8" : ""}`,
+          variant: "outlined",
+          onClick: handleExpandClick(String(item.label)),
+          className: `w-full cursor-pointer flex items-center justify-between px-2 py-1.5 text-left hover:bg-gray-100 transition-colors ${level > 0 ? "pl-8" : ""}`,
           type: "button",
           "aria-expanded": isExpanded,
           "aria-label": `Toggle ${item.label} menu`,
@@ -33341,10 +33354,10 @@ const NavigationSidebar = ({
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         I,
         {
-          onClick: () => toggleSection(section.id),
+          onClick: handleExpandSectionClick(section.id),
           variant: "outlined",
           iconPosition: "center",
-          className: "w-full flex items-center justify-start px-3 py-2 !pl-0 hover:bg-gray-100 transition-colors rounded-lg",
+          className: "w-full cursor-pointer flex items-center justify-start px-3 py-2 !pl-0 hover:bg-gray-100 transition-colors rounded-lg",
           "aria-expanded": isExpanded,
           "aria-label": `Toggle ${section.label} section`,
           children: [
@@ -39466,14 +39479,14 @@ const Layout = () => {
 };
 const LoadingSpinner = ({ className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex items-center justify-center ${className}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
 const { Suspense, lazy } = await importShared("react");
-const ExpensesPage = lazy(() => __vitePreload(() => import("./Expenses-C6oVypy1.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpensePage = lazy(() => __vitePreload(() => import("./Expense-DOh8KSEB.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const ConfigurationsPage = lazy(() => __vitePreload(() => import("./Configurations-CXiQFWIc.js"), true ? [] : void 0, import.meta.url));
-const CorporateCardsPage = lazy(() => __vitePreload(() => import("./CorporateCards-BpEk-_cp.js"), true ? [] : void 0, import.meta.url));
-const PayrollPage = lazy(() => __vitePreload(() => import("./Payroll-BPxXmix-.js"), true ? [] : void 0, import.meta.url));
-const AllocationsPage = lazy(() => __vitePreload(() => import("./Allocations-YnMv2vqG.js"), true ? [] : void 0, import.meta.url));
-const ExpensesTypePage = lazy(() => __vitePreload(() => import("./ExpensesType-BGbNhUv7.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
-const BusinessPurposePage = lazy(() => __vitePreload(() => import("./BusinessPurpose-SHEV7wcb.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
+const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-CTxXy3UN.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpensePage = lazy(() => __vitePreload(() => import("./ExpensePage-B2WTvYPX.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
+const ConfigurationsPage = lazy(() => __vitePreload(() => import("./ConfigurationsPage-DWbIve_y.js"), true ? [] : void 0, import.meta.url));
+const CorporateCardsPage = lazy(() => __vitePreload(() => import("./CorporateCardsPage-CNyU314X.js"), true ? [] : void 0, import.meta.url));
+const PayrollPage = lazy(() => __vitePreload(() => import("./PayrollPage-yfVnkrJZ.js"), true ? [] : void 0, import.meta.url));
+const AllocationsPage = lazy(() => __vitePreload(() => import("./AllocationsPage-Dc2lO9ml.js"), true ? [] : void 0, import.meta.url));
+const ExpensesTypePage = lazy(() => __vitePreload(() => import("./ExpenseTypePage-BD-tsZBe.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
+const BusinessPurposePage = lazy(() => __vitePreload(() => import("./BusinessPurposePage-CwUOAnNz.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,

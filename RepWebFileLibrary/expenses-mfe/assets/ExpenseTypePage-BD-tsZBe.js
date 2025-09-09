@@ -1,6 +1,6 @@
-import { c as createLucideIcon, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner, I } from "./__federation_expose_Mount-lVT4YM6Q.js";
+import { c as createLucideIcon, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner, I } from "./__federation_expose_Mount-eg6rHv_b.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { u as useExpenseStore, F as ForwardRef, a as ForwardRef$1, b as ForwardRef$2, c as ForwardRef$3, d as ForwardRef$4 } from "./XCircleIcon-DXgUexzJ.js";
+import { u as useExpenseStore, F as ForwardRef, a as ForwardRef$1, b as ForwardRef$2, c as ForwardRef$3, d as ForwardRef$4 } from "./XCircleIcon-B88oo_Sx.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -57,7 +57,7 @@ const ExpenseTypeTable = () => {
   const [pageSize, setPageSize] = useState(10);
   const processedData = useMemo(() => {
     if (!expenseTypes) return [];
-    let filtered = [...Array.isArray(expenseTypes) ? expenseTypes : []];
+    const filtered = [...Array.isArray(expenseTypes) ? expenseTypes : []];
     filtered.sort((a, b) => {
       const aValue = a[sortField];
       const bValue = b[sortField];
