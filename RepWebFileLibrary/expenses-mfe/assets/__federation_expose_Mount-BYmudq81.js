@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-CTxXy3UN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-DQ2k4CX0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-B2WTvYPX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseTypePage-BD-tsZBe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/XCircleIcon-B88oo_Sx.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurposePage-CwUOAnNz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-DU3mN1TN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-A4qrugT-.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-CjCMStLL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-DzZYvBYb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-CWhTJceI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BB_Vwo0o.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-Be6eT6eU.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
@@ -39479,14 +39479,14 @@ const Layout = () => {
 };
 const LoadingSpinner = ({ className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex items-center justify-center ${className}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
 const { Suspense, lazy } = await importShared("react");
-const ExpensesPage = lazy(() => __vitePreload(() => import("./ExpensesPage-CTxXy3UN.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpensePage = lazy(() => __vitePreload(() => import("./ExpensePage-B2WTvYPX.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const ConfigurationsPage = lazy(() => __vitePreload(() => import("./ConfigurationsPage-DWbIve_y.js"), true ? [] : void 0, import.meta.url));
-const CorporateCardsPage = lazy(() => __vitePreload(() => import("./CorporateCardsPage-CNyU314X.js"), true ? [] : void 0, import.meta.url));
-const PayrollPage = lazy(() => __vitePreload(() => import("./PayrollPage-yfVnkrJZ.js"), true ? [] : void 0, import.meta.url));
-const AllocationsPage = lazy(() => __vitePreload(() => import("./AllocationsPage-Dc2lO9ml.js"), true ? [] : void 0, import.meta.url));
-const ExpensesTypePage = lazy(() => __vitePreload(() => import("./ExpenseTypePage-BD-tsZBe.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
-const BusinessPurposePage = lazy(() => __vitePreload(() => import("./BusinessPurposePage-CwUOAnNz.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
+const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-DU3mN1TN.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-CjCMStLL.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
+const Configurations = lazy(() => __vitePreload(() => import("./Configurations-lzRT482E.js"), true ? [] : void 0, import.meta.url));
+const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-sgWYUb2K.js"), true ? [] : void 0, import.meta.url));
+const Payroll = lazy(() => __vitePreload(() => import("./Payroll-dOBMIVBz.js"), true ? [] : void 0, import.meta.url));
+const Allocations = lazy(() => __vitePreload(() => import("./Allocations-B3V2fyxg.js"), true ? [] : void 0, import.meta.url));
+const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-DzZYvBYb.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
+const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-BB_Vwo0o.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -39494,48 +39494,48 @@ const router = createHashRouter([
     children: [
       {
         index: true,
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesPage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(Expenses, {})
       },
       {
         path: RoutePaths.Expenses.slice(1),
         // Remove leading slash for nested routes
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesPage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(Expenses, {})
       },
       {
         path: RoutePaths.ExpensesNew.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(NewExpensePage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(NewExpense, {})
       },
       {
         path: RoutePaths.Configurations.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ConfigurationsPage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(Configurations, {})
       },
       {
         path: RoutePaths.CorporateCards.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(CorporateCardsPage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(CorporateCards, {})
       },
       {
         path: RoutePaths.Payroll.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(PayrollPage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(Payroll, {})
       },
       {
         path: RoutePaths.Allocations.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(AllocationsPage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(Allocations, {})
       },
       {
         path: RoutePaths.ExpensesType.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesTypePage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesType, {})
       },
       {
         path: RoutePaths.BusinessPurpose.slice(1),
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(BusinessPurposePage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(BusinessPurpose, {})
       },
       {
         path: RoutePaths.ExpensesTypeId,
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesTypePage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesType, {})
       },
       {
         path: RoutePaths.BusinessPurposeId,
-        element: /* @__PURE__ */ jsxRuntimeExports.jsx(BusinessPurposePage, {})
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(BusinessPurpose, {})
       }
     ]
   }

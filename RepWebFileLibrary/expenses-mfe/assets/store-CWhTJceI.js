@@ -1,5 +1,66 @@
-import { y as create, z as devtools, D as subscribeWithSelector, G as immer } from "./__federation_expose_Mount-eg6rHv_b.js";
-import { importShared } from "./__federation_fn_import-CFnudcB9.js";
+import { c as createLucideIcon, y as create, z as devtools, D as subscribeWithSelector, G as immer } from "./__federation_expose_Mount-BYmudq81.js";
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$4 = [
+  ["path", { d: "M12 5v14", key: "s699le" }],
+  ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
+];
+const ArrowDown = createLucideIcon("arrow-down", __iconNode$4);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$3 = [
+  ["path", { d: "m5 12 7-7 7 7", key: "hav0vg" }],
+  ["path", { d: "M12 19V5", key: "x0mq9r" }]
+];
+const ArrowUp = createLucideIcon("arrow-up", __iconNode$3);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$2 = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$2);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$1 = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m15 9-6 6", key: "1uzhvr" }],
+  ["path", { d: "m9 9 6 6", key: "z0biqf" }]
+];
+const CircleX = createLucideIcon("circle-x", __iconNode$1);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode = [
+  [
+    "path",
+    {
+      d: "M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z",
+      key: "1a8usu"
+    }
+  ],
+  ["path", { d: "m15 5 4 4", key: "1mk7zo" }]
+];
+const Pencil = createLucideIcon("pencil", __iconNode);
 const initialState = () => ({
   expenseTypes: [],
   selectedExpenseType: null,
@@ -128,136 +189,11 @@ const useExpenseStore = create()(
     }
   )
 );
-const React$4 = await importShared("react");
-function ArrowDownIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React$4.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    "data-slot": "icon",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React$4.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React$4.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
-  }));
-}
-const ForwardRef$4 = /* @__PURE__ */ React$4.forwardRef(ArrowDownIcon);
-const React$3 = await importShared("react");
-function ArrowUpIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React$3.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    "data-slot": "icon",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React$3.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React$3.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18"
-  }));
-}
-const ForwardRef$3 = /* @__PURE__ */ React$3.forwardRef(ArrowUpIcon);
-const React$2 = await importShared("react");
-function CheckCircleIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React$2.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    "data-slot": "icon",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React$2.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React$2.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-  }));
-}
-const ForwardRef$2 = /* @__PURE__ */ React$2.forwardRef(CheckCircleIcon);
-const React$1 = await importShared("react");
-function PencilIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React$1.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    "data-slot": "icon",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React$1.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React$1.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
-  }));
-}
-const ForwardRef$1 = /* @__PURE__ */ React$1.forwardRef(PencilIcon);
-const React = await importShared("react");
-function XCircleIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    "data-slot": "icon",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-  }));
-}
-const ForwardRef = /* @__PURE__ */ React.forwardRef(XCircleIcon);
 export {
-  ForwardRef$3 as F,
-  ForwardRef$4 as a,
-  ForwardRef$2 as b,
-  ForwardRef as c,
-  ForwardRef$1 as d,
+  ArrowUp as A,
+  CircleCheckBig as C,
+  Pencil as P,
+  ArrowDown as a,
+  CircleX as b,
   useExpenseStore as u
 };

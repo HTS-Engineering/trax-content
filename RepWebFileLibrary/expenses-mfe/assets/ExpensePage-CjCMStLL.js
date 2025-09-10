@@ -1,5 +1,5 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, e as CreditCard, u as useNavigate, f as jt, E as Ee, W as We, X as Xe, I, g as ChevronRight, Y as Ye, R as RoutePaths } from "./__federation_expose_Mount-eg6rHv_b.js";
-import { E as ExpensesList } from "./ExpensesList-DQ2k4CX0.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, s as st, d as dt, n as ne, F as FileText, a as ct, B as Be, o as oe, L as Le, V as Ve, b as nt, A as Ae, C as ChartColumn, U as Ue, e as CreditCard, u as useNavigate, f as jt, E as Ee, W as We, X as Xe, I, g as ChevronRight, Y as Ye, R as RoutePaths } from "./__federation_expose_Mount-BYmudq81.js";
+import { E as ExpensesList } from "./ExpensesList-A4qrugT-.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 /**
  * @license lucide-react v0.542.0 - ISC

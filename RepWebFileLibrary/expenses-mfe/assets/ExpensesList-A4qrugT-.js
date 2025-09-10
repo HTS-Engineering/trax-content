@@ -1,4 +1,4 @@
-import { j as jsxRuntimeExports, s as st, h as Receipt } from "./__federation_expose_Mount-eg6rHv_b.js";
+import { j as jsxRuntimeExports, s as st, h as Receipt } from "./__federation_expose_Mount-BYmudq81.js";
 const ExpensesList = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(st, { className: "p-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-gray-500", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Receipt, { className: "w-12 h-12 mx-auto mb-4 text-gray-400" }),

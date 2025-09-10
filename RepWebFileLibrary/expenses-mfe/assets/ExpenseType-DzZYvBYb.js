@@ -1,6 +1,6 @@
-import { c as createLucideIcon, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner, I } from "./__federation_expose_Mount-eg6rHv_b.js";
+import { c as createLucideIcon, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner, I } from "./__federation_expose_Mount-BYmudq81.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { u as useExpenseStore, F as ForwardRef, a as ForwardRef$1, b as ForwardRef$2, c as ForwardRef$3, d as ForwardRef$4 } from "./XCircleIcon-B88oo_Sx.js";
+import { u as useExpenseStore, A as ArrowUp, a as ArrowDown, C as CircleCheckBig, b as CircleX, P as Pencil } from "./store-CWhTJceI.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -130,7 +130,7 @@ const ExpenseTypeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Type",
-                sortField === "type" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }))
+                sortField === "type" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -142,7 +142,7 @@ const ExpenseTypeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Form Type",
-                sortField === "formType" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }))
+                sortField === "formType" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -154,7 +154,7 @@ const ExpenseTypeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Status",
-                sortField === "isActive" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }))
+                sortField === "isActive" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -165,7 +165,7 @@ const ExpenseTypeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Modified",
-                sortField === "modified" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }))
+                sortField === "modified" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -177,10 +177,10 @@ const ExpenseTypeTable = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: getFormTypeBadge(expenseType.formType) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-6 py-4 whitespace-nowrap text-sm text-gray-500", children: expenseType.mileageRate ? `$${expenseType.mileageRate}/mile` : "-" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-6 py-4 whitespace-nowrap", children: expenseType.isActive ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 text-green-600", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$2, { className: "w-4 h-4" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-4 h-4" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: "Active" })
           ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 text-gray-400", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$3, { className: "w-4 h-4" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CircleX, { className: "w-4 h-4" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: "Inactive" })
           ] }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "px-6 py-4 whitespace-nowrap text-sm text-gray-500", children: formatDate(expenseType.modified) }),
@@ -190,7 +190,7 @@ const ExpenseTypeTable = () => {
               {
                 variant: "ghost",
                 title: "Edit",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$4, { className: "w-4 h-4" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Pencil, { className: "w-4 h-4" })
               }
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsx(

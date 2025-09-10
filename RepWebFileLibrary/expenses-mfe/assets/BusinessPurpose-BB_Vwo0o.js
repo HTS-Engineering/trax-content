@@ -1,6 +1,18 @@
-import { S as Subscribable, p as shallowEqualObjects, q as hashKey, r as getDefaultState, t as notifyManager, v as useQueryClient, w as noop, x as shouldThrowError, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner } from "./__federation_expose_Mount-eg6rHv_b.js";
+import { c as createLucideIcon, S as Subscribable, p as shallowEqualObjects, q as hashKey, r as getDefaultState, t as notifyManager, v as useQueryClient, w as noop, x as shouldThrowError, i as useQuery, k as apiClient, l as useCompanyStore, j as jsxRuntimeExports, s as st, a as ct, m as LoadingSpinner } from "./__federation_expose_Mount-BYmudq81.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { u as useExpenseStore, F as ForwardRef$1, a as ForwardRef$2, b as ForwardRef$3, c as ForwardRef$4, d as ForwardRef$5 } from "./XCircleIcon-B88oo_Sx.js";
+import { u as useExpenseStore, A as ArrowUp, a as ArrowDown, C as CircleCheckBig, b as CircleX, P as Pencil } from "./store-CWhTJceI.js";
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode = [
+  ["path", { d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6", key: "miytrc" }],
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2", key: "e791ji" }]
+];
+const Trash = createLucideIcon("trash", __iconNode);
 var MutationObserver = class extends Subscribable {
   #client;
   #currentResult = void 0;
@@ -101,27 +113,27 @@ var MutationObserver = class extends Subscribable {
     });
   }
 };
-const React$2 = await importShared("react");
+const React$1 = await importShared("react");
 function useMutation(options, queryClient) {
   const client = useQueryClient();
-  const [observer] = React$2.useState(
+  const [observer] = React$1.useState(
     () => new MutationObserver(
       client,
       options
     )
   );
-  React$2.useEffect(() => {
+  React$1.useEffect(() => {
     observer.setOptions(options);
   }, [observer, options]);
-  const result = React$2.useSyncExternalStore(
-    React$2.useCallback(
+  const result = React$1.useSyncExternalStore(
+    React$1.useCallback(
       (onStoreChange) => observer.subscribe(notifyManager.batchCalls(onStoreChange)),
       [observer]
     ),
     () => observer.getCurrentResult(),
     () => observer.getCurrentResult()
   );
-  const mutate = React$2.useCallback(
+  const mutate = React$1.useCallback(
     (variables, mutateOptions) => {
       observer.mutate(variables, mutateOptions).catch(noop);
     },
@@ -132,31 +144,6 @@ function useMutation(options, queryClient) {
   }
   return { ...result, mutate, mutateAsync: result.mutate };
 }
-const React$1 = await importShared("react");
-function TrashIcon({
-  title,
-  titleId,
-  ...props
-}, svgRef) {
-  return /* @__PURE__ */ React$1.createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    viewBox: "0 0 24 24",
-    strokeWidth: 1.5,
-    stroke: "currentColor",
-    "aria-hidden": "true",
-    "data-slot": "icon",
-    ref: svgRef,
-    "aria-labelledby": titleId
-  }, props), title ? /* @__PURE__ */ React$1.createElement("title", {
-    id: titleId
-  }, title) : null, /* @__PURE__ */ React$1.createElement("path", {
-    strokeLinecap: "round",
-    strokeLinejoin: "round",
-    d: "m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
-  }));
-}
-const ForwardRef = /* @__PURE__ */ React$1.forwardRef(TrashIcon);
 const { useEffect } = await importShared("react");
 const useBusinessPurposes = (companyId, includeInactive = false) => {
   const { setBusinessPurposes, setLoadingBusinessPurposes, setBusinessPurposesError } = useExpenseStore();
@@ -303,7 +290,7 @@ const BusinessPurposeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Purpose",
-                sortField === "businessPurpose" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$2, { className: "w-4 h-4" }))
+                sortField === "businessPurpose" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -315,7 +302,7 @@ const BusinessPurposeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Active",
-                sortField === "isActive" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$2, { className: "w-4 h-4" }))
+                sortField === "isActive" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -326,7 +313,7 @@ const BusinessPurposeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Created",
-                sortField === "created" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$2, { className: "w-4 h-4" }))
+                sortField === "created" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -337,7 +324,7 @@ const BusinessPurposeTable = () => {
               className: "flex items-center gap-1 text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-gray-700",
               children: [
                 "Modified",
-                sortField === "modified" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$1, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$2, { className: "w-4 h-4" }))
+                sortField === "modified" && (sortOrder === "asc" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUp, { className: "w-4 h-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDown, { className: "w-4 h-4" }))
               ]
             }
           ) }),
@@ -353,10 +340,10 @@ const BusinessPurposeTable = () => {
               className: "group flex items-center gap-1 cursor-pointer",
               disabled: toggleStatusMutation.isPending,
               children: purpose.isActive ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$3, { className: "w-5 h-5 text-green-600 group-hover:text-green-700" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-5 h-5 text-green-600 group-hover:text-green-700" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-green-600 group-hover:text-green-700", children: "Active" })
               ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$4, { className: "w-5 h-5 text-gray-400 group-hover:text-gray-500" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(CircleX, { className: "w-5 h-5 text-gray-400 group-hover:text-gray-500" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-gray-400 group-hover:text-gray-500", children: "Inactive" })
               ] })
             }
@@ -368,14 +355,14 @@ const BusinessPurposeTable = () => {
               "button",
               {
                 title: "Edit",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef$5, { className: "w-5 h-5" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Pencil, { className: "w-5 h-5" })
               }
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "button",
               {
                 title: "Delete",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(ForwardRef, { className: "w-5 h-5" })
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash, { className: "w-5 h-5" })
               }
             )
           ] }) })
