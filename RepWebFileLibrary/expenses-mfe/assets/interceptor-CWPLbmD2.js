@@ -1,4 +1,4 @@
-import { m as mockCompanies } from "./index-DGZesCTN.js";
+import { m as mockCompanies } from "./index-Dh4SQwW5.js";
 class HTTPInterceptor {
   originalFetch;
   originalXHR;
