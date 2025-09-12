@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-Cfk48ifl.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-B5gcuwD7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-BxauQ_Tf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-Dz9XzQ2P.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-siMhoGXS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-B7KGiBQg.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/browser-De7w2XOZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-DdeeG_Et.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/interceptor-DMD0WAUO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-BGbjmGLr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-CmbY_OBQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-Kq2R3_g_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-jZAwDdyR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-DEfJQrxE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BO5zFFuG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/browser-BWW-LSiw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-DGZesCTN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/interceptor-Cy5GIaLh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-Be6eT6eU.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
@@ -35041,1157 +35041,6 @@ const getCompanyNavigationPath = (basePath, companyId) => {
   }
   return basePath;
 };
-const { useCallback: useCallback$1, useMemo, useState } = await importShared("react");
-const NavigationSidebar = ({
-  className,
-  onNavigate,
-  selectedCompany = RouteCompanyIds.DirectExpansion,
-  onCompanyChange
-}) => {
-  const navigationElements = useMemo(() => getNavigationElements(), []);
-  const [expandedItems, setExpandedItems] = useState(() => {
-    return /* @__PURE__ */ new Set();
-  });
-  const [expandedSections, setExpandedSections] = useState(() => {
-    const defaultExpanded = /* @__PURE__ */ new Set();
-    navigationElements.forEach((element) => {
-      if (isNavigationSection(element) && element.defaultExpanded) {
-        defaultExpanded.add(element.id);
-      }
-    });
-    return defaultExpanded;
-  });
-  const handleExpandClick = (label) => (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    toggleExpanded(label);
-  };
-  const toggleExpanded = useCallback$1((label) => {
-    setExpandedItems((prev) => {
-      const newExpanded = new Set(prev);
-      if (newExpanded.has(label)) {
-        newExpanded.delete(label);
-      } else {
-        newExpanded.add(label);
-      }
-      return newExpanded;
-    });
-  }, []);
-  const handleExpandSectionClick = (sectionId) => (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    toggleSection(sectionId);
-  };
-  const toggleSection = useCallback$1((sectionId) => {
-    setExpandedSections((prev) => {
-      const newExpanded = new Set(prev);
-      if (newExpanded.has(sectionId)) {
-        newExpanded.delete(sectionId);
-      } else {
-        newExpanded.add(sectionId);
-      }
-      return newExpanded;
-    });
-  }, []);
-  const handleNavigation = useCallback$1((path) => {
-    if (onNavigate) {
-      onNavigate(path);
-    }
-  }, [onNavigate]);
-  const handleCompanyChange = useCallback$1((companyValue) => {
-    if (onCompanyChange) {
-      onCompanyChange(companyValue);
-    }
-  }, [onCompanyChange]);
-  const renderNavItem = useCallback$1((item, level = 0) => {
-    if (!item.isVisible) {
-      return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {});
-    }
-    const hasChildren = Boolean(item.children && item.children.length > 0);
-    const isExpanded = expandedItems.has(String(item.label));
-    const navPath = getCompanyNavigationPath(item.path, selectedCompany);
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: hasChildren ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        B,
-        {
-          variant: "outlined",
-          onClick: handleExpandClick(String(item.label)),
-          className: `w-full cursor-pointer flex items-center justify-between px-2 py-1.5 text-left hover:bg-gray-100 transition-colors ${level > 0 ? "pl-8" : ""}`,
-          type: "button",
-          "aria-expanded": isExpanded,
-          "aria-label": `Toggle ${item.label} menu`,
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
-              item.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: `w-4 h-4 flex-shrink-0 ${level > 0 ? "ml-4" : ""}` }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium text-gray-700", children: item.label })
-            ] }),
-            isExpanded ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-gray-500", "aria-hidden": "true" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 text-gray-500", "aria-hidden": "true" })
-          ]
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        NavLink,
-        {
-          to: navPath,
-          onClick: () => handleNavigation(navPath),
-          className: ({ isActive }) => {
-            const isCompanyRoute = [RoutePaths.ExpensesType, RoutePaths.BusinessPurpose].includes(item.path);
-            const currentPath = window.location.hash.replace("#", "");
-            let isActiveRoute = isActive;
-            if (isCompanyRoute && !isActive) {
-              const basePath = item.path;
-              isActiveRoute = currentPath.startsWith(basePath);
-            }
-            return `flex items-center gap-2 px-2 py-1.5 text-sm font-medium transition-colors hover:bg-exp-neutral-30 rounded-lg ${level > 0 ? "pl-8" : ""} ${isActiveRoute ? "bg-exp-primary-blue-50 text-exp-primary-blue-600 font-semibold" : "text-exp-neutral-600"}`;
-          },
-          children: [
-            item.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: `w-4 h-4 flex-shrink-0 ${level > 0 ? "ml-4" : ""}` }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "color-exp-neutral-600", children: item.label })
-          ]
-        }
-      ) }),
-      hasChildren && isExpanded && item.children && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50", children: item.children.map((child) => renderNavItem(child, level + 1)) })
-    ] }, item.path);
-  }, [expandedItems, handleNavigation, toggleExpanded, selectedCompany]);
-  const renderSeparator = useCallback$1(() => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-exp-neutral-40 my-4" });
-  }, []);
-  const renderGroupTitle = useCallback$1((title) => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-2 py-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xs font-medium text-exp-neutral-100 uppercase ", children: title }) });
-  }, []);
-  const renderGroup = useCallback$1((group) => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4", children: [
-      group.title && renderGroupTitle(group.title),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gap-1", children: group.items.map((item) => renderNavItem(item, 0)) })
-    ] }, group.id);
-  }, [renderNavItem, renderGroupTitle]);
-  const renderSelector = useCallback$1((selector) => {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(_n, { options: selector.options, value: selectedCompany, onValueChange: handleCompanyChange }) }, selector.id);
-  }, [selectedCompany, handleCompanyChange]);
-  const renderSection = useCallback$1((section) => {
-    const isExpanded = expandedSections.has(section.id);
-    const renderSectionElements = () => {
-      return section.elements.map((element) => {
-        if (isNavigationGroup(element)) return renderGroup(element);
-        if (isNavigationSeparator(element)) return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: renderSeparator() }, element.id);
-        if (isNavigationSelector(element)) return renderSelector(element);
-        if (isNavigationSection(element)) return renderSection(element);
-        return null;
-      }).filter(Boolean);
-    };
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        B,
-        {
-          onClick: handleExpandSectionClick(section.id),
-          variant: "outlined",
-          iconPosition: "center",
-          className: "w-full cursor-pointer flex items-center justify-start px-3 py-2 !pl-0 hover:bg-gray-100 transition-colors rounded-lg",
-          "aria-expanded": isExpanded,
-          "aria-label": `Toggle ${section.label} section`,
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
-              section.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(section.icon, { className: "w-5 h-5 flex-shrink-0 text-exp-primary-blue-700" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-md font-semibold text-exp-primary-blue-700 uppercase", children: section.label })
-            ] }),
-            isExpanded ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-exp-primary-blue-700", "aria-hidden": "true" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 text-exp-primary-blue-700", "aria-hidden": "true" })
-          ]
-        }
-      ),
-      isExpanded && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2", children: renderSectionElements() })
-    ] }, section.id);
-  }, [expandedSections, toggleSection, renderGroup, renderSeparator, renderSelector]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-64 bg-exp-neutral-0 min-h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: `w-full ${className || ""} bg-exp-neutral-10 rounded-xl p-3 shadow-exp-menu`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "py-4", children: navigationElements.map((element) => {
-    if (isNavigationGroup(element)) return renderGroup(element);
-    if (isNavigationSeparator(element)) return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: renderSeparator() }, element.id);
-    if (isNavigationSelector(element)) return renderSelector(element);
-    if (isNavigationSection(element)) return renderSection(element);
-    return null;
-  }) }) }) });
-};
-const createStoreImpl = (createState) => {
-  let state;
-  const listeners = /* @__PURE__ */ new Set();
-  const setState = (partial, replace) => {
-    const nextState = typeof partial === "function" ? partial(state) : partial;
-    if (!Object.is(nextState, state)) {
-      const previousState = state;
-      state = (replace != null ? replace : typeof nextState !== "object" || nextState === null) ? nextState : Object.assign({}, state, nextState);
-      listeners.forEach((listener) => listener(state, previousState));
-    }
-  };
-  const getState2 = () => state;
-  const getInitialState = () => initialState2;
-  const subscribe = (listener) => {
-    listeners.add(listener);
-    return () => listeners.delete(listener);
-  };
-  const api = { setState, getState: getState2, getInitialState, subscribe };
-  const initialState2 = state = createState(setState, getState2, api);
-  return api;
-};
-const createStore = ((createState) => createState ? createStoreImpl(createState) : createStoreImpl);
-const React$5 = await importShared("react");
-const identity = (arg) => arg;
-function useStore(api, selector = identity) {
-  const slice = React$5.useSyncExternalStore(
-    api.subscribe,
-    React$5.useCallback(() => selector(api.getState()), [api, selector]),
-    React$5.useCallback(() => selector(api.getInitialState()), [api, selector])
-  );
-  React$5.useDebugValue(slice);
-  return slice;
-}
-const createImpl = (createState) => {
-  const api = createStore(createState);
-  const useBoundStore = (selector) => useStore(api, selector);
-  Object.assign(useBoundStore, api);
-  return useBoundStore;
-};
-const create = ((createState) => createState ? createImpl(createState) : createImpl);
-const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "test", "PROD": true, "SSR": false, "VITE_API_URL": "http://localhost:3001/api", "VITE_APP_ENV": "test", "VITE_ENABLE_DEVTOOLS": "true", "VITE_ENABLE_MSW": "true" };
-const trackedConnections = /* @__PURE__ */ new Map();
-const getTrackedConnectionState = (name) => {
-  const api = trackedConnections.get(name);
-  if (!api) return {};
-  return Object.fromEntries(
-    Object.entries(api.stores).map(([key, api2]) => [key, api2.getState()])
-  );
-};
-const extractConnectionInformation = (store, extensionConnector, options) => {
-  if (store === void 0) {
-    return {
-      type: "untracked",
-      connection: extensionConnector.connect(options)
-    };
-  }
-  const existingConnection = trackedConnections.get(options.name);
-  if (existingConnection) {
-    return { type: "tracked", store, ...existingConnection };
-  }
-  const newConnection = {
-    connection: extensionConnector.connect(options),
-    stores: {}
-  };
-  trackedConnections.set(options.name, newConnection);
-  return { type: "tracked", store, ...newConnection };
-};
-const removeStoreFromTrackedConnections = (name, store) => {
-  if (store === void 0) return;
-  const connectionInfo = trackedConnections.get(name);
-  if (!connectionInfo) return;
-  delete connectionInfo.stores[store];
-  if (Object.keys(connectionInfo.stores).length === 0) {
-    trackedConnections.delete(name);
-  }
-};
-const findCallerName = (stack) => {
-  var _a, _b;
-  if (!stack) return void 0;
-  const traceLines = stack.split("\n");
-  const apiSetStateLineIndex = traceLines.findIndex(
-    (traceLine) => traceLine.includes("api.setState")
-  );
-  if (apiSetStateLineIndex < 0) return void 0;
-  const callerLine = ((_a = traceLines[apiSetStateLineIndex + 1]) == null ? void 0 : _a.trim()) || "";
-  return (_b = /.+ (.+) .+/.exec(callerLine)) == null ? void 0 : _b[1];
-};
-const devtoolsImpl = (fn2, devtoolsOptions = {}) => (set2, get, api) => {
-  const { enabled, anonymousActionType, store, ...options } = devtoolsOptions;
-  let extensionConnector;
-  try {
-    extensionConnector = (enabled != null ? enabled : (__vite_import_meta_env__ ? "test" : void 0) !== "production") && window.__REDUX_DEVTOOLS_EXTENSION__;
-  } catch (e) {
-  }
-  if (!extensionConnector) {
-    return fn2(set2, get, api);
-  }
-  const { connection, ...connectionInformation } = extractConnectionInformation(store, extensionConnector, options);
-  let isRecording = true;
-  api.setState = ((state, replace, nameOrAction) => {
-    const r2 = set2(state, replace);
-    if (!isRecording) return r2;
-    const action = nameOrAction === void 0 ? {
-      type: anonymousActionType || findCallerName(new Error().stack) || "anonymous"
-    } : typeof nameOrAction === "string" ? { type: nameOrAction } : nameOrAction;
-    if (store === void 0) {
-      connection == null ? void 0 : connection.send(action, get());
-      return r2;
-    }
-    connection == null ? void 0 : connection.send(
-      {
-        ...action,
-        type: `${store}/${action.type}`
-      },
-      {
-        ...getTrackedConnectionState(options.name),
-        [store]: api.getState()
-      }
-    );
-    return r2;
-  });
-  api.devtools = {
-    cleanup: () => {
-      if (connection && typeof connection.unsubscribe === "function") {
-        connection.unsubscribe();
-      }
-      removeStoreFromTrackedConnections(options.name, store);
-    }
-  };
-  const setStateFromDevtools = (...a) => {
-    const originalIsRecording = isRecording;
-    isRecording = false;
-    set2(...a);
-    isRecording = originalIsRecording;
-  };
-  const initialState2 = fn2(api.setState, get, api);
-  if (connectionInformation.type === "untracked") {
-    connection == null ? void 0 : connection.init(initialState2);
-  } else {
-    connectionInformation.stores[connectionInformation.store] = api;
-    connection == null ? void 0 : connection.init(
-      Object.fromEntries(
-        Object.entries(connectionInformation.stores).map(([key, store2]) => [
-          key,
-          key === connectionInformation.store ? initialState2 : store2.getState()
-        ])
-      )
-    );
-  }
-  if (api.dispatchFromDevtools && typeof api.dispatch === "function") {
-    let didWarnAboutReservedActionType = false;
-    const originalDispatch = api.dispatch;
-    api.dispatch = (...args) => {
-      if ((__vite_import_meta_env__ ? "test" : void 0) !== "production" && args[0].type === "__setState" && !didWarnAboutReservedActionType) {
-        console.warn(
-          '[zustand devtools middleware] "__setState" action type is reserved to set state from the devtools. Avoid using it.'
-        );
-        didWarnAboutReservedActionType = true;
-      }
-      originalDispatch(...args);
-    };
-  }
-  connection.subscribe((message2) => {
-    var _a;
-    switch (message2.type) {
-      case "ACTION":
-        if (typeof message2.payload !== "string") {
-          console.error(
-            "[zustand devtools middleware] Unsupported action format"
-          );
-          return;
-        }
-        return parseJsonThen(
-          message2.payload,
-          (action) => {
-            if (action.type === "__setState") {
-              if (store === void 0) {
-                setStateFromDevtools(action.state);
-                return;
-              }
-              if (Object.keys(action.state).length !== 1) {
-                console.error(
-                  `
-                    [zustand devtools middleware] Unsupported __setState action format.
-                    When using 'store' option in devtools(), the 'state' should have only one key, which is a value of 'store' that was passed in devtools(),
-                    and value of this only key should be a state object. Example: { "type": "__setState", "state": { "abc123Store": { "foo": "bar" } } }
-                    `
-                );
-              }
-              const stateFromDevtools = action.state[store];
-              if (stateFromDevtools === void 0 || stateFromDevtools === null) {
-                return;
-              }
-              if (JSON.stringify(api.getState()) !== JSON.stringify(stateFromDevtools)) {
-                setStateFromDevtools(stateFromDevtools);
-              }
-              return;
-            }
-            if (!api.dispatchFromDevtools) return;
-            if (typeof api.dispatch !== "function") return;
-            api.dispatch(action);
-          }
-        );
-      case "DISPATCH":
-        switch (message2.payload.type) {
-          case "RESET":
-            setStateFromDevtools(initialState2);
-            if (store === void 0) {
-              return connection == null ? void 0 : connection.init(api.getState());
-            }
-            return connection == null ? void 0 : connection.init(getTrackedConnectionState(options.name));
-          case "COMMIT":
-            if (store === void 0) {
-              connection == null ? void 0 : connection.init(api.getState());
-              return;
-            }
-            return connection == null ? void 0 : connection.init(getTrackedConnectionState(options.name));
-          case "ROLLBACK":
-            return parseJsonThen(message2.state, (state) => {
-              if (store === void 0) {
-                setStateFromDevtools(state);
-                connection == null ? void 0 : connection.init(api.getState());
-                return;
-              }
-              setStateFromDevtools(state[store]);
-              connection == null ? void 0 : connection.init(getTrackedConnectionState(options.name));
-            });
-          case "JUMP_TO_STATE":
-          case "JUMP_TO_ACTION":
-            return parseJsonThen(message2.state, (state) => {
-              if (store === void 0) {
-                setStateFromDevtools(state);
-                return;
-              }
-              if (JSON.stringify(api.getState()) !== JSON.stringify(state[store])) {
-                setStateFromDevtools(state[store]);
-              }
-            });
-          case "IMPORT_STATE": {
-            const { nextLiftedState } = message2.payload;
-            const lastComputedState = (_a = nextLiftedState.computedStates.slice(-1)[0]) == null ? void 0 : _a.state;
-            if (!lastComputedState) return;
-            if (store === void 0) {
-              setStateFromDevtools(lastComputedState);
-            } else {
-              setStateFromDevtools(lastComputedState[store]);
-            }
-            connection == null ? void 0 : connection.send(
-              null,
-              // FIXME no-any
-              nextLiftedState
-            );
-            return;
-          }
-          case "PAUSE_RECORDING":
-            return isRecording = !isRecording;
-        }
-        return;
-    }
-  });
-  return initialState2;
-};
-const devtools = devtoolsImpl;
-const parseJsonThen = (stringified, fn2) => {
-  let parsed;
-  try {
-    parsed = JSON.parse(stringified);
-  } catch (e) {
-    console.error(
-      "[zustand devtools middleware] Could not parse the received json",
-      e
-    );
-  }
-  if (parsed !== void 0) fn2(parsed);
-};
-const subscribeWithSelectorImpl = (fn2) => (set2, get, api) => {
-  const origSubscribe = api.subscribe;
-  api.subscribe = ((selector, optListener, options) => {
-    let listener = selector;
-    if (optListener) {
-      const equalityFn = (options == null ? void 0 : options.equalityFn) || Object.is;
-      let currentSlice = selector(api.getState());
-      listener = (state) => {
-        const nextSlice = selector(state);
-        if (!equalityFn(currentSlice, nextSlice)) {
-          const previousSlice = currentSlice;
-          optListener(currentSlice = nextSlice, previousSlice);
-        }
-      };
-      if (options == null ? void 0 : options.fireImmediately) {
-        optListener(currentSlice, currentSlice);
-      }
-    }
-    return origSubscribe(listener);
-  });
-  const initialState2 = fn2(set2, get, api);
-  return initialState2;
-};
-const subscribeWithSelector = subscribeWithSelectorImpl;
-var NOTHING = Symbol.for("immer-nothing");
-var DRAFTABLE = Symbol.for("immer-draftable");
-var DRAFT_STATE = Symbol.for("immer-state");
-function die(error, ...args) {
-  throw new Error(
-    `[Immer] minified error nr: ${error}. Full error at: https://bit.ly/3cXEKWf`
-  );
-}
-var getPrototypeOf$1 = Object.getPrototypeOf;
-function isDraft(value) {
-  return !!value && !!value[DRAFT_STATE];
-}
-function isDraftable(value) {
-  var _a;
-  if (!value)
-    return false;
-  return isPlainObject$2(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!((_a = value.constructor) == null ? void 0 : _a[DRAFTABLE]) || isMap(value) || isSet(value);
-}
-var objectCtorString = Object.prototype.constructor.toString();
-function isPlainObject$2(value) {
-  if (!value || typeof value !== "object")
-    return false;
-  const proto = getPrototypeOf$1(value);
-  if (proto === null) {
-    return true;
-  }
-  const Ctor = Object.hasOwnProperty.call(proto, "constructor") && proto.constructor;
-  if (Ctor === Object)
-    return true;
-  return typeof Ctor == "function" && Function.toString.call(Ctor) === objectCtorString;
-}
-function each(obj, iter) {
-  if (getArchtype(obj) === 0) {
-    Reflect.ownKeys(obj).forEach((key) => {
-      iter(key, obj[key], obj);
-    });
-  } else {
-    obj.forEach((entry, index2) => iter(index2, entry, obj));
-  }
-}
-function getArchtype(thing) {
-  const state = thing[DRAFT_STATE];
-  return state ? state.type_ : Array.isArray(thing) ? 1 : isMap(thing) ? 2 : isSet(thing) ? 3 : 0;
-}
-function has(thing, prop) {
-  return getArchtype(thing) === 2 ? thing.has(prop) : Object.prototype.hasOwnProperty.call(thing, prop);
-}
-function set(thing, propOrOldValue, value) {
-  const t = getArchtype(thing);
-  if (t === 2)
-    thing.set(propOrOldValue, value);
-  else if (t === 3) {
-    thing.add(value);
-  } else
-    thing[propOrOldValue] = value;
-}
-function is(x, y) {
-  if (x === y) {
-    return x !== 0 || 1 / x === 1 / y;
-  } else {
-    return x !== x && y !== y;
-  }
-}
-function isMap(target) {
-  return target instanceof Map;
-}
-function isSet(target) {
-  return target instanceof Set;
-}
-function latest(state) {
-  return state.copy_ || state.base_;
-}
-function shallowCopy(base, strict) {
-  if (isMap(base)) {
-    return new Map(base);
-  }
-  if (isSet(base)) {
-    return new Set(base);
-  }
-  if (Array.isArray(base))
-    return Array.prototype.slice.call(base);
-  const isPlain = isPlainObject$2(base);
-  if (strict === true || strict === "class_only" && !isPlain) {
-    const descriptors2 = Object.getOwnPropertyDescriptors(base);
-    delete descriptors2[DRAFT_STATE];
-    let keys = Reflect.ownKeys(descriptors2);
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const desc = descriptors2[key];
-      if (desc.writable === false) {
-        desc.writable = true;
-        desc.configurable = true;
-      }
-      if (desc.get || desc.set)
-        descriptors2[key] = {
-          configurable: true,
-          writable: true,
-          // could live with !!desc.set as well here...
-          enumerable: desc.enumerable,
-          value: base[key]
-        };
-    }
-    return Object.create(getPrototypeOf$1(base), descriptors2);
-  } else {
-    const proto = getPrototypeOf$1(base);
-    if (proto !== null && isPlain) {
-      return { ...base };
-    }
-    const obj = Object.create(proto);
-    return Object.assign(obj, base);
-  }
-}
-function freeze(obj, deep = false) {
-  if (isFrozen(obj) || isDraft(obj) || !isDraftable(obj))
-    return obj;
-  if (getArchtype(obj) > 1) {
-    Object.defineProperties(obj, {
-      set: { value: dontMutateFrozenCollections },
-      add: { value: dontMutateFrozenCollections },
-      clear: { value: dontMutateFrozenCollections },
-      delete: { value: dontMutateFrozenCollections }
-    });
-  }
-  Object.freeze(obj);
-  if (deep)
-    Object.values(obj).forEach((value) => freeze(value, true));
-  return obj;
-}
-function dontMutateFrozenCollections() {
-  die(2);
-}
-function isFrozen(obj) {
-  return Object.isFrozen(obj);
-}
-var plugins = {};
-function getPlugin(pluginKey) {
-  const plugin = plugins[pluginKey];
-  if (!plugin) {
-    die(0, pluginKey);
-  }
-  return plugin;
-}
-var currentScope;
-function getCurrentScope() {
-  return currentScope;
-}
-function createScope(parent_, immer_) {
-  return {
-    drafts_: [],
-    parent_,
-    immer_,
-    // Whenever the modified draft contains a draft from another scope, we
-    // need to prevent auto-freezing so the unowned draft can be finalized.
-    canAutoFreeze_: true,
-    unfinalizedDrafts_: 0
-  };
-}
-function usePatchesInScope(scope, patchListener) {
-  if (patchListener) {
-    getPlugin("Patches");
-    scope.patches_ = [];
-    scope.inversePatches_ = [];
-    scope.patchListener_ = patchListener;
-  }
-}
-function revokeScope(scope) {
-  leaveScope(scope);
-  scope.drafts_.forEach(revokeDraft);
-  scope.drafts_ = null;
-}
-function leaveScope(scope) {
-  if (scope === currentScope) {
-    currentScope = scope.parent_;
-  }
-}
-function enterScope(immer2) {
-  return currentScope = createScope(currentScope, immer2);
-}
-function revokeDraft(draft) {
-  const state = draft[DRAFT_STATE];
-  if (state.type_ === 0 || state.type_ === 1)
-    state.revoke_();
-  else
-    state.revoked_ = true;
-}
-function processResult(result, scope) {
-  scope.unfinalizedDrafts_ = scope.drafts_.length;
-  const baseDraft = scope.drafts_[0];
-  const isReplaced = result !== void 0 && result !== baseDraft;
-  if (isReplaced) {
-    if (baseDraft[DRAFT_STATE].modified_) {
-      revokeScope(scope);
-      die(4);
-    }
-    if (isDraftable(result)) {
-      result = finalize(scope, result);
-      if (!scope.parent_)
-        maybeFreeze(scope, result);
-    }
-    if (scope.patches_) {
-      getPlugin("Patches").generateReplacementPatches_(
-        baseDraft[DRAFT_STATE].base_,
-        result,
-        scope.patches_,
-        scope.inversePatches_
-      );
-    }
-  } else {
-    result = finalize(scope, baseDraft, []);
-  }
-  revokeScope(scope);
-  if (scope.patches_) {
-    scope.patchListener_(scope.patches_, scope.inversePatches_);
-  }
-  return result !== NOTHING ? result : void 0;
-}
-function finalize(rootScope, value, path) {
-  if (isFrozen(value))
-    return value;
-  const state = value[DRAFT_STATE];
-  if (!state) {
-    each(
-      value,
-      (key, childValue) => finalizeProperty(rootScope, state, value, key, childValue, path)
-    );
-    return value;
-  }
-  if (state.scope_ !== rootScope)
-    return value;
-  if (!state.modified_) {
-    maybeFreeze(rootScope, state.base_, true);
-    return state.base_;
-  }
-  if (!state.finalized_) {
-    state.finalized_ = true;
-    state.scope_.unfinalizedDrafts_--;
-    const result = state.copy_;
-    let resultEach = result;
-    let isSet2 = false;
-    if (state.type_ === 3) {
-      resultEach = new Set(result);
-      result.clear();
-      isSet2 = true;
-    }
-    each(
-      resultEach,
-      (key, childValue) => finalizeProperty(rootScope, state, result, key, childValue, path, isSet2)
-    );
-    maybeFreeze(rootScope, result, false);
-    if (path && rootScope.patches_) {
-      getPlugin("Patches").generatePatches_(
-        state,
-        path,
-        rootScope.patches_,
-        rootScope.inversePatches_
-      );
-    }
-  }
-  return state.copy_;
-}
-function finalizeProperty(rootScope, parentState, targetObject, prop, childValue, rootPath, targetIsSet) {
-  if (isDraft(childValue)) {
-    const path = rootPath && parentState && parentState.type_ !== 3 && // Set objects are atomic since they have no keys.
-    !has(parentState.assigned_, prop) ? rootPath.concat(prop) : void 0;
-    const res = finalize(rootScope, childValue, path);
-    set(targetObject, prop, res);
-    if (isDraft(res)) {
-      rootScope.canAutoFreeze_ = false;
-    } else
-      return;
-  } else if (targetIsSet) {
-    targetObject.add(childValue);
-  }
-  if (isDraftable(childValue) && !isFrozen(childValue)) {
-    if (!rootScope.immer_.autoFreeze_ && rootScope.unfinalizedDrafts_ < 1) {
-      return;
-    }
-    finalize(rootScope, childValue);
-    if ((!parentState || !parentState.scope_.parent_) && typeof prop !== "symbol" && (isMap(targetObject) ? targetObject.has(prop) : Object.prototype.propertyIsEnumerable.call(targetObject, prop)))
-      maybeFreeze(rootScope, childValue);
-  }
-}
-function maybeFreeze(scope, value, deep = false) {
-  if (!scope.parent_ && scope.immer_.autoFreeze_ && scope.canAutoFreeze_) {
-    freeze(value, deep);
-  }
-}
-function createProxyProxy(base, parent) {
-  const isArray2 = Array.isArray(base);
-  const state = {
-    type_: isArray2 ? 1 : 0,
-    // Track which produce call this is associated with.
-    scope_: parent ? parent.scope_ : getCurrentScope(),
-    // True for both shallow and deep changes.
-    modified_: false,
-    // Used during finalization.
-    finalized_: false,
-    // Track which properties have been assigned (true) or deleted (false).
-    assigned_: {},
-    // The parent draft state.
-    parent_: parent,
-    // The base state.
-    base_: base,
-    // The base proxy.
-    draft_: null,
-    // set below
-    // The base copy with any updated values.
-    copy_: null,
-    // Called by the `produce` function.
-    revoke_: null,
-    isManual_: false
-  };
-  let target = state;
-  let traps = objectTraps;
-  if (isArray2) {
-    target = [state];
-    traps = arrayTraps;
-  }
-  const { revoke, proxy } = Proxy.revocable(target, traps);
-  state.draft_ = proxy;
-  state.revoke_ = revoke;
-  return proxy;
-}
-var objectTraps = {
-  get(state, prop) {
-    if (prop === DRAFT_STATE)
-      return state;
-    const source = latest(state);
-    if (!has(source, prop)) {
-      return readPropFromProto(state, source, prop);
-    }
-    const value = source[prop];
-    if (state.finalized_ || !isDraftable(value)) {
-      return value;
-    }
-    if (value === peek(state.base_, prop)) {
-      prepareCopy(state);
-      return state.copy_[prop] = createProxy(value, state);
-    }
-    return value;
-  },
-  has(state, prop) {
-    return prop in latest(state);
-  },
-  ownKeys(state) {
-    return Reflect.ownKeys(latest(state));
-  },
-  set(state, prop, value) {
-    const desc = getDescriptorFromProto(latest(state), prop);
-    if (desc == null ? void 0 : desc.set) {
-      desc.set.call(state.draft_, value);
-      return true;
-    }
-    if (!state.modified_) {
-      const current2 = peek(latest(state), prop);
-      const currentState = current2 == null ? void 0 : current2[DRAFT_STATE];
-      if (currentState && currentState.base_ === value) {
-        state.copy_[prop] = value;
-        state.assigned_[prop] = false;
-        return true;
-      }
-      if (is(value, current2) && (value !== void 0 || has(state.base_, prop)))
-        return true;
-      prepareCopy(state);
-      markChanged(state);
-    }
-    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
-    (value !== void 0 || prop in state.copy_) || // special case: NaN
-    Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
-      return true;
-    state.copy_[prop] = value;
-    state.assigned_[prop] = true;
-    return true;
-  },
-  deleteProperty(state, prop) {
-    if (peek(state.base_, prop) !== void 0 || prop in state.base_) {
-      state.assigned_[prop] = false;
-      prepareCopy(state);
-      markChanged(state);
-    } else {
-      delete state.assigned_[prop];
-    }
-    if (state.copy_) {
-      delete state.copy_[prop];
-    }
-    return true;
-  },
-  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
-  // the same guarantee in ES5 mode.
-  getOwnPropertyDescriptor(state, prop) {
-    const owner = latest(state);
-    const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
-    if (!desc)
-      return desc;
-    return {
-      writable: true,
-      configurable: state.type_ !== 1 || prop !== "length",
-      enumerable: desc.enumerable,
-      value: owner[prop]
-    };
-  },
-  defineProperty() {
-    die(11);
-  },
-  getPrototypeOf(state) {
-    return getPrototypeOf$1(state.base_);
-  },
-  setPrototypeOf() {
-    die(12);
-  }
-};
-var arrayTraps = {};
-each(objectTraps, (key, fn2) => {
-  arrayTraps[key] = function() {
-    arguments[0] = arguments[0][0];
-    return fn2.apply(this, arguments);
-  };
-});
-arrayTraps.deleteProperty = function(state, prop) {
-  return arrayTraps.set.call(this, state, prop, void 0);
-};
-arrayTraps.set = function(state, prop, value) {
-  return objectTraps.set.call(this, state[0], prop, value, state[0]);
-};
-function peek(draft, prop) {
-  const state = draft[DRAFT_STATE];
-  const source = state ? latest(state) : draft;
-  return source[prop];
-}
-function readPropFromProto(state, source, prop) {
-  var _a;
-  const desc = getDescriptorFromProto(source, prop);
-  return desc ? `value` in desc ? desc.value : (
-    // This is a very special case, if the prop is a getter defined by the
-    // prototype, we should invoke it with the draft as context!
-    (_a = desc.get) == null ? void 0 : _a.call(state.draft_)
-  ) : void 0;
-}
-function getDescriptorFromProto(source, prop) {
-  if (!(prop in source))
-    return void 0;
-  let proto = getPrototypeOf$1(source);
-  while (proto) {
-    const desc = Object.getOwnPropertyDescriptor(proto, prop);
-    if (desc)
-      return desc;
-    proto = getPrototypeOf$1(proto);
-  }
-  return void 0;
-}
-function markChanged(state) {
-  if (!state.modified_) {
-    state.modified_ = true;
-    if (state.parent_) {
-      markChanged(state.parent_);
-    }
-  }
-}
-function prepareCopy(state) {
-  if (!state.copy_) {
-    state.copy_ = shallowCopy(
-      state.base_,
-      state.scope_.immer_.useStrictShallowCopy_
-    );
-  }
-}
-var Immer2 = class {
-  constructor(config) {
-    this.autoFreeze_ = true;
-    this.useStrictShallowCopy_ = false;
-    this.produce = (base, recipe, patchListener) => {
-      if (typeof base === "function" && typeof recipe !== "function") {
-        const defaultBase = recipe;
-        recipe = base;
-        const self2 = this;
-        return function curriedProduce(base2 = defaultBase, ...args) {
-          return self2.produce(base2, (draft) => recipe.call(this, draft, ...args));
-        };
-      }
-      if (typeof recipe !== "function")
-        die(6);
-      if (patchListener !== void 0 && typeof patchListener !== "function")
-        die(7);
-      let result;
-      if (isDraftable(base)) {
-        const scope = enterScope(this);
-        const proxy = createProxy(base, void 0);
-        let hasError = true;
-        try {
-          result = recipe(proxy);
-          hasError = false;
-        } finally {
-          if (hasError)
-            revokeScope(scope);
-          else
-            leaveScope(scope);
-        }
-        usePatchesInScope(scope, patchListener);
-        return processResult(result, scope);
-      } else if (!base || typeof base !== "object") {
-        result = recipe(base);
-        if (result === void 0)
-          result = base;
-        if (result === NOTHING)
-          result = void 0;
-        if (this.autoFreeze_)
-          freeze(result, true);
-        if (patchListener) {
-          const p = [];
-          const ip = [];
-          getPlugin("Patches").generateReplacementPatches_(base, result, p, ip);
-          patchListener(p, ip);
-        }
-        return result;
-      } else
-        die(1, base);
-    };
-    this.produceWithPatches = (base, recipe) => {
-      if (typeof base === "function") {
-        return (state, ...args) => this.produceWithPatches(state, (draft) => base(draft, ...args));
-      }
-      let patches, inversePatches;
-      const result = this.produce(base, recipe, (p, ip) => {
-        patches = p;
-        inversePatches = ip;
-      });
-      return [result, patches, inversePatches];
-    };
-    if (typeof (config == null ? void 0 : config.autoFreeze) === "boolean")
-      this.setAutoFreeze(config.autoFreeze);
-    if (typeof (config == null ? void 0 : config.useStrictShallowCopy) === "boolean")
-      this.setUseStrictShallowCopy(config.useStrictShallowCopy);
-  }
-  createDraft(base) {
-    if (!isDraftable(base))
-      die(8);
-    if (isDraft(base))
-      base = current(base);
-    const scope = enterScope(this);
-    const proxy = createProxy(base, void 0);
-    proxy[DRAFT_STATE].isManual_ = true;
-    leaveScope(scope);
-    return proxy;
-  }
-  finishDraft(draft, patchListener) {
-    const state = draft && draft[DRAFT_STATE];
-    if (!state || !state.isManual_)
-      die(9);
-    const { scope_: scope } = state;
-    usePatchesInScope(scope, patchListener);
-    return processResult(void 0, scope);
-  }
-  /**
-   * Pass true to automatically freeze all copies created by Immer.
-   *
-   * By default, auto-freezing is enabled.
-   */
-  setAutoFreeze(value) {
-    this.autoFreeze_ = value;
-  }
-  /**
-   * Pass true to enable strict shallow copy.
-   *
-   * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
-   */
-  setUseStrictShallowCopy(value) {
-    this.useStrictShallowCopy_ = value;
-  }
-  applyPatches(base, patches) {
-    let i;
-    for (i = patches.length - 1; i >= 0; i--) {
-      const patch = patches[i];
-      if (patch.path.length === 0 && patch.op === "replace") {
-        base = patch.value;
-        break;
-      }
-    }
-    if (i > -1) {
-      patches = patches.slice(i + 1);
-    }
-    const applyPatchesImpl = getPlugin("Patches").applyPatches_;
-    if (isDraft(base)) {
-      return applyPatchesImpl(base, patches);
-    }
-    return this.produce(
-      base,
-      (draft) => applyPatchesImpl(draft, patches)
-    );
-  }
-};
-function createProxy(value, parent) {
-  const draft = isMap(value) ? getPlugin("MapSet").proxyMap_(value, parent) : isSet(value) ? getPlugin("MapSet").proxySet_(value, parent) : createProxyProxy(value, parent);
-  const scope = parent ? parent.scope_ : getCurrentScope();
-  scope.drafts_.push(draft);
-  return draft;
-}
-function current(value) {
-  if (!isDraft(value))
-    die(10, value);
-  return currentImpl(value);
-}
-function currentImpl(value) {
-  if (!isDraftable(value) || isFrozen(value))
-    return value;
-  const state = value[DRAFT_STATE];
-  let copy;
-  if (state) {
-    if (!state.modified_)
-      return state.base_;
-    state.finalized_ = true;
-    copy = shallowCopy(value, state.scope_.immer_.useStrictShallowCopy_);
-  } else {
-    copy = shallowCopy(value, true);
-  }
-  each(copy, (key, childValue) => {
-    set(copy, key, currentImpl(childValue));
-  });
-  if (state) {
-    state.finalized_ = false;
-  }
-  return copy;
-}
-var immer$1 = new Immer2();
-var produce = immer$1.produce;
-const immerImpl = (initializer) => (set2, get, store) => {
-  store.setState = (updater, replace, ...args) => {
-    const nextState = typeof updater === "function" ? produce(updater) : updater;
-    return set2(nextState, replace, ...args);
-  };
-  return initializer(store.setState, get, store);
-};
-const immer = immerImpl;
-const initialState = () => ({
-  selectedCompany: null,
-  companies: [],
-  isLoading: false,
-  error: null
-});
-const useCompanyStore = create()(
-  devtools(
-    subscribeWithSelector(
-      immer((set2) => ({
-        ...initialState(),
-        setSelectedCompany: (company) => set2((state) => {
-          state.selectedCompany = company;
-        }),
-        setCompanies: (companies) => set2((state) => {
-          state.companies = companies;
-        }),
-        addCompany: (company) => set2((state) => {
-          state.companies.push(company);
-        }),
-        updateCompany: (id, updates) => set2((state) => {
-          var _a;
-          const index2 = state.companies.findIndex((c2) => c2.id === id);
-          if (index2 !== -1) {
-            state.companies[index2] = { ...state.companies[index2], ...updates };
-            if (((_a = state.selectedCompany) == null ? void 0 : _a.id) === id) {
-              state.selectedCompany = { ...state.selectedCompany, ...updates };
-            }
-          }
-        }),
-        removeCompany: (id) => set2((state) => {
-          var _a;
-          state.companies = state.companies.filter((c2) => c2.id !== id);
-          if (((_a = state.selectedCompany) == null ? void 0 : _a.id) === id) {
-            state.selectedCompany = null;
-          }
-        }),
-        setLoading: (isLoading) => set2((state) => {
-          state.isLoading = isLoading;
-        }),
-        setError: (error) => set2((state) => {
-          state.error = error;
-        }),
-        reset: () => set2(() => initialState())
-      }))
-    ),
-    {
-      name: "company-storage"
-    }
-  )
-);
 var Subscribable = class {
   constructor() {
     this.listeners = /* @__PURE__ */ new Set();
@@ -36343,7 +35192,7 @@ function hashQueryKeyByOptions(queryKey, options) {
 function hashKey(queryKey) {
   return JSON.stringify(
     queryKey,
-    (_, val) => isPlainObject$1(val) ? Object.keys(val).sort().reduce((result, key) => {
+    (_, val) => isPlainObject$2(val) ? Object.keys(val).sort().reduce((result, key) => {
       result[key] = val[key];
       return result;
     }, {}) : val
@@ -36367,7 +35216,7 @@ function replaceEqualDeep(a, b2) {
     return a;
   }
   const array = isPlainArray(a) && isPlainArray(b2);
-  if (!array && !(isPlainObject$1(a) && isPlainObject$1(b2))) return b2;
+  if (!array && !(isPlainObject$2(a) && isPlainObject$2(b2))) return b2;
   const aItems = array ? a : Object.keys(a);
   const aSize = aItems.length;
   const bItems = array ? b2 : Object.keys(b2);
@@ -36407,7 +35256,7 @@ function shallowEqualObjects(a, b2) {
 function isPlainArray(value) {
   return Array.isArray(value) && value.length === Object.keys(value).length;
 }
-function isPlainObject$1(o) {
+function isPlainObject$2(o) {
   if (!hasObjectPrototype(o)) {
     return false;
   }
@@ -38533,12 +37382,12 @@ var QueryClient = class {
     this.#mutationCache.clear();
   }
 };
-const React$4 = await importShared("react");
-var QueryClientContext = React$4.createContext(
+const React$5 = await importShared("react");
+var QueryClientContext = React$5.createContext(
   void 0
 );
 var useQueryClient = (queryClient2) => {
-  const client2 = React$4.useContext(QueryClientContext);
+  const client2 = React$5.useContext(QueryClientContext);
   if (!client2) {
     throw new Error("No QueryClient set, use QueryClientProvider to set one");
   }
@@ -38548,7 +37397,7 @@ var QueryClientProvider = ({
   client: client2,
   children
 }) => {
-  React$4.useEffect(() => {
+  React$5.useEffect(() => {
     client2.mount();
     return () => {
       client2.unmount();
@@ -38556,11 +37405,11 @@ var QueryClientProvider = ({
   }, [client2]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientContext.Provider, { value: client2, children });
 };
-const React$3 = await importShared("react");
-var IsRestoringContext = React$3.createContext(false);
-var useIsRestoring = () => React$3.useContext(IsRestoringContext);
+const React$4 = await importShared("react");
+var IsRestoringContext = React$4.createContext(false);
+var useIsRestoring = () => React$4.useContext(IsRestoringContext);
 IsRestoringContext.Provider;
-const React$2 = await importShared("react");
+const React$3 = await importShared("react");
 function createValue() {
   let isReset = false;
   return {
@@ -38575,9 +37424,9 @@ function createValue() {
     }
   };
 }
-var QueryErrorResetBoundaryContext = React$2.createContext(createValue());
-var useQueryErrorResetBoundary = () => React$2.useContext(QueryErrorResetBoundaryContext);
-const React$1 = await importShared("react");
+var QueryErrorResetBoundaryContext = React$3.createContext(createValue());
+var useQueryErrorResetBoundary = () => React$3.useContext(QueryErrorResetBoundaryContext);
+const React$2 = await importShared("react");
 var ensurePreventErrorBoundaryRetry = (options, errorResetBoundary) => {
   if (options.suspense || options.throwOnError || options.experimental_prefetchInRender) {
     if (!errorResetBoundary.isReset()) {
@@ -38586,7 +37435,7 @@ var ensurePreventErrorBoundaryRetry = (options, errorResetBoundary) => {
   }
 };
 var useClearResetErrorBoundary = (errorResetBoundary) => {
-  React$1.useEffect(() => {
+  React$2.useEffect(() => {
     errorResetBoundary.clearReset();
   }, [errorResetBoundary]);
 };
@@ -38618,7 +37467,7 @@ var shouldSuspend = (defaultedOptions, result) => (defaultedOptions == null ? vo
 var fetchOptimistic = (defaultedOptions, observer, errorResetBoundary) => observer.fetchOptimistic(defaultedOptions).catch(() => {
   errorResetBoundary.clearReset();
 });
-const React = await importShared("react");
+const React$1 = await importShared("react");
 function useBaseQuery(options, Observer, queryClient2) {
   var _a, _b, _c, _d, _e2;
   const isRestoring = useIsRestoring();
@@ -38634,7 +37483,7 @@ function useBaseQuery(options, Observer, queryClient2) {
   ensurePreventErrorBoundaryRetry(defaultedOptions, errorResetBoundary);
   useClearResetErrorBoundary(errorResetBoundary);
   const isNewCacheEntry = !client2.getQueryCache().get(defaultedOptions.queryHash);
-  const [observer] = React.useState(
+  const [observer] = React$1.useState(
     () => new Observer(
       client2,
       defaultedOptions
@@ -38642,8 +37491,8 @@ function useBaseQuery(options, Observer, queryClient2) {
   );
   const result = observer.getOptimisticResult(defaultedOptions);
   const shouldSubscribe = !isRestoring && options.subscribed !== false;
-  React.useSyncExternalStore(
-    React.useCallback(
+  React$1.useSyncExternalStore(
+    React$1.useCallback(
       (onStoreChange) => {
         const unsubscribe = shouldSubscribe ? observer.subscribe(notifyManager.batchCalls(onStoreChange)) : noop$1;
         observer.updateResult();
@@ -38654,7 +37503,7 @@ function useBaseQuery(options, Observer, queryClient2) {
     () => observer.getCurrentResult(),
     () => observer.getCurrentResult()
   );
-  React.useEffect(() => {
+  React$1.useEffect(() => {
     observer.setOptions(defaultedOptions);
   }, [defaultedOptions, observer]);
   if (shouldSuspend(defaultedOptions, result)) {
@@ -38697,7 +37546,7 @@ function bind(fn2, thisArg) {
   };
 }
 const { toString } = Object.prototype;
-const { getPrototypeOf } = Object;
+const { getPrototypeOf: getPrototypeOf$1 } = Object;
 const { iterator, toStringTag } = Symbol;
 const kindOf = /* @__PURE__ */ ((cache) => (thing) => {
   const str = toString.call(thing);
@@ -38728,11 +37577,11 @@ const isFunction$1 = typeOfTest("function");
 const isNumber = typeOfTest("number");
 const isObject = (thing) => thing !== null && typeof thing === "object";
 const isBoolean = (thing) => thing === true || thing === false;
-const isPlainObject = (val) => {
+const isPlainObject$1 = (val) => {
   if (kindOf(val) !== "object") {
     return false;
   }
-  const prototype2 = getPrototypeOf(val);
+  const prototype2 = getPrototypeOf$1(val);
   return (prototype2 === null || prototype2 === Object.prototype || Object.getPrototypeOf(prototype2) === null) && !(toStringTag in val) && !(iterator in val);
 };
 const isEmptyObject = (val) => {
@@ -38810,9 +37659,9 @@ function merge() {
   const result = {};
   const assignValue = (val, key) => {
     const targetKey = caseless && findKey(result, key) || key;
-    if (isPlainObject(result[targetKey]) && isPlainObject(val)) {
+    if (isPlainObject$1(result[targetKey]) && isPlainObject$1(val)) {
       result[targetKey] = merge(result[targetKey], val);
-    } else if (isPlainObject(val)) {
+    } else if (isPlainObject$1(val)) {
       result[targetKey] = merge({}, val);
     } else if (isArray(val)) {
       result[targetKey] = val.slice();
@@ -38868,7 +37717,7 @@ const toFlatObject = (sourceObj, destObj, filter2, propFilter) => {
         merged[prop] = true;
       }
     }
-    sourceObj = filter2 !== false && getPrototypeOf(sourceObj);
+    sourceObj = filter2 !== false && getPrototypeOf$1(sourceObj);
   } while (sourceObj && (!filter2 || filter2(sourceObj, destObj)) && sourceObj !== Object.prototype);
   return destObj;
 };
@@ -38896,7 +37745,7 @@ const isTypedArray = /* @__PURE__ */ ((TypedArray) => {
   return (thing) => {
     return TypedArray && thing instanceof TypedArray;
   };
-})(typeof Uint8Array !== "undefined" && getPrototypeOf(Uint8Array));
+})(typeof Uint8Array !== "undefined" && getPrototypeOf$1(Uint8Array));
 const forEachEntry = (obj, fn2) => {
   const generator = obj && obj[iterator];
   const _iterator = generator.call(obj);
@@ -39031,7 +37880,7 @@ const utils$1 = {
   isNumber,
   isBoolean,
   isObject,
-  isPlainObject,
+  isPlainObject: isPlainObject$1,
   isEmptyObject,
   isReadableStream,
   isRequest,
@@ -41277,6 +40126,988 @@ class ApiClient {
   }
 }
 const apiClient = new ApiClient();
+const createStoreImpl = (createState) => {
+  let state;
+  const listeners = /* @__PURE__ */ new Set();
+  const setState = (partial, replace) => {
+    const nextState = typeof partial === "function" ? partial(state) : partial;
+    if (!Object.is(nextState, state)) {
+      const previousState = state;
+      state = (replace != null ? replace : typeof nextState !== "object" || nextState === null) ? nextState : Object.assign({}, state, nextState);
+      listeners.forEach((listener) => listener(state, previousState));
+    }
+  };
+  const getState2 = () => state;
+  const getInitialState = () => initialState2;
+  const subscribe = (listener) => {
+    listeners.add(listener);
+    return () => listeners.delete(listener);
+  };
+  const api = { setState, getState: getState2, getInitialState, subscribe };
+  const initialState2 = state = createState(setState, getState2, api);
+  return api;
+};
+const createStore = ((createState) => createState ? createStoreImpl(createState) : createStoreImpl);
+const React = await importShared("react");
+const identity = (arg) => arg;
+function useStore(api, selector = identity) {
+  const slice = React.useSyncExternalStore(
+    api.subscribe,
+    React.useCallback(() => selector(api.getState()), [api, selector]),
+    React.useCallback(() => selector(api.getInitialState()), [api, selector])
+  );
+  React.useDebugValue(slice);
+  return slice;
+}
+const createImpl = (createState) => {
+  const api = createStore(createState);
+  const useBoundStore = (selector) => useStore(api, selector);
+  Object.assign(useBoundStore, api);
+  return useBoundStore;
+};
+const create = ((createState) => createState ? createImpl(createState) : createImpl);
+const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "test", "PROD": true, "SSR": false, "VITE_API_URL": "http://localhost:3001/api", "VITE_APP_ENV": "test", "VITE_ENABLE_DEVTOOLS": "true", "VITE_ENABLE_MSW": "true" };
+const trackedConnections = /* @__PURE__ */ new Map();
+const getTrackedConnectionState = (name) => {
+  const api = trackedConnections.get(name);
+  if (!api) return {};
+  return Object.fromEntries(
+    Object.entries(api.stores).map(([key, api2]) => [key, api2.getState()])
+  );
+};
+const extractConnectionInformation = (store, extensionConnector, options) => {
+  if (store === void 0) {
+    return {
+      type: "untracked",
+      connection: extensionConnector.connect(options)
+    };
+  }
+  const existingConnection = trackedConnections.get(options.name);
+  if (existingConnection) {
+    return { type: "tracked", store, ...existingConnection };
+  }
+  const newConnection = {
+    connection: extensionConnector.connect(options),
+    stores: {}
+  };
+  trackedConnections.set(options.name, newConnection);
+  return { type: "tracked", store, ...newConnection };
+};
+const removeStoreFromTrackedConnections = (name, store) => {
+  if (store === void 0) return;
+  const connectionInfo = trackedConnections.get(name);
+  if (!connectionInfo) return;
+  delete connectionInfo.stores[store];
+  if (Object.keys(connectionInfo.stores).length === 0) {
+    trackedConnections.delete(name);
+  }
+};
+const findCallerName = (stack) => {
+  var _a, _b;
+  if (!stack) return void 0;
+  const traceLines = stack.split("\n");
+  const apiSetStateLineIndex = traceLines.findIndex(
+    (traceLine) => traceLine.includes("api.setState")
+  );
+  if (apiSetStateLineIndex < 0) return void 0;
+  const callerLine = ((_a = traceLines[apiSetStateLineIndex + 1]) == null ? void 0 : _a.trim()) || "";
+  return (_b = /.+ (.+) .+/.exec(callerLine)) == null ? void 0 : _b[1];
+};
+const devtoolsImpl = (fn2, devtoolsOptions = {}) => (set2, get, api) => {
+  const { enabled, anonymousActionType, store, ...options } = devtoolsOptions;
+  let extensionConnector;
+  try {
+    extensionConnector = (enabled != null ? enabled : (__vite_import_meta_env__ ? "test" : void 0) !== "production") && window.__REDUX_DEVTOOLS_EXTENSION__;
+  } catch (e) {
+  }
+  if (!extensionConnector) {
+    return fn2(set2, get, api);
+  }
+  const { connection, ...connectionInformation } = extractConnectionInformation(store, extensionConnector, options);
+  let isRecording = true;
+  api.setState = ((state, replace, nameOrAction) => {
+    const r2 = set2(state, replace);
+    if (!isRecording) return r2;
+    const action = nameOrAction === void 0 ? {
+      type: anonymousActionType || findCallerName(new Error().stack) || "anonymous"
+    } : typeof nameOrAction === "string" ? { type: nameOrAction } : nameOrAction;
+    if (store === void 0) {
+      connection == null ? void 0 : connection.send(action, get());
+      return r2;
+    }
+    connection == null ? void 0 : connection.send(
+      {
+        ...action,
+        type: `${store}/${action.type}`
+      },
+      {
+        ...getTrackedConnectionState(options.name),
+        [store]: api.getState()
+      }
+    );
+    return r2;
+  });
+  api.devtools = {
+    cleanup: () => {
+      if (connection && typeof connection.unsubscribe === "function") {
+        connection.unsubscribe();
+      }
+      removeStoreFromTrackedConnections(options.name, store);
+    }
+  };
+  const setStateFromDevtools = (...a) => {
+    const originalIsRecording = isRecording;
+    isRecording = false;
+    set2(...a);
+    isRecording = originalIsRecording;
+  };
+  const initialState2 = fn2(api.setState, get, api);
+  if (connectionInformation.type === "untracked") {
+    connection == null ? void 0 : connection.init(initialState2);
+  } else {
+    connectionInformation.stores[connectionInformation.store] = api;
+    connection == null ? void 0 : connection.init(
+      Object.fromEntries(
+        Object.entries(connectionInformation.stores).map(([key, store2]) => [
+          key,
+          key === connectionInformation.store ? initialState2 : store2.getState()
+        ])
+      )
+    );
+  }
+  if (api.dispatchFromDevtools && typeof api.dispatch === "function") {
+    let didWarnAboutReservedActionType = false;
+    const originalDispatch = api.dispatch;
+    api.dispatch = (...args) => {
+      if ((__vite_import_meta_env__ ? "test" : void 0) !== "production" && args[0].type === "__setState" && !didWarnAboutReservedActionType) {
+        console.warn(
+          '[zustand devtools middleware] "__setState" action type is reserved to set state from the devtools. Avoid using it.'
+        );
+        didWarnAboutReservedActionType = true;
+      }
+      originalDispatch(...args);
+    };
+  }
+  connection.subscribe((message2) => {
+    var _a;
+    switch (message2.type) {
+      case "ACTION":
+        if (typeof message2.payload !== "string") {
+          console.error(
+            "[zustand devtools middleware] Unsupported action format"
+          );
+          return;
+        }
+        return parseJsonThen(
+          message2.payload,
+          (action) => {
+            if (action.type === "__setState") {
+              if (store === void 0) {
+                setStateFromDevtools(action.state);
+                return;
+              }
+              if (Object.keys(action.state).length !== 1) {
+                console.error(
+                  `
+                    [zustand devtools middleware] Unsupported __setState action format.
+                    When using 'store' option in devtools(), the 'state' should have only one key, which is a value of 'store' that was passed in devtools(),
+                    and value of this only key should be a state object. Example: { "type": "__setState", "state": { "abc123Store": { "foo": "bar" } } }
+                    `
+                );
+              }
+              const stateFromDevtools = action.state[store];
+              if (stateFromDevtools === void 0 || stateFromDevtools === null) {
+                return;
+              }
+              if (JSON.stringify(api.getState()) !== JSON.stringify(stateFromDevtools)) {
+                setStateFromDevtools(stateFromDevtools);
+              }
+              return;
+            }
+            if (!api.dispatchFromDevtools) return;
+            if (typeof api.dispatch !== "function") return;
+            api.dispatch(action);
+          }
+        );
+      case "DISPATCH":
+        switch (message2.payload.type) {
+          case "RESET":
+            setStateFromDevtools(initialState2);
+            if (store === void 0) {
+              return connection == null ? void 0 : connection.init(api.getState());
+            }
+            return connection == null ? void 0 : connection.init(getTrackedConnectionState(options.name));
+          case "COMMIT":
+            if (store === void 0) {
+              connection == null ? void 0 : connection.init(api.getState());
+              return;
+            }
+            return connection == null ? void 0 : connection.init(getTrackedConnectionState(options.name));
+          case "ROLLBACK":
+            return parseJsonThen(message2.state, (state) => {
+              if (store === void 0) {
+                setStateFromDevtools(state);
+                connection == null ? void 0 : connection.init(api.getState());
+                return;
+              }
+              setStateFromDevtools(state[store]);
+              connection == null ? void 0 : connection.init(getTrackedConnectionState(options.name));
+            });
+          case "JUMP_TO_STATE":
+          case "JUMP_TO_ACTION":
+            return parseJsonThen(message2.state, (state) => {
+              if (store === void 0) {
+                setStateFromDevtools(state);
+                return;
+              }
+              if (JSON.stringify(api.getState()) !== JSON.stringify(state[store])) {
+                setStateFromDevtools(state[store]);
+              }
+            });
+          case "IMPORT_STATE": {
+            const { nextLiftedState } = message2.payload;
+            const lastComputedState = (_a = nextLiftedState.computedStates.slice(-1)[0]) == null ? void 0 : _a.state;
+            if (!lastComputedState) return;
+            if (store === void 0) {
+              setStateFromDevtools(lastComputedState);
+            } else {
+              setStateFromDevtools(lastComputedState[store]);
+            }
+            connection == null ? void 0 : connection.send(
+              null,
+              // FIXME no-any
+              nextLiftedState
+            );
+            return;
+          }
+          case "PAUSE_RECORDING":
+            return isRecording = !isRecording;
+        }
+        return;
+    }
+  });
+  return initialState2;
+};
+const devtools = devtoolsImpl;
+const parseJsonThen = (stringified, fn2) => {
+  let parsed;
+  try {
+    parsed = JSON.parse(stringified);
+  } catch (e) {
+    console.error(
+      "[zustand devtools middleware] Could not parse the received json",
+      e
+    );
+  }
+  if (parsed !== void 0) fn2(parsed);
+};
+const subscribeWithSelectorImpl = (fn2) => (set2, get, api) => {
+  const origSubscribe = api.subscribe;
+  api.subscribe = ((selector, optListener, options) => {
+    let listener = selector;
+    if (optListener) {
+      const equalityFn = (options == null ? void 0 : options.equalityFn) || Object.is;
+      let currentSlice = selector(api.getState());
+      listener = (state) => {
+        const nextSlice = selector(state);
+        if (!equalityFn(currentSlice, nextSlice)) {
+          const previousSlice = currentSlice;
+          optListener(currentSlice = nextSlice, previousSlice);
+        }
+      };
+      if (options == null ? void 0 : options.fireImmediately) {
+        optListener(currentSlice, currentSlice);
+      }
+    }
+    return origSubscribe(listener);
+  });
+  const initialState2 = fn2(set2, get, api);
+  return initialState2;
+};
+const subscribeWithSelector = subscribeWithSelectorImpl;
+var NOTHING = Symbol.for("immer-nothing");
+var DRAFTABLE = Symbol.for("immer-draftable");
+var DRAFT_STATE = Symbol.for("immer-state");
+function die(error, ...args) {
+  throw new Error(
+    `[Immer] minified error nr: ${error}. Full error at: https://bit.ly/3cXEKWf`
+  );
+}
+var getPrototypeOf = Object.getPrototypeOf;
+function isDraft(value) {
+  return !!value && !!value[DRAFT_STATE];
+}
+function isDraftable(value) {
+  var _a;
+  if (!value)
+    return false;
+  return isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!((_a = value.constructor) == null ? void 0 : _a[DRAFTABLE]) || isMap(value) || isSet(value);
+}
+var objectCtorString = Object.prototype.constructor.toString();
+function isPlainObject(value) {
+  if (!value || typeof value !== "object")
+    return false;
+  const proto = getPrototypeOf(value);
+  if (proto === null) {
+    return true;
+  }
+  const Ctor = Object.hasOwnProperty.call(proto, "constructor") && proto.constructor;
+  if (Ctor === Object)
+    return true;
+  return typeof Ctor == "function" && Function.toString.call(Ctor) === objectCtorString;
+}
+function each(obj, iter) {
+  if (getArchtype(obj) === 0) {
+    Reflect.ownKeys(obj).forEach((key) => {
+      iter(key, obj[key], obj);
+    });
+  } else {
+    obj.forEach((entry, index2) => iter(index2, entry, obj));
+  }
+}
+function getArchtype(thing) {
+  const state = thing[DRAFT_STATE];
+  return state ? state.type_ : Array.isArray(thing) ? 1 : isMap(thing) ? 2 : isSet(thing) ? 3 : 0;
+}
+function has(thing, prop) {
+  return getArchtype(thing) === 2 ? thing.has(prop) : Object.prototype.hasOwnProperty.call(thing, prop);
+}
+function set(thing, propOrOldValue, value) {
+  const t = getArchtype(thing);
+  if (t === 2)
+    thing.set(propOrOldValue, value);
+  else if (t === 3) {
+    thing.add(value);
+  } else
+    thing[propOrOldValue] = value;
+}
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+function isMap(target) {
+  return target instanceof Map;
+}
+function isSet(target) {
+  return target instanceof Set;
+}
+function latest(state) {
+  return state.copy_ || state.base_;
+}
+function shallowCopy(base, strict) {
+  if (isMap(base)) {
+    return new Map(base);
+  }
+  if (isSet(base)) {
+    return new Set(base);
+  }
+  if (Array.isArray(base))
+    return Array.prototype.slice.call(base);
+  const isPlain = isPlainObject(base);
+  if (strict === true || strict === "class_only" && !isPlain) {
+    const descriptors2 = Object.getOwnPropertyDescriptors(base);
+    delete descriptors2[DRAFT_STATE];
+    let keys = Reflect.ownKeys(descriptors2);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const desc = descriptors2[key];
+      if (desc.writable === false) {
+        desc.writable = true;
+        desc.configurable = true;
+      }
+      if (desc.get || desc.set)
+        descriptors2[key] = {
+          configurable: true,
+          writable: true,
+          // could live with !!desc.set as well here...
+          enumerable: desc.enumerable,
+          value: base[key]
+        };
+    }
+    return Object.create(getPrototypeOf(base), descriptors2);
+  } else {
+    const proto = getPrototypeOf(base);
+    if (proto !== null && isPlain) {
+      return { ...base };
+    }
+    const obj = Object.create(proto);
+    return Object.assign(obj, base);
+  }
+}
+function freeze(obj, deep = false) {
+  if (isFrozen(obj) || isDraft(obj) || !isDraftable(obj))
+    return obj;
+  if (getArchtype(obj) > 1) {
+    Object.defineProperties(obj, {
+      set: { value: dontMutateFrozenCollections },
+      add: { value: dontMutateFrozenCollections },
+      clear: { value: dontMutateFrozenCollections },
+      delete: { value: dontMutateFrozenCollections }
+    });
+  }
+  Object.freeze(obj);
+  if (deep)
+    Object.values(obj).forEach((value) => freeze(value, true));
+  return obj;
+}
+function dontMutateFrozenCollections() {
+  die(2);
+}
+function isFrozen(obj) {
+  return Object.isFrozen(obj);
+}
+var plugins = {};
+function getPlugin(pluginKey) {
+  const plugin = plugins[pluginKey];
+  if (!plugin) {
+    die(0, pluginKey);
+  }
+  return plugin;
+}
+var currentScope;
+function getCurrentScope() {
+  return currentScope;
+}
+function createScope(parent_, immer_) {
+  return {
+    drafts_: [],
+    parent_,
+    immer_,
+    // Whenever the modified draft contains a draft from another scope, we
+    // need to prevent auto-freezing so the unowned draft can be finalized.
+    canAutoFreeze_: true,
+    unfinalizedDrafts_: 0
+  };
+}
+function usePatchesInScope(scope, patchListener) {
+  if (patchListener) {
+    getPlugin("Patches");
+    scope.patches_ = [];
+    scope.inversePatches_ = [];
+    scope.patchListener_ = patchListener;
+  }
+}
+function revokeScope(scope) {
+  leaveScope(scope);
+  scope.drafts_.forEach(revokeDraft);
+  scope.drafts_ = null;
+}
+function leaveScope(scope) {
+  if (scope === currentScope) {
+    currentScope = scope.parent_;
+  }
+}
+function enterScope(immer2) {
+  return currentScope = createScope(currentScope, immer2);
+}
+function revokeDraft(draft) {
+  const state = draft[DRAFT_STATE];
+  if (state.type_ === 0 || state.type_ === 1)
+    state.revoke_();
+  else
+    state.revoked_ = true;
+}
+function processResult(result, scope) {
+  scope.unfinalizedDrafts_ = scope.drafts_.length;
+  const baseDraft = scope.drafts_[0];
+  const isReplaced = result !== void 0 && result !== baseDraft;
+  if (isReplaced) {
+    if (baseDraft[DRAFT_STATE].modified_) {
+      revokeScope(scope);
+      die(4);
+    }
+    if (isDraftable(result)) {
+      result = finalize(scope, result);
+      if (!scope.parent_)
+        maybeFreeze(scope, result);
+    }
+    if (scope.patches_) {
+      getPlugin("Patches").generateReplacementPatches_(
+        baseDraft[DRAFT_STATE].base_,
+        result,
+        scope.patches_,
+        scope.inversePatches_
+      );
+    }
+  } else {
+    result = finalize(scope, baseDraft, []);
+  }
+  revokeScope(scope);
+  if (scope.patches_) {
+    scope.patchListener_(scope.patches_, scope.inversePatches_);
+  }
+  return result !== NOTHING ? result : void 0;
+}
+function finalize(rootScope, value, path) {
+  if (isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  if (!state) {
+    each(
+      value,
+      (key, childValue) => finalizeProperty(rootScope, state, value, key, childValue, path)
+    );
+    return value;
+  }
+  if (state.scope_ !== rootScope)
+    return value;
+  if (!state.modified_) {
+    maybeFreeze(rootScope, state.base_, true);
+    return state.base_;
+  }
+  if (!state.finalized_) {
+    state.finalized_ = true;
+    state.scope_.unfinalizedDrafts_--;
+    const result = state.copy_;
+    let resultEach = result;
+    let isSet2 = false;
+    if (state.type_ === 3) {
+      resultEach = new Set(result);
+      result.clear();
+      isSet2 = true;
+    }
+    each(
+      resultEach,
+      (key, childValue) => finalizeProperty(rootScope, state, result, key, childValue, path, isSet2)
+    );
+    maybeFreeze(rootScope, result, false);
+    if (path && rootScope.patches_) {
+      getPlugin("Patches").generatePatches_(
+        state,
+        path,
+        rootScope.patches_,
+        rootScope.inversePatches_
+      );
+    }
+  }
+  return state.copy_;
+}
+function finalizeProperty(rootScope, parentState, targetObject, prop, childValue, rootPath, targetIsSet) {
+  if (isDraft(childValue)) {
+    const path = rootPath && parentState && parentState.type_ !== 3 && // Set objects are atomic since they have no keys.
+    !has(parentState.assigned_, prop) ? rootPath.concat(prop) : void 0;
+    const res = finalize(rootScope, childValue, path);
+    set(targetObject, prop, res);
+    if (isDraft(res)) {
+      rootScope.canAutoFreeze_ = false;
+    } else
+      return;
+  } else if (targetIsSet) {
+    targetObject.add(childValue);
+  }
+  if (isDraftable(childValue) && !isFrozen(childValue)) {
+    if (!rootScope.immer_.autoFreeze_ && rootScope.unfinalizedDrafts_ < 1) {
+      return;
+    }
+    finalize(rootScope, childValue);
+    if ((!parentState || !parentState.scope_.parent_) && typeof prop !== "symbol" && (isMap(targetObject) ? targetObject.has(prop) : Object.prototype.propertyIsEnumerable.call(targetObject, prop)))
+      maybeFreeze(rootScope, childValue);
+  }
+}
+function maybeFreeze(scope, value, deep = false) {
+  if (!scope.parent_ && scope.immer_.autoFreeze_ && scope.canAutoFreeze_) {
+    freeze(value, deep);
+  }
+}
+function createProxyProxy(base, parent) {
+  const isArray2 = Array.isArray(base);
+  const state = {
+    type_: isArray2 ? 1 : 0,
+    // Track which produce call this is associated with.
+    scope_: parent ? parent.scope_ : getCurrentScope(),
+    // True for both shallow and deep changes.
+    modified_: false,
+    // Used during finalization.
+    finalized_: false,
+    // Track which properties have been assigned (true) or deleted (false).
+    assigned_: {},
+    // The parent draft state.
+    parent_: parent,
+    // The base state.
+    base_: base,
+    // The base proxy.
+    draft_: null,
+    // set below
+    // The base copy with any updated values.
+    copy_: null,
+    // Called by the `produce` function.
+    revoke_: null,
+    isManual_: false
+  };
+  let target = state;
+  let traps = objectTraps;
+  if (isArray2) {
+    target = [state];
+    traps = arrayTraps;
+  }
+  const { revoke, proxy } = Proxy.revocable(target, traps);
+  state.draft_ = proxy;
+  state.revoke_ = revoke;
+  return proxy;
+}
+var objectTraps = {
+  get(state, prop) {
+    if (prop === DRAFT_STATE)
+      return state;
+    const source = latest(state);
+    if (!has(source, prop)) {
+      return readPropFromProto(state, source, prop);
+    }
+    const value = source[prop];
+    if (state.finalized_ || !isDraftable(value)) {
+      return value;
+    }
+    if (value === peek(state.base_, prop)) {
+      prepareCopy(state);
+      return state.copy_[prop] = createProxy(value, state);
+    }
+    return value;
+  },
+  has(state, prop) {
+    return prop in latest(state);
+  },
+  ownKeys(state) {
+    return Reflect.ownKeys(latest(state));
+  },
+  set(state, prop, value) {
+    const desc = getDescriptorFromProto(latest(state), prop);
+    if (desc == null ? void 0 : desc.set) {
+      desc.set.call(state.draft_, value);
+      return true;
+    }
+    if (!state.modified_) {
+      const current2 = peek(latest(state), prop);
+      const currentState = current2 == null ? void 0 : current2[DRAFT_STATE];
+      if (currentState && currentState.base_ === value) {
+        state.copy_[prop] = value;
+        state.assigned_[prop] = false;
+        return true;
+      }
+      if (is(value, current2) && (value !== void 0 || has(state.base_, prop)))
+        return true;
+      prepareCopy(state);
+      markChanged(state);
+    }
+    if (state.copy_[prop] === value && // special case: handle new props with value 'undefined'
+    (value !== void 0 || prop in state.copy_) || // special case: NaN
+    Number.isNaN(value) && Number.isNaN(state.copy_[prop]))
+      return true;
+    state.copy_[prop] = value;
+    state.assigned_[prop] = true;
+    return true;
+  },
+  deleteProperty(state, prop) {
+    if (peek(state.base_, prop) !== void 0 || prop in state.base_) {
+      state.assigned_[prop] = false;
+      prepareCopy(state);
+      markChanged(state);
+    } else {
+      delete state.assigned_[prop];
+    }
+    if (state.copy_) {
+      delete state.copy_[prop];
+    }
+    return true;
+  },
+  // Note: We never coerce `desc.value` into an Immer draft, because we can't make
+  // the same guarantee in ES5 mode.
+  getOwnPropertyDescriptor(state, prop) {
+    const owner = latest(state);
+    const desc = Reflect.getOwnPropertyDescriptor(owner, prop);
+    if (!desc)
+      return desc;
+    return {
+      writable: true,
+      configurable: state.type_ !== 1 || prop !== "length",
+      enumerable: desc.enumerable,
+      value: owner[prop]
+    };
+  },
+  defineProperty() {
+    die(11);
+  },
+  getPrototypeOf(state) {
+    return getPrototypeOf(state.base_);
+  },
+  setPrototypeOf() {
+    die(12);
+  }
+};
+var arrayTraps = {};
+each(objectTraps, (key, fn2) => {
+  arrayTraps[key] = function() {
+    arguments[0] = arguments[0][0];
+    return fn2.apply(this, arguments);
+  };
+});
+arrayTraps.deleteProperty = function(state, prop) {
+  return arrayTraps.set.call(this, state, prop, void 0);
+};
+arrayTraps.set = function(state, prop, value) {
+  return objectTraps.set.call(this, state[0], prop, value, state[0]);
+};
+function peek(draft, prop) {
+  const state = draft[DRAFT_STATE];
+  const source = state ? latest(state) : draft;
+  return source[prop];
+}
+function readPropFromProto(state, source, prop) {
+  var _a;
+  const desc = getDescriptorFromProto(source, prop);
+  return desc ? `value` in desc ? desc.value : (
+    // This is a very special case, if the prop is a getter defined by the
+    // prototype, we should invoke it with the draft as context!
+    (_a = desc.get) == null ? void 0 : _a.call(state.draft_)
+  ) : void 0;
+}
+function getDescriptorFromProto(source, prop) {
+  if (!(prop in source))
+    return void 0;
+  let proto = getPrototypeOf(source);
+  while (proto) {
+    const desc = Object.getOwnPropertyDescriptor(proto, prop);
+    if (desc)
+      return desc;
+    proto = getPrototypeOf(proto);
+  }
+  return void 0;
+}
+function markChanged(state) {
+  if (!state.modified_) {
+    state.modified_ = true;
+    if (state.parent_) {
+      markChanged(state.parent_);
+    }
+  }
+}
+function prepareCopy(state) {
+  if (!state.copy_) {
+    state.copy_ = shallowCopy(
+      state.base_,
+      state.scope_.immer_.useStrictShallowCopy_
+    );
+  }
+}
+var Immer2 = class {
+  constructor(config) {
+    this.autoFreeze_ = true;
+    this.useStrictShallowCopy_ = false;
+    this.produce = (base, recipe, patchListener) => {
+      if (typeof base === "function" && typeof recipe !== "function") {
+        const defaultBase = recipe;
+        recipe = base;
+        const self2 = this;
+        return function curriedProduce(base2 = defaultBase, ...args) {
+          return self2.produce(base2, (draft) => recipe.call(this, draft, ...args));
+        };
+      }
+      if (typeof recipe !== "function")
+        die(6);
+      if (patchListener !== void 0 && typeof patchListener !== "function")
+        die(7);
+      let result;
+      if (isDraftable(base)) {
+        const scope = enterScope(this);
+        const proxy = createProxy(base, void 0);
+        let hasError = true;
+        try {
+          result = recipe(proxy);
+          hasError = false;
+        } finally {
+          if (hasError)
+            revokeScope(scope);
+          else
+            leaveScope(scope);
+        }
+        usePatchesInScope(scope, patchListener);
+        return processResult(result, scope);
+      } else if (!base || typeof base !== "object") {
+        result = recipe(base);
+        if (result === void 0)
+          result = base;
+        if (result === NOTHING)
+          result = void 0;
+        if (this.autoFreeze_)
+          freeze(result, true);
+        if (patchListener) {
+          const p = [];
+          const ip = [];
+          getPlugin("Patches").generateReplacementPatches_(base, result, p, ip);
+          patchListener(p, ip);
+        }
+        return result;
+      } else
+        die(1, base);
+    };
+    this.produceWithPatches = (base, recipe) => {
+      if (typeof base === "function") {
+        return (state, ...args) => this.produceWithPatches(state, (draft) => base(draft, ...args));
+      }
+      let patches, inversePatches;
+      const result = this.produce(base, recipe, (p, ip) => {
+        patches = p;
+        inversePatches = ip;
+      });
+      return [result, patches, inversePatches];
+    };
+    if (typeof (config == null ? void 0 : config.autoFreeze) === "boolean")
+      this.setAutoFreeze(config.autoFreeze);
+    if (typeof (config == null ? void 0 : config.useStrictShallowCopy) === "boolean")
+      this.setUseStrictShallowCopy(config.useStrictShallowCopy);
+  }
+  createDraft(base) {
+    if (!isDraftable(base))
+      die(8);
+    if (isDraft(base))
+      base = current(base);
+    const scope = enterScope(this);
+    const proxy = createProxy(base, void 0);
+    proxy[DRAFT_STATE].isManual_ = true;
+    leaveScope(scope);
+    return proxy;
+  }
+  finishDraft(draft, patchListener) {
+    const state = draft && draft[DRAFT_STATE];
+    if (!state || !state.isManual_)
+      die(9);
+    const { scope_: scope } = state;
+    usePatchesInScope(scope, patchListener);
+    return processResult(void 0, scope);
+  }
+  /**
+   * Pass true to automatically freeze all copies created by Immer.
+   *
+   * By default, auto-freezing is enabled.
+   */
+  setAutoFreeze(value) {
+    this.autoFreeze_ = value;
+  }
+  /**
+   * Pass true to enable strict shallow copy.
+   *
+   * By default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.
+   */
+  setUseStrictShallowCopy(value) {
+    this.useStrictShallowCopy_ = value;
+  }
+  applyPatches(base, patches) {
+    let i;
+    for (i = patches.length - 1; i >= 0; i--) {
+      const patch = patches[i];
+      if (patch.path.length === 0 && patch.op === "replace") {
+        base = patch.value;
+        break;
+      }
+    }
+    if (i > -1) {
+      patches = patches.slice(i + 1);
+    }
+    const applyPatchesImpl = getPlugin("Patches").applyPatches_;
+    if (isDraft(base)) {
+      return applyPatchesImpl(base, patches);
+    }
+    return this.produce(
+      base,
+      (draft) => applyPatchesImpl(draft, patches)
+    );
+  }
+};
+function createProxy(value, parent) {
+  const draft = isMap(value) ? getPlugin("MapSet").proxyMap_(value, parent) : isSet(value) ? getPlugin("MapSet").proxySet_(value, parent) : createProxyProxy(value, parent);
+  const scope = parent ? parent.scope_ : getCurrentScope();
+  scope.drafts_.push(draft);
+  return draft;
+}
+function current(value) {
+  if (!isDraft(value))
+    die(10, value);
+  return currentImpl(value);
+}
+function currentImpl(value) {
+  if (!isDraftable(value) || isFrozen(value))
+    return value;
+  const state = value[DRAFT_STATE];
+  let copy;
+  if (state) {
+    if (!state.modified_)
+      return state.base_;
+    state.finalized_ = true;
+    copy = shallowCopy(value, state.scope_.immer_.useStrictShallowCopy_);
+  } else {
+    copy = shallowCopy(value, true);
+  }
+  each(copy, (key, childValue) => {
+    set(copy, key, currentImpl(childValue));
+  });
+  if (state) {
+    state.finalized_ = false;
+  }
+  return copy;
+}
+var immer$1 = new Immer2();
+var produce = immer$1.produce;
+const immerImpl = (initializer) => (set2, get, store) => {
+  store.setState = (updater, replace, ...args) => {
+    const nextState = typeof updater === "function" ? produce(updater) : updater;
+    return set2(nextState, replace, ...args);
+  };
+  return initializer(store.setState, get, store);
+};
+const immer = immerImpl;
+const initialState = () => ({
+  selectedCompany: null,
+  companies: [],
+  isLoading: false,
+  error: null
+});
+const useCompanyStore = create()(
+  devtools(
+    subscribeWithSelector(
+      immer((set2) => ({
+        ...initialState(),
+        setSelectedCompany: (company) => set2((state) => {
+          state.selectedCompany = company;
+        }),
+        setCompanies: (companies) => set2((state) => {
+          state.companies = companies;
+        }),
+        addCompany: (company) => set2((state) => {
+          state.companies.push(company);
+        }),
+        updateCompany: (id, updates) => set2((state) => {
+          var _a;
+          const index2 = state.companies.findIndex((c2) => c2.id === id);
+          if (index2 !== -1) {
+            state.companies[index2] = { ...state.companies[index2], ...updates };
+            if (((_a = state.selectedCompany) == null ? void 0 : _a.id) === id) {
+              state.selectedCompany = { ...state.selectedCompany, ...updates };
+            }
+          }
+        }),
+        removeCompany: (id) => set2((state) => {
+          var _a;
+          state.companies = state.companies.filter((c2) => c2.id !== id);
+          if (((_a = state.selectedCompany) == null ? void 0 : _a.id) === id) {
+            state.selectedCompany = null;
+          }
+        }),
+        setLoading: (isLoading) => set2((state) => {
+          state.isLoading = isLoading;
+        }),
+        setError: (error) => set2((state) => {
+          state.error = error;
+        }),
+        reset: () => set2(() => initialState())
+      }))
+    ),
+    {
+      name: "company-storage"
+    }
+  )
+);
 const { useEffect: useEffect$1 } = await importShared("react");
 const COMPANIES_KEY = ["companies"];
 const useCompanies = () => {
@@ -41306,6 +41137,180 @@ const useCompanies = () => {
     }
   }, [query.error, setError, setLoading]);
   return query;
+};
+const { useCallback: useCallback$1, useMemo, useState } = await importShared("react");
+const NavigationSidebar = ({
+  className,
+  onNavigate,
+  selectedCompany = RouteCompanyIds.DirectExpansion,
+  onCompanyChange
+}) => {
+  const { data: companies = [] } = useCompanies();
+  const navigationElements = useMemo(() => getNavigationElements(), []);
+  const [expandedItems, setExpandedItems] = useState(() => {
+    return /* @__PURE__ */ new Set();
+  });
+  const [expandedSections, setExpandedSections] = useState(() => {
+    const defaultExpanded = /* @__PURE__ */ new Set();
+    navigationElements.forEach((element) => {
+      if (isNavigationSection(element) && element.defaultExpanded) {
+        defaultExpanded.add(element.id);
+      }
+    });
+    return defaultExpanded;
+  });
+  const handleExpandClick = (label) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    toggleExpanded(label);
+  };
+  const toggleExpanded = useCallback$1((label) => {
+    setExpandedItems((prev) => {
+      const newExpanded = new Set(prev);
+      if (newExpanded.has(label)) {
+        newExpanded.delete(label);
+      } else {
+        newExpanded.add(label);
+      }
+      return newExpanded;
+    });
+  }, []);
+  const handleExpandSectionClick = (sectionId) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    toggleSection(sectionId);
+  };
+  const toggleSection = useCallback$1((sectionId) => {
+    setExpandedSections((prev) => {
+      const newExpanded = new Set(prev);
+      if (newExpanded.has(sectionId)) {
+        newExpanded.delete(sectionId);
+      } else {
+        newExpanded.add(sectionId);
+      }
+      return newExpanded;
+    });
+  }, []);
+  const handleNavigation = useCallback$1((path) => {
+    if (onNavigate) {
+      onNavigate(path);
+    }
+  }, [onNavigate]);
+  const handleCompanyChange = useCallback$1((companyValue) => {
+    if (onCompanyChange) {
+      onCompanyChange(companyValue);
+    }
+  }, [onCompanyChange]);
+  const renderNavItem = useCallback$1((item, level = 0) => {
+    if (!item.isVisible) {
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {});
+    }
+    const hasChildren = Boolean(item.children && item.children.length > 0);
+    const isExpanded = expandedItems.has(String(item.label));
+    const navPath = getCompanyNavigationPath(item.path, selectedCompany);
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: hasChildren ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        B,
+        {
+          variant: "outlined",
+          onClick: handleExpandClick(String(item.label)),
+          className: `w-full cursor-pointer flex items-center justify-between px-2 py-1.5 text-left hover:bg-gray-100 transition-colors ${level > 0 ? "pl-8" : ""}`,
+          type: "button",
+          "aria-expanded": isExpanded,
+          "aria-label": `Toggle ${item.label} menu`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+              item.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: `w-4 h-4 flex-shrink-0 ${level > 0 ? "ml-4" : ""}` }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium text-gray-700", children: item.label })
+            ] }),
+            isExpanded ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-gray-500", "aria-hidden": "true" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 text-gray-500", "aria-hidden": "true" })
+          ]
+        }
+      ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        NavLink,
+        {
+          to: navPath,
+          onClick: () => handleNavigation(navPath),
+          className: ({ isActive }) => {
+            const isCompanyRoute = [RoutePaths.ExpensesType, RoutePaths.BusinessPurpose].includes(item.path);
+            const currentPath = window.location.hash.replace("#", "");
+            let isActiveRoute = isActive;
+            if (isCompanyRoute && !isActive) {
+              const basePath = item.path;
+              isActiveRoute = currentPath.startsWith(basePath);
+            }
+            return `flex items-center gap-2 px-2 py-1.5 text-sm font-medium transition-colors hover:bg-exp-neutral-30 rounded-lg ${level > 0 ? "pl-8" : ""} ${isActiveRoute ? "bg-exp-primary-blue-50 text-exp-primary-blue-600 font-semibold" : "text-exp-neutral-600"}`;
+          },
+          children: [
+            item.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: `w-4 h-4 flex-shrink-0 ${level > 0 ? "ml-4" : ""}` }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "color-exp-neutral-600", children: item.label })
+          ]
+        }
+      ) }),
+      hasChildren && isExpanded && item.children && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50", children: item.children.map((child) => renderNavItem(child, level + 1)) })
+    ] }, item.path);
+  }, [expandedItems, handleNavigation, toggleExpanded, selectedCompany]);
+  const renderSeparator = useCallback$1(() => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-exp-neutral-40 my-4" });
+  }, []);
+  const renderGroupTitle = useCallback$1((title) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-2 py-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xs font-medium text-exp-neutral-100 uppercase ", children: title }) });
+  }, []);
+  const renderGroup = useCallback$1((group) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4", children: [
+      group.title && renderGroupTitle(group.title),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gap-1", children: group.items.map((item) => renderNavItem(item, 0)) })
+    ] }, group.id);
+  }, [renderNavItem, renderGroupTitle]);
+  const renderSelector = useCallback$1((selector) => {
+    const companyOptions = companies.map((company) => ({
+      value: company.id,
+      label: company.name
+    }));
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(_n, { options: companyOptions, value: selectedCompany, onValueChange: handleCompanyChange }) }, selector.id);
+  }, [companies, selectedCompany, handleCompanyChange]);
+  const renderSection = useCallback$1((section) => {
+    const isExpanded = expandedSections.has(section.id);
+    const renderSectionElements = () => {
+      return section.elements.map((element) => {
+        if (isNavigationGroup(element)) return renderGroup(element);
+        if (isNavigationSeparator(element)) return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: renderSeparator() }, element.id);
+        if (isNavigationSelector(element)) return renderSelector(element);
+        if (isNavigationSection(element)) return renderSection(element);
+        return null;
+      }).filter(Boolean);
+    };
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        B,
+        {
+          onClick: handleExpandSectionClick(section.id),
+          variant: "outlined",
+          iconPosition: "center",
+          className: "w-full cursor-pointer flex items-center justify-start px-3 py-2 !pl-0 hover:bg-gray-100 transition-colors rounded-lg",
+          "aria-expanded": isExpanded,
+          "aria-label": `Toggle ${section.label} section`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+              section.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(section.icon, { className: "w-5 h-5 flex-shrink-0 text-exp-primary-blue-700" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-md font-semibold text-exp-primary-blue-700 uppercase", children: section.label })
+            ] }),
+            isExpanded ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-4 h-4 text-exp-primary-blue-700", "aria-hidden": "true" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "w-4 h-4 text-exp-primary-blue-700", "aria-hidden": "true" })
+          ]
+        }
+      ),
+      isExpanded && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2", children: renderSectionElements() })
+    ] }, section.id);
+  }, [expandedSections, toggleSection, renderGroup, renderSeparator, renderSelector]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-64 bg-exp-neutral-0 min-h-screen", children: /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: `w-full ${className || ""} bg-exp-neutral-10 rounded-xl p-3 shadow-exp-menu`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "py-4", children: navigationElements.map((element) => {
+    if (isNavigationGroup(element)) return renderGroup(element);
+    if (isNavigationSeparator(element)) return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: renderSeparator() }, element.id);
+    if (isNavigationSelector(element)) return renderSelector(element);
+    if (isNavigationSection(element)) return renderSection(element);
+    return null;
+  }) }) }) });
 };
 const { useCallback, useEffect } = await importShared("react");
 const Layout = () => {
@@ -41363,14 +41368,14 @@ const Layout = () => {
 };
 const LoadingSpinner = ({ className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex items-center justify-center ${className}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
 const { Suspense, lazy } = await importShared("react");
-const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-Cfk48ifl.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-BxauQ_Tf.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const Configurations = lazy(() => __vitePreload(() => import("./Configurations-5OTS945I.js"), true ? [] : void 0, import.meta.url));
-const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-CML1Vs0m.js"), true ? [] : void 0, import.meta.url));
-const Payroll = lazy(() => __vitePreload(() => import("./Payroll-WpLUwmwL.js"), true ? [] : void 0, import.meta.url));
-const Allocations = lazy(() => __vitePreload(() => import("./Allocations-Bwgd2Cuy.js"), true ? [] : void 0, import.meta.url));
-const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-Dz9XzQ2P.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
-const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-B7KGiBQg.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
+const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-BGbjmGLr.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-Kq2R3_g_.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
+const Configurations = lazy(() => __vitePreload(() => import("./Configurations-CD9zI2pH.js"), true ? [] : void 0, import.meta.url));
+const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-AAnAftiw.js"), true ? [] : void 0, import.meta.url));
+const Payroll = lazy(() => __vitePreload(() => import("./Payroll-dvu29Zxr.js"), true ? [] : void 0, import.meta.url));
+const Allocations = lazy(() => __vitePreload(() => import("./Allocations-0Ttxdt_w.js"), true ? [] : void 0, import.meta.url));
+const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-jZAwDdyR.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
+const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-BO5zFFuG.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -41513,7 +41518,7 @@ async function initializeMSW() {
       await new Promise((resolve) => setTimeout(resolve, 100));
       try {
         const { worker } = await __vitePreload(async () => {
-          const { worker: worker2 } = await import("./browser-De7w2XOZ.js");
+          const { worker: worker2 } = await import("./browser-BWW-LSiw.js");
           return { worker: worker2 };
         }, true ? __vite__mapDeps([7,8]) : void 0, import.meta.url);
         const serviceWorkerUrl = window.location.pathname.includes("/") ? `${window.location.pathname.split("/").slice(0, -1).join("/")}/mockServiceWorker.js` : "/mockServiceWorker.js";
@@ -41539,7 +41544,7 @@ async function initializeMSW() {
     }
     try {
       const { httpInterceptor } = await __vitePreload(async () => {
-        const { httpInterceptor: httpInterceptor2 } = await import("./interceptor-DMD0WAUO.js");
+        const { httpInterceptor: httpInterceptor2 } = await import("./interceptor-Cy5GIaLh.js");
         return { httpInterceptor: httpInterceptor2 };
       }, true ? __vite__mapDeps([9,8]) : void 0, import.meta.url);
       httpInterceptor.start();
