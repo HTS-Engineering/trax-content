@@ -1,4 +1,4 @@
-import { m as mockCompanies } from "./index-D8rnGRaf.js";
+import { m as mockCompanies } from "./index-DfPgIOgu.js";
 class HTTPInterceptor {
   originalFetch;
   originalXHR;
@@ -30,6 +30,13 @@ class HTTPInterceptor {
     return class extends originalXHR {
       _url = "";
       _method = "GET";
+      set onreadystatechange(handler) {
+        console.log(`🔧 MSW: Setting onreadystatechange handler for ${this._url || "unknown"}`);
+        super.onreadystatechange = handler;
+      }
+      get onreadystatechange() {
+        return super.onreadystatechange;
+      }
       open(method, url, async, user, password) {
         this._method = method.toUpperCase();
         this._url = typeof url === "string" ? url : url.toString();
@@ -64,19 +71,35 @@ class HTTPInterceptor {
                 console.log(`📄 MSW: Response data:`, this.responseText);
                 console.log(`🔄 MSW: Starting readyState transitions for ${this._url}`);
                 Object.defineProperty(this, "readyState", { value: 2, configurable: true });
+                console.log(`🔄 MSW: Triggering readyState 2 (HEADERS_RECEIVED) for ${this._url}`);
+                console.log(`🔄 MSW: onreadystatechange handler exists: ${!!this.onreadystatechange}`);
                 if (this.onreadystatechange) {
-                  console.log(`🔄 MSW: Triggering readyState 2 (HEADERS_RECEIVED) for ${this._url}`);
-                  this.onreadystatechange(new Event("readystatechange"));
+                  try {
+                    this.onreadystatechange(new Event("readystatechange"));
+                    console.log(`✅ MSW: readyState 2 event triggered successfully`);
+                  } catch (error) {
+                    console.error(`❌ MSW: Error triggering readyState 2:`, error);
+                  }
                 }
                 Object.defineProperty(this, "readyState", { value: 3, configurable: true });
+                console.log(`🔄 MSW: Triggering readyState 3 (LOADING) for ${this._url}`);
                 if (this.onreadystatechange) {
-                  console.log(`🔄 MSW: Triggering readyState 3 (LOADING) for ${this._url}`);
-                  this.onreadystatechange(new Event("readystatechange"));
+                  try {
+                    this.onreadystatechange(new Event("readystatechange"));
+                    console.log(`✅ MSW: readyState 3 event triggered successfully`);
+                  } catch (error) {
+                    console.error(`❌ MSW: Error triggering readyState 3:`, error);
+                  }
                 }
                 Object.defineProperty(this, "readyState", { value: 4, configurable: true });
+                console.log(`🔄 MSW: Triggering readyState 4 (DONE) for ${this._url}`);
                 if (this.onreadystatechange) {
-                  console.log(`🔄 MSW: Triggering readyState 4 (DONE) for ${this._url}`);
-                  this.onreadystatechange(new Event("readystatechange"));
+                  try {
+                    this.onreadystatechange(new Event("readystatechange"));
+                    console.log(`✅ MSW: readyState 4 event triggered successfully`);
+                  } catch (error) {
+                    console.error(`❌ MSW: Error triggering readyState 4:`, error);
+                  }
                 }
                 if (this.onload) {
                   console.log(`✅ MSW: Triggering onload for ${this._url}`);
