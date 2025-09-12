@@ -1,4 +1,4 @@
-import { m as mockCompanies } from "./index-Dh4SQwW5.js";
+import { m as mockCompanies } from "./index-D8rnGRaf.js";
 class HTTPInterceptor {
   originalFetch;
   originalXHR;
@@ -60,24 +60,33 @@ class HTTPInterceptor {
                   return "content-type: application/json\r\n";
                 };
                 console.log(`📡 MSW: Mock XHR properties set - status: ${this.status}`);
+                console.log(`📡 MSW: readyState: ${this.readyState}`);
                 console.log(`📄 MSW: Response data:`, this.responseText);
-                this._readyState = 2;
+                console.log(`🔄 MSW: Starting readyState transitions for ${this._url}`);
+                Object.defineProperty(this, "readyState", { value: 2, configurable: true });
                 if (this.onreadystatechange) {
+                  console.log(`🔄 MSW: Triggering readyState 2 (HEADERS_RECEIVED) for ${this._url}`);
                   this.onreadystatechange(new Event("readystatechange"));
                 }
-                this._readyState = 3;
+                Object.defineProperty(this, "readyState", { value: 3, configurable: true });
                 if (this.onreadystatechange) {
+                  console.log(`🔄 MSW: Triggering readyState 3 (LOADING) for ${this._url}`);
                   this.onreadystatechange(new Event("readystatechange"));
                 }
-                this._readyState = 4;
                 Object.defineProperty(this, "readyState", { value: 4, configurable: true });
                 if (this.onreadystatechange) {
-                  console.log(`🔄 MSW: Triggering final onreadystatechange for ${this._url}`);
+                  console.log(`🔄 MSW: Triggering readyState 4 (DONE) for ${this._url}`);
                   this.onreadystatechange(new Event("readystatechange"));
                 }
                 if (this.onload) {
                   console.log(`✅ MSW: Triggering onload for ${this._url}`);
-                  this.onload(new ProgressEvent("load", { lengthComputable: true, loaded: this.responseText.length, total: this.responseText.length }));
+                  this.onload(new ProgressEvent("load", {
+                    lengthComputable: true,
+                    loaded: this.responseText.length,
+                    total: this.responseText.length
+                  }));
+                } else {
+                  console.log(`⚠️ MSW: No onload handler for ${this._url}`);
                 }
               }, 10);
             };
