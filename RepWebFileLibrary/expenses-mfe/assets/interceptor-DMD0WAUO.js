@@ -1,4 +1,4 @@
-import { m as mockCompanies } from "./index-CcDKp10-.js";
+import { m as mockCompanies } from "./index-DdeeG_Et.js";
 class HTTPInterceptor {
   originalFetch;
   originalXHR;
@@ -45,12 +45,11 @@ class HTTPInterceptor {
               console.log(`📦 MSW: send() called for ${this._method} ${this._url}`, body);
               console.log(`📦 MSW: Sending mock data for ${this._method} ${this._url}:`, mockResponse.data);
               setTimeout(() => {
-                Object.defineProperty(this, "status", { value: mockResponse.status, writable: false });
-                Object.defineProperty(this, "statusText", { value: "OK", writable: false });
-                Object.defineProperty(this, "response", { value: JSON.stringify(mockResponse.data), writable: false });
-                Object.defineProperty(this, "responseText", { value: JSON.stringify(mockResponse.data), writable: false });
-                Object.defineProperty(this, "responseType", { value: "", writable: false });
-                Object.defineProperty(this, "readyState", { value: 4, writable: false });
+                Object.defineProperty(this, "status", { value: mockResponse.status, configurable: true });
+                Object.defineProperty(this, "statusText", { value: "OK", configurable: true });
+                Object.defineProperty(this, "response", { value: JSON.stringify(mockResponse.data), configurable: true });
+                Object.defineProperty(this, "responseText", { value: JSON.stringify(mockResponse.data), configurable: true });
+                Object.defineProperty(this, "responseType", { value: "", configurable: true });
                 this.getResponseHeader = (name) => {
                   if (name.toLowerCase() === "content-type") {
                     return "application/json";
@@ -60,17 +59,18 @@ class HTTPInterceptor {
                 this.getAllResponseHeaders = () => {
                   return "content-type: application/json\r\n";
                 };
-                console.log(`📡 MSW: Mock XHR properties set - status: ${this.status}, readyState: ${this.readyState}`);
+                console.log(`📡 MSW: Mock XHR properties set - status: ${this.status}`);
                 console.log(`📄 MSW: Response data:`, this.responseText);
-                Object.defineProperty(this, "readyState", { value: 2, writable: true });
+                this._readyState = 2;
                 if (this.onreadystatechange) {
                   this.onreadystatechange(new Event("readystatechange"));
                 }
-                Object.defineProperty(this, "readyState", { value: 3, writable: true });
+                this._readyState = 3;
                 if (this.onreadystatechange) {
                   this.onreadystatechange(new Event("readystatechange"));
                 }
-                Object.defineProperty(this, "readyState", { value: 4, writable: false });
+                this._readyState = 4;
+                Object.defineProperty(this, "readyState", { value: 4, configurable: true });
                 if (this.onreadystatechange) {
                   console.log(`🔄 MSW: Triggering final onreadystatechange for ${this._url}`);
                   this.onreadystatechange(new Event("readystatechange"));
