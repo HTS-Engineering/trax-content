@@ -1,4 +1,4 @@
-import { m as mockCompanies } from "./index-5dVYNEEx.js";
+import { m as mockCompanies } from "./index-CcDKp10-.js";
 class HTTPInterceptor {
   originalFetch;
   originalXHR;
@@ -35,6 +35,7 @@ class HTTPInterceptor {
         this._url = typeof url === "string" ? url : url.toString();
         console.log(`🌐 MSW: XHR.open called - ${this._method} ${this._url}`);
         const shouldMock = this._url.includes("/api/") || this._url.includes("localhost:3001");
+        super.open(method, url, async ?? true, user, password);
         if (shouldMock) {
           console.log(`🔄 MSW: Intercepting XHR ${this._method} ${this._url}`);
           const mockResponse = interceptor.getMockResponse(this._method, new URL(this._url).pathname, this._url);
@@ -83,7 +84,6 @@ class HTTPInterceptor {
             return;
           }
         }
-        return super.open(method, url, async ?? true, user, password);
       }
     };
   }
