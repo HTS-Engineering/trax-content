@@ -1,4 +1,4 @@
-import { a4 as mockCompanies, a5 as mockExpenseTypes, a6 as mockBusinessPurposes } from "./__federation_expose_Mount-DQVj5X9H.js";
+import { a4 as mockCompanies, a5 as mockExpenseTypes, a6 as mockBusinessPurposes } from "./__federation_expose_Mount-qB4Xv1q5.js";
 function isObject$1(value) {
   return value != null && typeof value === "object" && !Array.isArray(value);
 }

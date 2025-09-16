@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./__federation_expose_Mount-DQVj5X9H.js";
+import { c as createLucideIcon } from "./__federation_expose_Mount-qB4Xv1q5.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *

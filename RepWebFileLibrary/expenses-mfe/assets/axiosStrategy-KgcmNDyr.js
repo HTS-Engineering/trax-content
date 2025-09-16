@@ -1,4 +1,4 @@
-import { i as apiClient } from "./__federation_expose_Mount-DQVj5X9H.js";
+import { i as apiClient } from "./__federation_expose_Mount-qB4Xv1q5.js";
 class AxiosStrategy {
   active = false;
   async initialize() {
