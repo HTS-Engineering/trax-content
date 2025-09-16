@@ -1,41 +1,27 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, W as Wn, Y as Yn, Z as Ze, F as FileText, a as Zn, _ as _n, Q as Qe, N as Nn, I as In, K as Kn, b as Fn, C as ChartColumn, P as Pn, d as CreditCard, u as useNavigate, e as Nr, z as zn, E as En, L as Ln, B, f as ChevronRight, H as Hn, R as RoutePaths } from "./__federation_expose_Mount-C8PjL4k2.js";
-import { E as ExpensesList } from "./ExpensesList-BZem6lhQ.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, W as Wn, Y as Yn, Z as Ze, F as FileText, a as Zn, _ as _n, Q as Qe, N as Nn, I as In, K as Kn, b as Fn, C as ChartColumn, P as Pn, d as CreditCard, u as useNavigate, e as Nr, z as zn, E as En, L as Ln, B, f as ChevronRight, H as Hn, R as RoutePaths } from "./__federation_expose_Mount-DQVj5X9H.js";
+import { E as ExpensesList } from "./ExpensesList-zNu6TkjX.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
+import { S as Send } from "./send-CzJr1peE.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$4 = [
+const __iconNode$3 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
   ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
   ["path", { d: "M6 12h.01M18 12h.01", key: "113zkx" }]
 ];
-const Banknote = createLucideIcon("banknote", __iconNode$4);
+const Banknote = createLucideIcon("banknote", __iconNode$3);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$3 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$3);
-/**
- * @license lucide-react v0.542.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$2 = [
-  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
-  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
-  ["path", { d: "M8 13h2", key: "yr2amv" }],
-  ["path", { d: "M14 13h2", key: "un5t4a" }],
-  ["path", { d: "M8 17h2", key: "2yhykz" }],
-  ["path", { d: "M14 17h2", key: "10kma7" }]
-];
-const FileSpreadsheet = createLucideIcon("file-spreadsheet", __iconNode$2);
+const __iconNode$2 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$2);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -43,6 +29,21 @@ const FileSpreadsheet = createLucideIcon("file-spreadsheet", __iconNode$2);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$1 = [
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M8 13h2", key: "yr2amv" }],
+  ["path", { d: "M14 13h2", key: "un5t4a" }],
+  ["path", { d: "M8 17h2", key: "2yhykz" }],
+  ["path", { d: "M14 17h2", key: "10kma7" }]
+];
+const FileSpreadsheet = createLucideIcon("file-spreadsheet", __iconNode$1);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode = [
   [
     "path",
     {
@@ -54,24 +55,7 @@ const __iconNode$1 = [
   ["path", { d: "M16 11h.01", key: "xkw8gn" }],
   ["path", { d: "M8 11h.01", key: "1dfujw" }]
 ];
-const MessageSquareMore = createLucideIcon("message-square-more", __iconNode$1);
-/**
- * @license lucide-react v0.542.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode = [
-  [
-    "path",
-    {
-      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
-      key: "1ffxy3"
-    }
-  ],
-  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
-];
-const Send = createLucideIcon("send", __iconNode);
+const MessageSquareMore = createLucideIcon("message-square-more", __iconNode);
 const { useState } = await importShared("react");
 const ExpenseForm = (_) => {
   const [formData, setFormData] = useState({

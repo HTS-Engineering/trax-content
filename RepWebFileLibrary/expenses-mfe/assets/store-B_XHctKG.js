@@ -1,4 +1,4 @@
-import { c as createLucideIcon, A as create, D as devtools, G as subscribeWithSelector, J as immer } from "./__federation_expose_Mount-C8PjL4k2.js";
+import { c as createLucideIcon, A as create, D as devtools, G as subscribeWithSelector, J as immer } from "./__federation_expose_Mount-DQVj5X9H.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *

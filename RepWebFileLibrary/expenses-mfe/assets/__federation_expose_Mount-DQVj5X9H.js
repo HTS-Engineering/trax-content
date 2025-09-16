@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-C0tZgBLR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-BZem6lhQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-D0xhsbN8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-BDS5xWHY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-BaAgUyP6.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-CtV-O2OO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mockingStrategy-Cpe2ADEX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Be6eT6eU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-BCHGG9fk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-zNu6TkjX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-2DWcCVzr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/send-CzJr1peE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-B65u3eJo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-B_XHctKG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-m-BX8CFm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/circle-check-big-klSuE2Hu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-BCX2fD3t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mockingStrategy-EvpxBiQ1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Be6eT6eU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-Be6eT6eU.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
@@ -20948,76 +20948,76 @@ const createLucideIcon$1 = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [
+const __iconNode$l = [
   ["path", { d: "M8 2v4", key: "1cmpym" }],
   ["path", { d: "M16 2v4", key: "4m81vk" }],
   ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
   ["path", { d: "M3 10h18", key: "8toen8" }]
 ];
-const Calendar = createLucideIcon$1("calendar", __iconNode$j);
+const Calendar = createLucideIcon$1("calendar", __iconNode$l);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon$1("check", __iconNode$i);
+const __iconNode$k = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon$1("check", __iconNode$k);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$h = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown$1 = createLucideIcon$1("chevron-down", __iconNode$h);
+const __iconNode$j = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown$1 = createLucideIcon$1("chevron-down", __iconNode$j);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon$1("chevron-left", __iconNode$g);
+const __iconNode$i = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon$1("chevron-left", __iconNode$i);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$f = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight$1 = createLucideIcon$1("chevron-right", __iconNode$f);
+const __iconNode$h = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight$1 = createLucideIcon$1("chevron-right", __iconNode$h);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$e = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon$1("chevron-up", __iconNode$e);
+const __iconNode$g = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon$1("chevron-up", __iconNode$g);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$d = [
+const __iconNode$f = [
   ["path", { d: "M12 3v12", key: "1x0j5s" }],
   ["path", { d: "m17 8-5-5-5 5", key: "7q97r8" }],
   ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }]
 ];
-const Upload$1 = createLucideIcon$1("upload", __iconNode$d);
+const Upload$1 = createLucideIcon$1("upload", __iconNode$f);
 /**
  * @license lucide-react v0.540.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$c = [
+const __iconNode$e = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const X$1 = createLucideIcon$1("x", __iconNode$c);
+const X$1 = createLucideIcon$1("x", __iconNode$e);
 const React$X = await importShared("react");
 var useReactId = React$X[" useId ".trim().toString()] || (() => void 0);
 var count$1 = 0;
@@ -34661,40 +34661,62 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$b = [
+const __iconNode$d = [
   ["path", { d: "M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16", key: "jecpp" }],
   ["rect", { width: "20", height: "14", x: "2", y: "6", rx: "2", key: "i6l2r4" }]
 ];
-const Briefcase = createLucideIcon("briefcase", __iconNode$b);
+const Briefcase = createLucideIcon("briefcase", __iconNode$d);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [
+const __iconNode$c = [
   ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
   ["path", { d: "M18 17V9", key: "2bz60n" }],
   ["path", { d: "M13 17V5", key: "1frdt8" }],
   ["path", { d: "M8 17v-3", key: "17ska0" }]
 ];
-const ChartColumn = createLucideIcon("chart-column", __iconNode$a);
+const ChartColumn = createLucideIcon("chart-column", __iconNode$c);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$9 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$9);
+const __iconNode$b = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$b);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$8 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$8);
+const __iconNode$a = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$a);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$9 = [
+  ["rect", { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" }],
+  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
+];
+const CreditCard = createLucideIcon("credit-card", __iconNode$9);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$8 = [
+  ["line", { x1: "12", x2: "12", y1: "2", y2: "22", key: "7eqyqh" }],
+  ["path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6", key: "1b0p4s" }]
+];
+const DollarSign = createLucideIcon("dollar-sign", __iconNode$8);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -34702,10 +34724,13 @@ const ChevronRight = createLucideIcon("chevron-right", __iconNode$8);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$7 = [
-  ["rect", { width: "20", height: "14", x: "2", y: "5", rx: "2", key: "ynyp8z" }],
-  ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M10 9H8", key: "b1mrlr" }],
+  ["path", { d: "M16 13H8", key: "t4e002" }],
+  ["path", { d: "M16 17H8", key: "z1uh3a" }]
 ];
-const CreditCard = createLucideIcon("credit-card", __iconNode$7);
+const FileText = createLucideIcon("file-text", __iconNode$7);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -34713,10 +34738,12 @@ const CreditCard = createLucideIcon("credit-card", __iconNode$7);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$6 = [
-  ["line", { x1: "12", x2: "12", y1: "2", y2: "22", key: "7eqyqh" }],
-  ["path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6", key: "1b0p4s" }]
+  ["rect", { width: "7", height: "9", x: "3", y: "3", rx: "1", key: "10lvy0" }],
+  ["rect", { width: "7", height: "5", x: "14", y: "3", rx: "1", key: "16une8" }],
+  ["rect", { width: "7", height: "9", x: "14", y: "12", rx: "1", key: "1hutg5" }],
+  ["rect", { width: "7", height: "5", x: "3", y: "16", rx: "1", key: "ldoo1y" }]
 ];
-const DollarSign = createLucideIcon("dollar-sign", __iconNode$6);
+const LayoutDashboard = createLucideIcon("layout-dashboard", __iconNode$6);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -34724,13 +34751,10 @@ const DollarSign = createLucideIcon("dollar-sign", __iconNode$6);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$5 = [
-  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
-  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
-  ["path", { d: "M10 9H8", key: "b1mrlr" }],
-  ["path", { d: "M16 13H8", key: "t4e002" }],
-  ["path", { d: "M16 17H8", key: "z1uh3a" }]
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
 ];
-const FileText = createLucideIcon("file-text", __iconNode$5);
+const Plus = createLucideIcon("plus", __iconNode$5);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -34738,30 +34762,6 @@ const FileText = createLucideIcon("file-text", __iconNode$5);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$4 = [
-  ["rect", { width: "7", height: "9", x: "3", y: "3", rx: "1", key: "10lvy0" }],
-  ["rect", { width: "7", height: "5", x: "14", y: "3", rx: "1", key: "16une8" }],
-  ["rect", { width: "7", height: "9", x: "14", y: "12", rx: "1", key: "1hutg5" }],
-  ["rect", { width: "7", height: "5", x: "3", y: "16", rx: "1", key: "ldoo1y" }]
-];
-const LayoutDashboard = createLucideIcon("layout-dashboard", __iconNode$4);
-/**
- * @license lucide-react v0.542.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$3 = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
-];
-const Plus = createLucideIcon("plus", __iconNode$3);
-/**
- * @license lucide-react v0.542.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$2 = [
   [
     "path",
     { d: "M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z", key: "q3az6g" }
@@ -34769,14 +34769,14 @@ const __iconNode$2 = [
   ["path", { d: "M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8", key: "1h4pet" }],
   ["path", { d: "M12 17.5v-11", key: "1jc1ny" }]
 ];
-const Receipt = createLucideIcon("receipt", __iconNode$2);
+const Receipt = createLucideIcon("receipt", __iconNode$4);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$1 = [
+const __iconNode$3 = [
   [
     "path",
     {
@@ -34786,7 +34786,35 @@ const __iconNode$1 = [
   ],
   ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
 ];
-const Settings = createLucideIcon("settings", __iconNode$1);
+const Settings = createLucideIcon("settings", __iconNode$3);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$2 = [
+  [
+    "path",
+    {
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
+    }
+  ]
+];
+const Shield = createLucideIcon("shield", __iconNode$2);
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$1 = [
+  ["path", { d: "M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5c-1.4 0-2.5-1.1-2.5-2.5V2", key: "125lnx" }],
+  ["path", { d: "M8.5 2h7", key: "csnxdl" }],
+  ["path", { d: "M14.5 16h-5", key: "1ox875" }]
+];
+const TestTube = createLucideIcon("test-tube", __iconNode$1);
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -34808,6 +34836,7 @@ var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
   RoutePaths2["Root"] = "/";
   RoutePaths2["Expenses"] = "/expenses";
   RoutePaths2["ExpensesNew"] = "/expenses/new";
+  RoutePaths2["TestingAuthentication"] = "/testing/authentication";
   RoutePaths2["Configurations"] = "/configurations";
   RoutePaths2["CorporateCards"] = "/configurations/corporate-cards";
   RoutePaths2["Payroll"] = "/configurations/payroll";
@@ -34823,6 +34852,7 @@ var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
 var RouteNames = /* @__PURE__ */ ((RouteNames2) => {
   RouteNames2["Expenses"] = "Expenses";
   RouteNames2["ExpensesNew"] = "New Expense";
+  RouteNames2["TestingAuthentication"] = "Authentication";
   RouteNames2["Configurations"] = "Configurations";
   RouteNames2["CorporateCards"] = "Corporate Cards";
   RouteNames2["Payroll"] = "Payroll";
@@ -34910,7 +34940,7 @@ const getCompanies = () => [
 ];
 const getNavigationConfig = () => {
   const elements = [
-    // Main navigation group (no title) - не в секції
+    // Main navigation group (no title)
     {
       id: "main-nav",
       type: "group",
@@ -34924,12 +34954,43 @@ const getNavigationConfig = () => {
         }
       ]
     },
+    // Conditional separator and testing section for dev/test environments
+    ...[
+      // Separator before testing section
+      {
+        id: "separator-testing",
+        type: "separator"
+      },
+      // Testing section
+      {
+        id: "testing-section",
+        type: "section",
+        label: "Testing",
+        icon: TestTube,
+        defaultExpanded: false,
+        elements: [
+          {
+            id: "testing-group",
+            type: "group",
+            items: [
+              {
+                id: "testing-authentication",
+                label: RouteNames.TestingAuthentication,
+                path: RoutePaths.TestingAuthentication,
+                icon: Shield,
+                isVisible: true
+              }
+            ]
+          }
+        ]
+      }
+    ],
     // Separator between main and settings
     {
       id: "separator-1",
       type: "separator"
     },
-    // Секція Settings - містить всі налаштування
+    // Settings section
     {
       id: "settings-section",
       type: "section",
@@ -40600,169 +40661,6 @@ const mockBusinessPurposes = {
     }
   ]
 };
-const API_BASE_URL = "http://localhost:3001/api";
-const API_TIMEOUT = 3e4;
-class ApiClient {
-  instance;
-  requestInterceptor = null;
-  responseInterceptor = null;
-  constructor() {
-    this.instance = axios.create({
-      baseURL: API_BASE_URL,
-      timeout: API_TIMEOUT,
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    this.setupInterceptors();
-  }
-  setupInterceptors() {
-    this.requestInterceptor = this.instance.interceptors.request.use(
-      (config) => {
-        const token = this.getAuthToken();
-        if (token && config.headers) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
-        config.headers["X-Request-ID"] = this.generateRequestId();
-        config.headers["X-Request-Timestamp"] = (/* @__PURE__ */ new Date()).toISOString();
-        return config;
-      },
-      (error) => {
-        console.error("Request interceptor error:", error);
-        return Promise.reject(this.transformError(error));
-      }
-    );
-    this.responseInterceptor = this.instance.interceptors.response.use(
-      (response) => {
-        var _a;
-        const requestTime = (_a = response.config.headers) == null ? void 0 : _a["X-Request-Timestamp"];
-        if (requestTime) {
-          const duration = Date.now() - new Date(requestTime).getTime();
-          console.debug(`API call to ${response.config.url} took ${duration}ms`);
-        }
-        return response;
-      },
-      async (error) => {
-        var _a, _b, _c, _d;
-        if (error.code === "ERR_NETWORK" || error.code === "ECONNREFUSED" || ((_a = error.message) == null ? void 0 : _a.includes("Network Error"))) {
-          const url = (_b = error.config) == null ? void 0 : _b.url;
-          console.log(`🔄 API: Network error for ${url}, trying mock data`);
-          if (url === "/companies") {
-            console.log(`✅ API: Returning mock companies data`, mockCompanies);
-            return Promise.resolve({
-              data: { data: mockCompanies },
-              status: 200,
-              statusText: "OK",
-              headers: { "content-type": "application/json" },
-              config: error.config
-            });
-          }
-          if (url == null ? void 0 : url.includes("/expense-types")) {
-            const companyIdMatch = url.match(/\/companies\/([^\/]+)\/expense-types/);
-            const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
-            console.log(`✅ API: Returning mock expense types for company: ${companyId}`);
-            const expenseTypes = companyId && mockExpenseTypes[companyId] ? mockExpenseTypes[companyId] : [];
-            return Promise.resolve({
-              data: { data: expenseTypes },
-              status: 200,
-              statusText: "OK",
-              headers: { "content-type": "application/json" },
-              config: error.config
-            });
-          }
-          if (url == null ? void 0 : url.includes("/business-purpose")) {
-            const companyIdMatch = url.match(/\/companies\/([^\/]+)\/business-purpose/);
-            const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
-            console.log(`✅ API: Returning mock business purposes for company: ${companyId}`);
-            const businessPurposes = companyId && mockBusinessPurposes[companyId] ? mockBusinessPurposes[companyId] : [];
-            return Promise.resolve({
-              data: { data: businessPurposes },
-              status: 200,
-              statusText: "OK",
-              headers: { "content-type": "application/json" },
-              config: error.config
-            });
-          }
-        }
-        if (((_c = error.response) == null ? void 0 : _c.status) === 401) {
-          await this.handleUnauthorized();
-        }
-        if (((_d = error.response) == null ? void 0 : _d.status) === 429) {
-          const retryAfter = error.response.headers["retry-after"];
-          if (retryAfter) {
-            await this.delay(parseInt(retryAfter) * 1e3);
-            return this.instance.request(error.config);
-          }
-        }
-        return Promise.reject(this.transformError(error));
-      }
-    );
-  }
-  getAuthToken() {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("auth_token");
-    }
-    return null;
-  }
-  generateRequestId() {
-    return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-  }
-  async handleUnauthorized() {
-    if (typeof window !== "undefined") {
-      localStorage.removeItem("auth_token");
-      window.location.href = "/login";
-    }
-  }
-  delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-  transformError(error) {
-    var _a;
-    const apiError = {
-      code: error.code || "UNKNOWN_ERROR",
-      message: error.message || "An unexpected error occurred",
-      timestamp: (/* @__PURE__ */ new Date()).toISOString()
-    };
-    if ((_a = error.response) == null ? void 0 : _a.data) {
-      const responseData = error.response.data;
-      apiError.message = responseData.message || apiError.message;
-      apiError.code = responseData.code || error.response.status.toString();
-      apiError.details = responseData.details;
-    }
-    return apiError;
-  }
-  getInstance() {
-    return this.instance;
-  }
-  // Convenience methods
-  async get(url, config) {
-    return this.instance.get(url, config);
-  }
-  async post(url, data, config) {
-    return this.instance.post(url, data, config);
-  }
-  async put(url, data, config) {
-    return this.instance.put(url, data, config);
-  }
-  async patch(url, data, config) {
-    return this.instance.patch(url, data, config);
-  }
-  async delete(url, config) {
-    return this.instance.delete(url, config);
-  }
-  // Clean up interceptors
-  cleanup() {
-    if (this.requestInterceptor !== null) {
-      this.instance.interceptors.request.eject(this.requestInterceptor);
-      this.requestInterceptor = null;
-    }
-    if (this.responseInterceptor !== null) {
-      this.instance.interceptors.response.eject(this.responseInterceptor);
-      this.responseInterceptor = null;
-    }
-  }
-}
-const apiClient = new ApiClient();
 const createStoreImpl = (createState) => {
   let state;
   const listeners = /* @__PURE__ */ new Set();
@@ -41694,6 +41592,525 @@ const immerImpl = (initializer) => (set2, get, store) => {
   return initializer(store.setState, get, store);
 };
 const immer = immerImpl;
+var SessionStorageKeys = /* @__PURE__ */ ((SessionStorageKeys2) => {
+  SessionStorageKeys2["JWT_TOKEN"] = "trax_jwt_auth";
+  return SessionStorageKeys2;
+})(SessionStorageKeys || {});
+var DOMEventNames = /* @__PURE__ */ ((DOMEventNames2) => {
+  DOMEventNames2["JWT_TOKEN_UPDATED"] = "trax-jwt-token-updated";
+  DOMEventNames2["JWT_UNAUTHORIZED"] = "trax-jwt-unauthorized";
+  DOMEventNames2["JWT_REFRESH_REQUESTED"] = "trax-jwt-refresh-requested";
+  return DOMEventNames2;
+})(DOMEventNames || {});
+var TokenPlaceholders = /* @__PURE__ */ ((TokenPlaceholders2) => {
+  TokenPlaceholders2["NO_TOKEN_AVAILABLE"] = "NO_TOKEN_AVAILABLE";
+  TokenPlaceholders2["TOKEN_EXPIRED"] = "TOKEN_EXPIRED";
+  TokenPlaceholders2["TOKEN_INVALID"] = "TOKEN_INVALID";
+  return TokenPlaceholders2;
+})(TokenPlaceholders || {});
+var TokenUpdateSources = /* @__PURE__ */ ((TokenUpdateSources2) => {
+  TokenUpdateSources2["SESSION_STORAGE"] = "session-storage";
+  TokenUpdateSources2["DOM_EVENT"] = "dom-event";
+  TokenUpdateSources2["MANUAL"] = "manual";
+  TokenUpdateSources2["AUTO_REFRESH"] = "auto-refresh";
+  return TokenUpdateSources2;
+})(TokenUpdateSources || {});
+const decodeJWTPayload = (token) => {
+  try {
+    if (!token || token === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
+      return null;
+    }
+    const parts = token.split(".");
+    if (parts.length !== 3) {
+      return null;
+    }
+    const payload = parts[1];
+    const decodedPayload = atob(payload.replace(/-/g, "+").replace(/_/g, "/"));
+    return JSON.parse(decodedPayload);
+  } catch {
+    return null;
+  }
+};
+const isTokenExpired = (token) => {
+  const payload = decodeJWTPayload(token);
+  if (!payload || !payload.exp) {
+    return true;
+  }
+  return payload.exp < Math.floor(Date.now() / 1e3);
+};
+const extractUserFromPayload = (payload) => {
+  if (!payload) {
+    return null;
+  }
+  return {
+    id: payload.sub || null,
+    email: payload.email || null,
+    name: payload.name || null,
+    roles: payload.roles || [],
+    permissions: payload.permissions || []
+  };
+};
+const createInitialState = () => ({
+  token: null,
+  isValid: false,
+  isLoading: false,
+  isInitialized: false,
+  error: null,
+  lastUpdated: null,
+  payload: null,
+  user: null,
+  isAuthenticated: false,
+  isExpired: true,
+  expiresAt: null,
+  timeUntilExpiration: null
+});
+let eventListener = null;
+const useJWTStore = create()(
+  devtools(
+    subscribeWithSelector(
+      immer((set2, get) => ({
+        token: null,
+        isValid: false,
+        isLoading: false,
+        isInitialized: false,
+        error: null,
+        lastUpdated: null,
+        payload: null,
+        user: null,
+        isAuthenticated: false,
+        isExpired: true,
+        expiresAt: null,
+        timeUntilExpiration: null,
+        // Initialize the JWT service
+        initialize: async () => {
+          set2((state) => {
+            state.isLoading = true;
+            state.error = null;
+          });
+          try {
+            get()._loadFromStorage();
+            get()._setupEventListener();
+            set2((state) => {
+              state.isInitialized = true;
+              state.isLoading = false;
+            });
+          } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : "Initialization failed";
+            set2((state) => {
+              state.error = errorMessage;
+              state.isLoading = false;
+            });
+            throw error;
+          }
+        },
+        // Set JWT token
+        setToken: (token, source = "manual") => {
+          if (!token || typeof token !== "string") {
+            get().setError("Invalid token provided");
+            return;
+          }
+          get()._updateTokenData(token);
+          get()._saveToStorage(token);
+          get()._emitEvent("token-updated", { source, token });
+        },
+        // Clear JWT token
+        clearToken: () => {
+          try {
+            sessionStorage.removeItem(SessionStorageKeys.JWT_TOKEN);
+          } catch (error) {
+            console.warn("Failed to clear token from storage:", error);
+          }
+          set2((state) => {
+            state.token = TokenPlaceholders.NO_TOKEN_AVAILABLE;
+            state.isValid = false;
+            state.isAuthenticated = false;
+            state.isExpired = true;
+            state.payload = null;
+            state.user = null;
+            state.expiresAt = null;
+            state.timeUntilExpiration = null;
+            state.lastUpdated = /* @__PURE__ */ new Date();
+            state.error = null;
+          });
+          get()._emitEvent("token-cleared");
+        },
+        // Refresh JWT token (placeholder for Base System integration)
+        refreshToken: async () => {
+          get()._emitEvent("refresh-requested");
+          throw new Error("Token refresh must be handled by Base System");
+        },
+        // Validate JWT token
+        validateToken: (token) => {
+          const targetToken = token || get().token;
+          if (!targetToken || targetToken === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
+            return false;
+          }
+          return !isTokenExpired(targetToken);
+        },
+        // Decode JWT token
+        decodeToken: (token) => {
+          const targetToken = token || get().token;
+          if (!targetToken) {
+            return null;
+          }
+          return decodeJWTPayload(targetToken);
+        },
+        // Set loading state
+        setLoading: (isLoading) => {
+          set2((state) => {
+            state.isLoading = isLoading;
+          });
+        },
+        // Set error state
+        setError: (error) => {
+          set2((state) => {
+            state.error = error;
+          });
+        },
+        // Reset state
+        reset: () => {
+          get()._cleanupEventListener();
+          set2(() => createInitialState());
+        },
+        // Internal: Load token from Session Storage
+        _loadFromStorage: () => {
+          try {
+            const storedToken = sessionStorage.getItem(SessionStorageKeys.JWT_TOKEN);
+            if (storedToken && storedToken !== TokenPlaceholders.NO_TOKEN_AVAILABLE) {
+              get()._updateTokenData(storedToken);
+            } else {
+              set2((state) => {
+                state.token = TokenPlaceholders.NO_TOKEN_AVAILABLE;
+                state.lastUpdated = /* @__PURE__ */ new Date();
+              });
+            }
+          } catch (error) {
+            console.warn("Failed to load token from storage:", error);
+            get().setError("Failed to load authentication data");
+          }
+        },
+        // Internal: Save token to Session Storage
+        _saveToStorage: (token) => {
+          try {
+            sessionStorage.setItem(SessionStorageKeys.JWT_TOKEN, token);
+          } catch (error) {
+            console.warn("Failed to save token to storage:", error);
+          }
+        },
+        // Internal: Setup DOM event listener
+        _setupEventListener: () => {
+          if (typeof window === "undefined") return;
+          get()._cleanupEventListener();
+          eventListener = (event) => {
+            const customEvent = event;
+            const { token } = customEvent.detail || {};
+            if (token && typeof token === "string") {
+              if (token === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
+                get().clearToken();
+              } else {
+                get()._updateTokenData(token);
+                get()._saveToStorage(token);
+              }
+            }
+          };
+          window.addEventListener(DOMEventNames.JWT_TOKEN_UPDATED, eventListener);
+        },
+        // Internal: Cleanup DOM event listener
+        _cleanupEventListener: () => {
+          if (typeof window !== "undefined" && eventListener) {
+            window.removeEventListener(DOMEventNames.JWT_TOKEN_UPDATED, eventListener);
+            eventListener = null;
+          }
+        },
+        // Internal: Update token and related data
+        _updateTokenData: (token) => {
+          const payload = decodeJWTPayload(token);
+          const isValid2 = get().validateToken(token);
+          const isExpired = token === TokenPlaceholders.NO_TOKEN_AVAILABLE ? true : isTokenExpired(token);
+          const user = extractUserFromPayload(payload);
+          const expiresAt = (payload == null ? void 0 : payload.exp) ? new Date(payload.exp * 1e3) : null;
+          const timeUntilExpiration = expiresAt ? expiresAt.getTime() - Date.now() : null;
+          set2((state) => {
+            state.token = token;
+            state.payload = payload;
+            state.isValid = isValid2;
+            state.isAuthenticated = isValid2 && !isExpired;
+            state.isExpired = isExpired;
+            state.user = user;
+            state.expiresAt = expiresAt;
+            state.timeUntilExpiration = Math.max(0, timeUntilExpiration || 0);
+            state.lastUpdated = /* @__PURE__ */ new Date();
+            state.error = isValid2 ? null : "Invalid or expired token";
+          });
+        },
+        // Internal: Emit custom DOM event
+        _emitEvent: (eventType, data) => {
+          if (typeof window === "undefined") return;
+          const eventDetail = {
+            type: eventType,
+            timestamp: Date.now(),
+            ...data
+          };
+          const customEvent = new CustomEvent(`trax-jwt-${eventType}`, {
+            detail: eventDetail,
+            bubbles: true,
+            cancelable: true
+          });
+          window.dispatchEvent(customEvent);
+        }
+      }))
+    ),
+    {
+      name: "jwt-auth-storage",
+      partialize: (state) => ({
+        // Only persist essential state, not functions or computed values
+        token: state.token,
+        lastUpdated: state.lastUpdated
+      })
+    }
+  )
+);
+const jwtSelectors = {
+  // Get authentication status
+  isAuthenticated: (state) => state.isAuthenticated,
+  // Get current token (null if not available or placeholder)
+  token: (state) => state.token && state.token !== TokenPlaceholders.NO_TOKEN_AVAILABLE ? state.token : null,
+  // Get user information
+  user: (state) => state.user,
+  // Get error state
+  error: (state) => state.error,
+  // Get loading state
+  isLoading: (state) => state.isLoading,
+  // Get token expiration info
+  tokenExpiration: (state) => ({
+    expiresAt: state.expiresAt,
+    timeUntilExpiration: state.timeUntilExpiration,
+    isExpired: state.isExpired,
+    isExpiringSoon: state.timeUntilExpiration ? state.timeUntilExpiration <= 5 * 60 * 1e3 : false
+  }),
+  // Get permissions
+  permissions: (state) => {
+    var _a;
+    return ((_a = state.user) == null ? void 0 : _a.permissions) ?? [];
+  },
+  // Get roles
+  roles: (state) => {
+    var _a;
+    return ((_a = state.user) == null ? void 0 : _a.roles) ?? [];
+  }
+};
+let isInitializing = false;
+const ensureJWTInitialized = async () => {
+  const state = useJWTStore.getState();
+  if (state.isInitialized || isInitializing) {
+    return;
+  }
+  if (typeof window === "undefined") {
+    return;
+  }
+  isInitializing = true;
+  try {
+    await state.initialize();
+  } catch (error) {
+    console.error("Failed to initialize JWT store:", error);
+  } finally {
+    isInitializing = false;
+  }
+};
+const API_BASE_URL = "http://localhost:3001/api";
+const API_TIMEOUT = 3e4;
+class ApiClient {
+  instance;
+  requestInterceptor = null;
+  responseInterceptor = null;
+  constructor() {
+    this.instance = axios.create({
+      baseURL: API_BASE_URL,
+      timeout: API_TIMEOUT,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    this.setupInterceptors();
+    this.initializeJWTService();
+  }
+  setupInterceptors() {
+    this.requestInterceptor = this.instance.interceptors.request.use(
+      (config) => {
+        const token = this.getAuthToken();
+        if (token && config.headers) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+        config.headers["X-Request-ID"] = this.generateRequestId();
+        config.headers["X-Request-Timestamp"] = (/* @__PURE__ */ new Date()).toISOString();
+        return config;
+      },
+      (error) => {
+        console.error("Request interceptor error:", error);
+        return Promise.reject(this.transformError(error));
+      }
+    );
+    this.responseInterceptor = this.instance.interceptors.response.use(
+      (response) => {
+        var _a;
+        const requestTime = (_a = response.config.headers) == null ? void 0 : _a["X-Request-Timestamp"];
+        if (requestTime) {
+          const duration = Date.now() - new Date(requestTime).getTime();
+          console.debug(`API call to ${response.config.url} took ${duration}ms`);
+        }
+        return response;
+      },
+      async (error) => {
+        var _a, _b, _c, _d;
+        if (error.code === "ERR_NETWORK" || error.code === "ECONNREFUSED" || ((_a = error.message) == null ? void 0 : _a.includes("Network Error"))) {
+          const url = (_b = error.config) == null ? void 0 : _b.url;
+          console.log(`🔄 API: Network error for ${url}, trying mock data`);
+          if (url === "/companies") {
+            console.log("✅ API: Returning mock companies data", mockCompanies);
+            return Promise.resolve({
+              data: { data: mockCompanies },
+              status: 200,
+              statusText: "OK",
+              headers: { "content-type": "application/json" },
+              config: error.config
+            });
+          }
+          if (url == null ? void 0 : url.includes("/expense-types")) {
+            const companyIdMatch = url.match(/\/companies\/([^/]+)\/expense-types/);
+            const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
+            console.log(`✅ API: Returning mock expense types for company: ${companyId}`);
+            const expenseTypes = companyId && mockExpenseTypes[companyId] ? mockExpenseTypes[companyId] : [];
+            return Promise.resolve({
+              data: { data: expenseTypes },
+              status: 200,
+              statusText: "OK",
+              headers: { "content-type": "application/json" },
+              config: error.config
+            });
+          }
+          if (url == null ? void 0 : url.includes("/business-purpose")) {
+            const companyIdMatch = url.match(/\/companies\/([^/]+)\/business-purpose/);
+            const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
+            console.log(`✅ API: Returning mock business purposes for company: ${companyId}`);
+            const businessPurposes = companyId && mockBusinessPurposes[companyId] ? mockBusinessPurposes[companyId] : [];
+            return Promise.resolve({
+              data: { data: businessPurposes },
+              status: 200,
+              statusText: "OK",
+              headers: { "content-type": "application/json" },
+              config: error.config
+            });
+          }
+        }
+        if (((_c = error.response) == null ? void 0 : _c.status) === 401) {
+          await this.handleUnauthorized();
+        }
+        if (((_d = error.response) == null ? void 0 : _d.status) === 429) {
+          const retryAfter = error.response.headers["retry-after"];
+          if (retryAfter) {
+            await this.delay(parseInt(retryAfter) * 1e3);
+            return this.instance.request(error.config);
+          }
+        }
+        return Promise.reject(this.transformError(error));
+      }
+    );
+  }
+  getAuthToken() {
+    try {
+      const jwtStore = useJWTStore.getState();
+      const token = jwtStore.token;
+      return token || TokenPlaceholders.NO_TOKEN_AVAILABLE;
+    } catch (error) {
+      console.error("Error retrieving auth token:", error);
+      return TokenPlaceholders.NO_TOKEN_AVAILABLE;
+    }
+  }
+  generateRequestId() {
+    return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  }
+  async handleUnauthorized() {
+    try {
+      const jwtStore = useJWTStore.getState();
+      jwtStore.clearToken();
+    } catch (error) {
+      console.error("Error clearing JWT token:", error);
+    }
+    console.warn("JWT token cleared due to unauthorized access. Base System should handle re-authentication.");
+    const unauthorizedEvent = new CustomEvent(DOMEventNames.JWT_UNAUTHORIZED, {
+      detail: { timestamp: Date.now() },
+      bubbles: true
+    });
+    window.dispatchEvent(unauthorizedEvent);
+  }
+  delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+  transformError(error) {
+    var _a;
+    const apiError = {
+      code: error.code || "UNKNOWN_ERROR",
+      message: error.message || "An unexpected error occurred",
+      timestamp: (/* @__PURE__ */ new Date()).toISOString()
+    };
+    if ((_a = error.response) == null ? void 0 : _a.data) {
+      const responseData = error.response.data;
+      apiError.message = responseData.message || apiError.message;
+      apiError.code = responseData.code || error.response.status.toString();
+      apiError.details = responseData.details;
+    }
+    return apiError;
+  }
+  getInstance() {
+    return this.instance;
+  }
+  // Convenience methods
+  async get(url, config) {
+    return this.instance.get(url, config);
+  }
+  async post(url, data, config) {
+    return this.instance.post(url, data, config);
+  }
+  async put(url, data, config) {
+    return this.instance.put(url, data, config);
+  }
+  async patch(url, data, config) {
+    return this.instance.patch(url, data, config);
+  }
+  async delete(url, config) {
+    return this.instance.delete(url, config);
+  }
+  /**
+   * Initialize JWT service
+   */
+  async initializeJWTService() {
+    try {
+      const jwtStore = useJWTStore.getState();
+      await jwtStore.initialize();
+      console.log("JWT service initialized successfully");
+    } catch (error) {
+      console.error("Failed to initialize JWT service:", error);
+    }
+  }
+  // Clean up interceptors
+  cleanup() {
+    if (this.requestInterceptor !== null) {
+      this.instance.interceptors.request.eject(this.requestInterceptor);
+      this.requestInterceptor = null;
+    }
+    if (this.responseInterceptor !== null) {
+      this.instance.interceptors.response.eject(this.responseInterceptor);
+      this.responseInterceptor = null;
+    }
+    try {
+      const jwtStore = useJWTStore.getState();
+      jwtStore.reset();
+    } catch (error) {
+      console.error("Error cleaning up JWT service:", error);
+    }
+  }
+}
+const apiClient = new ApiClient();
 const initialState = () => ({
   selectedCompany: null,
   companies: [],
@@ -42006,14 +42423,15 @@ const Layout = () => {
 };
 const LoadingSpinner = ({ className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex items-center justify-center ${className}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
 const { Suspense, lazy } = await importShared("react");
-const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-C0tZgBLR.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-D0xhsbN8.js"), true ? __vite__mapDeps([2,1,3]) : void 0, import.meta.url));
-const Configurations = lazy(() => __vitePreload(() => import("./Configurations-CaddkgSh.js"), true ? [] : void 0, import.meta.url));
-const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-EcyZU69q.js"), true ? [] : void 0, import.meta.url));
-const Payroll = lazy(() => __vitePreload(() => import("./Payroll-CIbIAi6K.js"), true ? [] : void 0, import.meta.url));
-const Allocations = lazy(() => __vitePreload(() => import("./Allocations-BOwRuUur.js"), true ? [] : void 0, import.meta.url));
-const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-BDS5xWHY.js"), true ? __vite__mapDeps([4,3,5]) : void 0, import.meta.url));
-const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-CtV-O2OO.js"), true ? __vite__mapDeps([6,3,5]) : void 0, import.meta.url));
+const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-BCHGG9fk.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-2DWcCVzr.js"), true ? __vite__mapDeps([2,1,3,4]) : void 0, import.meta.url));
+const Configurations = lazy(() => __vitePreload(() => import("./Configurations-DMw5DhIb.js"), true ? [] : void 0, import.meta.url));
+const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-D8PY8qMh.js"), true ? [] : void 0, import.meta.url));
+const Payroll = lazy(() => __vitePreload(() => import("./Payroll-DRWgZBQF.js"), true ? [] : void 0, import.meta.url));
+const Allocations = lazy(() => __vitePreload(() => import("./Allocations-CDA9t9wF.js"), true ? [] : void 0, import.meta.url));
+const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-B65u3eJo.js"), true ? __vite__mapDeps([5,3,6]) : void 0, import.meta.url));
+const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-m-BX8CFm.js"), true ? __vite__mapDeps([7,3,6,8]) : void 0, import.meta.url));
+const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-BCX2fD3t.js"), true ? __vite__mapDeps([9,3,8,4]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -42063,6 +42481,10 @@ const router = createHashRouter([
       {
         path: RoutePaths.BusinessPurposeId,
         element: /* @__PURE__ */ jsxRuntimeExports.jsx(BusinessPurpose, {})
+      },
+      {
+        path: RoutePaths.TestingAuthentication.slice(1),
+        element: /* @__PURE__ */ jsxRuntimeExports.jsx(TestingAuthentication, {})
       }
     ]
   }
@@ -42141,9 +42563,9 @@ const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 async function initializeMocking() {
   const { mockingStrategy } = await __vitePreload(async () => {
-    const { mockingStrategy: mockingStrategy2 } = await import("./mockingStrategy-Cpe2ADEX.js");
+    const { mockingStrategy: mockingStrategy2 } = await import("./mockingStrategy-EvpxBiQ1.js");
     return { mockingStrategy: mockingStrategy2 };
-  }, true ? __vite__mapDeps([7,8]) : void 0, import.meta.url);
+  }, true ? __vite__mapDeps([10,11]) : void 0, import.meta.url);
   await mockingStrategy.initialize();
 }
 const mount = (element) => {
@@ -42265,20 +42687,30 @@ export {
   immer as J,
   Kn as K,
   Ln as L,
-  mockCompanies as M,
+  useJWTStore as M,
   Nn as N,
-  mockExpenseTypes as O,
+  jwtSelectors as O,
   Pn as P,
   Qe as Q,
   RoutePaths as R,
   Subscribable as S,
-  mockBusinessPurposes as T,
-  bootstrap as U,
+  ensureJWTInitialized as T,
+  DOMEventNames as U,
+  TokenUpdateSources as V,
   Wn as W,
+  Shield as X,
   Yn as Y,
   Ze as Z,
   _n as _,
   Zn as a,
+  He as a0,
+  TokenPlaceholders as a1,
+  Te as a2,
+  Le as a3,
+  mockCompanies as a4,
+  mockExpenseTypes as a5,
+  mockBusinessPurposes as a6,
+  bootstrap as a7,
   Fn as b,
   createLucideIcon as c,
   CreditCard as d,
