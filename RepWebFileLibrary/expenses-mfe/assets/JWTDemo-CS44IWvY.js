@@ -1,7 +1,7 @@
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { c as createLucideIcon, M as useJWTStore, O as jwtSelectors, T as ensureJWTInitialized, U as DOMEventNames, V as TokenUpdateSources, j as jsxRuntimeExports, X as Shield, W as Wn, $ as $t, a0 as He, a1 as TokenPlaceholders, B, a2 as Te, a3 as Le, i as apiClient } from "./__federation_expose_Mount-D5bfMARr.js";
-import { C as CircleCheckBig } from "./circle-check-big-BAk3kyQ1.js";
-import { S as Send } from "./send-DbD2_B5g.js";
+import { c as createLucideIcon, M as useJWTStore, O as jwtSelectors, T as ensureJWTInitialized, U as DOMEventNames, j as jsxRuntimeExports, V as Shield, W as Wn, $ as $t, X as He, a0 as TokenPlaceholders, B, a1 as Te, a2 as Le, i as apiClient } from "./__federation_expose_Mount-C8is39no.js";
+import { C as CircleCheckBig } from "./circle-check-big-DZ6vMkib.js";
+import { S as Send } from "./send-BfYqQqqe.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -108,7 +108,7 @@ const useAuth = () => {
   const isAuthenticated = useJWTStore(jwtSelectors.isAuthenticated);
   const isLoading = useJWTStore(jwtSelectors.isLoading);
   const error = useJWTStore(jwtSelectors.error);
-  const token = useJWTStore(jwtSelectors.token);
+  const token = useJWTStore(jwtSelectors.realToken);
   const isInitialized = useJWTStore((state) => state.isInitialized);
   useEffect(() => {
     if (!isInitialized) {
@@ -147,7 +147,8 @@ const useJWT = () => {
   );
   return {
     // State
-    token: jwtSelectors.token(state),
+    token: jwtSelectors.realToken(state),
+    // null if placeholder
     isValid: state.isValid,
     isLoading: state.isLoading,
     isInitialized: state.isInitialized,
@@ -236,13 +237,8 @@ const jwtUtils = {
   /**
    * Emit JWT update event for Base System integration
    */
-  emitJWTUpdateEvent: (token, eventName) => {
+  emitJWTUpdateEvent: (eventName) => {
     const customEvent = new CustomEvent(eventName || DOMEventNames.JWT_TOKEN_UPDATED, {
-      detail: {
-        token,
-        source: TokenUpdateSources.DOM_EVENT,
-        timestamp: Date.now()
-      },
       bubbles: true,
       cancelable: true
     });

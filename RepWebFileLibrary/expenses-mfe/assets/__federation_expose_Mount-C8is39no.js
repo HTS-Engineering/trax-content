@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-7YEijAWS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-BieXPRs7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-C61JF_o5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/send-DbD2_B5g.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-D8hRzXgG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-s8b7UBSq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-bRc8Zuxc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/circle-check-big-BAk3kyQ1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-DsD2uNqR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mockingStrategy-DM1MVxoo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Be6eT6eU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-QuFuoEGi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-B20XN_8w.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-yWkBhR62.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/send-BfYqQqqe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-BAQtZSZy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-DUcXJchW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-Dhb18jp7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/circle-check-big-DZ6vMkib.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-CS44IWvY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mockingStrategy-DdSFWSN8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Be6eT6eU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-Be6eT6eU.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { r as requireReact } from "./index-BQNfSwzb.js";
@@ -41608,13 +41608,6 @@ var TokenPlaceholders = /* @__PURE__ */ ((TokenPlaceholders2) => {
   TokenPlaceholders2["TOKEN_INVALID"] = "TOKEN_INVALID";
   return TokenPlaceholders2;
 })(TokenPlaceholders || {});
-var TokenUpdateSources = /* @__PURE__ */ ((TokenUpdateSources2) => {
-  TokenUpdateSources2["SESSION_STORAGE"] = "session-storage";
-  TokenUpdateSources2["DOM_EVENT"] = "dom-event";
-  TokenUpdateSources2["MANUAL"] = "manual";
-  TokenUpdateSources2["AUTO_REFRESH"] = "auto-refresh";
-  return TokenUpdateSources2;
-})(TokenUpdateSources || {});
 const decodeJWTPayload = (token) => {
   try {
     if (!token || token === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
@@ -41643,7 +41636,7 @@ const extractUserFromPayload = (payload) => {
     return null;
   }
   return {
-    id: payload.sub || null,
+    id: payload.sub,
     email: payload.email || null,
     name: payload.name || null,
     roles: payload.roles || [],
@@ -41651,7 +41644,7 @@ const extractUserFromPayload = (payload) => {
   };
 };
 const createInitialState = () => ({
-  token: null,
+  token: TokenPlaceholders.NO_TOKEN_AVAILABLE,
   isValid: false,
   isLoading: false,
   isInitialized: false,
@@ -41669,7 +41662,7 @@ const useJWTStore = create()(
   devtools(
     subscribeWithSelector(
       immer((set2, get) => ({
-        token: null,
+        token: TokenPlaceholders.NO_TOKEN_AVAILABLE,
         isValid: false,
         isLoading: false,
         isInitialized: false,
@@ -41742,7 +41735,7 @@ const useJWTStore = create()(
         // Validate JWT token
         validateToken: (token) => {
           const targetToken = token || get().token;
-          if (!targetToken || targetToken === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
+          if (targetToken === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
             return false;
           }
           return !isTokenExpired(targetToken);
@@ -41750,7 +41743,7 @@ const useJWTStore = create()(
         // Decode JWT token
         decodeToken: (token) => {
           const targetToken = token || get().token;
-          if (!targetToken) {
+          if (targetToken === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
             return null;
           }
           return decodeJWTPayload(targetToken);
@@ -41801,17 +41794,8 @@ const useJWTStore = create()(
         _setupEventListener: () => {
           if (typeof window === "undefined") return;
           get()._cleanupEventListener();
-          eventListener = (event) => {
-            const customEvent = event;
-            const { token } = customEvent.detail || {};
-            if (token && typeof token === "string") {
-              if (token === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
-                get().clearToken();
-              } else {
-                get()._updateTokenData(token);
-                get()._saveToStorage(token);
-              }
-            }
+          eventListener = () => {
+            get()._loadFromStorage();
           };
           window.addEventListener(DOMEventNames.JWT_TOKEN_UPDATED, eventListener);
         },
@@ -41873,8 +41857,10 @@ const useJWTStore = create()(
 const jwtSelectors = {
   // Get authentication status
   isAuthenticated: (state) => state.isAuthenticated,
-  // Get current token (null if not available or placeholder)
-  token: (state) => state.token && state.token !== TokenPlaceholders.NO_TOKEN_AVAILABLE ? state.token : null,
+  // Get current token (always returns string - either real token or placeholder)
+  token: (state) => state.token,
+  // Get real token only (null if placeholder)
+  realToken: (state) => state.token !== TokenPlaceholders.NO_TOKEN_AVAILABLE ? state.token : null,
   // Get user information
   user: (state) => state.user,
   // Get error state
@@ -42457,15 +42443,15 @@ const Layout = () => {
 };
 const LoadingSpinner = ({ className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `flex items-center justify-center ${className}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500" }) });
 const { Suspense, lazy } = await importShared("react");
-const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-7YEijAWS.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
-const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-C61JF_o5.js"), true ? __vite__mapDeps([2,1,3,4]) : void 0, import.meta.url));
-const Configurations = lazy(() => __vitePreload(() => import("./Configurations-fLx7Sjdv.js"), true ? [] : void 0, import.meta.url));
-const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-BYm5E9Nb.js"), true ? [] : void 0, import.meta.url));
-const Payroll = lazy(() => __vitePreload(() => import("./Payroll-BjnYWZ8W.js"), true ? [] : void 0, import.meta.url));
-const Allocations = lazy(() => __vitePreload(() => import("./Allocations-MhFWbduO.js"), true ? [] : void 0, import.meta.url));
-const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-D8hRzXgG.js"), true ? __vite__mapDeps([5,3,6]) : void 0, import.meta.url));
-const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-bRc8Zuxc.js"), true ? __vite__mapDeps([7,3,6,8]) : void 0, import.meta.url));
-const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-DsD2uNqR.js"), true ? __vite__mapDeps([9,3,8,4]) : void 0, import.meta.url));
+const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-QuFuoEGi.js"), true ? __vite__mapDeps([0,1]) : void 0, import.meta.url));
+const NewExpense = lazy(() => __vitePreload(() => import("./ExpensePage-yWkBhR62.js"), true ? __vite__mapDeps([2,1,3,4]) : void 0, import.meta.url));
+const Configurations = lazy(() => __vitePreload(() => import("./Configurations-sxqLquZp.js"), true ? [] : void 0, import.meta.url));
+const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-Cc30cSYC.js"), true ? [] : void 0, import.meta.url));
+const Payroll = lazy(() => __vitePreload(() => import("./Payroll-CIXKY0SM.js"), true ? [] : void 0, import.meta.url));
+const Allocations = lazy(() => __vitePreload(() => import("./Allocations-Ba9nuaQ6.js"), true ? [] : void 0, import.meta.url));
+const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-BAQtZSZy.js"), true ? __vite__mapDeps([5,3,6]) : void 0, import.meta.url));
+const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-Dhb18jp7.js"), true ? __vite__mapDeps([7,3,6,8]) : void 0, import.meta.url));
+const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-CS44IWvY.js"), true ? __vite__mapDeps([9,3,8,4]) : void 0, import.meta.url));
 const createRouteConfig = () => {
   const baseRoutes = [
     {
@@ -42603,7 +42589,7 @@ const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 async function initializeMocking() {
   const { mockingStrategy } = await __vitePreload(async () => {
-    const { mockingStrategy: mockingStrategy2 } = await import("./mockingStrategy-DM1MVxoo.js");
+    const { mockingStrategy: mockingStrategy2 } = await import("./mockingStrategy-DdSFWSN8.js");
     return { mockingStrategy: mockingStrategy2 };
   }, true ? __vite__mapDeps([10,11]) : void 0, import.meta.url);
   await mockingStrategy.initialize();
@@ -42736,21 +42722,20 @@ export {
   Subscribable as S,
   ensureJWTInitialized as T,
   DOMEventNames as U,
-  TokenUpdateSources as V,
+  Shield as V,
   Wn as W,
-  Shield as X,
+  He as X,
   Yn as Y,
   Ze as Z,
   _n as _,
   Zn as a,
-  He as a0,
-  TokenPlaceholders as a1,
-  Te as a2,
-  Le as a3,
-  mockCompanies as a4,
-  mockExpenseTypes as a5,
-  mockBusinessPurposes as a6,
-  bootstrap as a7,
+  TokenPlaceholders as a0,
+  Te as a1,
+  Le as a2,
+  mockCompanies as a3,
+  mockExpenseTypes as a4,
+  mockBusinessPurposes as a5,
+  bootstrap as a6,
   Fn as b,
   createLucideIcon as c,
   CreditCard as d,
