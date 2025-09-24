@@ -1,7 +1,7 @@
 import { c as createLucideIcon } from "./createLucideIcon-vlKPXI1O.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { S as Subscribable, q as shallowEqualObjects, i as hashKey, t as getDefaultState, n as notifyManager, l as useQueryClient, c as noop, v as shouldThrowError } from "./LoadingSpinner-BtrkzRoS.js";
-import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-D_OWbE9r.js";
+import { S as Subscribable, q as shallowEqualObjects, i as hashKey, t as getDefaultState, n as notifyManager, l as useQueryClient, c as noop, v as shouldThrowError } from "./LoadingSpinner-1_N2ipPg.js";
+import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-Ck8zWeut.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *

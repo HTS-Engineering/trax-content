@@ -4368,7 +4368,11 @@ const ensureJWTInitialized = async () => {
 };
 const API_BASE_URL = "http://localhost:3001/api";
 const API_TIMEOUT = 3e4;
-const dynamicExpenseTypes = { ...mockExpenseTypes };
+const dynamicExpenseTypes = {};
+Object.keys(mockExpenseTypes).forEach((key) => {
+  const companyId = key;
+  dynamicExpenseTypes[companyId] = [...mockExpenseTypes[companyId]];
+});
 class ApiClient {
   instance;
   requestInterceptor = null;
