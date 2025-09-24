@@ -4371,7 +4371,8 @@ const API_TIMEOUT = 3e4;
 const dynamicExpenseTypes = {};
 Object.keys(mockExpenseTypes).forEach((key) => {
   const companyId = key;
-  dynamicExpenseTypes[companyId] = JSON.parse(JSON.stringify(mockExpenseTypes[companyId]));
+  const originalArray = mockExpenseTypes[companyId] || [];
+  dynamicExpenseTypes[companyId] = Array.from(originalArray, (item) => ({ ...item }));
 });
 console.log("🔥 INIT: Dynamic expense types initialized:", dynamicExpenseTypes);
 class ApiClient {
@@ -4442,14 +4443,12 @@ class ApiClient {
                 const typedCompanyId = companyId;
                 console.log("🔥 POST: About to add to storage, companyId:", typedCompanyId);
                 console.log("🔥 POST: Current storage for company:", dynamicExpenseTypes[typedCompanyId]);
-                console.log("🔥 POST: Is array extensible?", Object.isExtensible(dynamicExpenseTypes[typedCompanyId]));
-                if (!dynamicExpenseTypes[typedCompanyId]) {
-                  console.log("🔥 POST: Creating new array for company:", typedCompanyId);
-                  dynamicExpenseTypes[typedCompanyId] = [];
-                }
-                console.log("🔥 POST: About to push to array. Array length:", dynamicExpenseTypes[typedCompanyId].length);
-                dynamicExpenseTypes[typedCompanyId].push(created);
-                console.log("🔥 POST: Successfully pushed! New length:", dynamicExpenseTypes[typedCompanyId].length);
+                const existingItems = dynamicExpenseTypes[typedCompanyId] || [];
+                const newItemsArray = Array.from(existingItems);
+                const updatedArray = newItemsArray.concat([created]);
+                dynamicExpenseTypes[typedCompanyId] = updatedArray;
+                console.log("🔥 POST: Successfully created new array using concat! New length:", dynamicExpenseTypes[typedCompanyId].length);
+                console.log("🔥 POST: New array is extensible?", Object.isExtensible(dynamicExpenseTypes[typedCompanyId]));
                 console.log("🔥 POST: Returning created expense type response:", created);
                 const response = {
                   data: { data: created },
