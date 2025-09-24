@@ -4416,8 +4416,10 @@ class ApiClient {
           const url = (_b = error.config) == null ? void 0 : _b.url;
           const method = (_d = (_c = error.config) == null ? void 0 : _c.method) == null ? void 0 : _d.toUpperCase();
           if (method === "POST" && (url == null ? void 0 : url.includes("/expense-types"))) {
+            console.log("🔥 POST: Intercepting expense type creation request", { method, url, config: error.config });
             const companyIdMatch = url.match(/\/companies\/([^/]+)\/expense-types/);
             const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
+            console.log("🔥 POST: Extracted company ID:", companyId);
             if (companyId) {
               try {
                 const requestData = JSON.parse(((_e = error.config) == null ? void 0 : _e.data) || "{}");
@@ -4436,21 +4438,28 @@ class ApiClient {
                   dynamicExpenseTypes[companyId] = [];
                 }
                 dynamicExpenseTypes[companyId].push(created);
-                return Promise.resolve({
+                console.log("🔥 POST: Returning created expense type response:", created);
+                const response = {
                   data: { data: created },
                   status: 201,
                   statusText: "Created",
                   headers: { "content-type": "application/json" },
                   config: error.config
-                });
+                };
+                console.log("🔥 POST: Full response object:", response);
+                return Promise.resolve(response);
               } catch (parseError) {
-                console.error("Error parsing POST data for expense types:", parseError);
+                console.error("🔥 POST: Error parsing POST data for expense types:", parseError);
               }
+            } else {
+              console.log("🔥 POST: No company ID found in URL:", url);
             }
           }
           if (method === "PATCH" && (url == null ? void 0 : url.includes("/expense-types/"))) {
+            console.log("🔥 PATCH: Intercepting expense type update request", { method, url, config: error.config });
             const expenseTypeIdMatch = url.match(/\/expense-types\/([^/?]+)/);
             const expenseTypeId = expenseTypeIdMatch == null ? void 0 : expenseTypeIdMatch[1];
+            console.log("🔥 PATCH: Extracted expense type ID:", expenseTypeId);
             if (expenseTypeId) {
               try {
                 const updates = JSON.parse(((_f = error.config) == null ? void 0 : _f.data) || "{}");
@@ -4478,17 +4487,24 @@ class ApiClient {
                     mileageRate: updates.mileage || foundExpenseType.mileage
                   };
                   dynamicExpenseTypes[foundCompanyId][foundIndex] = updated;
-                  return Promise.resolve({
+                  console.log("🔥 PATCH: Returning updated expense type response:", updated);
+                  const response = {
                     data: { data: updated },
                     status: 200,
                     statusText: "OK",
                     headers: { "content-type": "application/json" },
                     config: error.config
-                  });
+                  };
+                  console.log("🔥 PATCH: Full response object:", response);
+                  return Promise.resolve(response);
+                } else {
+                  console.log("🔥 PATCH: Expense type not found in dynamic storage:", expenseTypeId);
                 }
               } catch (parseError) {
-                console.error("Error parsing PATCH data for expense types:", parseError);
+                console.error("🔥 PATCH: Error parsing PATCH data for expense types:", parseError);
               }
+            } else {
+              console.log("🔥 PATCH: No expense type ID found in URL:", url);
             }
           }
           console.log(`🔄 API: Network error for ${url}, trying mock data`);
