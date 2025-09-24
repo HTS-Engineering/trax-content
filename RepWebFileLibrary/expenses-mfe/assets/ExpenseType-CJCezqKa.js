@@ -5409,7 +5409,8 @@ const useExpenseTypeForm = ({
   existingData = [],
   onSubmit,
   onCancel,
-  isLoading = false
+  isLoading = false,
+  companyId
 } = {}) => {
   const initialDataId = initialData == null ? void 0 : initialData.id;
   const schema = useMemo$1(
@@ -5431,6 +5432,9 @@ const useExpenseTypeForm = ({
     const newDefaultValues = getDefaultValues(initialData);
     form.reset(newDefaultValues);
   }, [initialData, form]);
+  useEffect$1(() => {
+    form.reset(getDefaultValues());
+  }, [companyId, form]);
   const {
     register,
     handleSubmit,
@@ -5516,7 +5520,7 @@ const useExpenseTypeForm = ({
     handleCancel,
     canSubmit: useMemo$1(() => {
       return isValid && !isSubmitting && !isLoading && (initialData ? isDirty : true);
-    }, [isValid, isSubmitting, isLoading, isDirty, initialData]),
+    }, [isValid, isSubmitting, isLoading, isDirty, initialData, handleSubmit]),
     showMileageRate: formType === ExpenseFormType.MILEAGE,
     isFormLoading: isLoading || isSubmitting
   };
@@ -5907,7 +5911,10 @@ const ExpenseTypeActionButtons = React$1.memo(({
   /* @__PURE__ */ jsxRuntimeExports.jsx(
     U,
     {
-      onClick: onSubmit,
+      onMouseDown: (e) => {
+        e.preventDefault();
+        onSubmit();
+      },
       variant: "ghost",
       disabled: !canSubmit || isFormLoading,
       className: `${canSubmit && !isFormLoading ? "hover:bg-green-50" : "opacity-50 cursor-not-allowed"}`,
@@ -5918,7 +5925,10 @@ const ExpenseTypeActionButtons = React$1.memo(({
   /* @__PURE__ */ jsxRuntimeExports.jsx(
     U,
     {
-      onClick: onCancel,
+      onMouseDown: (e) => {
+        e.preventDefault();
+        onCancel();
+      },
       variant: "ghost",
       disabled: isFormLoading,
       className: "hover:bg-red-50",
@@ -6012,8 +6022,9 @@ const ExpenseTypeTable = ({ className }) => {
     existingData: processedData,
     onSubmit: handleFormSubmit,
     onCancel: handleFormCancel,
-    isLoading: isOperating
-  }), [editingData, processedData, handleFormSubmit, handleFormCancel, isOperating]);
+    isLoading: isOperating,
+    companyId: selectedCompany == null ? void 0 : selectedCompany.id
+  }), [editingData, processedData, handleFormSubmit, handleFormCancel, isOperating, selectedCompany == null ? void 0 : selectedCompany.id]);
   const formHook = useExpenseTypeForm(formHookOptions);
   const stableControl = useMemo(() => formHook.control, [formHook.control]);
   const stableShowMileageRate = formHook.showMileageRate;
