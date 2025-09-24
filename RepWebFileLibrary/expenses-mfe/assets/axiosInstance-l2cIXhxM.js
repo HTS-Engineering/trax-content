@@ -4450,6 +4450,31 @@ class ApiClient {
               config: error.config
             });
           }
+          if (url === "/form-type-options") {
+            console.log("✅ API: Returning mock form type options", mockFormTypeOptions);
+            const activeOptions = mockFormTypeOptions.filter((option) => option.isActive);
+            return Promise.resolve({
+              data: { data: activeOptions, total: activeOptions.length },
+              status: 200,
+              statusText: "OK",
+              headers: { "content-type": "application/json" },
+              config: error.config
+            });
+          }
+          if (url === "/mileage-rate-options") {
+            console.log("✅ API: Returning mock mileage rate options", mockMileageRateOptions);
+            return Promise.resolve({
+              data: {
+                data: mockMileageRateOptions,
+                total: mockMileageRateOptions.length,
+                currentRate: mockMileageRateOptions.find((rate) => rate.isActive)
+              },
+              status: 200,
+              statusText: "OK",
+              headers: { "content-type": "application/json" },
+              config: error.config
+            });
+          }
         }
         if (((_c = error.response) == null ? void 0 : _c.status) === 401) {
           await this.handleUnauthorized();

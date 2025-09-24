@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
-import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-CTyXU8xG.js";
+import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-l2cIXhxM.js";
 var Subscribable = class {
   constructor() {
     this.listeners = /* @__PURE__ */ new Set();
