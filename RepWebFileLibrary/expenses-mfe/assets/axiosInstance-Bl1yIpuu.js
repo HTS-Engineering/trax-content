@@ -1,5 +1,56 @@
-import { c as RouteCompanyIds } from "./routes-BNgY_PBW.js";
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
+var RoutePathConfigChunks = /* @__PURE__ */ ((RoutePathConfigChunks2) => {
+  RoutePathConfigChunks2["ExpensesType"] = "expenses-type";
+  RoutePathConfigChunks2["BusinessPurpose"] = "business-purpose";
+  return RoutePathConfigChunks2;
+})(RoutePathConfigChunks || {});
+var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
+  RoutePaths2["Root"] = "/";
+  RoutePaths2["Expenses"] = "/expenses";
+  RoutePaths2["ExpensesNew"] = "/expenses/new";
+  RoutePaths2["TestingAuthentication"] = "/testing/authentication";
+  RoutePaths2["TestingIcons"] = "/testing/icons";
+  RoutePaths2["Configurations"] = "/configurations";
+  RoutePaths2["CorporateCards"] = "/configurations/corporate-cards";
+  RoutePaths2["Payroll"] = "/configurations/payroll";
+  RoutePaths2["Allocations"] = "/configurations/allocations";
+  RoutePaths2["ExpensesType"] = `/configurations/expenses-type`;
+  RoutePaths2["BusinessPurpose"] = `/configurations/business-purpose`;
+  RoutePaths2["ExpensesTypeId"] = `/configurations/expenses-type/:companyId`;
+  RoutePaths2["BusinessPurposeId"] = `/configurations/business-purpose/:companyId`;
+  RoutePaths2["ExpensesTypeWithCompany"] = `/configurations/expenses-type/:companyId`;
+  RoutePaths2["BusinessPurposeWithCompany"] = `/configurations/business-purpose/:companyId`;
+  return RoutePaths2;
+})(RoutePaths || {});
+var RouteNames = /* @__PURE__ */ ((RouteNames2) => {
+  RouteNames2["Expenses"] = "Expenses";
+  RouteNames2["ExpensesNew"] = "New Expense";
+  RouteNames2["TestingAuthentication"] = "Authentication";
+  RouteNames2["TestingIcons"] = "Icons";
+  RouteNames2["Configurations"] = "Configurations";
+  RouteNames2["CorporateCards"] = "Corporate Cards";
+  RouteNames2["Payroll"] = "Payroll";
+  RouteNames2["Allocations"] = "Allocations";
+  RouteNames2["ExpensesType"] = "Expenses Type";
+  RouteNames2["BusinessPurpose"] = "Business Purpose";
+  return RouteNames2;
+})(RouteNames || {});
+var RouteCompanyIds = /* @__PURE__ */ ((RouteCompanyIds2) => {
+  RouteCompanyIds2["DirectExpansion"] = "direct-expansion";
+  RouteCompanyIds2["HeatTransfer"] = "heat-transfer";
+  RouteCompanyIds2["OslinNation"] = "oslin-nation";
+  RouteCompanyIds2["TritonThermal"] = "triton-thermal";
+  RouteCompanyIds2["VrfServices"] = "vrf-services";
+  return RouteCompanyIds2;
+})(RouteCompanyIds || {});
+var RouteCompanyLabels = /* @__PURE__ */ ((RouteCompanyLabels2) => {
+  RouteCompanyLabels2["DirectExpansion"] = "Direct Expansion Solutions Inc";
+  RouteCompanyLabels2["HeatTransfer"] = "Heat Transfer Solutions, Inc";
+  RouteCompanyLabels2["OslinNation"] = "Oslin Nation";
+  RouteCompanyLabels2["TritonThermal"] = "Triton Thermal";
+  RouteCompanyLabels2["VrfServices"] = "VRF Services of Texas";
+  return RouteCompanyLabels2;
+})(RouteCompanyLabels || {});
 function bind(fn, thisArg) {
   return function wrap() {
     return fn.apply(thisArg, arguments);
@@ -4417,7 +4468,7 @@ class ApiClient {
         return response;
       },
       async (error) => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l;
         if (error.code === "ERR_NETWORK" || error.code === "ECONNREFUSED" || ((_a = error.message) == null ? void 0 : _a.includes("Network Error"))) {
           const url = (_b = error.config) == null ? void 0 : _b.url;
           const method = (_d = (_c = error.config) == null ? void 0 : _c.method) == null ? void 0 : _d.toUpperCase();
@@ -4518,6 +4569,63 @@ class ApiClient {
               console.log("🔥 PATCH: No expense type ID found in URL:", url);
             }
           }
+          if (method === "POST" && (url == null ? void 0 : url.includes("/files/receipts"))) {
+            console.log("🔥 AXIOS FALLBACK: Intercepting file upload request", { method, url });
+            try {
+              await new Promise((resolve) => setTimeout(resolve, 1500));
+              const formData = (_g = error.config) == null ? void 0 : _g.data;
+              let originalFile = null;
+              let fileType = "unknown";
+              let mimeType = "application/octet-stream";
+              let fileSize = 0;
+              if (formData instanceof FormData) {
+                originalFile = formData.get("file");
+                if (originalFile) {
+                  fileType = ((_h = originalFile.name.split(".").pop()) == null ? void 0 : _h.toLowerCase()) || "unknown";
+                  mimeType = originalFile.type || "application/octet-stream";
+                  fileSize = originalFile.size;
+                }
+              }
+              const fileId = `receipt_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+              const serverUrl = `https://storage.yourapp.com/receipts/${fileId}.${fileType}`;
+              const mockResponse = {
+                id: fileId,
+                url: serverUrl,
+                // Server URL, not blob URL
+                filename: `${fileId}.${fileType}`,
+                originalName: (originalFile == null ? void 0 : originalFile.name) || `file.${fileType}`,
+                size: fileSize,
+                type: fileType,
+                mimeType,
+                uploadedAt: (/* @__PURE__ */ new Date()).toISOString()
+              };
+              console.log("✅ AXIOS FALLBACK: Mock file upload successful", mockResponse);
+              return Promise.resolve({
+                data: { data: mockResponse },
+                status: 201,
+                statusText: "Created",
+                headers: { "content-type": "application/json" },
+                config: error.config
+              });
+            } catch (mockError) {
+              console.error("🔥 AXIOS FALLBACK: Error in mock file upload:", mockError);
+            }
+          }
+          if (method === "DELETE" && (url == null ? void 0 : url.includes("/files/receipts/"))) {
+            console.log("🔥 AXIOS FALLBACK: Intercepting file delete request", { method, url });
+            try {
+              await new Promise((resolve) => setTimeout(resolve, 500));
+              return Promise.resolve({
+                data: { message: "File deleted successfully" },
+                status: 200,
+                statusText: "OK",
+                headers: { "content-type": "application/json" },
+                config: error.config
+              });
+            } catch (mockError) {
+              console.error("🔥 AXIOS FALLBACK: Error in mock file delete:", mockError);
+            }
+          }
           console.log(`🔄 API: Network error for ${url}, trying mock data`);
           if (url === "/companies") {
             console.log("✅ API: Returning mock companies data", mockCompanies);
@@ -4529,7 +4637,7 @@ class ApiClient {
               config: error.config
             });
           }
-          if ((url == null ? void 0 : url.includes("/expense-types")) && ((_h = (_g = error.config) == null ? void 0 : _g.method) == null ? void 0 : _h.toUpperCase()) === "GET") {
+          if ((url == null ? void 0 : url.includes("/expense-types")) && ((_j = (_i = error.config) == null ? void 0 : _i.method) == null ? void 0 : _j.toUpperCase()) === "GET") {
             const companyIdMatch = url.match(/\/companies\/([^/]+)\/expense-types/);
             const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
             console.log(`✅ API: Returning dynamic expense types for company: ${companyId}`);
@@ -4581,10 +4689,10 @@ class ApiClient {
             });
           }
         }
-        if (((_i = error.response) == null ? void 0 : _i.status) === 401) {
+        if (((_k = error.response) == null ? void 0 : _k.status) === 401) {
           await this.handleUnauthorized();
         }
-        if (((_j = error.response) == null ? void 0 : _j.status) === 429) {
+        if (((_l = error.response) == null ? void 0 : _l.status) === 429) {
           const retryAfter = error.response.headers["retry-after"];
           if (retryAfter) {
             await this.delay(parseInt(retryAfter) * 1e3);
@@ -4693,18 +4801,23 @@ const apiClient = new ApiClient();
 export {
   DOMEventNames as D,
   ExpenseFormType as E,
+  RoutePaths as R,
   TokenPlaceholders as T,
-  apiClient as a,
-  mockExpenseTypes as b,
-  create as c,
-  devtools as d,
-  ensureJWTInitialized as e,
-  mockBusinessPurposes as f,
-  mockFormTypeOptions as g,
-  mockMileageRateOptions as h,
+  RouteNames as a,
+  RouteCompanyLabels as b,
+  RouteCompanyIds as c,
+  apiClient as d,
+  RoutePathConfigChunks as e,
+  create as f,
+  devtools as g,
+  ensureJWTInitialized as h,
   immer as i,
   jwtSelectors as j,
+  mockExpenseTypes as k,
+  mockBusinessPurposes as l,
   mockCompanies as m,
+  mockFormTypeOptions as n,
+  mockMileageRateOptions as o,
   subscribeWithSelector as s,
   useJWTStore as u
 };

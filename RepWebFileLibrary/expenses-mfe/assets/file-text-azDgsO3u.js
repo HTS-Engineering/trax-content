@@ -1,7 +1,7 @@
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
-import { c as createLucideIcon } from "./createLucideIcon-vlKPXI1O.js";
+import { c as createLucideIcon } from "./createLucideIcon-CfH1iyFR.js";
 /**
- * react-router v7.9.1
+ * react-router v7.9.2
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -862,7 +862,7 @@ function createRouter(init) {
       }
     } else if (initialMatches.some((m) => m.route.lazy)) {
       initialized = false;
-    } else if (!initialMatches.some((m) => m.route.loader)) {
+    } else if (!initialMatches.some((m) => routeHasLoaderOrMiddleware(m.route))) {
       initialized = true;
     } else {
       let loaderData = init.hydrationData ? init.hydrationData.loaderData : null;
@@ -1565,7 +1565,9 @@ function createRouter(init) {
       pendingActionResult
     );
     pendingNavigationLoadId = ++incrementingLoadId;
-    if (!init.dataStrategy && !dsMatches.some((m) => m.shouldLoad) && !dsMatches.some((m) => m.route.middleware) && revalidatingFetchers.length === 0) {
+    if (!init.dataStrategy && !dsMatches.some((m) => m.shouldLoad) && !dsMatches.some(
+      (m) => m.route.middleware && m.route.middleware.length > 0
+    ) && revalidatingFetchers.length === 0) {
       let updatedFetchers2 = markFetchRedirectsDone();
       completeNavigation(
         location,
@@ -2246,6 +2248,10 @@ function createRouter(init) {
     }
     return state.fetchers.get(key) || IDLE_FETCHER;
   }
+  function resetFetcher(key, opts) {
+    abortFetcher(key, opts == null ? void 0 : opts.reason);
+    updateFetcherState(key, getDoneFetcher(null));
+  }
   function deleteFetcher(key) {
     let fetcher = state.fetchers.get(key);
     if (fetchControllers.has(key) && !(fetcher && fetcher.state === "loading" && fetchReloadIds.has(key))) {
@@ -2268,10 +2274,10 @@ function createRouter(init) {
     }
     updateState({ fetchers: new Map(state.fetchers) });
   }
-  function abortFetcher(key) {
+  function abortFetcher(key, reason) {
     let controller = fetchControllers.get(key);
     if (controller) {
-      controller.abort();
+      controller.abort(reason);
       fetchControllers.delete(key);
     }
   }
@@ -2535,6 +2541,7 @@ function createRouter(init) {
     createHref: (to) => init.history.createHref(to),
     encodeLocation: (to) => init.history.encodeLocation(to),
     getFetcher,
+    resetFetcher,
     deleteFetcher: queueFetcherForDeletion,
     dispose,
     getBlocker,
@@ -2735,7 +2742,7 @@ function getMatchesToLoad(request, scopedContext, mapRouteProperties2, manifest,
       forceShouldLoad = false;
     } else if (route.lazy) {
       forceShouldLoad = true;
-    } else if (route.loader == null) {
+    } else if (!routeHasLoaderOrMiddleware(route)) {
       forceShouldLoad = false;
     } else if (initialHydration) {
       forceShouldLoad = shouldLoadRouteOnHydration(
@@ -2867,11 +2874,14 @@ function getMatchesToLoad(request, scopedContext, mapRouteProperties2, manifest,
   });
   return { dsMatches, revalidatingFetchers };
 }
+function routeHasLoaderOrMiddleware(route) {
+  return route.loader != null || route.middleware != null && route.middleware.length > 0;
+}
 function shouldLoadRouteOnHydration(route, loaderData, errors) {
   if (route.lazy) {
     return true;
   }
-  if (!route.loader) {
+  if (!routeHasLoaderOrMiddleware(route)) {
     return false;
   }
   let hasData = loaderData != null && route.id in loaderData;
@@ -3174,9 +3184,15 @@ function runClientMiddlewarePipeline(args, handler) {
       let { matches } = args;
       let maxBoundaryIdx = Math.min(
         // Throwing route
-        matches.findIndex((m) => m.route.id === routeId) || 0,
+        Math.max(
+          matches.findIndex((m) => m.route.id === routeId),
+          0
+        ),
         // or the shallowest route that needs to load data
-        matches.findIndex((m) => m.unstable_shouldCallHandler()) || 0
+        Math.max(
+          matches.findIndex((m) => m.unstable_shouldCallHandler()),
+          0
+        )
       );
       let boundaryRouteId = findNearestBoundary(
         matches,
@@ -4189,10 +4205,10 @@ function useNavigateUnstable() {
 var OutletContext = React2.createContext(null);
 function useOutlet(context) {
   let outlet = React2.useContext(RouteContext).outlet;
-  if (outlet) {
-    return /* @__PURE__ */ React2.createElement(OutletContext.Provider, { value: context }, outlet);
-  }
-  return outlet;
+  return React2.useMemo(
+    () => outlet && /* @__PURE__ */ React2.createElement(OutletContext.Provider, { value: context }, outlet),
+    [outlet, context]
+  );
 }
 function useParams() {
   let { matches } = React2.useContext(RouteContext);
@@ -4266,13 +4282,23 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
         params: Object.assign({}, parentParams, match.params),
         pathname: joinPaths([
           parentPathnameBase,
-          // Re-encode pathnames that were decoded inside matchRoutes
-          navigator.encodeLocation ? navigator.encodeLocation(match.pathname).pathname : match.pathname
+          // Re-encode pathnames that were decoded inside matchRoutes.
+          // Pre-encode `?` and `#` ahead of `encodeLocation` because it uses
+          // `new URL()` internally and we need to prevent it from treating
+          // them as separators
+          navigator.encodeLocation ? navigator.encodeLocation(
+            match.pathname.replace(/\?/g, "%3F").replace(/#/g, "%23")
+          ).pathname : match.pathname
         ]),
         pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([
           parentPathnameBase,
           // Re-encode pathnames that were decoded inside matchRoutes
-          navigator.encodeLocation ? navigator.encodeLocation(match.pathnameBase).pathname : match.pathnameBase
+          // Pre-encode `?` and `#` ahead of `encodeLocation` because it uses
+          // `new URL()` internally and we need to prevent it from treating
+          // them as separators
+          navigator.encodeLocation ? navigator.encodeLocation(
+            match.pathnameBase.replace(/\?/g, "%3F").replace(/#/g, "%23")
+          ).pathname : match.pathnameBase
         ])
       })
     ),
@@ -5752,7 +5778,7 @@ var isBrowser = typeof window !== "undefined" && typeof window.document !== "und
 try {
   if (isBrowser) {
     window.__reactRouterVersion = // @ts-expect-error
-    "7.9.1";
+    "7.9.2";
   }
 } catch (e) {
 }

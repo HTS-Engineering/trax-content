@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
-import { J as Jn } from "./createLucideIcon-vlKPXI1O.js";
-import { R as Receipt } from "./receipt-DJo-41hQ.js";
+import { J as Jn } from "./createLucideIcon-CfH1iyFR.js";
+import { R as Receipt } from "./receipt-csKOA_Lm.js";
 const ExpensesList = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Jn, { className: "p-12", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center text-gray-500", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Receipt, { className: "w-12 h-12 mx-auto mb-4 text-gray-400" }),

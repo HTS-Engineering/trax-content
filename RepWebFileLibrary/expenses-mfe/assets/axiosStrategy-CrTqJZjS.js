@@ -1,4 +1,4 @@
-import { a as apiClient } from "./axiosInstance-DxbFApbP.js";
+import { d as apiClient } from "./axiosInstance-Bl1yIpuu.js";
 class AxiosStrategy {
   active = false;
   async initialize() {

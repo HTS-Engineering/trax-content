@@ -1,4 +1,4 @@
-import { m as mockCompanies, b as mockExpenseTypes, f as mockBusinessPurposes, g as mockFormTypeOptions, h as mockMileageRateOptions } from "./axiosInstance-DxbFApbP.js";
+import { m as mockCompanies, k as mockExpenseTypes, l as mockBusinessPurposes, n as mockFormTypeOptions, o as mockMileageRateOptions } from "./axiosInstance-Bl1yIpuu.js";
 function isObject$1(value) {
   return value != null && typeof value === "object" && !Array.isArray(value);
 }
@@ -9493,6 +9493,7 @@ const companyHandlers = [
   })
 ];
 const dynamicExpenseTypes = { ...mockExpenseTypes };
+const receiptDrafts = {};
 const expenseHandlers = [
   // Get expense types for a company
   http.get("http://localhost:3001/api/companies/:companyId/expense-types", async ({ params }) => {
@@ -9665,11 +9666,319 @@ const expenseHandlers = [
       total: mockMileageRateOptions.length,
       currentRate: mockMileageRateOptions.find((rate) => rate.isActive)
     });
+  }),
+  // Receipt Draft endpoints
+  // Save receipt draft
+  http.post("http://localhost:3001/api/companies/:companyId/receipt-drafts", async ({ params, request }) => {
+    console.log(`🚀 MSW: Intercepting POST /api/companies/${params.companyId}/receipt-drafts`);
+    await delay(800);
+    const companyId = params.companyId;
+    const draftData = await request.json();
+    const newDraft = {
+      id: `draft-${companyId}-${Date.now()}`,
+      receiptAttachment: draftData.receiptAttachment,
+      isReceiptUnavailable: draftData.isReceiptUnavailable,
+      companyId,
+      userId: "current-user",
+      createdAt: /* @__PURE__ */ new Date(),
+      updatedAt: /* @__PURE__ */ new Date()
+    };
+    if (!receiptDrafts[companyId]) {
+      receiptDrafts[companyId] = [];
+    }
+    receiptDrafts[companyId].push(newDraft);
+    console.log(`🚀 MSW: Saved receipt draft for ${companyId}:`, newDraft);
+    return HttpResponse.json({ data: newDraft }, { status: 201 });
+  }),
+  // Save receipt draft (without company)
+  http.post("http://localhost:3001/api/receipt-drafts", async ({ request }) => {
+    console.log("🚀 MSW: Intercepting POST /api/receipt-drafts");
+    await delay(800);
+    const draftData = await request.json();
+    const newDraft = {
+      id: `draft-${Date.now()}`,
+      receiptAttachment: draftData.receiptAttachment,
+      isReceiptUnavailable: draftData.isReceiptUnavailable,
+      userId: "current-user",
+      createdAt: /* @__PURE__ */ new Date(),
+      updatedAt: /* @__PURE__ */ new Date()
+    };
+    console.log("🚀 MSW: Saved receipt draft:", newDraft);
+    return HttpResponse.json({ data: newDraft }, { status: 201 });
+  }),
+  // Get receipt drafts for a company
+  http.get("http://localhost:3001/api/companies/:companyId/receipt-drafts", async ({ params }) => {
+    console.log(`🚀 MSW: Intercepting GET /api/companies/${params.companyId}/receipt-drafts`);
+    await delay(300);
+    const companyId = params.companyId;
+    const drafts = receiptDrafts[companyId] || [];
+    return HttpResponse.json({
+      data: drafts,
+      total: drafts.length,
+      companyId
+    });
+  }),
+  // Get single receipt draft
+  http.get("http://localhost:3001/api/receipt-drafts/:id", async ({ params }) => {
+    console.log(`🚀 MSW: Intercepting GET /api/receipt-drafts/${params.id}`);
+    await delay(200);
+    const allDrafts = Object.values(receiptDrafts).flat();
+    const draft = allDrafts.find((d) => d.id === params.id);
+    if (!draft) {
+      return new HttpResponse(null, { status: 404 });
+    }
+    return HttpResponse.json({ data: draft });
+  }),
+  // Delete receipt draft
+  http.delete("http://localhost:3001/api/receipt-drafts/:id", async ({ params }) => {
+    console.log(`🚀 MSW: Intercepting DELETE /api/receipt-drafts/${params.id}`);
+    await delay(500);
+    for (const [companyId, drafts] of Object.entries(receiptDrafts)) {
+      const index = drafts.findIndex((d) => d.id === params.id);
+      if (index !== -1) {
+        drafts.splice(index, 1);
+        console.log(`🚀 MSW: Deleted receipt draft ${params.id} from ${companyId}`);
+        break;
+      }
+    }
+    return new HttpResponse(null, { status: 204 });
+  })
+];
+const uploadedFiles = /* @__PURE__ */ new Map();
+const validateFile = (file) => {
+  const allowedTypes = ["image/png", "image/jpeg", "image/jpg", "application/pdf"];
+  const maxSizes = {
+    "application/pdf": 50 * 1024 * 1024,
+    // 50MB
+    "image/png": 25 * 1024 * 1024,
+    // 25MB
+    "image/jpeg": 25 * 1024 * 1024,
+    // 25MB
+    "image/jpg": 25 * 1024 * 1024
+    // 25MB
+  };
+  if (!allowedTypes.includes(file.type)) {
+    return {
+      isValid: false,
+      error: "Unsupported file type. Only PNG, JPEG, and PDF files are allowed."
+    };
+  }
+  const maxSize = maxSizes[file.type];
+  if (file.size > maxSize) {
+    const maxSizeMB = Math.round(maxSize / 1024 / 1024);
+    return {
+      isValid: false,
+      error: `File size exceeds ${maxSizeMB}MB limit for ${file.type.split("/")[1].toUpperCase()} files.`
+    };
+  }
+  return { isValid: true };
+};
+const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error2) => reject(error2);
+  });
+};
+const generateCloudStorageUrl = (fileId, fileExtension) => {
+  return `https://storage.yourapp.com/receipts/${fileId}.${fileExtension}`;
+};
+const fileHandlers = [
+  // Upload receipt file - match the actual axios request URL
+  http.post("*/files/receipts", async ({ request }) => {
+    var _a2;
+    console.log("🔥 MSW: Intercepting file upload request", { url: request.url });
+    await delay(1500);
+    try {
+      const formData = await request.formData();
+      const file = formData.get("file");
+      const type = formData.get("type");
+      const originalName = formData.get("originalName");
+      console.log("🔥 MSW: Processing file upload", {
+        fileName: file == null ? void 0 : file.name,
+        fileSize: file == null ? void 0 : file.size,
+        fileType: file == null ? void 0 : file.type,
+        type,
+        originalName
+      });
+      if (!file) {
+        return HttpResponse.json(
+          {
+            error: "No file provided",
+            message: "File is required for upload"
+          },
+          { status: 400 }
+        );
+      }
+      const validation = validateFile(file);
+      if (!validation.isValid) {
+        return HttpResponse.json(
+          {
+            error: "Validation failed",
+            message: validation.error
+          },
+          { status: 422 }
+        );
+      }
+      const fileId = `receipt_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      const fileExtension = ((_a2 = file.name.split(".").pop()) == null ? void 0 : _a2.toLowerCase()) || "unknown";
+      const filename = `${fileId}.${fileExtension}`;
+      const cloudStorageUrl = generateCloudStorageUrl(fileId, fileExtension);
+      const blobUrl = URL.createObjectURL(file);
+      let base64Data = "";
+      try {
+        base64Data = await fileToBase64(file);
+      } catch (error2) {
+        console.warn("Failed to convert file to base64:", error2);
+      }
+      const uploadedFile = {
+        id: fileId,
+        url: cloudStorageUrl,
+        // Server URL (like real backend)
+        blobUrl,
+        // Client-side blob URL for immediate access
+        filename,
+        originalName: originalName || file.name,
+        size: file.size,
+        type: fileExtension,
+        mimeType: file.type,
+        uploadedAt: (/* @__PURE__ */ new Date()).toISOString(),
+        data: base64Data
+        // Internal storage for serving file content
+      };
+      uploadedFiles.set(fileId, uploadedFile);
+      const shouldFailRandomly = Math.random() < 0.05;
+      if (shouldFailRandomly) {
+        return HttpResponse.json(
+          {
+            error: "Server error",
+            message: "Internal server error occurred during file processing"
+          },
+          { status: 500 }
+        );
+      }
+      const response = {
+        id: uploadedFile.id,
+        url: uploadedFile.url,
+        blobUrl: uploadedFile.blobUrl,
+        // Include blob URL for immediate client access
+        filename: uploadedFile.filename,
+        size: uploadedFile.size,
+        type: uploadedFile.type,
+        mimeType: uploadedFile.mimeType,
+        uploadedAt: uploadedFile.uploadedAt
+      };
+      console.log("✅ MSW: File uploaded successfully", {
+        id: response.id,
+        filename: response.filename,
+        size: `${Math.round(response.size / 1024)}KB`,
+        type: response.type,
+        url: `${response.url.substring(0, 50)}...`
+      });
+      return HttpResponse.json({ data: response }, { status: 201 });
+    } catch (error2) {
+      console.error("🔥 MSW: File upload error:", error2);
+      return HttpResponse.json(
+        {
+          error: "Upload failed",
+          message: "An unexpected error occurred during file upload"
+        },
+        { status: 500 }
+      );
+    }
+  }),
+  // Delete receipt file
+  http.delete("*/files/receipts/:fileId", async ({ params }) => {
+    await delay(500);
+    const { fileId } = params;
+    if (!uploadedFiles.has(fileId)) {
+      return HttpResponse.json(
+        {
+          error: "File not found",
+          message: `File with ID ${fileId} does not exist`
+        },
+        { status: 404 }
+      );
+    }
+    uploadedFiles.delete(fileId);
+    console.log("✅ MSW: File deleted successfully", { fileId });
+    return HttpResponse.json(
+      { message: "File deleted successfully" },
+      { status: 200 }
+    );
+  }),
+  // Get receipt file download URL (for files that need special download handling)
+  http.get("*/files/receipts/:fileId/download", async ({ params }) => {
+    const { fileId } = params;
+    const file = uploadedFiles.get(fileId);
+    if (!file) {
+      return HttpResponse.json(
+        {
+          error: "File not found",
+          message: `File with ID ${fileId} does not exist`
+        },
+        { status: 404 }
+      );
+    }
+    return HttpResponse.json({
+      data: {
+        downloadUrl: file.url,
+        filename: file.originalName,
+        expiresAt: new Date(Date.now() + 36e5).toISOString()
+        // 1 hour expiry
+      }
+    });
+  }),
+  // Get receipt file metadata
+  http.get("*/files/receipts/:fileId", async ({ params }) => {
+    const { fileId } = params;
+    const file = uploadedFiles.get(fileId);
+    if (!file) {
+      return HttpResponse.json(
+        {
+          error: "File not found",
+          message: `File with ID ${fileId} does not exist`
+        },
+        { status: 404 }
+      );
+    }
+    return HttpResponse.json({
+      data: {
+        id: file.id,
+        url: file.url,
+        filename: file.filename,
+        originalName: file.originalName,
+        size: file.size,
+        type: file.type,
+        mimeType: file.mimeType,
+        uploadedAt: file.uploadedAt
+      }
+    });
+  }),
+  // Serve uploaded files (simulate cloud storage endpoint)
+  http.get("https://storage.yourapp.com/receipts/:filename", ({ params }) => {
+    const { filename } = params;
+    const file = Array.from(uploadedFiles.values()).find((f) => f.filename === filename);
+    if (!file || !file.data) {
+      return new HttpResponse(null, { status: 404 });
+    }
+    console.log("🔥 MSW: Serving file", { filename, hasData: !!file.data });
+    const base64Data = file.data.split(",")[1];
+    const buffer = Uint8Array.from(atob(base64Data), (c) => c.charCodeAt(0));
+    return new HttpResponse(buffer, {
+      headers: {
+        "Content-Type": file.mimeType,
+        "Content-Disposition": `inline; filename="${file.originalName}"`,
+        "Cache-Control": "public, max-age=31536000"
+      }
+    });
   })
 ];
 const handlers = [
   ...companyHandlers,
-  ...expenseHandlers
+  ...expenseHandlers,
+  ...fileHandlers
 ];
 const worker = setupWorker(...handlers);
 const startOptions = {

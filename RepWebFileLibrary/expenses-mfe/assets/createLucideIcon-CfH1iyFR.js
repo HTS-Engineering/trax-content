@@ -4439,8 +4439,8 @@ var getDeltaXY = function(event) {
 var extractRef = function(ref) {
   return ref && "current" in ref ? ref.current : ref;
 };
-var deltaCompare = function(x, y) {
-  return x[0] === y[0] && x[1] === y[1];
+var deltaCompare = function(x, y2) {
+  return x[0] === y2[0] && x[1] === y2[1];
 };
 var generateStyle = function(id) {
   return "\n  .block-interactivity-".concat(id, " {pointer-events: none;}\n  .allow-interactivity-").concat(id, " {pointer-events: all;}\n");
@@ -5209,19 +5209,19 @@ function getPaddingObject(padding) {
 function rectToClientRect(rect) {
   const {
     x,
-    y,
+    y: y2,
     width,
     height
   } = rect;
   return {
     width,
     height,
-    top: y,
+    top: y2,
     left: x,
     right: x + width,
-    bottom: y + height,
+    bottom: y2 + height,
     x,
-    y
+    y: y2
   };
 }
 function computeCoordsFromPlacement(_ref, placement, rtl) {
@@ -5295,7 +5295,7 @@ const computePosition$1 = async (reference, floating, config) => {
   });
   let {
     x,
-    y
+    y: y2
   } = computeCoordsFromPlacement(rects, placement, rtl);
   let statefulPlacement = placement;
   let middlewareData = {};
@@ -5312,7 +5312,7 @@ const computePosition$1 = async (reference, floating, config) => {
       reset
     } = await fn2({
       x,
-      y,
+      y: y2,
       initialPlacement: placement,
       placement: statefulPlacement,
       strategy,
@@ -5325,7 +5325,7 @@ const computePosition$1 = async (reference, floating, config) => {
       }
     });
     x = nextX != null ? nextX : x;
-    y = nextY != null ? nextY : y;
+    y2 = nextY != null ? nextY : y2;
     middlewareData = {
       ...middlewareData,
       [name]: {
@@ -5348,7 +5348,7 @@ const computePosition$1 = async (reference, floating, config) => {
         }
         ({
           x,
-          y
+          y: y2
         } = computeCoordsFromPlacement(rects, statefulPlacement, rtl));
       }
       i = -1;
@@ -5356,7 +5356,7 @@ const computePosition$1 = async (reference, floating, config) => {
   }
   return {
     x,
-    y,
+    y: y2,
     placement: statefulPlacement,
     strategy,
     middlewareData
@@ -5369,7 +5369,7 @@ async function detectOverflow(state, options) {
   }
   const {
     x,
-    y,
+    y: y2,
     platform: platform2,
     rects,
     elements,
@@ -5393,7 +5393,7 @@ async function detectOverflow(state, options) {
   }));
   const rect = elementContext === "floating" ? {
     x,
-    y,
+    y: y2,
     width: rects.floating.width,
     height: rects.floating.height
   } : rects.reference;
@@ -5424,7 +5424,7 @@ const arrow$3 = (options) => ({
   async fn(state) {
     const {
       x,
-      y,
+      y: y2,
       placement,
       rects,
       platform: platform2,
@@ -5441,7 +5441,7 @@ const arrow$3 = (options) => ({
     const paddingObject = getPaddingObject(padding);
     const coords = {
       x,
-      y
+      y: y2
     };
     const axis = getAlignmentAxis(placement);
     const length = getAxisLength(axis);
@@ -5698,7 +5698,7 @@ const offset$2 = function(options) {
       var _middlewareData$offse, _middlewareData$arrow;
       const {
         x,
-        y,
+        y: y2,
         placement,
         middlewareData
       } = state;
@@ -5708,7 +5708,7 @@ const offset$2 = function(options) {
       }
       return {
         x: x + diffCoords.x,
-        y: y + diffCoords.y,
+        y: y2 + diffCoords.y,
         data: {
           ...diffCoords,
           placement
@@ -5727,7 +5727,7 @@ const shift$2 = function(options) {
     async fn(state) {
       const {
         x,
-        y,
+        y: y2,
         placement
       } = state;
       const {
@@ -5737,11 +5737,11 @@ const shift$2 = function(options) {
           fn: (_ref) => {
             let {
               x: x2,
-              y: y2
+              y: y3
             } = _ref;
             return {
               x: x2,
-              y: y2
+              y: y3
             };
           }
         },
@@ -5749,7 +5749,7 @@ const shift$2 = function(options) {
       } = evaluate(options, state);
       const coords = {
         x,
-        y
+        y: y2
       };
       const overflow = await detectOverflow(state, detectOverflowOptions);
       const crossAxis = getSideAxis(getSide(placement));
@@ -5779,7 +5779,7 @@ const shift$2 = function(options) {
         ...limitedCoords,
         data: {
           x: limitedCoords.x - x,
-          y: limitedCoords.y - y,
+          y: limitedCoords.y - y2,
           enabled: {
             [mainAxis]: checkMainAxis,
             [crossAxis]: checkCrossAxis
@@ -5798,7 +5798,7 @@ const limitShift$2 = function(options) {
     fn(state) {
       const {
         x,
-        y,
+        y: y2,
         placement,
         rects,
         middlewareData
@@ -5810,7 +5810,7 @@ const limitShift$2 = function(options) {
       } = evaluate(options, state);
       const coords = {
         x,
-        y
+        y: y2
       };
       const crossAxis = getSideAxis(placement);
       const mainAxis = getOppositeAxis(crossAxis);
@@ -6116,16 +6116,16 @@ function getScale(element) {
     $
   } = getCssDimensions(domElement);
   let x = ($ ? round(rect.width) : rect.width) / width;
-  let y = ($ ? round(rect.height) : rect.height) / height;
+  let y2 = ($ ? round(rect.height) : rect.height) / height;
   if (!x || !Number.isFinite(x)) {
     x = 1;
   }
-  if (!y || !Number.isFinite(y)) {
-    y = 1;
+  if (!y2 || !Number.isFinite(y2)) {
+    y2 = 1;
   }
   return {
     x,
-    y
+    y: y2
   };
 }
 const noOffsets = /* @__PURE__ */ createCoords(0);
@@ -6169,7 +6169,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
   }
   const visualOffsets = shouldAddVisualOffsets(domElement, isFixedStrategy, offsetParent) ? getVisualOffsets(domElement) : createCoords(0);
   let x = (clientRect.left + visualOffsets.x) / scale.x;
-  let y = (clientRect.top + visualOffsets.y) / scale.y;
+  let y2 = (clientRect.top + visualOffsets.y) / scale.y;
   let width = clientRect.width / scale.x;
   let height = clientRect.height / scale.y;
   if (domElement) {
@@ -6184,11 +6184,11 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
       const left = iframeRect.left + (currentIFrame.clientLeft + parseFloat(css.paddingLeft)) * iframeScale.x;
       const top = iframeRect.top + (currentIFrame.clientTop + parseFloat(css.paddingTop)) * iframeScale.y;
       x *= iframeScale.x;
-      y *= iframeScale.y;
+      y2 *= iframeScale.y;
       width *= iframeScale.x;
       height *= iframeScale.y;
       x += left;
-      y += top;
+      y2 += top;
       currentWin = getWindow(currentIFrame);
       currentIFrame = getFrameElement(currentWin);
     }
@@ -6197,7 +6197,7 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetPar
     width,
     height,
     x,
-    y
+    y: y2
   });
 }
 function getWindowScrollBarX(element, rect) {
@@ -6210,10 +6210,10 @@ function getWindowScrollBarX(element, rect) {
 function getHTMLOffset(documentElement, scroll) {
   const htmlRect = documentElement.getBoundingClientRect();
   const x = htmlRect.left + scroll.scrollLeft - getWindowScrollBarX(documentElement, htmlRect);
-  const y = htmlRect.top + scroll.scrollTop;
+  const y2 = htmlRect.top + scroll.scrollTop;
   return {
     x,
-    y
+    y: y2
   };
 }
 function convertOffsetParentRelativeRectToViewportRelativeRect(_ref) {
@@ -6265,7 +6265,7 @@ function getDocumentRect(element) {
   const width = max$1(html.scrollWidth, html.clientWidth, body.scrollWidth, body.clientWidth);
   const height = max$1(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
   let x = -scroll.scrollLeft + getWindowScrollBarX(element);
-  const y = -scroll.scrollTop;
+  const y2 = -scroll.scrollTop;
   if (getComputedStyle$1(body).direction === "rtl") {
     x += max$1(html.clientWidth, body.clientWidth) - width;
   }
@@ -6273,7 +6273,7 @@ function getDocumentRect(element) {
     width,
     height,
     x,
-    y
+    y: y2
   };
 }
 const SCROLLBAR_MAX = 25;
@@ -6284,14 +6284,14 @@ function getViewportRect(element, strategy) {
   let width = html.clientWidth;
   let height = html.clientHeight;
   let x = 0;
-  let y = 0;
+  let y2 = 0;
   if (visualViewport) {
     width = visualViewport.width;
     height = visualViewport.height;
     const visualViewportBased = isWebKit();
     if (!visualViewportBased || visualViewportBased && strategy === "fixed") {
       x = visualViewport.offsetLeft;
-      y = visualViewport.offsetTop;
+      y2 = visualViewport.offsetTop;
     }
   }
   const windowScrollbarX = getWindowScrollBarX(html);
@@ -6311,7 +6311,7 @@ function getViewportRect(element, strategy) {
     width,
     height,
     x,
-    y
+    y: y2
   };
 }
 const absoluteOrFixed = /* @__PURE__ */ new Set(["absolute", "fixed"]);
@@ -6323,12 +6323,12 @@ function getInnerBoundingClientRect(element, strategy) {
   const width = element.clientWidth * scale.x;
   const height = element.clientHeight * scale.y;
   const x = left * scale.x;
-  const y = top * scale.y;
+  const y2 = top * scale.y;
   return {
     width,
     height,
     x,
-    y
+    y: y2
   };
 }
 function getClientRectFromClippingAncestor(element, clippingAncestor, strategy) {
@@ -6448,10 +6448,10 @@ function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
   }
   const htmlOffset = documentElement && !isOffsetParentAnElement && !isFixed ? getHTMLOffset(documentElement, scroll) : createCoords(0);
   const x = rect.left + scroll.scrollLeft - offsets.x - htmlOffset.x;
-  const y = rect.top + scroll.scrollTop - offsets.y - htmlOffset.y;
+  const y2 = rect.top + scroll.scrollTop - offsets.y - htmlOffset.y;
   return {
     x,
-    y,
+    y: y2,
     width: rect.width,
     height: rect.height
   };
@@ -6891,11 +6891,11 @@ function useFloating(options) {
       return initialStyles;
     }
     const x = roundByDPR(elements.floating, data.x);
-    const y = roundByDPR(elements.floating, data.y);
+    const y2 = roundByDPR(elements.floating, data.y);
     if (transform) {
       return {
         ...initialStyles,
-        transform: "translate(" + x + "px, " + y + "px)",
+        transform: "translate(" + x + "px, " + y2 + "px)",
         ...getDPR(elements.floating) >= 1.5 && {
           willChange: "transform"
         }
@@ -6904,7 +6904,7 @@ function useFloating(options) {
     return {
       position: strategy,
       left: x,
-      top: y
+      top: y2
     };
   }, [strategy, transform, elements.floating, data.x, data.y]);
   return React$A.useMemo(() => ({
@@ -7240,21 +7240,21 @@ var transformOrigin = (options) => ({
     const arrowXCenter = (((_b = middlewareData.arrow) == null ? void 0 : _b.x) ?? 0) + arrowWidth / 2;
     const arrowYCenter = (((_c = middlewareData.arrow) == null ? void 0 : _c.y) ?? 0) + arrowHeight / 2;
     let x = "";
-    let y = "";
+    let y2 = "";
     if (placedSide === "bottom") {
       x = isArrowHidden ? noArrowAlign : `${arrowXCenter}px`;
-      y = `${-arrowHeight}px`;
+      y2 = `${-arrowHeight}px`;
     } else if (placedSide === "top") {
       x = isArrowHidden ? noArrowAlign : `${arrowXCenter}px`;
-      y = `${rects.floating.height + arrowHeight}px`;
+      y2 = `${rects.floating.height + arrowHeight}px`;
     } else if (placedSide === "right") {
       x = `${-arrowHeight}px`;
-      y = isArrowHidden ? noArrowAlign : `${arrowYCenter}px`;
+      y2 = isArrowHidden ? noArrowAlign : `${arrowYCenter}px`;
     } else if (placedSide === "left") {
       x = `${rects.floating.width + arrowHeight}px`;
-      y = isArrowHidden ? noArrowAlign : `${arrowYCenter}px`;
+      y2 = isArrowHidden ? noArrowAlign : `${arrowYCenter}px`;
     }
-    return { data: { x, y } };
+    return { data: { x, y: y2 } };
   }
 });
 function getSideAndAlignFromPlacement(placement) {
@@ -8229,7 +8229,7 @@ function getNextMatch(values, search, currentMatch) {
   return nextMatch !== currentMatch ? nextMatch : void 0;
 }
 function isPointInPolygon(point, polygon) {
-  const { x, y } = point;
+  const { x, y: y2 } = point;
   let inside = false;
   for (let i = 0, j2 = polygon.length - 1; i < polygon.length; j2 = i++) {
     const ii = polygon[i];
@@ -8238,7 +8238,7 @@ function isPointInPolygon(point, polygon) {
     const yi = ii.y;
     const xj = jj.x;
     const yj = jj.y;
-    const intersect = yi > y !== yj > y && x < (xj - xi) * (y - yi) / (yj - yi) + xi;
+    const intersect = yi > y2 !== yj > y2 && x < (xj - xi) * (y2 - yi) / (yj - yi) + xi;
     if (intersect) inside = !inside;
   }
   return inside;
@@ -13857,7 +13857,7 @@ Defaulting to \`null\`.`;
 }
 var Root = Progress;
 var Indicator = ProgressIndicator;
-const R = await importShared("react");
+const y = await importShared("react");
 const mt = "trax-ui-component";
 function f(...e) {
   return twMerge(clsx(e));
@@ -13877,6 +13877,12 @@ const se = cva(
           "focus:bg-focus-ring focus:border-primary-700 focus:text-primary-700 focus:ring-2 focus:ring-trax-blue-600/20",
           "disabled:bg-white disabled:border-[#DFE2E6] disabled:text-trax-grey-200"
         ),
+        soft: f(
+          "bg-white text-trax-neutral-300 border border-trax-primary-blue",
+          "hover:bg-trax-primary-blue-100 hover:border-trax-primary-blue-200",
+          "focus:bg-trax-primary-blue-100 focus:border-trax-primary-blue-700",
+          "disabled:bg-white disabled:border-trax-neutral-40 disabled:text-trax-grey-200"
+        ),
         error: "bg-trax-red-500 text-white hover:bg-error-60 focus:bg-trax-red-700 focus:ring-2 focus:ring-trax-red-500/20 disabled:bg-trax-grey-100 disabled:text-trax-grey-400",
         outlined: "bg-transparent text-trax-blue-600 border-0 hover:text-primary-700 focus:text-accent-foreground disabled:text-trax-grey-200",
         "outlined-error": "bg-transparent text-trax-red-500 border-0 hover:text-error-600 focus:text-trax-red-700 disabled:text-trax-grey-200",
@@ -13890,9 +13896,9 @@ const se = cva(
         )
       },
       size: {
-        default: "px-2 py-2 text-sm leading-[140%]",
-        sm: "px-2 py-1.5 text-xs leading-[140%]",
-        lg: "px-3 py-2.5 text-base leading-[140%]",
+        default: "px-2 py-2 text-sm",
+        sm: "px-2 py-1.5 text-xs",
+        lg: "px-3 py-2.5 text-base",
         icon: "p-2"
       },
       iconPosition: {
@@ -13907,7 +13913,7 @@ const se = cva(
       iconPosition: "left"
     }
   }
-), U = R.forwardRef(
+), U = y.forwardRef(
   ({
     className: e,
     variant: n,
@@ -13942,7 +13948,7 @@ const se = cva(
   }
 );
 U.displayName = "Button";
-const he = R.forwardRef(
+const he = y.forwardRef(
   ({ className: e, type: n, ...t }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
     "input",
     {
@@ -13969,7 +13975,7 @@ const he = R.forwardRef(
 he.displayName = "Input";
 const ht = cva(
   "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-), T = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+), T = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Root$5,
   {
     ref: t,
@@ -13978,7 +13984,7 @@ const ht = cva(
   }
 ));
 T.displayName = Root$5.displayName;
-const Ge = R.forwardRef(
+const Ge = y.forwardRef(
   ({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
     "textarea",
     {
@@ -14006,7 +14012,7 @@ function Yn({
   disabled: o,
   ...a
 }) {
-  const i = R.useId(), s = r2 ?? `cb-${i}`;
+  const i = y.useId(), s = r2 ?? `cb-${i}`;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-1", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       Checkbox,
@@ -14149,7 +14155,7 @@ function bt({
     }
   );
 }
-const Oe = Root2$1, Te = Value, xe = R.forwardRef(({ className: e, children: n, ...t }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+const Oe = Root2$1, Te = Value, xe = y.forwardRef(({ className: e, children: n, ...t }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
   Trigger$1,
   {
     ref: r2,
@@ -14173,7 +14179,7 @@ const Oe = Root2$1, Te = Value, xe = R.forwardRef(({ className: e, children: n, 
   }
 ));
 xe.displayName = Trigger$1.displayName;
-const Be = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const Be = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   ScrollUpButton,
   {
     ref: t,
@@ -14186,7 +14192,7 @@ const Be = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntim
   }
 ));
 Be.displayName = ScrollUpButton.displayName;
-const je = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const je = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   ScrollDownButton,
   {
     ref: t,
@@ -14199,7 +14205,7 @@ const je = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntim
   }
 ));
 je.displayName = ScrollDownButton.displayName;
-const ve = R.forwardRef(({ className: e, children: n, position: t = "popper", ...r2 }, o) => /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+const ve = y.forwardRef(({ className: e, children: n, position: t = "popper", ...r2 }, o) => /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
   Content2$1,
   {
     ref: o,
@@ -14227,7 +14233,7 @@ const ve = R.forwardRef(({ className: e, children: n, position: t = "popper", ..
   }
 ) }));
 ve.displayName = Content2$1.displayName;
-const Rt = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const yt = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Label,
   {
     ref: t,
@@ -14235,8 +14241,8 @@ const Rt = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntim
     ...n
   }
 ));
-Rt.displayName = Label.displayName;
-const we = R.forwardRef(({ className: e, children: n, ...t }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+yt.displayName = Label.displayName;
+const we = y.forwardRef(({ className: e, children: n, ...t }, r2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
   Item,
   {
     ref: r2,
@@ -14252,7 +14258,7 @@ const we = R.forwardRef(({ className: e, children: n, ...t }, r2) => /* @__PURE_
   }
 ));
 we.displayName = Item.displayName;
-const yt = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const Rt = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Separator,
   {
     ref: t,
@@ -14260,7 +14266,7 @@ const yt = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntim
     ...n
   }
 ));
-yt.displayName = Separator.displayName;
+Rt.displayName = Separator.displayName;
 function _t({
   ...e
 }) {
@@ -14454,8 +14460,8 @@ function It({
   modifiers: t,
   ...r2
 }) {
-  const o = getDefaultClassNames(), a = R.useRef(null);
-  return R.useEffect(() => {
+  const o = getDefaultClassNames(), a = y.useRef(null);
+  return y.useEffect(() => {
     var _a;
     t.focused && ((_a = a.current) == null ? void 0 : _a.focus());
   }, [t.focused]), /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -14494,7 +14500,7 @@ function It({
     }
   );
 }
-const qe = R.forwardRef(({ className: e, indicatorClassName: n, value: t, ...r2 }, o) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const qe = y.forwardRef(({ className: e, indicatorClassName: n, value: t, ...r2 }, o) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Root,
   {
     ref: o,
@@ -14804,14 +14810,14 @@ function K(e, n, t, r2) {
     }, x = [];
     p.forEach((b) => {
       const v = [...x].reverse()[0], _ = b.column.depth === h.depth;
-      let y, P = false;
-      if (_ && b.column.parent ? y = b.column.parent : (y = b.column, P = true), v && (v == null ? void 0 : v.column) === y)
+      let R, P = false;
+      if (_ && b.column.parent ? R = b.column.parent : (R = b.column, P = true), v && (v == null ? void 0 : v.column) === R)
         v.subHeaders.push(b);
       else {
-        const N = Me(t, y, {
-          id: [r2, c, y.id, b == null ? void 0 : b.id].filter(Boolean).join("_"),
+        const N = Me(t, R, {
+          id: [r2, c, R.id, b == null ? void 0 : b.id].filter(Boolean).join("_"),
           isPlaceholder: P,
-          placeholderId: P ? `${x.filter((V) => V.column === y).length}` : void 0,
+          placeholderId: P ? `${x.filter((V) => V.column === R).length}` : void 0,
           depth: c,
           index: x.length
         });
@@ -14826,11 +14832,11 @@ function K(e, n, t, r2) {
   d(g, i - 1), u.reverse();
   const m = (p) => p.filter((h) => h.column.getIsVisible()).map((h) => {
     let x = 0, b = 0, v = [0];
-    h.subHeaders && h.subHeaders.length ? (v = [], m(h.subHeaders).forEach((y) => {
+    h.subHeaders && h.subHeaders.length ? (v = [], m(h.subHeaders).forEach((R) => {
       let {
         colSpan: P,
         rowSpan: N
-      } = y;
+      } = R;
       x += P, v.push(N);
     })) : x = 1;
     const _ = Math.min(...v);
@@ -15342,19 +15348,19 @@ const W = {
         if (!r2 || !o || (a.persist == null || a.persist(), ne(a) && a.touches && a.touches.length > 1))
           return;
         const i = e.getSize(), s = e ? e.getLeafHeaders().map((v) => [v.column.id, v.column.getSize()]) : [[r2.id, r2.getSize()]], u = ne(a) ? Math.round(a.touches[0].clientX) : a.clientX, d = {}, g = (v, _) => {
-          typeof _ == "number" && (n.setColumnSizingInfo((y) => {
+          typeof _ == "number" && (n.setColumnSizingInfo((R) => {
             var P, N;
-            const V = n.options.columnResizeDirection === "rtl" ? -1 : 1, H = (_ - ((P = y == null ? void 0 : y.startOffset) != null ? P : 0)) * V, D = Math.max(H / ((N = y == null ? void 0 : y.startSize) != null ? N : 0), -0.999999);
-            return y.columnSizingStart.forEach((A) => {
-              let [Re, ye] = A;
-              d[Re] = Math.round(Math.max(ye + ye * D, 0) * 100) / 100;
+            const V = n.options.columnResizeDirection === "rtl" ? -1 : 1, H = (_ - ((P = R == null ? void 0 : R.startOffset) != null ? P : 0)) * V, D = Math.max(H / ((N = R == null ? void 0 : R.startSize) != null ? N : 0), -0.999999);
+            return R.columnSizingStart.forEach((A) => {
+              let [ye, Re] = A;
+              d[ye] = Math.round(Math.max(Re + Re * D, 0) * 100) / 100;
             }), {
-              ...y,
+              ...R,
               deltaOffset: H,
               deltaPercentage: D
             };
-          }), (n.options.columnResizeMode === "onChange" || v === "end") && n.setColumnSizing((y) => ({
-            ...y,
+          }), (n.options.columnResizeMode === "onChange" || v === "end") && n.setColumnSizing((R) => ({
+            ...R,
             ...d
           })));
         }, m = (v) => g("move", v), p = (v) => {
@@ -16181,8 +16187,8 @@ function Cn(e) {
     getAllColumns: C(() => [o._getColumnDefs()], (p) => {
       const c = function(h, x, b) {
         return b === void 0 && (b = 0), h.map((v) => {
-          const _ = Ht(o, v, b, x), y = v;
-          return _.columns = y.columns ? c(y.columns, _, b + 1) : [], _;
+          const _ = Ht(o, v, b, x), R = v;
+          return _.columns = R.columns ? c(R.columns, _, b + 1) : [], _;
         });
       };
       return c(p);
@@ -16237,18 +16243,18 @@ function Sn() {
    * @license MIT
    */
 function ie(e, n) {
-  return e ? bn(e) ? /* @__PURE__ */ R.createElement(e, n) : e : null;
+  return e ? bn(e) ? /* @__PURE__ */ y.createElement(e, n) : e : null;
 }
 function bn(e) {
-  return Rn(e) || typeof e == "function" || yn(e);
+  return yn(e) || typeof e == "function" || Rn(e);
 }
-function Rn(e) {
+function yn(e) {
   return typeof e == "function" && (() => {
     const n = Object.getPrototypeOf(e);
     return n.prototype && n.prototype.isReactComponent;
   })();
 }
-function yn(e) {
+function Rn(e) {
   return typeof e == "object" && typeof e.$$typeof == "symbol" && ["react.memo", "react.forward_ref"].includes(e.$$typeof.description);
 }
 function _n(e) {
@@ -16260,9 +16266,9 @@ function _n(e) {
     // noop
     renderFallbackValue: null,
     ...e
-  }, [t] = R.useState(() => ({
+  }, [t] = y.useState(() => ({
     current: Cn(n)
-  })), [r2, o] = R.useState(() => t.current.initialState);
+  })), [r2, o] = y.useState(() => t.current.initialState);
   return t.current.setOptions((a) => ({
     ...a,
     ...e,
@@ -16354,7 +16360,7 @@ function Fr({
     }
   );
 }
-const Nn = R.forwardRef(
+const Nn = y.forwardRef(
   ({
     className: e,
     label: n,
@@ -16374,14 +16380,14 @@ const Nn = R.forwardRef(
     name: x,
     ...b
   }, v) => {
-    const _ = d || `input-${Math.random().toString(36).substring(2, 11)}`, y = m ? m(p) : {}, [P, N] = R.useState(() => typeof g == "string" ? g : typeof g == "number" ? String(g) : "");
-    R.useEffect(() => {
+    const _ = d || `input-${Math.random().toString(36).substring(2, 11)}`, R = m ? m(p) : {}, [P, N] = y.useState(() => typeof g == "string" ? g : typeof g == "number" ? String(g) : "");
+    y.useEffect(() => {
       if (!m && g !== void 0) {
         const D = typeof g == "string" ? g : String(g || "");
         N(D);
       }
     }, [g, m]);
-    const V = R.useMemo(() => P.length, [P]), H = s ? V > s : false;
+    const V = y.useMemo(() => P.length, [P]), H = s ? V > s : false;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1 w-full", children: [
       n && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -16399,7 +16405,7 @@ const Nn = R.forwardRef(
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           he,
           {
-            ref: m ? y.ref : v,
+            ref: m ? R.ref : v,
             id: _,
             className: f(
               o && "pl-10",
@@ -16409,11 +16415,11 @@ const Nn = R.forwardRef(
             "aria-invalid": !!(r2 == null ? void 0 : r2.toString()),
             maxLength: u && s ? s : void 0,
             ...b,
-            ...m ? { name: y.name } : { value: g },
+            ...m ? { name: R.name } : { value: g },
             onChange: (D) => {
-              N(D.target.value), m ? y.onChange(D) : b.onChange && b.onChange(D);
+              N(D.target.value), m ? R.onChange(D) : b.onChange && b.onChange(D);
             },
-            onBlur: m ? y.onBlur : c
+            onBlur: m ? R.onBlur : c
           }
         ),
         i && s && /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -16440,7 +16446,7 @@ const Nn = R.forwardRef(
   }
 );
 Nn.displayName = "FormInput";
-const Fn = R.forwardRef(
+const Fn = y.forwardRef(
   ({
     label: e,
     required: n = false,
@@ -16461,7 +16467,7 @@ const Fn = R.forwardRef(
   }, b) => {
     const v = `select-${Math.random().toString(36).substr(2, 9)}`, _ = (N) => {
       m ? m(p).onChange({ target: { value: N } }) : s == null ? void 0 : s(N);
-    }, y = () => {
+    }, R = () => {
       m ? m(p).onBlur() : h == null ? void 0 : h();
     }, P = m ? m(p).value : i;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: f("flex flex-col gap-1 w-full", d), children: [
@@ -16493,7 +16499,7 @@ const Fn = R.forwardRef(
                 !P && "text-muted-foreground",
                 g && "pl-10"
               ),
-              onBlur: y,
+              onBlur: R,
               ...x,
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(Te, { placeholder: o })
             }
@@ -16510,7 +16516,7 @@ const Fn = R.forwardRef(
   }
 );
 Fn.displayName = "FormSelect";
-const $n = R.forwardRef(
+const $n = y.forwardRef(
   ({
     className: e,
     label: n,
@@ -16531,7 +16537,7 @@ const $n = R.forwardRef(
     onBlur: b,
     ...v
   }, _) => {
-    const y = d || `date-picker-${Math.random().toString(36).substr(2, 9)}`, [P, N] = R.useState(false), V = (A) => {
+    const R = d || `date-picker-${Math.random().toString(36).substr(2, 9)}`, [P, N] = y.useState(false), V = (A) => {
       c ? c(h).onChange({ target: { value: A } }) : s == null ? void 0 : s(A), N(false);
     }, H = () => {
       c ? c(h).onBlur() : b == null ? void 0 : b();
@@ -16541,7 +16547,7 @@ const $n = R.forwardRef(
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           T,
           {
-            htmlFor: y,
+            htmlFor: R,
             className: "text-xs font-medium text-trax-neutral-900",
             children: n
           }
@@ -16553,7 +16559,7 @@ const $n = R.forwardRef(
           U,
           {
             ref: _,
-            id: y,
+            id: R,
             name: g,
             variant: "field",
             disabled: u,
@@ -16654,9 +16660,9 @@ const $n = R.forwardRef(
   }
 );
 $n.displayName = "FormDatePicker";
-const Pn = R.forwardRef(
+const Pn = y.forwardRef(
   ({ label: e, required: n = false, helperText: t, error: r2, id: o, className: a, register: i, registerOptions: s, touched: u, ...d }, g) => {
-    const m = R.useId(), p = o ?? `textarea-${m}`, c = i ? i(s) : {};
+    const m = y.useId(), p = o ?? `textarea-${m}`, c = i ? i(s) : {};
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex w-full flex-col gap-1", children: [
       e && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(T, { htmlFor: p, className: "text-xs font-medium text-trax-neutral-900", children: e }),
@@ -16684,7 +16690,7 @@ const Pn = R.forwardRef(
   }
 );
 Pn.displayName = "FormTextarea";
-const Mn = R.forwardRef(
+const Mn = y.forwardRef(
   ({
     className: e,
     onFileSelect: n,
@@ -16695,7 +16701,7 @@ const Mn = R.forwardRef(
     disabled: i = false,
     ...s
   }, u) => {
-    const [d, g] = R.useState(false), m = R.useRef(null), p = (v) => {
+    const [d, g] = y.useState(false), m = y.useRef(null), p = (v) => {
       v.preventDefault(), i || g(true);
     }, c = (v) => {
       v.preventDefault(), g(false);
@@ -16752,7 +16758,7 @@ const Mn = R.forwardRef(
   }
 );
 Mn.displayName = "FileUpload";
-const tt = R.forwardRef(
+const tt = y.forwardRef(
   ({
     className: e,
     title: n,
@@ -16801,7 +16807,7 @@ const tt = R.forwardRef(
   )
 );
 tt.displayName = "SectionHeader";
-const In = R.forwardRef(
+const In = y.forwardRef(
   ({
     className: e,
     title: n,
@@ -16811,7 +16817,7 @@ const In = R.forwardRef(
     children: a,
     ...i
   }, s) => {
-    const [u, d] = R.useState(o);
+    const [u, d] = y.useState(o);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
@@ -16840,7 +16846,7 @@ const In = R.forwardRef(
   }
 );
 In.displayName = "CollapsibleSection";
-const Vn = R.forwardRef(
+const Vn = y.forwardRef(
   ({
     className: e,
     title: n,
@@ -16895,7 +16901,7 @@ function Ve(e, n, t = "narrow") {
     maximumFractionDigits: 0
   }).formatToParts(1).find((a) => a.type === "currency")) == null ? void 0 : _a.value) ?? e;
 }
-const Dn = R.forwardRef(
+const Dn = y.forwardRef(
   ({
     className: e,
     currencyCode: n,
@@ -16914,7 +16920,7 @@ const Dn = R.forwardRef(
     onCurrencyChange: h,
     ...x
   }, b) => {
-    const v = m || `currency-input-${Math.random().toString(36).substring(2, 11)}`, _ = t ?? (n ? Ve(n, r2, i) : void 0), y = o ?? (_ ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: _ }) : null), P = a ?? (p && c.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute right-2 top-1/2 -translate-y-1/2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    const v = m || `currency-input-${Math.random().toString(36).substring(2, 11)}`, _ = t ?? (n ? Ve(n, r2, i) : void 0), R = o ?? (_ ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-xs", "aria-hidden": true, children: _ }) : null), P = a ?? (p && c.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute right-2 top-1/2 -translate-y-1/2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
       Oe,
       {
         value: n,
@@ -16958,14 +16964,14 @@ const Dn = R.forwardRef(
             "aria-invalid": !!(d == null ? void 0 : d.toString()),
             className: f(
               "text-right font-normal",
-              y && "pl-8",
+              R && "pl-8",
               P && (p ? "pr-16" : "pr-10"),
               e
             ),
             ...x
           }
         ),
-        y && y,
+        R && R,
         P && P
       ] }),
       d && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap justify-start items-center gap-0.5", children: [
@@ -16977,7 +16983,7 @@ const Dn = R.forwardRef(
   }
 );
 Dn.displayName = "CurrencyInput";
-const zn = R.forwardRef(
+const zn = y.forwardRef(
   ({
     children: e,
     onClick: n,
@@ -17034,7 +17040,7 @@ const zn = R.forwardRef(
   )
 );
 zn.displayName = "SplitButton";
-const Pr = Root$4, En = Portal$3, nt = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const Pr = Root$4, En = Portal$3, nt = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Overlay,
   {
     ref: t,
@@ -17051,7 +17057,7 @@ const Pr = Root$4, En = Portal$3, nt = R.forwardRef(({ className: e, ...n }, t) 
   }
 ));
 nt.displayName = Overlay.displayName;
-const Ln = R.forwardRef(({ className: e, children: n, showCloseButton: t = true, ...r2 }, o) => /* @__PURE__ */ jsxRuntimeExports.jsxs(En, { children: [
+const Ln = y.forwardRef(({ className: e, children: n, showCloseButton: t = true, ...r2 }, o) => /* @__PURE__ */ jsxRuntimeExports.jsxs(En, { children: [
   /* @__PURE__ */ jsxRuntimeExports.jsx(nt, {}),
   /* @__PURE__ */ jsxRuntimeExports.jsxs(
     Content$1,
@@ -17110,7 +17116,7 @@ const An = ({
   }
 );
 An.displayName = "CustomDialogFooter";
-const kn = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const kn = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Title,
   {
     ref: t,
@@ -17122,7 +17128,7 @@ const kn = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntim
   }
 ));
 kn.displayName = Title.displayName;
-const Gn = R.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+const Gn = y.forwardRef(({ className: e, ...n }, t) => /* @__PURE__ */ jsxRuntimeExports.jsx(
   Description,
   {
     ref: t,
@@ -17248,7 +17254,7 @@ export {
   Vn as V,
   Yn as Y,
   _r as _,
-  tr as a,
+  tt as a,
   Pr as b,
   createLucideIcon as c,
   Fr as d,
@@ -17257,6 +17263,6 @@ export {
   he as h,
   kn as k,
   qe as q,
-  tt as t,
+  tr as t,
   zn as z
 };
