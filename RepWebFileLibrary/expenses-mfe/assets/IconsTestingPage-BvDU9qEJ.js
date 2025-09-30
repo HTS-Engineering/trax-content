@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
-import { I as Icon } from "./Icon-Wf3UDBMf.js";
+import { I as Icon } from "./Icon-CPUYJCTZ.js";
 const ICON_NAMES = [
   "delete",
   "error-outline",
@@ -9,10 +9,10 @@ const ICON_NAMES = [
   "pdf-file-green-check",
   "receipt",
   "receipt_long",
-  "text_line_unknown"
+  "text-line-unknown"
 ];
 const ICON_METADATA = {
-  generatedAt: "2025-09-30T13:44:32.690Z"
+  generatedAt: "2025-09-30T14:42:47.989Z"
 };
 const React = await importShared("react");
 const { useMemo, useState } = React;

@@ -2,7 +2,7 @@ import { importShared } from "./__federation_fn_import-CFnudcB9.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
 import { E as ExpensesList } from "./ExpensesList-t4Kt9t33.js";
 import { c as createLucideIcon, U, J as Jn, t as tr, Q as Qn, a as tt, Y as Yn, F as Fn, N as Nn, $ as $n, D as Dn, P as Pn, V as Vn, b as Pr, L as Ln, H as Hn, k as kn, A as An } from "./createLucideIcon-CfH1iyFR.js";
-import { I as Icon } from "./Icon-Wf3UDBMf.js";
+import { I as Icon } from "./Icon-CPUYJCTZ.js";
 import { L as LoadingSpinner, u as useQueryClient } from "./LoadingSpinner-CJp2omDf.js";
 import { d as apiClient, R as RoutePaths } from "./axiosInstance-BiB8Ce56.js";
 import { u as useMutation } from "./useMutation-eZm-mCcH.js";
@@ -62,41 +62,128 @@ const __iconNode = [
   ["path", { d: "M8 11h.01", key: "1dfujw" }]
 ];
 const MessageSquareMore = createLucideIcon("message-square-more", __iconNode);
-const RECEIPT_UPLOAD_CONFIG = {
-  allowedTypes: ["png", "jpg", "jpeg", "pdf"],
-  allowedMimeTypes: [
-    "image/png",
-    "image/jpeg",
-    "image/jpg",
-    "application/pdf"
-  ]
+var AllowedMimeType = /* @__PURE__ */ ((AllowedMimeType2) => {
+  AllowedMimeType2["PNG"] = "image/png";
+  AllowedMimeType2["JPEG"] = "image/jpeg";
+  AllowedMimeType2["JPG"] = "image/jpg";
+  AllowedMimeType2["WEBP"] = "image/webp";
+  AllowedMimeType2["HEIC"] = "image/heic";
+  AllowedMimeType2["HEIF"] = "image/heif";
+  AllowedMimeType2["PDF"] = "application/pdf";
+  return AllowedMimeType2;
+})(AllowedMimeType || {});
+var FilePreviewType = /* @__PURE__ */ ((FilePreviewType2) => {
+  FilePreviewType2["IMAGE"] = "image";
+  FilePreviewType2["PDF"] = "pdf";
+  FilePreviewType2["UNKNOWN"] = "unknown";
+  return FilePreviewType2;
+})(FilePreviewType || {});
+const MIME_TYPE_CONFIG = /* @__PURE__ */ new Map([
+  ["image/png", {
+    type: "image",
+    maxSizeBytes: 25 * 1024 * 1024,
+    maxSizeMB: 25,
+    displayName: "PNG"
+  }],
+  ["image/jpeg", {
+    type: "image",
+    maxSizeBytes: 25 * 1024 * 1024,
+    maxSizeMB: 25,
+    displayName: "JPEG"
+  }],
+  ["image/jpg", {
+    type: "image",
+    maxSizeBytes: 25 * 1024 * 1024,
+    maxSizeMB: 25,
+    displayName: "JPG"
+  }],
+  ["image/webp", {
+    type: "image",
+    maxSizeBytes: 25 * 1024 * 1024,
+    maxSizeMB: 25,
+    displayName: "WebP"
+  }],
+  ["image/heic", {
+    type: "image",
+    maxSizeBytes: 25 * 1024 * 1024,
+    maxSizeMB: 25,
+    displayName: "HEIC"
+  }],
+  ["image/heif", {
+    type: "image",
+    maxSizeBytes: 25 * 1024 * 1024,
+    maxSizeMB: 25,
+    displayName: "HEIF"
+  }],
+  ["application/pdf", {
+    type: "pdf",
+    maxSizeBytes: 50 * 1024 * 1024,
+    maxSizeMB: 50,
+    displayName: "PDF"
+  }]
+]);
+const getFilePreviewType = (mimeType) => {
+  const config = MIME_TYPE_CONFIG.get(mimeType);
+  return (config == null ? void 0 : config.type) || "unknown";
 };
-const PDF_MAX_SIZE = 50 * 1024 * 1024;
-const IMAGE_MAX_SIZE = 25 * 1024 * 1024;
+const isValidMimeType = (mimeType) => {
+  return MIME_TYPE_CONFIG.has(mimeType);
+};
+const MIME_TO_EXTENSION_MAP = {
+  [
+    "image/png"
+    /* PNG */
+  ]: [".png"],
+  [
+    "image/jpeg"
+    /* JPEG */
+  ]: [".jpeg"],
+  [
+    "image/jpg"
+    /* JPG */
+  ]: [".jpg"],
+  [
+    "image/webp"
+    /* WEBP */
+  ]: [".webp"],
+  [
+    "image/heic"
+    /* HEIC */
+  ]: [".heic"],
+  [
+    "image/heif"
+    /* HEIF */
+  ]: [".heif"],
+  [
+    "application/pdf"
+    /* PDF */
+  ]: [".pdf"]
+};
+const generateAcceptAttribute = () => {
+  const mimeTypes = Object.values(AllowedMimeType);
+  const extensions = mimeTypes.flatMap((mimeType) => MIME_TO_EXTENSION_MAP[mimeType]);
+  return [...extensions, ...mimeTypes].join(",");
+};
+const getSupportedFormatsText = () => {
+  const imageFormats = ["PNG", "JPG/JPEG", "HEIC/HEIF", "WebP"];
+  const pdfFormat = "PDF";
+  const imageSizeLimit = "25MB";
+  const pdfSizeLimit = "50MB";
+  return `Upload ${imageFormats.join(", ")} (max. ${imageSizeLimit}) or ${pdfFormat} (max. ${pdfSizeLimit})`;
+};
 const validateReceiptFile = (file) => {
-  var _a;
-  const fileExtension = (_a = file.name.split(".").pop()) == null ? void 0 : _a.toLowerCase();
-  if (!fileExtension || !RECEIPT_UPLOAD_CONFIG.allowedTypes.includes(fileExtension)) {
+  if (!isValidMimeType(file.type)) {
     return {
       type: "type",
-      message: "Unsupported file type: File must be a JPEG/JPG, PNG, HEIC/HEIF, WebP or PDF",
-      details: `Received: ${fileExtension || "unknown"}`
-    };
-  }
-  if (!RECEIPT_UPLOAD_CONFIG.allowedMimeTypes.includes(file.type)) {
-    return {
-      type: "type",
-      message: "Unsupported file type: File must be a JPEG/JPG, PNG, HEIC/HEIF, WebP or PDF",
+      message: "Unsupported file type: File must be PNG, JPG/JPEG, HEIC/HEIF, WebP or PDF",
       details: `Received MIME type: ${file.type}`
     };
   }
-  const isPDF = file.type === "application/pdf";
-  const maxSize = isPDF ? PDF_MAX_SIZE : IMAGE_MAX_SIZE;
-  const maxSizeMB = isPDF ? 50 : 25;
-  if (file.size > maxSize) {
+  const config = MIME_TYPE_CONFIG.get(file.type);
+  if (file.size > config.maxSizeBytes) {
     return {
       type: "size",
-      message: `File size exceeds limit. Max size for ${isPDF ? "PDF" : "images"} is ${maxSizeMB}MB`,
+      message: `File size exceeds limit. Max size for ${config.displayName} is ${config.maxSizeMB}MB`,
       details: `File size: ${(file.size / 1024 / 1024).toFixed(1)}MB`
     };
   }
@@ -338,10 +425,9 @@ const ReceiptUpload = ({
   const renderUploadedState = () => {
     const { attachment } = uploadState;
     if (!attachment) return null;
-    const isImage = attachment.mimeType.startsWith("image/");
-    const isPDF = attachment.mimeType === "application/pdf";
+    const previewType = getFilePreviewType(attachment.mimeType);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4", children: isImage ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4", children: previewType === FilePreviewType.IMAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(
         "img",
         {
           src: attachment.blobUrl || attachment.url,
@@ -352,7 +438,7 @@ const ReceiptUpload = ({
             console.warn("Image failed to load:", attachment.blobUrl || attachment.url);
           }
         }
-      ) : isPDF ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      ) : previewType === FilePreviewType.PDF ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "div",
         {
           className: "w-full h-48 flex flex-col items-center justify-center rounded-lg cursor-pointer transition-colors gap-1",
@@ -360,7 +446,7 @@ const ReceiptUpload = ({
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "pdf-file-green-check", className: "size-12" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-medium text-exp-grey-700 text-center", children: attachment.originalName }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-normal text-exp-grey-600", children: "PDF preview isn’t available. " })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-normal text-exp-grey-600", children: "PDF preview isn't available." })
           ]
         }
       ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -369,9 +455,9 @@ const ReceiptUpload = ({
           className: "w-full h-48 flex flex-col items-center justify-center bg-trax-neutral-50 border-2 border-trax-neutral-100 rounded-lg cursor-pointer hover:bg-trax-neutral-100 transition-colors",
           onClick: handlePreviewClick,
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "text_line_unknown", className: "w-12 h-12 text-trax-neutral-400 mb-2" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "text-line-unknown", className: "w-12 h-12 text-trax-neutral-400 mb-2" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-trax-neutral-700", children: attachment.originalName }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-trax-neutral-500", children: "Image preview isn't available." })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-trax-neutral-500", children: "File preview isn't available." })
           ]
         }
       ) }),
@@ -409,7 +495,7 @@ const ReceiptUpload = ({
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4.5 flex items-center justify-center bg-exp-teal-200 rounded-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "receipt", className: "size-14 text-exp-teal-600" }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-normal text-exp-grey-600", children: "Upload an image (max. 25MB) or a PDF (max. 50MB)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-normal text-exp-grey-600", children: getSupportedFormatsText() }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             U,
             {
@@ -434,7 +520,7 @@ const ReceiptUpload = ({
       {
         ref: fileInputRef,
         type: "file",
-        accept: ".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,image/jpg,application/pdf",
+        accept: generateAcceptAttribute(),
         onChange: handleFileSelect,
         className: "hidden",
         disabled
@@ -554,7 +640,7 @@ const useSaveReceiptDraft = () => {
     }
   });
 };
-const { useState, forwardRef, useImperativeHandle } = await importShared("react");
+const { forwardRef, useImperativeHandle, useState } = await importShared("react");
 const ExpenseForm = forwardRef(({
   onSubmit,
   onSaveDraft,
