@@ -411,7 +411,8 @@ const PREVIEWABLE_MIME_TYPES = /* @__PURE__ */ new Set([
   AllowedMimeType.PNG,
   AllowedMimeType.JPEG,
   AllowedMimeType.JPG,
-  AllowedMimeType.PDF
+  AllowedMimeType.PDF,
+  AllowedMimeType.WEBP
 ]);
 const canPreviewFile = (attachment) => {
   return PREVIEWABLE_MIME_TYPES.has(attachment.mimeType);
