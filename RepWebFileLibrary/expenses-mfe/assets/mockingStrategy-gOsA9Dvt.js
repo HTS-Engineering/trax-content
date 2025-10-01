@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/mswStrategy-D0zXRdiA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-BiB8Ce56.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosStrategy-BUMJCh_P.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/mswStrategy-DrEq7qlG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-BiB8Ce56.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CFnudcB9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/receipt-DG4zSVnR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosStrategy-BUMJCh_P.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 const hasServiceWorkerSupport = () => {
   return typeof window !== "undefined" && "serviceWorker" in navigator && "navigator" in window;
@@ -14,9 +14,9 @@ class UnifiedMockingStrategy {
     if (hasServiceWorkerSupport()) {
       try {
         const { MSWStrategy } = await __vitePreload(async () => {
-          const { MSWStrategy: MSWStrategy2 } = await import("./mswStrategy-D0zXRdiA.js");
+          const { MSWStrategy: MSWStrategy2 } = await import("./mswStrategy-DrEq7qlG.js");
           return { MSWStrategy: MSWStrategy2 };
-        }, true ? __vite__mapDeps([0,1,2]) : void 0, import.meta.url);
+        }, true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url);
         this.activeStrategy = new MSWStrategy();
         await this.activeStrategy.initialize();
         console.log("✅ Mocking: Using MSW (Service Worker)");
@@ -34,7 +34,7 @@ class UnifiedMockingStrategy {
     const { AxiosStrategy } = await __vitePreload(async () => {
       const { AxiosStrategy: AxiosStrategy2 } = await import("./axiosStrategy-BUMJCh_P.js");
       return { AxiosStrategy: AxiosStrategy2 };
-    }, true ? __vite__mapDeps([3,1,2]) : void 0, import.meta.url);
+    }, true ? __vite__mapDeps([4,1,2]) : void 0, import.meta.url);
     this.activeStrategy = new AxiosStrategy();
     await this.activeStrategy.initialize();
     console.log("✅ Mocking: Using Axios interceptor");

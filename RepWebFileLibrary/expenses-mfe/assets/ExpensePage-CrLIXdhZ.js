@@ -4,6 +4,7 @@ import { E as ExpensesList } from "./ExpensesList-t4Kt9t33.js";
 import { c as createLucideIcon, U, J as Jn, t as tr, Q as Qn, a as tt, Y as Yn, F as Fn, N as Nn, $ as $n, D as Dn, P as Pn, V as Vn, b as Pr, L as Ln, H as Hn, k as kn, A as An } from "./createLucideIcon-CfH1iyFR.js";
 import { I as Icon } from "./Icon-CPUYJCTZ.js";
 import { L as LoadingSpinner, u as useQueryClient } from "./LoadingSpinner-CJp2omDf.js";
+import { A as AllowedMimeType, v as validateReceiptFile, g as generateAcceptAttribute, a as getFilePreviewType, F as FilePreviewType, b as getSupportedFormatsText } from "./receipt-DG4zSVnR.js";
 import { d as apiClient, R as RoutePaths } from "./axiosInstance-BiB8Ce56.js";
 import { u as useMutation } from "./useMutation-eZm-mCcH.js";
 import { F as FileText, C as ChartColumn, a as CreditCard, u as useNavigate, b as ChevronRight } from "./file-text-azDgsO3u.js";
@@ -62,139 +63,16 @@ const __iconNode = [
   ["path", { d: "M8 11h.01", key: "1dfujw" }]
 ];
 const MessageSquareMore = createLucideIcon("message-square-more", __iconNode);
-var AllowedMimeType = /* @__PURE__ */ ((AllowedMimeType2) => {
-  AllowedMimeType2["PNG"] = "image/png";
-  AllowedMimeType2["JPEG"] = "image/jpeg";
-  AllowedMimeType2["JPG"] = "image/jpg";
-  AllowedMimeType2["WEBP"] = "image/webp";
-  AllowedMimeType2["HEIC"] = "image/heic";
-  AllowedMimeType2["HEIF"] = "image/heif";
-  AllowedMimeType2["PDF"] = "application/pdf";
-  return AllowedMimeType2;
-})(AllowedMimeType || {});
-var FilePreviewType = /* @__PURE__ */ ((FilePreviewType2) => {
-  FilePreviewType2["IMAGE"] = "image";
-  FilePreviewType2["PDF"] = "pdf";
-  FilePreviewType2["UNKNOWN"] = "unknown";
-  return FilePreviewType2;
-})(FilePreviewType || {});
-const MIME_TYPE_CONFIG = /* @__PURE__ */ new Map([
-  ["image/png", {
-    type: "image",
-    maxSizeBytes: 25 * 1024 * 1024,
-    maxSizeMB: 25,
-    displayName: "PNG"
-  }],
-  ["image/jpeg", {
-    type: "image",
-    maxSizeBytes: 25 * 1024 * 1024,
-    maxSizeMB: 25,
-    displayName: "JPEG"
-  }],
-  ["image/jpg", {
-    type: "image",
-    maxSizeBytes: 25 * 1024 * 1024,
-    maxSizeMB: 25,
-    displayName: "JPG"
-  }],
-  ["image/webp", {
-    type: "image",
-    maxSizeBytes: 25 * 1024 * 1024,
-    maxSizeMB: 25,
-    displayName: "WebP"
-  }],
-  ["image/heic", {
-    type: "image",
-    maxSizeBytes: 25 * 1024 * 1024,
-    maxSizeMB: 25,
-    displayName: "HEIC"
-  }],
-  ["image/heif", {
-    type: "image",
-    maxSizeBytes: 25 * 1024 * 1024,
-    maxSizeMB: 25,
-    displayName: "HEIF"
-  }],
-  ["application/pdf", {
-    type: "pdf",
-    maxSizeBytes: 50 * 1024 * 1024,
-    maxSizeMB: 50,
-    displayName: "PDF"
-  }]
-]);
-const getFilePreviewType = (mimeType) => {
-  const config = MIME_TYPE_CONFIG.get(mimeType);
-  return (config == null ? void 0 : config.type) || "unknown";
-};
-const isValidMimeType = (mimeType) => {
-  return MIME_TYPE_CONFIG.has(mimeType);
-};
-const MIME_TO_EXTENSION_MAP = {
-  [
-    "image/png"
-    /* PNG */
-  ]: [".png"],
-  [
-    "image/jpeg"
-    /* JPEG */
-  ]: [".jpeg"],
-  [
-    "image/jpg"
-    /* JPG */
-  ]: [".jpg"],
-  [
-    "image/webp"
-    /* WEBP */
-  ]: [".webp"],
-  [
-    "image/heic"
-    /* HEIC */
-  ]: [".heic"],
-  [
-    "image/heif"
-    /* HEIF */
-  ]: [".heif"],
-  [
-    "application/pdf"
-    /* PDF */
-  ]: [".pdf"]
-};
-const generateAcceptAttribute = () => {
-  const mimeTypes = Object.values(AllowedMimeType);
-  const extensions = mimeTypes.flatMap((mimeType) => MIME_TO_EXTENSION_MAP[mimeType]);
-  return [...extensions, ...mimeTypes].join(",");
-};
-const getSupportedFormatsText = () => {
-  const imageFormats = ["PNG", "JPG/JPEG", "HEIC/HEIF", "WebP"];
-  const pdfFormat = "PDF";
-  const imageSizeLimit = "25MB";
-  const pdfSizeLimit = "50MB";
-  return `Upload ${imageFormats.join(", ")} (max. ${imageSizeLimit}) or ${pdfFormat} (max. ${pdfSizeLimit})`;
-};
-const validateReceiptFile = (file) => {
-  if (!isValidMimeType(file.type)) {
-    return {
-      type: "type",
-      message: "Unsupported file type: File must be PNG, JPG/JPEG, HEIC/HEIF, WebP or PDF",
-      details: `Received MIME type: ${file.type}`
-    };
-  }
-  const config = MIME_TYPE_CONFIG.get(file.type);
-  if (file.size > config.maxSizeBytes) {
-    return {
-      type: "size",
-      message: `File size exceeds limit. Max size for ${config.displayName} is ${config.maxSizeMB}MB`,
-      details: `File size: ${(file.size / 1024 / 1024).toFixed(1)}MB`
-    };
-  }
-  return null;
-};
-const uploadReceiptFile = async (file, onProgress) => {
-  var _a, _b, _c, _d, _e, _f;
+const UPLOAD_TIMEOUT = 12e4;
+const MAX_RETRIES = 2;
+const uploadReceiptFile = async (file, onProgress, retryCount = 0) => {
+  var _a, _b, _c;
   const formData = new FormData();
   formData.append("file", file);
   formData.append("type", "receipt");
   formData.append("originalName", file.name);
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), UPLOAD_TIMEOUT);
   try {
     const response = await apiClient.post(
       "/files/receipts",
@@ -203,6 +81,7 @@ const uploadReceiptFile = async (file, onProgress) => {
         headers: {
           "Content-Type": "multipart/form-data"
         },
+        signal: controller.signal,
         onUploadProgress: (progressEvent) => {
           if (onProgress && progressEvent.total) {
             const percentage = Math.round(progressEvent.loaded * 100 / progressEvent.total);
@@ -215,21 +94,38 @@ const uploadReceiptFile = async (file, onProgress) => {
         }
       }
     );
+    clearTimeout(timeoutId);
     return response.data.data;
   } catch (error) {
-    if (((_a = error.response) == null ? void 0 : _a.status) === 413) {
-      throw new Error("File size too large. Please choose a smaller file.");
+    clearTimeout(timeoutId);
+    if (error.name === "CanceledError" || error.code === "ECONNABORTED") {
+      throw new Error("Upload timeout. Please check your connection and try again.");
     }
-    if (((_b = error.response) == null ? void 0 : _b.status) === 415) {
-      throw new Error("Unsupported file type. Please upload a PNG, JPG, or PDF file.");
+    const status = (_a = error.response) == null ? void 0 : _a.status;
+    const message = (_c = (_b = error.response) == null ? void 0 : _b.data) == null ? void 0 : _c.message;
+    switch (status) {
+      case 413:
+        throw new Error("File size too large. Please choose a smaller file.");
+      case 415:
+        throw new Error("Unsupported file type. Please upload a PNG, JPG, or PDF file.");
+      case 422:
+        throw new Error(message || "File validation failed.");
+      case 500:
+      case 502:
+      case 503:
+      case 504:
+        if (retryCount < MAX_RETRIES) {
+          const delay = Math.min(1e3 * Math.pow(2, retryCount), 5e3);
+          await new Promise((resolve) => setTimeout(resolve, delay));
+          return uploadReceiptFile(file, onProgress, retryCount + 1);
+        }
+        throw new Error("Server error. Please try again later.");
+      case 401:
+      case 403:
+        throw new Error("Authentication failed. Please log in again.");
+      default:
+        throw new Error(message || "Upload failed. Please try again.");
     }
-    if (((_c = error.response) == null ? void 0 : _c.status) === 422) {
-      throw new Error(((_d = error.response.data) == null ? void 0 : _d.message) || "File validation failed.");
-    }
-    if (error.code === "ECONNABORTED") {
-      throw new Error("Upload timeout. Please try again.");
-    }
-    throw new Error(((_f = (_e = error.response) == null ? void 0 : _e.data) == null ? void 0 : _f.message) || "Upload failed. Please try again.");
   }
 };
 const deleteReceiptFile = async (receiptId) => {
@@ -241,52 +137,84 @@ const deleteReceiptFile = async (receiptId) => {
     throw new Error(((_b = (_a = error.response) == null ? void 0 : _a.data) == null ? void 0 : _b.message) || "Failed to delete receipt");
   }
 };
+const PREVIEWABLE_MIME_TYPES = /* @__PURE__ */ new Set([
+  AllowedMimeType.PNG,
+  AllowedMimeType.JPEG,
+  AllowedMimeType.JPG,
+  AllowedMimeType.PDF
+]);
 const canPreviewFile = (attachment) => {
-  const previewableMimeTypes = [
-    "image/png",
-    "image/jpeg",
-    "image/jpg",
-    "application/pdf"
-  ];
-  return previewableMimeTypes.includes(attachment.mimeType);
+  return PREVIEWABLE_MIME_TYPES.has(attachment.mimeType);
 };
-const openFilePreview = (attachment) => {
-  if (canPreviewFile(attachment)) {
-    const previewUrl = attachment.blobUrl || attachment.url;
-    if (previewUrl.startsWith("blob:") || previewUrl.startsWith("data:")) {
-      window.open(previewUrl, "_blank");
-    } else if (previewUrl.startsWith("https://storage.yourapp.com/")) {
-      fetch(previewUrl).then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch file");
-        }
-        return response.blob();
-      }).then((blob) => {
-        const blobUrl = URL.createObjectURL(blob);
-        window.open(blobUrl, "_blank");
-        setTimeout(() => {
-          URL.revokeObjectURL(blobUrl);
-        }, 1e4);
-      }).catch((error) => {
-        console.error("Failed to open file preview:", error);
-        window.open(previewUrl, "_blank");
-      });
-    } else {
-      window.open(previewUrl, "_blank");
-    }
-  } else {
-    const downloadUrl = attachment.blobUrl || attachment.url;
+const BLOB_URL_CLEANUP_DELAY = 5e3;
+const BLOB_URL_REGISTRY = /* @__PURE__ */ new WeakMap();
+const registerBlobUrl = (window2, url) => {
+  var _a;
+  if (!BLOB_URL_REGISTRY.has(window2)) {
+    BLOB_URL_REGISTRY.set(window2, /* @__PURE__ */ new Set());
+  }
+  (_a = BLOB_URL_REGISTRY.get(window2)) == null ? void 0 : _a.add(url);
+};
+const cleanupBlobUrl = (url) => {
+  try {
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    console.warn("Failed to revoke blob URL:", error);
+  }
+};
+const openFilePreview = async (attachment) => {
+  const previewUrl = attachment.blobUrl || attachment.url;
+  if (!canPreviewFile(attachment)) {
     const link = document.createElement("a");
-    link.href = downloadUrl;
+    link.href = previewUrl;
     link.download = attachment.originalName;
     link.target = "_blank";
+    link.rel = "noopener noreferrer";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    return;
   }
+  if (previewUrl.startsWith("blob:") || previewUrl.startsWith("data:")) {
+    const newWindow = window.open(previewUrl, "_blank", "noopener,noreferrer");
+    if (newWindow && previewUrl.startsWith("blob:")) {
+      registerBlobUrl(newWindow, previewUrl);
+    }
+    return;
+  }
+  if (previewUrl.startsWith("https://storage.yourapp.com/")) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3e4);
+      const response = await fetch(previewUrl, {
+        signal: controller.signal,
+        mode: "cors",
+        credentials: "omit"
+      });
+      clearTimeout(timeoutId);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+      const newWindow = window.open(blobUrl, "_blank", "noopener,noreferrer");
+      if (newWindow) {
+        registerBlobUrl(newWindow, blobUrl);
+        newWindow.addEventListener("beforeunload", () => cleanupBlobUrl(blobUrl), { once: true });
+        setTimeout(() => cleanupBlobUrl(blobUrl), BLOB_URL_CLEANUP_DELAY);
+      } else {
+        cleanupBlobUrl(blobUrl);
+      }
+    } catch (error) {
+      console.error("Failed to open file preview:", error);
+      window.open(previewUrl, "_blank", "noopener,noreferrer");
+    }
+    return;
+  }
+  window.open(previewUrl, "_blank", "noopener,noreferrer");
 };
 const React = await importShared("react");
-const { useCallback, useRef: useRef$1, useState: useState$1 } = React;
+const { useCallback, useEffect, useRef: useRef$1, useState: useState$1 } = React;
 const ReceiptUpload = ({
   onReceiptChange,
   initialReceipt,
@@ -301,6 +229,19 @@ const ReceiptUpload = ({
     dragActive: false
   });
   const [_uploadProgress, setUploadProgress] = useState$1(0);
+  const blobUrlsRef = useRef$1(/* @__PURE__ */ new Set());
+  useEffect(() => {
+    return () => {
+      blobUrlsRef.current.forEach((url) => {
+        try {
+          URL.revokeObjectURL(url);
+        } catch (error) {
+          console.warn("Failed to revoke blob URL on cleanup:", error);
+        }
+      });
+      blobUrlsRef.current.clear();
+    };
+  }, []);
   const handleError = useCallback((error) => {
     setUploadState((prev) => ({
       ...prev,
@@ -329,7 +270,6 @@ const ReceiptUpload = ({
         id: uploadResponse.id,
         url: uploadResponse.url,
         blobUrl: uploadResponse.blobUrl,
-        // Include blob URL from response
         filename: uploadResponse.filename,
         originalName: file.name,
         size: file.size,
@@ -338,6 +278,9 @@ const ReceiptUpload = ({
         uploadedAt: uploadResponse.uploadedAt,
         status: "uploaded"
       };
+      if (uploadResponse.blobUrl) {
+        blobUrlsRef.current.add(uploadResponse.blobUrl);
+      }
       setUploadState((prev) => ({
         ...prev,
         attachment: newAttachment,
@@ -372,6 +315,14 @@ const ReceiptUpload = ({
     if (!uploadState.attachment || disabled) return;
     try {
       await deleteReceiptFile(uploadState.attachment.id);
+      if (uploadState.attachment.blobUrl) {
+        blobUrlsRef.current.delete(uploadState.attachment.blobUrl);
+        try {
+          URL.revokeObjectURL(uploadState.attachment.blobUrl);
+        } catch (error) {
+          console.warn("Failed to revoke blob URL:", error);
+        }
+      }
       setUploadState((prev) => ({
         ...prev,
         attachment: void 0,
@@ -386,9 +337,13 @@ const ReceiptUpload = ({
       });
     }
   }, [uploadState.attachment, disabled, handleError, onReceiptChange]);
-  const handlePreviewClick = useCallback(() => {
+  const handlePreviewClick = useCallback(async () => {
     if (uploadState.attachment) {
-      openFilePreview(uploadState.attachment);
+      try {
+        await openFilePreview(uploadState.attachment);
+      } catch (error) {
+        console.error("Failed to open preview:", error);
+      }
     }
   }, [uploadState.attachment]);
   const handleDragOver = useCallback((e) => {
@@ -603,7 +558,10 @@ const validateExpenseForm = (data) => {
     errors
   };
 };
-const simulateApiDelay = async (ms = 1e3) => {
+const simulateApiDelay = (ms = 1e3) => {
+  {
+    return Promise.resolve();
+  }
 };
 const useSaveReceiptDraft = () => {
   const queryClient = useQueryClient();
@@ -617,18 +575,7 @@ const useSaveReceiptDraft = () => {
         );
         return response.data.data;
       } catch (error) {
-        console.warn("API unavailable, using fallback for receipt draft save:", error);
-        const fallbackDraft = {
-          id: `draft-${Date.now()}`,
-          receiptAttachment: data.receiptAttachment,
-          isReceiptUnavailable: data.isReceiptUnavailable,
-          companyId,
-          userId: "current-user",
-          createdAt: /* @__PURE__ */ new Date(),
-          updatedAt: /* @__PURE__ */ new Date()
-        };
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        return fallbackDraft;
+        throw error;
       }
     },
     onSuccess: (savedDraft) => {

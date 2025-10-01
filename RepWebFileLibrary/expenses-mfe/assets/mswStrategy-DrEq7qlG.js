@@ -1,4 +1,5 @@
 import { m as mockCompanies, k as mockExpenseTypes, l as mockBusinessPurposes, n as mockFormTypeOptions, o as mockMileageRateOptions } from "./axiosInstance-BiB8Ce56.js";
+import { M as MIME_TYPE_CONFIG, A as AllowedMimeType } from "./receipt-DG4zSVnR.js";
 function isObject$1(value) {
   return value != null && typeof value === "object" && !Array.isArray(value);
 }
@@ -9746,29 +9747,24 @@ const expenseHandlers = [
 ];
 const uploadedFiles = /* @__PURE__ */ new Map();
 const validateFile = (file) => {
-  const allowedTypes = ["image/png", "image/jpeg", "image/jpg", "application/pdf"];
-  const maxSizes = {
-    "application/pdf": 50 * 1024 * 1024,
-    // 50MB
-    "image/png": 25 * 1024 * 1024,
-    // 25MB
-    "image/jpeg": 25 * 1024 * 1024,
-    // 25MB
-    "image/jpg": 25 * 1024 * 1024
-    // 25MB
-  };
+  const allowedTypes = Object.values(AllowedMimeType);
   if (!allowedTypes.includes(file.type)) {
     return {
       isValid: false,
-      error: "Unsupported file type. Only PNG, JPEG, and PDF files are allowed."
+      error: "Unsupported file type. Only PNG, JPEG, HEIF, HEIC, WebP and PDF files are allowed."
     };
   }
-  const maxSize = maxSizes[file.type];
-  if (file.size > maxSize) {
-    const maxSizeMB = Math.round(maxSize / 1024 / 1024);
+  const mimeTypeConfig = MIME_TYPE_CONFIG.get(file.type);
+  if (!mimeTypeConfig) {
     return {
       isValid: false,
-      error: `File size exceeds ${maxSizeMB}MB limit for ${file.type.split("/")[1].toUpperCase()} files.`
+      error: "Unsupported file type."
+    };
+  }
+  if (file.size > mimeTypeConfig.maxSizeBytes) {
+    return {
+      isValid: false,
+      error: `File size exceeds ${mimeTypeConfig.maxSizeMB}MB limit for ${mimeTypeConfig.displayName} files.`
     };
   }
   return { isValid: true };
