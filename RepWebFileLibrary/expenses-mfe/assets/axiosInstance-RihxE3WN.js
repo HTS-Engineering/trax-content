@@ -2965,38 +2965,39 @@ const mockBusinessPurposes = {
     }
   ],
   [RouteCompanyIds.HeatTransfer]: [
-    {
-      id: "bp-002-1",
-      isActive: true,
-      businessPurpose: "Sprint Planning",
-      description: "Agile sprint planning and retrospectives",
-      created: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z"),
-      modified: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z")
-    },
-    {
-      id: "bp-002-2",
-      isActive: true,
-      businessPurpose: "User Research",
-      description: "User experience research and testing",
-      created: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z"),
-      modified: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z")
-    },
-    {
-      id: "bp-002-3",
-      isActive: true,
-      businessPurpose: "Hackathon",
-      description: "Innovation events and hackathons",
-      created: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z"),
-      modified: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z")
-    },
-    {
-      id: "bp-002-4",
-      isActive: true,
-      businessPurpose: "Partnership Meeting",
-      description: "Strategic partnership discussions",
-      created: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z"),
-      modified: /* @__PURE__ */ new Date("2024-01-15T00:00:00Z")
-    }
+    //test empty business purpose
+    // {
+    //   id: 'bp-002-1',
+    //   isActive: true,
+    //   businessPurpose: 'Sprint Planning',
+    //   description: 'Agile sprint planning and retrospectives',
+    //   created: new Date('2024-01-15T00:00:00Z'),
+    //   modified: new Date('2024-01-15T00:00:00Z'),
+    // },
+    // {
+    //   id: 'bp-002-2',
+    //   isActive: true,
+    //   businessPurpose: 'User Research',
+    //   description: 'User experience research and testing',
+    //   created: new Date('2024-01-15T00:00:00Z'),
+    //   modified: new Date('2024-01-15T00:00:00Z'),
+    // },
+    // {
+    //   id: 'bp-002-3',
+    //   isActive: true,
+    //   businessPurpose: 'Hackathon',
+    //   description: 'Innovation events and hackathons',
+    //   created: new Date('2024-01-15T00:00:00Z'),
+    //   modified: new Date('2024-01-15T00:00:00Z'),
+    // },
+    // {
+    //   id: 'bp-002-4',
+    //   isActive: true,
+    //   businessPurpose: 'Partnership Meeting',
+    //   description: 'Strategic partnership discussions',
+    //   created: new Date('2024-01-15T00:00:00Z'),
+    //   modified: new Date('2024-01-15T00:00:00Z'),
+    // },
   ],
   [RouteCompanyIds.OslinNation]: [
     {

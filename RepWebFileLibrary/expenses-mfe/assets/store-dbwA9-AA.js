@@ -1,7 +1,19 @@
+import { c as createLucideIcon } from "./createLucideIcon-CL3dfAEu.js";
 import { R as Removable, j as replaceData, c as noop, k as resolveEnabled, s as skipToken, r as resolveStaleTime, t as timeUntilStale, l as createRetryer, C as CancelledError, n as notifyManager, e as ensureQueryFn, q as canFetch, S as Subscribable, v as pendingThenable, w as shallowEqualObjects, x as isServer, y as isValidTimeout, z as timeoutManager, f as focusManager, A as shouldThrowError, u as useQueryClient } from "./LoadingSpinner-C-M1heDl.js";
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import "./jsx-runtime-DLKWXVrv.js";
-import { f as create, g as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-B6ouNjq7.js";
+import { f as create, g as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-RihxE3WN.js";
+/**
+ * @license lucide-react v0.542.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode);
 var Query = class extends Removable {
   #initialState;
   #revertState;
@@ -1042,6 +1054,7 @@ const useCompanyStore = create()(
   )
 );
 export {
+  Plus as P,
   Query as Q,
   useQuery as a,
   useCompanyStore as u

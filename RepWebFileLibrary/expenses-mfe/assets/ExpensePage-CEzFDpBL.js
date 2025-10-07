@@ -5,7 +5,7 @@ import { c as createLucideIcon, y as ya, C as Ca, R as Ra, N as Na, F as Fa, _ a
 import { I as Icon } from "./Icon-VbGEojqB.js";
 import { L as LoadingSpinner, u as useQueryClient } from "./LoadingSpinner-C-M1heDl.js";
 import { A as AllowedMimeType, v as validateReceiptFile, g as generateAcceptAttribute, a as getFilePreviewType, F as FilePreviewType, b as getSupportedFormatsText } from "./receipt-DLrGlexy.js";
-import { d as apiClient, R as RoutePaths } from "./axiosInstance-B6ouNjq7.js";
+import { d as apiClient, R as RoutePaths } from "./axiosInstance-RihxE3WN.js";
 import { u as useMutation } from "./useMutation-BddyCFSz.js";
 import { F as FileText, C as ChartColumn, a as CreditCard, u as useNavigate, b as ChevronRight } from "./file-text-CnDMycbE.js";
 import { S as Send } from "./send-CV3IgGGe.js";

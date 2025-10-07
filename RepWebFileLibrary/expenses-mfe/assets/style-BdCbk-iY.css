@@ -33,7 +33,6 @@
       --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-divide-y-reverse: 0;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;
@@ -67,7 +66,6 @@
     --color-green-200: oklch(92.5% .084 155.995);
     --color-green-500: oklch(72.3% .219 149.579);
     --color-green-600: oklch(62.7% .194 149.214);
-    --color-green-700: oklch(52.7% .154 150.069);
     --color-green-800: oklch(44.8% .119 151.328);
     --color-blue-50: oklch(97% .014 254.604);
     --color-blue-100: oklch(93.2% .032 255.585);
@@ -597,6 +595,11 @@
     height: calc(var(--spacing) * 4.5);
   }
 
+  .size-5\.5 {
+    width: calc(var(--spacing) * 5.5);
+    height: calc(var(--spacing) * 5.5);
+  }
+
   .size-8 {
     width: calc(var(--spacing) * 8);
     height: calc(var(--spacing) * 8);
@@ -661,10 +664,6 @@
     min-width: calc(var(--spacing) * 20);
   }
 
-  .min-w-full {
-    min-width: 100%;
-  }
-
   .flex-shrink-0 {
     flex-shrink: 0;
   }
@@ -699,24 +698,6 @@
     margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.divide-y > :not(:last-child)) {
-    --tw-divide-y-reverse: 0;
-    border-bottom-style: var(--tw-border-style);
-    border-top-style: var(--tw-border-style);
-    border-top-width: calc(1px * var(--tw-divide-y-reverse));
-    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  }
-
-  :where(.divide-gray-200 > :not(:last-child)) {
-    border-color: var(--color-gray-200);
-  }
-
-  .truncate {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
   .\!rounded-b-none {
     border-bottom-right-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
@@ -730,10 +711,6 @@
   .\!border-b-0 {
     border-bottom-style: var(--tw-border-style) !important;
     border-bottom-width: 0 !important;
-  }
-
-  .border-blue-600 {
-    border-color: var(--color-blue-600);
   }
 
   .border-exp-neutral-30 {
@@ -784,10 +761,6 @@
 
   .bg-blue-200 {
     background-color: var(--color-blue-200);
-  }
-
-  .bg-blue-600 {
-    background-color: var(--color-blue-600);
   }
 
   .bg-exp-neutral-0 {
@@ -995,20 +968,8 @@
   }
 
   @media (hover: hover) {
-    .group-hover\:text-gray-500:is(:where(.group):hover *) {
-      color: var(--color-gray-500);
-    }
-
-    .group-hover\:text-green-700:is(:where(.group):hover *) {
-      color: var(--color-green-700);
-    }
-
     .hover\:bg-exp-neutral-30:hover {
       background-color: var(--color-exp-neutral-30);
-    }
-
-    .hover\:bg-gray-50:hover {
-      background-color: var(--color-gray-50);
     }
 
     .hover\:bg-gray-100:hover {
@@ -1025,10 +986,6 @@
 
     .hover\:text-exp-neutral-200:hover {
       color: var(--color-exp-neutral-200);
-    }
-
-    .hover\:text-gray-700:hover {
-      color: var(--color-gray-700);
     }
 
     .hover\:opacity-90:hover {
@@ -1059,10 +1016,6 @@
 
     .sm\:gap-3 {
       gap: calc(var(--spacing) * 3);
-    }
-
-    .sm\:px-6 {
-      padding-inline: calc(var(--spacing) * 6);
     }
   }
 
@@ -4194,6 +4147,11 @@ body {
   inherits: false
 }
 
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false
+}
+
 @property --tw-duration {
   syntax: "*";
   inherits: false
@@ -4235,12 +4193,6 @@ body {
   initial-value: 0;
 }
 
-@property --tw-divide-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-
 @property --tw-border-style {
   syntax: "*";
   inherits: false;
@@ -4248,11 +4200,6 @@ body {
 }
 
 @property --tw-font-weight {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-tracking {
   syntax: "*";
   inherits: false
 }
