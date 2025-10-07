@@ -4469,7 +4469,7 @@ class ApiClient {
         return response;
       },
       async (error) => {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
         if (error.code === "ERR_NETWORK" || error.code === "ECONNREFUSED" || ((_a = error.message) == null ? void 0 : _a.includes("Network Error"))) {
           const url = (_b = error.config) == null ? void 0 : _b.url;
           const method = (_d = (_c = error.config) == null ? void 0 : _c.method) == null ? void 0 : _d.toUpperCase();
@@ -4634,6 +4634,70 @@ class ApiClient {
               console.error("🔥 AXIOS FALLBACK: Error in mock file delete:", mockError);
             }
           }
+          if (method === "POST" && (url == null ? void 0 : url.includes("/files/supporting"))) {
+            console.log("🔥 AXIOS FALLBACK: Intercepting supporting file upload request", { method, url });
+            try {
+              await new Promise((resolve) => setTimeout(resolve, 1e3));
+              const formData = (_i = error.config) == null ? void 0 : _i.data;
+              let originalFile = null;
+              let fileType = "unknown";
+              let mimeType = "application/octet-stream";
+              let fileSize = 0;
+              if (formData instanceof FormData) {
+                originalFile = formData.get("file");
+                if (originalFile) {
+                  fileType = ((_j = originalFile.name.split(".").pop()) == null ? void 0 : _j.toLowerCase()) || "unknown";
+                  mimeType = originalFile.type || "application/octet-stream";
+                  fileSize = originalFile.size;
+                }
+              }
+              const fileId = `supporting_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+              const serverUrl = `https://storage.yourapp.com/supporting/${fileId}.${fileType}`;
+              let blobUrl = "";
+              if (originalFile) {
+                blobUrl = URL.createObjectURL(originalFile);
+                console.log("🔥 AXIOS FALLBACK: Created blob URL for preview:", blobUrl);
+              }
+              const mockResponse = {
+                id: fileId,
+                url: serverUrl,
+                // Server URL (fake)
+                blobUrl,
+                // Real blob URL for immediate preview
+                filename: `${fileId}.${fileType}`,
+                originalName: (originalFile == null ? void 0 : originalFile.name) || `file.${fileType}`,
+                size: fileSize,
+                type: fileType,
+                mimeType,
+                uploadedAt: (/* @__PURE__ */ new Date()).toISOString()
+              };
+              console.log("✅ AXIOS FALLBACK: Mock supporting file upload successful", mockResponse);
+              return Promise.resolve({
+                data: { data: mockResponse },
+                status: 200,
+                statusText: "OK",
+                headers: { "content-type": "application/json" },
+                config: error.config
+              });
+            } catch (mockError) {
+              console.error("🔥 AXIOS FALLBACK: Error in mock supporting file upload:", mockError);
+            }
+          }
+          if (method === "DELETE" && (url == null ? void 0 : url.includes("/files/supporting/"))) {
+            console.log("🔥 AXIOS FALLBACK: Intercepting supporting file delete request", { method, url });
+            try {
+              await new Promise((resolve) => setTimeout(resolve, 500));
+              return Promise.resolve({
+                data: { message: "File deleted successfully" },
+                status: 200,
+                statusText: "OK",
+                headers: { "content-type": "application/json" },
+                config: error.config
+              });
+            } catch (mockError) {
+              console.error("🔥 AXIOS FALLBACK: Error in mock supporting file delete:", mockError);
+            }
+          }
           console.log(`🔄 API: Network error for ${url}, trying mock data`);
           if (url === "/companies") {
             console.log("✅ API: Returning mock companies data", mockCompanies);
@@ -4645,7 +4709,7 @@ class ApiClient {
               config: error.config
             });
           }
-          if ((url == null ? void 0 : url.includes("/expense-types")) && ((_j = (_i = error.config) == null ? void 0 : _i.method) == null ? void 0 : _j.toUpperCase()) === "GET") {
+          if ((url == null ? void 0 : url.includes("/expense-types")) && ((_l = (_k = error.config) == null ? void 0 : _k.method) == null ? void 0 : _l.toUpperCase()) === "GET") {
             const companyIdMatch = url.match(/\/companies\/([^/]+)\/expense-types/);
             const companyId = companyIdMatch == null ? void 0 : companyIdMatch[1];
             console.log(`✅ API: Returning dynamic expense types for company: ${companyId}`);
@@ -4697,10 +4761,10 @@ class ApiClient {
             });
           }
         }
-        if (((_k = error.response) == null ? void 0 : _k.status) === 401) {
+        if (((_m = error.response) == null ? void 0 : _m.status) === 401) {
           await this.handleUnauthorized();
         }
-        if (((_l = error.response) == null ? void 0 : _l.status) === 429) {
+        if (((_n = error.response) == null ? void 0 : _n.status) === 429) {
           const retryAfter = error.response.headers["retry-after"];
           if (retryAfter) {
             await this.delay(parseInt(retryAfter) * 1e3);

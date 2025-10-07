@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
-import { u as useJWTStore, j as jwtSelectors, h as ensureJWTInitialized, D as DOMEventNames, T as TokenPlaceholders, d as apiClient } from "./axiosInstance-RihxE3WN.js";
+import { u as useJWTStore, j as jwtSelectors, h as ensureJWTInitialized, D as DOMEventNames, T as TokenPlaceholders, d as apiClient } from "./axiosInstance-nIwhV3pa.js";
 import { c as createLucideIcon, m as ma, k as ar, n as ht, D as De, o as on, r as Qt } from "./createLucideIcon-DHpz6jFt.js";
 import { S as Shield } from "./shield-DFNYqxE7.js";
 import { S as Send } from "./send-BOQgxVi_.js";

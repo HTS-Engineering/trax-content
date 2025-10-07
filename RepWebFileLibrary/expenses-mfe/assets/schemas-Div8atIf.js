@@ -1,5 +1,5 @@
 import { c as createLucideIcon } from "./createLucideIcon-DHpz6jFt.js";
-import { f as create, g as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-RihxE3WN.js";
+import { f as create, g as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-nIwhV3pa.js";
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 /**
  * @license lucide-react v0.542.0 - ISC

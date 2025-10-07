@@ -6,7 +6,7 @@ import { c as createLucideIcon, y as ya, C as Ca, R as Ra, N as Na, F as Fa, _ a
 import { I as Icon } from "./Icon-CLuFtx_9.js";
 import { L as LoadingSpinner, u as useQueryClient } from "./LoadingSpinner-C-M1heDl.js";
 import { A as AllowedMimeType, v as validateReceiptFile, g as getSupportedFormatsText, a as generateAcceptAttribute, b as getFilePreviewType, F as FilePreviewType } from "./receipt-rJbbN-xt.js";
-import { d as apiClient, R as RoutePaths } from "./axiosInstance-RihxE3WN.js";
+import { d as apiClient, R as RoutePaths } from "./axiosInstance-nIwhV3pa.js";
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { u as useMutation } from "./useMutation-BddyCFSz.js";
 import { F as FileText, C as ChartColumn, a as CreditCard, u as useNavigate, b as ChevronRight } from "./file-text-DgJ5st2O.js";
@@ -292,11 +292,11 @@ const DANGEROUS_PATTERNS = [
   /data:text\/html/gi
 ];
 const MAX_FILENAME_LENGTH = 255;
-const sanitizeFileName = (fileName) => {
-  if (!fileName || typeof fileName !== "string") {
+const sanitizeFileName = (fileName2) => {
+  if (!fileName2 || typeof fileName2 !== "string") {
     return "unnamed_file";
   }
-  let sanitized = fileName.trim();
+  let sanitized = fileName2.trim();
   sanitized = sanitized.replace(/\.\./g, "");
   sanitized = sanitized.replace(/[/\\]/g, "_");
   sanitized = sanitized.replace(/[\x00-\x1F\x7F-\x9F]/g, "");
@@ -547,8 +547,8 @@ const validateFileContentEnhanced = async (file) => {
   }
 };
 const shouldUseEnhancedValidation = (file) => {
-  const fileName = file.name.toLowerCase();
-  return fileName.endsWith(".heic") || fileName.endsWith(".heif") || file.type === "image/heic" || file.type === "image/heif";
+  const fileName2 = file.name.toLowerCase();
+  return fileName2.endsWith(".heic") || fileName2.endsWith(".heif") || file.type === "image/heic" || file.type === "image/heif";
 };
 const UPLOAD_TIMEOUT$1 = 12e4;
 const MAX_RETRIES$1 = 2;
@@ -789,14 +789,23 @@ const openFilePreview = async (attachment) => {
   }
   window.open(previewUrl, "_blank", "noopener,noreferrer");
 };
+const splitFilename = (filename) => {
+  if (!filename) return { name: "", ext: "" };
+  const lastDot = filename.lastIndexOf(".");
+  if (lastDot <= 0) return { name: filename, ext: "" };
+  return {
+    name: filename.slice(0, lastDot),
+    ext: filename.slice(lastDot)
+  };
+};
 const React$1 = await importShared("react");
 const { useCallback: useCallback$1, useEffect: useEffect$2, useRef: useRef$2, useState: useState$2 } = React$1;
-function truncateFileName(fileName, maxLength = 25) {
-  const parts = fileName.split(".");
-  const extension = parts.length > 1 ? `.${parts.pop()}` : "";
-  const nameWithoutExt = parts.join(".");
-  if (nameWithoutExt.length <= maxLength) return fileName;
-  return `${nameWithoutExt.slice(0, maxLength - 2)}..${extension}`;
+function fileName(fileName2) {
+  const { name, ext } = splitFilename(fileName2);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block truncate text-sm text-trax-blue-600 hover:cursor-pointer min-w-0 shrink", children: name }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block text-sm text-trax-blue-600 hover:cursor-pointer shrink-0", children: ext })
+  ] });
 }
 function FileCard({
   file,
@@ -813,17 +822,17 @@ function FileCard({
   if (isUploading) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(ma, { className: "bg-white px-2 py-2 w-full flex justify-between flex-row items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { className: "size-4" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-trax-neutral-600", children: truncateFileName(file.originalName) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-trax-neutral-600 flex flex-1 min-w-0", children: fileName(file.originalName) })
     ] }) });
   }
   const hasError = error || file.status === "error";
   const errorMessage = (error == null ? void 0 : error.message) || file.errorMessage || "Invalid file";
   if (hasError) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(ma, { className: "bg-red-50 px-2 py-2 w-full flex justify-between flex-row items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(MdError, { className: "text-red-700 w-full scale-110" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center flex-1 min-w-0 gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(MdError, { className: "text-red-700 scale-110 shrink-0" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(Oa, { delayDuration: FILE_NAME_POPOVER_DELAY, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Ba, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 text-sm h-full text-blue-950 text-nowrap", children: truncateFileName(file.originalName, 10) }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Ba, { className: "min-w-0 flex-1 text-left flex flex-nowrap items-center", children: fileName(file.originalName) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(Ga, { variant: "light", size: "sm", className: "max-w-full", side: "bottom", showArrow: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-black", children: file.originalName }) })
         ] })
       ] }),
@@ -841,31 +850,31 @@ function FileCard({
       ] })
     ] });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(ma, { className: "bg-white hover:bg-trax-neutral-20 px-2 py-2 w-full flex justify-between flex-row items-center", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "div",
-      {
-        className: "flex items-center hover:cursor-pointer hover:underline",
-        onClick: () => onPreview(file),
-        children: [
-          previewType === FilePreviewType.IMAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "scale-125", name: "icon-file-img" }) : previewType === FilePreviewType.PDF ? /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "scale-125", name: "icon-file-pdf" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "scale-125", name: "text-line-unknown" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(Oa, { delayDuration: FILE_NAME_POPOVER_DELAY, children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Ba, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 text-sm h-full text-trax-blue-600 hover:cursor-pointer", children: truncateFileName(file.originalName) }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Ga, { variant: "light", size: "sm", className: "max-w-full", side: "bottom", showArrow: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm", children: file.originalName }) })
-          ] })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "button",
-      {
-        className: "flex hover:cursor-pointer",
-        onClick: () => onRemove(index),
-        disabled,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(RxCross2, { className: "text-trax-grey-200 hover:text-trax-neutral-900" })
-      }
-    )
-  ] });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ma, { className: "bg-white hover:bg-trax-neutral-20 px-2 py-2 w-full flex justify-between flex-row items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: "flex items-center flex-1 min-w-0 gap-2 hover:cursor-pointer hover:underline",
+      onClick: () => onPreview(file),
+      children: [
+        previewType === FilePreviewType.IMAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "shrink-0", name: "icon-file-img" }) : previewType === FilePreviewType.PDF ? /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "shrink-0", name: "icon-file-pdf" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { className: "shrink-0", name: "text-line-unknown" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-w-0 flex-1 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Oa, { delayDuration: FILE_NAME_POPOVER_DELAY, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Ba, { className: "min-w-0 flex-1 text-left flex flex-nowrap items-center", children: fileName(file.originalName) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Ga, { variant: "light", size: "sm", className: "max-w-full", side: "bottom", showArrow: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm", children: file.originalName }) })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            className: "flex hover:cursor-pointer shrink-0",
+            onClick: (e) => {
+              e.stopPropagation();
+              onRemove(index);
+            },
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(RxCross2, { className: "text-trax-grey-200 hover:text-trax-neutral-900" })
+          }
+        )
+      ]
+    }
+  ) });
 }
 function SupportingFiles({
   onFilesChange,
@@ -1355,7 +1364,7 @@ const ReceiptUpload = ({
         {
           src: attachment.blobUrl || attachment.url,
           alt: attachment.originalName,
-          className: "w-full h-full object-cover object rounded-lg cursor-pointer hover:opacity-90 transition-opacity",
+          className: "w-full h-full object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity",
           onClick: handlePreviewClick,
           onError: (_e) => {
             console.warn("Image failed to load:", attachment.blobUrl || attachment.url);
@@ -1578,36 +1587,6 @@ const ExpenseForm = forwardRef(({
   isSubmitting = false
   // isDrafting = false,
 }, ref) => {
-  const [allocations, setAllocations] = useState([
-    {
-      id: "1",
-      name: "Project",
-      percentage: 0,
-      amount: 0,
-      type: "project"
-    },
-    {
-      id: "2",
-      name: "Admin",
-      percentage: 0,
-      amount: 0,
-      type: "admin"
-    },
-    {
-      id: "3",
-      name: "CCB Team",
-      percentage: 0,
-      amount: 0,
-      type: "team"
-    },
-    {
-      id: "4",
-      name: "CCB Rep",
-      percentage: 0,
-      amount: 0,
-      type: "team"
-    }
-  ]);
   const [formData, setFormData] = useState(() => ({
     ...createEmptyExpenseFormData(),
     ...initialData
@@ -1895,32 +1874,6 @@ const ExpenseForm = forwardRef(({
             }
           )
         ] }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(ma, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ha, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          xn,
-          {
-            iconClassName: "bg-trax-yellow-600",
-            title: "COST ALLOCATION",
-            icon: /* @__PURE__ */ jsxRuntimeExports.jsx(ChartColumn, { className: "w-4 h-4 text-trax-neutral-950" }),
-            required: true
-          }
-        ) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(wa, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 gap-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Yo,
-          {
-            allocations,
-            totalAmount: 71.6,
-            currency: "CAD",
-            showAddButton: false,
-            onAddAllocation: () => {
-              console.log("Add allocation clicked");
-            },
-            onRemoveAllocation: (id) => {
-              setAllocations(allocations.filter((a) => a.id !== id));
-            }
-          }
-        ) }) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(ma, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(ha, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
