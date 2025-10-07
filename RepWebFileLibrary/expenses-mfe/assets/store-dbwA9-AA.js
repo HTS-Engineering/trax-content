@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./createLucideIcon-DHpz6jFt.js";
+import { c as createLucideIcon } from "./createLucideIcon-CL3dfAEu.js";
 import { R as Removable, j as replaceData, c as noop, k as resolveEnabled, s as skipToken, r as resolveStaleTime, t as timeUntilStale, l as createRetryer, C as CancelledError, n as notifyManager, e as ensureQueryFn, q as canFetch, S as Subscribable, v as pendingThenable, w as shallowEqualObjects, x as isServer, y as isValidTimeout, z as timeoutManager, f as focusManager, A as shouldThrowError, u as useQueryClient } from "./LoadingSpinner-C-M1heDl.js";
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import "./jsx-runtime-DLKWXVrv.js";

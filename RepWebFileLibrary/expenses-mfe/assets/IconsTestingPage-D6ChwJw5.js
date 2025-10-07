@@ -1,20 +1,18 @@
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
-import { I as Icon } from "./Icon-CLuFtx_9.js";
+import { I as Icon } from "./Icon-VbGEojqB.js";
 const ICON_NAMES = [
   "delete",
   "error-outline",
-  "icon-file-img",
   "icon-file-pdf",
   "open-in-new",
   "pdf-file-green-check",
   "receipt",
   "receipt_long",
-  "summarize",
   "text-line-unknown"
 ];
 const ICON_METADATA = {
-  generatedAt: "2025-10-07T17:17:06.037Z"
+  generatedAt: "2025-10-07T17:27:20.905Z"
 };
 const React = await importShared("react");
 const { useMemo, useState } = React;

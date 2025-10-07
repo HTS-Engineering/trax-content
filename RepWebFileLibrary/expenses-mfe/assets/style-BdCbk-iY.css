@@ -33,9 +33,6 @@
       --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
       --tw-backdrop-blur: initial;
       --tw-backdrop-brightness: initial;
       --tw-backdrop-contrast: initial;
@@ -76,7 +73,6 @@
     --color-blue-500: oklch(62.3% .214 259.815);
     --color-blue-600: oklch(54.6% .245 262.881);
     --color-blue-800: oklch(42.4% .199 265.638);
-    --color-blue-950: oklch(28.2% .091 267.935);
     --color-purple-100: oklch(94.6% .033 307.174);
     --color-purple-200: oklch(90.2% .063 306.703);
     --color-purple-600: oklch(55.8% .288 302.321);
@@ -102,7 +98,6 @@
     --container-2xl: 42rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
-    --container-5xl: 64rem;
     --container-6xl: 72rem;
     --container-7xl: 80rem;
     --text-xs: .75rem;
@@ -521,10 +516,6 @@
 @layer components;
 
 @layer utilities {
-  .sticky {
-    position: sticky;
-  }
-
   .top-\[-24px\] {
     top: -24px;
   }
@@ -569,10 +560,6 @@
 
   .mx-1 {
     margin-inline: calc(var(--spacing) * 1);
-  }
-
-  .mx-2 {
-    margin-inline: calc(var(--spacing) * 2);
   }
 
   .mt-0\.5 {
@@ -653,20 +640,12 @@
     height: 100%;
   }
 
-  .h-0 {
-    height: calc(var(--spacing) * 0);
-  }
-
-  .h-auto {
-    height: auto;
+  .h-48 {
+    height: calc(var(--spacing) * 48);
   }
 
   .max-h-\[90vh\] {
     max-height: 90vh;
-  }
-
-  .max-w-5xl {
-    max-width: var(--container-5xl);
   }
 
   .max-w-6xl {
@@ -685,33 +664,8 @@
     min-width: calc(var(--spacing) * 20);
   }
 
-  .flex-2 {
-    flex: 2;
-  }
-
   .flex-shrink-0 {
     flex-shrink: 0;
-  }
-
-  .scale-100 {
-    --tw-scale-x: 100%;
-    --tw-scale-y: 100%;
-    --tw-scale-z: 100%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
-  }
-
-  .scale-110 {
-    --tw-scale-x: 110%;
-    --tw-scale-y: 110%;
-    --tw-scale-z: 110%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
-  }
-
-  .scale-125 {
-    --tw-scale-x: 125%;
-    --tw-scale-y: 125%;
-    --tw-scale-z: 125%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
   }
 
   .animate-pulse {
@@ -857,12 +811,8 @@
     background-color: var(--color-yellow-50);
   }
 
-  .fill-trax-blue-600 {
-    fill: var(--color-trax-blue-600);
-  }
-
-  .object-cover {
-    object-fit: cover;
+  .object-contain {
+    object-fit: contain;
   }
 
   .p-3\.5 {
@@ -897,10 +847,6 @@
     padding-left: calc(var(--spacing) * 0) !important;
   }
 
-  .text-nowrap {
-    text-wrap: nowrap;
-  }
-
   .text-ellipsis {
     text-overflow: ellipsis;
   }
@@ -915,10 +861,6 @@
 
   .text-blue-500 {
     color: var(--color-blue-500);
-  }
-
-  .text-blue-950 {
-    color: var(--color-blue-950);
   }
 
   .text-exp-grey-600 {
@@ -1009,10 +951,6 @@
     color: var(--color-yellow-800);
   }
 
-  .opacity-20 {
-    opacity: .2;
-  }
-
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1030,14 +968,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:cursor-not-allowed:hover {
-      cursor: not-allowed;
-    }
-
-    .hover\:cursor-pointer:hover {
-      cursor: pointer;
-    }
-
     .hover\:bg-exp-neutral-30:hover {
       background-color: var(--color-exp-neutral-30);
     }
@@ -1054,20 +984,8 @@
       background-color: var(--color-red-50);
     }
 
-    .hover\:bg-trax-neutral-20:hover {
-      background-color: var(--color-trax-neutral-20);
-    }
-
     .hover\:text-exp-neutral-200:hover {
       color: var(--color-exp-neutral-200);
-    }
-
-    .hover\:text-trax-neutral-900:hover {
-      color: var(--color-trax-neutral-900);
-    }
-
-    .hover\:underline:hover {
-      text-decoration-line: underline;
     }
 
     .hover\:opacity-90:hover {
@@ -1108,6 +1026,16 @@
 
     .md\:grid-cols-4 {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .lg\:col-span-2 {
+      grid-column: span 2 / span 2;
+    }
+
+    .lg\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
@@ -4232,24 +4160,6 @@ body {
 @property --tw-ease {
   syntax: "*";
   inherits: false
-}
-
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
 }
 
 @property --tw-rotate-x {

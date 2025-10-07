@@ -1,12 +1,11 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
-import { a as useQuery, P as Plus, u as useCompanyStore } from "./store-D6MLsFIL.js";
+import { a as useQuery, P as Plus, u as useCompanyStore } from "./store-dbwA9-AA.js";
 import { u as useQueryClient, L as LoadingSpinner } from "./LoadingSpinner-C-M1heDl.js";
 import { u as useMutation } from "./useMutation-BddyCFSz.js";
 import { d as apiClient } from "./axiosInstance-RihxE3WN.js";
-import { u as useExpenseStore, o as object, s as string, l as literal, a as useForm, b as a, T as Table2, C as Controller, c as Check, X, P as Pencil, E as EllipsisVertical } from "./schemas-DoQwpzL2.js";
-import { D as De, b as Oo, K as Ka, i as m, l as Xa } from "./createLucideIcon-DHpz6jFt.js";
-import { I as Icon } from "./Icon-CLuFtx_9.js";
+import { u as useExpenseStore, o as object, s as string, l as literal, a as useForm, b as a, T as Table2, C as Controller, c as Check, X, P as Pencil, E as EllipsisVertical } from "./schemas-H76TT6mK.js";
+import { D as De, O as Oo, K as Ka, b as m, f as Xa } from "./createLucideIcon-CL3dfAEu.js";
 const { useEffect: useEffect$2 } = await importShared("react");
 const useBusinessPurposes = (companyId, includeInactive = false) => {
   const { setBusinessPurposes, setLoadingBusinessPurposes, setBusinessPurposesError } = useExpenseStore();
@@ -710,7 +709,7 @@ const BusinessPurposeTable = ({ className }) => {
 const BusinessPurpose = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-4 p-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-exp-primary-blue-50 p-3.5 fit-content rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "summarize", className: "size-5.5 text-exp-primary-blue-800" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-exp-primary-blue-50 p-3.5 fit-content rounded-lg" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-semibold text-exp-primary-blue-800", children: "Business Purposes" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-normal text-exp-grey-700", children: "Define dropdown list for business purpose selection" })

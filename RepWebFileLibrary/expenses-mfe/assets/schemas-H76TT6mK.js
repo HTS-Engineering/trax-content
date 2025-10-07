@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./createLucideIcon-DHpz6jFt.js";
+import { c as createLucideIcon } from "./createLucideIcon-CL3dfAEu.js";
 import { f as create, g as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-RihxE3WN.js";
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 /**
@@ -2439,10 +2439,7 @@ function flattenError(error, mapper = (issue2) => issue2.message) {
   }
   return { formErrors, fieldErrors };
 }
-function formatError(error, _mapper) {
-  const mapper = _mapper || function(issue2) {
-    return issue2.message;
-  };
+function formatError(error, mapper = (issue2) => issue2.message) {
   const fieldErrors = { _errors: [] };
   const processError = (error2) => {
     for (const issue2 of error2.issues) {
@@ -3029,7 +3026,7 @@ class Doc {
 const version = {
   major: 4,
   minor: 1,
-  patch: 11
+  patch: 12
 };
 const $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
   var _a2;
