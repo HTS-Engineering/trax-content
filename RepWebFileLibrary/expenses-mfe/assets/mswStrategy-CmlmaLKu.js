@@ -1,6 +1,6 @@
 import { A as AllowedMimeType, M as MIME_TYPE_CONFIG } from "./receipt-rJbbN-xt.js";
-import { E as ENDPOINT_PATTERNS } from "./endpoints-CSCgD8A_.js";
-import { m as mockBusinessPurposes, s as shouldMockEndpoint } from "./index-Bf0LqBxT.js";
+import { E as ENDPOINT_PATTERNS } from "./endpoints-B6EuaDvp.js";
+import { m as mockBusinessPurposes, s as shouldMockEndpoint } from "./index-DtsOMDP2.js";
 function isObject$1(value) {
   return value != null && typeof value === "object" && !Array.isArray(value);
 }
@@ -9503,7 +9503,7 @@ const fileToBase64 = (file) => {
   });
 };
 const generateCloudStorageUrl = (fileId, fileExtension) => {
-  return `https://storage.yourapp.com/receipts/${fileId}.${fileExtension}`;
+  return `https://storage.expensesapp.com/receipts/${fileId}.${fileExtension}`;
 };
 const fileHandlers = [
   // Upload supporting file

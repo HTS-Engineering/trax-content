@@ -9,7 +9,7 @@ const FILE_ENDPOINTS = {
   SUPPORTING_DELETE: (id) => `/files/supporting/${id}`,
   SUPPORTING_GET: (id) => `/files/supporting/${id}`,
   // Cloud storage (mock)
-  STORAGE_GET: (filename) => `https://storage.yourapp.com/receipts/${filename}`
+  STORAGE_GET: (filename) => `https://storage.expensesapp.com/receipts/${filename}`
 };
 const BUSINESS_PURPOSE_ENDPOINTS = {
   // Get business purposes for a company
@@ -31,7 +31,7 @@ const ENDPOINT_PATTERNS = {
   FILES_RECEIPTS_DOWNLOAD: "*/files/receipts/:fileId/download",
   FILES_SUPPORTING_UPLOAD: "*/files/supporting",
   FILES_SUPPORTING_DELETE: "*/files/supporting/:fileId",
-  FILES_STORAGE: "https://storage.yourapp.com/receipts/:filename",
+  FILES_STORAGE: "https://storage.expensesapp.com/receipts/:filename",
   // Business Purposes
   BUSINESS_PURPOSE_BY_COMPANY: "*/companies/:companyId/business-purposes",
   BUSINESS_PURPOSE_CRUD: "*/business-purposes/:id"
@@ -39,7 +39,7 @@ const ENDPOINT_PATTERNS = {
 const ENDPOINT_REGEX = {
   FILES_RECEIPTS: /\/files\/receipts/,
   FILES_SUPPORTING: /\/files\/supporting/,
-  FILES_STORAGE: /https:\/\/storage\.yourapp\.com\/receipts/,
+  FILES_STORAGE: /https:\/\/storage\.expensesapp\.com\/receipts/,
   BUSINESS_PURPOSES: /\/(companies\/.*\/business-purposes|business-purposes)/
 };
 export {

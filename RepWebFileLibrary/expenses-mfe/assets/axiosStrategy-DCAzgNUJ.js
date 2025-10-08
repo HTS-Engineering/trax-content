@@ -1,6 +1,6 @@
 import { a as apiClient } from "./axiosInstance-BPwdN1IK.js";
-import { s as shouldMockEndpoint, m as mockBusinessPurposes } from "./index-Bf0LqBxT.js";
-import { F as FILE_ENDPOINTS } from "./endpoints-CSCgD8A_.js";
+import { s as shouldMockEndpoint, m as mockBusinessPurposes } from "./index-DtsOMDP2.js";
+import { F as FILE_ENDPOINTS } from "./endpoints-B6EuaDvp.js";
 const uploadedFiles = /* @__PURE__ */ new Map();
 const businessPurposeStore = /* @__PURE__ */ new Map();
 Object.entries(mockBusinessPurposes).forEach(([companyId, purposes]) => {
@@ -54,16 +54,21 @@ class AxiosStrategy {
    */
   async handleFileUploadMock(config) {
     var _a;
-    await this.delay(1e3);
+    await this.delay(1500);
     const formData = config.data;
     const file = formData.get("file");
     if (!file) {
       throw new Error("No file provided");
     }
-    const fileId = `${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
+    const url = config.url || "";
+    const fullUrl = config.baseURL ? `${config.baseURL}${url}` : url;
+    const isSupporting = fullUrl.includes("/files/supporting");
+    const fileTypePrefix = isSupporting ? "supporting" : "receipt";
+    const storagePath = isSupporting ? "supporting" : "receipts";
+    const fileId = `${fileTypePrefix}_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
     const fileExtension = ((_a = file.name.split(".").pop()) == null ? void 0 : _a.toLowerCase()) || "unknown";
     const filename = `${fileId}.${fileExtension}`;
-    const cloudStorageUrl = `https://storage.expensesapp.com/receipts/${filename}`;
+    const cloudStorageUrl = `https://storage.expensesapp.com/${storagePath}/${filename}`;
     const blobUrl = URL.createObjectURL(file);
     const base64Data = await this.fileToBase64(file);
     const uploadedFile = {
@@ -82,13 +87,14 @@ class AxiosStrategy {
       id: fileId,
       url: cloudStorageUrl,
       blobUrl,
+      // Real blob URL for immediate preview
       filename,
       size: file.size,
       type: fileExtension,
       mimeType: file.type,
       uploadedAt: uploadedFile.uploadedAt
     };
-    console.log("✅ Axios Interceptor: File uploaded successfully", { id: fileId, filename });
+    console.log(`✅ Axios Interceptor: ${isSupporting ? "Supporting file" : "Receipt"} uploaded successfully`, { id: fileId, filename, blobUrl });
     const mockResponse = {
       data: { data: response },
       status: 201,

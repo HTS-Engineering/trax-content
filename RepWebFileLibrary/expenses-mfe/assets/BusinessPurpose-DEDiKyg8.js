@@ -5,7 +5,7 @@ import { u as useQueryClient, L as LoadingSpinner } from "./LoadingSpinner-C-M1h
 import { u as useMutation } from "./useMutation-BddyCFSz.js";
 import { a as apiClient } from "./axiosInstance-BPwdN1IK.js";
 import { u as useExpenseStore, o as object, s as string, l as literal, a as useForm, b as a, T as Table2, C as Controller, c as Check, X, P as Pencil, E as EllipsisVertical } from "./schemas-BQdMg9MM.js";
-import { B as BUSINESS_PURPOSE_ENDPOINTS } from "./endpoints-CSCgD8A_.js";
+import { B as BUSINESS_PURPOSE_ENDPOINTS } from "./endpoints-B6EuaDvp.js";
 import { D as De, b as Oo, K as Ka, i as m, l as Xa } from "./createLucideIcon-DHpz6jFt.js";
 import { I as Icon } from "./Icon-CLuFtx_9.js";
 const { useEffect: useEffect$2 } = await importShared("react");

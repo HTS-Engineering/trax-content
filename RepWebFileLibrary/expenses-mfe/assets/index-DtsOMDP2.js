@@ -1,11 +1,11 @@
-import { F as FILE_ENDPOINTS, a as ENDPOINT_REGEX } from "./endpoints-CSCgD8A_.js";
+import { F as FILE_ENDPOINTS, a as ENDPOINT_REGEX } from "./endpoints-B6EuaDvp.js";
 import { e as RouteCompanyIds } from "./routes-BvbgC800.js";
 const MOCKED_ENDPOINT_PATHS = [
   // File upload endpoints - currently mocked (no backend implementation yet)
   FILE_ENDPOINTS.RECEIPTS_UPLOAD,
   FILE_ENDPOINTS.SUPPORTING_UPLOAD,
   // Storage endpoint - currently mocked
-  "https://storage.yourapp.com/receipts"
+  "https://storage.expensesapp.com/receipts"
   // Configuration endpoints - REMOVED from mocks (using real backend)
   // CONFIGURATION_ENDPOINTS.LOGICAL_COMPANIES,  // ✓ Real backend
   // CONFIGURATION_ENDPOINTS.EXPENSE_TYPE_CREATE('*'),  // ✓ Real backend
