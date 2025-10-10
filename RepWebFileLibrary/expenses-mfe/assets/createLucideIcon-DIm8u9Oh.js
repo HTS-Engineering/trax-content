@@ -14480,7 +14480,7 @@ const ht = _.forwardRef(
         // disabled
         "disabled:bg-neutral-10 disabled:border-neutral-40 disabled:opacity-50 disabled:cursor-not-allowed",
         // error (aria-invalid is the cleanest trigger)
-        "aria-invalid:border-trax-red-400 aria-invalid:hover:border-trax-red-600 aria-invalid:focus-visible:border-error-600 aria-invalid:focus-visible:ring-[3px] aria-invalid:focus-visible:ring-[var(--color-trax-red-focus-shadow)]",
+        "aria-invalid:border-trax-red-400 aria-invalid:hover:border-trax-red-600 aria-invalid:focus-visible:border-trax-red-700  aria-invalid:focus-visible:ring-[3px] aria-invalid:focus-visible:ring-[var(--color-trax-red-focus-shadow)] ",
         e
       ),
       ref: r2,

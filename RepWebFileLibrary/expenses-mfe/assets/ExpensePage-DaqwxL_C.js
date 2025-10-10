@@ -1,8 +1,8 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/core-Dbi-QRzc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/_commonjsHelpers-CUmg6egw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
-import { E as ExpensesList } from "./ExpensesList-Bpt4UJ9A.js";
-import { c as createLucideIcon, y as ya, C as Ca, R as Ra, N as Na, F as Fa, _ as _a, D as De, q as qa, h as ha, x as xn, O as Oa, a as Ba, G as Ga, m as ma, b as jo, p as pa, w as wa, B as Bo, d as Oo, e as Go, X as Xo, Y as Yo, J as Ja, Z as Zo, f as Jo, g as ea, Q as Qo } from "./createLucideIcon-BoJdZXkQ.js";
+import { E as ExpensesList } from "./ExpensesList-Xh6VcRDy.js";
+import { c as createLucideIcon, y as ya, C as Ca, R as Ra, N as Na, F as Fa, _ as _a, D as De, q as qa, h as ha, x as xn, O as Oa, a as Ba, G as Ga, m as ma, b as jo, d as Oo, p as pa, w as wa, B as Bo, e as Go, X as Xo, Y as Yo, J as Ja, Z as Zo, f as Jo, g as ea, Q as Qo } from "./createLucideIcon-DIm8u9Oh.js";
 import { I as Icon } from "./Icon-CLuFtx_9.js";
 import { L as LoadingSpinner, u as useQueryClient } from "./LoadingSpinner-C-M1heDl.js";
 import { A as AllowedMimeType, v as validateReceiptFile, g as getSupportedFormatsText, a as generateAcceptAttribute, b as getFilePreviewType, F as FilePreviewType, M as MIME_TYPE_CONFIG } from "./receipt-BjxWsBul.js";
@@ -10,8 +10,8 @@ import { a as apiClient } from "./axiosInstance-BPwdN1IK.js";
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { F as FILE_ENDPOINTS } from "./endpoints-DyuQahSx.js";
 import { C as Controller, o as object, s as string, b as boolean, c as custom, a as array, u as useMutation, d as useForm, e as a } from "./schemas-BbJoaiI5.js";
-import { F as FileText, C as ChartColumn, c as CreditCard, u as useNavigate, f as ChevronRight, a as RoutePaths } from "./routes-B7GpAfQa.js";
-import { S as Send } from "./send-USLwOcmS.js";
+import { F as FileText, C as ChartColumn, c as CreditCard, u as useNavigate, f as ChevronRight, a as RoutePaths } from "./routes-D_bdpp_f.js";
+import { S as Send } from "./send-BFf406_z.js";
 /**
  * @license lucide-react v0.542.0 - ISC
  *
@@ -1578,7 +1578,7 @@ function AffidavitSection({
         name: "affidavit.digitalSignature",
         control,
         render: ({ field }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-          jo,
+          Oo,
           {
             ...field,
             value: field.value || "",
@@ -1587,7 +1587,7 @@ function AffidavitSection({
               const filteredValue = upperValue.replace(/[^A-Z]/g, "").slice(0, 3);
               field.onChange(filteredValue);
             },
-            className: "w-full bg-white border text-md h-11 resize-none placeholder:text-sm placeholder:font-normal placeholder:text-exp-grey-500",
+            className: "w-full bg-white border h-6 resize-none placeholder:font-normal placeholder:text-exp-grey-500 text-md px-2 py-4",
             label: "Digital Signature",
             placeholder: "Enter initials",
             maxLength: 3,

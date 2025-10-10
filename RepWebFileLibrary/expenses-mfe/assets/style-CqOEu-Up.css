@@ -671,10 +671,6 @@
     height: calc(var(--spacing) * 0);
   }
 
-  .h-11 {
-    height: calc(var(--spacing) * 11);
-  }
-
   .h-auto {
     height: auto;
   }
