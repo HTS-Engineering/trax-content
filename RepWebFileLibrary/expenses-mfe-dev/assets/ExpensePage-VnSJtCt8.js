@@ -384,14 +384,12 @@ const validateFileContent = async (file) => {
     const headerSize = 512;
     const arrayBuffer = await file.slice(0, headerSize).arrayBuffer();
     const bytes = new Uint8Array(arrayBuffer);
-    console.log("File content:", bytes);
     let detectedType = null;
     for (const check of fileSignatures) {
       const matches = check.signatures.some((signature) => {
         if (bytes.length < signature.length) return false;
         return signature.every((byte, index) => bytes[index] === byte);
       });
-      matches && console.log("Matched signature:", check.description);
       if (matches) {
         detectedType = check.mimeTypes[0];
         break;
