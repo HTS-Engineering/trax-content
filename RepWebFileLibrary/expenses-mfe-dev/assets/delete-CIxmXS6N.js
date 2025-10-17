@@ -1,0 +1,4 @@
+const _delete = '<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M14 7.83203V16.1654H7.33337V7.83203H14ZM12.75 2.83203H8.58337L7.75004 3.66536H4.83337V5.33203H16.5V3.66536H13.5834L12.75 2.83203ZM15.6667 6.16536H5.66671V16.1654C5.66671 17.082 6.41671 17.832 7.33337 17.832H14C14.9167 17.832 15.6667 17.082 15.6667 16.1654V6.16536Z" fill="currentColor"/>\n</svg>\n';
+export {
+  _delete as default
+};
