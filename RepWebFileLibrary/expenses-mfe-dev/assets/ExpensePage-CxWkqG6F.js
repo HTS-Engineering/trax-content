@@ -9,9 +9,9 @@ import { L as LoadingSpinner, k as useQueryClient, l as useQuery, q as queryKeys
 import { A as AllowedMimeType, v as validateReceiptFile, g as getSupportedFormatsText, a as generateAcceptAttribute, b as getFilePreviewType, F as FilePreviewType, M as MIME_TYPE_CONFIG } from "./receipt-BjxWsBul.js";
 import { a as apiClient } from "./axiosInstance-D83Ho1lg.js";
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
-import { F as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS } from "./endpoints-BdHtwkuO.js";
-import { u as useBusinessPurposes } from "./api-B6cyMCFZ.js";
-import { l as useDefaultCompany, F as FileText, C as ChartColumn, c as CreditCard, u as useNavigate, m as useSearchParams, g as ChevronRight, a as RoutePaths } from "./api-dfECdw7G.js";
+import { F as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS } from "./config-BPfAis3L.js";
+import { u as useBusinessPurposes } from "./api-5zc7MruU.js";
+import { l as useDefaultCompany, F as FileText, C as ChartColumn, c as CreditCard, u as useNavigate, m as useSearchParams, g as ChevronRight, a as RoutePaths } from "./api-DD7FZVDb.js";
 import { T as Trash2, S as Send } from "./trash-2-BDRPQK2n.js";
 /**
  * @license lucide-react v0.542.0 - ISC
@@ -845,7 +845,7 @@ const splitFilename = (filename) => {
   };
 };
 const React$1 = await importShared("react");
-const { useCallback: useCallback$4, useEffect: useEffect$3, useRef: useRef$2, useState: useState$3 } = React$1;
+const { useCallback: useCallback$4, useEffect: useEffect$4, useRef: useRef$3, useState: useState$3 } = React$1;
 function fileName(fileName2) {
   const { name, ext } = splitFilename(fileName2);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
@@ -928,7 +928,7 @@ function SupportingFiles({
   disabled = false,
   className = ""
 }) {
-  const fileInputRef = useRef$2(null);
+  const fileInputRef = useRef$3(null);
   const [state, setState] = useState$3({
     attachments: initialFiles,
     isUploading: false,
@@ -939,8 +939,8 @@ function SupportingFiles({
     fileIndex: null,
     isDeleting: false
   });
-  const blobUrlsRef = useRef$2(/* @__PURE__ */ new Set());
-  useEffect$3(() => {
+  const blobUrlsRef = useRef$3(/* @__PURE__ */ new Set());
+  useEffect$4(() => {
     return () => {
       blobUrlsRef.current.forEach((url) => {
         try {
@@ -1235,7 +1235,7 @@ function SupportingFiles({
   ] });
 }
 const React = await importShared("react");
-const { useCallback: useCallback$3, useEffect: useEffect$2, useRef: useRef$1, useState: useState$2 } = React;
+const { useCallback: useCallback$3, useEffect: useEffect$3, useRef: useRef$2, useState: useState$2 } = React;
 const ReceiptUpload = ({
   onReceiptChange,
   onUploadingChange,
@@ -1243,7 +1243,7 @@ const ReceiptUpload = ({
   disabled = false,
   className = ""
 }) => {
-  const fileInputRef = useRef$1(null);
+  const fileInputRef = useRef$2(null);
   const [uploadState, setUploadState] = useState$2({
     attachment: initialReceipt,
     isUploading: false,
@@ -1253,8 +1253,8 @@ const ReceiptUpload = ({
   const [_uploadProgress, setUploadProgress] = useState$2(0);
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState$2(false);
   const [isDeleting, setIsDeleting] = useState$2(false);
-  const blobUrlsRef = useRef$1(/* @__PURE__ */ new Set());
-  useEffect$2(() => {
+  const blobUrlsRef = useRef$2(/* @__PURE__ */ new Set());
+  useEffect$3(() => {
     return () => {
       blobUrlsRef.current.forEach((url) => {
         try {
@@ -1540,8 +1540,11 @@ function AffidavitSection({
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
             jo,
             {
-              ...field,
+              name: field.name,
+              ref: field.ref,
+              onBlur: field.onBlur,
               value: field.value || "",
+              onChange: field.onChange,
               onInput: (e) => {
                 const el = e.currentTarget;
                 el.style.height = "auto";
@@ -1571,14 +1574,16 @@ function AffidavitSection({
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
             Ao,
             {
-              ...field,
+              name: field.name,
+              ref: field.ref,
+              onBlur: field.onBlur,
               value: field.value || "",
               onChange: (e) => {
                 const upperValue = e.target.value.toUpperCase();
                 const filteredValue = upperValue.replace(/[^A-Z]/g, "").slice(0, 3);
                 field.onChange(filteredValue);
               },
-              className: "w-full bg-white border h-6 resize-none placeholder:font-normal placeholder:text-exp-grey-500 text-md px-2 py-4",
+              className: "w-full !text-sm bg-white border h-6 resize-none placeholder:font-normal placeholder:text-exp-grey-500 text-md px-2 py-4",
               label: "Digital Signature",
               placeholder: "Enter initials",
               maxLength: 3,
@@ -1832,14 +1837,16 @@ const canSaveDraft = (data) => {
   const hasFieldValue = fields.some(
     (field) => data[field] && String(data[field]).trim().length > 0
   );
-  const hasFiles = !!(data.receiptAttachment || data.supportingFiles && data.supportingFiles.length > 0 || ((_b = (_a2 = data.affidavit) == null ? void 0 : _a2.justification) == null ? void 0 : _b.trim()) || ((_d = (_c = data.affidavit) == null ? void 0 : _c.digitalSignature) == null ? void 0 : _d.trim()));
-  return hasFieldValue || hasFiles;
+  const hasAffidavitData = !!(((_b = (_a2 = data.affidavit) == null ? void 0 : _a2.justification) == null ? void 0 : _b.trim()) || ((_d = (_c = data.affidavit) == null ? void 0 : _c.digitalSignature) == null ? void 0 : _d.trim()));
+  const hasFiles = !!(data.receiptAttachment || data.supportingFiles && data.supportingFiles.length > 0);
+  return hasFieldValue || hasFiles || hasAffidavitData;
 };
-const { useCallback: useCallback$2, useMemo: useMemo$1 } = await importShared("react");
+const { useCallback: useCallback$2, useMemo: useMemo$1, useEffect: useEffect$2, useRef: useRef$1 } = await importShared("react");
 const useFullExpenseForm = ({
   initialData,
   onSubmit,
   onSaveDraft,
+  onDraftSaved,
   isSubmitting = false,
   isDrafting = false
 }) => {
@@ -1883,6 +1890,15 @@ const useFullExpenseForm = ({
     setError
   } = form;
   const formData = watch();
+  const prevIsDraftingRef = useRef$1(isDrafting);
+  useEffect$2(() => {
+    if (prevIsDraftingRef.current === true && isDrafting === false) {
+      const currentValues = getValues();
+      reset(currentValues, { keepValues: true, keepDirty: false });
+      onDraftSaved == null ? void 0 : onDraftSaved();
+    }
+    prevIsDraftingRef.current = isDrafting;
+  }, [isDrafting, getValues, reset, onDraftSaved]);
   const requiredFieldsFilled = useMemo$1(
     () => areRequiredFieldsFilled(formData),
     [formData]
@@ -2002,21 +2018,23 @@ const useFullExpenseForm = ({
     };
   }, [requiredFieldsFilled, hasErrors, isSubmitting]);
   const getSaveDraftButtonState = useCallback$2(() => {
+    if (isDrafting) {
+      return { disabled: true };
+    }
     if (!canSave) {
       return {
         disabled: true,
         tooltip: "Cannot save empty draft"
       };
     }
-    if (isDrafting) {
+    if (!isDirty) {
       return {
-        disabled: true
+        disabled: true,
+        tooltip: "All changes are saved"
       };
     }
-    return {
-      disabled: false
-    };
-  }, [canSave, isDrafting]);
+    return { disabled: false };
+  }, [isDrafting, canSave, isDirty]);
   const resetForm = useCallback$2(() => {
     reset(defaultValues);
   }, [reset, defaultValues]);
@@ -2050,7 +2068,9 @@ const { forwardRef, useCallback: useCallback$1, useEffect: useEffect$1, useImper
 const ExpenseForm = forwardRef(({
   onSubmit,
   onSaveDraft,
+  onDraftSaved,
   initialData,
+  draftId,
   isSubmitting = false,
   isDrafting = false,
   onButtonStateChange
@@ -2060,6 +2080,7 @@ const ExpenseForm = forwardRef(({
     initialData,
     onSubmit,
     onSaveDraft,
+    onDraftSaved,
     isSubmitting,
     isDrafting
   });
@@ -2075,26 +2096,34 @@ const ExpenseForm = forwardRef(({
       const draftState = fullForm.getSaveDraftButtonState();
       onButtonStateChange(submitState, draftState);
     }
-  }, [onButtonStateChange, formState.isDirty, formState.isValid, fullForm.requiredFieldsFilled, fullForm.hasErrors]);
+  }, [onButtonStateChange, formState.isDirty, formState.isValid, fullForm.requiredFieldsFilled, fullForm.hasErrors, fullForm.canSave, isSubmitting, isDrafting]);
   const handleReceiptChange = useCallback$1((attachment) => {
-    setValue("receiptAttachment", attachment || null, { shouldValidate: true, shouldDirty: true });
+    setValue("receiptAttachment", attachment || null, { shouldValidate: true, shouldDirty: false });
     if (attachment) {
       setValue("isReceiptUnavailable", false, { shouldValidate: false });
       setValue("affidavit", null, { shouldValidate: false });
+      if (!draftId && onSaveDraft && !isDrafting) {
+        const currentData = fullForm.getValues();
+        onSaveDraft(currentData);
+      }
     }
-  }, [setValue]);
+  }, [setValue, draftId, onSaveDraft, isDrafting, fullForm]);
   const handleReceiptUnavailableChange = useCallback$1((checked) => {
     setValue("isReceiptUnavailable", checked, { shouldValidate: true, shouldDirty: true });
     if (checked) {
-      setValue("receiptAttachment", null, { shouldValidate: false });
+      setValue("receiptAttachment", null, { shouldValidate: false, shouldDirty: false });
       setValue("affidavit", { justification: "", digitalSignature: "" }, { shouldValidate: false });
     } else {
       setValue("affidavit", null, { shouldValidate: false });
     }
   }, [setValue]);
   const handleSupportingFilesChange = useCallback$1((attachments) => {
-    setValue("supportingFiles", attachments, { shouldValidate: true, shouldDirty: true });
-  }, [setValue]);
+    setValue("supportingFiles", attachments, { shouldValidate: true, shouldDirty: false });
+    if (!draftId && attachments.length > 0 && onSaveDraft && !isDrafting) {
+      const currentData = fullForm.getValues();
+      onSaveDraft(currentData);
+    }
+  }, [setValue, draftId, onSaveDraft, isDrafting, fullForm]);
   const shouldShowReceiptCheckbox = useMemo(() => {
     return !formValues.receiptAttachment && !isReceiptUploading;
   }, [formValues.receiptAttachment, isReceiptUploading]);
@@ -2503,14 +2532,10 @@ const useSaveExpenseDraft = () => {
   return useMutation({
     mutationFn: async ({ data, draftId }) => {
       await simulateApiDelay(600);
-      try {
-        const endpoint = draftId ? EXPENSE_ENDPOINTS.UPDATE_DRAFT(draftId) : EXPENSE_ENDPOINTS.SAVE_DRAFT;
-        const method = draftId ? "put" : "post";
-        const response = await apiClient[method](endpoint, { data });
-        return response.data;
-      } catch (error) {
-        throw error;
-      }
+      const endpoint = draftId ? EXPENSE_ENDPOINTS.UPDATE_DRAFT(draftId) : EXPENSE_ENDPOINTS.SAVE_DRAFT;
+      const method = draftId ? "put" : "post";
+      const response = await apiClient[method](endpoint, { data });
+      return response.data;
     },
     onSuccess: (savedDraft) => {
       queryClient.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
@@ -2532,15 +2557,11 @@ const useSubmitExpense = () => {
   return useMutation({
     mutationFn: async ({ data }) => {
       await simulateApiDelay(1e3);
-      try {
-        const response = await apiClient.post(
-          EXPENSE_ENDPOINTS.SUBMIT_EXPENSE,
-          { data }
-        );
-        return response.data;
-      } catch (error) {
-        throw error;
-      }
+      const response = await apiClient.post(
+        EXPENSE_ENDPOINTS.SUBMIT_EXPENSE,
+        { data }
+      );
+      return response.data;
     },
     onSuccess: (submittedExpense) => {
       queryClient.invalidateQueries({ queryKey: queryKeys.expenses.all() });
@@ -2621,8 +2642,7 @@ const NewExpensePage = () => {
   useEffect(() => {
     if (existingDraft) {
       const vendor = existingDraft.data.vendor || "New Expense";
-      const date = existingDraft.data.expenseDate ? new Date(existingDraft.data.expenseDate).toLocaleDateString() : "";
-      setExpenseTitle(`${vendor}${date ? ` - ${date}` : ""}`);
+      setExpenseTitle(vendor);
       setExpenseStatus("draft");
     }
   }, [existingDraft]);
@@ -2647,8 +2667,7 @@ const NewExpensePage = () => {
         setExpenseStatus("draft");
       }
       const vendor = data.vendor || "New Expense";
-      const date = data.expenseDate ? new Date(data.expenseDate).toLocaleDateString() : "";
-      setExpenseTitle(`${vendor}${date ? ` - ${date}` : ""}`);
+      setExpenseTitle(vendor);
     } catch (error) {
       console.error("Failed to save draft:", error);
     }
@@ -2698,15 +2717,26 @@ const NewExpensePage = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "receipt" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Ja, { open: true, onOpenChange: handleOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Zo, { className: "max-w-5xl max-h-[90vh] h-full overflow-hidden flex flex-col", onPointerDownOutside: (e) => handleOverlayClick(e), children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Jo, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-2 relative", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(ea, { className: "text-exp-neutral-950", children: expenseTitle }),
-          expenseStatus === "draft" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded-md", children: "DRAFT" }),
-          currentDraftId && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-gray-500", children: [
-            "ID: ",
-            currentDraftId
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-7 top-[-24px] flex flex-nowrap", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start gap-1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center justify-center gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ea, { className: "text-exp-neutral-900 text-xl font-bold", children: expenseTitle }),
+            (existingDraft == null ? void 0 : existingDraft.data.totalAmount) && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-base font-medium text-exp-neutral-900", children: [
+              "$",
+              existingDraft.data.totalAmount
+            ] }),
+            expenseStatus === "draft" && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "px-2.5 py-0.5 bg-exp-yellow-200 text-exp-yellow-900 text-sm font-medium rounded-20", children: "DRAFT" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-nowrap items-center justify-center gap-2", children: currentDraftId && existingDraft && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs font-normal text-exp-neutral-300", children: [
+            currentDraftId,
+            " • Created on ",
+            new Date(existingDraft.createdAt).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+              year: "numeric"
+            })
+          ] }) })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute right-7 top-[-38px] flex flex-nowrap", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(De, { variant: "outlined", iconPosition: "center", className: "text-exp-neutral-70 hover:text-exp-neutral-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "size-5" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(De, { variant: "outlined", iconPosition: "center", className: "text-exp-neutral-70 hover:text-exp-neutral-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "size-5" }) })
         ] }) })
@@ -2718,7 +2748,10 @@ const NewExpensePage = () => {
             ref: expenseFormRef,
             onSubmit: handleSubmit,
             onSaveDraft: handleSaveDraft,
+            onDraftSaved: () => {
+            },
             initialData: existingDraft == null ? void 0 : existingDraft.data,
+            draftId: currentDraftId,
             isSubmitting: submitExpenseMutation.isPending,
             isDrafting: saveDraftMutation.isPending,
             onButtonStateChange: handleButtonStateChange
@@ -2751,10 +2784,13 @@ const NewExpensePage = () => {
                   variant: "outlined",
                   onClick: handleSaveDraftClick,
                   disabled: saveDraftButtonState.disabled,
-                  children: saveDraftMutation.isPending ? "Saving..." : "Save Draft"
+                  children: saveDraftMutation.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, { className: "size-4" }),
+                    "Save Draft"
+                  ] }) : "Save Draft"
                 }
               ) }) }),
-              saveDraftButtonState.tooltip && /* @__PURE__ */ jsxRuntimeExports.jsx(Ga, { children: saveDraftButtonState.tooltip })
+              saveDraftButtonState.tooltip && /* @__PURE__ */ jsxRuntimeExports.jsx(Ga, { variant: "light", size: "sm", side: "bottom", showArrow: false, children: saveDraftButtonState.tooltip })
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs(Aa, { children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(Ba, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(

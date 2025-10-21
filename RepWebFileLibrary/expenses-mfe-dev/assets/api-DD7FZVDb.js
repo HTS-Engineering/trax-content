@@ -2,7 +2,7 @@ import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import { c as createLucideIcon } from "./createLucideIcon-D0_eAq0F.js";
 import { u as useCompanyStore, l as useQuery, q as queryKeys } from "./LoadingSpinner-DqE6Gge9.js";
 import { a as apiClient } from "./axiosInstance-D83Ho1lg.js";
-import { C as CONFIGURATION_ENDPOINTS, B as BUSINESS_PURPOSE_ENDPOINTS } from "./endpoints-BdHtwkuO.js";
+import { C as CONFIGURATION_ENDPOINTS, B as BUSINESS_PURPOSE_ENDPOINTS } from "./config-BPfAis3L.js";
 /**
  * react-router v7.9.4
  *
@@ -6517,7 +6517,7 @@ class ConfigurationApiService {
 const configurationApi = new ConfigurationApiService();
 const { useEffect } = await importShared("react");
 const mapToLogicalCompany = (apiCompany) => ({
-  id: apiCompany.Id.toString(),
+  id: apiCompany.LogicalCompanyShortName,
   name: apiCompany.LogicalCompanyName,
   shortName: apiCompany.LogicalCompanyShortName
 });
@@ -6530,9 +6530,7 @@ const useCompanies = () => {
       return data.map(mapToLogicalCompany);
     },
     staleTime: 5 * 60 * 1e3,
-    // 5 minutes
     gcTime: 10 * 60 * 1e3
-    // 10 minutes
   });
   useEffect(() => {
     setLoading(query.isLoading);

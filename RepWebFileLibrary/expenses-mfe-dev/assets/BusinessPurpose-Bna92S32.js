@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-DLKWXVrv.js";
 import { importShared } from "./__federation_fn_import-DlFISMuz.js";
-import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, u as useBusinessPurposes } from "./api-B6cyMCFZ.js";
+import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, u as useBusinessPurposes } from "./api-5zc7MruU.js";
 import { u as useCompanyStore, L as LoadingSpinner } from "./LoadingSpinner-DqE6Gge9.js";
 import { D as De, d as Ao, K as Ka, i as m, l as Xa } from "./createLucideIcon-D0_eAq0F.js";
 import { o as object, s as string, l as literal, u as useForm, d as a, C as Controller } from "./schemas-DZYP4uWY.js";
@@ -222,11 +222,11 @@ const useBusinessPurposeTableState = (companyId) => {
   };
 };
 const { useCallback: useCallback$1 } = await importShared("react");
-const useBusinessPurposeOperations = (companyId, onSuccess) => {
+const useBusinessPurposeOperations = (companyShortName, onSuccess) => {
   const createMutation = useCreateBusinessPurpose();
   const updateMutation = useUpdateBusinessPurpose();
   const handleCreate = useCallback$1(async (data) => {
-    if (!companyId) return;
+    if (!companyShortName) return;
     try {
       const newBP = {
         businessPurpose: data.businessPurpose.trim(),
@@ -234,15 +234,15 @@ const useBusinessPurposeOperations = (companyId, onSuccess) => {
         isActive: true,
         created: /* @__PURE__ */ new Date()
       };
-      await createMutation.mutateAsync({ companyId, data: newBP });
+      await createMutation.mutateAsync({ companyShortName, data: newBP });
       onSuccess == null ? void 0 : onSuccess();
     } catch (err) {
       console.error("Failed to create business purpose:", err);
       throw err;
     }
-  }, [companyId, createMutation, onSuccess]);
+  }, [companyShortName, createMutation, onSuccess]);
   const handleUpdate = useCallback$1(async (id, data, originalData) => {
-    if (!companyId) return;
+    if (!companyShortName) return;
     try {
       const updatedBP = {};
       if (!originalData || data.businessPurpose.trim() !== originalData.businessPurpose) {
@@ -252,13 +252,13 @@ const useBusinessPurposeOperations = (companyId, onSuccess) => {
         updatedBP.description = data.description || void 0;
       }
       updatedBP.modified = /* @__PURE__ */ new Date();
-      await updateMutation.mutateAsync({ id, companyId, data: updatedBP });
+      await updateMutation.mutateAsync({ id, companyShortName, data: updatedBP });
       onSuccess == null ? void 0 : onSuccess();
     } catch (err) {
       console.error("Failed to update business purpose:", err);
       throw err;
     }
-  }, [companyId, updateMutation, onSuccess]);
+  }, [companyShortName, updateMutation, onSuccess]);
   return {
     handleCreate,
     handleUpdate,

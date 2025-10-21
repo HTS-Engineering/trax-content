@@ -1,7 +1,7 @@
 import { a as apiClient } from "./axiosInstance-D83Ho1lg.js";
-import { s as shouldMockEndpoint } from "./config-DiJvyD-y.js";
-import { e as RouteCompanyIds } from "./api-dfECdw7G.js";
-import { F as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS } from "./endpoints-BdHtwkuO.js";
+import { s as shouldMockEndpoint, F as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS } from "./config-BPfAis3L.js";
+import { e as RouteCompanyIds } from "./api-DD7FZVDb.js";
+import { s as shouldSimulateError, c as createAxiosError } from "./errorSimulation-OB8hixeM.js";
 const mockBusinessPurposes = {
   // Real backend company IDs (from logical-companies API)
   "htson": [
@@ -630,8 +630,14 @@ class AxiosStrategy {
    */
   async handleExpenseDraftCreateMock(config) {
     await this.delay(600);
+    if (shouldSimulateError(EXPENSE_ENDPOINTS.SAVE_DRAFT)) {
+      const error = createAxiosError();
+      console.log("❌ Axios Interceptor: Simulating error for Save Draft", error.response);
+      config.adapter = () => Promise.reject(error);
+      return config;
+    }
     const body = config.data;
-    const draftId = `draft-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const draftId = `draft-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const draft = {
       id: draftId,
       status: "draft",
@@ -668,6 +674,12 @@ class AxiosStrategy {
         config
       };
       config.adapter = () => Promise.reject({ response: mockResponse2 });
+      return config;
+    }
+    if (shouldSimulateError(`${EXPENSE_ENDPOINTS.SAVE_DRAFT}/${draftId}`)) {
+      const error = createAxiosError();
+      console.log("❌ Axios Interceptor: Simulating error for Update Draft", error.response);
+      config.adapter = () => Promise.reject(error);
       return config;
     }
     const existingDraft = expenseDrafts.get(draftId);
@@ -804,8 +816,14 @@ class AxiosStrategy {
    */
   async handleExpenseSubmitMock(config) {
     await this.delay(1e3);
+    if (shouldSimulateError(EXPENSE_ENDPOINTS.SUBMIT_EXPENSE)) {
+      const error = createAxiosError();
+      console.log("❌ Axios Interceptor: Simulating error for Submit Expense", error.response);
+      config.adapter = () => Promise.reject(error);
+      return config;
+    }
     const body = config.data;
-    const expenseId = `expense-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const expenseId = `expense-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const expense = {
       id: expenseId,
       status: "submitted",

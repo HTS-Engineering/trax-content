@@ -2,7 +2,7 @@ import { importShared } from "./__federation_fn_import-DlFISMuz.js";
 import { l as useQuery, q as queryKeys, k as useQueryClient } from "./LoadingSpinner-DqE6Gge9.js";
 import { f as useExpenseStore, e as useMutation } from "./schemas-DZYP4uWY.js";
 import { a as apiClient } from "./axiosInstance-D83Ho1lg.js";
-import { B as BUSINESS_PURPOSE_ENDPOINTS } from "./endpoints-BdHtwkuO.js";
+import { B as BUSINESS_PURPOSE_ENDPOINTS } from "./config-BPfAis3L.js";
 const { useEffect } = await importShared("react");
 const mapToBusinessPurpose = (apiData) => {
   return {
@@ -15,20 +15,20 @@ const mapToBusinessPurpose = (apiData) => {
     modified: apiData.UpdatedDate ? new Date(apiData.UpdatedDate) : new Date(apiData.CreatedDate)
   };
 };
-const useBusinessPurposes = (companyId, includeInactive = false) => {
+const useBusinessPurposes = (companyShortName, includeInactive = false) => {
   const { setBusinessPurposes, setLoadingBusinessPurposes, setBusinessPurposesError } = useExpenseStore();
   const query = useQuery({
-    queryKey: companyId ? queryKeys.businessPurposes.list(companyId, includeInactive) : queryKeys.businessPurposes.lists(),
+    queryKey: companyShortName ? queryKeys.businessPurposes.list(companyShortName, includeInactive) : queryKeys.businessPurposes.lists(),
     queryFn: async () => {
-      if (!companyId) throw new Error("Company ID is required");
+      if (!companyShortName) throw new Error("Company short name is required");
       const params = includeInactive ? { show_inactive: true } : {};
       const response = await apiClient.get(
-        BUSINESS_PURPOSE_ENDPOINTS.BUSINESS_PURPOSES(companyId),
+        BUSINESS_PURPOSE_ENDPOINTS.BUSINESS_PURPOSES(companyShortName),
         { params }
       );
       return response.data.map(mapToBusinessPurpose);
     },
-    enabled: !!companyId,
+    enabled: !!companyShortName,
     staleTime: 3 * 60 * 1e3
   });
   useEffect(() => {
@@ -53,14 +53,14 @@ const useCreateBusinessPurpose = () => {
   const queryClient = useQueryClient();
   const { addBusinessPurpose } = useExpenseStore();
   return useMutation({
-    mutationFn: async ({ companyId, data }) => {
+    mutationFn: async ({ companyShortName, data }) => {
       const apiData = {
         BusinessPurposeName: data.businessPurpose || "",
         BusinessPurposeDescription: data.description || "",
         CreatedBy: getCurrentUser()
       };
       const response = await apiClient.post(
-        BUSINESS_PURPOSE_ENDPOINTS.BUSINESS_PURPOSE_CREATE(companyId),
+        BUSINESS_PURPOSE_ENDPOINTS.BUSINESS_PURPOSE_CREATE(companyShortName),
         apiData
       );
       return mapToBusinessPurpose(response.data);
@@ -75,7 +75,7 @@ const useUpdateBusinessPurpose = () => {
   const queryClient = useQueryClient();
   const { updateBusinessPurpose } = useExpenseStore();
   return useMutation({
-    mutationFn: async ({ id, companyId, data }) => {
+    mutationFn: async ({ id, companyShortName, data }) => {
       var _a;
       const apiData = {
         Id: parseInt(id),
@@ -92,13 +92,13 @@ const useUpdateBusinessPurpose = () => {
       }
       console.log("UPDATE Business Purpose payload:", apiData);
       const response = await apiClient.put(
-        BUSINESS_PURPOSE_ENDPOINTS.BUSINESS_PURPOSE_UPDATE(companyId),
+        BUSINESS_PURPOSE_ENDPOINTS.BUSINESS_PURPOSE_UPDATE(companyShortName),
         apiData
       );
       return mapToBusinessPurpose(response.data);
     },
-    onMutate: async ({ id, companyId, data }) => {
-      const queryKey = queryKeys.businessPurposes.list(companyId);
+    onMutate: async ({ id, companyShortName, data }) => {
+      const queryKey = queryKeys.businessPurposes.list(companyShortName);
       await queryClient.cancelQueries({ queryKey });
       const previousData = queryClient.getQueryData(queryKey);
       queryClient.setQueryData(queryKey, (old) => {
@@ -107,12 +107,12 @@ const useUpdateBusinessPurpose = () => {
           (bp) => bp.id === id ? { ...bp, ...data, modified: /* @__PURE__ */ new Date() } : bp
         );
       });
-      return { previousData, companyId };
+      return { previousData, companyShortName };
     },
     onError: (_err, _variables, context) => {
-      if ((context == null ? void 0 : context.previousData) && (context == null ? void 0 : context.companyId)) {
+      if ((context == null ? void 0 : context.previousData) && (context == null ? void 0 : context.companyShortName)) {
         queryClient.setQueryData(
-          queryKeys.businessPurposes.list(context.companyId),
+          queryKeys.businessPurposes.list(context.companyShortName),
           context.previousData
         );
       }
@@ -120,7 +120,7 @@ const useUpdateBusinessPurpose = () => {
     onSuccess: (updatedBusinessPurpose, variables) => {
       updateBusinessPurpose(updatedBusinessPurpose.id, updatedBusinessPurpose);
       queryClient.invalidateQueries({
-        queryKey: queryKeys.businessPurposes.list(variables.companyId)
+        queryKey: queryKeys.businessPurposes.list(variables.companyShortName)
       });
     }
   });

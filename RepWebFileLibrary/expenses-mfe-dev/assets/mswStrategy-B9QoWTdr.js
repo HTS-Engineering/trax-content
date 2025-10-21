@@ -1,6 +1,6 @@
 import { A as AllowedMimeType, M as MIME_TYPE_CONFIG } from "./receipt-BjxWsBul.js";
-import { a as ENDPOINT_PATTERNS } from "./endpoints-BdHtwkuO.js";
-import { s as shouldMockEndpoint } from "./config-DiJvyD-y.js";
+import { a as ENDPOINT_PATTERNS, s as shouldMockEndpoint } from "./config-BPfAis3L.js";
+import { s as shouldSimulateError, g as generateMockError } from "./errorSimulation-OB8hixeM.js";
 function isObject$1(value) {
   return value != null && typeof value === "object" && !Array.isArray(value);
 }
@@ -9825,12 +9825,20 @@ const fileHandlers = [
 const expenseDrafts = /* @__PURE__ */ new Map();
 const submittedExpenses = /* @__PURE__ */ new Map();
 const expenseHandlers = [
-  // Save expense draft
   http.post(ENDPOINT_PATTERNS.EXPENSES_DRAFTS, async ({ request }) => {
     await delay(600);
+    const endpoint = new URL(request.url).pathname;
+    if (shouldSimulateError(endpoint)) {
+      const mockError = generateMockError();
+      console.log("❌ MSW: Simulating error for Save Draft", mockError);
+      return HttpResponse.json(
+        { error: mockError.message, code: mockError.code, timestamp: mockError.timestamp },
+        { status: mockError.status, statusText: mockError.statusText }
+      );
+    }
     try {
       const body = await request.json();
-      const draftId = `draft-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      const draftId = `draft-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
       const draft = {
         id: draftId,
         status: "draft",
@@ -9848,9 +9856,17 @@ const expenseHandlers = [
       );
     }
   }),
-  // Update expense draft
   http.put(ENDPOINT_PATTERNS.EXPENSES_DRAFT_BY_ID, async ({ request, params }) => {
     await delay(600);
+    const endpoint = new URL(request.url).pathname;
+    if (shouldSimulateError(endpoint)) {
+      const mockError = generateMockError();
+      console.log("❌ MSW: Simulating error for Update Draft", mockError);
+      return HttpResponse.json(
+        { error: mockError.message, code: mockError.code, timestamp: mockError.timestamp },
+        { status: mockError.status, statusText: mockError.statusText }
+      );
+    }
     try {
       const draftId = params.id;
       const body = await request.json();
@@ -9875,7 +9891,6 @@ const expenseHandlers = [
       );
     }
   }),
-  // Get expense draft by ID
   http.get(ENDPOINT_PATTERNS.EXPENSES_DRAFT_BY_ID, async ({ params }) => {
     await delay(300);
     const draftId = params.id;
@@ -9888,7 +9903,6 @@ const expenseHandlers = [
     }
     return HttpResponse.json(draft, { status: 200 });
   }),
-  // Get all expense drafts
   http.get(ENDPOINT_PATTERNS.EXPENSES_DRAFTS, async () => {
     await delay(300);
     const drafts = Array.from(expenseDrafts.values()).sort(
@@ -9896,7 +9910,6 @@ const expenseHandlers = [
     );
     return HttpResponse.json(drafts, { status: 200 });
   }),
-  // Delete expense draft
   http.delete(ENDPOINT_PATTERNS.EXPENSES_DRAFT_BY_ID, async ({ params }) => {
     await delay(500);
     const draftId = params.id;
@@ -9912,12 +9925,20 @@ const expenseHandlers = [
       { status: 200 }
     );
   }),
-  // Submit expense
   http.post(ENDPOINT_PATTERNS.EXPENSES_SUBMIT, async ({ request }) => {
     await delay(1e3);
+    const endpoint = new URL(request.url).pathname;
+    if (shouldSimulateError(endpoint)) {
+      const mockError = generateMockError();
+      console.log("❌ MSW: Simulating error for Submit Expense", mockError);
+      return HttpResponse.json(
+        { error: mockError.message, code: mockError.code, timestamp: mockError.timestamp },
+        { status: mockError.status, statusText: mockError.statusText }
+      );
+    }
     try {
       const body = await request.json();
-      const expenseId = `expense-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      const expenseId = `expense-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
       const expense = {
         id: expenseId,
         status: "submitted",
@@ -9936,7 +9957,6 @@ const expenseHandlers = [
       );
     }
   }),
-  // Get all submitted expenses
   http.get(ENDPOINT_PATTERNS.EXPENSES_LIST, async () => {
     await delay(300);
     const expenses = Array.from(submittedExpenses.values()).sort(
@@ -9944,7 +9964,6 @@ const expenseHandlers = [
     );
     return HttpResponse.json(expenses, { status: 200 });
   }),
-  // Get expense by ID
   http.get(ENDPOINT_PATTERNS.EXPENSE_BY_ID, async ({ params }) => {
     await delay(300);
     const expenseId = params.id;
