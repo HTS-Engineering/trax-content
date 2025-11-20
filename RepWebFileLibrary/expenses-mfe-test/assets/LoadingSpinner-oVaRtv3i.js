@@ -1,7 +1,7 @@
 import { c as createLucideIcon } from "./createLucideIcon-CJLbBnZK.js";
 import { importShared } from "./__federation_fn_import-DD1J_cWq.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-CzdF90_e.js";
-import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-S46OOVwd.js";
+import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-4lu4Zxe-.js";
 const __iconNode = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]

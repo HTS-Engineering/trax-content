@@ -3,7 +3,7 @@ const exportSet = /* @__PURE__ */ new Set(["Module", "__esModule", "default", "_
 let moduleMap = {
   "./mount": () => {
     dynamicLoadingCss(["style-DAyU0sSY.css"], false, "./mount");
-    return __federation_import("./assets/__federation_expose_Mount-CAZ6yL6x.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    return __federation_import("./assets/__federation_expose_Mount-DEO6Y38x.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
   }
 };
 const seen = {};

@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-DD1J_cWq.js";
-import { S as Subscribable, t as shallowEqualObjects, i as hashKey, v as getDefaultState, n as notifyManager, k as useQueryClient, c as noop, w as shouldThrowError } from "./LoadingSpinner-D17ddbit.js";
-import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-S46OOVwd.js";
+import { S as Subscribable, t as shallowEqualObjects, i as hashKey, v as getDefaultState, n as notifyManager, k as useQueryClient, c as noop, w as shouldThrowError } from "./LoadingSpinner-oVaRtv3i.js";
+import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-4lu4Zxe-.js";
 var MutationObserver = class extends Subscribable {
   #client;
   #currentResult = void 0;

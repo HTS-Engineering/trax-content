@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-DD1J_cWq.js";
-import { u as useCompanyStore, l as useQuery, q as queryKeys } from "./LoadingSpinner-D17ddbit.js";
-import { a as apiClient } from "./axiosInstance-S46OOVwd.js";
+import { u as useCompanyStore, l as useQuery, q as queryKeys } from "./LoadingSpinner-oVaRtv3i.js";
+import { a as apiClient } from "./axiosInstance-4lu4Zxe-.js";
 import { C as CONFIGURATION_ENDPOINTS, B as BUSINESS_PURPOSE_ENDPOINTS } from "./config-BOIMHUBa.js";
 class ConfigurationApiService {
   async getLogicalCompanies() {
