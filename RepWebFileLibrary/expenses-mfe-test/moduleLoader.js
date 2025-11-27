@@ -108,7 +108,7 @@
       }
       
       console.log('✅ Container found, base path:', basePath);
-      
+
       addScopingClass(container);
       
       const manifest = await loadManifest(basePath);
