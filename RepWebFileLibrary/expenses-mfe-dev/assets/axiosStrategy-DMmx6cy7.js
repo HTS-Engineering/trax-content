@@ -347,6 +347,9 @@ class AxiosStrategy {
         if (fullUrl.match(/\/api\/v1\.0\/expenses\/[^/]+$/) && config.method === "get") {
           return this.handleExpenseGetMock(config, fullUrl);
         }
+        if (fullUrl.match(/\/api\/v1\.0\/expense\/[^/]+$/) && config.method === "get") {
+          return this.handleExpenseByIdUnifiedMock(config, fullUrl);
+        }
         if (fullUrl.includes(MILEAGE_ENDPOINTS.SAVE_DRAFT) && config.method === "post") {
           return this.handleMileageDraftCreateMock(config);
         }
@@ -906,7 +909,7 @@ class AxiosStrategy {
     return config;
   }
   /**
-   * Handle Expense GET mock
+   * Handle Expense GET mock (submitted only - legacy endpoint)
    */
   async handleExpenseGetMock(config, fullUrl) {
     await this.delay(300);
@@ -943,6 +946,62 @@ class AxiosStrategy {
       config
     };
     config.adapter = () => Promise.resolve(mockResponse);
+    return config;
+  }
+  /**
+   * Handle unified expense GET mock (searches both drafts and submitted)
+   * Endpoint: /api/v1.0/expense/:id (singular)
+   */
+  async handleExpenseByIdUnifiedMock(config, fullUrl) {
+    await this.delay(300);
+    const match = fullUrl.match(/\/expense\/([^/]+)$/);
+    const expenseId = match ? match[1] : null;
+    if (!expenseId) {
+      const mockResponse2 = {
+        data: { error: "Invalid expense ID" },
+        status: 400,
+        statusText: "Bad Request",
+        headers: {},
+        config
+      };
+      config.adapter = () => Promise.reject({ response: mockResponse2 });
+      return config;
+    }
+    const draft = expenseDrafts.get(expenseId);
+    if (draft) {
+      console.log("✅ Axios Interceptor: Expense found in drafts", { id: expenseId });
+      const mockResponse2 = {
+        data: draft,
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        config
+      };
+      config.adapter = () => Promise.resolve(mockResponse2);
+      return config;
+    }
+    const expense = submittedExpenses.get(expenseId);
+    if (expense) {
+      console.log("✅ Axios Interceptor: Expense found in submitted", { id: expenseId });
+      const mockResponse2 = {
+        data: expense,
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        config
+      };
+      config.adapter = () => Promise.resolve(mockResponse2);
+      return config;
+    }
+    console.log("❌ Axios Interceptor: Expense not found", { id: expenseId });
+    const mockResponse = {
+      data: { error: "Expense not found", code: "404" },
+      status: 404,
+      statusText: "Not Found",
+      headers: {},
+      config
+    };
+    config.adapter = () => Promise.reject({ response: mockResponse });
     return config;
   }
   /**
