@@ -4690,11 +4690,23 @@ function sleep(ms2) {
   return new Promise((resolve) => setTimeout(resolve, ms2));
 }
 function getMfeBaseUrl() {
-  return window.__EXPENSES_MFE_BASE_PATH__ || "";
+  try {
+    const url = new URL(import.meta.url);
+    const pathParts = url.pathname.split("/");
+    const assetsIndex = pathParts.indexOf("assets");
+    if (assetsIndex > 0) {
+      const basePath2 = pathParts.slice(0, assetsIndex).join("/");
+      return `${url.origin}${basePath2}`;
+    }
+    const basePath = pathParts.slice(0, -1).join("/");
+    return `${url.origin}${basePath}`;
+  } catch {
+    return "";
+  }
 }
 function getMockAssetUrl(path) {
-  const baseUrl = getMfeBaseUrl();
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  const baseUrl = getMfeBaseUrl();
   if (baseUrl) {
     return `${baseUrl}/${cleanPath}`;
   }
