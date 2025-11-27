@@ -2,12 +2,12 @@ import { importShared } from "./__federation_fn_import-DD1J_cWq.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-CzdF90_e.js";
 import { E as ExpensesList, s as statusBadgeConfig } from "./ExpensesList-PzohRYMM.js";
 import { o as os, a as as, A as An, l as ls, _ as _r, k as ks, b as apiClient, B as Bs, O as Oa, d as Aa, G as Ga, M as Me, e as Ba, $ as $r, f as Vr, z as zr, S as Sn } from "./axiosInstance-Wzm5FGtt.js";
-import { E as EXPENSE_DETAILS_SECTION, a as EXPENSE_JUSTIFICATION_SECTION, C as COST_ALLOCATION_SECTION, A as ADDITIONAL_COMMENTS_SECTION } from "./expense-form-sections-DQO-bpc2.js";
-import { E as ExpenseFormField, u as useFormFieldValues, a as useAmountAllocationSync, b as useReceiptCheckboxEffects, c as useExpenseFormLeftColumn, S as SupportingFiles, d as useExpenseFormHandlers, f as fullExpenseValidationStrategy, C as ConfirmDialog } from "./SupportingFilesSection-CeRro-lV.js";
+import { E as EXPENSE_DETAILS_SECTION, a as EXPENSE_JUSTIFICATION_SECTION, C as COST_ALLOCATION_SECTION, A as ADDITIONAL_COMMENTS_SECTION } from "./expense-form-sections-BBXnFSPd.js";
+import { E as ExpenseFormField, u as useFormFieldValues, a as useAmountAllocationSync, b as useReceiptCheckboxEffects, c as useExpenseFormLeftColumn, S as SupportingFiles, d as useExpenseFormHandlers, f as fullExpenseValidationStrategy, r as resolveFileUrl, C as ConfirmDialog } from "./SupportingFilesSection-C5Zhs3WM.js";
 import { I as Icon } from "./Icon-mtRo2MvL.js";
-import "./mileage-trip-sections-BQ7LND7P.js";
-import { c as createExpenseForm } from "./form-factory-BYaLDp5l.js";
-import { R as ReceiptSection } from "./ReceiptSection-0ZdbVL9t.js";
+import "./mileage-trip-sections-9-GAlD1c.js";
+import { c as createExpenseForm } from "./form-factory-wHDxyeTg.js";
+import { R as ReceiptSection } from "./ReceiptSection-B5LWSXiP.js";
 import { E as ECostAllocation } from "./cost-allocation-DRGo4_AN.js";
 import { u as useNavigate, f as useParams, a as RoutePaths } from "./routes-nW3dHYkG.js";
 import { u as useQueryClient, k as useQuery, q as queryKeys } from "./query-keys-DpYAYDxu.js";
@@ -144,9 +144,10 @@ const PreviewReceiptSection = ({ receipt, stretchToFill = false }) => {
   }
   const isImage = (_a = receipt.mimeType) == null ? void 0 : _a.startsWith("image/");
   const isPdf = receipt.mimeType === "application/pdf";
+  const fileUrl = resolveFileUrl(receipt.blobUrl, receipt.url);
   const handlePreviewClick = () => {
-    if (receipt.blobUrl || receipt.url) {
-      window.open(receipt.blobUrl || receipt.url, "_blank", "noopener,noreferrer");
+    if (fileUrl) {
+      window.open(fileUrl, "_blank", "noopener,noreferrer");
     }
   };
   const handleImageError = () => {
@@ -182,7 +183,7 @@ const PreviewReceiptSection = ({ receipt, stretchToFill = false }) => {
       isImage && !imageError && /* @__PURE__ */ jsxRuntimeExports.jsx(
         "img",
         {
-          src: receipt.blobUrl || receipt.url,
+          src: fileUrl,
           alt: "Receipt",
           loading: "lazy",
           className: `w-full h-auto object-contain cursor-pointer hover:opacity-90 transition-opacity ${stretchToFill ? "" : "max-h-80"}`,
@@ -468,7 +469,7 @@ const PreviewSupportingFilesSection = ({
     /* @__PURE__ */ jsxRuntimeExports.jsx(ls, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: files.map((file) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "a",
       {
-        href: file.blobUrl || file.url,
+        href: resolveFileUrl(file.blobUrl, file.url),
         target: "_blank",
         rel: "noopener noreferrer",
         className: "flex items-center gap-2 px-2 py-1 bg-exp-primary-blue-50 rounded-lg w-fit group",

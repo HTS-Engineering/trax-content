@@ -108,7 +108,10 @@
       }
       
       console.log('✅ Container found, base path:', basePath);
-      
+
+      // Store base path globally for mock assets and other resources
+      window.__EXPENSES_MFE_BASE_PATH__ = basePath;
+
       addScopingClass(container);
       
       const manifest = await loadManifest(basePath);

@@ -1,8 +1,8 @@
 import { importShared } from "./__federation_fn_import-DD1J_cWq.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-CzdF90_e.js";
 import { o as os, a as as, A as An, l as ls, E as Ea, F as Fa, w as us, x as cs, M as Me, J as gs, K as fs, N as ps, P as hs, Q as ms, U as Pr, $ as $r, f as Vr, z as zr, I as Ia, W as Da } from "./axiosInstance-Wzm5FGtt.js";
-import { I as minimalExpenseValidationStrategy, J as useBaseExpenseForm, F as FormSectionType, b as useReceiptCheckboxEffects, K as useFormButtonStateSync, L as useFormImperativeHandle, M as FormSectionProvider, N as FormRenderer, O as affidavitExpenseValidationStrategy } from "./SupportingFilesSection-CeRro-lV.js";
-import { s as sortFormSections } from "./form-factory-BYaLDp5l.js";
+import { J as minimalExpenseValidationStrategy, K as useBaseExpenseForm, F as FormSectionType, b as useReceiptCheckboxEffects, L as useFormButtonStateSync, M as useFormImperativeHandle, N as FormSectionProvider, O as FormRenderer, P as affidavitExpenseValidationStrategy } from "./SupportingFilesSection-C5Zhs3WM.js";
+import { s as sortFormSections } from "./form-factory-wHDxyeTg.js";
 import "./api-ITy7OAA5.js";
 import "./store-DN0viiRy.js";
 import "./api-DWc5_TZi.js";
@@ -10,7 +10,7 @@ import "./api-Dv7rsKtQ.js";
 import { I as Icon } from "./Icon-mtRo2MvL.js";
 import { C as Controller, e as useWatch } from "./zod-BRdb-B2v.js";
 import { V as VENDOR_OPTIONS, E as EXPENSE_LOCATION_OPTIONS } from "./form-options-BKSnsJQ4.js";
-import { R as ReceiptSection } from "./ReceiptSection-0ZdbVL9t.js";
+import { R as ReceiptSection } from "./ReceiptSection-B5LWSXiP.js";
 import { F as FileText } from "./file-text-CaIjUFkT.js";
 function AffidavitSection({
   control,

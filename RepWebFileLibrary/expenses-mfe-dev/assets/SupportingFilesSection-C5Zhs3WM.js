@@ -4689,6 +4689,29 @@ function calculateExponentialBackoff(retryCount, baseDelay = 1e3, maxDelay = 5e3
 function sleep(ms2) {
   return new Promise((resolve) => setTimeout(resolve, ms2));
 }
+function getMfeBaseUrl() {
+  return window.__EXPENSES_MFE_BASE_PATH__ || "";
+}
+function getMockAssetUrl(path) {
+  const baseUrl = getMfeBaseUrl();
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  if (baseUrl) {
+    return `${baseUrl}/${cleanPath}`;
+  }
+  return `/${cleanPath}`;
+}
+function resolveFileUrl(blobUrl, url) {
+  if (blobUrl) {
+    return blobUrl;
+  }
+  if (!url) {
+    return "";
+  }
+  if (url.startsWith("/mocks/")) {
+    return getMockAssetUrl(url);
+  }
+  return url;
+}
 const UPLOAD_TIMEOUT$1 = 12e4;
 const MAX_RETRIES$1 = 2;
 const uploadReceiptFile = async (file, onProgress, retryCount = 0) => {
@@ -4813,7 +4836,7 @@ const cleanupBlobUrl = (url) => {
   }
 };
 const openFilePreview = async (attachment) => {
-  const rawUrl = attachment.blobUrl || attachment.url;
+  const rawUrl = resolveFileUrl(attachment.blobUrl, attachment.url);
   const previewUrl = sanitizeUrl(rawUrl);
   if (!previewUrl) {
     console.error("Invalid or unsafe URL detected");
@@ -5050,16 +5073,17 @@ const ReceiptUpload = ({
     const { attachment } = uploadState;
     if (!attachment) return null;
     const previewType = getFilePreviewType(attachment.mimeType);
+    const fileUrl = resolveFileUrl(attachment.blobUrl, attachment.url);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-full", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4 h-full", children: previewType === FilePreviewType.IMAGE ? /* @__PURE__ */ jsxRuntimeExports.jsx(
         "img",
         {
-          src: attachment.blobUrl || attachment.url,
+          src: fileUrl,
           alt: attachment.originalName,
           className: "w-full h-full object-contain rounded-lg cursor-pointer hover:opacity-90 transition-opacity",
           onClick: handlePreviewClick,
           onError: (_e) => {
-            console.warn("Image failed to load:", attachment.blobUrl || attachment.url);
+            console.warn("Image failed to load:", fileUrl);
           }
         }
       ) : previewType === FilePreviewType.PDF ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -6401,48 +6425,49 @@ function SupportingFiles({
   ] });
 }
 export {
-  totalDistanceField as $,
-  createDraftSaveChecker as A,
-  createRequiredFieldsChecker as B,
+  ratePerUnitField as $,
+  costAllocationTypeSchema as A,
+  createDraftSaveChecker as B,
   ConfirmDialog as C,
-  useCostAllocationHandlers as D,
+  createRequiredFieldsChecker as D,
   ExpenseFormField as E,
   FormSectionType as F,
-  useMileageRateSync as G,
-  useReimbursableAmountSync as H,
-  minimalExpenseValidationStrategy as I,
-  useBaseExpenseForm as J,
-  useFormButtonStateSync as K,
-  useFormImperativeHandle as L,
-  FormSectionProvider as M,
-  FormRenderer as N,
-  affidavitExpenseValidationStrategy as O,
-  useAutoSave as P,
-  BaseExpenseFormRenderer as Q,
+  useCostAllocationHandlers as G,
+  useMileageRateSync as H,
+  useReimbursableAmountSync as I,
+  minimalExpenseValidationStrategy as J,
+  useBaseExpenseForm as K,
+  useFormButtonStateSync as L,
+  useFormImperativeHandle as M,
+  FormSectionProvider as N,
+  FormRenderer as O,
+  affidavitExpenseValidationStrategy as P,
+  useAutoSave as Q,
   ReceiptUpload as R,
   SupportingFiles as S,
-  expenseDetailsSchema as T,
-  expenseJustificationSchema as U,
-  MileageTripFormField as V,
-  expenseDescriptionField as W,
-  businessPurposeField as X,
-  reimbursableAmountField as Y,
-  rateUnitField as Z,
-  ratePerUnitField as _,
+  BaseExpenseFormRenderer as T,
+  expenseDetailsSchema as U,
+  expenseJustificationSchema as V,
+  MileageTripFormField as W,
+  expenseDescriptionField as X,
+  businessPurposeField as Y,
+  reimbursableAmountField as Z,
+  rateUnitField as _,
   useAmountAllocationSync as a,
-  expensePeriodField as a0,
-  mileageTypeField as a1,
-  CostAllocationValidationRules as a2,
-  useEqualSplit as a3,
-  COST_ALLOCATION_LABELS as a4,
-  useCostAllocation as a5,
-  AllocationTypeChips as a6,
-  CostAllocationField as a7,
-  AddAllocationExpandable as a8,
-  DEFAULT_CURRENCY_CODE as a9,
-  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as aa,
-  AllowedMimeType as ab,
-  MIME_TYPE_CONFIG as ac,
+  totalDistanceField as a0,
+  expensePeriodField as a1,
+  mileageTypeField as a2,
+  CostAllocationValidationRules as a3,
+  useEqualSplit as a4,
+  COST_ALLOCATION_LABELS as a5,
+  useCostAllocation as a6,
+  AllocationTypeChips as a7,
+  CostAllocationField as a8,
+  AddAllocationExpandable as a9,
+  DEFAULT_CURRENCY_CODE as aa,
+  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as ab,
+  AllowedMimeType as ac,
+  MIME_TYPE_CONFIG as ad,
   useReceiptCheckboxEffects as b,
   useExpenseFormLeftColumn as c,
   useExpenseFormHandlers as d,
@@ -6459,13 +6484,13 @@ export {
   supportingFilesField as o,
   expenseDescriptionFieldOptional as p,
   businessPurposeFieldOptional as q,
-  reimbursableAmountFieldOptional as r,
+  resolveFileUrl as r,
   supportingFilesSchema as s,
-  rateUnitFieldOptional as t,
+  reimbursableAmountFieldOptional as t,
   useFormFieldValues as u,
-  ratePerUnitFieldOptional as v,
-  totalDistanceFieldOptional as w,
-  expensePeriodFieldOptional as x,
-  mileageTypeFieldOptional as y,
-  costAllocationTypeSchema as z
+  rateUnitFieldOptional as v,
+  ratePerUnitFieldOptional as w,
+  totalDistanceFieldOptional as x,
+  expensePeriodFieldOptional as y,
+  mileageTypeFieldOptional as z
 };

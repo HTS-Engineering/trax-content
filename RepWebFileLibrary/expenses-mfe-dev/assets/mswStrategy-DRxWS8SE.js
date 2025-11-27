@@ -1,10 +1,10 @@
-import { ab as AllowedMimeType, ac as MIME_TYPE_CONFIG } from "./SupportingFilesSection-CeRro-lV.js";
+import { ac as AllowedMimeType, ad as MIME_TYPE_CONFIG } from "./SupportingFilesSection-C5Zhs3WM.js";
 import { b as ENDPOINT_PATTERNS } from "./endpoints-B5IysDN2.js";
-import "./expense-form-sections-DQO-bpc2.js";
+import "./expense-form-sections-BBXnFSPd.js";
 import "./jsx-runtime-CzdF90_e.js";
 import "./axiosInstance-Wzm5FGtt.js";
 import "./Icon-mtRo2MvL.js";
-import "./mileage-trip-sections-BQ7LND7P.js";
+import "./mileage-trip-sections-9-GAlD1c.js";
 import { s as shouldSimulateError, g as generateMockError, m as mockSubmittedExpenses, a as mockExpenseDrafts, b as mockSubmittedMileage, c as mockMileageDrafts } from "./expenses-list-BokGhRcU.js";
 import { s as shouldMockEndpoint } from "./config-Dtx7ka0E.js";
 function isObject$1(value) {
