@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-CHBjIjpl.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-CzdF90_e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-PzohRYMM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-DD1J_cWq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-Wzm5FGtt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/query-keys-DpYAYDxu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/endpoints-B5IysDN2.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-mtRo2MvL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/clock-DaFWPV8d.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/routes-nW3dHYkG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-CHwUTiVc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-DscnZCt6.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-form-sections-CUfTwuzh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/SupportingFilesSection-t_eOV-MY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/zod-BRdb-B2v.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/cost-allocation-DRGo4_AN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/config-Dtx7ka0E.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageJustificationSection-QXVjieY_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-ITy7OAA5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-DN0viiRy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-DWc5_TZi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-Dv7rsKtQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/form-options-BKSnsJQ4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/credit-card-BpnA-khW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-trip-sections-B-2Ki57W.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/form-factory-CXoBLkQm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReceiptSection-gWcgLmPw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/chevron-left-i_l5Uicc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/chevron-right-Du21HpMw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-D1d3kJeD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTripPage-EhaWWvxp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-DWUkfPHN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileagePeriodPage-BC8q00YT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-C805gTbI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-CTvWkN-g.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Payroll-D17ofsCz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Allocations-D-4slxg0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-CGkNAq92.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-sorting.utils-DsczM_h9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/layout-dashboard-C1ma64uo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BXPh2QiJ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-CFXBe8fe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-DKtnQAOH.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-D4Zfu4q9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/FormsTestingPage-Zwz-l0ge.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/file-text-CaIjUFkT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mockingStrategy-BlWb2Rc4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-CHBjIjpl.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-CzdF90_e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-PzohRYMM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-DD1J_cWq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-Wzm5FGtt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/query-keys-DpYAYDxu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/endpoints-B5IysDN2.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-mtRo2MvL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/clock-DaFWPV8d.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/routes-nW3dHYkG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-CHwUTiVc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensePage-DscnZCt6.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-form-sections-CUfTwuzh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/SupportingFilesSection-t_eOV-MY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/zod-BRdb-B2v.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/cost-allocation-DRGo4_AN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/config-Dtx7ka0E.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageJustificationSection-QXVjieY_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-ITy7OAA5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-DN0viiRy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-DWc5_TZi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-Dv7rsKtQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/form-options-BKSnsJQ4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/credit-card-BpnA-khW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-trip-sections-B-2Ki57W.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/form-factory-CXoBLkQm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReceiptSection-gWcgLmPw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/chevron-left-i_l5Uicc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/chevron-right-Du21HpMw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-D1d3kJeD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTripPage-EhaWWvxp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-DWUkfPHN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileagePeriodPage-BC8q00YT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-C805gTbI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-CTvWkN-g.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Payroll-D17ofsCz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Allocations-D-4slxg0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-CGkNAq92.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-sorting.utils-DsczM_h9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/layout-dashboard-C1ma64uo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BXPh2QiJ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-CFXBe8fe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-DKtnQAOH.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-CIEamE92.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/FormsTestingPage-Zwz-l0ge.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/file-text-CaIjUFkT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mockingStrategy-BlWb2Rc4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { importShared } from "./__federation_fn_import-DD1J_cWq.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-CzdF90_e.js";
@@ -11822,10 +11822,10 @@ function requireClient() {
   return client.exports;
 }
 var clientExports = requireClient();
-const React = await importShared("react");
+const React$1 = await importShared("react");
 const ReactDOM = await importShared("react-dom");
 function RouterProvider2(props) {
-  return /* @__PURE__ */ React.createElement(RouterProvider$1, { flushSync: ReactDOM.flushSync, ...props });
+  return /* @__PURE__ */ React$1.createElement(RouterProvider$1, { flushSync: ReactDOM.flushSync, ...props });
 }
 await importShared("react");
 await importShared("react");
@@ -12692,7 +12692,7 @@ var QueryClient = class {
     this.#mutationCache.clear();
   }
 };
-const { useCallback: useCallback$1, useMemo, useState } = await importShared("react");
+const { useCallback: useCallback$2, useMemo, useState } = await importShared("react");
 const getEnvironmentLabel = (mode) => {
   const labels = {
     development: "DEV",
@@ -12725,7 +12725,7 @@ const NavigationSidebar = ({
     });
     return defaultExpanded;
   });
-  const toggleExpanded = useCallback$1((label) => {
+  const toggleExpanded = useCallback$2((label) => {
     setExpandedItems((prev) => {
       const newExpanded = new Set(prev);
       if (newExpanded.has(label)) {
@@ -12736,13 +12736,13 @@ const NavigationSidebar = ({
       return newExpanded;
     });
   }, []);
-  const handleExpandClick = useCallback$1((label) => (e) => {
+  const handleExpandClick = useCallback$2((label) => (e) => {
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     toggleExpanded(label);
   }, [toggleExpanded]);
-  const toggleSection = useCallback$1((sectionId) => {
+  const toggleSection = useCallback$2((sectionId) => {
     setExpandedSections((prev) => {
       const newExpanded = new Set(prev);
       if (newExpanded.has(sectionId)) {
@@ -12753,23 +12753,23 @@ const NavigationSidebar = ({
       return newExpanded;
     });
   }, []);
-  const handleExpandSectionClick = useCallback$1((sectionId) => (e) => {
+  const handleExpandSectionClick = useCallback$2((sectionId) => (e) => {
     e.preventDefault();
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     toggleSection(sectionId);
   }, [toggleSection]);
-  const handleNavigation = useCallback$1((path) => {
+  const handleNavigation = useCallback$2((path) => {
     if (onNavigate) {
       onNavigate(path);
     }
   }, [onNavigate]);
-  const handleCompanyChange = useCallback$1((companyValue) => {
+  const handleCompanyChange = useCallback$2((companyValue) => {
     if (onCompanyChange) {
       onCompanyChange(companyValue);
     }
   }, [onCompanyChange]);
-  const renderNavItem = useCallback$1((item, level = 0) => {
+  const renderNavItem = useCallback$2((item, level = 0) => {
     if (!item.isVisible) {
       return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, {});
     }
@@ -12818,26 +12818,26 @@ const NavigationSidebar = ({
       hasChildren && isExpanded && item.children && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50", children: item.children.map((child) => renderNavItem(child, level + 1)) })
     ] }, item.path);
   }, [expandedItems, handleNavigation, handleExpandClick, selectedCompany]);
-  const renderSeparator = useCallback$1(() => {
+  const renderSeparator = useCallback$2(() => {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-exp-primary-blue-100 my-4" });
   }, []);
-  const renderGroupTitle = useCallback$1((title) => {
+  const renderGroupTitle = useCallback$2((title) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-2 py-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xs font-medium text-exp-neutral-100 uppercase ", children: title }) });
   }, []);
-  const renderGroup = useCallback$1((group) => {
+  const renderGroup = useCallback$2((group) => {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-4", children: [
       group.title && renderGroupTitle(group.title),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "gap-1", children: group.items.map((item) => renderNavItem(item, 0)) })
     ] }, group.id);
   }, [renderNavItem, renderGroupTitle]);
-  const renderSelector = useCallback$1((selector) => {
+  const renderSelector = useCallback$2((selector) => {
     const companyOptions = companies.map((company) => ({
       value: company.id,
       label: company.name
     }));
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Ia, { options: companyOptions, value: selectedCompany, onValueChange: handleCompanyChange }) }, selector.id);
   }, [companies, selectedCompany, handleCompanyChange]);
-  const renderSection = useCallback$1((section) => {
+  const renderSection = useCallback$2((section) => {
     const isExpanded = expandedSections.has(section.id);
     const renderSectionElements = () => {
       return section.elements.map((element) => {
@@ -12915,7 +12915,7 @@ const usePreventPageReload = () => {
     };
   }, []);
 };
-const { useCallback, useEffect: useEffect$2 } = await importShared("react");
+const { useCallback: useCallback$1, useEffect: useEffect$2 } = await importShared("react");
 const Layout = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -12939,10 +12939,10 @@ const Layout = () => {
       }
     }
   }, [companies, selectedCompany, setSelectedCompany, params.companyId]);
-  const handleNavigation = useCallback((path) => {
+  const handleNavigation = useCallback$1((path) => {
     navigate(path);
   }, [navigate]);
-  const handleCompanyChange = useCallback((companyId) => {
+  const handleCompanyChange = useCallback$1((companyId) => {
     const company = companies == null ? void 0 : companies.find((c) => c.id === companyId);
     if (company) {
       setSelectedCompany(company);
@@ -12979,7 +12979,7 @@ const Allocations = lazy(() => __vitePreload(() => import("./Allocations-D-4slxg
 const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-CGkNAq92.js"), true ? __vite__mapDeps([38,1,3,22,5,20,4,15,39,11,7,8,40]) : void 0, import.meta.url));
 const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-BXPh2QiJ.js"), true ? __vite__mapDeps([41,1,3,19,5,20,4,17,6,15,39,11,7,8]) : void 0, import.meta.url));
 const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-CFXBe8fe.js"), true ? __vite__mapDeps([42,3,1,4,43,9,30]) : void 0, import.meta.url));
-const TestingIcons = lazy(() => __vitePreload(() => import("./IconsTestingPage-D4Zfu4q9.js"), true ? __vite__mapDeps([44,3,1,7,8]) : void 0, import.meta.url));
+const TestingIcons = lazy(() => __vitePreload(() => import("./IconsTestingPage-CIEamE92.js"), true ? __vite__mapDeps([44,3,1,7,8]) : void 0, import.meta.url));
 const TestingForms = lazy(() => __vitePreload(() => import("./FormsTestingPage-Zwz-l0ge.js"), true ? __vite__mapDeps([45,3,1,4,14,15,7,8,16,11,17,6,26,19,5,20,21,22,23,27,46]) : void 0, import.meta.url));
 const createRouteConfig = () => {
   var _a;
@@ -13182,7 +13182,8 @@ function DataInitializer() {
 }
 const CONTAINER_ID = "module-mfe-dev";
 const SCOPE_CLASS = "expenses-mfe-scope";
-const { useEffect, useRef, createContext, useContext } = await importShared("react");
+const React = await importShared("react");
+const { useEffect, useRef, createContext, useContext, useCallback } = React;
 const { createPortal } = await importShared("react-dom");
 const PortalContext = createContext({
   portalContainer: null
@@ -13197,9 +13198,15 @@ const PORTAL_SELECTORS = [
   "[data-radix-tooltip-content]",
   "[data-radix-select-content]",
   "[data-sonner-toaster]",
-  ".trax-ui-component",
   '[role="dialog"]',
-  "body > div.fixed"
+  '[role="alertdialog"]',
+  // @trax/ui-components uses data-slot attributes
+  '[data-slot="dialog-overlay"]',
+  '[data-slot="dialog-content"]',
+  '[data-slot="dialog-portal"]',
+  '[data-slot="popover-content"]',
+  '[data-slot="dropdown-menu-content"]',
+  ".trax-ui-component"
 ];
 function isPortalElement(element) {
   return PORTAL_SELECTORS.some(
@@ -13228,28 +13235,29 @@ function applyScopeClass(element) {
 function ScopedPortalProvider({ children }) {
   const portalContainerRef = useRef(null);
   const observerRef = useRef(null);
-  useEffect(() => {
-    PORTAL_SELECTORS.forEach((selector) => {
-      document.querySelectorAll(selector).forEach(applyScopeClass);
-    });
-    observerRef.current = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            const element = node;
-            if (isPortalElement(element)) {
-              applyScopeClass(element);
-            }
-          }
-        });
-        if (mutation.type === "attributes" && mutation.target.nodeType === Node.ELEMENT_NODE) {
-          const element = mutation.target;
+  const handleMutations = useCallback((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          const element = node;
           if (isPortalElement(element)) {
             applyScopeClass(element);
           }
         }
       });
+      if (mutation.type === "attributes" && mutation.target.nodeType === Node.ELEMENT_NODE) {
+        const element = mutation.target;
+        if (isPortalElement(element)) {
+          applyScopeClass(element);
+        }
+      }
     });
+  }, []);
+  useEffect(() => {
+    PORTAL_SELECTORS.forEach((selector) => {
+      document.querySelectorAll(selector).forEach(applyScopeClass);
+    });
+    observerRef.current = new MutationObserver(handleMutations);
     observerRef.current.observe(document.body, {
       childList: true,
       subtree: true,
@@ -13262,7 +13270,9 @@ function ScopedPortalProvider({ children }) {
         "data-radix-dropdown-menu-content",
         "data-radix-popover-content",
         "data-radix-tooltip-content",
+        "data-radix-select-content",
         "data-sonner-toaster",
+        "data-slot",
         "class",
         "role",
         "data-state"
@@ -13275,9 +13285,16 @@ function ScopedPortalProvider({ children }) {
       }
       portalContainerRef.current = null;
     };
-  }, []);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalContext.Provider, { value: { portalContainer: portalContainerRef.current }, children });
+  }, [handleMutations]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    PortalContext.Provider,
+    {
+      value: { portalContainer: portalContainerRef.current },
+      children
+    }
+  );
 }
+await importShared("react");
 function AppProviders({ children }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(ScopedPortalProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(QueryProvider, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(DataInitializer, {}),

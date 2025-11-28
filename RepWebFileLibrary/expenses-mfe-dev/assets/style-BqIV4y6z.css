@@ -1,7 +1,7 @@
 /*! tailwindcss v4.1.17 | MIT License | https://tailwindcss.com */
 @layer properties {
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
-    *, :before, :after, ::backdrop {
+    *, .expenses-mfe-scope :before, .expenses-mfe-scope :after, ::backdrop {
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
@@ -62,56 +62,8 @@
   }
 }
 
-.expenses-mfe-scope {
-  box-sizing: border-box;
-  color: #0f172a;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.expenses-mfe-scope *, .expenses-mfe-scope :before, .expenses-mfe-scope :after {
-  box-sizing: border-box;
-}
-
-.expenses-mfe-scope h1, .expenses-mfe-scope h2, .expenses-mfe-scope h3, .expenses-mfe-scope h4, .expenses-mfe-scope h5, .expenses-mfe-scope h6 {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  margin: unset;
-  padding: unset;
-}
-
-.expenses-mfe-scope a, .expenses-mfe-scope a:link, .expenses-mfe-scope a:visited, .expenses-mfe-scope a:hover, .expenses-mfe-scope a:active {
-  color: inherit;
-  -webkit-text-decoration: inherit;
-  -webkit-text-decoration: inherit;
-  text-decoration: inherit;
-}
-
-.expenses-mfe-scope p {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-.expenses-mfe-scope table {
-  border-collapse: collapse;
-  border-color: inherit;
-}
-
-.expenses-mfe-scope th, .expenses-mfe-scope td {
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
-  border-color: inherit;
-}
-
 @layer theme {
-  :root, :host {
+  :root, .expenses-mfe-scope :host {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-50: oklch(97.1% .013 17.38);
@@ -252,7 +204,6 @@
     --color-trax-neutral-900: #091e42;
     --radius-20: 20px;
     --text-xxs: 10px;
-    --expSrollBarColor: var(--color-exp-neutral-50);
     --color-border: hsl(var(--border));
     --color-input: hsl(var(--input));
     --color-ring: hsl(var(--ring));
@@ -344,7 +295,63 @@
     }
   }
 
-  *, :after, :before, ::backdrop {
+  .expenses-mfe-scope {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .expenses-mfe-scope *, .expenses-mfe-scope :before, .expenses-mfe-scope :after {
+    box-sizing: border-box;
+  }
+
+  .expenses-mfe-scope h1, .expenses-mfe-scope h2, .expenses-mfe-scope h3, .expenses-mfe-scope h4, .expenses-mfe-scope h5, .expenses-mfe-scope h6 {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  .expenses-mfe-scope a, .expenses-mfe-scope a:link, .expenses-mfe-scope a:visited, .expenses-mfe-scope a:hover, .expenses-mfe-scope a:active {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+
+  .expenses-mfe-scope button, .expenses-mfe-scope input, .expenses-mfe-scope select, .expenses-mfe-scope textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+  }
+
+  .expenses-mfe-scope p, .expenses-mfe-scope ul, .expenses-mfe-scope ol, .expenses-mfe-scope dl, .expenses-mfe-scope figure, .expenses-mfe-scope blockquote, .expenses-mfe-scope pre {
+    margin: 0;
+    padding: 0;
+  }
+
+  .expenses-mfe-scope ul, .expenses-mfe-scope ol {
+    list-style: none;
+  }
+
+  .expenses-mfe-scope table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .expenses-mfe-scope td, .expenses-mfe-scope th {
+    padding: 0;
+  }
+
+  *, .expenses-mfe-scope :after, .expenses-mfe-scope :before, ::backdrop {
     box-sizing: border-box;
     border: 0 solid;
     margin: 0;
@@ -358,7 +365,7 @@
     padding: 0;
   }
 
-  .expenses-mfe-scope html, :host {
+  .expenses-mfe-scope html, .expenses-mfe-scope :host {
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
     line-height: 1.5;
@@ -428,7 +435,7 @@
     border-collapse: collapse;
   }
 
-  :-moz-focusring {
+  .expenses-mfe-scope :-moz-focusring {
     outline: auto;
   }
 
@@ -476,11 +483,11 @@
     border-radius: 0;
   }
 
-  :where(select:is([multiple], [size])) optgroup {
+  .expenses-mfe-scope :where(select:is([multiple], [size])) optgroup {
     font-weight: bolder;
   }
 
-  :where(select:is([multiple], [size])) optgroup option {
+  .expenses-mfe-scope :where(select:is([multiple], [size])) optgroup option {
     padding-inline-start: 20px;
   }
 
@@ -571,7 +578,7 @@
     line-height: 1;
   }
 
-  :-moz-ui-invalid {
+  .expenses-mfe-scope :-moz-ui-invalid {
     box-shadow: none;
   }
 
@@ -595,7 +602,7 @@
     display: none !important;
   }
 
-  :where(*) {
+  .expenses-mfe-scope :where(*) {
     border-color: hsl(var(--border));
   }
 }
@@ -604,262 +611,266 @@
 
 @layer utilities {
   .expenses-mfe-scope .sticky, .expenses-mfe-scope.sticky {
-    position: sticky !important;
+    position: sticky;
   }
 
   .expenses-mfe-scope .top-2, .expenses-mfe-scope.top-2 {
-    top: calc(var(--spacing) * 2) !important;
+    top: calc(var(--spacing) * 2);
   }
 
   .expenses-mfe-scope .top-\[-38px\], .expenses-mfe-scope.top-\[-38px\] {
-    top: -38px !important;
+    top: -38px;
   }
 
   .expenses-mfe-scope .right-7, .expenses-mfe-scope.right-7 {
-    right: calc(var(--spacing) * 7) !important;
+    right: calc(var(--spacing) * 7);
   }
 
   @media (min-width: 40rem) {
     .expenses-mfe-scope .container {
-      max-width: 40rem !important;
+      max-width: 40rem;
     }
   }
 
   @media (min-width: 48rem) {
     .expenses-mfe-scope .container {
-      max-width: 48rem !important;
+      max-width: 48rem;
     }
   }
 
   @media (min-width: 64rem) {
     .expenses-mfe-scope .container {
-      max-width: 64rem !important;
+      max-width: 64rem;
     }
   }
 
   @media (min-width: 80rem) {
     .expenses-mfe-scope .container {
-      max-width: 80rem !important;
+      max-width: 80rem;
     }
   }
 
   @media (min-width: 96rem) {
     .expenses-mfe-scope .container {
-      max-width: 96rem !important;
+      max-width: 96rem;
     }
   }
 
-  .expenses-mfe-scope .mx-2 {
-    margin-inline: calc(var(--spacing) * 2) !important;
+  .expenses-mfe-scope .mx-2, .expenses-mfe-scope.mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .mt-5 {
-    margin-top: calc(var(--spacing) * 5) !important;
+  .expenses-mfe-scope .mt-5, .expenses-mfe-scope.mt-5 {
+    margin-top: calc(var(--spacing) * 5);
   }
 
-  .expenses-mfe-scope .mt-6 {
-    margin-top: calc(var(--spacing) * 6) !important;
+  .expenses-mfe-scope .mt-6, .expenses-mfe-scope.mt-6 {
+    margin-top: calc(var(--spacing) * 6);
   }
 
-  .expenses-mfe-scope .mb-8 {
-    margin-bottom: calc(var(--spacing) * 8) !important;
+  .expenses-mfe-scope .mb-8, .expenses-mfe-scope.mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
   }
 
-  .expenses-mfe-scope .-ml-\[2px\] {
-    margin-left: -2px !important;
+  .expenses-mfe-scope .-ml-\[2px\], .expenses-mfe-scope.-ml-\[2px\] {
+    margin-left: -2px;
   }
 
-  .expenses-mfe-scope .ml-4 {
-    margin-left: calc(var(--spacing) * 4) !important;
+  .expenses-mfe-scope .ml-4, .expenses-mfe-scope.ml-4 {
+    margin-left: calc(var(--spacing) * 4);
   }
 
   .expenses-mfe-scope .inline, .expenses-mfe-scope.inline {
-    display: inline !important;
+    display: inline;
   }
 
   .expenses-mfe-scope .inline-block, .expenses-mfe-scope.inline-block {
-    display: inline-block !important;
+    display: inline-block;
   }
 
   .expenses-mfe-scope .size-4\.5 {
-    width: calc(var(--spacing) * 4.5) !important;
-    height: calc(var(--spacing) * 4.5) !important;
+    width: calc(var(--spacing) * 4.5);
+    height: calc(var(--spacing) * 4.5);
   }
 
   .expenses-mfe-scope .size-5\.5 {
-    width: calc(var(--spacing) * 5.5) !important;
-    height: calc(var(--spacing) * 5.5) !important;
+    width: calc(var(--spacing) * 5.5);
+    height: calc(var(--spacing) * 5.5);
   }
 
   .expenses-mfe-scope .size-11\.5 {
-    width: calc(var(--spacing) * 11.5) !important;
-    height: calc(var(--spacing) * 11.5) !important;
+    width: calc(var(--spacing) * 11.5);
+    height: calc(var(--spacing) * 11.5);
   }
 
   .expenses-mfe-scope .size-24 {
-    width: calc(var(--spacing) * 24) !important;
-    height: calc(var(--spacing) * 24) !important;
+    width: calc(var(--spacing) * 24);
+    height: calc(var(--spacing) * 24);
   }
 
   .expenses-mfe-scope .h-0, .expenses-mfe-scope.h-0 {
-    height: calc(var(--spacing) * 0) !important;
+    height: calc(var(--spacing) * 0);
   }
 
   .expenses-mfe-scope .h-48, .expenses-mfe-scope.h-48 {
-    height: calc(var(--spacing) * 48) !important;
+    height: calc(var(--spacing) * 48);
   }
 
   .expenses-mfe-scope .h-64, .expenses-mfe-scope.h-64 {
-    height: calc(var(--spacing) * 64) !important;
+    height: calc(var(--spacing) * 64);
   }
 
   .expenses-mfe-scope .h-\[48px\], .expenses-mfe-scope.h-\[48px\] {
-    height: 48px !important;
+    height: 48px;
   }
 
   .expenses-mfe-scope .h-fit, .expenses-mfe-scope.h-fit {
-    height: fit-content !important;
+    height: fit-content;
   }
 
   .expenses-mfe-scope .max-h-6, .expenses-mfe-scope.max-h-6 {
-    max-height: calc(var(--spacing) * 6) !important;
+    max-height: calc(var(--spacing) * 6);
   }
 
   .expenses-mfe-scope .max-h-34, .expenses-mfe-scope.max-h-34 {
-    max-height: calc(var(--spacing) * 34) !important;
+    max-height: calc(var(--spacing) * 34);
   }
 
   .expenses-mfe-scope .max-h-60, .expenses-mfe-scope.max-h-60 {
-    max-height: calc(var(--spacing) * 60) !important;
+    max-height: calc(var(--spacing) * 60);
   }
 
   .expenses-mfe-scope .max-h-\[90vh\], .expenses-mfe-scope.max-h-\[90vh\] {
-    max-height: 90vh !important;
+    max-height: 90vh;
   }
 
   .expenses-mfe-scope .max-h-full, .expenses-mfe-scope.max-h-full {
-    max-height: 100% !important;
+    max-height: 100%;
   }
 
   .expenses-mfe-scope .min-h-0, .expenses-mfe-scope.min-h-0 {
-    min-height: calc(var(--spacing) * 0) !important;
+    min-height: calc(var(--spacing) * 0);
   }
 
   .expenses-mfe-scope .min-h-16, .expenses-mfe-scope.min-h-16 {
-    min-height: calc(var(--spacing) * 16) !important;
+    min-height: calc(var(--spacing) * 16);
   }
 
   .expenses-mfe-scope .w-\[148px\], .expenses-mfe-scope.w-\[148px\] {
-    width: 148px !important;
+    width: 148px;
   }
 
   .expenses-mfe-scope .max-w-5xl, .expenses-mfe-scope.max-w-5xl {
-    max-width: var(--container-5xl) !important;
+    max-width: var(--container-5xl);
   }
 
   .expenses-mfe-scope .max-w-6, .expenses-mfe-scope.max-w-6 {
-    max-width: calc(var(--spacing) * 6) !important;
+    max-width: calc(var(--spacing) * 6);
   }
 
   .expenses-mfe-scope .max-w-6xl, .expenses-mfe-scope.max-w-6xl {
-    max-width: var(--container-6xl) !important;
+    max-width: var(--container-6xl);
   }
 
   .expenses-mfe-scope .max-w-96, .expenses-mfe-scope.max-w-96 {
-    max-width: calc(var(--spacing) * 96) !important;
+    max-width: calc(var(--spacing) * 96);
   }
 
   .expenses-mfe-scope .max-w-full, .expenses-mfe-scope.max-w-full {
-    max-width: 100% !important;
+    max-width: 100%;
   }
 
   .expenses-mfe-scope .max-w-none, .expenses-mfe-scope.max-w-none {
-    max-width: none !important;
+    max-width: none;
   }
 
   .expenses-mfe-scope .min-w-20, .expenses-mfe-scope.min-w-20 {
-    min-width: calc(var(--spacing) * 20) !important;
+    min-width: calc(var(--spacing) * 20);
   }
 
   .expenses-mfe-scope .min-w-28, .expenses-mfe-scope.min-w-28 {
-    min-width: calc(var(--spacing) * 28) !important;
+    min-width: calc(var(--spacing) * 28);
   }
 
   .expenses-mfe-scope .min-w-screen, .expenses-mfe-scope.min-w-screen {
-    min-width: 100vw !important;
+    min-width: 100vw;
   }
 
   .expenses-mfe-scope .flex-2, .expenses-mfe-scope.flex-2 {
-    flex: 2 !important;
+    flex: 2;
   }
 
   .expenses-mfe-scope .flex-shrink-0, .expenses-mfe-scope.flex-shrink-0 {
-    flex-shrink: 0 !important;
+    flex-shrink: 0;
   }
 
   .expenses-mfe-scope .shrink {
-    flex-shrink: 1 !important;
+    flex-shrink: 1;
   }
 
   .expenses-mfe-scope .shrink-0 {
-    flex-shrink: 0 !important;
+    flex-shrink: 0;
   }
 
   .expenses-mfe-scope .scale-100, .expenses-mfe-scope.scale-100 {
-    --tw-scale-x: 100% !important;
-    --tw-scale-y: 100% !important;
-    --tw-scale-z: 100% !important;
-    scale: var(--tw-scale-x) var(--tw-scale-y) !important;
+    --tw-scale-x: 100%;
+    --tw-scale-y: 100%;
+    --tw-scale-z: 100%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
   }
 
   .expenses-mfe-scope .scale-110, .expenses-mfe-scope.scale-110 {
-    --tw-scale-x: 110% !important;
-    --tw-scale-y: 110% !important;
-    --tw-scale-z: 110% !important;
-    scale: var(--tw-scale-x) var(--tw-scale-y) !important;
+    --tw-scale-x: 110%;
+    --tw-scale-y: 110%;
+    --tw-scale-z: 110%;
+    scale: var(--tw-scale-x) var(--tw-scale-y);
   }
 
   .expenses-mfe-scope .animate-spin, .expenses-mfe-scope.animate-spin {
-    animation: var(--animate-spin) !important;
+    animation: var(--animate-spin);
   }
 
   .expenses-mfe-scope .content-start, .expenses-mfe-scope.content-start {
-    align-content: flex-start !important;
+    align-content: flex-start;
   }
 
   .expenses-mfe-scope .gap-0, .expenses-mfe-scope.gap-0 {
-    gap: calc(var(--spacing) * 0) !important;
+    gap: calc(var(--spacing) * 0);
   }
 
   .expenses-mfe-scope .gap-2\.5, .expenses-mfe-scope.gap-2\.5 {
-    gap: calc(var(--spacing) * 2.5) !important;
+    gap: calc(var(--spacing) * 2.5);
   }
 
   .expenses-mfe-scope .gap-6, .expenses-mfe-scope.gap-6 {
-    gap: calc(var(--spacing) * 6) !important;
+    gap: calc(var(--spacing) * 6);
   }
 
   .expenses-mfe-scope .gap-10, .expenses-mfe-scope.gap-10 {
-    gap: calc(var(--spacing) * 10) !important;
+    gap: calc(var(--spacing) * 10);
   }
 
   .expenses-mfe-scope .gap-x-8, .expenses-mfe-scope.gap-x-8 {
-    column-gap: calc(var(--spacing) * 8) !important;
+    column-gap: calc(var(--spacing) * 8);
   }
 
   .expenses-mfe-scope .gap-y-4, .expenses-mfe-scope.gap-y-4 {
-    row-gap: calc(var(--spacing) * 4) !important;
+    row-gap: calc(var(--spacing) * 4);
   }
 
   .expenses-mfe-scope .self-end, .expenses-mfe-scope.self-end {
-    align-self: flex-end !important;
+    align-self: flex-end;
   }
 
   .expenses-mfe-scope .overflow-clip, .expenses-mfe-scope.overflow-clip {
-    overflow: clip !important;
+    overflow: clip;
   }
 
-  .expenses-mfe-scope .rounded-20, .expenses-mfe-scope.rounded-20, .expenses-mfe-scope .rounded-20\!, .expenses-mfe-scope.rounded-20\! {
+  .expenses-mfe-scope .rounded-20, .expenses-mfe-scope.rounded-20 {
+    border-radius: var(--radius-20);
+  }
+
+  .expenses-mfe-scope .rounded-20\!, .expenses-mfe-scope.rounded-20\! {
     border-radius: var(--radius-20) !important;
   }
 
@@ -869,8 +880,8 @@
   }
 
   .expenses-mfe-scope .rounded-b-lg, .expenses-mfe-scope.rounded-b-lg {
-    border-bottom-right-radius: var(--radius-lg) !important;
-    border-bottom-left-radius: var(--radius-lg) !important;
+    border-bottom-right-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
   }
 
   .expenses-mfe-scope .\!border-b-0 {
@@ -1010,48 +1021,48 @@
     background-color: var(--color-yellow-50) !important;
   }
 
-  .expenses-mfe-scope .fill-trax-blue-600, .expenses-mfe-scope.fill-trax-blue-600 {
-    fill: var(--color-trax-blue-600) !important;
+  .expenses-mfe-scope .fill-trax-blue-600 {
+    fill: var(--color-trax-blue-600);
   }
 
   .expenses-mfe-scope .object-contain {
-    object-fit: contain !important;
+    object-fit: contain;
   }
 
   .expenses-mfe-scope .p-3\.5, .expenses-mfe-scope.p-3\.5 {
-    padding: calc(var(--spacing) * 3.5) !important;
+    padding: calc(var(--spacing) * 3.5);
   }
 
   .expenses-mfe-scope .p-4\.5, .expenses-mfe-scope.p-4\.5 {
-    padding: calc(var(--spacing) * 4.5) !important;
+    padding: calc(var(--spacing) * 4.5);
   }
 
-  .expenses-mfe-scope .px-6 {
-    padding-inline: calc(var(--spacing) * 6) !important;
+  .expenses-mfe-scope .px-6, .expenses-mfe-scope.px-6 {
+    padding-inline: calc(var(--spacing) * 6);
   }
 
-  .expenses-mfe-scope .py-16 {
-    padding-block: calc(var(--spacing) * 16) !important;
+  .expenses-mfe-scope .py-16, .expenses-mfe-scope.py-16 {
+    padding-block: calc(var(--spacing) * 16);
   }
 
-  .expenses-mfe-scope .pt-0\! {
+  .expenses-mfe-scope .pt-0\!, .expenses-mfe-scope.pt-0\! {
     padding-top: calc(var(--spacing) * 0) !important;
   }
 
-  .expenses-mfe-scope .pr-7\! {
+  .expenses-mfe-scope .pr-7\!, .expenses-mfe-scope.pr-7\! {
     padding-right: calc(var(--spacing) * 7) !important;
   }
 
-  .expenses-mfe-scope .pb-3 {
-    padding-bottom: calc(var(--spacing) * 3) !important;
+  .expenses-mfe-scope .pb-3, .expenses-mfe-scope.pb-3 {
+    padding-bottom: calc(var(--spacing) * 3);
   }
 
   .expenses-mfe-scope .\!pl-0 {
     padding-left: calc(var(--spacing) * 0) !important;
   }
 
-  .expenses-mfe-scope .pl-1 {
-    padding-left: calc(var(--spacing) * 1) !important;
+  .expenses-mfe-scope .pl-1, .expenses-mfe-scope.pl-1 {
+    padding-left: calc(var(--spacing) * 1);
   }
 
   .expenses-mfe-scope .font-sans, .expenses-mfe-scope.font-sans {
@@ -1220,21 +1231,21 @@
   }
 
   .expenses-mfe-scope .capitalize {
-    text-transform: capitalize !important;
+    text-transform: capitalize;
   }
 
   .expenses-mfe-scope .opacity-20, .expenses-mfe-scope.opacity-20 {
-    opacity: .2 !important;
+    opacity: .2;
   }
 
   .expenses-mfe-scope .shadow {
-    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a) !important;
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
   .expenses-mfe-scope .shadow-exp-menu, .expenses-mfe-scope.shadow-exp-menu {
-    --tw-shadow: 0px 0px 1px 0px var(--tw-shadow-color, #0410260d), 0px 1px 1px 0px var(--tw-shadow-color, #0410260a), 0px 2px 1px 0px var(--tw-shadow-color, #04102608), 0px 4px 2px 0px var(--tw-shadow-color, #04102603), 0px 6px 2px 0px var(--tw-shadow-color, #04102600) !important;
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow) !important;
+    --tw-shadow: 0px 0px 1px 0px var(--tw-shadow-color, #0410260d), 0px 1px 1px 0px var(--tw-shadow-color, #0410260a), 0px 2px 1px 0px var(--tw-shadow-color, #04102608), 0px 4px 2px 0px var(--tw-shadow-color, #04102603), 0px 6px 2px 0px var(--tw-shadow-color, #04102600);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
   .expenses-mfe-scope .\!backdrop-blur-2xl {
@@ -1243,140 +1254,140 @@
     backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, ) !important;
   }
 
-  .expenses-mfe-scope .backdrop-blur-sm {
-    --tw-backdrop-blur: blur(var(--blur-sm)) !important;
-    -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, ) !important;
-    backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, ) !important;
+  .expenses-mfe-scope .backdrop-blur-sm, .expenses-mfe-scope.backdrop-blur-sm {
+    --tw-backdrop-blur: blur(var(--blur-sm));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+    backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
   }
 
   @media (hover: hover) {
     .expenses-mfe-scope .group-hover\:underline:is(:where(.group):hover *) {
-      text-decoration-line: underline !important;
+      text-decoration-line: underline;
     }
   }
 
   .expenses-mfe-scope .placeholder\:text-sm::placeholder {
-    font-size: var(--text-sm) !important;
-    line-height: var(--tw-leading, var(--text-sm--line-height)) !important;
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
 
   .expenses-mfe-scope .placeholder\:font-normal::placeholder {
-    --tw-font-weight: var(--font-weight-normal) !important;
-    font-weight: var(--font-weight-normal) !important;
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
   }
 
   .expenses-mfe-scope .placeholder\:text-exp-grey-500::placeholder {
-    color: var(--color-exp-grey-500) !important;
+    color: var(--color-exp-grey-500);
   }
 
   @media (hover: hover) {
     .expenses-mfe-scope .hover\:scale-110:hover {
-      --tw-scale-x: 110% !important;
-      --tw-scale-y: 110% !important;
-      --tw-scale-z: 110% !important;
-      scale: var(--tw-scale-x) var(--tw-scale-y) !important;
+      --tw-scale-x: 110%;
+      --tw-scale-y: 110%;
+      --tw-scale-z: 110%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
     }
 
     .expenses-mfe-scope .hover\:cursor-not-allowed:hover {
-      cursor: not-allowed !important;
+      cursor: not-allowed;
     }
 
     .expenses-mfe-scope .hover\:cursor-pointer:hover {
-      cursor: pointer !important;
+      cursor: pointer;
     }
 
     .expenses-mfe-scope .hover\:bg-exp-neutral-30:hover {
-      background-color: var(--color-exp-neutral-30) !important;
+      background-color: var(--color-exp-neutral-30);
     }
 
     .expenses-mfe-scope .hover\:bg-exp-primary-blue-50:hover {
-      background-color: var(--color-exp-primary-blue-50) !important;
+      background-color: var(--color-exp-primary-blue-50);
     }
 
     .expenses-mfe-scope .hover\:bg-gray-100:hover {
-      background-color: var(--color-gray-100) !important;
+      background-color: var(--color-gray-100);
     }
 
     .expenses-mfe-scope .hover\:bg-green-50:hover {
-      background-color: var(--color-green-50) !important;
+      background-color: var(--color-green-50);
     }
 
     .expenses-mfe-scope .hover\:bg-red-50:hover {
-      background-color: var(--color-red-50) !important;
+      background-color: var(--color-red-50);
     }
 
     .expenses-mfe-scope .hover\:bg-trax-neutral-20:hover {
-      background-color: var(--color-trax-neutral-20) !important;
+      background-color: var(--color-trax-neutral-20);
     }
 
     .expenses-mfe-scope .hover\:bg-white:hover {
-      background-color: var(--color-white) !important;
+      background-color: var(--color-white);
     }
 
     .expenses-mfe-scope .hover\:text-exp-neutral-200:hover {
-      color: var(--color-exp-neutral-200) !important;
+      color: var(--color-exp-neutral-200);
     }
 
     .expenses-mfe-scope .hover\:text-red-700:hover {
-      color: var(--color-red-700) !important;
+      color: var(--color-red-700);
     }
 
     .expenses-mfe-scope .hover\:text-trax-neutral-900:hover {
-      color: var(--color-trax-neutral-900) !important;
+      color: var(--color-trax-neutral-900);
     }
 
     .expenses-mfe-scope .hover\:underline:hover {
-      text-decoration-line: underline !important;
+      text-decoration-line: underline;
     }
 
     .expenses-mfe-scope .hover\:opacity-80:hover {
-      opacity: .8 !important;
+      opacity: .8;
     }
 
     .expenses-mfe-scope .hover\:opacity-90:hover {
-      opacity: .9 !important;
+      opacity: .9;
     }
   }
 
   .expenses-mfe-scope .focus\:border-transparent:focus {
-    border-color: #0000 !important;
+    border-color: #0000;
   }
 
   .expenses-mfe-scope .focus\:ring-blue-500:focus {
-    --tw-ring-color: var(--color-blue-500) !important;
+    --tw-ring-color: var(--color-blue-500);
   }
 
   @media (min-width: 40rem) {
     .expenses-mfe-scope .sm\:flex-row {
-      flex-direction: row !important;
+      flex-direction: row;
     }
 
     .expenses-mfe-scope .sm\:items-center {
-      align-items: center !important;
+      align-items: center;
     }
 
     .expenses-mfe-scope .sm\:justify-between {
-      justify-content: space-between !important;
+      justify-content: space-between;
     }
 
     .expenses-mfe-scope .sm\:gap-3 {
-      gap: calc(var(--spacing) * 3) !important;
+      gap: calc(var(--spacing) * 3);
     }
   }
 
   @media (min-width: 48rem) {
     .expenses-mfe-scope .md\:grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .expenses-mfe-scope .md\:grid-cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
   @media (min-width: 64rem) {
     .expenses-mfe-scope .lg\:grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
@@ -1385,7 +1396,7 @@
   }
 
   .expenses-mfe-scope .pointer-events-none, .expenses-mfe-scope.pointer-events-none {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 
   .expenses-mfe-scope .invisible {
@@ -1513,15 +1524,15 @@
   }
 
   .expenses-mfe-scope .z-10, .expenses-mfe-scope.z-10 {
-    z-index: 10;
+    z-index: 10 !important;
   }
 
   .expenses-mfe-scope .z-50, .expenses-mfe-scope.z-50 {
-    z-index: 50;
+    z-index: 50 !important;
   }
 
   .expenses-mfe-scope .z-\[100\], .expenses-mfe-scope.z-\[100\] {
-    z-index: 100;
+    z-index: 100 !important;
   }
 
   .expenses-mfe-scope .col-start-2 {
@@ -1574,87 +1585,87 @@
     margin: calc(var(--spacing) * 0);
   }
 
-  .expenses-mfe-scope .-mx-1 {
+  .expenses-mfe-scope .-mx-1, .expenses-mfe-scope.-mx-1 {
     margin-inline: calc(var(--spacing) * -1);
   }
 
-  .expenses-mfe-scope .mx-1 {
+  .expenses-mfe-scope .mx-1, .expenses-mfe-scope.mx-1 {
     margin-inline: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .mx-auto {
+  .expenses-mfe-scope .mx-auto, .expenses-mfe-scope.mx-auto {
     margin-inline: auto;
   }
 
-  .expenses-mfe-scope .my-1 {
+  .expenses-mfe-scope .my-1, .expenses-mfe-scope.my-1 {
     margin-block: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .my-4 {
+  .expenses-mfe-scope .my-4, .expenses-mfe-scope.my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .mt-0\.5 {
+  .expenses-mfe-scope .mt-0\.5, .expenses-mfe-scope.mt-0\.5 {
     margin-top: calc(var(--spacing) * .5);
   }
 
-  .expenses-mfe-scope .mt-1 {
+  .expenses-mfe-scope .mt-1, .expenses-mfe-scope.mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .mt-2 {
+  .expenses-mfe-scope .mt-2, .expenses-mfe-scope.mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .mt-3 {
+  .expenses-mfe-scope .mt-3, .expenses-mfe-scope.mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
 
-  .expenses-mfe-scope .mt-4 {
+  .expenses-mfe-scope .mt-4, .expenses-mfe-scope.mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .mt-8 {
+  .expenses-mfe-scope .mt-8, .expenses-mfe-scope.mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
 
-  .expenses-mfe-scope .mr-1 {
+  .expenses-mfe-scope .mr-1, .expenses-mfe-scope.mr-1 {
     margin-right: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .mr-2 {
+  .expenses-mfe-scope .mr-2, .expenses-mfe-scope.mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .mb-1 {
+  .expenses-mfe-scope .mb-1, .expenses-mfe-scope.mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .mb-2 {
+  .expenses-mfe-scope .mb-2, .expenses-mfe-scope.mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .mb-3 {
+  .expenses-mfe-scope .mb-3, .expenses-mfe-scope.mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
   }
 
-  .expenses-mfe-scope .mb-4 {
+  .expenses-mfe-scope .mb-4, .expenses-mfe-scope.mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .mb-6 {
+  .expenses-mfe-scope .mb-6, .expenses-mfe-scope.mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
 
-  .expenses-mfe-scope .ml-2 {
+  .expenses-mfe-scope .ml-2, .expenses-mfe-scope.ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .ml-3 {
+  .expenses-mfe-scope .ml-3, .expenses-mfe-scope.ml-3 {
     margin-left: calc(var(--spacing) * 3);
   }
 
-  .expenses-mfe-scope .ml-auto {
+  .expenses-mfe-scope .ml-auto, .expenses-mfe-scope.ml-auto {
     margin-left: auto;
   }
 
@@ -2060,7 +2071,7 @@
   }
 
   .expenses-mfe-scope .border-collapse, .expenses-mfe-scope.border-collapse {
-    border-collapse: collapse;
+    border-collapse: collapse !important;
   }
 
   .expenses-mfe-scope .origin-\(--radix-dropdown-menu-content-transform-origin\), .expenses-mfe-scope.origin-\(--radix-dropdown-menu-content-transform-origin\) {
@@ -2076,7 +2087,7 @@
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
-  .expenses-mfe-scope .-translate-y-1\/2, .expenses-mfe-scope .translate-y-\[-50\%\], .expenses-mfe-scope.translate-y-\[-50\%\] {
+  .expenses-mfe-scope .-translate-y-1\/2, .expenses-mfe-scope.-translate-y-1\/2, .expenses-mfe-scope .translate-y-\[-50\%\], .expenses-mfe-scope.translate-y-\[-50\%\] {
     --tw-translate-y: -50%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
@@ -2246,61 +2257,61 @@
     gap: 8%;
   }
 
-  :where(.space-y-1 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-1 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-1\.5 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-1\.5 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-2 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-2 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-3 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-3 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-4 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-4 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-6 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-6 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-8 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-8 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-y-12 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-y-12 > :not(:last-child)) {
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 12) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 12) * calc(1 - var(--tw-space-y-reverse)));
   }
 
-  :where(.space-x-1 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-x-1 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
     margin-inline-start: calc(calc(var(--spacing) * 1) * var(--tw-space-x-reverse));
     margin-inline-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  :where(.space-x-2 > :not(:last-child)) {
+  .expenses-mfe-scope :where(.space-x-2 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
     margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
     margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
@@ -2314,7 +2325,7 @@
     justify-self: flex-end;
   }
 
-  .expenses-mfe-scope .truncate, .expenses-mfe-scope.truncate {
+  .expenses-mfe-scope .truncate {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -2416,115 +2427,115 @@
   }
 
   .expenses-mfe-scope .border-0, .expenses-mfe-scope.border-0 {
-    border-style: var(--tw-border-style);
-    border-width: 0;
+    border-style: var(--tw-border-style) !important;
+    border-width: 0 !important;
   }
 
   .expenses-mfe-scope .border-2, .expenses-mfe-scope.border-2 {
-    border-style: var(--tw-border-style);
-    border-width: 2px;
+    border-style: var(--tw-border-style) !important;
+    border-width: 2px !important;
   }
 
   .expenses-mfe-scope .border-t, .expenses-mfe-scope.border-t {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
+    border-top-style: var(--tw-border-style) !important;
+    border-top-width: 1px !important;
   }
 
   .expenses-mfe-scope .border-r, .expenses-mfe-scope.border-r {
-    border-right-style: var(--tw-border-style);
-    border-right-width: 1px;
+    border-right-style: var(--tw-border-style) !important;
+    border-right-width: 1px !important;
   }
 
   .expenses-mfe-scope .border-b, .expenses-mfe-scope.border-b {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 1px;
+    border-bottom-style: var(--tw-border-style) !important;
+    border-bottom-width: 1px !important;
   }
 
   .expenses-mfe-scope .border-b-2, .expenses-mfe-scope.border-b-2 {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 2px;
+    border-bottom-style: var(--tw-border-style) !important;
+    border-bottom-width: 2px !important;
   }
 
   .expenses-mfe-scope .border-dashed, .expenses-mfe-scope.border-dashed {
-    --tw-border-style: dashed;
-    border-style: dashed;
+    --tw-border-style: dashed !important;
+    border-style: dashed !important;
   }
 
   .expenses-mfe-scope .border-none, .expenses-mfe-scope.border-none {
-    --tw-border-style: none;
-    border-style: none;
+    --tw-border-style: none !important;
+    border-style: none !important;
   }
 
   .expenses-mfe-scope .border-blue-200, .expenses-mfe-scope.border-blue-200 {
-    border-color: var(--color-blue-200);
+    border-color: var(--color-blue-200) !important;
   }
 
   .expenses-mfe-scope .border-gray-200, .expenses-mfe-scope.border-gray-200 {
-    border-color: var(--color-gray-200);
+    border-color: var(--color-gray-200) !important;
   }
 
   .expenses-mfe-scope .border-gray-300, .expenses-mfe-scope.border-gray-300 {
-    border-color: var(--color-gray-300);
+    border-color: var(--color-gray-300) !important;
   }
 
   .expenses-mfe-scope .border-green-200, .expenses-mfe-scope.border-green-200 {
-    border-color: var(--color-green-200);
+    border-color: var(--color-green-200) !important;
   }
 
   .expenses-mfe-scope .border-input, .expenses-mfe-scope.border-input {
-    border-color: var(--color-input);
+    border-color: var(--color-input) !important;
   }
 
   .expenses-mfe-scope .border-neutral-100, .expenses-mfe-scope.border-neutral-100 {
-    border-color: var(--color-neutral-100);
+    border-color: var(--color-neutral-100) !important;
   }
 
   .expenses-mfe-scope .border-purple-200, .expenses-mfe-scope.border-purple-200 {
-    border-color: var(--color-purple-200);
+    border-color: var(--color-purple-200) !important;
   }
 
   .expenses-mfe-scope .border-transparent, .expenses-mfe-scope.border-transparent {
-    border-color: #0000;
+    border-color: #0000 !important;
   }
 
   .expenses-mfe-scope .border-trax-blue-600, .expenses-mfe-scope.border-trax-blue-600 {
-    border-color: var(--color-trax-blue-600);
+    border-color: var(--color-trax-blue-600) !important;
   }
 
   .expenses-mfe-scope .border-trax-green-400, .expenses-mfe-scope.border-trax-green-400 {
-    border-color: var(--color-trax-green-400);
+    border-color: var(--color-trax-green-400) !important;
   }
 
   .expenses-mfe-scope .border-trax-neutral-20, .expenses-mfe-scope.border-trax-neutral-20 {
-    border-color: var(--color-trax-neutral-20);
+    border-color: var(--color-trax-neutral-20) !important;
   }
 
   .expenses-mfe-scope .border-trax-neutral-40, .expenses-mfe-scope.border-trax-neutral-40 {
-    border-color: var(--color-trax-neutral-40);
+    border-color: var(--color-trax-neutral-40) !important;
   }
 
   .expenses-mfe-scope .border-trax-neutral-200, .expenses-mfe-scope.border-trax-neutral-200 {
-    border-color: var(--color-trax-neutral-200);
+    border-color: var(--color-trax-neutral-200) !important;
   }
 
   .expenses-mfe-scope .border-trax-neutral-300, .expenses-mfe-scope.border-trax-neutral-300 {
-    border-color: var(--color-trax-neutral-300);
+    border-color: var(--color-trax-neutral-300) !important;
   }
 
   .expenses-mfe-scope .border-trax-primary-blue, .expenses-mfe-scope.border-trax-primary-blue {
-    border-color: var(--color-trax-primary-blue);
+    border-color: var(--color-trax-primary-blue) !important;
   }
 
   .expenses-mfe-scope .border-trax-primary-blue-200, .expenses-mfe-scope.border-trax-primary-blue-200 {
-    border-color: var(--color-trax-primary-blue-200);
+    border-color: var(--color-trax-primary-blue-200) !important;
   }
 
   .expenses-mfe-scope .border-trax-red-400, .expenses-mfe-scope.border-trax-red-400 {
-    border-color: var(--color-trax-red-400);
+    border-color: var(--color-trax-red-400) !important;
   }
 
   .expenses-mfe-scope .border-trax-teal-200, .expenses-mfe-scope.border-trax-teal-200 {
-    border-color: var(--color-trax-teal-200);
+    border-color: var(--color-trax-teal-200) !important;
   }
 
   .expenses-mfe-scope .\!bg-red-500 {
@@ -2532,288 +2543,288 @@
   }
 
   .expenses-mfe-scope .bg-accent, .expenses-mfe-scope.bg-accent {
-    background-color: var(--color-accent);
+    background-color: var(--color-accent) !important;
   }
 
   .expenses-mfe-scope .bg-background, .expenses-mfe-scope.bg-background {
-    background-color: var(--color-background);
+    background-color: var(--color-background) !important;
   }
 
   .expenses-mfe-scope .bg-black, .expenses-mfe-scope.bg-black {
-    background-color: var(--color-black);
+    background-color: var(--color-black) !important;
   }
 
   .expenses-mfe-scope .bg-black\/20, .expenses-mfe-scope.bg-black\/20 {
-    background-color: #0003;
+    background-color: #0003 !important;
   }
 
   @supports (color: color-mix(in lab,red,red)) {
     .expenses-mfe-scope .bg-black\/20, .expenses-mfe-scope.bg-black\/20 {
-      background-color: color-mix(in srgb, #00020% , transparent);
+      background-color: color-mix(in srgb, #00020% , transparent) !important;
     }
 
     @supports (color: color-mix(in lab, red, red)) {
       .expenses-mfe-scope .bg-black\/20, .expenses-mfe-scope.bg-black\/20 {
-        background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
+        background-color: color-mix(in oklab, var(--color-black) 20%, transparent) !important;
       }
     }
   }
 
   .expenses-mfe-scope .bg-black\/50, .expenses-mfe-scope.bg-black\/50 {
-    background-color: #00000080;
+    background-color: #00000080 !important;
   }
 
   @supports (color: color-mix(in lab,red,red)) {
     .expenses-mfe-scope .bg-black\/50, .expenses-mfe-scope.bg-black\/50 {
-      background-color: color-mix(in srgb, #00050% , transparent);
+      background-color: color-mix(in srgb, #00050% , transparent) !important;
     }
 
     @supports (color: color-mix(in lab, red, red)) {
       .expenses-mfe-scope .bg-black\/50, .expenses-mfe-scope.bg-black\/50 {
-        background-color: color-mix(in oklab, var(--color-black) 50%, transparent);
+        background-color: color-mix(in oklab, var(--color-black) 50%, transparent) !important;
       }
     }
   }
 
   .expenses-mfe-scope .bg-blue-50, .expenses-mfe-scope.bg-blue-50 {
-    background-color: var(--color-blue-50);
+    background-color: var(--color-blue-50) !important;
   }
 
   .expenses-mfe-scope .bg-blue-100, .expenses-mfe-scope.bg-blue-100 {
-    background-color: var(--color-blue-100);
+    background-color: var(--color-blue-100) !important;
   }
 
   .expenses-mfe-scope .bg-border, .expenses-mfe-scope.bg-border {
-    background-color: var(--color-border);
+    background-color: var(--color-border) !important;
   }
 
   .expenses-mfe-scope .bg-calendar-today-bg, .expenses-mfe-scope.bg-calendar-today-bg {
-    background-color: var(--color-calendar-today-bg);
+    background-color: var(--color-calendar-today-bg) !important;
   }
 
   .expenses-mfe-scope .bg-card, .expenses-mfe-scope.bg-card {
-    background-color: var(--color-card);
+    background-color: var(--color-card) !important;
   }
 
   .expenses-mfe-scope .bg-destructive, .expenses-mfe-scope.bg-destructive {
-    background-color: var(--color-destructive);
+    background-color: var(--color-destructive) !important;
   }
 
   .expenses-mfe-scope .bg-foreground, .expenses-mfe-scope.bg-foreground {
-    background-color: var(--color-foreground);
+    background-color: var(--color-foreground) !important;
   }
 
   .expenses-mfe-scope .bg-gray-400, .expenses-mfe-scope.bg-gray-400 {
-    background-color: var(--color-gray-400);
+    background-color: var(--color-gray-400) !important;
   }
 
   .expenses-mfe-scope .bg-green-100, .expenses-mfe-scope.bg-green-100 {
-    background-color: var(--color-green-100);
+    background-color: var(--color-green-100) !important;
   }
 
   .expenses-mfe-scope .bg-muted, .expenses-mfe-scope.bg-muted {
-    background-color: var(--color-muted);
+    background-color: var(--color-muted) !important;
   }
 
   .expenses-mfe-scope .bg-muted\/50, .expenses-mfe-scope.bg-muted\/50 {
-    background-color: hsl(var(--muted));
+    background-color: hsl(var(--muted)) !important;
   }
 
   @supports (color: color-mix(in lab, red, red)) {
     .expenses-mfe-scope .bg-muted\/50, .expenses-mfe-scope.bg-muted\/50 {
-      background-color: color-mix(in srgb, hsl(var(--muted)) 50%, transparent);
+      background-color: color-mix(in srgb, hsl(var(--muted)) 50%, transparent) !important;
     }
   }
 
   @supports (color: color-mix(in lab,red,red)) {
     .expenses-mfe-scope .bg-muted\/50, .expenses-mfe-scope.bg-muted\/50 {
-      background-color: var(--color-muted);
+      background-color: var(--color-muted) !important;
     }
 
     @supports (color: color-mix(in lab, red, red)) {
       .expenses-mfe-scope .bg-muted\/50, .expenses-mfe-scope.bg-muted\/50 {
-        background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+        background-color: color-mix(in oklab, var(--color-muted) 50%, transparent) !important;
       }
     }
   }
 
   .expenses-mfe-scope .bg-popover, .expenses-mfe-scope.bg-popover {
-    background-color: var(--color-popover);
+    background-color: var(--color-popover) !important;
   }
 
   .expenses-mfe-scope .bg-primary, .expenses-mfe-scope.bg-primary {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary) !important;
   }
 
   .expenses-mfe-scope .bg-primary-600, .expenses-mfe-scope.bg-primary-600 {
-    background-color: var(--color-primary-600);
+    background-color: var(--color-primary-600) !important;
   }
 
   .expenses-mfe-scope .bg-purple-100, .expenses-mfe-scope.bg-purple-100 {
-    background-color: var(--color-purple-100);
+    background-color: var(--color-purple-100) !important;
   }
 
   .expenses-mfe-scope .bg-secondary, .expenses-mfe-scope.bg-secondary {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary) !important;
   }
 
   .expenses-mfe-scope .bg-transparent, .expenses-mfe-scope.bg-transparent {
-    background-color: #0000;
+    background-color: #0000 !important;
   }
 
   .expenses-mfe-scope .bg-trax-blue-100, .expenses-mfe-scope.bg-trax-blue-100 {
-    background-color: var(--color-trax-blue-100);
+    background-color: var(--color-trax-blue-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-blue-600, .expenses-mfe-scope.bg-trax-blue-600 {
-    background-color: var(--color-trax-blue-600);
+    background-color: var(--color-trax-blue-600) !important;
   }
 
   .expenses-mfe-scope .bg-trax-blue-600\/5, .expenses-mfe-scope.bg-trax-blue-600\/5 {
-    background-color: #13528e0d;
+    background-color: #13528e0d !important;
   }
 
   @supports (color: color-mix(in lab,red,red)) {
     .expenses-mfe-scope .bg-trax-blue-600\/5, .expenses-mfe-scope.bg-trax-blue-600\/5 {
-      background-color: color-mix(in srgb, #13528E5% , transparent);
+      background-color: color-mix(in srgb, #13528E5% , transparent) !important;
     }
 
     @supports (color: color-mix(in lab, red, red)) {
       .expenses-mfe-scope .bg-trax-blue-600\/5, .expenses-mfe-scope.bg-trax-blue-600\/5 {
-        background-color: color-mix(in oklab, var(--color-trax-blue-600) 5%, transparent);
+        background-color: color-mix(in oklab, var(--color-trax-blue-600) 5%, transparent) !important;
       }
     }
   }
 
   .expenses-mfe-scope .bg-trax-blue-700, .expenses-mfe-scope.bg-trax-blue-700 {
-    background-color: var(--color-trax-blue-700);
+    background-color: var(--color-trax-blue-700) !important;
   }
 
   .expenses-mfe-scope .bg-trax-green-50, .expenses-mfe-scope.bg-trax-green-50 {
-    background-color: var(--color-trax-green-50);
+    background-color: var(--color-trax-green-50) !important;
   }
 
   .expenses-mfe-scope .bg-trax-green-100, .expenses-mfe-scope.bg-trax-green-100 {
-    background-color: var(--color-trax-green-100);
+    background-color: var(--color-trax-green-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-green-500, .expenses-mfe-scope.bg-trax-green-500 {
-    background-color: var(--color-trax-green-500);
+    background-color: var(--color-trax-green-500) !important;
   }
 
   .expenses-mfe-scope .bg-trax-green-600, .expenses-mfe-scope.bg-trax-green-600 {
-    background-color: var(--color-trax-green-600);
+    background-color: var(--color-trax-green-600) !important;
   }
 
   .expenses-mfe-scope .bg-trax-grey-100, .expenses-mfe-scope.bg-trax-grey-100 {
-    background-color: var(--color-trax-grey-100);
+    background-color: var(--color-trax-grey-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-grey-200, .expenses-mfe-scope.bg-trax-grey-200 {
-    background-color: var(--color-trax-grey-200);
+    background-color: var(--color-trax-grey-200) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-0, .expenses-mfe-scope.bg-trax-neutral-0 {
-    background-color: var(--color-trax-neutral-0);
+    background-color: var(--color-trax-neutral-0) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-10, .expenses-mfe-scope.bg-trax-neutral-10 {
-    background-color: var(--color-trax-neutral-10);
+    background-color: var(--color-trax-neutral-10) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-20, .expenses-mfe-scope.bg-trax-neutral-20 {
-    background-color: var(--color-trax-neutral-20);
+    background-color: var(--color-trax-neutral-20) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-30, .expenses-mfe-scope.bg-trax-neutral-30 {
-    background-color: var(--color-trax-neutral-30);
+    background-color: var(--color-trax-neutral-30) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-40, .expenses-mfe-scope.bg-trax-neutral-40 {
-    background-color: var(--color-trax-neutral-40);
+    background-color: var(--color-trax-neutral-40) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-100, .expenses-mfe-scope.bg-trax-neutral-100 {
-    background-color: var(--color-trax-neutral-100);
+    background-color: var(--color-trax-neutral-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-300, .expenses-mfe-scope.bg-trax-neutral-300 {
-    background-color: var(--color-trax-neutral-300);
+    background-color: var(--color-trax-neutral-300) !important;
   }
 
   .expenses-mfe-scope .bg-trax-neutral-900, .expenses-mfe-scope.bg-trax-neutral-900 {
-    background-color: var(--color-trax-neutral-900);
+    background-color: var(--color-trax-neutral-900) !important;
   }
 
   .expenses-mfe-scope .bg-trax-primary-blue-50, .expenses-mfe-scope.bg-trax-primary-blue-50 {
-    background-color: var(--color-trax-primary-blue-50);
+    background-color: var(--color-trax-primary-blue-50) !important;
   }
 
   .expenses-mfe-scope .bg-trax-primary-blue-200, .expenses-mfe-scope.bg-trax-primary-blue-200 {
-    background-color: var(--color-trax-primary-blue-200);
+    background-color: var(--color-trax-primary-blue-200) !important;
   }
 
   .expenses-mfe-scope .bg-trax-red-50, .expenses-mfe-scope.bg-trax-red-50 {
-    background-color: var(--color-trax-red-50);
+    background-color: var(--color-trax-red-50) !important;
   }
 
   .expenses-mfe-scope .bg-trax-red-100, .expenses-mfe-scope.bg-trax-red-100 {
-    background-color: var(--color-trax-red-100);
+    background-color: var(--color-trax-red-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-red-500, .expenses-mfe-scope.bg-trax-red-500 {
-    background-color: var(--color-trax-red-500);
+    background-color: var(--color-trax-red-500) !important;
   }
 
   .expenses-mfe-scope .bg-trax-red-700, .expenses-mfe-scope.bg-trax-red-700 {
-    background-color: var(--color-trax-red-700);
+    background-color: var(--color-trax-red-700) !important;
   }
 
   .expenses-mfe-scope .bg-trax-teal-200, .expenses-mfe-scope.bg-trax-teal-200 {
-    background-color: var(--color-trax-teal-200);
+    background-color: var(--color-trax-teal-200) !important;
   }
 
   .expenses-mfe-scope .bg-trax-teal-600, .expenses-mfe-scope.bg-trax-teal-600 {
-    background-color: var(--color-trax-teal-600);
+    background-color: var(--color-trax-teal-600) !important;
   }
 
   .expenses-mfe-scope .bg-trax-violet-100, .expenses-mfe-scope.bg-trax-violet-100 {
-    background-color: var(--color-trax-violet-100);
+    background-color: var(--color-trax-violet-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-yellow-100, .expenses-mfe-scope.bg-trax-yellow-100 {
-    background-color: var(--color-trax-yellow-100);
+    background-color: var(--color-trax-yellow-100) !important;
   }
 
   .expenses-mfe-scope .bg-trax-yellow-600, .expenses-mfe-scope.bg-trax-yellow-600 {
-    background-color: var(--color-trax-yellow-600);
+    background-color: var(--color-trax-yellow-600) !important;
   }
 
   .expenses-mfe-scope .bg-white, .expenses-mfe-scope.bg-white {
-    background-color: var(--color-white);
+    background-color: var(--color-white) !important;
   }
 
-  .expenses-mfe-scope .fill-black, .expenses-mfe-scope.fill-black {
+  .expenses-mfe-scope .fill-black {
     fill: var(--color-black);
   }
 
-  .expenses-mfe-scope .fill-current, .expenses-mfe-scope.fill-current {
+  .expenses-mfe-scope .fill-current {
     fill: currentColor;
   }
 
-  .expenses-mfe-scope .fill-foreground, .expenses-mfe-scope.fill-foreground {
+  .expenses-mfe-scope .fill-foreground {
     fill: var(--color-foreground);
   }
 
-  .expenses-mfe-scope .fill-trax-blue-700, .expenses-mfe-scope.fill-trax-blue-700 {
+  .expenses-mfe-scope .fill-trax-blue-700 {
     fill: var(--color-trax-blue-700);
   }
 
-  .expenses-mfe-scope .fill-trax-yellow-600, .expenses-mfe-scope.fill-trax-yellow-600 {
+  .expenses-mfe-scope .fill-trax-yellow-600 {
     fill: var(--color-trax-yellow-600);
   }
 
-  .expenses-mfe-scope .fill-white, .expenses-mfe-scope.fill-white {
+  .expenses-mfe-scope .fill-white {
     fill: var(--color-white);
   }
 
@@ -2849,136 +2860,136 @@
     padding: calc(var(--spacing) * 8);
   }
 
-  .expenses-mfe-scope .px-\(--cell-size\) {
+  .expenses-mfe-scope .px-\(--cell-size\), .expenses-mfe-scope.px-\(--cell-size\) {
     padding-inline: var(--cell-size);
   }
 
-  .expenses-mfe-scope .px-1 {
+  .expenses-mfe-scope .px-1, .expenses-mfe-scope.px-1 {
     padding-inline: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .px-1\.5 {
+  .expenses-mfe-scope .px-1\.5, .expenses-mfe-scope.px-1\.5 {
     padding-inline: calc(var(--spacing) * 1.5);
   }
 
-  .expenses-mfe-scope .px-2 {
+  .expenses-mfe-scope .px-2, .expenses-mfe-scope.px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .px-2\.5 {
+  .expenses-mfe-scope .px-2\.5, .expenses-mfe-scope.px-2\.5 {
     padding-inline: calc(var(--spacing) * 2.5);
   }
 
-  .expenses-mfe-scope .px-3 {
+  .expenses-mfe-scope .px-3, .expenses-mfe-scope.px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
 
-  .expenses-mfe-scope .px-4 {
+  .expenses-mfe-scope .px-4, .expenses-mfe-scope.px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .py-0\.5 {
+  .expenses-mfe-scope .py-0\.5, .expenses-mfe-scope.py-0\.5 {
     padding-block: calc(var(--spacing) * .5);
   }
 
-  .expenses-mfe-scope .py-1 {
+  .expenses-mfe-scope .py-1, .expenses-mfe-scope.py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .py-1\.5 {
+  .expenses-mfe-scope .py-1\.5, .expenses-mfe-scope.py-1\.5 {
     padding-block: calc(var(--spacing) * 1.5);
   }
 
-  .expenses-mfe-scope .py-2 {
+  .expenses-mfe-scope .py-2, .expenses-mfe-scope.py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .py-2\.5 {
+  .expenses-mfe-scope .py-2\.5, .expenses-mfe-scope.py-2\.5 {
     padding-block: calc(var(--spacing) * 2.5);
   }
 
-  .expenses-mfe-scope .py-3 {
+  .expenses-mfe-scope .py-3, .expenses-mfe-scope.py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
 
-  .expenses-mfe-scope .py-4 {
+  .expenses-mfe-scope .py-4, .expenses-mfe-scope.py-4 {
     padding-block: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .py-6 {
+  .expenses-mfe-scope .py-6, .expenses-mfe-scope.py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
 
-  .expenses-mfe-scope .py-8 {
+  .expenses-mfe-scope .py-8, .expenses-mfe-scope.py-8 {
     padding-block: calc(var(--spacing) * 8);
   }
 
-  .expenses-mfe-scope .py-12 {
+  .expenses-mfe-scope .py-12, .expenses-mfe-scope.py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
 
-  .expenses-mfe-scope .pt-1 {
+  .expenses-mfe-scope .pt-1, .expenses-mfe-scope.pt-1 {
     padding-top: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .pt-3 {
+  .expenses-mfe-scope .pt-3, .expenses-mfe-scope.pt-3 {
     padding-top: calc(var(--spacing) * 3);
   }
 
-  .expenses-mfe-scope .pt-4 {
+  .expenses-mfe-scope .pt-4, .expenses-mfe-scope.pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .pt-5 {
+  .expenses-mfe-scope .pt-5, .expenses-mfe-scope.pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
 
-  .expenses-mfe-scope .pr-1 {
+  .expenses-mfe-scope .pr-1, .expenses-mfe-scope.pr-1 {
     padding-right: calc(var(--spacing) * 1);
   }
 
-  .expenses-mfe-scope .pr-2 {
+  .expenses-mfe-scope .pr-2, .expenses-mfe-scope.pr-2 {
     padding-right: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .pr-10 {
+  .expenses-mfe-scope .pr-10, .expenses-mfe-scope.pr-10 {
     padding-right: calc(var(--spacing) * 10);
   }
 
-  .expenses-mfe-scope .pr-16 {
+  .expenses-mfe-scope .pr-16, .expenses-mfe-scope.pr-16 {
     padding-right: calc(var(--spacing) * 16);
   }
 
-  .expenses-mfe-scope .pb-4 {
+  .expenses-mfe-scope .pb-4, .expenses-mfe-scope.pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
   }
 
-  .expenses-mfe-scope .pb-8 {
+  .expenses-mfe-scope .pb-8, .expenses-mfe-scope.pb-8 {
     padding-bottom: calc(var(--spacing) * 8);
   }
 
-  .expenses-mfe-scope .pl-2 {
+  .expenses-mfe-scope .pl-2, .expenses-mfe-scope.pl-2 {
     padding-left: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .pl-8 {
+  .expenses-mfe-scope .pl-8, .expenses-mfe-scope.pl-8 {
     padding-left: calc(var(--spacing) * 8);
   }
 
-  .expenses-mfe-scope .pl-10 {
+  .expenses-mfe-scope .pl-10, .expenses-mfe-scope.pl-10 {
     padding-left: calc(var(--spacing) * 10);
   }
 
   .expenses-mfe-scope .text-center, .expenses-mfe-scope.text-center {
-    text-align: center;
+    text-align: center !important;
   }
 
   .expenses-mfe-scope .text-left, .expenses-mfe-scope.text-left {
-    text-align: left;
+    text-align: left !important;
   }
 
   .expenses-mfe-scope .text-right, .expenses-mfe-scope.text-right {
-    text-align: right;
+    text-align: right !important;
   }
 
   .expenses-mfe-scope .align-middle {
@@ -2986,324 +2997,324 @@
   }
 
   .expenses-mfe-scope .font-mono, .expenses-mfe-scope.font-mono {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono) !important;
   }
 
   .expenses-mfe-scope .text-2xl, .expenses-mfe-scope.text-2xl {
-    font-size: var(--text-2xl);
-    line-height: var(--tw-leading, var(--text-2xl--line-height));
+    font-size: var(--text-2xl) !important;
+    line-height: var(--tw-leading, var(--text-2xl--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-3xl, .expenses-mfe-scope.text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
+    font-size: var(--text-3xl) !important;
+    line-height: var(--tw-leading, var(--text-3xl--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-4xl, .expenses-mfe-scope.text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
+    font-size: var(--text-4xl) !important;
+    line-height: var(--tw-leading, var(--text-4xl--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-base, .expenses-mfe-scope.text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
+    font-size: var(--text-base) !important;
+    line-height: var(--tw-leading, var(--text-base--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-lg, .expenses-mfe-scope.text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
+    font-size: var(--text-lg) !important;
+    line-height: var(--tw-leading, var(--text-lg--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-sm, .expenses-mfe-scope.text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
+    font-size: var(--text-sm) !important;
+    line-height: var(--tw-leading, var(--text-sm--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-xl, .expenses-mfe-scope.text-xl {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
+    font-size: var(--text-xl) !important;
+    line-height: var(--tw-leading, var(--text-xl--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-xs, .expenses-mfe-scope.text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
+    font-size: var(--text-xs) !important;
+    line-height: var(--tw-leading, var(--text-xs--line-height)) !important;
   }
 
   .expenses-mfe-scope .text-\[0\.8rem\], .expenses-mfe-scope.text-\[0\.8rem\] {
-    font-size: .8rem;
+    font-size: .8rem !important;
   }
 
   .expenses-mfe-scope .leading-0, .expenses-mfe-scope.leading-0 {
-    --tw-leading: calc(var(--spacing) * 0);
-    line-height: calc(var(--spacing) * 0);
+    --tw-leading: calc(var(--spacing) * 0) !important;
+    line-height: calc(var(--spacing) * 0) !important;
   }
 
   .expenses-mfe-scope .leading-3, .expenses-mfe-scope.leading-3 {
-    --tw-leading: calc(var(--spacing) * 3);
-    line-height: calc(var(--spacing) * 3);
+    --tw-leading: calc(var(--spacing) * 3) !important;
+    line-height: calc(var(--spacing) * 3) !important;
   }
 
   .expenses-mfe-scope .leading-\[1\.4\], .expenses-mfe-scope.leading-\[1\.4\] {
-    --tw-leading: 1.4;
-    line-height: 1.4;
+    --tw-leading: 1.4 !important;
+    line-height: 1.4 !important;
   }
 
   .expenses-mfe-scope .leading-\[140\%\], .expenses-mfe-scope.leading-\[140\%\] {
-    --tw-leading: 140%;
-    line-height: 140%;
+    --tw-leading: 140% !important;
+    line-height: 140% !important;
   }
 
   .expenses-mfe-scope .leading-none, .expenses-mfe-scope.leading-none {
-    --tw-leading: 1;
-    line-height: 1;
+    --tw-leading: 1 !important;
+    line-height: 1 !important;
   }
 
   .expenses-mfe-scope .font-bold, .expenses-mfe-scope.font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
+    --tw-font-weight: var(--font-weight-bold) !important;
+    font-weight: var(--font-weight-bold) !important;
   }
 
   .expenses-mfe-scope .font-medium, .expenses-mfe-scope.font-medium {
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
+    --tw-font-weight: var(--font-weight-medium) !important;
+    font-weight: var(--font-weight-medium) !important;
   }
 
   .expenses-mfe-scope .font-normal, .expenses-mfe-scope.font-normal {
-    --tw-font-weight: var(--font-weight-normal);
-    font-weight: var(--font-weight-normal);
+    --tw-font-weight: var(--font-weight-normal) !important;
+    font-weight: var(--font-weight-normal) !important;
   }
 
   .expenses-mfe-scope .font-semibold, .expenses-mfe-scope.font-semibold {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
+    --tw-font-weight: var(--font-weight-semibold) !important;
+    font-weight: var(--font-weight-semibold) !important;
   }
 
   .expenses-mfe-scope .tracking-tight, .expenses-mfe-scope.tracking-tight {
-    --tw-tracking: var(--tracking-tight);
-    letter-spacing: var(--tracking-tight);
+    --tw-tracking: var(--tracking-tight) !important;
+    letter-spacing: var(--tracking-tight) !important;
   }
 
   .expenses-mfe-scope .tracking-wide, .expenses-mfe-scope.tracking-wide {
-    --tw-tracking: var(--tracking-wide);
-    letter-spacing: var(--tracking-wide);
+    --tw-tracking: var(--tracking-wide) !important;
+    letter-spacing: var(--tracking-wide) !important;
   }
 
   .expenses-mfe-scope .tracking-wider, .expenses-mfe-scope.tracking-wider {
-    --tw-tracking: var(--tracking-wider);
-    letter-spacing: var(--tracking-wider);
+    --tw-tracking: var(--tracking-wider) !important;
+    letter-spacing: var(--tracking-wider) !important;
   }
 
   .expenses-mfe-scope .tracking-widest, .expenses-mfe-scope.tracking-widest {
-    --tw-tracking: var(--tracking-widest);
-    letter-spacing: var(--tracking-widest);
+    --tw-tracking: var(--tracking-widest) !important;
+    letter-spacing: var(--tracking-widest) !important;
   }
 
   .expenses-mfe-scope .wrap-break-word {
     overflow-wrap: break-word;
   }
 
-  .expenses-mfe-scope .whitespace-nowrap {
+  .expenses-mfe-scope .whitespace-nowrap, .expenses-mfe-scope.whitespace-nowrap {
     white-space: nowrap;
   }
 
   .expenses-mfe-scope .text-accent-foreground, .expenses-mfe-scope.text-accent-foreground {
-    color: var(--color-accent-foreground);
+    color: var(--color-accent-foreground) !important;
   }
 
   .expenses-mfe-scope .text-black, .expenses-mfe-scope.text-black {
-    color: var(--color-black);
+    color: var(--color-black) !important;
   }
 
   .expenses-mfe-scope .text-blue-600, .expenses-mfe-scope.text-blue-600 {
-    color: var(--color-blue-600);
+    color: var(--color-blue-600) !important;
   }
 
   .expenses-mfe-scope .text-blue-800, .expenses-mfe-scope.text-blue-800 {
-    color: var(--color-blue-800);
+    color: var(--color-blue-800) !important;
   }
 
   .expenses-mfe-scope .text-calendar-disabled, .expenses-mfe-scope.text-calendar-disabled {
-    color: var(--color-calendar-disabled);
+    color: var(--color-calendar-disabled) !important;
   }
 
   .expenses-mfe-scope .text-card-foreground, .expenses-mfe-scope.text-card-foreground {
-    color: var(--color-card-foreground);
+    color: var(--color-card-foreground) !important;
   }
 
   .expenses-mfe-scope .text-current, .expenses-mfe-scope.text-current {
-    color: currentColor;
+    color: currentColor !important;
   }
 
   .expenses-mfe-scope .text-destructive-foreground, .expenses-mfe-scope.text-destructive-foreground {
-    color: var(--color-destructive-foreground);
+    color: var(--color-destructive-foreground) !important;
   }
 
   .expenses-mfe-scope .text-foreground, .expenses-mfe-scope.text-foreground {
-    color: var(--color-foreground);
+    color: var(--color-foreground) !important;
   }
 
   .expenses-mfe-scope .text-gray-500, .expenses-mfe-scope.text-gray-500 {
-    color: var(--color-gray-500);
+    color: var(--color-gray-500) !important;
   }
 
   .expenses-mfe-scope .text-gray-600, .expenses-mfe-scope.text-gray-600 {
-    color: var(--color-gray-600);
+    color: var(--color-gray-600) !important;
   }
 
   .expenses-mfe-scope .text-gray-900, .expenses-mfe-scope.text-gray-900 {
-    color: var(--color-gray-900);
+    color: var(--color-gray-900) !important;
   }
 
   .expenses-mfe-scope .text-green-600, .expenses-mfe-scope.text-green-600 {
-    color: var(--color-green-600);
+    color: var(--color-green-600) !important;
   }
 
   .expenses-mfe-scope .text-green-800, .expenses-mfe-scope.text-green-800 {
-    color: var(--color-green-800);
+    color: var(--color-green-800) !important;
   }
 
   .expenses-mfe-scope .text-muted-foreground, .expenses-mfe-scope.text-muted-foreground {
-    color: var(--color-muted-foreground);
+    color: var(--color-muted-foreground) !important;
   }
 
   .expenses-mfe-scope .text-neutral-100, .expenses-mfe-scope.text-neutral-100 {
-    color: var(--color-neutral-100);
+    color: var(--color-neutral-100) !important;
   }
 
   .expenses-mfe-scope .text-popover-foreground, .expenses-mfe-scope.text-popover-foreground {
-    color: var(--color-popover-foreground);
+    color: var(--color-popover-foreground) !important;
   }
 
   .expenses-mfe-scope .text-primary-foreground, .expenses-mfe-scope.text-primary-foreground {
-    color: var(--color-primary-foreground);
+    color: var(--color-primary-foreground) !important;
   }
 
   .expenses-mfe-scope .text-purple-600, .expenses-mfe-scope.text-purple-600 {
-    color: var(--color-purple-600);
+    color: var(--color-purple-600) !important;
   }
 
   .expenses-mfe-scope .text-purple-800, .expenses-mfe-scope.text-purple-800 {
-    color: var(--color-purple-800);
+    color: var(--color-purple-800) !important;
   }
 
   .expenses-mfe-scope .text-red-600, .expenses-mfe-scope.text-red-600 {
-    color: var(--color-red-600);
+    color: var(--color-red-600) !important;
   }
 
   .expenses-mfe-scope .text-secondary-foreground, .expenses-mfe-scope.text-secondary-foreground {
-    color: var(--color-secondary-foreground);
+    color: var(--color-secondary-foreground) !important;
   }
 
   .expenses-mfe-scope .text-trax-blue-600, .expenses-mfe-scope.text-trax-blue-600 {
-    color: var(--color-trax-blue-600);
+    color: var(--color-trax-blue-600) !important;
   }
 
   .expenses-mfe-scope .text-trax-blue-700, .expenses-mfe-scope.text-trax-blue-700 {
-    color: var(--color-trax-blue-700);
+    color: var(--color-trax-blue-700) !important;
   }
 
   .expenses-mfe-scope .text-trax-blue-900, .expenses-mfe-scope.text-trax-blue-900 {
-    color: var(--color-trax-blue-900);
+    color: var(--color-trax-blue-900) !important;
   }
 
   .expenses-mfe-scope .text-trax-green-500, .expenses-mfe-scope.text-trax-green-500 {
-    color: var(--color-trax-green-500);
+    color: var(--color-trax-green-500) !important;
   }
 
   .expenses-mfe-scope .text-trax-green-600, .expenses-mfe-scope.text-trax-green-600 {
-    color: var(--color-trax-green-600);
+    color: var(--color-trax-green-600) !important;
   }
 
   .expenses-mfe-scope .text-trax-green-800, .expenses-mfe-scope.text-trax-green-800 {
-    color: var(--color-trax-green-800);
+    color: var(--color-trax-green-800) !important;
   }
 
   .expenses-mfe-scope .text-trax-grey-200, .expenses-mfe-scope.text-trax-grey-200 {
-    color: var(--color-trax-grey-200);
+    color: var(--color-trax-grey-200) !important;
   }
 
   .expenses-mfe-scope .text-trax-grey-500, .expenses-mfe-scope.text-trax-grey-500 {
-    color: var(--color-trax-grey-500);
+    color: var(--color-trax-grey-500) !important;
   }
 
   .expenses-mfe-scope .text-trax-grey-600, .expenses-mfe-scope.text-trax-grey-600 {
-    color: var(--color-trax-grey-600);
+    color: var(--color-trax-grey-600) !important;
   }
 
   .expenses-mfe-scope .text-trax-grey-900, .expenses-mfe-scope.text-trax-grey-900 {
-    color: var(--color-trax-grey-900);
+    color: var(--color-trax-grey-900) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-0, .expenses-mfe-scope.text-trax-neutral-0 {
-    color: var(--color-trax-neutral-0);
+    color: var(--color-trax-neutral-0) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-80, .expenses-mfe-scope.text-trax-neutral-80 {
-    color: var(--color-trax-neutral-80);
+    color: var(--color-trax-neutral-80) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-100, .expenses-mfe-scope.text-trax-neutral-100 {
-    color: var(--color-trax-neutral-100);
+    color: var(--color-trax-neutral-100) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-200, .expenses-mfe-scope.text-trax-neutral-200 {
-    color: var(--color-trax-neutral-200);
+    color: var(--color-trax-neutral-200) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-300, .expenses-mfe-scope.text-trax-neutral-300 {
-    color: var(--color-trax-neutral-300);
+    color: var(--color-trax-neutral-300) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-400, .expenses-mfe-scope.text-trax-neutral-400 {
-    color: var(--color-trax-neutral-400);
+    color: var(--color-trax-neutral-400) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-500, .expenses-mfe-scope.text-trax-neutral-500 {
-    color: var(--color-trax-neutral-500);
+    color: var(--color-trax-neutral-500) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-600, .expenses-mfe-scope.text-trax-neutral-600 {
-    color: var(--color-trax-neutral-600);
+    color: var(--color-trax-neutral-600) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-900, .expenses-mfe-scope.text-trax-neutral-900 {
-    color: var(--color-trax-neutral-900);
+    color: var(--color-trax-neutral-900) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-950, .expenses-mfe-scope.text-trax-neutral-950 {
-    color: var(--color-trax-neutral-950);
+    color: var(--color-trax-neutral-950) !important;
   }
 
   .expenses-mfe-scope .text-trax-neutral-1000, .expenses-mfe-scope.text-trax-neutral-1000 {
-    color: var(--color-trax-neutral-1000);
+    color: var(--color-trax-neutral-1000) !important;
   }
 
   .expenses-mfe-scope .text-trax-primary-blue-700, .expenses-mfe-scope.text-trax-primary-blue-700 {
-    color: var(--color-trax-primary-blue-700);
+    color: var(--color-trax-primary-blue-700) !important;
   }
 
   .expenses-mfe-scope .text-trax-red-400, .expenses-mfe-scope.text-trax-red-400 {
-    color: var(--color-trax-red-400);
+    color: var(--color-trax-red-400) !important;
   }
 
   .expenses-mfe-scope .text-trax-red-500, .expenses-mfe-scope.text-trax-red-500 {
-    color: var(--color-trax-red-500);
+    color: var(--color-trax-red-500) !important;
   }
 
   .expenses-mfe-scope .text-trax-red-600, .expenses-mfe-scope.text-trax-red-600 {
-    color: var(--color-trax-red-600);
+    color: var(--color-trax-red-600) !important;
   }
 
   .expenses-mfe-scope .text-trax-teal-600, .expenses-mfe-scope.text-trax-teal-600 {
-    color: var(--color-trax-teal-600);
+    color: var(--color-trax-teal-600) !important;
   }
 
   .expenses-mfe-scope .text-trax-yellow-800, .expenses-mfe-scope.text-trax-yellow-800 {
-    color: var(--color-trax-yellow-800);
+    color: var(--color-trax-yellow-800) !important;
   }
 
   .expenses-mfe-scope .text-white, .expenses-mfe-scope.text-white {
-    color: var(--color-white);
+    color: var(--color-white) !important;
   }
 
   .expenses-mfe-scope .uppercase {
@@ -3314,7 +3325,7 @@
     font-style: italic;
   }
 
-  .expenses-mfe-scope .underline, .expenses-mfe-scope.underline {
+  .expenses-mfe-scope .underline {
     text-decoration-line: underline;
   }
 
@@ -3384,7 +3395,7 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
-  .expenses-mfe-scope .ring-0, .expenses-mfe-scope.ring-0 {
+  .expenses-mfe-scope .ring-0 {
     --tw-ring-shadow: var(--tw-ring-inset, ) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
@@ -3393,17 +3404,17 @@
     box-shadow: var(--shadow-trax-chip);
   }
 
-  .expenses-mfe-scope .ring-offset-background, .expenses-mfe-scope.ring-offset-background {
+  .expenses-mfe-scope .ring-offset-background {
     --tw-ring-offset-color: var(--color-background);
   }
 
-  .expenses-mfe-scope .outline-hidden, .expenses-mfe-scope.outline-hidden {
+  .expenses-mfe-scope .outline-hidden {
     --tw-outline-style: none;
     outline-style: none;
   }
 
   @media (forced-colors: active) {
-    .expenses-mfe-scope .outline-hidden, .expenses-mfe-scope.outline-hidden {
+    .expenses-mfe-scope .outline-hidden {
       outline-offset: 2px;
       outline: 2px solid #0000;
     }
@@ -3472,7 +3483,7 @@
     transition-timing-function: var(--ease-in-out);
   }
 
-  .expenses-mfe-scope .outline-none, .expenses-mfe-scope.outline-none {
+  .expenses-mfe-scope .outline-none {
     --tw-outline-style: none;
     outline-style: none;
   }
@@ -4581,19 +4592,19 @@
       justify-content: flex-end;
     }
 
-    :where(.sm\:space-y-0 > :not(:last-child)) {
+    .expenses-mfe-scope :where(.sm\:space-y-0 > :not(:last-child)) {
       --tw-space-y-reverse: 0;
       margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
     }
 
-    :where(.sm\:space-x-2 > :not(:last-child)) {
+    .expenses-mfe-scope :where(.sm\:space-x-2 > :not(:last-child)) {
       --tw-space-x-reverse: 0;
       margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
     }
 
-    :where(.sm\:space-x-4 > :not(:last-child)) {
+    .expenses-mfe-scope :where(.sm\:space-x-4 > :not(:last-child)) {
       --tw-space-x-reverse: 0;
       margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
@@ -4793,11 +4804,11 @@
     padding-top: calc(var(--spacing) * 6);
   }
 
-  :is(.rtl\:\*\*\:\[\.rdp-button\\_next\>svg\]\:rotate-180:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_next > svg), :is(.rtl\:\*\*\:\[\.rdp-button\\_previous\>svg\]\:rotate-180:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_previous > svg) {
+  .expenses-mfe-scope :is(.rtl\:\*\*\:\[\.rdp-button\\_next\>svg\]\:rotate-180:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_next > svg), .expenses-mfe-scope :is(.rtl\:\*\*\:\[\.rdp-button\\_previous\>svg\]\:rotate-180:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) *):is(.rdp-button_previous > svg) {
     rotate: 180deg;
   }
 
-  :is(.data-\[variant\=destructive\]\:\*\:\[svg\]\:\!text-destructive[data-variant="destructive"] > *):is(svg) {
+  .expenses-mfe-scope :is(.data-\[variant\=destructive\]\:\*\:\[svg\]\:\!text-destructive[data-variant="destructive"] > *):is(svg) {
     color: var(--color-destructive) !important;
   }
 
@@ -4855,7 +4866,7 @@
   }
 
   .expenses-mfe-scope .border-default, .expenses-mfe-scope.border-default {
-    border-color: hsl(var(--border));
+    border-color: hsl(var(--border)) !important;
   }
 
   .expenses-mfe-scope .animate-slide-out-from-bottom, .expenses-mfe-scope.animate-slide-out-from-bottom {
@@ -4893,49 +4904,6 @@
   }
 }
 
-.expenses-mfe-scope html, .expenses-mfe-scope body, .expenses-mfe-scope #root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.expenses-mfe-scope .exp-custom-scrollbar {
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: var(--expSrollBarColor) transparent;
-  overflow: auto;
-}
-
-.expenses-mfe-scope .exp-custom-scrollbar::-webkit-scrollbar {
-  width: 1rem;
-  height: 1rem;
-}
-
-.expenses-mfe-scope .exp-custom-scrollbar::-webkit-scrollbar-track {
-  background: none;
-}
-
-.expenses-mfe-scope .exp-custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--expSrollBarColor);
-  background-clip: padding-box;
-  border: .3125rem solid #0000;
-  border-radius: .5rem;
-  transition: opacity .3s;
-}
-
-.expenses-mfe-scope .exp-custom-scrollbar:hover::-webkit-scrollbar-thumb {
-  opacity: .8;
-}
-
-.expenses-mfe-scope, .expenses-mfe-scope *, .expenses-mfe-scope :before, .expenses-mfe-scope :after {
-  box-sizing: border-box;
-}
-
-.expenses-mfe-scope {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-}
-
 [data-radix-popper-content-wrapper].expenses-mfe-scope {
   z-index: 50 !important;
   pointer-events: auto !important;
@@ -4958,6 +4926,20 @@
 [data-radix-dialog-content] [data-radix-popper-content-wrapper].expenses-mfe-scope, [data-radix-dialog-content] [data-radix-dropdown-menu-content].expenses-mfe-scope, [data-radix-dialog-content] [data-radix-popover-content].expenses-mfe-scope, [data-radix-dialog-content] [data-radix-select-content].expenses-mfe-scope {
   z-index: 52 !important;
   pointer-events: auto !important;
+}
+
+[data-sonner-toaster].expenses-mfe-scope {
+  z-index: 9999 !important;
+  font-family: inherit !important;
+}
+
+[data-radix-dialog-content][data-state="open"].expenses-mfe-scope, [data-radix-dialog-overlay][data-state="open"].expenses-mfe-scope {
+  animation-duration: .15s !important;
+  animation-delay: 0s !important;
+}
+
+[data-radix-dialog-content].expenses-mfe-scope {
+  transform-origin: center !important;
 }
 
 .expenses-mfe-scope body {
