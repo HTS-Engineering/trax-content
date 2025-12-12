@@ -1,22 +1,22 @@
 {
-  "timestamp": "2025-12-10T21:29:19.158Z",
+  "timestamp": "2025-12-12T18:50:59.577Z",
   "environment": "expenses-mfe-dev",
   "files": {
     "federation": [
-      "__federation_expose_Mount-BH5TMKbY.js",
-      "__federation_fn_import-Dfp15ceV.js",
-      "__federation_shared_react-DevueI5B.js",
-      "__federation_shared_react-dom-DY7akhzB.js"
+      "__federation_expose_Mount-dOJFkANI.js",
+      "__federation_fn_import-DCl-vMH-.js",
+      "__federation_shared_react-DA_G_qdC.js",
+      "__federation_shared_react-dom-Bnr0_Bsc.js"
     ],
     "shared": [
-      "__federation_shared_react-DevueI5B.js",
-      "__federation_shared_react-dom-DY7akhzB.js"
+      "__federation_shared_react-DA_G_qdC.js",
+      "__federation_shared_react-dom-Bnr0_Bsc.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-BH5TMKbY.js"
+      "__federation_expose_Mount-dOJFkANI.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-BH5TMKbY.js",
-  "css": "style-B04V3lSL.css",
+  "bootstrap": "__federation_expose_Mount-dOJFkANI.js",
+  "css": "style-UAjhty0E.css",
   "remoteEntry": "remoteEntry.js"
 }
