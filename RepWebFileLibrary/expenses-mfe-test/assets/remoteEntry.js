@@ -2,8 +2,8 @@ const currentImports = {};
 const exportSet = /* @__PURE__ */ new Set(["Module", "__esModule", "default", "_export_sfc"]);
 let moduleMap = {
   "./mount": () => {
-    dynamicLoadingCss(["style-C7gOKj_t.css"], false, "./mount");
-    return __federation_import("./assets/__federation_expose_Mount-BoVhE2zr.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    dynamicLoadingCss(["style-UAjhty0E.css"], false, "./mount");
+    return __federation_import("./assets/__federation_expose_Mount-BzoOfBAu.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
   }
 };
 const seen = {};
@@ -41,7 +41,7 @@ const dynamicLoadingCss = (cssFilePaths, dontAppendStylesToHead, exposeItemName)
       href = cssPath;
     }
     if (dontAppendStylesToHead) {
-      const key = "css__expenses-mfe__" + exposeItemName;
+      const key = "css__expenses-mfe-test__" + exposeItemName;
       window[key] = window[key] || [];
       window[key].push(href);
       return;
