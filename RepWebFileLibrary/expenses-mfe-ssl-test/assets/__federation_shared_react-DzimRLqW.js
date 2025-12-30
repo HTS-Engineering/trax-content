@@ -1,0 +1,7 @@
+import { g as getDefaultExportFromCjs } from "./_commonjsHelpers-CUmg6egw.js";
+import { r as requireReact } from "./index-DI0XiHM0.js";
+var reactExports = requireReact();
+const index = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
+export {
+  index as default
+};
