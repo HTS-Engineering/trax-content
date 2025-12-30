@@ -1,13 +1,13 @@
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { i as is, l as ls, Y as Yn, b as cs, H as Pa, D as Da, J as fs, K as ms, P as Pe, M as ps, Q as hs, S as vs, V as bs, W as xs, X as zr, N as Nn, F as Fn, I as In, E as Ea, Z as Ma } from "./axiosInstance-DUJjI5vT.js";
-import { J as minimalExpenseValidationStrategy, K as useBaseExpenseForm, V as VENDOR_OPTIONS, L as EXPENSE_LOCATION_OPTIONS, F as FormSectionType, d as useReceiptCheckboxEffects, M as useFormButtonStateSync, N as useFormImperativeHandle, O as FormSectionProvider, P as FormRenderer, Q as affidavitExpenseValidationStrategy } from "./SupportingFilesSection-UxPTQXsv.js";
-import { R as ReceiptSection, s as sortFormSections } from "./form-factory-B-_CCmmq.js";
+import { J as minimalExpenseValidationStrategy, K as useBaseExpenseForm, V as VENDOR_OPTIONS, L as EXPENSE_LOCATION_OPTIONS, F as FormSectionType, d as useReceiptCheckboxEffects, M as useFormButtonStateSync, N as useFormImperativeHandle, O as FormSectionProvider, P as FormRenderer, Q as affidavitExpenseValidationStrategy } from "./SupportingFilesSection-CTksD8zF.js";
+import { R as ReceiptSection, s as sortFormSections } from "./form-factory-8Y3dSYJ6.js";
 import "./api-XUmXm6Pv.js";
 import "./store-EQUAC0eo.js";
 import "./api-DS_RkUtz.js";
 import "./api-5qFnkZML.js";
-import { I as Icon } from "./Icon-C6kVtuxP.js";
+import { I as Icon } from "./Icon-31ae5cox.js";
 import { C as Controller, e as useWatch } from "./zod-B48RR00p.js";
 import { F as FileText } from "./file-text-nTFa6QdV.js";
 function AffidavitSection({

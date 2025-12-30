@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { I as Icon } from "./Icon-C6kVtuxP.js";
+import { I as Icon } from "./Icon-31ae5cox.js";
 const ICON_NAMES = [
   "action",
   "add_chart",
@@ -20,12 +20,13 @@ const ICON_NAMES = [
   "route",
   "sticky_note_2",
   "summarize",
+  "sync-alt",
   "text-line-unknown",
   "text_snippet",
   "textsms"
 ];
 const ICON_METADATA = {
-  generatedAt: "2025-12-30T17:57:06.548Z"
+  generatedAt: "2025-12-30T20:49:52.146Z"
 };
 const React = await importShared("react");
 const { useMemo, useState } = React;

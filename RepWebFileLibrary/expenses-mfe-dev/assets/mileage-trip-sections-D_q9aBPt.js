@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { p as additionalCommentsFieldOptional, q as supportingFilesField, W as expenseDescriptionField, X as businessPurposeField, Y as reimbursableAmountField, Z as rateUnitField, _ as ratePerUnitField, $ as totalDistanceField, a0 as expensePeriodField, a1 as mileageTypeField, B as costAllocationTypeSchema, a2 as CostAllocationValidationRules, a3 as PAYMENT_METHOD_DATA, u as useFormFieldValues, L as EXPENSE_LOCATION_OPTIONS, a4 as CURRENCY_OPTIONS, a5 as useEqualSplit, a6 as COST_ALLOCATION_LABELS, a7 as useCostAllocation, a8 as AllocationTypeChips, a9 as CostAllocationField, aa as AddAllocationExpandable, S as SupportingFiles, ab as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, ac as expenseDetailsSchema, F as FormSectionType, ad as expenseJustificationSchema, l as costAllocationSchema, n as additionalCommentsSchema, ae as MileageTripFormField, j as mileageDetailsSchema, k as mileageJustificationSchema } from "./SupportingFilesSection-UxPTQXsv.js";
+import { p as additionalCommentsFieldOptional, q as supportingFilesField, W as expenseDescriptionField, X as businessPurposeField, Y as reimbursableAmountField, Z as rateUnitField, _ as ratePerUnitField, $ as totalDistanceField, a0 as expensePeriodField, a1 as mileageTypeField, B as costAllocationTypeSchema, a2 as CostAllocationValidationRules, a3 as PAYMENT_METHOD_DATA, u as useFormFieldValues, L as EXPENSE_LOCATION_OPTIONS, a4 as CURRENCY_OPTIONS, a5 as useEqualSplit, a6 as COST_ALLOCATION_LABELS, a7 as useCostAllocation, a8 as AllocationTypeChips, a9 as CostAllocationField, aa as AddAllocationExpandable, S as SupportingFiles, ab as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, ac as expenseDetailsSchema, F as FormSectionType, ad as expenseJustificationSchema, l as costAllocationSchema, n as additionalCommentsSchema, ae as MileageTripFormField, j as mileageDetailsSchema, k as mileageJustificationSchema } from "./SupportingFilesSection-CTksD8zF.js";
 import { o as object, b as boolean, a as array, l as literal, u as unknown, n as number, s as string, C as Controller, e as useWatch } from "./zod-B48RR00p.js";
 import { c as createLucideIcon, E as Ea, D as Da, Z as Ma, a6 as Ha, $ as ss, H as Pa, aa as js, ab as ze, ac as $a } from "./axiosInstance-DUJjI5vT.js";
 import { f as useExpenseTypes } from "./api-5qFnkZML.js";
@@ -7,7 +7,7 @@ import "./store-EQUAC0eo.js";
 import { a as useDefaultCompany } from "./api-DS_RkUtz.js";
 import { C as CreditCard } from "./credit-card-4GDR-kWX.js";
 import { D as DEFAULT_CURRENCY, a as DEFAULT_CURRENCY_CODE } from "./currency-09NwL3yu.js";
-import { I as Icon } from "./Icon-C6kVtuxP.js";
+import { I as Icon } from "./Icon-31ae5cox.js";
 import { c as useBusinessPurposes } from "./api-XUmXm6Pv.js";
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 const __iconNode = [

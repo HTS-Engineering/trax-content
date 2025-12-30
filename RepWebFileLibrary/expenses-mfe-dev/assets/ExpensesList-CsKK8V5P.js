@@ -3,7 +3,7 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { e as apiClient, p, d as Er, g as Bs, R as Ra, k as Un, O as Oa, A as As, m as _a, n as Na, _ as _n } from "./axiosInstance-DUJjI5vT.js";
 import { u as useQuery, l as keepPreviousData, q as queryKeys } from "./query-keys-g3E7RVOI.js";
 import { E as EXPENSE_ENDPOINTS } from "./endpoints-DxtWhZvG.js";
-import { I as Icon } from "./Icon-C6kVtuxP.js";
+import { I as Icon } from "./Icon-31ae5cox.js";
 import { a as DEFAULT_CURRENCY_CODE } from "./currency-09NwL3yu.js";
 import { k as useSearchParams, e as useLocation, u as useNavigate, j as generatePath, a as RoutePaths } from "./routes-FmtfUqYj.js";
 import { C as Clock } from "./clock-SZMkeyTW.js";
@@ -208,19 +208,17 @@ const formatDateRange = (from, to) => {
 const formatCurrency = (amount, currencyCode = DEFAULT_CURRENCY_CODE) => {
   const numericAmount = typeof amount === "string" ? parseFloat(amount) : amount;
   if (isNaN(numericAmount)) return String(amount);
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: currencyCode
+  const formattedNumber = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
   }).format(numericAmount);
+  return `$${formattedNumber} ${currencyCode}`;
 };
-const formatRate = (rate, unit, currencyCode = DEFAULT_CURRENCY_CODE) => {
+const formatRate = (rate, unit) => {
   const numericRate = typeof rate === "string" ? parseFloat(rate) : rate;
-  if (isNaN(numericRate)) return `${rate}/${unit}`;
-  const formattedAmount = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: currencyCode
-  }).format(numericRate);
-  return `${formattedAmount}/${unit}`;
+  if (isNaN(numericRate)) return `${rate} per ${unit}`;
+  const formattedAmount = numericRate.toFixed(2);
+  return `$ ${formattedAmount} per ${unit}`;
 };
 const formatDistance = (distance, unit) => {
   if (!distance || !unit) return void 0;

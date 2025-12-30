@@ -1,12 +1,12 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { c as createLucideIcon, U as Us, B as Ba, G as Ga, a as Ua, P as Pe, j as ja, N as Nn, F as Fn, I as In, _ as _n, i as is, l as ls, Y as Yn, b as cs, d as Er, e as apiClient, L as Ls, f as Ya } from "./axiosInstance-DUJjI5vT.js";
-import { a as ExpenseStatusBadge, f as formatDate, b as formatDistance, c as formatRate, d as formatCurrency$1, i as isMileageTripData, e as isMileagePeriodData, E as ExpensesList } from "./ExpensesList-DP3JgPl_.js";
-import { C as ConfirmDialog, E as ExpenseFormField, u as useFormFieldValues, a as useMileageRateSync, b as useReimbursableAmountSync, c as useAmountAllocationSync, d as useReceiptCheckboxEffects, e as useExpenseFormLeftColumn, S as SupportingFiles, f as useExpenseFormHandlers, g as fullExpenseValidationStrategy, h as useMileageTripFormHandlers, m as mapMileageTripToDefaultValues, i as mileageTripValidationStrategy, j as mileageDetailsSchema, F as FormSectionType, s as supportingFilesSchema, k as mileageJustificationSchema, l as costAllocationSchema, n as additionalCommentsSchema, o as createValidationStrategy, p as additionalCommentsFieldOptional, q as supportingFilesField, r as expenseDescriptionFieldOptional, t as businessPurposeFieldOptional, v as reimbursableAmountFieldOptional, w as rateUnitFieldOptional, x as ratePerUnitFieldOptional, y as totalDistanceFieldOptional, z as expensePeriodFieldOptional, A as mileageTypeFieldOptional, B as costAllocationTypeSchema, D as createDraftSaveChecker, G as createRequiredFieldsChecker, H as useCostAllocationHandlers, I as resolveFileUrl } from "./SupportingFilesSection-UxPTQXsv.js";
+import { a as ExpenseStatusBadge, f as formatDate, b as formatDistance, c as formatRate, d as formatCurrency$1, i as isMileageTripData, e as isMileagePeriodData, E as ExpensesList } from "./ExpensesList-CsKK8V5P.js";
+import { C as ConfirmDialog, E as ExpenseFormField, u as useFormFieldValues, a as useMileageRateSync, b as useReimbursableAmountSync, c as useAmountAllocationSync, d as useReceiptCheckboxEffects, e as useExpenseFormLeftColumn, S as SupportingFiles, f as useExpenseFormHandlers, g as fullExpenseValidationStrategy, h as useMileageTripFormHandlers, m as mapMileageTripToDefaultValues, i as mileageTripValidationStrategy, j as mileageDetailsSchema, F as FormSectionType, s as supportingFilesSchema, k as mileageJustificationSchema, l as costAllocationSchema, n as additionalCommentsSchema, o as createValidationStrategy, p as additionalCommentsFieldOptional, q as supportingFilesField, r as expenseDescriptionFieldOptional, t as businessPurposeFieldOptional, v as reimbursableAmountFieldOptional, w as rateUnitFieldOptional, x as ratePerUnitFieldOptional, y as totalDistanceFieldOptional, z as expensePeriodFieldOptional, A as mileageTypeFieldOptional, B as costAllocationTypeSchema, D as createDraftSaveChecker, G as createRequiredFieldsChecker, H as useCostAllocationHandlers, I as resolveFileUrl } from "./SupportingFilesSection-CTksD8zF.js";
 import { a as ChevronRight } from "./credit-card-4GDR-kWX.js";
 import { T as Trash2, S as Send } from "./trash-2-vhDPST-_.js";
-import { E as EXPENSE_DETAILS_SECTION, a as EXPENSE_JUSTIFICATION_SECTION, C as COST_ALLOCATION_SECTION, A as ADDITIONAL_COMMENTS_SECTION, M as MILEAGE_DETAILS_SECTION, b as MILEAGE_JUSTIFICATION_SECTION, c as MILEAGE_COST_ALLOCATION_SECTION, d as MILEAGE_ADDITIONAL_COMMENTS_SECTION, e as MileagePeriodFormField, f as MileageDetailsSection, S as SupportingFilesFormSection, g as MileageJustificationSection, h as CostAllocationHeaderActions, i as CostAllocationSection, j as AdditionalCommentsSection, m as mileagePeriodFormSchema } from "./mileage-trip-sections-CmgG8YGl.js";
-import { I as Icon } from "./Icon-C6kVtuxP.js";
-import { R as ReceiptSection, c as createExpenseForm } from "./form-factory-B-_CCmmq.js";
+import { E as EXPENSE_DETAILS_SECTION, a as EXPENSE_JUSTIFICATION_SECTION, C as COST_ALLOCATION_SECTION, A as ADDITIONAL_COMMENTS_SECTION, M as MILEAGE_DETAILS_SECTION, b as MILEAGE_JUSTIFICATION_SECTION, c as MILEAGE_COST_ALLOCATION_SECTION, d as MILEAGE_ADDITIONAL_COMMENTS_SECTION, e as MileagePeriodFormField, f as MileageDetailsSection, S as SupportingFilesFormSection, g as MileageJustificationSection, h as CostAllocationHeaderActions, i as CostAllocationSection, j as AdditionalCommentsSection, m as mileagePeriodFormSchema } from "./mileage-trip-sections-D_q9aBPt.js";
+import { I as Icon } from "./Icon-31ae5cox.js";
+import { R as ReceiptSection, c as createExpenseForm } from "./form-factory-8Y3dSYJ6.js";
 import { D as DEFAULT_CURRENCY, a as DEFAULT_CURRENCY_CODE } from "./currency-09NwL3yu.js";
 import "./api-5qFnkZML.js";
 import { a as useMutation } from "./store-EQUAC0eo.js";
@@ -675,10 +675,13 @@ const PreviewAffidavitSection = ({ affidavit }) => {
     ] }) })
   ] });
 };
-const PreviewField = ({ label, value, className = "" }) => {
+const PreviewField = ({ label, value, className = "", icon }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block font-medium text-xs text-exp-neutral-300 mb-1", children: label }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block font-normal text-sm text-exp-grey-900 wrap-break-word", children: value || "—" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5 font-normal text-sm text-exp-grey-900 wrap-break-word relative", children: [
+      icon && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -left-6", children: icon }),
+      value || "—"
+    ] })
   ] });
 };
 const formatCurrency = (amount, currency) => {
@@ -941,14 +944,17 @@ const PreviewAdditionalCommentsSection = ({
 };
 const PreviewMileageTripDetailsSection = ({ data }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(is, { className: "shadow-none border-0 bg-transparent p-0", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(ls, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Yn,
-      {
-        title: "MILEAGE DETAILS",
-        icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "map", className: "w-4 h-4 text-exp-neutral-950" }),
-        iconClassName: "flex p-0 size-6 max-h-6 max-w-6 justify-center items-center"
-      }
-    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(ls, { className: "p-0 flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Yn,
+        {
+          title: "MILEAGE DETAILS",
+          icon: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "map", className: "w-4 h-4 text-exp-neutral-950" }),
+          iconClassName: "flex p-0 size-6 max-h-6 max-w-6 justify-center items-center"
+        }
+      ),
+      data.isRoundTrip && /* @__PURE__ */ jsxRuntimeExports.jsx(Er, { className: "bg-exp-neutral-30 text-exp-neutral-600 font-medium hover:bg-none! cursor-default", children: "Round trip" })
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(cs, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-x-8 gap-y-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Mileage type", value: data.mileageType }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -959,28 +965,32 @@ const PreviewMileageTripDetailsSection = ({ data }) => {
         }
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "From", value: data.fromLocation }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "To", value: data.toLocation }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         PreviewField,
         {
-          label: "Round trip",
-          value: data.isRoundTrip ? "Yes" : "No"
+          label: "To",
+          value: data.toLocation,
+          icon: data.isRoundTrip ? /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "sync-alt", className: "size-4 text-exp-neutral-500" }) : void 0
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        PreviewField,
-        {
-          label: "Total distance",
-          value: formatDistance(data.totalDistance, data.rateUnit)
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        PreviewField,
-        {
-          label: "Rate",
-          value: data.ratePerUnit && data.rateUnit ? formatRate(data.ratePerUnit, data.rateUnit) : void 0
-        }
-      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-x-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          PreviewField,
+          {
+            className: "w-full",
+            label: "Total distance",
+            value: formatDistance(data.totalDistance, data.rateUnit)
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          PreviewField,
+          {
+            className: "w-full",
+            label: "Rate",
+            value: data.ratePerUnit && data.rateUnit ? formatRate(data.ratePerUnit, data.rateUnit) : void 0
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         PreviewField,
         {
@@ -1010,20 +1020,24 @@ const PreviewMileagePeriodDetailsSection = ({ data }) => {
           value: data.expensePeriod ? formatExpensePeriod(data.expensePeriod) : void 0
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        PreviewField,
-        {
-          label: "Total distance",
-          value: formatDistance(data.totalDistance, data.rateUnit)
-        }
-      ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        PreviewField,
-        {
-          label: "Rate",
-          value: data.ratePerUnit && data.rateUnit ? formatRate(data.ratePerUnit, data.rateUnit) : void 0
-        }
-      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-x-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          PreviewField,
+          {
+            className: "w-full",
+            label: "Total distance",
+            value: formatDistance(data.totalDistance, data.rateUnit)
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          PreviewField,
+          {
+            className: "w-full",
+            label: "Rate",
+            value: data.ratePerUnit && data.rateUnit ? formatRate(data.ratePerUnit, data.rateUnit) : void 0
+          }
+        )
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         PreviewField,
         {

@@ -625,6 +625,10 @@
     right: calc(var(--spacing) * 7);
   }
 
+  .-left-6, .expenses-mfe-scope .-left-6, .trax-ui-component .-left-6, .expenses-mfe-scope.-left-6, .trax-ui-component.-left-6 {
+    left: calc(var(--spacing) * -6);
+  }
+
   @media (min-width: 40rem) {
     .expenses-mfe-scope .container, .trax-ui-component .container {
       max-width: 40rem;
@@ -1317,6 +1321,10 @@
 
     .expenses-mfe-scope .hover\:bg-white:hover, .trax-ui-component .hover\:bg-white:hover, .expenses-mfe-scope.hover\:bg-white:hover, .trax-ui-component.hover\:bg-white:hover {
       background-color: var(--color-white);
+    }
+
+    .expenses-mfe-scope .hover\:bg-none\!:hover, .trax-ui-component .hover\:bg-none\!:hover, .expenses-mfe-scope.hover\:bg-none\!:hover, .trax-ui-component.hover\:bg-none\!:hover {
+      background-image: none !important;
     }
 
     .expenses-mfe-scope .hover\:text-exp-neutral-200:hover, .trax-ui-component .hover\:text-exp-neutral-200:hover, .expenses-mfe-scope.hover\:text-exp-neutral-200:hover, .trax-ui-component.hover\:text-exp-neutral-200:hover {

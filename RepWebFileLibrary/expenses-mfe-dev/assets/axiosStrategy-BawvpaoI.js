@@ -1,7 +1,7 @@
 import { e as apiClient } from "./axiosInstance-DUJjI5vT.js";
 import { s as shouldMockEndpoint } from "./config-Ccvmi0cL.js";
 import { d as RouteCompanyIds } from "./routes-FmtfUqYj.js";
-import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, s as shouldSimulateError, l as createAxiosError, m as addExpenseDraft, e as getExpenseDrafts, u as updateExpenseDraft, n as deleteExpenseDraft, o as addExpenseSubmitted, c as getExpenseSubmitted, p as addMileageDraft, j as getMileageDrafts, q as updateMileageDraft, r as deleteMileageDraft, t as addMileageSubmitted, i as getMileageSubmitted } from "./errorSimulation-DtKiZiPZ.js";
+import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, s as shouldSimulateError, l as createAxiosError, m as addExpenseDraft, e as getExpenseDrafts, u as updateExpenseDraft, n as deleteExpenseDraft, o as addExpenseSubmitted, c as getExpenseSubmitted, k as findItemById, p as addMileageDraft, j as getMileageDrafts, q as updateMileageDraft, r as deleteMileageDraft, t as addMileageSubmitted, i as getMileageSubmitted } from "./errorSimulation-DtKiZiPZ.js";
 import { F as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, M as MILEAGE_ENDPOINTS } from "./endpoints-DxtWhZvG.js";
 const mockBusinessPurposes = {
   // Real backend company IDs (from logical-companies API)
@@ -302,6 +302,9 @@ class AxiosStrategy {
         }
         if (fullUrl.match(/\/business-purposes\/[^/]+$/) && config.method === "delete") {
           return this.handleBusinessPurposeDeleteMock(config, fullUrl);
+        }
+        if (fullUrl.match(/\/api\/v1\.0\/expense-item\/[^/]+$/) && config.method === "get") {
+          return this.handleExpenseItemByIdMock(config, fullUrl);
         }
         if (fullUrl.includes(EXPENSE_ENDPOINTS.GET_EXPENSES_LIST) && config.method === "get") {
           return this.handleExpensesListUnifiedMock(config, fullUrl);
@@ -928,6 +931,49 @@ class AxiosStrategy {
       config
     };
     config.adapter = () => Promise.resolve(mockResponse);
+    return config;
+  }
+  /**
+   * Handle unified expense item GET mock (searches all types: expense, mileage trip, mileage period)
+   * Endpoint: /api/v1.0/expense-item/:id
+   */
+  async handleExpenseItemByIdMock(config, fullUrl) {
+    await this.delay(300);
+    const match = fullUrl.match(/\/expense-item\/([^/]+)$/);
+    const itemId = match ? match[1] : null;
+    if (!itemId) {
+      const mockResponse2 = {
+        data: { error: "Invalid expense item ID" },
+        status: 400,
+        statusText: "Bad Request",
+        headers: {},
+        config
+      };
+      config.adapter = () => Promise.reject({ response: mockResponse2 });
+      return config;
+    }
+    const { item } = findItemById(itemId);
+    if (item) {
+      console.log("✅ Axios Interceptor: Expense item found", { id: itemId, status: item.status });
+      const mockResponse2 = {
+        data: item,
+        status: 200,
+        statusText: "OK",
+        headers: {},
+        config
+      };
+      config.adapter = () => Promise.resolve(mockResponse2);
+      return config;
+    }
+    console.log("❌ Axios Interceptor: Expense item not found", { id: itemId });
+    const mockResponse = {
+      data: { error: "Expense item not found", code: "404" },
+      status: 404,
+      statusText: "Not Found",
+      headers: {},
+      config
+    };
+    config.adapter = () => Promise.reject({ response: mockResponse });
     return config;
   }
   /**
