@@ -1,11 +1,11 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
-import { u as useCreateBusinessPurpose, a as useUpdateBusinessPurpose, b as useToggleBusinessPurposeStatus, c as useBusinessPurposes } from "./api-XUmXm6Pv.js";
-import { u as useCompanyStore } from "./store-EQUAC0eo.js";
-import { P as Pe, D as Da, o as Gs, p, q as Nr, r as Fr, s as Ir, _ as _n, A as As } from "./axiosInstance-DUJjI5vT.js";
+import { u as useCreateBusinessPurpose, a as useUpdateBusinessPurpose, b as useToggleBusinessPurposeStatus, c as useBusinessPurposes } from "./api-Ukzo1UVN.js";
+import { u as useCompanyStore } from "./store-BJ_y3o-0.js";
+import { P as Pe, D as Da, o as Gs, p, q as Nr, r as Fr, s as Ir, _ as _n, A as As } from "./axiosInstance-DIsFVDUY.js";
 import { o as object, s as string, l as literal, c as useForm, d as a, C as Controller } from "./zod-B48RR00p.js";
-import { T as Table2, u as useSubmitOnEnter, C as Check, X, P as Pencil, E as EllipsisVertical, s as sortByCreatedDate } from "./date-sorting.utils-CmgdMnjj.js";
-import { P as Plus } from "./plus-BnI4mDhe.js";
+import { T as Table2, u as useSubmitOnEnter, C as Check, X, P as Pencil, E as EllipsisVertical, s as sortByCreatedDate } from "./date-sorting.utils-B2ELrDew.js";
+import { P as Plus } from "./plus-CR-UKbIC.js";
 import { I as Icon } from "./Icon-31ae5cox.js";
 const NEW_ROW_ID = "new";
 const BUSINESS_PURPOSE_LABELS = {

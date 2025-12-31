@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./axiosInstance-DUJjI5vT.js";
+import { c as createLucideIcon } from "./axiosInstance-DIsFVDUY.js";
 const __iconNode = [
   [
     "path",

@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./axiosInstance-DUJjI5vT.js";
+import { c as createLucideIcon } from "./axiosInstance-DIsFVDUY.js";
 const __iconNode$1 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
 const ChevronRight = createLucideIcon("chevron-right", __iconNode$1);
 const __iconNode = [

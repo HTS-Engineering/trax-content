@@ -24112,7 +24112,7 @@ const createImpl = (createState) => {
   return useBoundStore;
 };
 const create = ((createState) => createState ? createImpl(createState) : createImpl);
-const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.76:8000", "VITE_APP_ENV": "development", "VITE_ENABLE_DEVTOOLS": "true", "VITE_ENABLE_MSW": "true", "VITE_USE_REAL_BACKEND": "false" };
+const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8000", "VITE_APP_ENV": "development", "VITE_ENABLE_DEVTOOLS": "true", "VITE_ENABLE_MSW": "true", "VITE_USE_REAL_BACKEND": "false" };
 const trackedConnections = /* @__PURE__ */ new Map();
 const getTrackedConnectionState = (name) => {
   const api = trackedConnections.get(name);
@@ -25374,7 +25374,7 @@ const ensureJWTInitialized = async () => {
   });
   return initializationPromise;
 };
-const API_BASE_URL = "http://172.16.30.76:8000";
+const API_BASE_URL = "http://172.16.30.75:8000";
 const API_TIMEOUT = 3e4;
 class ApiClient {
   instance;

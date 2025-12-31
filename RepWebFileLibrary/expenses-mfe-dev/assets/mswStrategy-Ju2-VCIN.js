@@ -1,8 +1,8 @@
-import { af as AllowedMimeType, ag as MIME_TYPE_CONFIG } from "./SupportingFilesSection-CTksD8zF.js";
+import { af as AllowedMimeType, ag as MIME_TYPE_CONFIG } from "./SupportingFilesSection-CVHMNK60.js";
 import { b as ENDPOINT_PATTERNS } from "./endpoints-DxtWhZvG.js";
-import "./mileage-trip-sections-D_q9aBPt.js";
+import "./mileage-trip-sections-DZS3sFZW.js";
 import "./jsx-runtime-TULtkvNU.js";
-import "./axiosInstance-DUJjI5vT.js";
+import "./axiosInstance-DIsFVDUY.js";
 import "./Icon-31ae5cox.js";
 import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, g as getUploadedFile, f as findUploadedFileByFilename, s as shouldSimulateError, b as generateMockError, c as getExpenseSubmitted, e as getExpenseDrafts, i as getMileageSubmitted, j as getMileageDrafts, k as findItemById } from "./errorSimulation-DtKiZiPZ.js";
 import { s as shouldMockEndpoint } from "./config-Ccvmi0cL.js";
