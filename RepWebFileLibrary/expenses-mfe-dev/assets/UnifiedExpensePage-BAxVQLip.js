@@ -1,20 +1,22 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { c as createLucideIcon, U as Us, B as Ba, G as Ga, a as Ua, P as Pe, j as ja, N as Nn, F as Fn, I as In, _ as _n, i as is, l as ls, Y as Yn, b as cs, d as Er, e as apiClient, L as Ls, f as Ya } from "./axiosInstance-DIsFVDUY.js";
-import { a as ExpenseStatusBadge, f as formatDate, b as formatDistance, c as formatRate, d as formatCurrency$1, i as isMileageTripData, e as isMileagePeriodData, E as ExpensesList } from "./ExpensesList-BklQY8Di.js";
-import { C as ConfirmDialog, E as ExpenseFormField, u as useFormFieldValues, a as useMileageRateSync, b as useReimbursableAmountSync, c as useAmountAllocationSync, d as useReceiptCheckboxEffects, e as useExpenseFormLeftColumn, S as SupportingFiles, f as useExpenseFormHandlers, g as fullExpenseValidationStrategy, h as useMileageTripFormHandlers, m as mapMileageTripToDefaultValues, i as mileageTripValidationStrategy, j as mileageDetailsSchema, F as FormSectionType, s as supportingFilesSchema, k as mileageJustificationSchema, l as costAllocationSchema, n as additionalCommentsSchema, o as createValidationStrategy, p as additionalCommentsFieldOptional, q as supportingFilesField, r as expenseDescriptionFieldOptional, t as businessPurposeFieldOptional, v as reimbursableAmountFieldOptional, w as rateUnitFieldOptional, x as ratePerUnitFieldOptional, y as totalDistanceFieldOptional, z as expensePeriodFieldOptional, A as mileageTypeFieldOptional, B as costAllocationTypeSchema, D as createDraftSaveChecker, G as createRequiredFieldsChecker, H as useCostAllocationHandlers, I as resolveFileUrl } from "./SupportingFilesSection-CVHMNK60.js";
-import { a as ChevronRight } from "./credit-card-CAcqfPzy.js";
-import { T as Trash2, S as Send } from "./trash-2-CMfj1Z8g.js";
-import { E as EXPENSE_DETAILS_SECTION, a as EXPENSE_JUSTIFICATION_SECTION, C as COST_ALLOCATION_SECTION, A as ADDITIONAL_COMMENTS_SECTION, M as MILEAGE_DETAILS_SECTION, b as MILEAGE_JUSTIFICATION_SECTION, c as MILEAGE_COST_ALLOCATION_SECTION, d as MILEAGE_ADDITIONAL_COMMENTS_SECTION, e as MileagePeriodFormField, f as MileageDetailsSection, S as SupportingFilesFormSection, g as MileageJustificationSection, h as CostAllocationHeaderActions, i as CostAllocationSection, j as AdditionalCommentsSection, m as mileagePeriodFormSchema } from "./mileage-trip-sections-DZS3sFZW.js";
+import { c as createLucideIcon, U as Us, B as Ba, G as Ga, a as Ua, P as Pe, j as ja, N as Nn, F as Fn, I as In, _ as _n, i as is, l as ls, Y as Yn, b as cs, d as Er, e as apiClient, L as Ls, f as Ya } from "./axiosInstance-DUJjI5vT.js";
+import { a as ExpenseStatusBadge, f as formatDate, b as formatDistance, c as formatRate, d as formatCurrency$1, E as ExpensesList } from "./ExpensesList-D8J5AU4a.js";
+import { C as ConfirmDialog, E as ExpenseFormField, u as useFormFieldValues, a as useMileageRateSync, b as useReimbursableAmountSync, c as useAmountAllocationSync, d as useReceiptCheckboxEffects, e as useExpenseFormLeftColumn, S as SupportingFiles, f as useExpenseFormHandlers, g as fullExpenseValidationStrategy, h as useMileageTripFormHandlers, m as mapMileageTripToDefaultValues, i as mileageTripValidationStrategy, j as mileageDetailsSchema, F as FormSectionType, s as supportingFilesSchema, k as mileageJustificationSchema, l as costAllocationSchema, n as additionalCommentsSchema, o as createValidationStrategy, p as additionalCommentsFieldOptional, q as supportingFilesField, r as expenseDescriptionFieldOptional, t as businessPurposeFieldOptional, v as reimbursableAmountFieldOptional, w as rateUnitFieldOptional, x as ratePerUnitFieldOptional, y as totalDistanceFieldOptional, z as expensePeriodFieldOptional, A as mileageTypeFieldOptional, B as costAllocationTypeSchema, D as createDraftSaveChecker, G as createRequiredFieldsChecker, H as useCostAllocationHandlers, I as resolveFileUrl } from "./SupportingFilesSection-KnvNrlaw.js";
+import { a as ChevronRight } from "./credit-card-4GDR-kWX.js";
+import { T as Trash2, S as Send } from "./trash-2-vhDPST-_.js";
+import { E as EXPENSE_DETAILS_SECTION, a as EXPENSE_JUSTIFICATION_SECTION, C as COST_ALLOCATION_SECTION, A as ADDITIONAL_COMMENTS_SECTION, M as MILEAGE_DETAILS_SECTION, b as MILEAGE_JUSTIFICATION_SECTION, c as MILEAGE_COST_ALLOCATION_SECTION, d as MILEAGE_ADDITIONAL_COMMENTS_SECTION, e as MileagePeriodFormField, f as MileageDetailsSection, S as SupportingFilesFormSection, g as MileageJustificationSection, h as CostAllocationHeaderActions, i as CostAllocationSection, j as AdditionalCommentsSection, m as mileagePeriodFormSchema } from "./mileage-trip-sections-BEMnvgEO.js";
 import { I as Icon } from "./Icon-31ae5cox.js";
-import { R as ReceiptSection, c as createExpenseForm } from "./form-factory-DSyXX1lm.js";
+import { R as ReceiptSection, c as createExpenseForm } from "./form-factory-COhffVgn.js";
 import { D as DEFAULT_CURRENCY, a as DEFAULT_CURRENCY_CODE } from "./currency-09NwL3yu.js";
-import "./api-mc7B4LSE.js";
-import { a as useMutation } from "./store-BJ_y3o-0.js";
-import "./api-fkkBV09O.js";
-import "./api-Ukzo1UVN.js";
+import "./api-5qFnkZML.js";
+import { a as useMutation } from "./store-EQUAC0eo.js";
+import "./api-DS_RkUtz.js";
+import "./api-XUmXm6Pv.js";
 import { o as object, b as boolean, a as array, l as literal, u as unknown, n as number, s as string } from "./zod-B48RR00p.js";
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
+import { M as MileageFormType, i as isMileageTripData, a as isMileagePeriodData } from "./mileage-common-Dda5W0Me.js";
 import { E as ECostAllocation } from "./cost-allocation-DRGo4_AN.js";
+import { i as isRegularExpense, a as isMileageExpense, b as isExpenseItemSubmitted, c as isExpenseItemDraft } from "./expense-item-C9lElBqU.js";
 import { a as RoutePaths, u as useNavigate, e as useLocation, j as generatePath, f as useParams, k as useSearchParams } from "./routes-FmtfUqYj.js";
 import { u as useQuery, q as queryKeys, k as useQueryClient } from "./query-keys-g3E7RVOI.js";
 import { E as EXPENSE_ENDPOINTS, M as MILEAGE_ENDPOINTS } from "./endpoints-DxtWhZvG.js";
@@ -544,6 +546,7 @@ const parseExpensePeriod = (period) => {
 };
 const mapMileagePeriodToDefaultValues = (data) => {
   return {
+    formType: MileageFormType.Period,
     [MileagePeriodFormField.MileageType]: (data == null ? void 0 : data.mileageType) ?? "",
     [MileagePeriodFormField.ExpensePeriod]: parseExpensePeriod(data == null ? void 0 : data.expensePeriod),
     [MileagePeriodFormField.TotalDistance]: (data == null ? void 0 : data.totalDistance) ?? "",
@@ -1143,18 +1146,6 @@ const MileagePeriodPreview = ({ mileage }) => {
     ] })
   ] }) });
 };
-function isRegularExpense(item) {
-  return item.itemType === "expense";
-}
-function isMileageExpense(item) {
-  return item.itemType === "mileage";
-}
-function isExpenseItemDraft(item) {
-  return item.status === "draft";
-}
-function isExpenseItemSubmitted(item) {
-  return item.status !== "draft";
-}
 const { useCallback: useCallback$3, useState: useState$2 } = await importShared("react");
 const isNavigationState = (state) => {
   if (typeof state !== "object" || state === null) {
@@ -1244,14 +1235,23 @@ function useDeleteDialog(options = {}) {
     markForNavigation
   };
 }
+var ExpenseItemType = /* @__PURE__ */ ((ExpenseItemType2) => {
+  ExpenseItemType2["Expense"] = "expense";
+  ExpenseItemType2["MileageTrip"] = "mileage-trip";
+  ExpenseItemType2["MileagePeriod"] = "mileage-period";
+  return ExpenseItemType2;
+})(ExpenseItemType || {});
 const { useMemo: useMemo$1 } = await importShared("react");
 function getItemTitle(item, mode, isNewItem, effectiveItemType) {
   if (!item) {
     if (isNewItem) {
-      if (effectiveItemType === "mileage-trip" || effectiveItemType === "mileage-period") {
+      if (effectiveItemType === ExpenseItemType.MileageTrip || effectiveItemType === ExpenseItemType.MileagePeriod) {
         return "New Mileage Claim";
       }
       return "New Expense";
+    }
+    if (effectiveItemType === ExpenseItemType.MileageTrip || effectiveItemType === ExpenseItemType.MileagePeriod) {
+      return "Mileage";
     }
     return "Expense";
   }
@@ -1263,7 +1263,7 @@ function getItemTitle(item, mode, isNewItem, effectiveItemType) {
   if (isMileageExpense(item)) {
     return mode === "preview" || mode === "draft" ? "Mileage" : "New Mileage Claim";
   }
-  return effectiveItemType === "expense" ? "Expense" : "Mileage";
+  return effectiveItemType === ExpenseItemType.Expense ? "Expense" : "Mileage";
 }
 function getTitleSuffix(item) {
   if (!item || !isMileageExpense(item)) return null;
@@ -1271,17 +1271,13 @@ function getTitleSuffix(item) {
     return item.data.toLocation || null;
   }
   if (isMileagePeriodData(item.data) && item.data.expensePeriod) {
-    const { from, to } = item.data.expensePeriod;
-    const fromStr = new Date(from).toLocaleDateString("en-US", { month: "short", day: "numeric" });
-    const toStr = new Date(to).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-    return `${fromStr} - ${toStr}`;
+    return formatExpensePeriod(item.data.expensePeriod) || null;
   }
   return null;
 }
 function getItemAmount(item) {
   if (!item) return void 0;
   if (isRegularExpense(item)) return item.data.totalAmount;
-  if (isMileageExpense(item)) return item.data.reimbursableAmount;
   return void 0;
 }
 function getHeaderSubtitle(item, mode, itemId) {
@@ -1330,13 +1326,15 @@ const useSaveExpenseDraft = () => {
       const response = await apiClient[method](endpoint, { data });
       return response.data;
     },
-    onSuccess: (_data, variables) => {
+    onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
       queryClient.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
       if (variables.draftId) {
         queryClient.invalidateQueries({
           queryKey: queryKeys.expenseItem.detail(variables.draftId)
         });
+      } else {
+        queryClient.setQueryData(queryKeys.expenseItem.detail(data.id), data);
       }
       Ls.success("All changes are saved", {
         duration: 3e3
@@ -1414,13 +1412,15 @@ const useSaveMileageDraft = () => {
       const response = await apiClient[method](endpoint, { data });
       return response.data;
     },
-    onSuccess: (_data, variables) => {
+    onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: queryKeys.mileageDrafts.all() });
       queryClient.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
       if (variables.draftId) {
         queryClient.invalidateQueries({
           queryKey: queryKeys.expenseItem.detail(variables.draftId)
         });
+      } else {
+        queryClient.setQueryData(queryKeys.expenseItem.detail(data.id), data);
       }
       Ls.success("All changes are saved", {
         duration: 3e3
@@ -1541,16 +1541,18 @@ function useExpenseItemMutations(options) {
         draftId: currentDraftId
       });
       if (result.id && !currentDraftId) {
-        navigate(generatePath(RoutePaths.ExpensesId, { id: result.id }), { replace: true });
+        const typeParam = data.formType === MileageFormType.Trip ? ExpenseItemType.MileageTrip : ExpenseItemType.MileagePeriod;
+        const path = generatePath(RoutePaths.ExpensesId, { id: result.id });
+        navigate(`${path}?type=${typeParam}`, { replace: true });
       }
     } catch {
     }
   }, [saveMileageDraftMutation, currentDraftId, navigate]);
   const handleDeleteConfirm = useCallback$1(() => {
     if (!currentDraftId || !itemType) return;
-    if (itemType === "expense") {
+    if (itemType === ExpenseItemType.Expense) {
       deleteExpenseDraftMutation.mutate(currentDraftId);
-    } else if (itemType === "mileage-trip" || itemType === "mileage-period") {
+    } else if (itemType === ExpenseItemType.MileageTrip || itemType === ExpenseItemType.MileagePeriod) {
       deleteMileageDraftMutation.mutate(currentDraftId);
     }
   }, [currentDraftId, itemType, deleteExpenseDraftMutation, deleteMileageDraftMutation]);
@@ -1567,19 +1569,23 @@ function useExpenseItemMutations(options) {
   };
 }
 const { useCallback, useEffect, useMemo, useRef, useState } = await importShared("react");
-const VALID_EXPENSE_TYPES = /* @__PURE__ */ new Set(["expense", "mileage-trip", "mileage-period"]);
+const VALID_EXPENSE_TYPES = /* @__PURE__ */ new Set([
+  ExpenseItemType.Expense,
+  ExpenseItemType.MileageTrip,
+  ExpenseItemType.MileagePeriod
+]);
 function parseExpenseTypeFromQuery(typeParam) {
   if (typeParam && VALID_EXPENSE_TYPES.has(typeParam)) {
     return typeParam;
   }
-  return "expense";
+  return ExpenseItemType.Expense;
 }
 function determineItemType(item) {
   if (!item) return null;
-  if (isRegularExpense(item)) return "expense";
+  if (isRegularExpense(item)) return ExpenseItemType.Expense;
   if (isMileageExpense(item)) {
-    if (isMileageTripData(item.data)) return "mileage-trip";
-    if (isMileagePeriodData(item.data)) return "mileage-period";
+    if (isMileageTripData(item.data)) return ExpenseItemType.MileageTrip;
+    if (isMileagePeriodData(item.data)) return ExpenseItemType.MileagePeriod;
   }
   return null;
 }
@@ -1604,7 +1610,7 @@ function useUnifiedExpensePage() {
     isLoading
   } = useExpenseItem(isNewItem ? null : id);
   const dataItemType = useMemo(() => determineItemType(expenseItem), [expenseItem]);
-  const itemType = isNewItem ? defaultItemType : dataItemType;
+  const itemType = isNewItem ? defaultItemType : dataItemType ?? defaultItemType;
   const mode = useMemo(() => {
     if (isNewItem) return "new";
     if (expenseItem && isExpenseItemDraft(expenseItem)) return "draft";

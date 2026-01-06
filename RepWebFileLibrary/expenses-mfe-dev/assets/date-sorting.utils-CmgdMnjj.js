@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./axiosInstance-DIsFVDUY.js";
+import { c as createLucideIcon } from "./axiosInstance-DUJjI5vT.js";
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 const __iconNode$4 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
 const Check = createLucideIcon("check", __iconNode$4);

@@ -1,13 +1,14 @@
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { e as apiClient, p, d as Er, g as Bs, R as Ra, k as Un, O as Oa, A as As, m as _a, n as Na, _ as _n } from "./axiosInstance-DIsFVDUY.js";
+import { e as apiClient, p, d as Er, g as Bs, R as Ra, k as Un, O as Oa, A as As, m as _a, n as Na, _ as _n } from "./axiosInstance-DUJjI5vT.js";
 import { u as useQuery, l as keepPreviousData, q as queryKeys } from "./query-keys-g3E7RVOI.js";
 import { E as EXPENSE_ENDPOINTS } from "./endpoints-DxtWhZvG.js";
 import { I as Icon } from "./Icon-31ae5cox.js";
 import { a as DEFAULT_CURRENCY_CODE } from "./currency-09NwL3yu.js";
+import { a as isMileagePeriodData, i as isMileageTripData } from "./mileage-common-Dda5W0Me.js";
 import { k as useSearchParams, e as useLocation, u as useNavigate, j as generatePath, a as RoutePaths } from "./routes-FmtfUqYj.js";
-import { C as Clock } from "./clock-mU-dcQO-.js";
-import { P as Plus } from "./plus-CR-UKbIC.js";
+import { C as Clock } from "./clock-SZMkeyTW.js";
+import { P as Plus } from "./plus-BnI4mDhe.js";
 const mapExpenseDraftToListItem = (draft) => ({
   id: draft.id,
   status: "draft",
@@ -286,12 +287,6 @@ const isMileageListItem = (item) => {
 const isExpenseListItem = (item) => {
   return item.expenseType === "expense";
 };
-function isMileageTripData(data) {
-  return data.formType === "trip";
-}
-function isMileagePeriodData(data) {
-  return data.formType === "period";
-}
 const getExpenseDate = (item) => {
   if (isMileageListItem(item)) {
     if (isMileagePeriodData(item.data) && item.data.expensePeriod) {
@@ -1037,7 +1032,5 @@ export {
   formatDistance as b,
   formatRate as c,
   formatCurrency as d,
-  isMileagePeriodData as e,
-  formatDate as f,
-  isMileageTripData as i
+  formatDate as f
 };

@@ -1,10 +1,10 @@
-import { af as AllowedMimeType, ag as MIME_TYPE_CONFIG } from "./SupportingFilesSection-CVHMNK60.js";
+import { af as AllowedMimeType, ag as MIME_TYPE_CONFIG } from "./SupportingFilesSection-KnvNrlaw.js";
 import { b as ENDPOINT_PATTERNS } from "./endpoints-DxtWhZvG.js";
-import "./mileage-trip-sections-DZS3sFZW.js";
+import "./mileage-trip-sections-BEMnvgEO.js";
 import "./jsx-runtime-TULtkvNU.js";
-import "./axiosInstance-DIsFVDUY.js";
+import "./axiosInstance-DUJjI5vT.js";
 import "./Icon-31ae5cox.js";
-import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, g as getUploadedFile, f as findUploadedFileByFilename, s as shouldSimulateError, b as generateMockError, c as getExpenseSubmitted, e as getExpenseDrafts, i as getMileageSubmitted, j as getMileageDrafts, k as findItemById } from "./errorSimulation-DtKiZiPZ.js";
+import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, g as getUploadedFile, f as findUploadedFileByFilename, s as shouldSimulateError, b as generateMockError, c as getExpenseSubmitted, e as getExpenseDrafts, i as getMileageSubmitted, j as getMileageDrafts, k as findItemById } from "./errorSimulation-D3yw2VZ6.js";
 import { s as shouldMockEndpoint } from "./config-Ccvmi0cL.js";
 function isObject$1(value) {
   return value != null && typeof value === "object" && !Array.isArray(value);
@@ -9877,6 +9877,7 @@ const createDraftHandlers = (config) => {
         const draft = {
           id: draftId,
           status: "draft",
+          itemType: config.itemType,
           data: body.data,
           createdAt: (/* @__PURE__ */ new Date()).toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -9983,6 +9984,7 @@ const createDraftHandlers = (config) => {
         const submittedItem = {
           id: submittedId,
           status: "submitted",
+          itemType: config.itemType,
           data: body.data,
           submittedAt: (/* @__PURE__ */ new Date()).toISOString(),
           createdAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -10040,6 +10042,7 @@ const createDraftHandlers = (config) => {
 const expenseHandlers = createDraftHandlers({
   draftIdPrefix: "draft",
   submittedIdPrefix: "expense",
+  itemType: "expense",
   patterns: {
     drafts: ENDPOINT_PATTERNS.EXPENSES_DRAFTS,
     draftById: ENDPOINT_PATTERNS.EXPENSES_DRAFT_BY_ID,
@@ -10055,6 +10058,7 @@ const expenseHandlers = createDraftHandlers({
 const mileageHandlers = createDraftHandlers({
   draftIdPrefix: "mileage-draft",
   submittedIdPrefix: "mileage",
+  itemType: "mileage",
   patterns: {
     drafts: ENDPOINT_PATTERNS.MILEAGE_DRAFTS,
     draftById: ENDPOINT_PATTERNS.MILEAGE_DRAFT_BY_ID,

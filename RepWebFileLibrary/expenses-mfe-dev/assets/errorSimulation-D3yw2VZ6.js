@@ -1,9 +1,10 @@
 import { E as ECostAllocation } from "./cost-allocation-DRGo4_AN.js";
+import { I as ItemCategory } from "./expense-item-C9lElBqU.js";
 import { g as getEndpointErrorProbability } from "./config-Ccvmi0cL.js";
 const mockExpenseDrafts = [
   {
     id: "10150",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-11-15T00:00:00Z",
@@ -65,7 +66,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10148",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-11-14T00:00:00Z",
@@ -115,7 +116,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10145",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-11-12T00:00:00Z",
@@ -174,7 +175,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10142",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-11-10T00:00:00Z",
@@ -212,7 +213,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10140",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-11-08T00:00:00Z",
@@ -246,7 +247,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10138",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-11-06T00:00:00Z",
@@ -291,7 +292,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10130",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-30T00:00:00Z",
@@ -325,7 +326,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10121",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-28T00:00:00Z",
@@ -370,7 +371,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10118",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-27T00:00:00Z",
@@ -405,7 +406,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10098",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-26T00:00:00Z",
@@ -439,7 +440,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10095",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-25T00:00:00Z",
@@ -473,7 +474,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10092",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-24T00:00:00Z",
@@ -506,7 +507,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10090",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-20T00:00:00Z",
@@ -540,7 +541,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10088",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-19T00:00:00Z",
@@ -574,7 +575,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10085",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-18T00:00:00Z",
@@ -608,7 +609,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10082",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-18T00:00:00Z",
@@ -642,7 +643,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10080",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-17T00:00:00Z",
@@ -676,7 +677,7 @@ const mockExpenseDrafts = [
   },
   {
     id: "10078",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "draft",
     data: {
       expenseDate: "2025-10-16T00:00:00Z",
@@ -711,7 +712,7 @@ const mockExpenseDrafts = [
 const mockSubmittedExpenses = [
   {
     id: "100001",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-04T00:00:00Z",
@@ -800,7 +801,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "100002",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-10T00:00:00Z",
@@ -894,7 +895,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "100003",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-04T00:00:00Z",
@@ -984,7 +985,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10146",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-11-13T00:00:00Z",
@@ -1030,7 +1031,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10143",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-11-11T00:00:00Z",
@@ -1078,7 +1079,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10141",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-11-09T00:00:00Z",
@@ -1119,7 +1120,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10139",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-11-07T00:00:00Z",
@@ -1167,7 +1168,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10135",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-11-04T00:00:00Z",
@@ -1216,7 +1217,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10132",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "rejected",
     data: {
       expenseDate: "2025-11-02T00:00:00Z",
@@ -1264,7 +1265,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10125",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-10-29T00:00:00Z",
@@ -1312,7 +1313,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10120",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-27T00:00:00Z",
@@ -1358,7 +1359,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10115",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-10-25T00:00:00Z",
@@ -1405,7 +1406,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10110",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "cancelled",
     data: {
       expenseDate: "2025-10-22T00:00:00Z",
@@ -1453,7 +1454,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10105",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-10-20T00:00:00Z",
@@ -1514,7 +1515,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10100",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-18T00:00:00Z",
@@ -1572,7 +1573,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10076",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-16T00:00:00Z",
@@ -1619,7 +1620,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10074",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "submitted",
     data: {
       expenseDate: "2025-10-15T00:00:00Z",
@@ -1678,7 +1679,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10072",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-10-12T00:00:00Z",
@@ -1726,7 +1727,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10063",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "approved",
     data: {
       expenseDate: "2025-10-10T00:00:00Z",
@@ -1774,7 +1775,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10054",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "rejected",
     data: {
       expenseDate: "2025-10-09T00:00:00Z",
@@ -1821,7 +1822,7 @@ const mockSubmittedExpenses = [
   },
   {
     id: "10031",
-    itemType: "expense",
+    itemType: ItemCategory.Expense,
     status: "cancelled",
     data: {
       expenseDate: "2025-10-04T00:00:00Z",
@@ -1865,7 +1866,7 @@ const mockSubmittedExpenses = [
 const mockMileageDrafts = [
   {
     id: "20135",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "draft",
     data: {
       formType: "period",
@@ -1934,7 +1935,7 @@ const mockMileageDrafts = [
   },
   {
     id: "10097",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "draft",
     data: {
       formType: "trip",
@@ -1975,7 +1976,7 @@ const mockMileageDrafts = [
   },
   {
     id: "10087",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "draft",
     data: {
       formType: "period",
@@ -2042,7 +2043,7 @@ const mockSubmittedMileage = [
   // ============================================
   {
     id: "30001",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "submitted",
     data: {
       formType: "trip",
@@ -2084,7 +2085,7 @@ const mockSubmittedMileage = [
   },
   {
     id: "30002",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "approved",
     data: {
       formType: "trip",
@@ -2140,7 +2141,7 @@ const mockSubmittedMileage = [
   },
   {
     id: "30003",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "rejected",
     data: {
       formType: "trip",
@@ -2181,7 +2182,7 @@ const mockSubmittedMileage = [
   },
   {
     id: "30004",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "cancelled",
     data: {
       formType: "trip",
@@ -2228,7 +2229,7 @@ const mockSubmittedMileage = [
   // ============================================
   {
     id: "30005",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "submitted",
     data: {
       formType: "period",
@@ -2305,7 +2306,7 @@ const mockSubmittedMileage = [
   },
   {
     id: "30006",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "approved",
     data: {
       formType: "period",
@@ -2374,7 +2375,7 @@ const mockSubmittedMileage = [
   },
   {
     id: "30007",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "rejected",
     data: {
       formType: "period",
@@ -2431,7 +2432,7 @@ const mockSubmittedMileage = [
   },
   {
     id: "30008",
-    itemType: "mileage",
+    itemType: ItemCategory.Mileage,
     status: "cancelled",
     data: {
       formType: "period",

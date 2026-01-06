@@ -1,7 +1,8 @@
-import { e as apiClient } from "./axiosInstance-DIsFVDUY.js";
+import { e as apiClient } from "./axiosInstance-DUJjI5vT.js";
 import { s as shouldMockEndpoint } from "./config-Ccvmi0cL.js";
 import { d as RouteCompanyIds } from "./routes-FmtfUqYj.js";
-import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, s as shouldSimulateError, l as createAxiosError, m as addExpenseDraft, e as getExpenseDrafts, u as updateExpenseDraft, n as deleteExpenseDraft, o as addExpenseSubmitted, c as getExpenseSubmitted, k as findItemById, p as addMileageDraft, j as getMileageDrafts, q as updateMileageDraft, r as deleteMileageDraft, t as addMileageSubmitted, i as getMileageSubmitted } from "./errorSimulation-DtKiZiPZ.js";
+import { I as ItemCategory } from "./expense-item-C9lElBqU.js";
+import { a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, s as shouldSimulateError, l as createAxiosError, m as addExpenseDraft, e as getExpenseDrafts, u as updateExpenseDraft, n as deleteExpenseDraft, o as addExpenseSubmitted, c as getExpenseSubmitted, k as findItemById, p as addMileageDraft, j as getMileageDrafts, q as updateMileageDraft, r as deleteMileageDraft, t as addMileageSubmitted, i as getMileageSubmitted } from "./errorSimulation-D3yw2VZ6.js";
 import { F as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, M as MILEAGE_ENDPOINTS } from "./endpoints-DxtWhZvG.js";
 const mockBusinessPurposes = {
   // Real backend company IDs (from logical-companies API)
@@ -668,7 +669,7 @@ class AxiosStrategy {
     const draftId = `draft-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const draft = {
       id: draftId,
-      itemType: "expense",
+      itemType: ItemCategory.Expense,
       status: "draft",
       data: body.data,
       createdAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -855,7 +856,7 @@ class AxiosStrategy {
     const expenseId = `expense-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const expense = {
       id: expenseId,
-      itemType: "expense",
+      itemType: ItemCategory.Expense,
       status: "submitted",
       data: body.data,
       submittedAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -991,7 +992,7 @@ class AxiosStrategy {
     const draftId = `mileage-draft-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const draft = {
       id: draftId,
-      itemType: "mileage",
+      itemType: ItemCategory.Mileage,
       status: "draft",
       data: body.data,
       createdAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -1184,7 +1185,7 @@ class AxiosStrategy {
     const mileageId = `mileage-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const mileageTrip = {
       id: mileageId,
-      itemType: "mileage",
+      itemType: ItemCategory.Mileage,
       status: "submitted",
       data: body.data,
       submittedAt: (/* @__PURE__ */ new Date()).toISOString(),

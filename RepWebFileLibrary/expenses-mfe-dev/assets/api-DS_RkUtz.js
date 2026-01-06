@@ -1,9 +1,9 @@
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 import { u as useQuery, q as queryKeys } from "./query-keys-g3E7RVOI.js";
-import { e as apiClient } from "./axiosInstance-DIsFVDUY.js";
+import { e as apiClient } from "./axiosInstance-DUJjI5vT.js";
 import "./config-Ccvmi0cL.js";
 import { C as CONFIGURATION_ENDPOINTS, B as BUSINESS_PURPOSE_ENDPOINTS } from "./endpoints-DxtWhZvG.js";
-import { u as useCompanyStore } from "./store-BJ_y3o-0.js";
+import { u as useCompanyStore } from "./store-EQUAC0eo.js";
 class ConfigurationApiService {
   async getLogicalCompanies() {
     const response = await apiClient.get(

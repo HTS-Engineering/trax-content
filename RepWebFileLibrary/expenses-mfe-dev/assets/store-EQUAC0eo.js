@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 import { R as Removable, t as createRetryer, n as notifyManager, S as Subscribable, v as shallowEqualObjects, i as hashKey, k as useQueryClient, c as noop, w as shouldThrowError } from "./query-keys-g3E7RVOI.js";
-import { a0 as create, a1 as devtools, a2 as subscribeWithSelector, a3 as immer } from "./axiosInstance-DIsFVDUY.js";
+import { a0 as create, a1 as devtools, a2 as subscribeWithSelector, a3 as immer } from "./axiosInstance-DUJjI5vT.js";
 var Mutation = class extends Removable {
   #client;
   #observers;
