@@ -1,8 +1,0 @@
-import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { E as ExpensesList } from "./ExpensesList-CST5z2Jl.js";
-const ExpensesPage = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesList, {});
-};
-export {
-  ExpensesPage as default
-};
