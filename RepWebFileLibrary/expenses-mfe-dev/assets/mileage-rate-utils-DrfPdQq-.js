@@ -43,8 +43,6 @@ const ENDPOINT_REGEX = {
   CONFIG_API: /\/api\/v1\.0\/configuration/,
   CONFIG_FORM_TYPES: /\/api\/v1\.0\/configuration\/form-types/,
   CONFIG_EXPENSE_TYPES: /\/api\/v1\.0\/configuration\/.*\/expense-type/,
-  CONFIG_LOGICAL_COMPANIES: /\/api\/v1\.0\/configuration\/logical-companies/,
-  CONFIG_BUSINESS_PURPOSES: /\/api\/v1\.0\/configuration\/.*\/business-purpose/,
   CONFIG_MILEAGE_RATES: /\/api\/v1\.0\/configuration\/.*\/expense-types\/\d+\/mileage-rate/,
   CONFIG_TAX_TYPES_DISPLAY: /\/api\/v1\.0\/configuration\/.*\/tax-types-display/,
   EXPENSES: /\/api\/v1\.0\/expenses/,
@@ -2644,7 +2642,7 @@ function findUploadedFileByFilename(filename) {
 }
 const mockBusinessPurposes = {
   // Real backend company IDs (from logical-companies API)
-  "htson": [
+  "HTSON": [
     {
       id: "bp-htson-1",
       isActive: true,
@@ -2686,7 +2684,7 @@ const mockBusinessPurposes = {
       modified: /* @__PURE__ */ new Date("2024-01-01T00:00:00Z")
     }
   ],
-  "kore": [
+  "KORE": [
     {
       id: "bp-kore-1",
       isActive: true,
@@ -2906,14 +2904,14 @@ const mockLogicalCompanies = [
     id: 1,
     physicalCompanyId: 1,
     logicalCompanyName: "HTS Ontario",
-    logicalCompanyShortName: "htson",
+    logicalCompanyShortName: "HTSON",
     defaultLogicalCompany: true
   },
   {
     id: 2,
     physicalCompanyId: 1,
-    logicalCompanyName: "Kore Climate",
-    logicalCompanyShortName: "kore",
+    logicalCompanyName: "Kore",
+    logicalCompanyShortName: "KORE",
     defaultLogicalCompany: false
   }
 ];
@@ -2936,7 +2934,7 @@ const mockFormTypes = [
   }
 ];
 const mockExpenseTypes = {
-  "htson": [
+  "HTSON": [
     {
       id: 1,
       physicalCompanyId: 1,
@@ -3073,7 +3071,7 @@ const mockExpenseTypes = {
       updatedDate: null
     }
   ],
-  "kore": [
+  "KORE": [
     {
       id: 7,
       physicalCompanyId: 1,
@@ -3122,7 +3120,7 @@ const mockExpenseTypes = {
   ]
 };
 const mockMileageRates = {
-  "htson-4": [
+  "HTSON-4": [
     {
       id: 1,
       mileageRateId: 4,
@@ -3172,7 +3170,7 @@ const mockMileageRates = {
       updatedDate: null
     }
   ],
-  "htson-5": [
+  "HTSON-5": [
     {
       id: 10,
       mileageRateId: 5,
@@ -3222,7 +3220,7 @@ const mockMileageRates = {
       updatedDate: null
     }
   ],
-  "htson-6": [
+  "HTSON-6": [
     {
       id: 20,
       mileageRateId: 6,
@@ -3272,7 +3270,7 @@ const mockMileageRates = {
       updatedDate: null
     }
   ],
-  "kore-8": [
+  "KORE-8": [
     {
       id: 30,
       mileageRateId: 8,
@@ -3369,48 +3367,49 @@ function deleteBusinessPurpose(companyId, purposeId) {
 }
 const expenseTypeStore = /* @__PURE__ */ new Map();
 Object.entries(mockExpenseTypes).forEach(([companyId, types]) => {
-  expenseTypeStore.set(companyId.toLowerCase(), [...types]);
+  expenseTypeStore.set(companyId, [...types]);
 });
 let nextExpenseTypeId = 100;
 function getNextExpenseTypeId() {
   return nextExpenseTypeId++;
 }
 function getExpenseTypes(companyShortName) {
-  return expenseTypeStore.get(companyShortName.toLowerCase()) || [];
+  return expenseTypeStore.get(companyShortName) || [];
 }
 function getExpenseType(companyShortName, id) {
-  const types = expenseTypeStore.get(companyShortName.toLowerCase()) || [];
+  const types = expenseTypeStore.get(companyShortName) || [];
   return types.find((t) => t.id === id);
 }
 function addExpenseType(companyShortName, expenseType) {
-  const key = companyShortName.toLowerCase();
-  let types = expenseTypeStore.get(key);
+  let types = expenseTypeStore.get(companyShortName);
   if (!types) {
     types = [];
-    expenseTypeStore.set(key, types);
+    expenseTypeStore.set(companyShortName, types);
   }
   types.push(expenseType);
 }
 function updateExpenseType(companyShortName, id, updates) {
-  const key = companyShortName.toLowerCase();
-  const types = expenseTypeStore.get(key) || [];
+  const types = expenseTypeStore.get(companyShortName) || [];
   const index = types.findIndex((t) => t.id === id);
   if (index === -1) return null;
   const existing = types[index];
-  const updated = { ...existing, ...updates, id: existing.id };
+  const filteredUpdates = Object.fromEntries(
+    Object.entries(updates).filter(([, v]) => v !== void 0)
+  );
+  const updated = { ...existing, ...filteredUpdates, id: existing.id };
   types[index] = updated;
   return updated;
 }
 const mileageRatesStore = /* @__PURE__ */ new Map();
 Object.entries(mockMileageRates).forEach(([key, rates]) => {
-  mileageRatesStore.set(key.toLowerCase(), [...rates]);
+  mileageRatesStore.set(key, [...rates]);
 });
 let nextMileageRateId = 100;
 function getNextMileageRateId() {
   return nextMileageRateId++;
 }
 function getMileageRatesKey(companyShortName, expenseTypeId) {
-  return `${companyShortName.toLowerCase()}-${expenseTypeId}`;
+  return `${companyShortName}-${expenseTypeId}`;
 }
 function getMileageRates(companyShortName, expenseTypeId) {
   const key = getMileageRatesKey(companyShortName, expenseTypeId);
@@ -3542,8 +3541,6 @@ const MOCKED_ENDPOINT_PATTERNS = [
   ENDPOINT_REGEX.CONFIG_API,
   ENDPOINT_REGEX.CONFIG_FORM_TYPES,
   ENDPOINT_REGEX.CONFIG_EXPENSE_TYPES,
-  ENDPOINT_REGEX.CONFIG_LOGICAL_COMPANIES,
-  ENDPOINT_REGEX.CONFIG_BUSINESS_PURPOSES,
   ENDPOINT_REGEX.CONFIG_MILEAGE_RATES,
   ENDPOINT_REGEX.CONFIG_TAX_TYPES_DISPLAY
 ];

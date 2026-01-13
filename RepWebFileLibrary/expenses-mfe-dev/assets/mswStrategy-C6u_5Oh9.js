@@ -1,5 +1,5 @@
 import { af as AllowedMimeType, ag as MIME_TYPE_CONFIG } from "./SupportingFilesSection-BYWqvFpJ.js";
-import { E as ENDPOINT_PATTERNS, a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, g as getUploadedFile, f as findUploadedFileByFilename, s as shouldSimulateError, b as generateMockError, c as getExpenseSubmitted, e as getExpenseDrafts, i as getMileageSubmitted, j as getMileageDrafts, m as mockLogicalCompanies, k as mockFormTypes, l as getExpenseTypes, n as getNextExpenseTypeId, o as addExpenseType, u as updateExpenseType, p as getExpenseType, q as getMileageRates, r as recalculateAllRateStatuses, t as sortRatesByStatus, v as getNextMileageRateId, w as setMileageRates, x as calculateRateStatus, y as findItemById, z as shouldMockEndpoint } from "./mileage-rate-utils-B_wQyZd7.js";
+import { E as ENDPOINT_PATTERNS, a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, g as getUploadedFile, f as findUploadedFileByFilename, s as shouldSimulateError, b as generateMockError, c as getExpenseSubmitted, e as getExpenseDrafts, i as getMileageSubmitted, j as getMileageDrafts, m as mockLogicalCompanies, k as mockFormTypes, l as getExpenseTypes, n as getNextExpenseTypeId, o as addExpenseType, u as updateExpenseType, p as getExpenseType, q as getMileageRates, r as recalculateAllRateStatuses, t as sortRatesByStatus, v as getNextMileageRateId, w as setMileageRates, x as calculateRateStatus, y as findItemById, z as shouldMockEndpoint } from "./mileage-rate-utils-DrfPdQq-.js";
 import "./mileage-trip-sections-fTZys4BG.js";
 import "./jsx-runtime-TULtkvNU.js";
 import "./index.es-DjMdAnbR.js";
@@ -10098,7 +10098,7 @@ const configurationHandlers = [
   // Expense Types
   http.get(ENDPOINT_PATTERNS.CONFIG_EXPENSE_TYPES, async ({ params }) => {
     await delay(300);
-    const companyShortName = params.company.toLowerCase();
+    const companyShortName = params.company;
     const expenseTypes = getExpenseTypes(companyShortName);
     console.log("✅ MSW: Expense types fetched", { company: companyShortName, count: expenseTypes.length });
     return HttpResponse.json(expenseTypes, { status: 200 });
@@ -10106,7 +10106,7 @@ const configurationHandlers = [
   http.post(ENDPOINT_PATTERNS.CONFIG_EXPENSE_TYPE_CRUD, async ({ request, params }) => {
     await delay(500);
     try {
-      const companyShortName = params.company.toLowerCase();
+      const companyShortName = params.company;
       const body = await request.json();
       const isMileageType = body.formTypeId === 2 || body.mileageRate != null;
       const expenseTypeId = getNextExpenseTypeId();
@@ -10140,7 +10140,7 @@ const configurationHandlers = [
   http.put(ENDPOINT_PATTERNS.CONFIG_EXPENSE_TYPE_CRUD, async ({ request, params }) => {
     await delay(500);
     try {
-      const companyShortName = params.company.toLowerCase();
+      const companyShortName = params.company;
       const body = await request.json();
       const updated = updateExpenseType(companyShortName, body.id, {
         expenseTypeName: body.expenseTypeName ?? void 0,
@@ -10155,7 +10155,7 @@ const configurationHandlers = [
           { status: 404 }
         );
       }
-      console.log("✅ MSW: Expense type updated", updated);
+      console.log("✅ MSW: Expense type updated", { id: updated.id, name: updated.expenseTypeName, isActive: updated.isActive });
       return HttpResponse.json(updated, { status: 200 });
     } catch {
       return HttpResponse.json(
@@ -10168,7 +10168,7 @@ const configurationHandlers = [
   http.get(ENDPOINT_PATTERNS.CONFIG_MILEAGE_RATES, async ({ params }) => {
     await delay(300);
     try {
-      const companyShortName = params.company.toLowerCase();
+      const companyShortName = params.company;
       const expenseTypeId = parseInt(params.expenseTypeId, 10);
       const expenseType = getExpenseType(companyShortName, expenseTypeId);
       const isExpenseTypeActive = (expenseType == null ? void 0 : expenseType.isActive) ?? true;
@@ -10196,7 +10196,7 @@ const configurationHandlers = [
   http.post(ENDPOINT_PATTERNS.CONFIG_MILEAGE_RATE_CRUD, async ({ request, params }) => {
     await delay(500);
     try {
-      const companyShortName = params.company.toLowerCase();
+      const companyShortName = params.company;
       const expenseTypeId = parseInt(params.expenseTypeId, 10);
       const body = await request.json();
       const expenseType = getExpenseType(companyShortName, expenseTypeId);
@@ -10257,7 +10257,7 @@ const configurationHandlers = [
   http.delete(ENDPOINT_PATTERNS.CONFIG_MILEAGE_RATE_DELETE, async ({ params }) => {
     await delay(500);
     try {
-      const companyShortName = params.company.toLowerCase();
+      const companyShortName = params.company;
       const expenseTypeId = parseInt(params.expenseTypeId, 10);
       const rateId = parseInt(params.rateId, 10);
       const expenseType = getExpenseType(companyShortName, expenseTypeId);

@@ -1,4 +1,4 @@
-import { z as shouldMockEndpoint, a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, A as getBusinessPurposes, B as addBusinessPurpose, C as updateBusinessPurpose, D as deleteBusinessPurpose, s as shouldSimulateError, F as createAxiosError, G as addExpenseDraft, e as getExpenseDrafts, H as updateExpenseDraft, I as deleteExpenseDraft, J as addExpenseSubmitted, c as getExpenseSubmitted, y as findItemById, K as addMileageDraft, j as getMileageDrafts, L as updateMileageDraft, M as deleteMileageDraft, N as addMileageSubmitted, i as getMileageSubmitted, m as mockLogicalCompanies, k as mockFormTypes, l as getExpenseTypes, o as addExpenseType, n as getNextExpenseTypeId, v as getNextMileageRateId, u as updateExpenseType, p as getExpenseType, q as getMileageRates, O as generateDefaultMileageRates, w as setMileageRates, r as recalculateAllRateStatuses, t as sortRatesByStatus, x as calculateRateStatus } from "./mileage-rate-utils-B_wQyZd7.js";
+import { z as shouldMockEndpoint, a as addUploadedFile, h as hasUploadedFile, d as deleteUploadedFile, A as getBusinessPurposes, B as addBusinessPurpose, C as updateBusinessPurpose, D as deleteBusinessPurpose, s as shouldSimulateError, F as createAxiosError, G as addExpenseDraft, e as getExpenseDrafts, H as updateExpenseDraft, I as deleteExpenseDraft, J as addExpenseSubmitted, c as getExpenseSubmitted, y as findItemById, K as addMileageDraft, j as getMileageDrafts, L as updateMileageDraft, M as deleteMileageDraft, N as addMileageSubmitted, i as getMileageSubmitted, m as mockLogicalCompanies, k as mockFormTypes, l as getExpenseTypes, o as addExpenseType, n as getNextExpenseTypeId, v as getNextMileageRateId, u as updateExpenseType, p as getExpenseType, q as getMileageRates, O as generateDefaultMileageRates, w as setMileageRates, r as recalculateAllRateStatuses, t as sortRatesByStatus, x as calculateRateStatus } from "./mileage-rate-utils-DrfPdQq-.js";
 import { F as FILE_ENDPOINTS } from "./cost-allocation-EVQYlSMW.js";
 import { E as EXPENSE_ENDPOINTS } from "./expenses-BH0R_jxm.js";
 import { M as MILEAGE_ENDPOINTS } from "./mileage-BTs75OAc.js";
@@ -258,10 +258,21 @@ class AxiosStrategy {
       return config;
     }
     const purposes = getBusinessPurposes(companyId);
-    console.log("✅ Axios Interceptor: Business purposes fetched", { companyId, count: purposes.length });
-    const response = { data: purposes, status: 200, timestamp: (/* @__PURE__ */ new Date()).toISOString() };
+    const apiFormatPurposes = purposes.map((bp, index) => ({
+      id: parseInt(bp.id.replace(/\D/g, "")) || index + 1,
+      physicalCompanyId: 1,
+      logicalCompanyId: 1,
+      businessPurposeName: bp.businessPurpose,
+      businessPurposeDescription: bp.description || "",
+      isActive: bp.isActive,
+      createdBy: "system",
+      createdDate: bp.created.toISOString(),
+      updatedBy: null,
+      updatedDate: bp.modified.toISOString()
+    }));
+    console.log("✅ Axios Interceptor: Business purposes fetched", { companyId, count: apiFormatPurposes.length });
     const mockResponse = {
-      data: response,
+      data: apiFormatPurposes,
       status: 200,
       statusText: "OK",
       headers: {},
@@ -289,19 +300,31 @@ class AxiosStrategy {
       return config;
     }
     const data = typeof config.data === "string" ? JSON.parse(config.data) : config.data;
+    const newId = Date.now();
     const newBP = {
-      id: `bp-${Date.now()}`,
-      businessPurpose: data.businessPurpose || "",
-      description: data.description || "",
-      isActive: data.isActive !== void 0 ? data.isActive : true,
+      id: `bp-${newId}`,
+      businessPurpose: data.businessPurposeName || "",
+      description: data.businessPurposeDescription || "",
+      isActive: true,
       created: /* @__PURE__ */ new Date(),
       modified: /* @__PURE__ */ new Date()
     };
     addBusinessPurpose(companyId, newBP);
-    console.log("✅ Axios Interceptor: Business purpose created", newBP);
-    const response = { data: newBP, status: 201, timestamp: (/* @__PURE__ */ new Date()).toISOString() };
+    const apiResponse = {
+      id: newId,
+      physicalCompanyId: 1,
+      logicalCompanyId: 1,
+      businessPurposeName: newBP.businessPurpose,
+      businessPurposeDescription: newBP.description || "",
+      isActive: newBP.isActive,
+      createdBy: data.createdBy || "system",
+      createdDate: newBP.created.toISOString(),
+      updatedBy: null,
+      updatedDate: null
+    };
+    console.log("✅ Axios Interceptor: Business purpose created", apiResponse);
     const mockResponse = {
-      data: response,
+      data: apiResponse,
       status: 201,
       statusText: "Created",
       headers: {},
@@ -331,8 +354,8 @@ class AxiosStrategy {
       return config;
     }
     const data = typeof config.data === "string" ? JSON.parse(config.data) : config.data;
-    const id = String(data.id);
-    if (!id) {
+    const numericId = data.id;
+    if (!numericId) {
       const mockResponse2 = {
         data: { error: "Invalid ID in request body" },
         status: 400,
@@ -343,11 +366,12 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const updatedBP = updateBusinessPurpose(companyId, id, {
-      ...data,
-      modified: /* @__PURE__ */ new Date()
+    const purposes = getBusinessPurposes(companyId);
+    const existingBP = purposes.find((bp) => {
+      const bpNumericId = parseInt(bp.id.replace(/\D/g, "")) || 0;
+      return bpNumericId === numericId || bp.id === String(numericId) || bp.id === `bp-${numericId}`;
     });
-    if (!updatedBP) {
+    if (!existingBP) {
       const mockResponse2 = {
         data: { error: "Not found" },
         status: 404,
@@ -358,10 +382,45 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    console.log("✅ Axios Interceptor: Business purpose updated", updatedBP);
-    const response = { data: updatedBP, status: 200, timestamp: (/* @__PURE__ */ new Date()).toISOString() };
+    const internalUpdates = {
+      modified: /* @__PURE__ */ new Date()
+    };
+    if (data.businessPurposeName !== void 0) {
+      internalUpdates.businessPurpose = data.businessPurposeName;
+    }
+    if (data.businessPurposeDescription !== void 0) {
+      internalUpdates.description = data.businessPurposeDescription;
+    }
+    if (data.isActive !== void 0) {
+      internalUpdates.isActive = data.isActive;
+    }
+    const updatedBP = updateBusinessPurpose(companyId, existingBP.id, internalUpdates);
+    if (!updatedBP) {
+      const mockResponse2 = {
+        data: { error: "Update failed" },
+        status: 500,
+        statusText: "Internal Server Error",
+        headers: {},
+        config
+      };
+      config.adapter = () => Promise.reject({ response: mockResponse2 });
+      return config;
+    }
+    const apiResponse = {
+      id: numericId,
+      physicalCompanyId: 1,
+      logicalCompanyId: 1,
+      businessPurposeName: updatedBP.businessPurpose,
+      businessPurposeDescription: updatedBP.description || "",
+      isActive: updatedBP.isActive,
+      createdBy: "system",
+      createdDate: updatedBP.created.toISOString(),
+      updatedBy: data.updatedBy || "system",
+      updatedDate: updatedBP.modified.toISOString()
+    };
+    console.log("✅ Axios Interceptor: Business purpose updated", apiResponse);
     const mockResponse = {
-      data: response,
+      data: apiResponse,
       status: 200,
       statusText: "OK",
       headers: {},
@@ -1165,7 +1224,7 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const companyShortName = companyShortNameRaw.toLowerCase();
+    const companyShortName = companyShortNameRaw;
     const expenseTypes = getExpenseTypes(companyShortName);
     console.log("✅ Axios Interceptor: Expense types fetched", { company: companyShortName, count: expenseTypes.length });
     const mockResponse = {
@@ -1196,7 +1255,7 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const companyShortName = companyShortNameRaw.toLowerCase();
+    const companyShortName = companyShortNameRaw;
     const body = typeof config.data === "string" ? JSON.parse(config.data) : config.data;
     const isMileageType = body.formTypeId === 2 || body.mileageRate != null;
     const expenseTypeId = getNextExpenseTypeId();
@@ -1257,7 +1316,7 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const companyShortName = companyShortNameRaw.toLowerCase();
+    const companyShortName = companyShortNameRaw;
     const body = typeof config.data === "string" ? JSON.parse(config.data) : config.data;
     const updated = updateExpenseType(companyShortName, body.id, {
       expenseTypeName: body.expenseTypeName,
@@ -1308,7 +1367,7 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const companyShortName = companyShortNameRaw.toLowerCase();
+    const companyShortName = companyShortNameRaw;
     const expenseType = getExpenseType(companyShortName, expenseTypeId);
     const isExpenseTypeActive = (expenseType == null ? void 0 : expenseType.isActive) ?? true;
     const expenseTypeName = (expenseType == null ? void 0 : expenseType.expenseTypeName) ?? `Mileage Type ${expenseTypeId}`;
@@ -1359,7 +1418,7 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const companyShortName = companyShortNameRaw.toLowerCase();
+    const companyShortName = companyShortNameRaw;
     const expenseType = getExpenseType(companyShortName, expenseTypeId);
     const isExpenseTypeActive = (expenseType == null ? void 0 : expenseType.isActive) ?? true;
     const expenseTypeName = (expenseType == null ? void 0 : expenseType.expenseTypeName) ?? `Mileage Type ${expenseTypeId}`;
@@ -1430,7 +1489,7 @@ class AxiosStrategy {
       config.adapter = () => Promise.reject({ response: mockResponse2 });
       return config;
     }
-    const companyShortName = companyShortNameRaw.toLowerCase();
+    const companyShortName = companyShortNameRaw;
     const expenseType = getExpenseType(companyShortName, expenseTypeId);
     const isExpenseTypeActive = (expenseType == null ? void 0 : expenseType.isActive) ?? true;
     const expenseTypeName = (expenseType == null ? void 0 : expenseType.expenseTypeName) ?? `Mileage Type ${expenseTypeId}`;
