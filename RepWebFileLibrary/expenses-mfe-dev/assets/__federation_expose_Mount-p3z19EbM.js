@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-Bbxi3f_u.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-w6CB-pOv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-DYyjX-5O.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index.es-DjMdAnbR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/query-keys-uZmLtGm2.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-CLQY-fQU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expenses-BH0R_jxm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-0rSrBywh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/currency-09NwL3yu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-common-Dda5W0Me.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/routes-DUmYp1nr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/clock-B-Sm4wzY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-ZNfoAuFV.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-B-5oQ7Sd.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/SupportingFilesSection-BYUsfgb6.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/zod-0mrSG730.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/cost-allocation-EVQYlSMW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-debounced-callback-CZ6Yfjbt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-BrsrGI5Q.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-prevent-page-reload-C9vrOsTy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-TKQUiCwX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-trip-sections-DRlmtfS5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-BsJwCRTA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/useMutation-BMMwi5Pr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-C2Pgp41A.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/form-factory-CwBkDvLQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-item-C9lElBqU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-BTs75OAc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-rsoAUefi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-CLCgTVTC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Payroll-6q0RX983.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Allocations-DGO_ITfD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-DaYrE-Ww.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-sorting.utils-DM4qYOkl.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-BMImQo3R.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/layout-dashboard-BT3kYAeA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-D2inFPcq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-Cl48aUQn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-Cnq5YABy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-CgCWP7hL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/FormsTestingPage-BTxf_po9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/file-text-B1dkFk-y.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-9V6hukwv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-C7aTVuiR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-_4_hFSXp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-DYyjX-5O.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index.es-DjMdAnbR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/query-keys-uZmLtGm2.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-DaRprYt6.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expenses-BH0R_jxm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-0rSrBywh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/currency-09NwL3yu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-common-Dda5W0Me.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/routes-DUmYp1nr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/clock-B-Sm4wzY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-ZNfoAuFV.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-HMaHmOPD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/SupportingFilesSection-BYWqvFpJ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/zod-0mrSG730.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/cost-allocation-EVQYlSMW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-debounced-callback-CQYGmtvS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/store-n9Ebs5M5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-prevent-page-reload-hADEWDaP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-TKQUiCwX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-trip-sections-fTZys4BG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-DS_lOWjE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/useMutation-BMMwi5Pr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-BgHbf0mg.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/form-factory-BkkQlbvv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-item-C9lElBqU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/mileage-BTs75OAc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-rsoAUefi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-CLCgTVTC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Payroll-6q0RX983.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Allocations-DGO_ITfD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-DQgwUhwE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-sorting.utils-DM4qYOkl.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/api-BMImQo3R.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/layout-dashboard-BT3kYAeA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-ee-xRzjZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-vnzvqvE-.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-Cnq5YABy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-OkYg2ZXA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/FormsTestingPage-DgCN8kWb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/file-text-B1dkFk-y.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-CktEDtAk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { importShared } from "./__federation_fn_import-DYyjX-5O.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
@@ -9,13 +9,13 @@ import { I as Icon } from "./Icon-0rSrBywh.js";
 import { c as createLucideIcon, P as Pe, E as Ea, _ as _n, z as zs, h as hr } from "./index.es-DjMdAnbR.js";
 import { S as Shield } from "./shield-Cnq5YABy.js";
 import { F as FileText } from "./file-text-B1dkFk-y.js";
-import { C as CreditCard, a as ChevronRight, u as usePreventPageReload } from "./use-prevent-page-reload-C9vrOsTy.js";
+import { C as CreditCard, a as ChevronRight, u as usePreventPageReload } from "./use-prevent-page-reload-hADEWDaP.js";
 import { L as LayoutDashboard } from "./layout-dashboard-BT3kYAeA.js";
-import { u as useCompanies } from "./use-debounced-callback-CZ6Yfjbt.js";
-import { u as useCompanyStore } from "./store-BrsrGI5Q.js";
+import { u as useCompanies } from "./use-debounced-callback-CQYGmtvS.js";
+import { u as useCompanyStore } from "./store-n9Ebs5M5.js";
 import { e as ensureQueryFn, a as addToStart, b as addToEnd, c as addConsumeAwareSignal, S as Subscribable, n as notifyManager, m as matchMutation, d as noop, h as hashQueryKeyByOptions, Q as Query, f as matchQuery, g as focusManager, o as onlineManager, r as resolveStaleTime, i as functionalUpdate, j as hashKey, p as partialMatchKey, s as skipToken, k as QueryClientProvider } from "./query-keys-uZmLtGm2.js";
 import { M as Mutation } from "./useMutation-BMMwi5Pr.js";
-import { u as useFormTypes } from "./api-BsJwCRTA.js";
+import { u as useFormTypes } from "./api-DS_lOWjE.js";
 var client = { exports: {} };
 var reactDomClient_production = {};
 var scheduler = { exports: {} };
@@ -11919,22 +11919,22 @@ const PRODUCTION_MODES = [
 ];
 const EnvConfig = {
   /** Get current Vite mode */
-  getMode: () => "test",
+  getMode: () => "development",
   /** Check if current mode is a dev/test mode (shows testing UI, devtools, etc.) */
   isDevOrTest: () => {
-    return DEV_TEST_MODES.includes("test");
+    return DEV_TEST_MODES.includes("development");
   },
   /** Check if current mode is a test environment (test, test-ssl) */
   isTest: () => {
-    return TEST_MODES.includes("test");
+    return TEST_MODES.includes("development");
   },
   /** Check if current mode is a development environment (development, development-ssl, localdev) */
   isDevelopment: () => {
-    return DEVELOPMENT_MODES.includes("test");
+    return DEVELOPMENT_MODES.includes("development");
   },
   /** Check if current mode is production-like (production, staging) — no dev features */
   isProductionLike: () => {
-    return PRODUCTION_MODES.includes("test");
+    return PRODUCTION_MODES.includes("development");
   },
   /** Check if current mode is strictly production */
   isProduction: () => {
@@ -11948,11 +11948,11 @@ const EnvConfig = {
   getLabel: () => {
     const labels = {
       [
-        "test"
-        /* Test */
-      ]: "TEST"
+        "development"
+        /* Development */
+      ]: "DEV"
     };
-    return labels["test"];
+    return labels["development"];
   }
 };
 const ReceiptIcon = () => /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "receipt", className: "size-4" });
@@ -12982,19 +12982,19 @@ const Layout = () => {
   ] });
 };
 const SCOPE_CLASS = "expenses-mfe-scope";
-const CONTAINER_ID = "module-mfe-test";
+const CONTAINER_ID = "module-mfe-dev";
 const { Suspense, lazy } = await importShared("react");
-const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-Bbxi3f_u.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]) : void 0, import.meta.url));
-const UnifiedExpensePage = lazy(() => __vitePreload(() => import("./UnifiedExpensePage-B-5oQ7Sd.js"), true ? __vite__mapDeps([15,1,4,3,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29]) : void 0, import.meta.url));
+const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-C7aTVuiR.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]) : void 0, import.meta.url));
+const UnifiedExpensePage = lazy(() => __vitePreload(() => import("./UnifiedExpensePage-HMaHmOPD.js"), true ? __vite__mapDeps([15,1,4,3,2,5,6,7,8,9,10,11,12,13,14,16,17,18,19,20,21,22,23,24,25,26,27,28,29]) : void 0, import.meta.url));
 const Configurations = lazy(() => __vitePreload(() => import("./Configurations-rsoAUefi.js"), true ? __vite__mapDeps([30,1]) : void 0, import.meta.url));
 const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-CLCgTVTC.js"), true ? __vite__mapDeps([31,1]) : void 0, import.meta.url));
 const Payroll = lazy(() => __vitePreload(() => import("./Payroll-6q0RX983.js"), true ? __vite__mapDeps([32,1]) : void 0, import.meta.url));
 const Allocations = lazy(() => __vitePreload(() => import("./Allocations-DGO_ITfD.js"), true ? __vite__mapDeps([33,1]) : void 0, import.meta.url));
-const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-DaYrE-Ww.js"), true ? __vite__mapDeps([34,1,3,24,5,25,6,20,4,17,35,14,8,9,36,37]) : void 0, import.meta.url));
-const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-D2inFPcq.js"), true ? __vite__mapDeps([38,1,3,26,5,25,6,20,4,17,35,14,8,9]) : void 0, import.meta.url));
-const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-Cl48aUQn.js"), true ? __vite__mapDeps([39,3,1,6,4,40,13,22]) : void 0, import.meta.url));
-const TestingIcons = lazy(() => __vitePreload(() => import("./IconsTestingPage-CgCWP7hL.js"), true ? __vite__mapDeps([41,3,1,8,9]) : void 0, import.meta.url));
-const TestingForms = lazy(() => __vitePreload(() => import("./FormsTestingPage-BTxf_po9.js"), true ? __vite__mapDeps([42,3,1,4,16,17,8,9,18,6,19,5,20,11,14,27,43]) : void 0, import.meta.url));
+const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-DQgwUhwE.js"), true ? __vite__mapDeps([34,1,3,24,5,25,6,20,4,17,35,14,8,9,36,37]) : void 0, import.meta.url));
+const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-ee-xRzjZ.js"), true ? __vite__mapDeps([38,1,3,26,5,25,6,20,4,17,35,14,8,9]) : void 0, import.meta.url));
+const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-vnzvqvE-.js"), true ? __vite__mapDeps([39,3,1,6,4,40,13,22]) : void 0, import.meta.url));
+const TestingIcons = lazy(() => __vitePreload(() => import("./IconsTestingPage-OkYg2ZXA.js"), true ? __vite__mapDeps([41,3,1,8,9]) : void 0, import.meta.url));
+const TestingForms = lazy(() => __vitePreload(() => import("./FormsTestingPage-DgCN8kWb.js"), true ? __vite__mapDeps([42,3,1,4,16,17,8,9,18,6,19,5,20,11,14,27,43]) : void 0, import.meta.url));
 const createRouteConfig = () => {
   var _a;
   const baseRoutes = [
@@ -13401,8 +13401,8 @@ function initMockingIfEnabled() {
   mockingInitPromise = (async () => {
     try {
       const [{ initializeMocking }, { apiClient }] = await Promise.all([
-        __vitePreload(() => import("./init-9V6hukwv.js"), true ? __vite__mapDeps([44,9]) : void 0, import.meta.url),
-        __vitePreload(() => import("./axiosInstance-CLQY-fQU.js").then((n) => n.b), true ? __vite__mapDeps([6,3]) : void 0, import.meta.url)
+        __vitePreload(() => import("./init-CktEDtAk.js"), true ? __vite__mapDeps([44,9]) : void 0, import.meta.url),
+        __vitePreload(() => import("./axiosInstance-DaRprYt6.js").then((n) => n.b), true ? __vite__mapDeps([6,3]) : void 0, import.meta.url)
       ]);
       await initializeMocking(apiClient.getAxiosInstance());
     } catch (error) {

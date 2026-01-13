@@ -40,7 +40,6 @@ const ENDPOINT_REGEX = {
   FILES_RECEIPTS: /\/files\/receipts/,
   FILES_SUPPORTING: /\/files\/supporting/,
   FILES_STORAGE: /https:\/\/storage\.expensesapp\.com\/receipts/,
-  CONFIG_API: /\/api\/v1\.0\/configuration/,
   CONFIG_FORM_TYPES: /\/api\/v1\.0\/configuration\/form-types/,
   CONFIG_EXPENSE_TYPES: /\/api\/v1\.0\/configuration\/.*\/expense-type/,
   CONFIG_MILEAGE_RATES: /\/api\/v1\.0\/configuration\/.*\/expense-types\/\d+\/mileage-rate/,
@@ -3464,7 +3463,9 @@ function generateDefaultMileageRates(expenseTypeId) {
   return [pastRate, currentRate, futureRate];
 }
 const MOCKED_ENDPOINTS_CONFIG = [
-  // File Endpoints
+  // ═══════════════════════════════════════════════════════════════════════════
+  // FILE ENDPOINTS
+  // ═══════════════════════════════════════════════════════════════════════════
   {
     path: FILE_ENDPOINTS.RECEIPTS_UPLOAD,
     errorProbability: 15,
@@ -3476,11 +3477,25 @@ const MOCKED_ENDPOINTS_CONFIG = [
     description: "Supporting file upload"
   },
   {
+    path: ENDPOINT_REGEX.FILES_RECEIPTS,
+    description: "Receipt files (regex)"
+  },
+  {
+    path: ENDPOINT_REGEX.FILES_SUPPORTING,
+    description: "Supporting files (regex)"
+  },
+  {
     path: "https://storage.expensesapp.com/receipts",
     errorProbability: 5,
     description: "Cloud storage"
   },
-  // Expense Endpoints - use regex for dynamic paths
+  {
+    path: ENDPOINT_REGEX.FILES_STORAGE,
+    description: "Cloud storage (regex)"
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // EXPENSE ENDPOINTS
+  // ═══════════════════════════════════════════════════════════════════════════
   {
     path: ENDPOINT_REGEX.EXPENSES_LIST_UNIFIED,
     errorProbability: 0,
@@ -3494,14 +3509,20 @@ const MOCKED_ENDPOINTS_CONFIG = [
   {
     path: /\/api\/v1\.0\/expenses\/drafts\/[^/]+$/,
     errorProbability: 50,
-    description: "Delete expense draft (50% error)"
+    description: "Expense draft by ID (get/update/delete)"
   },
   {
     path: ENDPOINT_REGEX.EXPENSES,
     errorProbability: 50,
     description: "Submit expense for approval"
   },
-  // Mileage Trip Endpoints
+  {
+    path: ENDPOINT_REGEX.EXPENSE_ITEM_BY_ID,
+    description: "Get expense item by ID"
+  },
+  // ═══════════════════════════════════════════════════════════════════════════
+  // MILEAGE TRIP ENDPOINTS
+  // ═══════════════════════════════════════════════════════════════════════════
   {
     path: ENDPOINT_REGEX.MILEAGE_DRAFTS,
     errorProbability: 20,
@@ -3510,40 +3531,40 @@ const MOCKED_ENDPOINTS_CONFIG = [
   {
     path: /\/api\/v1\.0\/mileage-trips\/drafts\/[^/]+$/,
     errorProbability: 50,
-    description: "Delete mileage draft (50% error)"
+    description: "Mileage draft by ID (get/update/delete)"
   },
   {
     path: ENDPOINT_REGEX.MILEAGE_TRIPS,
     errorProbability: 50,
     description: "Submit mileage trip for approval"
   },
-  // Configuration endpoints
+  // ═══════════════════════════════════════════════════════════════════════════
+  // CONFIGURATION ENDPOINTS
+  // ═══════════════════════════════════════════════════════════════════════════
   {
-    path: ENDPOINT_REGEX.CONFIG_API,
-    errorProbability: 0,
-    description: "Configuration API"
+    path: ENDPOINT_REGEX.CONFIG_FORM_TYPES,
+    description: "Form types configuration"
+  },
+  {
+    path: ENDPOINT_REGEX.CONFIG_EXPENSE_TYPES,
+    description: "Expense types configuration"
+  },
+  {
+    path: ENDPOINT_REGEX.CONFIG_MILEAGE_RATES,
+    description: "Mileage rates configuration"
+  },
+  {
+    path: ENDPOINT_REGEX.CONFIG_TAX_TYPES_DISPLAY,
+    description: "Tax types display configuration"
   }
+  // NOTE: CONFIG_LOGICAL_COMPANIES is NOT mocked - uses real backend
 ];
-const MOCKED_ENDPOINT_PATHS = MOCKED_ENDPOINTS_CONFIG.filter((config) => typeof config.path === "string").map((config) => config.path);
-const MOCKED_ENDPOINT_PATTERNS = [
-  ENDPOINT_REGEX.FILES_RECEIPTS,
-  ENDPOINT_REGEX.FILES_SUPPORTING,
-  ENDPOINT_REGEX.FILES_STORAGE,
-  ENDPOINT_REGEX.EXPENSES_LIST_UNIFIED,
-  ENDPOINT_REGEX.EXPENSES,
-  ENDPOINT_REGEX.EXPENSE_DRAFTS,
-  ENDPOINT_REGEX.EXPENSE_ITEM_BY_ID,
-  /\/api\/v1\.0\/expenses\/drafts\/[^/]+$/,
-  ENDPOINT_REGEX.MILEAGE_TRIPS,
-  ENDPOINT_REGEX.MILEAGE_DRAFTS,
-  /\/api\/v1\.0\/mileage-trips\/drafts\/[^/]+$/,
-  // Configuration endpoints
-  ENDPOINT_REGEX.CONFIG_API,
-  ENDPOINT_REGEX.CONFIG_FORM_TYPES,
-  ENDPOINT_REGEX.CONFIG_EXPENSE_TYPES,
-  ENDPOINT_REGEX.CONFIG_MILEAGE_RATES,
-  ENDPOINT_REGEX.CONFIG_TAX_TYPES_DISPLAY
-];
+const MOCKED_ENDPOINT_PATHS = MOCKED_ENDPOINTS_CONFIG.filter(
+  (config) => typeof config.path === "string"
+).map((config) => config.path);
+const MOCKED_ENDPOINT_PATTERNS = MOCKED_ENDPOINTS_CONFIG.filter(
+  (config) => config.path instanceof RegExp
+).map((config) => config.path);
 const shouldMockEndpoint = (url) => {
   const urlString = typeof url === "string" ? url : url.toString();
   const hasExactMatch = MOCKED_ENDPOINT_PATHS.some((path) => urlString.includes(path));
@@ -3552,7 +3573,7 @@ const shouldMockEndpoint = (url) => {
 };
 const getEndpointErrorProbability = (endpoint) => {
   const config = MOCKED_ENDPOINTS_CONFIG.find((c) => {
-    if (typeof c.path === "object" && c.path instanceof RegExp) {
+    if (c.path instanceof RegExp) {
       return c.path.test(endpoint);
     }
     return endpoint.includes(c.path);
