@@ -1,0 +1,10 @@
+import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
+import { E as ExpensesList } from "./ExpensesList-DXTAwwoM.js";
+import "./axiosInstance-Cvzcyh16.js";
+import "./company-api-KM6oEmLj.js";
+const ExpensesPage = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ExpensesList, {});
+};
+export {
+  ExpensesPage as default
+};
