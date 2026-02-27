@@ -2,8 +2,8 @@ const currentImports = {};
 const exportSet = /* @__PURE__ */ new Set(["Module", "__esModule", "default", "_export_sfc"]);
 let moduleMap = {
   "./mount": () => {
-    dynamicLoadingCss(["style-D4oDAmt4.css"], false, "./mount");
-    return __federation_import("./assets/__federation_expose_Mount-D3Vc-w5m.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    dynamicLoadingCss(["style-BOUPEhMi.css"], false, "./mount");
+    return __federation_import("./assets/__federation_expose_Mount-BGoQxTvp.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
   }
 };
 const seen = {};
