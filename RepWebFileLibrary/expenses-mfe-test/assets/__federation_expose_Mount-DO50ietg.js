@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-H93r3ifz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-C1xiF5Cx.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-VIrFz_yB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-3lnepm44.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/currency-CI3sfE2_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-BP1HyBRf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-CR9oWq6g.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-BxYHdB7c.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/routes-D4lYvRIf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-D38uwrKy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-Di53VGi0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseFormDialog-Z0MVqo4q.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-D4vrrc7u.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-CuecLciD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-Bylqzewy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-item-oPdxtthH.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-BXBYkoji.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/chevron-right-Dbj1956R.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-BeHQvGs0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-prevent-page-reload-DuxfcGg3.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-rsoAUefi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-CLCgTVTC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Payroll-6q0RX983.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Allocations-DGO_ITfD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-CK9TZnVk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-C2MRMEnE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-8uXxeorl.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-CBcJalA4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-28BxYLrn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-BaCriXW8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-DqGqYqf3.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/FormsTestingPage-DTFdY8EK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/file-text-BbIxIPqF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-BviLy9EP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-UMExQU0e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-mXvT1FCf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-VIrFz_yB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-3lnepm44.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/currency-D0toBGrD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-Cvzcyh16.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-CR9oWq6g.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-BxYHdB7c.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/routes-D4lYvRIf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-D38uwrKy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-DXsj5DzB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseFormDialog-DZmYC_rN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-CvL7PQqL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-BgWYDmq7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-DM7qZzq1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-item-oPdxtthH.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-CPCeDfx9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/chevron-right-Dbj1956R.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-BeHQvGs0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-prevent-page-reload-BdZ5xOlX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-rsoAUefi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-CLCgTVTC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Payroll-6q0RX983.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Allocations-DGO_ITfD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-2jeABSuv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-CeNgWnje.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-BcZp6ILt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-DsvzNDou.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-BifSTp7k.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-BaCriXW8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-BkPQ8-fX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/FormsTestingPage-BAduSvyp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/file-text-BbIxIPqF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-BAge1FR1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
@@ -9,12 +9,12 @@ import { I as Icon } from "./Icon-BxYHdB7c.js";
 import { c as createLucideIcon, $ as $e, a as $a, E as En, A as As, w as wr } from "./configuration-3lnepm44.js";
 import { S as Shield } from "./shield-BaCriXW8.js";
 import { F as FileText } from "./file-text-BbIxIPqF.js";
-import { C as CreditCard, q as queryClient } from "./queryClient-BXBYkoji.js";
-import { u as useCompanies, a as useCompanyStore, Q as QueryClientProvider } from "./currency-CI3sfE2_.js";
+import { C as CreditCard, q as queryClient } from "./queryClient-CPCeDfx9.js";
+import { u as useCompanies, a as useCompanyStore, Q as QueryClientProvider } from "./currency-D0toBGrD.js";
 import { C as ChevronRight } from "./chevron-right-Dbj1956R.js";
-import { u as useFormTypes, a as useExpenseTypes } from "./expense-api-CuecLciD.js";
-import { u as usePreventPageReload } from "./use-prevent-page-reload-DuxfcGg3.js";
-import { d as devError, a as devLog } from "./index-D4vrrc7u.js";
+import { u as useFormTypes, a as useExpenseTypes } from "./expense-api-BgWYDmq7.js";
+import { u as usePreventPageReload } from "./use-prevent-page-reload-BdZ5xOlX.js";
+import { d as devError, a as devLog } from "./index-CvL7PQqL.js";
 var client = { exports: {} };
 var reactDomClient_production = {};
 var scheduler = { exports: {} };
@@ -11913,22 +11913,22 @@ const PRODUCTION_MODES = [
 ];
 const EnvConfig = {
   /** Get current Vite mode */
-  getMode: () => "test-ssl",
+  getMode: () => "test",
   /** Check if current mode is a dev/test mode (shows testing UI, devtools, etc.) */
   isDevOrTest: () => {
-    return DEV_TEST_MODES.includes("test-ssl");
+    return DEV_TEST_MODES.includes("test");
   },
   /** Check if current mode is a test environment (test, test-ssl) */
   isTest: () => {
-    return TEST_MODES.includes("test-ssl");
+    return TEST_MODES.includes("test");
   },
   /** Check if current mode is a development environment (development, development-ssl, localdev) */
   isDevelopment: () => {
-    return DEVELOPMENT_MODES.includes("test-ssl");
+    return DEVELOPMENT_MODES.includes("test");
   },
   /** Check if current mode is production-like (production, staging) — no dev features */
   isProductionLike: () => {
-    return PRODUCTION_MODES.includes("test-ssl");
+    return PRODUCTION_MODES.includes("test");
   },
   /** Check if current mode is strictly production */
   isProduction: () => {
@@ -11942,11 +11942,11 @@ const EnvConfig = {
   getLabel: () => {
     const labels = {
       [
-        "test-ssl"
-        /* TestSsl */
-      ]: "TEST SSL"
+        "test"
+        /* Test */
+      ]: "TEST"
     };
-    return labels["test-ssl"];
+    return labels["test"];
   }
 };
 const ReceiptIcon = () => /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "receipt", className: "size-4" });
@@ -12388,20 +12388,20 @@ const Layout = () => {
   ] });
 };
 const SCOPE_CLASS = "expenses-mfe-scope";
-const CONTAINER_ID = "module-mfe-ssl-test";
+const CONTAINER_ID = "module-mfe-test";
 const { Suspense, lazy } = await importShared("react");
-const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-H93r3ifz.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11]) : void 0, import.meta.url));
-const UnifiedExpensePage = lazy(() => __vitePreload(() => import("./UnifiedExpensePage-Di53VGi0.js"), true ? __vite__mapDeps([12,1,4,3,2,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21]) : void 0, import.meta.url));
+const Expenses = lazy(() => __vitePreload(() => import("./ExpensesPage-UMExQU0e.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11]) : void 0, import.meta.url));
+const UnifiedExpensePage = lazy(() => __vitePreload(() => import("./UnifiedExpensePage-DXsj5DzB.js"), true ? __vite__mapDeps([12,1,4,3,2,5,6,7,8,9,10,11,13,14,15,16,17,18,19,20,21]) : void 0, import.meta.url));
 const Configurations = lazy(() => __vitePreload(() => import("./Configurations-rsoAUefi.js"), true ? __vite__mapDeps([22,1]) : void 0, import.meta.url));
 const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-CLCgTVTC.js"), true ? __vite__mapDeps([23,1]) : void 0, import.meta.url));
 const Payroll = lazy(() => __vitePreload(() => import("./Payroll-6q0RX983.js"), true ? __vite__mapDeps([24,1]) : void 0, import.meta.url));
 const Allocations = lazy(() => __vitePreload(() => import("./Allocations-DGO_ITfD.js"), true ? __vite__mapDeps([25,1]) : void 0, import.meta.url));
-const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-CK9TZnVk.js"), true ? __vite__mapDeps([26,1,27,3,5,6,4,7,8,9,16,15,14,21,10,11]) : void 0, import.meta.url));
-const MileageType = lazy(() => __vitePreload(() => import("./MileageType-8uXxeorl.js"), true ? __vite__mapDeps([28,1,27,3,5,6,4,7,8,9,16,15,14,21,10,11]) : void 0, import.meta.url));
-const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-CBcJalA4.js"), true ? __vite__mapDeps([29,1,27,3,5,6,4,7,8,9,16,15,14,21,10,11]) : void 0, import.meta.url));
-const TestingAuthentication = EnvConfig.isDevOrTest() ? lazy(() => __vitePreload(() => import("./JWTDemo-28BxYLrn.js"), true ? __vite__mapDeps([30,3,1,6,4,31,20]) : void 0, import.meta.url)) : null;
-const TestingIcons = EnvConfig.isDevOrTest() ? lazy(() => __vitePreload(() => import("./IconsTestingPage-DqGqYqf3.js"), true ? __vite__mapDeps([32,3,1,8,9]) : void 0, import.meta.url)) : null;
-const TestingForms = EnvConfig.isDevOrTest() ? lazy(() => __vitePreload(() => import("./FormsTestingPage-DTFdY8EK.js"), true ? __vite__mapDeps([33,3,1,4,13,14,8,9,15,5,6,16,17,18,11,34]) : void 0, import.meta.url)) : null;
+const ExpensesType = lazy(() => __vitePreload(() => import("./ExpenseType-2jeABSuv.js"), true ? __vite__mapDeps([26,1,27,3,5,6,4,7,8,9,16,15,14,21,10,11]) : void 0, import.meta.url));
+const MileageType = lazy(() => __vitePreload(() => import("./MileageType-BcZp6ILt.js"), true ? __vite__mapDeps([28,1,27,3,5,6,4,7,8,9,16,15,14,21,10,11]) : void 0, import.meta.url));
+const BusinessPurpose = lazy(() => __vitePreload(() => import("./BusinessPurpose-DsvzNDou.js"), true ? __vite__mapDeps([29,1,27,3,5,6,4,7,8,9,16,15,14,21,10,11]) : void 0, import.meta.url));
+const TestingAuthentication = EnvConfig.isDevOrTest() ? lazy(() => __vitePreload(() => import("./JWTDemo-BifSTp7k.js"), true ? __vite__mapDeps([30,3,1,6,4,31,20]) : void 0, import.meta.url)) : null;
+const TestingIcons = EnvConfig.isDevOrTest() ? lazy(() => __vitePreload(() => import("./IconsTestingPage-BkPQ8-fX.js"), true ? __vite__mapDeps([32,3,1,8,9]) : void 0, import.meta.url)) : null;
+const TestingForms = EnvConfig.isDevOrTest() ? lazy(() => __vitePreload(() => import("./FormsTestingPage-BAduSvyp.js"), true ? __vite__mapDeps([33,3,1,4,13,14,8,9,15,5,6,16,17,18,11,34]) : void 0, import.meta.url)) : null;
 const createRouteConfig = () => {
   const baseRoutes = [
     {
@@ -12782,8 +12782,8 @@ function initMockingIfEnabled() {
   mockingInitPromise = (async () => {
     try {
       const [{ initializeMocking }, { apiClient }] = await Promise.all([
-        __vitePreload(() => import("./init-BviLy9EP.js"), true ? __vite__mapDeps([35,9,14]) : void 0, import.meta.url),
-        __vitePreload(() => import("./axiosInstance-BP1HyBRf.js").then((n) => n.f), true ? __vite__mapDeps([6,3]) : void 0, import.meta.url)
+        __vitePreload(() => import("./init-BAge1FR1.js"), true ? __vite__mapDeps([35,9,14]) : void 0, import.meta.url),
+        __vitePreload(() => import("./axiosInstance-Cvzcyh16.js").then((n) => n.f), true ? __vite__mapDeps([6,3]) : void 0, import.meta.url)
       ]);
       await initializeMocking(apiClient.getAxiosInstance());
     } catch (error) {

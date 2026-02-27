@@ -509,6 +509,8 @@ const usePaymentMethods = () => {
     gcTime: 30 * 60 * 1e3
   });
 };
+const DEFAULT_PAYMENT_METHOD = { id: "1" };
+const DEFAULT_MILEAGE_VENDOR = "N/A";
 const getMileageTypesFromCache = (queryClient2, companyShortName) => {
   return queryClient2.getQueryData([
     ...queryKeys.expenseTypes.list(companyShortName, false),
@@ -3368,7 +3370,6 @@ const FILE_UPLOAD_TIMEOUT = 12e4;
 const FILE_UPLOAD_MAX_RETRIES = 2;
 const TOOLTIP_DELAY_QUICK = 120;
 const TOOLTIP_DELAY_TRUNCATED_TEXT = 500;
-const DEFAULT_PAYMENT_METHOD = { id: "1" };
 const mapFullExpenseToDefaultValues = (initialData) => {
   return {
     [ExpenseFormField.ExpenseType]: (initialData == null ? void 0 : initialData.expenseType) ?? "",
@@ -9165,32 +9166,34 @@ function ExpenseFormDialog({
 }
 export {
   ConfirmDialog as C,
+  DEFAULT_MILEAGE_VENDOR as D,
   ExpenseForm as E,
   FormSectionType as F,
   MileageFormType as M,
   ReceiptSection as R,
   parseOptionalDecimal as a,
-  isMileagePeriodData as b,
-  useSubmitExpense as c,
-  useDeleteExpenseDraft as d,
-  usePendingUploadStore as e,
-  MileageTripForm as f,
+  DEFAULT_PAYMENT_METHOD as b,
+  isMileagePeriodData as c,
+  useSubmitExpense as d,
+  useDeleteExpenseDraft as e,
+  usePendingUploadStore as f,
   getMileageTypesFromCache as g,
-  MileagePeriodForm as h,
+  MileageTripForm as h,
   isMileageTripData as i,
-  minimalExpenseValidationStrategy as j,
-  useBaseExpenseForm as k,
-  useReceiptCheckboxEffects as l,
+  MileagePeriodForm as j,
+  minimalExpenseValidationStrategy as k,
+  useBaseExpenseForm as l,
   mapCostAllocation as m,
-  useFormButtonStateSync as n,
-  useFormImperativeHandle as o,
+  useReceiptCheckboxEffects as n,
+  useFormButtonStateSync as o,
   parseOptionalInt as p,
-  FormSectionProvider as q,
+  useFormImperativeHandle as q,
   resolveFileUrl as r,
   sortFormSections as s,
   toISODateString as t,
   useSaveExpenseDraft as u,
-  FormRenderer as v,
-  ExpenseFormDialog as w,
-  affidavitExpenseValidationStrategy as x
+  FormSectionProvider as v,
+  FormRenderer as w,
+  ExpenseFormDialog as x,
+  affidavitExpenseValidationStrategy as y
 };

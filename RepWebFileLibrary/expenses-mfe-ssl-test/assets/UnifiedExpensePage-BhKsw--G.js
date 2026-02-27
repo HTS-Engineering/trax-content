@@ -1,18 +1,18 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { c as createLucideIcon, W as Ws, q as qa, Y as Ya, b as Wa, $ as $e, E as En, K as Ka, M as Mn, P as Pn, V as Vn, B as Bs, d as cs, g as gs, Q as Qn, p as ps, u as us, e as $r, Z as Za } from "./configuration-3lnepm44.js";
-import { a as ExpenseStatusBadge, E as ExpensesList } from "./ExpensesList-Cr5DQekE.js";
-import { a as apiClient } from "./axiosInstance-Ca9fcNbd.js";
-import { D as DEFAULT_CURRENCY_CODE, b as useQueryClient, a as useCompanyStore, q as queryKeys, E as EXPENSE_ENDPOINTS, c as DEFAULT_CURRENCY } from "./currency-B6AJxrms.js";
-import { C as ConfirmDialog, t as toISODateString, m as mapCostAllocation, p as parseOptionalInt, a as parseOptionalDecimal, g as getMileageTypesFromCache, i as isMileageTripData, r as resolveFileUrl, b as isMileagePeriodData, u as useSaveExpenseDraft, c as useSubmitExpense, d as useDeleteExpenseDraft, M as MileageFormType, e as usePendingUploadStore, f as MileageTripForm, h as MileagePeriodForm, E as ExpenseForm } from "./ExpenseFormDialog-BbuaRSZg.js";
+import { a as ExpenseStatusBadge, E as ExpensesList } from "./ExpensesList-C1xiF5Cx.js";
+import { a as apiClient } from "./axiosInstance-BP1HyBRf.js";
+import { D as DEFAULT_CURRENCY_CODE, b as useQueryClient, a as useCompanyStore, q as queryKeys, E as EXPENSE_ENDPOINTS, c as DEFAULT_CURRENCY } from "./currency-CI3sfE2_.js";
+import { C as ConfirmDialog, t as toISODateString, D as DEFAULT_MILEAGE_VENDOR, m as mapCostAllocation, p as parseOptionalInt, a as parseOptionalDecimal, b as DEFAULT_PAYMENT_METHOD, g as getMileageTypesFromCache, i as isMileageTripData, r as resolveFileUrl, c as isMileagePeriodData, u as useSaveExpenseDraft, d as useSubmitExpense, e as useDeleteExpenseDraft, M as MileageFormType, f as usePendingUploadStore, h as MileageTripForm, j as MileagePeriodForm, E as ExpenseForm } from "./ExpenseFormDialog-Blx1hQUU.js";
 import { C as ChevronRight } from "./chevron-right-Dbj1956R.js";
 import { T as Trash2, S as Send } from "./trash-2-BeHQvGs0.js";
-import { d as devError, a as devLog } from "./index-CE7gIUWB.js";
+import { d as devError, a as devLog } from "./index-D4vrrc7u.js";
 import { I as ItemCategory, E as ECostAllocation, i as isRegularExpense, a as isMileageExpense, b as isExpenseItemSubmitted, c as isExpenseItemDraft } from "./expense-item-oPdxtthH.js";
-import { F as FormTypeId, b as useMutation, c as useTaxTypesDisplay, d as useFormTypeName, E as ExpenseFormType, e as useCountries, f as useExpenseItem } from "./expense-api-DWJ09-FN.js";
+import { F as FormTypeId, b as useMutation, c as useTaxTypesDisplay, d as useFormTypeName, E as ExpenseFormType, e as useCountries, f as useExpenseItem } from "./expense-api-CuecLciD.js";
 import { I as Icon } from "./Icon-BxYHdB7c.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
-import { f as formatDate, a as formatCurrency, g as getCurrencySymbol, b as formatDistance, c as formatRate } from "./formatters-D7MlPQgI.js";
-import { a as useNavigateBack } from "./use-prevent-page-reload-ChmcTIqv.js";
+import { f as formatDate, a as formatCurrency, g as getCurrencySymbol, b as formatDistance, c as formatRate } from "./formatters-Bylqzewy.js";
+import { a as useNavigateBack } from "./use-prevent-page-reload-DuxfcGg3.js";
 import { u as useNavigate, j as generatePath, a as RoutePaths, f as useParams, k as useSearchParams } from "./routes-D4lYvRIf.js";
 const __iconNode = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
 const ChevronLeft = createLucideIcon("chevron-left", __iconNode);
@@ -170,6 +170,8 @@ function mapCommonMileageFields(data, expenseTypes) {
     typeId,
     formTypeId,
     effectiveMileageRateId,
+    vendor: DEFAULT_MILEAGE_VENDOR,
+    paymentMethodId: parseInt(DEFAULT_PAYMENT_METHOD.id, 10),
     totalDistance: parseOptionalDecimal(data.totalDistance),
     totalAmount: parseOptionalDecimal(data.reimbursableAmount),
     totalCurrencyCode: DEFAULT_CURRENCY_CODE,

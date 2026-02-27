@@ -1,15 +1,15 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/core-CAB4bpNs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/_commonjsHelpers-CUmg6egw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { d as devError, a as devLog, b as devWarn } from "./index-CE7gIUWB.js";
+import { d as devError, a as devLog, b as devWarn } from "./index-D4vrrc7u.js";
 import { c as createLucideIcon, x as xs, y as bs, z as ws, S as Ss, H as Cs, J as ys, $ as $e, E as En, B as Bs, a as $a, i as Va, v as ka, L as Jn, G as Ga, T as Ta, d as cs, g as gs, Q as Qn, u as us, p as ps, O as zt, a0 as Ba, M as Mn, P as Pn, V as Vn, a1 as Ls, a2 as Hs, a3 as Os, a4 as Zn, a5 as za, a6 as Ks, a7 as Te, a8 as vs, a9 as Ar } from "./configuration-3lnepm44.js";
 import { I as Icon } from "./Icon-BxYHdB7c.js";
-import { b as useMutation, F as FormTypeId, e as useCountries, E as ExpenseFormType, A as AllowedMimeType, o as FILE_SIZE_LIMITS, p as MIME_TYPE_CONFIG, q as useDebouncedCallback, r as useFormTypeId, s as FilePreviewType, a as useExpenseTypes, t as useCurrencies, c as useTaxTypesDisplay } from "./expense-api-DWJ09-FN.js";
-import { c as create, d as devtools, a as apiClient } from "./axiosInstance-Ca9fcNbd.js";
-import { b as useQueryClient, a as useCompanyStore, q as queryKeys, E as EXPENSE_ENDPOINTS, d as useQuery, c as DEFAULT_CURRENCY, g as useDefaultCompany, h as getCurrencyLocale, D as DEFAULT_CURRENCY_CODE } from "./currency-B6AJxrms.js";
-import { u as useForm, d as a, q as useWatch, s as string, D as DECIMAL_FORMAT_REGEX, o as object, t as boolean, v as custom, w as array, p as date, x as unknown, n as number, l as literal, C as Controller, e as createDecimalChangeHandler, m as useBusinessPurposes, y as useFormState, c as formatRate, a as formatCurrency } from "./formatters-D7MlPQgI.js";
+import { b as useMutation, F as FormTypeId, e as useCountries, E as ExpenseFormType, A as AllowedMimeType, o as FILE_SIZE_LIMITS, p as MIME_TYPE_CONFIG, q as useDebouncedCallback, r as useFormTypeId, s as FilePreviewType, a as useExpenseTypes, t as useCurrencies, c as useTaxTypesDisplay } from "./expense-api-CuecLciD.js";
+import { c as create, d as devtools, a as apiClient } from "./axiosInstance-BP1HyBRf.js";
+import { b as useQueryClient, a as useCompanyStore, q as queryKeys, E as EXPENSE_ENDPOINTS, d as useQuery, c as DEFAULT_CURRENCY, g as useDefaultCompany, h as getCurrencyLocale, D as DEFAULT_CURRENCY_CODE } from "./currency-CI3sfE2_.js";
+import { u as useForm, d as a, q as useWatch, s as string, D as DECIMAL_FORMAT_REGEX, o as object, t as boolean, v as custom, w as array, p as date, x as unknown, n as number, l as literal, C as Controller, e as createDecimalChangeHandler, m as useBusinessPurposes, y as useFormState, c as formatRate, a as formatCurrency } from "./formatters-Bylqzewy.js";
 import { E as ECostAllocation, I as ItemCategory } from "./expense-item-oPdxtthH.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
-import { q as queryClient, C as CreditCard } from "./queryClient-BSuCChX_.js";
+import { q as queryClient, C as CreditCard } from "./queryClient-BXBYkoji.js";
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { P as Plus } from "./plus-D38uwrKy.js";
 const __iconNode = [
@@ -509,6 +509,8 @@ const usePaymentMethods = () => {
     gcTime: 30 * 60 * 1e3
   });
 };
+const DEFAULT_PAYMENT_METHOD = { id: "1" };
+const DEFAULT_MILEAGE_VENDOR = "N/A";
 const getMileageTypesFromCache = (queryClient2, companyShortName) => {
   return queryClient2.getQueryData([
     ...queryKeys.expenseTypes.list(companyShortName, false),
@@ -3368,7 +3370,6 @@ const FILE_UPLOAD_TIMEOUT = 12e4;
 const FILE_UPLOAD_MAX_RETRIES = 2;
 const TOOLTIP_DELAY_QUICK = 120;
 const TOOLTIP_DELAY_TRUNCATED_TEXT = 500;
-const DEFAULT_PAYMENT_METHOD = { id: "1" };
 const mapFullExpenseToDefaultValues = (initialData) => {
   return {
     [ExpenseFormField.ExpenseType]: (initialData == null ? void 0 : initialData.expenseType) ?? "",
@@ -9165,32 +9166,34 @@ function ExpenseFormDialog({
 }
 export {
   ConfirmDialog as C,
+  DEFAULT_MILEAGE_VENDOR as D,
   ExpenseForm as E,
   FormSectionType as F,
   MileageFormType as M,
   ReceiptSection as R,
   parseOptionalDecimal as a,
-  isMileagePeriodData as b,
-  useSubmitExpense as c,
-  useDeleteExpenseDraft as d,
-  usePendingUploadStore as e,
-  MileageTripForm as f,
+  DEFAULT_PAYMENT_METHOD as b,
+  isMileagePeriodData as c,
+  useSubmitExpense as d,
+  useDeleteExpenseDraft as e,
+  usePendingUploadStore as f,
   getMileageTypesFromCache as g,
-  MileagePeriodForm as h,
+  MileageTripForm as h,
   isMileageTripData as i,
-  minimalExpenseValidationStrategy as j,
-  useBaseExpenseForm as k,
-  useReceiptCheckboxEffects as l,
+  MileagePeriodForm as j,
+  minimalExpenseValidationStrategy as k,
+  useBaseExpenseForm as l,
   mapCostAllocation as m,
-  useFormButtonStateSync as n,
-  useFormImperativeHandle as o,
+  useReceiptCheckboxEffects as n,
+  useFormButtonStateSync as o,
   parseOptionalInt as p,
-  FormSectionProvider as q,
+  useFormImperativeHandle as q,
   resolveFileUrl as r,
   sortFormSections as s,
   toISODateString as t,
   useSaveExpenseDraft as u,
-  FormRenderer as v,
-  ExpenseFormDialog as w,
-  affidavitExpenseValidationStrategy as x
+  FormSectionProvider as v,
+  FormRenderer as w,
+  ExpenseFormDialog as x,
+  affidavitExpenseValidationStrategy as y
 };

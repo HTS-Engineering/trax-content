@@ -1,7 +1,7 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { d as cs, g as gs, Q as Qn, p as ps, T as Ta, i as Va, a as $a, v as ka, $ as $e } from "./configuration-3lnepm44.js";
-import { R as ReceiptSection, j as minimalExpenseValidationStrategy, k as useBaseExpenseForm, F as FormSectionType, l as useReceiptCheckboxEffects, n as useFormButtonStateSync, o as useFormImperativeHandle, s as sortFormSections, q as FormSectionProvider, v as FormRenderer, w as ExpenseFormDialog, x as affidavitExpenseValidationStrategy } from "./ExpenseFormDialog-Z0MVqo4q.js";
+import { R as ReceiptSection, k as minimalExpenseValidationStrategy, l as useBaseExpenseForm, F as FormSectionType, n as useReceiptCheckboxEffects, o as useFormButtonStateSync, q as useFormImperativeHandle, s as sortFormSections, v as FormSectionProvider, w as FormRenderer, x as ExpenseFormDialog, y as affidavitExpenseValidationStrategy } from "./ExpenseFormDialog-Blx1hQUU.js";
 import "./axiosInstance-BP1HyBRf.js";
 import "./currency-CI3sfE2_.js";
 import "./index-D4vrrc7u.js";
