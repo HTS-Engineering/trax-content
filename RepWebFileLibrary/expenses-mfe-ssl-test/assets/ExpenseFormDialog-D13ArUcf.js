@@ -3619,6 +3619,14 @@ const costAllocationItemSchema = object({
   type: costAllocationTypeSchema,
   entityData: unknown().optional()
 });
+const costAllocationItemDraftSchema = object({
+  id: string(),
+  name: string(),
+  percentage: number(),
+  amount: number(),
+  type: costAllocationTypeSchema,
+  entityData: unknown().optional()
+});
 const costAllocationSchema = object({
   costAllocations: array(costAllocationItemSchema).optional(),
   isEqualSplit: boolean().optional().default(false),
@@ -3920,14 +3928,7 @@ const draftExpenseFormSchema = object({
   [ExpenseFormField.ExpenseDescription]: string().max(500).optional(),
   [ExpenseFormField.PersonsEntertained]: string().optional(),
   [ExpenseFormField.AdditionalComments]: string().max(500).optional(),
-  [ExpenseFormField.CostAllocations]: array(object({
-    id: string(),
-    name: string(),
-    percentage: number(),
-    amount: number(),
-    type: costAllocationTypeSchema,
-    entityData: unknown().optional()
-  })).optional()
+  [ExpenseFormField.CostAllocations]: array(costAllocationItemDraftSchema).optional()
 });
 const validateExpenseForSubmission = (data) => {
   return fullExpenseFormSchema.safeParse(data);
@@ -4282,21 +4283,14 @@ const mileageTripFormSchema = object({
   [MileageTripFormField.ReimbursableAmount]: reimbursableAmountField,
   [MileageTripFormField.BusinessPurpose]: businessPurposeField,
   [MileageTripFormField.ExpenseDescription]: expenseDescriptionField,
-  [MileageTripFormField.CostAllocations]: array(object({
-    id: string(),
-    name: string(),
-    percentage: number(),
-    amount: number(),
-    type: costAllocationTypeSchema,
-    entityData: unknown().optional()
-  })).optional(),
+  [MileageTripFormField.CostAllocations]: array(costAllocationItemSchema).optional(),
   [MileageTripFormField.IsEqualSplit]: boolean().optional(),
   [MileageTripFormField.DeferToApprover]: boolean().optional(),
   [MileageTripFormField.AdditionalComments]: additionalCommentsFieldOptional
 }).superRefine((data, ctx) => {
   validateCostAllocation(ctx, data.costAllocations, data.reimbursableAmount, data.deferToApprover);
 });
-object({
+const mileageTripDraftSchema = object({
   formType: literal("trip"),
   [MileageTripFormField.MileageType]: mileageTypeFieldOptional,
   [MileageTripFormField.ExpenseDate]: expenseDateFieldOptional,
@@ -4309,18 +4303,14 @@ object({
   [MileageTripFormField.ReimbursableAmount]: reimbursableAmountFieldOptional,
   [MileageTripFormField.BusinessPurpose]: businessPurposeFieldOptional,
   [MileageTripFormField.ExpenseDescription]: expenseDescriptionFieldOptional,
-  [MileageTripFormField.CostAllocations]: array(object({
-    id: string(),
-    name: string(),
-    percentage: number(),
-    amount: number(),
-    type: costAllocationTypeSchema,
-    entityData: unknown().optional()
-  })).optional(),
+  [MileageTripFormField.CostAllocations]: array(costAllocationItemDraftSchema).optional(),
   [MileageTripFormField.IsEqualSplit]: boolean().optional(),
   [MileageTripFormField.DeferToApprover]: boolean().optional(),
   [MileageTripFormField.AdditionalComments]: additionalCommentsFieldOptional
 });
+const validateMileageTripForDraft = (data) => {
+  return mileageTripDraftSchema.safeParse(data);
+};
 const draftSaveableFields$1 = [
   MileageTripFormField.MileageType,
   MileageTripFormField.ExpenseDate,
@@ -4343,6 +4333,7 @@ const getFormValidationErrors$1 = (data) => {
   return errors;
 };
 const mileageTripValidationStrategy = createValidationStrategy(mileageTripFormSchema, {
+  validateForDraft: validateMileageTripForDraft,
   canSaveDraft: canSaveDraft$1,
   getValidationErrors: getFormValidationErrors$1
 });
@@ -5540,14 +5531,7 @@ const mileagePeriodFormSchema = object({
   [MileagePeriodFormField.ReimbursableAmount]: reimbursableAmountField,
   [MileagePeriodFormField.BusinessPurpose]: businessPurposeField,
   [MileagePeriodFormField.ExpenseDescription]: expenseDescriptionField,
-  [MileagePeriodFormField.CostAllocations]: array(object({
-    id: string(),
-    name: string(),
-    percentage: number(),
-    amount: number(),
-    type: costAllocationTypeSchema,
-    entityData: unknown().optional()
-  })).optional(),
+  [MileagePeriodFormField.CostAllocations]: array(costAllocationItemSchema).optional(),
   [MileagePeriodFormField.IsEqualSplit]: boolean().optional(),
   [MileagePeriodFormField.DeferToApprover]: boolean().optional(),
   [MileagePeriodFormField.SupportingFiles]: supportingFilesField,
@@ -8915,7 +8899,7 @@ const MILEAGE_PERIOD_SECTIONS_CONFIG = [
   MILEAGE_PERIOD_COST_ALLOCATION_SECTION,
   MILEAGE_PERIOD_ADDITIONAL_COMMENTS_SECTION
 ];
-object({
+const mileagePeriodDraftSchema = object({
   formType: literal("period"),
   [MileagePeriodFormField.MileageType]: mileageTypeFieldOptional,
   [MileagePeriodFormField.ExpensePeriod]: expensePeriodFieldOptional,
@@ -8925,19 +8909,15 @@ object({
   [MileagePeriodFormField.ReimbursableAmount]: reimbursableAmountFieldOptional,
   [MileagePeriodFormField.BusinessPurpose]: businessPurposeFieldOptional,
   [MileagePeriodFormField.ExpenseDescription]: expenseDescriptionFieldOptional,
-  [MileagePeriodFormField.CostAllocations]: array(object({
-    id: string(),
-    name: string(),
-    percentage: number(),
-    amount: number(),
-    type: costAllocationTypeSchema,
-    entityData: unknown().optional()
-  })).optional(),
+  [MileagePeriodFormField.CostAllocations]: array(costAllocationItemDraftSchema).optional(),
   [MileagePeriodFormField.IsEqualSplit]: boolean().optional(),
   [MileagePeriodFormField.DeferToApprover]: boolean().optional(),
   [MileagePeriodFormField.SupportingFiles]: supportingFilesField,
   [MileagePeriodFormField.AdditionalComments]: additionalCommentsFieldOptional
 });
+const validateMileagePeriodForDraft = (data) => {
+  return mileagePeriodDraftSchema.safeParse(data);
+};
 const draftSaveableFields = [
   MileagePeriodFormField.MileageType,
   MileagePeriodFormField.ExpensePeriod,
@@ -8959,6 +8939,7 @@ const getFormValidationErrors = (data) => {
   return errors;
 };
 const mileagePeriodValidationStrategy = createValidationStrategy(mileagePeriodFormSchema, {
+  validateForDraft: validateMileagePeriodForDraft,
   canSaveDraft,
   getValidationErrors: getFormValidationErrors
 });
