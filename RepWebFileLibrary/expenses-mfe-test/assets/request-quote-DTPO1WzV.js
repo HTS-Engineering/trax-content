@@ -1,0 +1,4 @@
+const requestQuote = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">\n<path d="M14 2L6 2C4.9 2 4 2.9 4 4L4 20C4 21.1 4.9 22 6 22L18 22C19.1 22 20 21.1 20 20L20 8L14 2ZM6 20L6 4L13 4L13 8L18 8L18 20L6 20ZM11 19L13 19L13 18L14 18C14.55 18 15 17.55 15 17L15 14C15 13.45 14.55 13 14 13L11 13L11 12L15 12L15 10L13 10L13 9L11 9L11 10L10 10C9.45 10 9 10.45 9 11L9 14C9 14.55 9.45 15 10 15L13 15L13 16L9 16L9 18L11 18L11 19Z" fill="currentColor"/>\n</svg>\n';
+export {
+  requestQuote as default
+};
