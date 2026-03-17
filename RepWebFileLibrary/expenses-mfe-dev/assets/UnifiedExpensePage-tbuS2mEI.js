@@ -1,18 +1,18 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/core-CAB4bpNs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/_commonjsHelpers-CUmg6egw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { c as createLucideIcon, x as xs, b as bs, d as ws, S as Ss, C as Cs, y as ys, $ as $e, E as En, W as Ws, q as qa, Y as Ya, e as Wa, K as Ka, M as Mn, P as Pn, V as Vn, B as Bs, a as $a, f as Va, k as ka, J as Jn, G as Ga, T as Ta, g as cs, h as gs, Q as Qn, u as us, p as ps, z as zt, i as Ba, L as Ls, H as Hs, O as Os, Z as Zn, j as za, l as Ks, m as Te, n as $r, o as Za } from "./configuration-BTcuf3wk.js";
-import { a as ExpenseStatusBadge, E as ExpensesList } from "./ExpensesList-CqGA6Hlc.js";
-import { c as create, d as devtools, a as apiClient } from "./axiosInstance-Cvzcyh16.js";
-import { l as useQueryClient, i as useCompanyStore, q as queryKeys, E as EXPENSE_ENDPOINTS, m as useQuery, D as DEFAULT_CURRENCY_CODE, n as useDefaultCompany, o as EMPTY_CURRENCY_SYMBOL, f as useNavigate, p as generatePath, a as RoutePaths, h as useParams, r as useSearchParams } from "./currency-DudsmcaI.js";
+import { a as ExpenseStatusBadge, E as ExpensesList } from "./ExpensesList-BTpjZehT.js";
+import { c as create, d as devtools, a as apiClient } from "./axiosInstance-Ca9fcNbd.js";
+import { l as useQueryClient, i as useCompanyStore, q as queryKeys, E as EXPENSE_ENDPOINTS, m as useQuery, D as DEFAULT_CURRENCY_CODE, n as useDefaultCompany, o as EMPTY_CURRENCY_SYMBOL, f as useNavigate, p as generatePath, a as RoutePaths, h as useParams, r as useSearchParams } from "./currency-DLlwBzTW.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
-import { C as ChevronRight, q as queryClient } from "./queryClient-BttByX_K.js";
+import { C as ChevronRight, q as queryClient } from "./queryClient-Cpgp4NeT.js";
 import { T as Trash2, S as Send } from "./trash-2-D9D5hkEU.js";
-import { d as devError, a as devLog, b as devWarn } from "./index-CvL7PQqL.js";
-import { E as ECostAllocation, c as useMutation, I as ItemCategory, F as FormTypeId, d as useCountries, e as useDefaultCountry, f as ExpenseFormType, A as AllowedMimeType, g as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, h as useDebouncedCallback, i as useFormTypeId, j as FilePreviewType, k as FILE_ENDPOINTS, b as useExpenseTypes, l as useCurrencies, m as useTaxTypesDisplay, n as useDefaultCurrency, o as useFormTypeName, p as isRegularExpense, q as isMileageExpense, r as isExpenseItemSubmitted, s as useNavigateBack, t as useExpenseItem, v as isExpenseItemDraft } from "./expense-api-CFd4YNiE.js";
-import { u as useForm, a, b as useWatch, s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, d as boolean, e as array, f as date, g as unknown, n as number, l as literal, C as Controller, h as createDecimalChangeHandler, i as useBusinessPurposes, j as useFormState } from "./business-purpose-api-khkWVo1u.js";
+import { d as devError, a as devLog, b as devWarn } from "./index-CE7gIUWB.js";
+import { E as ECostAllocation, c as useMutation, I as ItemCategory, F as FormTypeId, d as useCountries, e as useDefaultCountry, f as ExpenseFormType, A as AllowedMimeType, g as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, h as useDebouncedCallback, i as useFormTypeId, j as FilePreviewType, k as FILE_ENDPOINTS, b as useExpenseTypes, l as useCurrencies, m as useTaxTypesDisplay, n as useDefaultCurrency, o as useFormTypeName, p as isRegularExpense, q as isMileageExpense, r as isExpenseItemSubmitted, s as useNavigateBack, t as useExpenseItem, v as isExpenseItemDraft } from "./expense-api-DAqZJPd4.js";
+import { u as useForm, a, b as useWatch, s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, d as boolean, e as array, f as date, g as unknown, n as number, l as literal, C as Controller, h as createDecimalChangeHandler, i as useBusinessPurposes, j as useFormState } from "./business-purpose-api-RhTFuEam.js";
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { I as Icon } from "./Icon-CWd-YT3m.js";
-import { P as Plus, f as formatRate, a as formatCurrency, b as formatDate, c as formatDistance } from "./formatters-BWPK57Oy.js";
+import { P as Plus, f as formatRate, a as formatCurrency, b as formatDate, c as formatDistance } from "./formatters-DDH3BSEG.js";
 const __iconNode$2 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
   ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
@@ -26,7 +26,7 @@ const __iconNode = [
   ["line", { x1: "2", x2: "22", y1: "10", y2: "10", key: "1b3vmo" }]
 ];
 const CreditCard = createLucideIcon("credit-card", __iconNode);
-const { useCallback: useCallback$p, useEffect: useEffect$p, useRef: useRef$m, useState: useState$b } = await importShared("react");
+const { useCallback: useCallback$r, useEffect: useEffect$p, useRef: useRef$m, useState: useState$b } = await importShared("react");
 const ANIMATION_FALLBACK_MS = 300;
 const ConfirmDialog = ({
   open,
@@ -66,7 +66,7 @@ const ConfirmDialog = ({
     }
     return () => clearTimeout(fallbackTimer);
   }, [open, wasOpen]);
-  const handleAnimationEnd = useCallback$p(() => {
+  const handleAnimationEnd = useCallback$r(() => {
     var _a;
     if (wasOpen && !open && !closeCompleteFiredRef.current) {
       closeCompleteFiredRef.current = true;
@@ -431,9 +431,10 @@ function mapCostAllocation(allocation) {
   }
 }
 function mapFormDataToCreateRequest(data, expenseTypes) {
-  var _a, _b, _c, _d;
+  var _a, _b, _c, _d, _e, _f, _g;
   const typeId = parseOptionalInt(data.expenseType);
   const selectedExpenseType = typeId !== null ? expenseTypes == null ? void 0 : expenseTypes.find((et) => parseInt(et.id, 10) === typeId) : void 0;
+  const isConverted = !!((_a = data.netCurrency) == null ? void 0 : _a.code) && !!((_b = data.totalCurrency) == null ? void 0 : _b.code) && data.netCurrency.code !== data.totalCurrency.code;
   return {
     typeId,
     formTypeId: (selectedExpenseType == null ? void 0 : selectedExpenseType.formTypeId) ?? null,
@@ -441,20 +442,20 @@ function mapFormDataToCreateRequest(data, expenseTypes) {
     date: toISODateString(data.expenseDate),
     locationId: parseOptionalInt(data.expenseLocation),
     paymentMethodId: parseOptionalInt(data.paymentMethod),
-    foreignAmount: parseOptionalDecimal(data.netAmount),
-    totalAmount: parseOptionalDecimal(data.totalAmount),
+    foreignAmount: isConverted ? parseOptionalDecimal(data.netAmount) : null,
+    totalAmount: isConverted ? parseOptionalDecimal(data.totalAmount) : parseOptionalDecimal(data.netAmount),
     taxTypeId: parseOptionalInt(data.taxType),
     tax: parseOptionalDecimal(data.taxAmount),
     businessPurposeId: parseOptionalInt(data.businessPurpose),
     description: data.expenseDescription || null,
     personsEntertained: data.personsEntertained || null,
     additionalComments: data.additionalComments || null,
-    affidavitJustification: ((_a = data.affidavit) == null ? void 0 : _a.justification) || null,
-    affidavitInitials: ((_b = data.affidavit) == null ? void 0 : _b.digitalSignature) || null,
+    affidavitJustification: ((_c = data.affidavit) == null ? void 0 : _c.justification) || null,
+    affidavitInitials: ((_d = data.affidavit) == null ? void 0 : _d.digitalSignature) || null,
     // Tax currency is always CAD per business rules (TRX-117)
     taxCurrencyCode: parseOptionalDecimal(data.taxAmount) ? "CAD" : null,
-    foreignCurrencyCode: ((_c = data.netCurrency) == null ? void 0 : _c.code) || null,
-    totalCurrencyCode: ((_d = data.totalCurrency) == null ? void 0 : _d.code) || null,
+    foreignCurrencyCode: isConverted ? ((_e = data.netCurrency) == null ? void 0 : _e.code) || null : null,
+    totalCurrencyCode: ((_f = data.totalCurrency) == null ? void 0 : _f.code) || ((_g = data.netCurrency) == null ? void 0 : _g.code) || null,
     costAllocationDeferred: data.deferToApprover ?? null,
     costAllocations: data.costAllocations && data.costAllocations.length > 0 ? data.costAllocations.map(mapCostAllocation) : null
   };
@@ -470,10 +471,10 @@ function normalizeExpenseDraftResponse(response) {
     id: String(response.id),
     businessId: response.businessId,
     status: response.status,
-    vendor: response.vendor,
-    expenseDate: response.date,
-    totalAmount: response.totalAmount,
-    totalCurrencyCode: response.totalCurrencyCode,
+    vendor: response.vendor ?? "",
+    expenseDate: response.date ?? "",
+    totalAmount: Number(response.totalAmount ?? 0),
+    totalCurrencyCode: response.totalCurrencyCode ?? "",
     createdAt: response.createdDate,
     updatedAt: response.updatedDate
   };
@@ -872,7 +873,7 @@ const useSetDefaultCurrency = (setValue, defaultCurrencyCode, defaultCurrencySym
     hasSetDefaults.current = true;
   }, [hasSetDefaults, setValue, defaultCurrencyCode, defaultCurrencySymbol, canSetDefaultCurrency]);
 };
-const { useCallback: useCallback$o, useEffect: useEffect$n, useMemo: useMemo$n, useRef: useRef$k } = await importShared("react");
+const { useCallback: useCallback$q, useEffect: useEffect$n, useMemo: useMemo$n, useRef: useRef$k } = await importShared("react");
 function useBaseExpenseForm(config2, props) {
   const {
     onSubmit,
@@ -972,7 +973,7 @@ function useBaseExpenseForm(config2, props) {
     [formDataForValidation, config2]
   );
   const canSubmit = isValid && !isSubmitting;
-  const handleFormSubmit = useCallback$o(
+  const handleFormSubmit = useCallback$q(
     async (data) => {
       try {
         const result = config2.validateForSubmission(data);
@@ -988,7 +989,7 @@ function useBaseExpenseForm(config2, props) {
     },
     [config2, onSubmit]
   );
-  const handleDraftSave = useCallback$o(
+  const handleDraftSave = useCallback$q(
     async () => {
       try {
         const data = getValues();
@@ -1010,11 +1011,11 @@ function useBaseExpenseForm(config2, props) {
     },
     [getValues, canSave, config2, onSaveDraft]
   );
-  const validateForm = useCallback$o(async () => {
+  const validateForm = useCallback$q(async () => {
     const isFormValid = await trigger();
     return isFormValid && !isSubmitting;
   }, [trigger, isSubmitting]);
-  const getSubmitButtonState = useCallback$o(() => {
+  const getSubmitButtonState = useCallback$q(() => {
     if (isSubmitting || isDrafting) {
       return { disabled: true, tooltip: "Submitting..." };
     }
@@ -1026,7 +1027,7 @@ function useBaseExpenseForm(config2, props) {
     }
     return { disabled: false };
   }, [isSubmitting, isDrafting, hasErrors, isValid]);
-  const getSaveDraftButtonState = useCallback$o(() => {
+  const getSaveDraftButtonState = useCallback$q(() => {
     if (isDrafting) {
       return { disabled: true, tooltip: "Saving draft..." };
     }
@@ -3238,9 +3239,9 @@ const useCostAllocation = ({
   };
 };
 const generateId = () => crypto.randomUUID();
-const { useCallback: useCallback$n } = await importShared("react");
+const { useCallback: useCallback$p } = await importShared("react");
 const useDisableEqualSplit = (setValue, getValues, field) => {
-  return useCallback$n(() => {
+  return useCallback$p(() => {
     if (!field) return;
     const current = getValues(field);
     if (current) {
@@ -3416,14 +3417,14 @@ const recalculateAmounts = (allocations, totalAmount) => {
     };
   });
 };
-const { useCallback: useCallback$m, useMemo: useMemo$l } = await importShared("react");
-const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, isEqualSplitField, totalAmountField) => {
+const { useCallback: useCallback$o, useMemo: useMemo$l } = await importShared("react");
+const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, isEqualSplitField, getBaseAmount) => {
   const disableEqualSplit = useDisableEqualSplit(setValue, getValues, isEqualSplitField);
-  const addAllocation = useCallback$m(
+  const addAllocation = useCallback$o(
     (type) => {
       const currentAllocations = getValues(costAllocationsField) || [];
       const isFirstAllocation = currentAllocations.length === 0;
-      const initialAmount = isFirstAllocation && totalAmountField ? parseFloat(getValues(totalAmountField) || "0") : 0;
+      const initialAmount = isFirstAllocation && getBaseAmount ? getBaseAmount() : 0;
       const initialPercentage = isFirstAllocation ? 100 : 0;
       const newAllocation = {
         id: generateId(),
@@ -3442,9 +3443,9 @@ const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, is
       );
       disableEqualSplit();
     },
-    [setValue, getValues, costAllocationsField, totalAmountField, disableEqualSplit]
+    [setValue, getValues, costAllocationsField, getBaseAmount, disableEqualSplit]
   );
-  const updateAllocationEntity = useCallback$m(
+  const updateAllocationEntity = useCallback$o(
     (id, entity) => {
       const currentAllocations = getValues(costAllocationsField) || [];
       const updatedAllocations = currentAllocations.map(
@@ -3465,7 +3466,7 @@ const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, is
     },
     [setValue, getValues, costAllocationsField]
   );
-  const removeAllocation = useCallback$m(
+  const removeAllocation = useCallback$o(
     (id) => {
       const currentAllocations = getValues(costAllocationsField) || [];
       const isEqualSplit = isEqualSplitField ? getValues(isEqualSplitField) : false;
@@ -3473,10 +3474,8 @@ const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, is
         (allocation) => allocation.id !== id
       );
       let finalAllocations = filteredAllocations;
-      if (isEqualSplit && totalAmountField && filteredAllocations.length > 1) {
-        const totalAmountStr = getValues(totalAmountField);
-        const totalAmount = parseFloat(totalAmountStr || "0");
-        finalAllocations = calculateEqualDistribution(filteredAllocations, totalAmount);
+      if (isEqualSplit && getBaseAmount && filteredAllocations.length > 1) {
+        finalAllocations = calculateEqualDistribution(filteredAllocations, getBaseAmount());
       }
       setValue(
         costAllocationsField,
@@ -3490,9 +3489,9 @@ const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, is
         disableEqualSplit();
       }
     },
-    [setValue, getValues, costAllocationsField, isEqualSplitField, totalAmountField, disableEqualSplit]
+    [setValue, getValues, costAllocationsField, isEqualSplitField, getBaseAmount, disableEqualSplit]
   );
-  const getSelectedValue = useCallback$m(
+  const getSelectedValue = useCallback$o(
     (allocationId, allocations) => {
       const allocation = allocations.find((a2) => a2.id === allocationId);
       if (!allocation || !allocation.name) {
@@ -3518,7 +3517,7 @@ const useCostAllocationHandlers = (setValue, getValues, costAllocationsField, is
     }
   }), [addAllocation, updateAllocationEntity, removeAllocation, getSelectedValue, getValues]);
 };
-const { useCallback: useCallback$l, useEffect: useEffect$m, useRef: useRef$j } = await importShared("react");
+const { useCallback: useCallback$n, useEffect: useEffect$m, useRef: useRef$j } = await importShared("react");
 const useAllocationSync = ({
   index,
   totalAmount,
@@ -3530,13 +3529,13 @@ const useAllocationSync = ({
   const isEditingAmountRef = useRef$j(false);
   const isEditingPercentageRef = useRef$j(false);
   const disableEqualSplit = useDisableEqualSplit(setValue, getValues, isEqualSplitField);
-  const setAmountEditing = useCallback$l((editing) => {
+  const setAmountEditing = useCallback$n((editing) => {
     isEditingAmountRef.current = editing;
   }, []);
-  const setPercentageEditing = useCallback$l((editing) => {
+  const setPercentageEditing = useCallback$n((editing) => {
     isEditingPercentageRef.current = editing;
   }, []);
-  const syncPercentageFromAmount = useCallback$l(
+  const syncPercentageFromAmount = useCallback$n(
     (amount) => {
       if (isEditingPercentageRef.current) return;
       if (totalAmount === 0 || !isFinite(amount) || isNaN(amount) || amount < 0) return;
@@ -3557,7 +3556,7 @@ const useAllocationSync = ({
     },
     [index, totalAmount, setValue, trigger, disableEqualSplit]
   );
-  const syncAmountFromPercentage = useCallback$l(
+  const syncAmountFromPercentage = useCallback$n(
     (percentage) => {
       if (isEditingAmountRef.current) return;
       if (!isFinite(percentage) || isNaN(percentage)) return;
@@ -3598,7 +3597,7 @@ const useAllocationSync = ({
     setPercentageEditing
   };
 };
-const { useCallback: useCallback$k, useEffect: useEffect$l, useMemo: useMemo$k } = await importShared("react");
+const { useCallback: useCallback$m, useEffect: useEffect$l, useMemo: useMemo$k } = await importShared("react");
 const useEqualSplit = ({
   allocations,
   isEqualSplit,
@@ -3616,7 +3615,7 @@ const useEqualSplit = ({
   const isCurrentlyEqual = useMemo$k(() => {
     return areAllocationsEqual(allocations, totalAmount);
   }, [allocations, totalAmount]);
-  const distributeEqually = useCallback$k(() => {
+  const distributeEqually = useCallback$m(() => {
     const currentAllocations = getValues(costAllocationsField) || [];
     const currentTotalAmountStr = getValues(totalAmountField);
     const currentTotalAmount = parseFloat(currentTotalAmountStr || "0");
@@ -3640,7 +3639,7 @@ const useEqualSplit = ({
       }
     );
   }, [getValues, setValue, costAllocationsField, totalAmountField, isEqualSplitField, trigger]);
-  const toggleEqualSplit = useCallback$k(() => {
+  const toggleEqualSplit = useCallback$m(() => {
     if (!canEnableEqualSplit) return;
     if (isEqualSplit) {
       setValue(
@@ -4447,7 +4446,7 @@ const useValidatePrefilledFields = (form, initialData) => {
     return () => clearTimeout(timeout);
   }, []);
 };
-const { useCallback: useCallback$j, useMemo: useMemo$i } = await importShared("react");
+const { useCallback: useCallback$l, useMemo: useMemo$i } = await importShared("react");
 let fileTypeModule = null;
 const loadFileTypeModule = async () => {
   if (!fileTypeModule) {
@@ -4567,8 +4566,8 @@ function useFormFieldValues(control, fields) {
     return acc;
   }, {});
 }
-const { useCallback: useCallback$i, useEffect: useEffect$i, useMemo: useMemo$h, useRef: useRef$h } = await importShared("react");
-const { useCallback: useCallback$h, useEffect: useEffect$h, useImperativeHandle, useRef: useRef$g } = await importShared("react");
+const { useCallback: useCallback$k, useEffect: useEffect$i, useMemo: useMemo$h, useRef: useRef$h } = await importShared("react");
+const { useCallback: useCallback$j, useEffect: useEffect$h, useImperativeHandle, useRef: useRef$g } = await importShared("react");
 const useFormImperativeHandle = ({
   ref,
   form,
@@ -4580,7 +4579,7 @@ const useFormImperativeHandle = ({
     formRef.current = form;
     onFormErrorsRef.current = onFormErrors;
   });
-  const handleFormSubmit = useCallback$h(async () => {
+  const handleFormSubmit = useCallback$j(async () => {
     var _a;
     const isValid = await formRef.current.validateForm();
     if (isValid) {
@@ -4589,7 +4588,7 @@ const useFormImperativeHandle = ({
       (_a = onFormErrorsRef.current) == null ? void 0 : _a.call(onFormErrorsRef, formRef.current.validationErrors);
     }
   }, []);
-  const handleDraftSave = useCallback$h(async () => {
+  const handleDraftSave = useCallback$j(async () => {
     await formRef.current.handleDraftSave();
   }, []);
   useImperativeHandle(
@@ -4644,7 +4643,7 @@ const useFormButtonStateSync = ({
     isDrafting
   ]);
 };
-const { useCallback: useCallback$g } = await importShared("react");
+const { useCallback: useCallback$i } = await importShared("react");
 const useFileHandlers = (options) => {
   const {
     setValue,
@@ -4653,7 +4652,7 @@ const useFileHandlers = (options) => {
     onReceiptUploaded,
     onSupportingFilesChanged
   } = options;
-  const handleReceiptChange = useCallback$g(
+  const handleReceiptChange = useCallback$i(
     (attachment) => {
       setValue(
         receiptAttachmentField2,
@@ -4666,7 +4665,7 @@ const useFileHandlers = (options) => {
     },
     [setValue, receiptAttachmentField2, onReceiptUploaded]
   );
-  const handleSupportingFilesChange = useCallback$g(
+  const handleSupportingFilesChange = useCallback$i(
     (attachments) => {
       if (supportingFilesField2) {
         setValue(
@@ -4684,13 +4683,13 @@ const useFileHandlers = (options) => {
     handleSupportingFilesChange
   };
 };
-const { useCallback: useCallback$f, useRef: useRef$e } = await importShared("react");
+const { useCallback: useCallback$h, useRef: useRef$e } = await importShared("react");
 const DEFAULT_DEBOUNCE_MS = 500;
 const useAutoSave = (options) => {
   const { draftId, isDrafting, onSaveDraft, getFormValues, debounceMs = DEFAULT_DEBOUNCE_MS } = options;
   const onSaveDraftRef = useRef$e(onSaveDraft);
   onSaveDraftRef.current = onSaveDraft;
-  const performAutoSave = useCallback$f(() => {
+  const performAutoSave = useCallback$h(() => {
     if (!draftId && onSaveDraftRef.current && !isDrafting) {
       const currentData = getFormValues();
       onSaveDraftRef.current(currentData);
@@ -4718,11 +4717,14 @@ const useReceiptCheckboxEffects = (options) => {
         { shouldValidate: false, shouldDirty: false }
       );
       if (affidavitField2) {
-        setValue(
-          affidavitField2,
-          { justification: "", digitalSignature: "" },
-          { shouldValidate: false }
-        );
+        const current = watch(affidavitField2);
+        if (!(current == null ? void 0 : current.justification) && !(current == null ? void 0 : current.digitalSignature)) {
+          setValue(
+            affidavitField2,
+            { justification: "", digitalSignature: "" },
+            { shouldValidate: false }
+          );
+        }
       }
     } else if (affidavitField2) {
       setValue(
@@ -4852,7 +4854,7 @@ const mileageTripValidationStrategy = createValidationStrategy(mileageTripFormSc
   canSaveDraft: canSaveDraft$1,
   getValidationErrors: getFormValidationErrors$1
 });
-const { useCallback: useCallback$e, useMemo: useMemo$f } = await importShared("react");
+const { useCallback: useCallback$g, useMemo: useMemo$f } = await importShared("react");
 const mapMileageTripToDefaultValues = (data) => {
   return {
     formType: MileageFormType.Trip,
@@ -4951,7 +4953,7 @@ const mileagePeriodValidationStrategy = createValidationStrategy(mileagePeriodFo
   canSaveDraft,
   getValidationErrors: getFormValidationErrors
 });
-const { useCallback: useCallback$d, useMemo: useMemo$e } = await importShared("react");
+const { useCallback: useCallback$f, useMemo: useMemo$e } = await importShared("react");
 const ensureDate = (value) => {
   if (!value) return void 0;
   if (value instanceof Date) return value;
@@ -4994,16 +4996,20 @@ var FormSectionType = /* @__PURE__ */ ((FormSectionType2) => {
   FormSectionType2["MileageJustification"] = "mileage-justification";
   return FormSectionType2;
 })(FormSectionType || {});
-const { useCallback: useCallback$c, useMemo: useMemo$d } = await importShared("react");
+const { useCallback: useCallback$e, useMemo: useMemo$d } = await importShared("react");
 const useMileagePeriodFormHandlers = (setValue, getValues, context) => {
+  const getBaseAmount = useCallback$e(
+    () => parseFloat(getValues(MileagePeriodFormField.ReimbursableAmount) || "0"),
+    [getValues]
+  );
   const costAllocationHandlers = useCostAllocationHandlers(
     setValue,
     getValues,
     MileagePeriodFormField.CostAllocations,
     MileagePeriodFormField.IsEqualSplit,
-    MileagePeriodFormField.ReimbursableAmount
+    getBaseAmount
   );
-  const handleSaveDraftForUpload = useCallback$c(async () => {
+  const handleSaveDraftForUpload = useCallback$e(async () => {
     if (!(context == null ? void 0 : context.onSaveDraftForUpload)) {
       throw new Error("onSaveDraftForUpload is not defined");
     }
@@ -5176,14 +5182,21 @@ const useExpenseFormSync = ({
     affidavitField: ExpenseFormField.Affidavit
   });
 };
-const { useMemo: useMemo$b } = await importShared("react");
+const { useCallback: useCallback$d, useMemo: useMemo$b } = await importShared("react");
 const useExpenseFormHandlers = (setValue, getValues) => {
+  const getBaseAmount = useCallback$d(() => {
+    const netCurrency = getValues(ExpenseFormField.NetCurrency);
+    const totalCurrency = getValues(ExpenseFormField.TotalCurrency);
+    const isConverted = !!(netCurrency == null ? void 0 : netCurrency.code) && !!(totalCurrency == null ? void 0 : totalCurrency.code) && netCurrency.code !== totalCurrency.code;
+    const amountStr = isConverted ? getValues(ExpenseFormField.TotalAmount) : getValues(ExpenseFormField.NetAmount);
+    return parseFloat(amountStr || "0");
+  }, [getValues]);
   const costAllocationHandlers = useCostAllocationHandlers(
     setValue,
     getValues,
     ExpenseFormField.CostAllocations,
     ExpenseFormField.IsEqualSplit,
-    ExpenseFormField.TotalAmount
+    getBaseAmount
   );
   return useMemo$b(
     () => ({
@@ -5237,14 +5250,18 @@ const useExpenseFormLeftColumn = ({
     shouldShowReceiptCheckbox
   };
 };
-const { useMemo: useMemo$9 } = await importShared("react");
+const { useCallback: useCallback$c, useMemo: useMemo$9 } = await importShared("react");
 const useMileageTripFormHandlers = (setValue, getValues) => {
+  const getBaseAmount = useCallback$c(
+    () => parseFloat(getValues(MileageTripFormField.ReimbursableAmount) || "0"),
+    [getValues]
+  );
   const costAllocationHandlers = useCostAllocationHandlers(
     setValue,
     getValues,
     MileageTripFormField.CostAllocations,
     MileageTripFormField.IsEqualSplit,
-    MileageTripFormField.ReimbursableAmount
+    getBaseAmount
   );
   return useMemo$9(
     () => ({

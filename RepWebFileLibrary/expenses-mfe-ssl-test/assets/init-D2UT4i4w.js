@@ -1,6 +1,6 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/mswStrategy-BwB3FtRO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-response-mappers-Byr3zufI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-CFd4YNiE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/currency-DudsmcaI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-VIrFz_yB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-Cvzcyh16.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-BTcuf3wk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-CvL7PQqL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosStrategy-DmPUxDZ1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/mswStrategy-HFGwljS3.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-response-mappers-_X3fMI2I.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-C9m_4i-I.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/currency-CKuPecCn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-VIrFz_yB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-BP1HyBRf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-BTcuf3wk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-D4vrrc7u.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosStrategy-D6S1TLbx.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
-import { a as devLog, b as devWarn } from "./index-CvL7PQqL.js";
+import { a as devLog, b as devWarn } from "./index-D4vrrc7u.js";
 let initialized = false;
 let activeStrategy = null;
 async function canUseServiceWorker() {
@@ -21,7 +21,7 @@ async function initializeMocking(axiosInstance) {
   if (await canUseServiceWorker()) {
     try {
       const { MSWStrategy } = await __vitePreload(async () => {
-        const { MSWStrategy: MSWStrategy2 } = await import("./mswStrategy-BwB3FtRO.js");
+        const { MSWStrategy: MSWStrategy2 } = await import("./mswStrategy-HFGwljS3.js");
         return { MSWStrategy: MSWStrategy2 };
       }, true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8]) : void 0, import.meta.url);
       activeStrategy = new MSWStrategy();
@@ -34,7 +34,7 @@ async function initializeMocking(axiosInstance) {
     }
   }
   const { AxiosStrategy } = await __vitePreload(async () => {
-    const { AxiosStrategy: AxiosStrategy2 } = await import("./axiosStrategy-DmPUxDZ1.js");
+    const { AxiosStrategy: AxiosStrategy2 } = await import("./axiosStrategy-D6S1TLbx.js");
     return { AxiosStrategy: AxiosStrategy2 };
   }, true ? __vite__mapDeps([9,1,2,3,4,5,6,7,8]) : void 0, import.meta.url);
   activeStrategy = new AxiosStrategy(axiosInstance);

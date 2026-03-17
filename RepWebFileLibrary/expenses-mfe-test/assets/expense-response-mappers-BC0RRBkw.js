@@ -1,6 +1,6 @@
-import { E as ECostAllocation, I as ItemCategory, K as MileageRateStatus, A as AllowedMimeType, M as MIME_TYPE_CONFIG, F as FormTypeId } from "./expense-api-C9m_4i-I.js";
-import { c as RouteCompanyIds } from "./currency-CKuPecCn.js";
-import "./index-D4vrrc7u.js";
+import { E as ECostAllocation, I as ItemCategory, K as MileageRateStatus, A as AllowedMimeType, M as MIME_TYPE_CONFIG, F as FormTypeId } from "./expense-api-CFd4YNiE.js";
+import { c as RouteCompanyIds } from "./currency-DudsmcaI.js";
+import "./index-CvL7PQqL.js";
 const ENDPOINT_PATTERNS = {
   // Files - Real backend endpoints
   FILES_UPLOAD: "*/api/v1.0/expense-forms/:company/files/drafts/:expenseId/files",
@@ -4229,6 +4229,7 @@ function createExpenseDraftResponse(id, businessId, data, isNew, existingCreated
     id,
     businessId,
     typeId: data.typeId ?? 0,
+    formTypeId: data.formTypeId ?? null,
     vendor: data.vendor ?? "",
     date: data.date ?? now,
     periodStart: data.periodStart ?? now,
@@ -4237,9 +4238,9 @@ function createExpenseDraftResponse(id, businessId, data, isNew, existingCreated
     paymentMethodId: data.paymentMethodId ?? 0,
     effectiveMileageRateId: data.effectiveMileageRateId ?? 0,
     taxTypeId: data.taxTypeId ?? 0,
-    tax: data.tax ?? 0,
-    foreignAmount: data.foreignAmount ?? 0,
-    totalAmount: data.totalAmount ?? 0,
+    tax: String(data.tax ?? 0),
+    foreignAmount: String(data.foreignAmount ?? 0),
+    totalAmount: String(data.totalAmount ?? 0),
     businessPurposeId: data.businessPurposeId ?? 0,
     description: data.description ?? "",
     personsEntertained: data.personsEntertained ?? "",
