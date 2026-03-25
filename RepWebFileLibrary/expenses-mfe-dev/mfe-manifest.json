@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-03-24T22:50:53.685Z",
+  "timestamp": "2026-03-25T20:36:45.539Z",
   "environment": "expenses-mfe-dev",
   "files": {
     "federation": [
-      "__federation_expose_Mount-fbPcBPa6.js",
+      "__federation_expose_Mount-DEHedtRR.js",
       "__federation_fn_import-VIrFz_yB.js",
       "__federation_shared_react-D2l4sAae.js",
       "__federation_shared_react-dom-DvbtPGmK.js"
@@ -13,10 +13,10 @@
       "__federation_shared_react-dom-DvbtPGmK.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-fbPcBPa6.js"
+      "__federation_expose_Mount-DEHedtRR.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-fbPcBPa6.js",
-  "css": "style-BMPZjHsy.css",
+  "bootstrap": "__federation_expose_Mount-DEHedtRR.js",
+  "css": "style-Ccxj5up1.css",
   "remoteEntry": "remoteEntry.js"
 }
