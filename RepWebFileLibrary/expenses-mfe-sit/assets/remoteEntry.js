@@ -3,7 +3,7 @@ const exportSet = /* @__PURE__ */ new Set(["Module", "__esModule", "default", "_
 let moduleMap = {
   "./mount": () => {
     dynamicLoadingCss(["style-CMdDJkxB.css"], false, "./mount");
-    return __federation_import("./assets/__federation_expose_Mount-BO_D47YP.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    return __federation_import("./assets/__federation_expose_Mount-CMdQ_-OO.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
   }
 };
 const seen = {};
@@ -41,7 +41,7 @@ const dynamicLoadingCss = (cssFilePaths, dontAppendStylesToHead, exposeItemName)
       href = cssPath;
     }
     if (dontAppendStylesToHead) {
-      const key = "css__expenses-mfe-dev__" + exposeItemName;
+      const key = "css__expenses-mfe-sit__" + exposeItemName;
       window[key] = window[key] || [];
       window[key].push(href);
       return;

@@ -56,9 +56,9 @@
   
   async function loadManifest(basePath) {
     const possibleManifestPaths = [
-      `${basePath}/expenses-mfe-dev/mfe-manifest.json`,
+      `${basePath}/expenses-mfe-sit/mfe-manifest.json`,
       `${basePath}/mfe-manifest.json`,
-      `${window.location.origin}/expenses-mfe-dev/mfe-manifest.json`,
+      `${window.location.origin}/expenses-mfe-sit/mfe-manifest.json`,
       `${window.location.origin}/mfe-manifest.json`
     ];
     
@@ -118,11 +118,11 @@
       
       const getAssetUrl = (filename) => {
         const possiblePaths = [
-          `${basePath}/expenses-mfe-dev/assets/${filename}`,
+          `${basePath}/expenses-mfe-sit/assets/${filename}`,
           `${basePath}/assets/${filename}`,
-          `/expenses-mfe-dev/assets/${filename}`,
+          `/expenses-mfe-sit/assets/${filename}`,
           `/assets/${filename}`,
-          `${window.location.origin}/expenses-mfe-dev/assets/${filename}`,
+          `${window.location.origin}/expenses-mfe-sit/assets/${filename}`,
           `${window.location.origin}/assets/${filename}`
         ];
         

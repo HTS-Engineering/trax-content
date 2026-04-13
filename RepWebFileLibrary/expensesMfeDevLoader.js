@@ -10,7 +10,7 @@
   
   const CONTAINER_ID = 'expenses-mfe';
   const SCOPE_CLASS = 'expenses-mfe-scope';
-  const FILE_NAME = 'moduleLoader.js';
+  const FILE_NAME = 'expensesMfeDevLoader.js';
   
   function getCurrentScript() {
     if (document.currentScript) {
