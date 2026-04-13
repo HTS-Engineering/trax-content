@@ -1,12 +1,12 @@
 {
   "version": "0.1.0",
-  "commit": "f43cd16",
+  "commit": "a19bbf4",
   "branch": "dev",
-  "timestamp": "2026-04-13T16:41:26.719Z",
+  "timestamp": "2026-04-13T19:58:34.478Z",
   "environment": "expenses-mfe-sit",
   "files": {
     "federation": [
-      "__federation_expose_Mount-CMdQ_-OO.js",
+      "__federation_expose_Mount-sBXkVsaK.js",
       "__federation_fn_import-VIrFz_yB.js",
       "__federation_shared_react-D2l4sAae.js",
       "__federation_shared_react-dom-DvbtPGmK.js"
@@ -16,10 +16,10 @@
       "__federation_shared_react-dom-DvbtPGmK.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-CMdQ_-OO.js"
+      "__federation_expose_Mount-sBXkVsaK.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-CMdQ_-OO.js",
+  "bootstrap": "__federation_expose_Mount-sBXkVsaK.js",
   "css": "style-CMdDJkxB.css",
   "remoteEntry": "remoteEntry.js"
 }
