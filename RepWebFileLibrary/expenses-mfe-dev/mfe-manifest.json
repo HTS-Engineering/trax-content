@@ -1,12 +1,12 @@
 {
   "version": "0.1.0",
-  "commit": "7332d28",
-  "branch": "feat/TRX-526-csv-upload-dialog",
-  "timestamp": "2026-04-15T19:41:55.082Z",
+  "commit": "f02c8fd",
+  "branch": "feat/TRX-552-logical-company-contract-and-context-split",
+  "timestamp": "2026-04-16T01:04:25.360Z",
   "environment": "expenses-mfe-dev",
   "files": {
     "federation": [
-      "__federation_expose_Mount-BDV2nQLp.js",
+      "__federation_expose_Mount-37fBr900.js",
       "__federation_fn_import-VIrFz_yB.js",
       "__federation_shared_react-D2l4sAae.js",
       "__federation_shared_react-dom-DvbtPGmK.js"
@@ -16,10 +16,10 @@
       "__federation_shared_react-dom-DvbtPGmK.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-BDV2nQLp.js"
+      "__federation_expose_Mount-37fBr900.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-BDV2nQLp.js",
+  "bootstrap": "__federation_expose_Mount-37fBr900.js",
   "css": "style-DB2uIlRF.css",
   "remoteEntry": "remoteEntry.js"
 }
