@@ -1,12 +1,12 @@
 {
   "version": "0.1.0",
-  "commit": "71b5baa",
-  "branch": "feat/TRX-552-logical-company-contract-and-context-split",
-  "timestamp": "2026-04-16T01:41:47.881Z",
+  "commit": "d51cf4a",
+  "branch": "dev",
+  "timestamp": "2026-04-16T19:13:39.415Z",
   "environment": "expenses-mfe-sit",
   "files": {
     "federation": [
-      "__federation_expose_Mount-CGeOiHJM.js",
+      "__federation_expose_Mount-DwXEe_QM.js",
       "__federation_fn_import-VIrFz_yB.js",
       "__federation_shared_react-D2l4sAae.js",
       "__federation_shared_react-dom-DvbtPGmK.js"
@@ -16,10 +16,10 @@
       "__federation_shared_react-dom-DvbtPGmK.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-CGeOiHJM.js"
+      "__federation_expose_Mount-DwXEe_QM.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-CGeOiHJM.js",
+  "bootstrap": "__federation_expose_Mount-DwXEe_QM.js",
   "css": "style-DB2uIlRF.css",
   "remoteEntry": "remoteEntry.js"
 }
