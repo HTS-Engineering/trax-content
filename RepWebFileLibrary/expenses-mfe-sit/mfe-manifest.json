@@ -2,11 +2,11 @@
   "version": "0.1.0",
   "commit": "d51cf4a",
   "branch": "dev",
-  "timestamp": "2026-04-16T19:13:39.415Z",
+  "timestamp": "2026-04-17T19:54:10.674Z",
   "environment": "expenses-mfe-sit",
   "files": {
     "federation": [
-      "__federation_expose_Mount-DwXEe_QM.js",
+      "__federation_expose_Mount-pv5AQrIH.js",
       "__federation_fn_import-VIrFz_yB.js",
       "__federation_shared_react-D2l4sAae.js",
       "__federation_shared_react-dom-DvbtPGmK.js"
@@ -16,10 +16,10 @@
       "__federation_shared_react-dom-DvbtPGmK.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-DwXEe_QM.js"
+      "__federation_expose_Mount-pv5AQrIH.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-DwXEe_QM.js",
-  "css": "style-DB2uIlRF.css",
+  "bootstrap": "__federation_expose_Mount-pv5AQrIH.js",
+  "css": "style-CgtoamBy.css",
   "remoteEntry": "remoteEntry.js"
 }
