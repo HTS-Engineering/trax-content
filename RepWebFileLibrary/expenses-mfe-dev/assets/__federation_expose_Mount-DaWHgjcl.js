@@ -1,4 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-LrAX288x.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-CQLYaNvb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-VIrFz_yB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index.es-DEbn8lJC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-BjjEf3jS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-BRt1JXd4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-Deto_VOO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-BQHaqkMo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-Cqeqph7t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-DZapo79l.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-CmIFG5WW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-BrSTdxBP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-scroll-into-view-ref-DO7NSmay.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-DeLm-qzb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-BieNhFSq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/schemas-JsxH1qWN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-DW6-5FU9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/infiniteQueryBehavior-DTwcYnx5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-data-Du2WjKhi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-BCumYqkP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-Cs571uso.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-zx4IqjAK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-BPNwt2gM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-jsAcT2I0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-B-nvNLzs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-rsoAUefi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-C-xc-L_s.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-CLaJkdx3.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-AjRV8aPA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BM-JdESP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-uYf-23Hi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-BcPPCjFV.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-BwCwJsXm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-CquCeiEe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-DMaV2iJ2.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-BH4lXHFZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-CJuQiftM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-LrAX288x.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-TULtkvNU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-CQLYaNvb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-VIrFz_yB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index.es-DEbn8lJC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-BjjEf3jS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-BRt1JXd4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-Deto_VOO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-BQHaqkMo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-Cqeqph7t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-DZapo79l.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-e_IRvegh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-CmIFG5WW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-BrSTdxBP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-scroll-into-view-ref-DO7NSmay.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-DeLm-qzb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-BieNhFSq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/schemas-JsxH1qWN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-DW6-5FU9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/infiniteQueryBehavior-DTwcYnx5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-data-Du2WjKhi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-BCumYqkP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-Cs571uso.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-zx4IqjAK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-BPNwt2gM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-jsAcT2I0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-B-nvNLzs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-rsoAUefi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-C-xc-L_s.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-CLaJkdx3.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-AjRV8aPA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BM-JdESP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-uYf-23Hi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-BcPPCjFV.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-BwCwJsXm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-CquCeiEe.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-DMaV2iJ2.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-DivRKgs5.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-CJuQiftM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+var _a;
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
@@ -12329,7 +12330,7 @@ const CorporateCards = lazy(() => __vitePreload(() => import("./CorporateCards-u
 const ReconciliationPage = lazy(() => __vitePreload(() => import("./ReconciliationPage-BcPPCjFV.js"), true ? __vite__mapDeps([33,3,1,14,4,7,10,11]) : void 0, import.meta.url));
 const ReconciliationDetailPage = lazy(() => __vitePreload(() => import("./ReconciliationDetailPage-BwCwJsXm.js"), true ? __vite__mapDeps([34,3,1,14,4,7,10,11]) : void 0, import.meta.url));
 const TestingAuthentication = lazy(() => __vitePreload(() => import("./JWTDemo-CquCeiEe.js"), true ? __vite__mapDeps([35,3,1,6,7,23,8,4,36,21,26]) : void 0, import.meta.url));
-const TestingIcons = lazy(() => __vitePreload(() => import("./IconsTestingPage-BH4lXHFZ.js"), true ? __vite__mapDeps([37,3,1,10,11]) : void 0, import.meta.url));
+const TestingIcons = lazy(() => __vitePreload(() => import("./IconsTestingPage-DivRKgs5.js"), true ? __vite__mapDeps([37,3,1,10,11]) : void 0, import.meta.url));
 const createRouteConfig = () => {
   const baseRoutes = [
     {
@@ -12408,6 +12409,14 @@ const createRouteConfig = () => {
   });
   return baseRoutes;
 };
+if (typeof window !== "undefined") {
+  devLog("[router] createHashRouter initializing — reading window.location", {
+    href: window.location.href,
+    hash: window.location.hash,
+    historyState: window.history.state,
+    documentReadyState: document.readyState
+  });
+}
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -12425,6 +12434,26 @@ const router = createHashRouter([
     ]
   }
 ]);
+if (typeof window !== "undefined") {
+  devLog("[router] createHashRouter DONE — initial matched location", {
+    initialPathname: router.state.location.pathname,
+    initialSearch: router.state.location.search,
+    initialHash: router.state.location.hash,
+    initialKey: router.state.location.key,
+    initialState: router.state.location.state,
+    matches: router.state.matches.map((m) => ({ pathname: m.pathname, route: m.route.path }))
+  });
+  router.subscribe((state) => {
+    devLog("[router] state change", {
+      pathname: state.location.pathname,
+      search: state.location.search,
+      hash: state.location.hash,
+      key: state.location.key,
+      historyAction: state.historyAction,
+      matches: state.matches.map((m) => m.route.path)
+    });
+  });
+}
 function RouterProvider() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-h-screen min-w-screen flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(An, {}) }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider2, { router }) });
 }
@@ -12653,6 +12682,23 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 const { StrictMode } = await importShared("react");
+if (typeof window !== "undefined") {
+  devLog("[MFE bootstrap] MODULE LOAD — earliest state snapshot", {
+    href: window.location.href,
+    pathname: window.location.pathname,
+    search: window.location.search,
+    hash: window.location.hash,
+    documentReadyState: document.readyState,
+    referrer: document.referrer || "(empty)",
+    historyLength: window.history.length,
+    historyState: window.history.state,
+    // Navigation type (reload, back_forward, navigate, prerender) — distinguishes
+    // Chrome's "Empty cache and hard reload" from regular navigation.
+    // type=2 = back_forward (bfcache restore), type=1 = reload, type=0 = navigate
+    performanceNavigation: ((_a = performance.getEntriesByType("navigation")[0]) == null ? void 0 : _a.type) ?? "n/a",
+    performanceNavigationRaw: performance.getEntriesByType("navigation")[0]
+  });
+}
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {
   if (typeof element !== "string") {
@@ -12662,8 +12708,18 @@ function resolveTargetElement(element) {
   return document.getElementById(elementId);
 }
 const mount = async (element) => {
+  devLog("[MFE bootstrap] mount() ENTRY — React about to render", {
+    href: window.location.href,
+    hash: window.location.hash,
+    documentReadyState: document.readyState,
+    historyState: window.history.state
+  });
   await initDevAuthIfEnabled();
   await initMockingIfEnabled();
+  devLog("[MFE bootstrap] mount() — after init, about to createRoot+render", {
+    href: window.location.href,
+    hash: window.location.hash
+  });
   const targetElement = resolveTargetElement(element);
   if (!(targetElement instanceof HTMLElement)) {
     console.error("Expenses MFE: Target element not found or not an HTMLElement");
@@ -12792,10 +12848,24 @@ const setupCleanupListeners = () => {
     { capture: true, passive: true }
   );
   window.addEventListener("pagehide", (event) => {
+    devLog("[MFE bootstrap] pagehide event", {
+      persisted: event.persisted,
+      currentHref: window.location.href,
+      mountedCount: mountedInstances.size
+    });
     if (event.persisted) {
       console.log("Expenses MFE: Page cached, cleaning up...");
       cleanupAll();
     }
+  });
+  window.addEventListener("pageshow", (event) => {
+    devLog("[MFE bootstrap] pageshow event", {
+      persisted: event.persisted,
+      currentHref: window.location.href,
+      hash: window.location.hash,
+      mountedCount: mountedInstances.size,
+      note: event.persisted ? "BFCACHE RESTORE — page was not re-fetched, restored from memory" : "regular load"
+    });
   });
   window.addEventListener("popstate", (event) => {
     console.log("Expenses MFE: Navigation detected, checking for cleanup...");
