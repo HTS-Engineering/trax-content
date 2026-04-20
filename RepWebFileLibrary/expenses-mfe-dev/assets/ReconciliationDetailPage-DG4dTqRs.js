@@ -1,7 +1,6 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { c as useNavigateBack } from "./use-scroll-into-view-ref-DRp4OPjM.js";
-import { h as useParams, f as useLocation, a as RoutePaths } from "./routes-fB3vvj9G.js";
+import { k as useParams, h as useLocation, l as useNavigateBack, a as RoutePaths } from "./use-scroll-into-view-ref-CvLmKtPQ.js";
 import { U as Ue } from "./index.es-DEbn8lJC.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
 import { a as devLog } from "./index-DGIiGjWN.js";

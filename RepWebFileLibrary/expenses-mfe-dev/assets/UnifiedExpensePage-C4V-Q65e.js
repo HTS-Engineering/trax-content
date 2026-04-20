@@ -1,20 +1,19 @@
+import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { $ as $a, q as qs, V as Va, T as Ta, s as sn, Y as Ya, z as za, p as ps, f as Qs, X as Xa, Z as Za, J as Ja, A as An, Q as Qa, b as Gt, c as qt, U as Ue, d as Ut, t as ts } from "./index.es-DEbn8lJC.js";
-import { a as ExpenseStatusBadge, E as ExpensesList } from "./ExpensesList-BtrDFtiW.js";
+import { a as ExpenseStatusBadge, E as ExpensesList } from "./ExpensesList-WfMz2KKp.js";
 import { a as apiClient } from "./axiosInstance-CQwpSyaW.js";
 import { b as useExpenseTypes, F as FormTypeId, e as useQueryClient, u as useCompanyStore, h as useMutation, q as queryKeys, E as EXPENSE_ENDPOINTS, I as ItemCategory, c as useQuery, m as formatToISODate, D as DEFAULT_CURRENCY_CODE, n as useCurrencies, o as useCountries, p as useTaxTypesDisplay, r as useDefaultCurrency, s as parseDateOnlyAsLocal, t as useFormTypeId, v as ExpenseFormType, d as isRegularExpense, j as isMileageExpense, w as formatExpensePeriod, i as isExpenseItemSubmitted, l as useExpenseItem, x as isExpenseItemDraft } from "./expense-api-ADkLfXg9.js";
-import { f as isValidFileAttachment, h as ExpenseFormField, j as useFormFieldValues, k as useMileageRateSync, l as useReimbursableAmountSync, n as useAmountAllocationSync, o as mapFormDataToUpdateRequest, p as mapFormDataToCreateRequest, m as mapCostAllocation, q as parseOptionalInt, r as parseOptionalDecimal, s as getMileageTypesFromCache, i as isMileageTripData, t as affidavitSchema, w as basicDetailsSchema, x as createValidationStrategy, y as createDraftSaveChecker, z as useTaxFieldVisibility, A as isConvertedExpense, B as useSetDefaultCurrency, D as ExpenseTypeSelect, F as MileagePeriodFormField, S as SupportingFiles, G as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, H as FormSectionType, I as expenseDetailsSchema, J as expenseJustificationSchema, K as costAllocationSchema, L as additionalCommentsSchema, g as getExpenseBaseAmount, C as CostAllocationHeaderActions, a as CostAllocationSection, N as MileageTripFormField, O as mileageDetailsSchema, P as mileageJustificationSchema, Q as useBaseExpenseForm, R as useValidatePrefilledFields, T as useAutoSave, U as useFormButtonStateSync, V as useFormImperativeHandle, W as BaseExpenseFormRenderer, X as useExpenseFormHandlers, Y as useExpenseFormSync, Z as fullExpenseValidationStrategy, _ as ExpenseFormLeftColumn, $ as useMileageTripFormHandlers, a0 as mapMileageTripToDefaultValues, a1 as mileageTripValidationStrategy, a2 as supportingFilesSchema, a3 as useMileagePeriodFormHandlers, a4 as mapMileagePeriodToDefaultValues, a5 as mileagePeriodValidationStrategy, b as isMileagePeriodData, a6 as MileageFormType, a7 as usePendingUploadStore, e as ExpenseFormHistoryLog, E as ExpensePreview, M as MileageTripPreview, d as MileagePeriodPreview } from "./CostAllocationSection-C2FE1rmT.js";
+import { f as isValidFileAttachment, h as ExpenseFormField, j as useFormFieldValues, k as useMileageRateSync, l as useReimbursableAmountSync, n as useAmountAllocationSync, o as mapFormDataToUpdateRequest, p as mapFormDataToCreateRequest, m as mapCostAllocation, q as parseOptionalInt, r as parseOptionalDecimal, s as getMileageTypesFromCache, i as isMileageTripData, t as affidavitSchema, w as basicDetailsSchema, x as createValidationStrategy, y as createDraftSaveChecker, z as useTaxFieldVisibility, A as isConvertedExpense, B as useSetDefaultCurrency, D as ExpenseTypeSelect, F as MileagePeriodFormField, S as SupportingFiles, G as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, H as FormSectionType, I as expenseDetailsSchema, J as expenseJustificationSchema, K as costAllocationSchema, L as additionalCommentsSchema, g as getExpenseBaseAmount, C as CostAllocationHeaderActions, a as CostAllocationSection, N as MileageTripFormField, O as mileageDetailsSchema, P as mileageJustificationSchema, Q as useBaseExpenseForm, R as useValidatePrefilledFields, T as useAutoSave, U as useFormButtonStateSync, V as useFormImperativeHandle, W as BaseExpenseFormRenderer, X as useExpenseFormHandlers, Y as useExpenseFormSync, Z as fullExpenseValidationStrategy, _ as ExpenseFormLeftColumn, $ as useMileageTripFormHandlers, a0 as mapMileageTripToDefaultValues, a1 as mileageTripValidationStrategy, a2 as supportingFilesSchema, a3 as useMileagePeriodFormHandlers, a4 as mapMileagePeriodToDefaultValues, a5 as mileagePeriodValidationStrategy, b as isMileagePeriodData, a6 as MileageFormType, a7 as usePendingUploadStore, e as ExpenseFormHistoryLog, E as ExpensePreview, M as MileageTripPreview, d as MileagePeriodPreview } from "./CostAllocationSection-D72ywE5n.js";
 import { d as devError, a as devLog } from "./index-DGIiGjWN.js";
 import { o as object, s as string, c as boolean, d as custom, e as Controller, f as createDecimalChangeHandler, g as useWatch, C as ConfirmDialog } from "./schemas-JsxH1qWN.js";
-import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { c as createLucideIcon } from "./configuration-BQHaqkMo.js";
 import { u as useBusinessPurposes } from "./business-purpose-api-qtVloDSk.js";
 import { a as useDefaultCompany } from "./queryClient-DdCq23Gb.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
 import { c as formatRate, d as formatCurrency, a as formatDate } from "./formatters-DPyd9Uti.js";
-import { c as useNavigateBack } from "./use-scroll-into-view-ref-DRp4OPjM.js";
+import { u as useNavigate, h as useLocation, l as useNavigateBack, g as generatePath, a as RoutePaths, k as useParams, f as useSearchParams } from "./use-scroll-into-view-ref-CvLmKtPQ.js";
 import { T as Trash2, S as Send } from "./trash-2-B-nvNLzs.js";
-import { u as useNavigate, g as generatePath, a as RoutePaths, h as useParams, e as useSearchParams } from "./routes-fB3vvj9G.js";
 const __iconNode$1 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
   ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
@@ -596,7 +595,7 @@ createValidationStrategy(
     )
   }
 );
-const { useEffect: useEffect$4, useMemo: useMemo$3, useRef: useRef$4 } = await importShared("react");
+const { useEffect: useEffect$5, useMemo: useMemo$3, useRef: useRef$4 } = await importShared("react");
 const TAX_CURRENCY = "CAD";
 const ExpenseDetailsSection = ({
   control,
@@ -629,7 +628,7 @@ const ExpenseDetailsSection = ({
     return new Map(currencies == null ? void 0 : currencies.map((c) => [c.isoCode, c.symbol]));
   }, [currencies]);
   const prevShowTaxFields = useRef$4(showTaxFields);
-  useEffect$4(() => {
+  useEffect$5(() => {
     if (prevShowTaxFields.current && !showTaxFields) {
       setValue("taxType", "", { shouldValidate: true, shouldDirty: true });
       setValue("taxAmount", "", { shouldValidate: true, shouldDirty: true });
@@ -637,7 +636,7 @@ const ExpenseDetailsSection = ({
     prevShowTaxFields.current = showTaxFields;
   }, [showTaxFields, setValue]);
   const prevShowConvertedTotal = useRef$4(showConvertedTotal);
-  useEffect$4(() => {
+  useEffect$5(() => {
     if (prevShowConvertedTotal.current === showConvertedTotal) return;
     if (prevShowConvertedTotal.current && !showConvertedTotal) {
       setValue("totalAmount", "", { shouldValidate: true, shouldDirty: true });
@@ -973,7 +972,7 @@ const ExpenseDetailsSection = ({
     ] })
   ] });
 };
-const { useEffect: useEffect$3, useRef: useRef$3 } = await importShared("react");
+const { useEffect: useEffect$4, useRef: useRef$3 } = await importShared("react");
 const ExpenseJustificationSection = ({
   control,
   setValue,
@@ -987,7 +986,7 @@ const ExpenseJustificationSection = ({
   const formType = useFormTypeId(expenseTypeId, companyShortName);
   const showPersonsEntertained = formType === ExpenseFormType.ENTERTAINMENT;
   const prevShowPersonsEntertained = useRef$3(showPersonsEntertained);
-  useEffect$3(() => {
+  useEffect$4(() => {
     if (prevShowPersonsEntertained.current && !showPersonsEntertained) {
       setValue("personsEntertained", "", { shouldValidate: false, shouldDirty: false });
     }
@@ -1118,7 +1117,7 @@ const SupportingFilesFormSection = ({
     }
   );
 };
-const { useEffect: useEffect$2 } = await importShared("react");
+const { useEffect: useEffect$3 } = await importShared("react");
 const MileageDetailsSection = ({
   control,
   setValue,
@@ -1140,7 +1139,7 @@ const MileageDetailsSection = ({
   const { defaultCurrencyCode, defaultCurrencySymbol } = useDefaultCurrency();
   const currency = { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
   const setMileageValue = setValue;
-  useEffect$2(() => {
+  useEffect$3(() => {
     const canSetDefaultCurrency = !currenciesLoading && !countriesLoading && !(totalCurrency == null ? void 0 : totalCurrency.code) && !(totalCurrency == null ? void 0 : totalCurrency.symbol);
     if (!canSetDefaultCurrency) {
       return;
@@ -1909,13 +1908,13 @@ function FormPageDialog({
     )
   ] });
 }
-const { useCallback: useCallback$2, useEffect: useEffect$1, useRef: useRef$1, useState: useState$1 } = await importShared("react");
+const { useCallback: useCallback$2, useEffect: useEffect$2, useRef: useRef$1, useState: useState$1 } = await importShared("react");
 function useDeleteDialog(options = {}) {
   const { onDeleteSuccess } = options;
   const [isOpen, setIsOpen] = useState$1(false);
   const [isDeleteFlowActive, setIsDeleteFlowActive] = useState$1(false);
   const shouldNavigateRef = useRef$1(false);
-  useEffect$1(() => {
+  useEffect$2(() => {
     return () => {
       shouldNavigateRef.current = false;
     };
@@ -2036,6 +2035,7 @@ const { useCallback: useCallback$1 } = await importShared("react");
 function useExpenseItemMutations(options) {
   const { currentDraftId, itemType, onDeleteSuccess } = options;
   const navigate = useNavigate();
+  const location = useLocation();
   const { navigateBack } = useNavigateBack();
   const saveExpenseDraftMutation = useSaveExpenseDraft();
   const submitExpenseMutation = useSubmitExpense();
@@ -2070,6 +2070,7 @@ function useExpenseItemMutations(options) {
       }
       await submitExpenseMutation.mutateAsync({ draftId });
       if ((_a = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a.aborted) return;
+      devLog("[useExpenseItemMutations] submit success — calling navigateBack()");
       navigateBack();
     } catch {
     }
@@ -2084,21 +2085,31 @@ function useExpenseItemMutations(options) {
       });
       if ((_a = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a.aborted) return;
       if (draft.id && !currentDraftId) {
-        navigate(generatePath(RoutePaths.ExpensesId, { id: draft.id }), { replace: true });
+        const target = generatePath(RoutePaths.ExpensesId, { id: draft.id });
+        devLog("[useExpenseItemMutations] saveDraft success — replacing URL /new → /:id", {
+          target,
+          preservedState: location.state
+        });
+        navigate(target, { replace: true, state: location.state });
       }
     } catch {
     }
-  }, [saveExpenseDraftMutation, currentDraftId, navigate]);
+  }, [saveExpenseDraftMutation, currentDraftId, navigate, location.state]);
   const handleExpenseSaveDraftForUpload = useCallback$1(async (data) => {
     const { draft } = await saveExpenseDraftMutation.mutateAsync({
       data,
       draftId: currentDraftId
     });
     if (draft.id && !currentDraftId) {
-      navigate(generatePath(RoutePaths.ExpensesId, { id: draft.id }), { replace: true });
+      const target = generatePath(RoutePaths.ExpensesId, { id: draft.id });
+      devLog("[useExpenseItemMutations] saveDraftForUpload success — replacing URL /new → /:id", {
+        target,
+        preservedState: location.state
+      });
+      navigate(target, { replace: true, state: location.state });
     }
     return { draftId: draft.id };
-  }, [saveExpenseDraftMutation, currentDraftId, navigate]);
+  }, [saveExpenseDraftMutation, currentDraftId, navigate, location.state]);
   const handleMileageSubmit = useCallback$1(async (data, options2) => {
     var _a;
     try {
@@ -2118,6 +2129,7 @@ function useExpenseItemMutations(options) {
       }
       await submitMileageMutation.mutateAsync({ draftId });
       if ((_a = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a.aborted) return;
+      devLog("[useExpenseItemMutations] submit success — calling navigateBack()");
       navigateBack();
     } catch {
     }
@@ -2134,11 +2146,16 @@ function useExpenseItemMutations(options) {
       if (draft.id && !currentDraftId) {
         const typeParam = data.formType === MileageFormType.Trip ? ExpenseItemType.MileageTrip : ExpenseItemType.MileagePeriod;
         const path = generatePath(RoutePaths.ExpensesId, { id: draft.id });
-        navigate(`${path}?type=${typeParam}`, { replace: true });
+        const target = `${path}?type=${typeParam}`;
+        devLog("[useExpenseItemMutations] mileage saveDraft success — replacing URL /new → /:id", {
+          target,
+          preservedState: location.state
+        });
+        navigate(target, { replace: true, state: location.state });
       }
     } catch {
     }
-  }, [saveMileageDraftMutation, currentDraftId, navigate]);
+  }, [saveMileageDraftMutation, currentDraftId, navigate, location.state]);
   const handleMileageSaveDraftForUpload = useCallback$1(async (data) => {
     const { draft } = await saveMileageDraftMutation.mutateAsync({
       data,
@@ -2147,12 +2164,21 @@ function useExpenseItemMutations(options) {
     if (draft.id && !currentDraftId) {
       const typeParam = data.formType === MileageFormType.Trip ? ExpenseItemType.MileageTrip : ExpenseItemType.MileagePeriod;
       const path = generatePath(RoutePaths.ExpensesId, { id: draft.id });
-      navigate(`${path}?type=${typeParam}`, { replace: true });
+      const target = `${path}?type=${typeParam}`;
+      devLog("[useExpenseItemMutations] mileage saveDraftForUpload success — replacing URL /new → /:id", {
+        target,
+        preservedState: location.state
+      });
+      navigate(target, { replace: true, state: location.state });
     }
     return { draftId: draft.id };
-  }, [saveMileageDraftMutation, currentDraftId, navigate]);
+  }, [saveMileageDraftMutation, currentDraftId, navigate, location.state]);
   const handleDeleteConfirm = useCallback$1(() => {
     if (!currentDraftId || !itemType) return;
+    devLog("[useExpenseItemMutations] handleDeleteConfirm — firing delete mutation", {
+      currentDraftId,
+      itemType
+    });
     if (itemType === ExpenseItemType.Expense) {
       deleteExpenseDraftMutation.mutate({ draftId: currentDraftId });
     } else if (itemType === ExpenseItemType.MileageTrip || itemType === ExpenseItemType.MileagePeriod) {
@@ -2173,7 +2199,7 @@ function useExpenseItemMutations(options) {
     handleDeleteConfirm
   };
 }
-const { useCallback, useEffect, useMemo, useRef, useState } = await importShared("react");
+const { useCallback, useEffect: useEffect$1, useMemo, useRef, useState } = await importShared("react");
 const VALID_EXPENSE_TYPES = /* @__PURE__ */ new Set([
   ExpenseItemType.Expense,
   ExpenseItemType.MileageTrip,
@@ -2250,12 +2276,12 @@ function useUnifiedExpensePage() {
   });
   const hasError = !isNewItem && !!itemError;
   const { reset: resetUploadStore, updateDraftId } = usePendingUploadStore();
-  useEffect(() => {
+  useEffect$1(() => {
     if (hasError && !isDeleteFlowActive) {
       navigate(RoutePaths.ExpensesNew, { replace: true });
     }
   }, [hasError, isDeleteFlowActive, navigate]);
-  useEffect(() => {
+  useEffect$1(() => {
     return () => {
       const { receipt, supportingFiles } = usePendingUploadStore.getState();
       const receiptBusy = receipt.status === "saving-draft" || receipt.status === "uploading";
@@ -2266,12 +2292,12 @@ function useUnifiedExpensePage() {
       resetUploadStore();
     };
   }, []);
-  useEffect(() => {
+  useEffect$1(() => {
     if (currentDraftId) {
       updateDraftId(currentDraftId);
     }
   }, [currentDraftId, updateDraftId]);
-  useEffect(() => {
+  useEffect$1(() => {
     const { receipt, supportingFiles } = usePendingUploadStore.getState();
     const isUploadBusy = receipt.status === "uploading" || receipt.status === "saving-draft" || supportingFiles.status === "uploading" || supportingFiles.status === "saving-draft";
     if (isUploadBusy) return;
@@ -2374,8 +2400,26 @@ function useUnifiedExpensePage() {
     handleButtonStateChange
   };
 }
+const { useEffect } = await importShared("react");
 const UnifiedExpensePage = () => {
+  const location = useLocation();
+  const { id } = useParams();
   const pageState = useUnifiedExpensePage();
+  useEffect(() => {
+    devLog("[UnifiedExpensePage] MOUNT", {
+      id,
+      href: window.location.href,
+      pathname: location.pathname,
+      search: location.search,
+      locationKey: location.key,
+      locationState: location.state
+    });
+    return () => {
+      devLog("[UnifiedExpensePage] UNMOUNT", {
+        href: window.location.href
+      });
+    };
+  }, []);
   const {
     formRef,
     formKey,

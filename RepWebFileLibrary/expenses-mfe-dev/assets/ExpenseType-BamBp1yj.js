@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { E as EXPENSE_TYPE_MESSAGES, a as ExpenseTypeTable } from "./MileageTypeTable-DgDOjceP.js";
+import { E as EXPENSE_TYPE_MESSAGES, a as ExpenseTypeTable } from "./MileageTypeTable-C4nCLQ4Q.js";
 import "./axiosInstance-CQwpSyaW.js";
 import "./index-DGIiGjWN.js";
 import "./expense-api-ADkLfXg9.js";

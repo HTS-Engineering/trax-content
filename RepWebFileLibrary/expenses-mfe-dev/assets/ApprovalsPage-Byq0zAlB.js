@@ -5,11 +5,10 @@ import { f as formatExpenseDate, u as useCompanyStore, c as useQuery, q as query
 import { a as apiClient } from "./axiosInstance-CQwpSyaW.js";
 import { f as formatAmountWithCurrency, a as formatDate, b as formatDateRange } from "./formatters-DPyd9Uti.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmIFG5WW.js";
-import { e as useSearchParams, f as useLocation, a as RoutePaths, u as useNavigate, h as useParams, g as generatePath } from "./routes-fB3vvj9G.js";
-import { a as useScrollIntoViewRef, b as useErrorToast } from "./use-scroll-into-view-ref-DRp4OPjM.js";
+import { f as useSearchParams, h as useLocation, a as RoutePaths, i as useScrollIntoViewRef, j as useErrorToast, u as useNavigate, k as useParams, g as generatePath } from "./use-scroll-into-view-ref-CvLmKtPQ.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
-import { m as mapCostAllocation, g as getExpenseBaseAmount, u as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, v as validateCostAllocation, c as costAllocationItemSchema, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, d as MileagePeriodPreview, e as ExpenseFormHistoryLog } from "./CostAllocationSection-C2FE1rmT.js";
-import { d as devError } from "./index-DGIiGjWN.js";
+import { m as mapCostAllocation, g as getExpenseBaseAmount, u as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, v as validateCostAllocation, c as costAllocationItemSchema, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, d as MileagePeriodPreview, e as ExpenseFormHistoryLog } from "./CostAllocationSection-D72ywE5n.js";
+import { d as devError, a as devLog } from "./index-DGIiGjWN.js";
 import { u as useRoles, R as Role } from "./hooks-DNpT_EHZ.js";
 import "./hooks-eEsRt8o-.js";
 import { u as useForm, a, o as object, b as array, s as string, c as boolean, d as custom, C as ConfirmDialog } from "./schemas-JsxH1qWN.js";
@@ -1280,13 +1279,21 @@ const ApprovalsList = () => {
   const { columns } = useApprovalsColumns({ currentTab });
   const handleRowClick = useCallback((row) => {
     const { id } = row.original;
-    navigate(
-      generatePath(RoutePaths.ApprovalsId, { id: String(id) }) + location.search,
-      { state: { item: row.original } }
-    );
+    const target = generatePath(RoutePaths.ApprovalsId, { id: String(id) }) + location.search;
+    devLog("[ApprovalsList] handleRowClick — opening detail dialog", {
+      target,
+      itemId: id,
+      currentHref: window.location.href
+    });
+    navigate(target, { state: { item: row.original } });
   }, [navigate, location.search]);
   const handleDetailClose = useCallback(() => {
-    navigate(RoutePaths.Approvals + location.search);
+    const target = RoutePaths.Approvals + location.search;
+    devLog("[ApprovalsList] handleDetailClose — closing detail dialog", {
+      target,
+      currentHref: window.location.href
+    });
+    navigate(target, { replace: true });
   }, [navigate, location.search]);
   const renderToolbar = useCallback((table) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ea, { table, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
     Ma,

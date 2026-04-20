@@ -7,8 +7,7 @@ import { E as EmptyState } from "./EmptyState-Cqeqph7t.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmIFG5WW.js";
 import { f as formatAmountWithCurrency, P as Plus } from "./formatters-DPyd9Uti.js";
-import { e as useSearchParams, f as useLocation, u as useNavigate, g as generatePath, a as RoutePaths } from "./routes-fB3vvj9G.js";
-import { b as useErrorToast } from "./use-scroll-into-view-ref-DRp4OPjM.js";
+import { f as useSearchParams, h as useLocation, m as useNavigateWithReturn, j as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-CvLmKtPQ.js";
 const normalizeStatus = (status) => {
   return status.toLowerCase();
 };
@@ -669,8 +668,7 @@ const ExpenseSearch = ({
 };
 const { useCallback, useMemo } = await importShared("react");
 const ExpensesList = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigateWithReturn = useNavigateWithReturn();
   const {
     columnFilters,
     searchValue,
@@ -706,21 +704,20 @@ const ExpensesList = () => {
   const { columns } = useExpensesColumns({ currentStatusFilter });
   const handleRowClick = useCallback((row) => {
     const { id } = row.original;
-    const returnUrl = location.pathname + location.search;
-    navigate(generatePath(RoutePaths.ExpensesId, { id: String(id) }), { state: { returnUrl } });
-  }, [navigate, location.pathname, location.search]);
+    navigateWithReturn(generatePath(RoutePaths.ExpensesId, { id: String(id) }));
+  }, [navigateWithReturn]);
   const handleNewExpense = useCallback((e) => {
     e == null ? void 0 : e.preventDefault();
-    navigate(RoutePaths.ExpensesNew);
-  }, [navigate]);
+    navigateWithReturn(RoutePaths.ExpensesNew);
+  }, [navigateWithReturn]);
   const handleNewMileageTrip = useCallback(() => {
     const params = new URLSearchParams({ type: "mileage-trip" });
-    navigate(`${RoutePaths.ExpensesNew}?${params}`);
-  }, [navigate]);
+    navigateWithReturn(`${RoutePaths.ExpensesNew}?${params}`);
+  }, [navigateWithReturn]);
   const handleNewMileagePeriod = useCallback(() => {
     const params = new URLSearchParams({ type: "mileage-period" });
-    navigate(`${RoutePaths.ExpensesNew}?${params}`);
-  }, [navigate]);
+    navigateWithReturn(`${RoutePaths.ExpensesNew}?${params}`);
+  }, [navigateWithReturn]);
   if (!isOnListPage && expenses.length === 0) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full bg-exp-primary-blue-25" });
   }
