@@ -1,7 +1,7 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { q as qs } from "./index.es-DEbn8lJC.js";
 import { a as RoutePaths, u as useNavigate, f as useLocation } from "./routes-fB3vvj9G.js";
-import { b as devWarn } from "./index-DGIiGjWN.js";
+import { c as devGroup, a as devLog, e as devGroupEnd, b as devWarn } from "./index-DGIiGjWN.js";
 function debounce(func, delay) {
   let timeoutId = null;
   return function debounced(...args) {
@@ -95,12 +95,41 @@ const useNavigateBack = (options = {}) => {
   } = options;
   const navigate = useNavigate();
   const location = useLocation();
-  const [returnUrl] = useState$1(
-    () => getValidReturnUrl(location.state, fallback, basePath)
-  );
+  const [returnUrl] = useState$1(() => {
+    const resolved = getValidReturnUrl(location.state, fallback, basePath);
+    devGroup("[useNavigateBack] resolving returnUrl");
+    devLog("location.state:", location.state);
+    devLog("fallback:", fallback);
+    devLog("basePath:", basePath);
+    devLog("→ returnUrl:", resolved);
+    devGroupEnd();
+    return resolved;
+  });
+  const [hasHistory] = useState$1(() => {
+    const result = location.key !== "default";
+    devGroup("[useNavigateBack] computing hasHistory");
+    devLog("location.key:", location.key);
+    devLog("pathname + search:", `${location.pathname}${location.search}`);
+    devLog("window.location.href:", typeof window !== "undefined" ? window.location.href : "n/a");
+    devLog("history.state:", typeof window !== "undefined" ? window.history.state : "n/a");
+    devLog("→ hasHistory:", result);
+    devGroupEnd();
+    return result;
+  });
   const navigateBack = useCallback$2(() => {
-    navigate(returnUrl);
-  }, [navigate, returnUrl]);
+    if (hasHistory) {
+      devLog("[useNavigateBack] navigateBack → navigate(-1)", {
+        currentHref: typeof window !== "undefined" ? window.location.href : "n/a"
+      });
+      navigate(-1);
+    } else {
+      devLog("[useNavigateBack] navigateBack → navigate(returnUrl, { replace: true })", {
+        returnUrl,
+        currentHref: typeof window !== "undefined" ? window.location.href : "n/a"
+      });
+      navigate(returnUrl, { replace: true });
+    }
+  }, [navigate, hasHistory, returnUrl]);
   return { navigateBack, returnUrl };
 };
 const { useCallback: useCallback$1, useEffect: useEffect$1, useRef, useState } = await importShared("react");

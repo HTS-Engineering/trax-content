@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { M as MILEAGE_TYPE_MESSAGES, b as MileageTypeTable } from "./MileageTypeTable-Ce97Fj5z.js";
+import { M as MILEAGE_TYPE_MESSAGES, b as MileageTypeTable } from "./MileageTypeTable-DgDOjceP.js";
 import "./axiosInstance-CQwpSyaW.js";
 import "./index-DGIiGjWN.js";
 import "./expense-api-ADkLfXg9.js";

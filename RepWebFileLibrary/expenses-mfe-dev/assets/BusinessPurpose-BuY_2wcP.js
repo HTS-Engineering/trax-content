@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { B as BUSINESS_PURPOSE_MESSAGES, c as BusinessPurposeTable } from "./MileageTypeTable-Ce97Fj5z.js";
+import { B as BUSINESS_PURPOSE_MESSAGES, c as BusinessPurposeTable } from "./MileageTypeTable-DgDOjceP.js";
 import "./axiosInstance-CQwpSyaW.js";
 import "./index-DGIiGjWN.js";
 import "./expense-api-ADkLfXg9.js";

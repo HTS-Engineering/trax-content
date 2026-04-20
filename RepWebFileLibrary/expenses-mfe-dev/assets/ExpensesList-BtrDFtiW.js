@@ -8,7 +8,7 @@ import { I as Icon } from "./Icon-DZapo79l.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmIFG5WW.js";
 import { f as formatAmountWithCurrency, P as Plus } from "./formatters-DPyd9Uti.js";
 import { e as useSearchParams, f as useLocation, u as useNavigate, g as generatePath, a as RoutePaths } from "./routes-fB3vvj9G.js";
-import { b as useErrorToast } from "./use-scroll-into-view-ref-B6vjhvKX.js";
+import { b as useErrorToast } from "./use-scroll-into-view-ref-DRp4OPjM.js";
 const normalizeStatus = (status) => {
   return status.toLowerCase();
 };

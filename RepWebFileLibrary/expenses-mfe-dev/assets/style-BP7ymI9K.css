@@ -697,6 +697,10 @@
     margin-left: calc(var(--spacing) * 4);
   }
 
+  .expenses-mfe-scope .contents, .trax-ui-component .contents {
+    display: contents;
+  }
+
   .expenses-mfe-scope .size-11\.5, .trax-ui-component .size-11\.5, .expenses-mfe-scope.size-11\.5, .trax-ui-component.size-11\.5 {
     width: calc(var(--spacing) * 11.5);
     height: calc(var(--spacing) * 11.5);
