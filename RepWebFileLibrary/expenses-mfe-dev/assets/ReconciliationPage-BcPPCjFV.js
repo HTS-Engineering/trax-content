@@ -1,9 +1,9 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { h as useLocation, m as useNavigateWithReturn, a as RoutePaths } from "./use-scroll-into-view-ref-CvLmKtPQ.js";
+import { h as useLocation, m as useNavigateWithReturn, a as RoutePaths } from "./use-scroll-into-view-ref-DO7NSmay.js";
 import { U as Ue } from "./index.es-DEbn8lJC.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
-import { a as devLog } from "./index-DGIiGjWN.js";
+import { d as devLog } from "./index-Deto_VOO.js";
 const { useEffect } = await importShared("react");
 const ReconciliationPage = () => {
   const location = useLocation();
@@ -41,7 +41,7 @@ const ReconciliationPage = () => {
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-normal text-exp-grey-700", children: "Manage bank statement uploads and monitor corporate card reconciliations" })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-h-0 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { onClick: handleOpenDetail, className: "m-auto", children: "Open test reconciliation detail" }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-h-0 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { type: "button", onClick: handleOpenDetail, className: "m-auto", children: "Open test reconciliation detail" }) })
   ] });
 };
 export {

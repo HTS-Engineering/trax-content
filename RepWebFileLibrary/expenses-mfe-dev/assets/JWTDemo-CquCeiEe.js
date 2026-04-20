@@ -1,7 +1,7 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { D as DOMEventNames, S as SessionStorageKeys, T as TokenPlaceholders, a as apiClient, b as axios } from "./axiosInstance-CQwpSyaW.js";
-import { u as useAuth, a as useJWT, b as useUser, c as usePermissions, d as useTokenExpiration, e as useJWTStatus, f as useJWTPayload } from "./hooks-eEsRt8o-.js";
+import { D as DOMEventNames, S as SessionStorageKeys, T as TokenPlaceholders, a as apiClient, b as axios } from "./axiosInstance-BRt1JXd4.js";
+import { u as useAuth, a as useJWT, b as useUser, c as usePermissions, d as useTokenExpiration, e as useJWTStatus, f as useJWTPayload } from "./hooks-zx4IqjAK.js";
 import { c as createLucideIcon, C as CONFIGURATION_ENDPOINTS } from "./configuration-BQHaqkMo.js";
 import { m as ms, a as $r, a7 as ct, U as Ue, a8 as zn, a9 as en } from "./index.es-DEbn8lJC.js";
 import { S as Shield } from "./shield-DMaV2iJ2.js";

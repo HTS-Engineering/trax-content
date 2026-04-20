@@ -1,9 +1,9 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { k as useParams, h as useLocation, l as useNavigateBack, a as RoutePaths } from "./use-scroll-into-view-ref-CvLmKtPQ.js";
+import { k as useParams, h as useLocation, l as useNavigateBack, a as RoutePaths } from "./use-scroll-into-view-ref-DO7NSmay.js";
 import { U as Ue } from "./index.es-DEbn8lJC.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
-import { a as devLog } from "./index-DGIiGjWN.js";
+import { d as devLog } from "./index-Deto_VOO.js";
 const { useEffect } = await importShared("react");
 const ReconciliationDetailPage = () => {
   const { id } = useParams();
@@ -33,6 +33,7 @@ const ReconciliationDetailPage = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
       Ue,
       {
+        type: "button",
         variant: "outlined",
         onClick: navigateBack,
         className: "flex items-center gap-1 text-exp-neutral-600 hover:text-exp-primary-blue-600 px-0!",

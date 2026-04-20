@@ -1,6 +1,6 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { q as qs } from "./index.es-DEbn8lJC.js";
-import { a as devLog, b as devWarn } from "./index-DGIiGjWN.js";
+import { d as devLog, b as devWarn } from "./index-Deto_VOO.js";
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -7281,29 +7281,52 @@ const useNumericDisplay = (formValue, options = {}) => {
 const { useEffect } = await importShared("react");
 const usePreventPageReload = () => {
   useEffect(() => {
+    devLog("[usePreventPageReload] hook ACTIVE — listening for submit/click events on document");
     const handleSubmit = (e) => {
+      const form = e.target;
+      devWarn("[usePreventPageReload] FORM SUBMIT prevented", {
+        formAction: (form == null ? void 0 : form.action) ?? "n/a",
+        formMethod: (form == null ? void 0 : form.method) ?? "n/a",
+        formId: (form == null ? void 0 : form.id) ?? "n/a",
+        currentHref: window.location.href
+      });
       e.preventDefault();
-      devWarn("Form submission prevented to avoid page reload");
     };
     const handleClick = (e) => {
+      var _a, _b, _c, _d;
       const target = e.target;
-      if (target.tagName === "BUTTON" && target.type === "submit") {
-        const form = target.closest("form");
-        if (form) {
-          e.preventDefault();
-          devWarn("Form submit button click prevented to avoid page reload");
-          return;
-        }
-      }
-      if (target.tagName === "INPUT" && target.type === "submit") {
+      const button = (_a = target == null ? void 0 : target.closest) == null ? void 0 : _a.call(target, 'button, input[type="submit"], input[type="image"]');
+      if (!button) return;
+      const buttonType = button.type;
+      const ancestorForm = button.closest("form");
+      devLog("[usePreventPageReload] button click observed", {
+        tagName: button.tagName,
+        buttonType,
+        hasAncestorForm: !!ancestorForm,
+        ancestorFormAction: (ancestorForm == null ? void 0 : ancestorForm.action) ?? null,
+        buttonText: ((_b = button.textContent) == null ? void 0 : _b.slice(0, 50)) ?? "",
+        currentHref: window.location.href
+      });
+      if (button.tagName === "BUTTON" && buttonType === "submit" && ancestorForm) {
         e.preventDefault();
-        devWarn("Input submit prevented to avoid page reload");
+        devWarn("[usePreventPageReload] SUBMIT BUTTON click prevented", {
+          buttonText: ((_c = button.textContent) == null ? void 0 : _c.slice(0, 50)) ?? "",
+          formAction: ancestorForm.action
+        });
+        return;
+      }
+      if (button.tagName === "INPUT" && buttonType === "submit") {
+        e.preventDefault();
+        devWarn("[usePreventPageReload] INPUT submit prevented", {
+          buttonText: ((_d = button.textContent) == null ? void 0 : _d.slice(0, 50)) ?? ""
+        });
         return;
       }
     };
     document.addEventListener("submit", handleSubmit, { capture: true, passive: false });
     document.addEventListener("click", handleClick, { capture: true, passive: false });
     return () => {
+      devLog("[usePreventPageReload] hook UNMOUNTING — removing listeners");
       document.removeEventListener("submit", handleSubmit, { capture: true });
       document.removeEventListener("click", handleClick, { capture: true });
     };

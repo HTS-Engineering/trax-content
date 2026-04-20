@@ -843,6 +843,10 @@
     flex-shrink: 0;
   }
 
+  .expenses-mfe-scope .grow, .trax-ui-component .grow {
+    flex-grow: 1;
+  }
+
   .scale-100, .expenses-mfe-scope .scale-100, .trax-ui-component .scale-100, .expenses-mfe-scope.scale-100, .trax-ui-component.scale-100 {
     --tw-scale-x: 100%;
     --tw-scale-y: 100%;

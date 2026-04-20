@@ -5,9 +5,9 @@ const devError = (...args) => console.error(PREFIX, "❌", ...args);
 const devGroup = (label) => console.group(PREFIX, label);
 const devGroupEnd = console.groupEnd.bind(console);
 export {
-  devLog as a,
+  devError as a,
   devWarn as b,
   devGroup as c,
-  devError as d,
+  devLog as d,
   devGroupEnd as e
 };

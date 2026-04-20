@@ -1,8 +1,8 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { c as create, d as devtools, s as subscribeWithSelector, i as immer, a as apiClient } from "./axiosInstance-CQwpSyaW.js";
+import { c as create, d as devtools, s as subscribeWithSelector, i as immer, a as apiClient } from "./axiosInstance-BRt1JXd4.js";
 import { C as CONFIGURATION_ENDPOINTS } from "./configuration-BQHaqkMo.js";
-import { b as devWarn } from "./index-DGIiGjWN.js";
+import { b as devWarn } from "./index-Deto_VOO.js";
 import "./index.es-DEbn8lJC.js";
 const initialState$1 = {
   adminCompany: null,
