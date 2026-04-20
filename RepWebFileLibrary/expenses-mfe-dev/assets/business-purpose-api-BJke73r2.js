@@ -1,5 +1,5 @@
-import { c as useQuery, q as queryKeys, e as useQueryClient, h as useMutation } from "./expense-api-BjjEf3jS.js";
-import { a as apiClient } from "./axiosInstance-BRt1JXd4.js";
+import { c as useQuery, q as queryKeys, e as useQueryClient, h as useMutation } from "./expense-api-BScd9Md6.js";
+import { a as apiClient } from "./axiosInstance-BreW_K1H.js";
 import { B as BUSINESS_PURPOSE_ENDPOINTS } from "./configuration-BQHaqkMo.js";
 const mapToBusinessPurpose = (apiData) => {
   return {

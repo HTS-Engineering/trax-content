@@ -1,17 +1,17 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { a1 as QueryObserver, a2 as useBaseQuery, e as useQueryClient, b as useExpenseTypes, a3 as ExpenseTypeScope, q as queryKeys, F as FormTypeId, v as ExpenseFormType, a4 as useCreateExpenseType, a5 as useUpdateExpenseType, a6 as useToggleExpenseTypeStatus, a7 as useFormTypeOptions, u as useCompanyStore, c as useQuery, h as useMutation, n as useCurrencies, m as formatToISODate, s as parseDateOnlyAsLocal, a8 as DEFAULT_CURRENCY_SYMBOL, a9 as MileageRateStatus, p as useTaxTypesDisplay } from "./expense-api-BjjEf3jS.js";
-import { a as apiClient } from "./axiosInstance-BRt1JXd4.js";
+import { a1 as QueryObserver, a2 as useBaseQuery, e as useQueryClient, b as useExpenseTypes, a3 as ExpenseTypeScope, q as queryKeys, F as FormTypeId, v as ExpenseFormType, a4 as useCreateExpenseType, a5 as useUpdateExpenseType, a6 as useToggleExpenseTypeStatus, a7 as useFormTypeOptions, u as useCompanyStore, c as useQuery, h as useMutation, n as useCurrencies, m as formatToISODate, s as parseDateOnlyAsLocal, a8 as DEFAULT_CURRENCY_SYMBOL, a9 as MileageRateStatus, p as useTaxTypesDisplay } from "./expense-api-BScd9Md6.js";
+import { a as apiClient } from "./axiosInstance-BreW_K1H.js";
 import { V as Va, $ as $a, U as Ue, A as An, W as Ws, k as p, a as $r, F as Fr, I as Ir, N as Dr, O as Er, g as Xs, P as Ha, q as qs, s as sn, R as Br, b as Gt, c as qt, d as Ut, r as rr, f as Qs, X as Xa, S as ei, Z as Za, J as Ja, Y as Ya, p as ps, _ as es, a0 as Vs } from "./index.es-DEbn8lJC.js";
 import { E as EmptyState } from "./EmptyState-Cqeqph7t.js";
 import { I as Icon } from "./Icon-DZapo79l.js";
 import { o as object, _ as _enum, s as string, l as literal, u as useForm, a, e as Controller, C as ConfirmDialog, g as useWatch, n as number, h as date, f as createDecimalChangeHandler, k as filterDecimalInput, I as Info } from "./schemas-JsxH1qWN.js";
-import { a as devError, d as devLog } from "./index-Deto_VOO.js";
-import { p as useEscapeHandler } from "./use-scroll-into-view-ref-DO7NSmay.js";
+import { b as devError, a as devLog } from "./index-DiLRM7rh.js";
+import { p as useEscapeHandler } from "./use-scroll-into-view-ref-6K1sjccr.js";
 import { C as CONFIGURATION_ENDPOINTS } from "./configuration-BQHaqkMo.js";
-import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-jsAcT2I0.js";
-import { g as formatRateCompact, P as Plus } from "./formatters-BrSTdxBP.js";
-import { i as infiniteQueryBehavior, h as hasPreviousPage, a as hasNextPage } from "./infiniteQueryBehavior-DTwcYnx5.js";
+import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-BJke73r2.js";
+import { g as formatRateCompact, P as Plus } from "./formatters-ShtLOn1H.js";
+import { i as infiniteQueryBehavior, h as hasPreviousPage, a as hasNextPage } from "./infiniteQueryBehavior-CQ2OeTVz.js";
 var InfiniteQueryObserver = class extends QueryObserver {
   constructor(client, options) {
     super(client, options);

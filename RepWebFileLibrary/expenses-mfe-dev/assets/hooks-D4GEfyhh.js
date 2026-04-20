@@ -1,5 +1,5 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
-import { u as useJWTStore } from "./axiosInstance-BRt1JXd4.js";
+import { u as useJWTStore } from "./axiosInstance-BreW_K1H.js";
 var Role = /* @__PURE__ */ ((Role2) => {
   Role2["Employee"] = "Expense.Employee";
   Role2["Manager"] = "Expense.Manager";

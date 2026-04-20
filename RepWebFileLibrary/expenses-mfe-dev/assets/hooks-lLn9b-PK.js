@@ -1,5 +1,5 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
-import { u as useJWTStore, j as jwtSelectors, e as ensureJWTInitialized } from "./axiosInstance-BRt1JXd4.js";
+import { u as useJWTStore, j as jwtSelectors, e as ensureJWTInitialized } from "./axiosInstance-BreW_K1H.js";
 const { useEffect, useMemo } = await importShared("react");
 const useAuth = () => {
   const isAuthenticated = useJWTStore(jwtSelectors.isAuthenticated);

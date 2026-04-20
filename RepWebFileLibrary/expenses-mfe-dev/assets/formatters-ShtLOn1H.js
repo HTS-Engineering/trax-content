@@ -1,5 +1,5 @@
 import { c as createLucideIcon } from "./configuration-BQHaqkMo.js";
-import { A as EMPTY_CURRENCY_SYMBOL, L as getCurrencySymbol, ae as DEFAULT_CURRENCY, s as parseDateOnlyAsLocal } from "./expense-api-BjjEf3jS.js";
+import { A as EMPTY_CURRENCY_SYMBOL, L as getCurrencySymbol, ae as DEFAULT_CURRENCY, s as parseDateOnlyAsLocal } from "./expense-api-BScd9Md6.js";
 import "./index.es-DEbn8lJC.js";
 const __iconNode = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
