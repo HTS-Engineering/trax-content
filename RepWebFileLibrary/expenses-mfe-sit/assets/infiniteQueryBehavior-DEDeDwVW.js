@@ -1,4 +1,4 @@
-import { C as ensureQueryFn, F as addToStart, G as addToEnd, H as addConsumeAwareSignal } from "./date-format-DJbTnrky.js";
+import { C as ensureQueryFn, F as addToStart, G as addToEnd, H as addConsumeAwareSignal } from "./date-format-IfPD90Qp.js";
 function infiniteQueryBehavior(pages) {
   return {
     onFetch: (context, query) => {

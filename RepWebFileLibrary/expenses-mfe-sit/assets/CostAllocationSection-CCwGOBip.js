@@ -2,13 +2,13 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/c
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 import { m as ms, i as hs, e as ar, j as bs, A as An, p as ps, a as $r, q as qs, k as p, l as mt, n as Dt, U as Ue, o as ht, $ as $a, u as jt, s as sn, Y as Ya, b as Gt, c as qt, d as Ut, H as Hs, B as Bs, v as js, z as za, V as Va, w as or, x as Zs, y as Ye, L as La } from "./index.es-CO_R862L.js";
 import { I as Icon } from "./Icon-DO3RmP6S.js";
-import { n as FILE_ENDPOINTS, h as useTaxTypesDisplay, o as useFormTypeName, l as ExpenseFormType, p as ECostAllocation, j as useDefaultCurrency, E as EXPENSE_ENDPOINTS, a as useExpenseTypes, F as FormTypeId, A as AllowedMimeType, q as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, r as FilePreviewType, f as useCountries, s as useDefaultCountry, k as useFormTypeId } from "./expense-api-nyG7hJLu.js";
-import { d as formatCurrency, e as formatDistance, c as formatRate } from "./formatters-C2Txbh_p.js";
-import { u as useCompanyStore, f as formatExpenseDate, E as EMPTY_CURRENCY_SYMBOL, e as formatExpensePeriod, a as useQuery, q as queryKeys, g as formatHistoryTimestamp, D as DEFAULT_CURRENCY_CODE, d as formatToISODate, b as useQueryClient, h as getCurrencySymbol } from "./date-format-DJbTnrky.js";
-import { a as apiClient, c as create, d as devtools } from "./axiosInstance-CEIQAuKQ.js";
+import { n as FILE_ENDPOINTS, h as useTaxTypesDisplay, o as useFormTypeName, l as ExpenseFormType, p as ECostAllocation, j as useDefaultCurrency, E as EXPENSE_ENDPOINTS, a as useExpenseTypes, F as FormTypeId, A as AllowedMimeType, q as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, r as FilePreviewType, f as useCountries, s as useDefaultCountry, k as useFormTypeId } from "./expense-api-zIc4GXVn.js";
+import { d as formatCurrency, e as formatDistance, c as formatRate } from "./formatters-BwROuMSZ.js";
+import { u as useCompanyStore, f as formatExpenseDate, E as EMPTY_CURRENCY_SYMBOL, e as formatExpensePeriod, a as useQuery, q as queryKeys, g as formatHistoryTimestamp, D as DEFAULT_CURRENCY_CODE, d as formatToISODate, b as useQueryClient, h as getCurrencySymbol } from "./date-format-IfPD90Qp.js";
+import { a as apiClient, c as create, d as devtools } from "./axiosInstance-C7wCpZ8q.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { I as Info, s as string, D as DECIMAL_FORMAT_REGEX, o as object, d as custom, c as boolean, b as array, h as date, i as unknown, n as number, C as ConfirmDialog, g as useWatch, u as useForm, a, l as literal, j as useFormState, e as Controller, f as createDecimalChangeHandler } from "./schemas-Bnk8vvOg.js";
-import { a as useDefaultCompany, q as queryClient } from "./queryClient-Cu2DWW_8.js";
+import { a as useDefaultCompany, q as queryClient } from "./queryClient-AYXJcbaP.js";
 import { b as devWarn, d as devError, a as devLog } from "./index-BZGB3DCm.js";
 import { _ as __vitePreload } from "./preload-helper-e_IRvegh.js";
 import { i as isHttpApiError, g as getHttpErrorMessage } from "./http-errors-Baer4N_e.js";

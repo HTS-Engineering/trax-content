@@ -1,7 +1,7 @@
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
-import { D as DOMEventNames, S as SessionStorageKeys, T as TokenPlaceholders, a as apiClient, b as axios } from "./axiosInstance-CEIQAuKQ.js";
-import { u as useAuth, a as useJWT, b as useUser, c as usePermissions, d as useTokenExpiration, e as useJWTStatus, f as useJWTPayload } from "./hooks-DlTH4PtH.js";
+import { D as DOMEventNames, S as SessionStorageKeys, T as TokenPlaceholders, a as apiClient, b as axios } from "./axiosInstance-C7wCpZ8q.js";
+import { u as useAuth, a as useJWT, b as useUser, c as usePermissions, d as useTokenExpiration, e as useJWTStatus, f as useJWTPayload } from "./hooks-BQ09QOf4.js";
 import { C as CONFIGURATION_ENDPOINTS } from "./configuration-DOdFh11b.js";
 import { m as ms, a as $r, ad as ct, U as Ue, ae as zn, af as en } from "./index.es-CO_R862L.js";
 import { S as Shield } from "./shield-BZn7eZtX.js";

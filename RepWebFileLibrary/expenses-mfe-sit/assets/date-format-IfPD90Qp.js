@@ -1,4 +1,4 @@
-import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-CEIQAuKQ.js";
+import { c as create, d as devtools, s as subscribeWithSelector, i as immer } from "./axiosInstance-C7wCpZ8q.js";
 import { importShared } from "./__federation_fn_import-VIrFz_yB.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-TULtkvNU.js";
 const initialState = {
