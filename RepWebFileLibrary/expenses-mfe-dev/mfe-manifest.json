@@ -1,12 +1,12 @@
 {
-  "version": "0.1.0-dev.7",
-  "commit": "765bea9",
-  "branch": "feat/TRX-595-cicd-deploy",
-  "timestamp": "2026-05-04T16:01:56.551Z",
+  "version": "0.1.0-dev.8",
+  "commit": "99a566c",
+  "branch": "dev",
+  "timestamp": "2026-05-04T18:39:10.134Z",
   "environment": "expenses-mfe-dev",
   "files": {
     "federation": [
-      "__federation_expose_Mount-DnMzXkmu.js",
+      "__federation_expose_Mount-_TtiEHUa.js",
       "__federation_fn_import-CJZmLbkm.js",
       "__federation_shared_react-ChoRDY_p.js",
       "__federation_shared_react-dom-Deic6gHF.js"
@@ -16,10 +16,10 @@
       "__federation_shared_react-dom-Deic6gHF.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-DnMzXkmu.js"
+      "__federation_expose_Mount-_TtiEHUa.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-DnMzXkmu.js",
+  "bootstrap": "__federation_expose_Mount-_TtiEHUa.js",
   "css": "style-DtrjLVCP.css",
   "remoteEntry": "remoteEntry.js"
 }
