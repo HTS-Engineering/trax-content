@@ -1,25 +1,25 @@
 {
-  "version": "0.1.0-dev.10",
-  "commit": "fc4e9de",
+  "version": "0.1.0-dev.13",
+  "commit": "0651f6b",
   "branch": "dev",
-  "timestamp": "2026-05-04T19:46:03.365Z",
+  "timestamp": "2026-05-05T16:32:04.073Z",
   "environment": "expenses-mfe-sit",
   "files": {
     "federation": [
-      "__federation_expose_Mount-BXAh3L1d.js",
-      "__federation_fn_import-CJZmLbkm.js",
-      "__federation_shared_react-ChoRDY_p.js",
-      "__federation_shared_react-dom-Deic6gHF.js"
+      "__federation_expose_Mount-DaNVRUnl.js",
+      "__federation_fn_import-B1skDCMq.js",
+      "__federation_shared_react-DGaenwmb.js",
+      "__federation_shared_react-dom-DRAreEms.js"
     ],
     "shared": [
-      "__federation_shared_react-ChoRDY_p.js",
-      "__federation_shared_react-dom-Deic6gHF.js"
+      "__federation_shared_react-DGaenwmb.js",
+      "__federation_shared_react-dom-DRAreEms.js"
     ],
     "exposed": [
-      "__federation_expose_Mount-BXAh3L1d.js"
+      "__federation_expose_Mount-DaNVRUnl.js"
     ]
   },
-  "bootstrap": "__federation_expose_Mount-BXAh3L1d.js",
-  "css": "style-BMkXb0rV.css",
+  "bootstrap": "__federation_expose_Mount-DaNVRUnl.js",
+  "css": "style-DkUN32HZ.css",
   "remoteEntry": "remoteEntry.js"
 }

@@ -1,0 +1,1 @@
+var r=Object.defineProperty;var s=(o,e)=>r(o,"name",{value:e,configurable:!0});const n=`[${"sit".toUpperCase()}]`,a=s((...o)=>console.log(n,...o),"devLog"),d=s((...o)=>console.warn(n,"⚠️",...o),"devWarn"),t=s((...o)=>console.error(n,"❌",...o),"devError"),l=s(o=>console.group(n,o),"devGroup"),p=console.groupEnd.bind(console);export{a,d as b,l as c,t as d,p as e};
