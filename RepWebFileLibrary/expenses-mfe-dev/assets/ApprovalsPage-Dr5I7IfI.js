@@ -3,16 +3,16 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { importShared } from "./__federation_fn_import-B1oJrOwd.js";
 import { W as Ws, E as Ea, a as Tr, b as Us, J as Ja, $ as $a, U as Ue, B as Bn, d as qt, e as Ut, Y as Yt, i as ir, f as Js, Z as Za, Q as Qa, g as es, M as Ma, P as Pa, h as Zs } from "./index.es-e_EjaQiF.js";
-import { h as formatExpenseDate, d as useCompanyStore, i as useQuery, q as queryKeys, k as keepPreviousData, j as useSearchParams, l as useLocation, a as RoutePaths, m as useQueryClient, n as useMutation, o as useScrollIntoViewRef, p as useErrorToast, u as useNavigate, r as useParams, g as generatePath } from "./date-format-DVvigOUX.js";
-import { a as apiClient } from "./axiosInstance-QVJPXrUf.js";
-import { E as EXPENSE_ENDPOINTS, i as isExpenseItemSubmitted, b as isRegularExpense, g as getExpenseItemAmount, c as isMileageExpense, d as useExpenseItem } from "./expense-api-99BZqtu-.js";
-import { f as formatAmountWithCurrency, a as formatDate, b as formatDateRange } from "./formatters-CvuWwX70.js";
+import { h as formatExpenseDate, d as useCompanyStore, i as useQuery, q as queryKeys, k as keepPreviousData, j as useSearchParams, l as useLocation, a as RoutePaths, m as useQueryClient, n as useMutation, o as useScrollIntoViewRef, p as useErrorToast, u as useNavigate, r as useParams, g as generatePath } from "./date-format-B1PByQhX.js";
+import { a as apiClient } from "./axiosInstance-CRR35jSP.js";
+import { E as EXPENSE_ENDPOINTS, i as isExpenseItemSubmitted, b as isRegularExpense, g as getExpenseItemAmount, c as isMileageExpense, d as useExpenseItem } from "./expense-api-BVxEXUfY.js";
+import { f as formatAmountWithCurrency, a as formatDate, b as formatDateRange } from "./formatters-CHG8Gvf6.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmRfP61L.js";
 import { I as Icon } from "./Icon-CjLzMHV-.js";
-import { m as mapCostAllocation, g as getExpenseBaseAmount, u as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, v as validateCostAllocation, c as costAllocationItemSchema, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, d as MileagePeriodPreview, e as ExpenseFormHistoryLog } from "./CostAllocationSection-CPpENZVT.js";
+import { m as mapCostAllocation, g as getExpenseBaseAmount, u as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, v as validateCostAllocation, c as costAllocationItemSchema, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, d as MileagePeriodPreview, e as ExpenseFormHistoryLog } from "./CostAllocationSection-BKr94z_H.js";
 import { d as devError } from "./index-vtzBEVcA.js";
-import { u as useRoles, R as Role } from "./hooks-SquyO7o_.js";
-import "./hooks-Di4vyDvw.js";
+import { u as useRoles, R as Role } from "./hooks-rdzUyOub.js";
+import "./hooks-DbdLGCwb.js";
 import { u as useForm, a, o as object, b as array, s as string, c as boolean, d as custom, C as ConfirmDialog } from "./schemas-CvX06YwU.js";
 const MISSING_VALUE_INDICATOR = "-";
 var ApprovalTab = /* @__PURE__ */ ((ApprovalTab2) => {
