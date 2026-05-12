@@ -44,7 +44,7 @@ const createImpl = /* @__PURE__ */ __name((createState) => {
   return useBoundStore;
 }, "createImpl");
 const create$1 = /* @__PURE__ */ __name(((createState) => createState ? createImpl(createState) : createImpl), "create$1");
-const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8000", "VITE_APP_ENV": "development", "VITE_DEV_AUTH_CLIENT_ID": "182c65d4-1c6c-462a-96b4-8fdf5f7850eb", "VITE_DEV_AUTH_ENABLED": "true", "VITE_DEV_AUTH_SCOPES": "182c65d4-1c6c-462a-96b4-8fdf5f7850eb/.default", "VITE_DEV_AUTH_TENANT_ID": "b6e23382-0ff7-45c9-88c7-662fdeaff4f4", "VITE_ENABLE_DEVTOOLS": "true", "VITE_ENABLE_MSW": "true" };
+const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8000", "VITE_APP_ENV": "development", "VITE_ENABLE_DEVTOOLS": "true", "VITE_ENABLE_MSW": "true" };
 const shouldDispatchFromDevtools = /* @__PURE__ */ __name((api) => !!api.dispatchFromDevtools && typeof api.dispatch === "function", "shouldDispatchFromDevtools");
 const trackedConnections = /* @__PURE__ */ new Map();
 const getTrackedConnectionState = /* @__PURE__ */ __name((name) => {

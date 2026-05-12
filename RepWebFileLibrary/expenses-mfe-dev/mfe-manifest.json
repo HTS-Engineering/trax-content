@@ -1,25 +1,9 @@
 {
-  "version": "0.1.0-dev.local-1778014042305",
-  "commit": "59b0b4e",
-  "branch": "dev",
-  "timestamp": "2026-05-05T20:47:22.329Z",
+  "version": "0.1.0-dev.16",
+  "commit": "03e0f71",
+  "branch": "feat/TRX-597-seamless-deploy",
+  "timestamp": "2026-05-12T19:21:11.104Z",
   "environment": "expenses-mfe-dev",
-  "files": {
-    "federation": [
-      "__federation_expose_Mount-BPx97Io9.js",
-      "__federation_fn_import-B1oJrOwd.js",
-      "__federation_shared_react-Dbpuc195.js",
-      "__federation_shared_react-dom-sXtGIp_Y.js"
-    ],
-    "shared": [
-      "__federation_shared_react-Dbpuc195.js",
-      "__federation_shared_react-dom-sXtGIp_Y.js"
-    ],
-    "exposed": [
-      "__federation_expose_Mount-BPx97Io9.js"
-    ]
-  },
-  "bootstrap": "__federation_expose_Mount-BPx97Io9.js",
-  "css": "style-BMkXb0rV.css",
-  "remoteEntry": "remoteEntry.js"
+  "bootstrap": "__federation_expose_Mount-DJNwYLs_.js",
+  "css": "style-BMkXb0rV.css"
 }

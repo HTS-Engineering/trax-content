@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-B1oJrOwd.js";
-import { u as useJWTStore, j as jwtSelectors, e as ensureJWTInitialized } from "./axiosInstance-CRR35jSP.js";
+import { u as useJWTStore, j as jwtSelectors, e as ensureJWTInitialized } from "./axiosInstance-QVJPXrUf.js";
 const { useEffect, useMemo } = await importShared("react");
 const useAuth = /* @__PURE__ */ __name(() => {
   const isAuthenticated = useJWTStore(jwtSelectors.isAuthenticated);

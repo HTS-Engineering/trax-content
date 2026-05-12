@@ -11,7 +11,19 @@
   const CONTAINER_ID = 'expenses-mfe';
   const SCOPE_CLASS = 'expenses-mfe-scope';
   const FILE_NAME = 'moduleLoader.js';
-  
+  // Replaced at build time by mfe-post-build plugin with the actual manifest.
+  // Stays null when running against the Vite dev server, where the loader is
+  // not used at all (Vite serves index.html with native ES modules directly).
+  const INLINED_MANIFEST = {
+  "version": "0.1.0-dev.16",
+  "commit": "03e0f71",
+  "branch": "feat/TRX-597-seamless-deploy",
+  "timestamp": "2026-05-12T19:21:11.104Z",
+  "environment": "expenses-mfe-dev",
+  "bootstrap": "__federation_expose_Mount-DJNwYLs_.js",
+  "css": "style-BMkXb0rV.css"
+};
+
   function getCurrentScript() {
     if (document.currentScript) {
       return document.currentScript;
@@ -55,11 +67,16 @@
   }
   
   async function loadManifest(basePath) {
+    if (INLINED_MANIFEST) {
+      return INLINED_MANIFEST;
+    }
+
+    // Two real fallback shapes:
+    //   [0] production deploys: manifest sits next to the bundle dir under basePath
+    //   [1] localdev preview:   manifest sits at basePath itself (flat dist/)
     const possibleManifestPaths = [
       `${basePath}/expenses-mfe-dev/mfe-manifest.json`,
-      `${basePath}/mfe-manifest.json`,
-      `${window.location.origin}/expenses-mfe-dev/mfe-manifest.json`,
-      `${window.location.origin}/mfe-manifest.json`
+      `${basePath}/mfe-manifest.json`
     ];
     
     let lastError = null;
@@ -116,19 +133,7 @@
         throw new Error('Failed to load manifest');
       }
       
-      const getAssetUrl = (filename) => {
-        const possiblePaths = [
-          `${basePath}/expenses-mfe-dev/assets/${filename}`,
-          `${basePath}/assets/${filename}`,
-          `/expenses-mfe-dev/assets/${filename}`,
-          `/assets/${filename}`,
-          `${window.location.origin}/expenses-mfe-dev/assets/${filename}`,
-          `${window.location.origin}/assets/${filename}`
-        ];
-        
-        console.log(`🔍 Possible paths for ${filename}:`, possiblePaths);
-        return possiblePaths[0];
-      };
+      const getAssetUrl = (filename) => `${basePath}/expenses-mfe-dev/assets/${filename}`;
       
       const cssUrl = getAssetUrl(manifest.css);
       console.log('🎨 Loading CSS from:', cssUrl);

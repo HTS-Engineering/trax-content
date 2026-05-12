@@ -4,10 +4,10 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-B1oJrOwd.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { c as createLucideIcon, b as Us, U as Ue, B as Bn, a as Tr, a8 as wn, a9 as Do, aa as Pt, ab as Mo, ac as Eo, ad as yn, f as Js, Z as Za, _ as ti, Q as Qa, g as es, W as Ws, E as Ea, h as Zs, n as ns, p } from "./index.es-e_EjaQiF.js";
-import { d as useCompanyStore, i as useQuery, q as queryKeys, k as keepPreviousData, h as formatExpenseDate, v as formatExpensePeriod, t as parseDateOnlyAsLocal, n as useMutation, m as useQueryClient, B as getCurrencySymbol, j as useSearchParams, l as useLocation, a as RoutePaths, x as useNavigateWithReturn, p as useErrorToast, g as generatePath, E as EMPTY_CURRENCY_SYMBOL } from "./date-format-B1PByQhX.js";
-import { a as apiClient } from "./axiosInstance-CRR35jSP.js";
+import { d as useCompanyStore, i as useQuery, k as keepPreviousData, q as queryKeys, h as formatExpenseDate, v as formatExpensePeriod, t as parseDateOnlyAsLocal, n as useMutation, m as useQueryClient, B as getCurrencySymbol, j as useSearchParams, l as useLocation, a as RoutePaths, x as useNavigateWithReturn, p as useErrorToast, g as generatePath, E as EMPTY_CURRENCY_SYMBOL } from "./date-format-DVvigOUX.js";
+import { a as apiClient } from "./axiosInstance-QVJPXrUf.js";
 import { I as Icon } from "./Icon-CjLzMHV-.js";
-import { d as formatCurrency, f as formatAmountWithCurrency } from "./formatters-CHG8Gvf6.js";
+import { d as formatCurrency, f as formatAmountWithCurrency } from "./formatters-CvuWwX70.js";
 import { i as isHttpApiError, a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./http-errors-CkJhN68X.js";
 import { d as devError } from "./index-vtzBEVcA.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
