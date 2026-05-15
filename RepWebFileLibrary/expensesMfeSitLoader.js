@@ -11,18 +11,7 @@
   const CONTAINER_ID = 'expenses-mfe';
   const SCOPE_CLASS = 'expenses-mfe-scope';
   const FILE_NAME = 'expensesMfeSitLoader.js';
-  // Replaced at build by mfe-post-build. Stays null under `npm run dev`,
-  // where this loader is not used.
-  const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.18",
-  "commit": "4b7caba",
-  "branch": "dev",
-  "timestamp": "2026-05-15T14:04:32.851Z",
-  "environment": "expenses-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-CYfJZaRC.js",
-  "css": "style-DkUN32HZ.css"
-};
-
+  
   function getCurrentScript() {
     if (document.currentScript) {
       return document.currentScript;
@@ -66,16 +55,11 @@
   }
   
   async function loadManifest(basePath) {
-    if (INLINED_MANIFEST) {
-      return INLINED_MANIFEST;
-    }
-
-    // Two real fallback shapes:
-    //   [0] production deploys: manifest sits next to the bundle dir under basePath
-    //   [1] localdev preview:   manifest sits at basePath itself (flat dist/)
     const possibleManifestPaths = [
       `${basePath}/expenses-mfe-sit/mfe-manifest.json`,
-      `${basePath}/mfe-manifest.json`
+      `${basePath}/mfe-manifest.json`,
+      `${window.location.origin}/expenses-mfe-sit/mfe-manifest.json`,
+      `${window.location.origin}/mfe-manifest.json`
     ];
     
     let lastError = null;
@@ -132,7 +116,19 @@
         throw new Error('Failed to load manifest');
       }
       
-      const getAssetUrl = (filename) => `${basePath}/expenses-mfe-sit/assets/${filename}`;
+      const getAssetUrl = (filename) => {
+        const possiblePaths = [
+          `${basePath}/expenses-mfe-sit/assets/${filename}`,
+          `${basePath}/assets/${filename}`,
+          `/expenses-mfe-sit/assets/${filename}`,
+          `/assets/${filename}`,
+          `${window.location.origin}/expenses-mfe-sit/assets/${filename}`,
+          `${window.location.origin}/assets/${filename}`
+        ];
+        
+        console.log(`🔍 Possible paths for ${filename}:`, possiblePaths);
+        return possiblePaths[0];
+      };
       
       const cssUrl = getAssetUrl(manifest.css);
       console.log('🎨 Loading CSS from:', cssUrl);
