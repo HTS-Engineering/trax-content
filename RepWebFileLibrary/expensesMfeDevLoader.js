@@ -11,16 +11,15 @@
   const CONTAINER_ID = 'expenses-mfe';
   const SCOPE_CLASS = 'expenses-mfe-scope';
   const FILE_NAME = 'expensesMfeDevLoader.js';
-  // Replaced at build time by mfe-post-build plugin with the actual manifest.
-  // Stays null when running against the Vite dev server, where the loader is
-  // not used at all (Vite serves index.html with native ES modules directly).
+  // Replaced at build by mfe-post-build. Stays null under `npm run dev`,
+  // where this loader is not used.
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.16",
-  "commit": "03e0f71",
-  "branch": "feat/TRX-597-seamless-deploy",
-  "timestamp": "2026-05-12T19:21:11.104Z",
+  "version": "0.1.0-dev.17",
+  "commit": "4b7caba",
+  "branch": "dev",
+  "timestamp": "2026-05-15T13:53:13.796Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-DJNwYLs_.js",
+  "bootstrap": "__federation_expose_Mount-CMy_ACA9.js",
   "css": "style-BMkXb0rV.css"
 };
 
