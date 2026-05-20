@@ -3,17 +3,17 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 var _a;
 import { importShared } from "./__federation_fn_import-B1oJrOwd.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { X as QueryObserver, Y as hasPreviousPage, Z as hasNextPage, _ as useBaseQuery, m as useQueryClient, q as queryKeys, $ as useEscapeHandler, d as useCompanyStore, i as useQuery, n as useMutation, s as formatToISODate, t as parseDateOnlyAsLocal, a0 as DEFAULT_CURRENCY_SYMBOL } from "./date-format-DVvigOUX.js";
-import { a as apiClient } from "./axiosInstance-QVJPXrUf.js";
+import { X as QueryObserver, Y as hasPreviousPage, Z as hasNextPage, _ as useBaseQuery, m as useQueryClient, q as queryKeys, $ as useEscapeHandler, e as useCompanyStore, j as useQuery, n as useMutation, s as formatToISODate, t as parseDateOnlyAsLocal, a0 as DEFAULT_CURRENCY_SYMBOL } from "./date-format-YDPu17W4.js";
+import { a as apiClient } from "./axiosInstance-DN4OVlUD.js";
 import { $ as $a, T as Ta, U as Ue, B as Bn, X as Xs, p, a as Tr, I as Ir, F as Dr, H as Er, N as Mr, h as Zs, S as Ba, b as Us, l as ln, V as jr, d as qt, e as Ut, Y as Yt, j as ar, f as Js, Z as Za, _ as ti, Q as Qa, g as es, K as Ka, m as ms, a0 as ts, a1 as $s } from "./index.es-e_EjaQiF.js";
 import { E as EmptyState } from "./EmptyState-B64718h7.js";
 import { I as Icon } from "./Icon-CjLzMHV-.js";
 import { o as object, _ as _enum, s as string, l as literal, u as useForm, a, e as Controller, C as ConfirmDialog, g as useWatch, n as number, h as date, f as createDecimalChangeHandler, k as filterDecimalInput, I as Info } from "./schemas-CvX06YwU.js";
 import { d as devError, a as devLog } from "./index-vtzBEVcA.js";
-import { a as useExpenseTypes, t as ExpenseTypeScope, F as FormTypeId, l as ExpenseFormType, v as useCreateExpenseType, w as useUpdateExpenseType, x as useToggleExpenseTypeStatus, y as useFormTypeOptions, e as useCurrencies, z as MileageRateStatus, h as useTaxTypesDisplay } from "./expense-api-CuJagdSs.js";
+import { a as useExpenseTypes, t as ExpenseTypeScope, F as FormTypeId, l as ExpenseFormType, v as useCreateExpenseType, w as useUpdateExpenseType, x as useToggleExpenseTypeStatus, y as useFormTypeOptions, e as useCurrencies, z as MileageRateStatus, h as useTaxTypesDisplay } from "./expense-api-DJdfwUeG.js";
 import { C as CONFIGURATION_ENDPOINTS } from "./configuration-CF_T8dQy.js";
-import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-D73wmzQh.js";
-import { g as formatRateCompact } from "./formatters-CvuWwX70.js";
+import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-C6NZMHu_.js";
+import { g as formatRateCompact } from "./formatters-C8csoXgX.js";
 import { P as Plus } from "./plus-D--mDVLT.js";
 var InfiniteQueryObserver = (_a = class extends QueryObserver {
   constructor(client, options) {

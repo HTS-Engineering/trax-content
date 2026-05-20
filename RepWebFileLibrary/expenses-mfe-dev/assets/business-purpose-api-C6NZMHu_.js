@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { i as useQuery, q as queryKeys, m as useQueryClient, n as useMutation } from "./date-format-DVvigOUX.js";
-import { a as apiClient } from "./axiosInstance-QVJPXrUf.js";
+import { j as useQuery, q as queryKeys, m as useQueryClient, n as useMutation } from "./date-format-YDPu17W4.js";
+import { a as apiClient } from "./axiosInstance-DN4OVlUD.js";
 import { B as BUSINESS_PURPOSE_ENDPOINTS } from "./configuration-CF_T8dQy.js";
 const mapToBusinessPurpose = /* @__PURE__ */ __name((apiData) => {
   return {

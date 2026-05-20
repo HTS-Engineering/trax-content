@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-DtY3H-iF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-aCTp6CKK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-D4ZKjT8O.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-B1oJrOwd.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index.es-e_EjaQiF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-format-DVvigOUX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-QVJPXrUf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-vtzBEVcA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-CuJagdSs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-CF_T8dQy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-B64718h7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-CjLzMHV-.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-CmRfP61L.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-CvuWwX70.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-D--mDVLT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-X_J7sOML.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-Bz-Oj5yq.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/schemas-CvX06YwU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-f1_tBXdY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/http-errors-CkJhN68X.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-data-Du2WjKhi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-15lMnSZZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-SquyO7o_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-Di4vyDvw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-DzlPcN36.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-D73wmzQh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-CrZVAFtv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-fvUOfiny.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-CZikSv7B.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-D18BA0-j.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-Cr5Fmswb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BMBHBNXK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-5MMI3Wz-.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-CzSijiaF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CompanySummaryCard-BRTITMIn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-B9u6zlgA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-CJI_HXHz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-CzB2FK2D.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-BH0cWmBs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-djgVNTCD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-Cp2UIJ0R.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-aCTp6CKK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-D4sS_La8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-B1oJrOwd.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index.es-e_EjaQiF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-format-YDPu17W4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-DN4OVlUD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/index-vtzBEVcA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-DJdfwUeG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-CF_T8dQy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-B64718h7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-CjLzMHV-.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-CmRfP61L.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-C8csoXgX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-D--mDVLT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-Bmk4CO5M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-BUyiyS5C.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/schemas-CvX06YwU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-_FQSvrTj.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/http-errors-CkJhN68X.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-data-Du2WjKhi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-15lMnSZZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-9zZJTsbL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-CNWZat7S.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-DaC5lfgD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-C6NZMHu_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-CrZVAFtv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-fvUOfiny.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-CkTfa6pj.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-DJuQBLrK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-DuVrkeRi.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-t6aTvvNv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-iwZaPT5a.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-DFljbNr7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CompanySummaryCard-B27cyYk7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-BpG3128r.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-ca0zYDCh.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-CzB2FK2D.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-CrG1rAVt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/init-B737KWXZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -6,16 +6,16 @@ import { importShared } from "./__federation_fn_import-B1oJrOwd.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { r as requireReact } from "./index-BAgwSfQQ.js";
 import { r as requireReactDom } from "./index-5sQdCNNc.js";
-import { R as RouterProvider$1, a as RoutePaths, b as RouteNames, N as Navigate, c as NavLink, u as useNavigate, g as generatePath, d as useCompanyStore, e as usePreventPageReload, O as Outlet, f as createHashRouter, Q as QueryClientProvider } from "./date-format-DVvigOUX.js";
+import { R as RouterProvider$1, a as RoutePaths, b as RouteNames, N as Navigate, c as NavLink, u as useNavigate, g as generatePath, d as useLocation, e as useCompanyStore, f as usePreventPageReload, O as Outlet, h as createHashRouter, Q as QueryClientProvider } from "./date-format-YDPu17W4.js";
 import { I as Icon } from "./Icon-CjLzMHV-.js";
-import { R as Role, u as useRoles } from "./hooks-SquyO7o_.js";
+import { R as Role, u as useRoles } from "./hooks-9zZJTsbL.js";
 import { S as Shield } from "./shield-CzB2FK2D.js";
 import { c as createLucideIcon, B as Bn, U as Ue, T as Ta, q as qs, R as Rr } from "./index.es-e_EjaQiF.js";
-import { u as useCompanies, q as queryClient } from "./queryClient-f1_tBXdY.js";
-import { u as useAuth } from "./hooks-Di4vyDvw.js";
-import { u as useJWTStore, S as SessionStorageKeys } from "./axiosInstance-QVJPXrUf.js";
-import { u as useFormTypes, a as useExpenseTypes } from "./expense-api-CuJagdSs.js";
+import { u as useCompanies, q as queryClient } from "./queryClient-_FQSvrTj.js";
+import { u as useAuth } from "./hooks-CNWZat7S.js";
+import { u as useJWTStore, S as SessionStorageKeys } from "./axiosInstance-DN4OVlUD.js";
 import { d as devError, a as devLog } from "./index-vtzBEVcA.js";
+import { u as useFormTypes, a as useExpenseTypes } from "./expense-api-DJdfwUeG.js";
 if (typeof window !== "undefined" && typeof performance !== "undefined") {
   const entries = performance.getEntriesByType("navigation");
   const nav = entries[0];
@@ -558,9 +558,9 @@ function requireReactDomClient_production() {
   __name(popHostContainer, "popHostContainer");
   function pushHostContext(fiber) {
     null !== fiber.memoizedState && push(hostTransitionProviderCursor, fiber);
-    var context = contextStackCursor.current;
-    var JSCompiler_inline_result = getChildHostContextProd(context, fiber.type);
-    context !== JSCompiler_inline_result && (push(contextFiberStackCursor, fiber), push(contextStackCursor, JSCompiler_inline_result));
+    var context2 = contextStackCursor.current;
+    var JSCompiler_inline_result = getChildHostContextProd(context2, fiber.type);
+    context2 !== JSCompiler_inline_result && (push(contextFiberStackCursor, fiber), push(contextStackCursor, JSCompiler_inline_result));
   }
   __name(pushHostContext, "pushHostContext");
   function popHostContext(fiber) {
@@ -1935,7 +1935,7 @@ function requireReactDomClient_production() {
   }
   __name(is, "is");
   var objectIs = "function" === typeof Object.is ? Object.is : is;
-  function shallowEqual(objA, objB) {
+  function shallowEqual2(objA, objB) {
     if (objectIs(objA, objB)) return true;
     if ("object" !== typeof objA || null === objA || "object" !== typeof objB || null === objB)
       return false;
@@ -1948,7 +1948,7 @@ function requireReactDomClient_production() {
     }
     return true;
   }
-  __name(shallowEqual, "shallowEqual");
+  __name(shallowEqual2, "shallowEqual");
   function getLeafNode(node) {
     for (; node && node.firstChild; ) node = node.firstChild;
     return node;
@@ -2010,7 +2010,7 @@ function requireReactDomClient_production() {
       anchorOffset: doc.anchorOffset,
       focusNode: doc.focusNode,
       focusOffset: doc.focusOffset
-    }), lastSelection && shallowEqual(lastSelection, doc) || (lastSelection = doc, doc = accumulateTwoPhaseListeners(activeElementInst, "onSelect"), 0 < doc.length && (nativeEvent = new SyntheticEvent(
+    }), lastSelection && shallowEqual2(lastSelection, doc) || (lastSelection = doc, doc = accumulateTwoPhaseListeners(activeElementInst, "onSelect"), 0 < doc.length && (nativeEvent = new SyntheticEvent(
       "onSelect",
       "select",
       null,
@@ -2148,9 +2148,9 @@ function requireReactDomClient_production() {
     return new FiberNode(tag, pendingProps, key, mode);
   }
   __name(createFiberImplClass, "createFiberImplClass");
-  function shouldConstruct(Component) {
-    Component = Component.prototype;
-    return !(!Component || !Component.isReactComponent);
+  function shouldConstruct(Component2) {
+    Component2 = Component2.prototype;
+    return !(!Component2 || !Component2.isReactComponent);
   }
   __name(shouldConstruct, "shouldConstruct");
   function createWorkInProgress(current, pendingProps) {
@@ -2480,13 +2480,13 @@ function requireReactDomClient_production() {
   }
   __name(queueHydrationError, "queueHydrationError");
   var valueCursor = createCursor(null), currentlyRenderingFiber$1 = null, lastContextDependency = null;
-  function pushProvider(providerFiber, context, nextValue) {
-    push(valueCursor, context._currentValue);
-    context._currentValue = nextValue;
+  function pushProvider(providerFiber, context2, nextValue) {
+    push(valueCursor, context2._currentValue);
+    context2._currentValue = nextValue;
   }
   __name(pushProvider, "pushProvider");
-  function popProvider(context) {
-    context._currentValue = valueCursor.current;
+  function popProvider(context2) {
+    context2._currentValue = valueCursor.current;
     pop(valueCursor);
   }
   __name(popProvider, "popProvider");
@@ -2565,8 +2565,8 @@ function requireReactDomClient_production() {
         if (null === currentParent) throw Error(formatProdErrorMessage(387));
         currentParent = currentParent.memoizedProps;
         if (null !== currentParent) {
-          var context = parent.type;
-          objectIs(parent.pendingProps.value, currentParent.value) || (null !== current ? current.push(context) : current = [context]);
+          var context2 = parent.type;
+          objectIs(parent.pendingProps.value, currentParent.value) || (null !== current ? current.push(context2) : current = [context2]);
         }
       } else if (parent === hostTransitionProviderCursor.current) {
         currentParent = parent.alternate;
@@ -2603,24 +2603,24 @@ function requireReactDomClient_production() {
     null !== workInProgress2 && (workInProgress2.firstContext = null);
   }
   __name(prepareToReadContext, "prepareToReadContext");
-  function readContext(context) {
-    return readContextForConsumer(currentlyRenderingFiber$1, context);
+  function readContext(context2) {
+    return readContextForConsumer(currentlyRenderingFiber$1, context2);
   }
   __name(readContext, "readContext");
-  function readContextDuringReconciliation(consumer, context) {
+  function readContextDuringReconciliation(consumer, context2) {
     null === currentlyRenderingFiber$1 && prepareToReadContext(consumer);
-    return readContextForConsumer(consumer, context);
+    return readContextForConsumer(consumer, context2);
   }
   __name(readContextDuringReconciliation, "readContextDuringReconciliation");
-  function readContextForConsumer(consumer, context) {
-    var value = context._currentValue;
-    context = { context, memoizedValue: value, next: null };
+  function readContextForConsumer(consumer, context2) {
+    var value = context2._currentValue;
+    context2 = { context: context2, memoizedValue: value, next: null };
     if (null === lastContextDependency) {
       if (null === consumer) throw Error(formatProdErrorMessage(308));
-      lastContextDependency = context;
-      consumer.dependencies = { lanes: 0, firstContext: context };
+      lastContextDependency = context2;
+      consumer.dependencies = { lanes: 0, firstContext: context2 };
       consumer.flags |= 524288;
-    } else lastContextDependency = lastContextDependency.next = context;
+    } else lastContextDependency = lastContextDependency.next = context2;
     return value;
   }
   __name(readContextForConsumer, "readContextForConsumer");
@@ -3468,25 +3468,25 @@ function requireReactDomClient_production() {
     }
   }
   __name(processUpdateQueue, "processUpdateQueue");
-  function callCallback(callback, context) {
+  function callCallback(callback, context2) {
     if ("function" !== typeof callback)
       throw Error(formatProdErrorMessage(191, callback));
-    callback.call(context);
+    callback.call(context2);
   }
   __name(callCallback, "callCallback");
-  function commitCallbacks(updateQueue, context) {
+  function commitCallbacks(updateQueue, context2) {
     var callbacks = updateQueue.callbacks;
     if (null !== callbacks)
       for (updateQueue.callbacks = null, updateQueue = 0; updateQueue < callbacks.length; updateQueue++)
-        callCallback(callbacks[updateQueue], context);
+        callCallback(callbacks[updateQueue], context2);
   }
   __name(commitCallbacks, "commitCallbacks");
   var currentTreeHiddenStackCursor = createCursor(null), prevEntangledRenderLanesCursor = createCursor(0);
-  function pushHiddenContext(fiber, context) {
+  function pushHiddenContext(fiber, context2) {
     fiber = entangledRenderLanes;
     push(prevEntangledRenderLanesCursor, fiber);
-    push(currentTreeHiddenStackCursor, context);
-    entangledRenderLanes = fiber | context.baseLanes;
+    push(currentTreeHiddenStackCursor, context2);
+    entangledRenderLanes = fiber | context2.baseLanes;
   }
   __name(pushHiddenContext, "pushHiddenContext");
   function reuseHiddenContextOnStack() {
@@ -3566,7 +3566,7 @@ function requireReactDomClient_production() {
     return true;
   }
   __name(areHookInputsEqual, "areHookInputsEqual");
-  function renderWithHooks(current, workInProgress2, Component, props, secondArg, nextRenderLanes) {
+  function renderWithHooks(current, workInProgress2, Component2, props, secondArg, nextRenderLanes) {
     renderLanes = nextRenderLanes;
     currentlyRenderingFiber = workInProgress2;
     workInProgress2.memoizedState = null;
@@ -3574,11 +3574,11 @@ function requireReactDomClient_production() {
     workInProgress2.lanes = 0;
     ReactSharedInternals.H = null === current || null === current.memoizedState ? HooksDispatcherOnMount : HooksDispatcherOnUpdate;
     shouldDoubleInvokeUserFnsInHooksDEV = false;
-    nextRenderLanes = Component(props, secondArg);
+    nextRenderLanes = Component2(props, secondArg);
     shouldDoubleInvokeUserFnsInHooksDEV = false;
     didScheduleRenderPhaseUpdateDuringThisPass && (nextRenderLanes = renderWithHooksAgain(
       workInProgress2,
-      Component,
+      Component2,
       props,
       secondArg
     ));
@@ -3598,7 +3598,7 @@ function requireReactDomClient_production() {
     null === current || didReceiveUpdate || (current = current.dependencies, null !== current && checkIfContextChanged(current) && (didReceiveUpdate = true));
   }
   __name(finishRenderingHooks, "finishRenderingHooks");
-  function renderWithHooksAgain(workInProgress2, Component, props, secondArg) {
+  function renderWithHooksAgain(workInProgress2, Component2, props, secondArg) {
     currentlyRenderingFiber = workInProgress2;
     var numberOfReRenders = 0;
     do {
@@ -3616,7 +3616,7 @@ function requireReactDomClient_production() {
         null != children.memoCache && (children.memoCache.index = 0);
       }
       ReactSharedInternals.H = HooksDispatcherOnRerender;
-      children = Component(props, secondArg);
+      children = Component2(props, secondArg);
     } while (didScheduleRenderPhaseUpdateDuringThisPass);
     return children;
   }
@@ -4877,7 +4877,7 @@ function requireReactDomClient_production() {
   };
   function checkShouldComponentUpdate(workInProgress2, ctor, oldProps, newProps, oldState, newState, nextContext) {
     workInProgress2 = workInProgress2.stateNode;
-    return "function" === typeof workInProgress2.shouldComponentUpdate ? workInProgress2.shouldComponentUpdate(newProps, newState, nextContext) : ctor.prototype && ctor.prototype.isPureReactComponent ? !shallowEqual(oldProps, newProps) || !shallowEqual(oldState, newState) : true;
+    return "function" === typeof workInProgress2.shouldComponentUpdate ? workInProgress2.shouldComponentUpdate(newProps, newState, nextContext) : ctor.prototype && ctor.prototype.isPureReactComponent ? !shallowEqual2(oldProps, newProps) || !shallowEqual2(oldState, newState) : true;
   }
   __name(checkShouldComponentUpdate, "checkShouldComponentUpdate");
   function callComponentWillReceiveProps(workInProgress2, instance, newProps, nextContext) {
@@ -4887,17 +4887,17 @@ function requireReactDomClient_production() {
     instance.state !== workInProgress2 && classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
   }
   __name(callComponentWillReceiveProps, "callComponentWillReceiveProps");
-  function resolveClassComponentProps(Component, baseProps) {
+  function resolveClassComponentProps(Component2, baseProps) {
     var newProps = baseProps;
     if ("ref" in baseProps) {
       newProps = {};
       for (var propName in baseProps)
         "ref" !== propName && (newProps[propName] = baseProps[propName]);
     }
-    if (Component = Component.defaultProps) {
+    if (Component2 = Component2.defaultProps) {
       newProps === baseProps && (newProps = assign({}, newProps));
-      for (var propName$73 in Component)
-        void 0 === newProps[propName$73] && (newProps[propName$73] = Component[propName$73]);
+      for (var propName$73 in Component2)
+        void 0 === newProps[propName$73] && (newProps[propName$73] = Component2[propName$73]);
     }
     return newProps;
   }
@@ -5051,8 +5051,8 @@ function requireReactDomClient_production() {
     );
   }
   __name(reconcileChildren, "reconcileChildren");
-  function updateForwardRef(current, workInProgress2, Component, nextProps, renderLanes2) {
-    Component = Component.render;
+  function updateForwardRef(current, workInProgress2, Component2, nextProps, renderLanes2) {
+    Component2 = Component2.render;
     var ref = workInProgress2.ref;
     if ("ref" in nextProps) {
       var propsWithoutRef = {};
@@ -5063,7 +5063,7 @@ function requireReactDomClient_production() {
     nextProps = renderWithHooks(
       current,
       workInProgress2,
-      Component,
+      Component2,
       propsWithoutRef,
       ref,
       renderLanes2
@@ -5077,10 +5077,10 @@ function requireReactDomClient_production() {
     return workInProgress2.child;
   }
   __name(updateForwardRef, "updateForwardRef");
-  function updateMemoComponent(current, workInProgress2, Component, nextProps, renderLanes2) {
+  function updateMemoComponent(current, workInProgress2, Component2, nextProps, renderLanes2) {
     if (null === current) {
-      var type = Component.type;
-      if ("function" === typeof type && !shouldConstruct(type) && void 0 === type.defaultProps && null === Component.compare)
+      var type = Component2.type;
+      if ("function" === typeof type && !shouldConstruct(type) && void 0 === type.defaultProps && null === Component2.compare)
         return workInProgress2.tag = 15, workInProgress2.type = type, updateSimpleMemoComponent(
           current,
           workInProgress2,
@@ -5089,7 +5089,7 @@ function requireReactDomClient_production() {
           renderLanes2
         );
       current = createFiberFromTypeAndProps(
-        Component.type,
+        Component2.type,
         null,
         nextProps,
         workInProgress2,
@@ -5103,9 +5103,9 @@ function requireReactDomClient_production() {
     type = current.child;
     if (!checkScheduledUpdateOrContext(current, renderLanes2)) {
       var prevProps = type.memoizedProps;
-      Component = Component.compare;
-      Component = null !== Component ? Component : shallowEqual;
-      if (Component(prevProps, nextProps) && current.ref === workInProgress2.ref)
+      Component2 = Component2.compare;
+      Component2 = null !== Component2 ? Component2 : shallowEqual2;
+      if (Component2(prevProps, nextProps) && current.ref === workInProgress2.ref)
         return bailoutOnAlreadyFinishedWork(current, workInProgress2, renderLanes2);
     }
     workInProgress2.flags |= 1;
@@ -5115,10 +5115,10 @@ function requireReactDomClient_production() {
     return workInProgress2.child = current;
   }
   __name(updateMemoComponent, "updateMemoComponent");
-  function updateSimpleMemoComponent(current, workInProgress2, Component, nextProps, renderLanes2) {
+  function updateSimpleMemoComponent(current, workInProgress2, Component2, nextProps, renderLanes2) {
     if (null !== current) {
       var prevProps = current.memoizedProps;
-      if (shallowEqual(prevProps, nextProps) && current.ref === workInProgress2.ref)
+      if (shallowEqual2(prevProps, nextProps) && current.ref === workInProgress2.ref)
         if (didReceiveUpdate = false, workInProgress2.pendingProps = nextProps = prevProps, checkScheduledUpdateOrContext(current, renderLanes2))
           0 !== (current.flags & 131072) && (didReceiveUpdate = true);
         else
@@ -5127,7 +5127,7 @@ function requireReactDomClient_production() {
     return updateFunctionComponent(
       current,
       workInProgress2,
-      Component,
+      Component2,
       nextProps,
       renderLanes2
     );
@@ -5295,12 +5295,12 @@ function requireReactDomClient_production() {
     }
   }
   __name(markRef, "markRef");
-  function updateFunctionComponent(current, workInProgress2, Component, nextProps, renderLanes2) {
+  function updateFunctionComponent(current, workInProgress2, Component2, nextProps, renderLanes2) {
     prepareToReadContext(workInProgress2);
-    Component = renderWithHooks(
+    Component2 = renderWithHooks(
       current,
       workInProgress2,
-      Component,
+      Component2,
       nextProps,
       void 0,
       renderLanes2
@@ -5310,140 +5310,140 @@ function requireReactDomClient_production() {
       return bailoutHooks(current, workInProgress2, renderLanes2), bailoutOnAlreadyFinishedWork(current, workInProgress2, renderLanes2);
     isHydrating && nextProps && pushMaterializedTreeId(workInProgress2);
     workInProgress2.flags |= 1;
-    reconcileChildren(current, workInProgress2, Component, renderLanes2);
+    reconcileChildren(current, workInProgress2, Component2, renderLanes2);
     return workInProgress2.child;
   }
   __name(updateFunctionComponent, "updateFunctionComponent");
-  function replayFunctionComponent(current, workInProgress2, nextProps, Component, secondArg, renderLanes2) {
+  function replayFunctionComponent(current, workInProgress2, nextProps, Component2, secondArg, renderLanes2) {
     prepareToReadContext(workInProgress2);
     workInProgress2.updateQueue = null;
     nextProps = renderWithHooksAgain(
       workInProgress2,
-      Component,
+      Component2,
       nextProps,
       secondArg
     );
     finishRenderingHooks(current);
-    Component = checkDidRenderIdHook();
+    Component2 = checkDidRenderIdHook();
     if (null !== current && !didReceiveUpdate)
       return bailoutHooks(current, workInProgress2, renderLanes2), bailoutOnAlreadyFinishedWork(current, workInProgress2, renderLanes2);
-    isHydrating && Component && pushMaterializedTreeId(workInProgress2);
+    isHydrating && Component2 && pushMaterializedTreeId(workInProgress2);
     workInProgress2.flags |= 1;
     reconcileChildren(current, workInProgress2, nextProps, renderLanes2);
     return workInProgress2.child;
   }
   __name(replayFunctionComponent, "replayFunctionComponent");
-  function updateClassComponent(current, workInProgress2, Component, nextProps, renderLanes2) {
+  function updateClassComponent(current, workInProgress2, Component2, nextProps, renderLanes2) {
     prepareToReadContext(workInProgress2);
     if (null === workInProgress2.stateNode) {
-      var context = emptyContextObject, contextType = Component.contextType;
-      "object" === typeof contextType && null !== contextType && (context = readContext(contextType));
-      context = new Component(nextProps, context);
-      workInProgress2.memoizedState = null !== context.state && void 0 !== context.state ? context.state : null;
-      context.updater = classComponentUpdater;
-      workInProgress2.stateNode = context;
-      context._reactInternals = workInProgress2;
-      context = workInProgress2.stateNode;
-      context.props = nextProps;
-      context.state = workInProgress2.memoizedState;
-      context.refs = {};
+      var context2 = emptyContextObject, contextType = Component2.contextType;
+      "object" === typeof contextType && null !== contextType && (context2 = readContext(contextType));
+      context2 = new Component2(nextProps, context2);
+      workInProgress2.memoizedState = null !== context2.state && void 0 !== context2.state ? context2.state : null;
+      context2.updater = classComponentUpdater;
+      workInProgress2.stateNode = context2;
+      context2._reactInternals = workInProgress2;
+      context2 = workInProgress2.stateNode;
+      context2.props = nextProps;
+      context2.state = workInProgress2.memoizedState;
+      context2.refs = {};
       initializeUpdateQueue(workInProgress2);
-      contextType = Component.contextType;
-      context.context = "object" === typeof contextType && null !== contextType ? readContext(contextType) : emptyContextObject;
-      context.state = workInProgress2.memoizedState;
-      contextType = Component.getDerivedStateFromProps;
+      contextType = Component2.contextType;
+      context2.context = "object" === typeof contextType && null !== contextType ? readContext(contextType) : emptyContextObject;
+      context2.state = workInProgress2.memoizedState;
+      contextType = Component2.getDerivedStateFromProps;
       "function" === typeof contextType && (applyDerivedStateFromProps(
         workInProgress2,
-        Component,
+        Component2,
         contextType,
         nextProps
-      ), context.state = workInProgress2.memoizedState);
-      "function" === typeof Component.getDerivedStateFromProps || "function" === typeof context.getSnapshotBeforeUpdate || "function" !== typeof context.UNSAFE_componentWillMount && "function" !== typeof context.componentWillMount || (contextType = context.state, "function" === typeof context.componentWillMount && context.componentWillMount(), "function" === typeof context.UNSAFE_componentWillMount && context.UNSAFE_componentWillMount(), contextType !== context.state && classComponentUpdater.enqueueReplaceState(context, context.state, null), processUpdateQueue(workInProgress2, nextProps, context, renderLanes2), suspendIfUpdateReadFromEntangledAsyncAction(), context.state = workInProgress2.memoizedState);
-      "function" === typeof context.componentDidMount && (workInProgress2.flags |= 4194308);
+      ), context2.state = workInProgress2.memoizedState);
+      "function" === typeof Component2.getDerivedStateFromProps || "function" === typeof context2.getSnapshotBeforeUpdate || "function" !== typeof context2.UNSAFE_componentWillMount && "function" !== typeof context2.componentWillMount || (contextType = context2.state, "function" === typeof context2.componentWillMount && context2.componentWillMount(), "function" === typeof context2.UNSAFE_componentWillMount && context2.UNSAFE_componentWillMount(), contextType !== context2.state && classComponentUpdater.enqueueReplaceState(context2, context2.state, null), processUpdateQueue(workInProgress2, nextProps, context2, renderLanes2), suspendIfUpdateReadFromEntangledAsyncAction(), context2.state = workInProgress2.memoizedState);
+      "function" === typeof context2.componentDidMount && (workInProgress2.flags |= 4194308);
       nextProps = true;
     } else if (null === current) {
-      context = workInProgress2.stateNode;
-      var unresolvedOldProps = workInProgress2.memoizedProps, oldProps = resolveClassComponentProps(Component, unresolvedOldProps);
-      context.props = oldProps;
-      var oldContext = context.context, contextType$jscomp$0 = Component.contextType;
+      context2 = workInProgress2.stateNode;
+      var unresolvedOldProps = workInProgress2.memoizedProps, oldProps = resolveClassComponentProps(Component2, unresolvedOldProps);
+      context2.props = oldProps;
+      var oldContext = context2.context, contextType$jscomp$0 = Component2.contextType;
       contextType = emptyContextObject;
       "object" === typeof contextType$jscomp$0 && null !== contextType$jscomp$0 && (contextType = readContext(contextType$jscomp$0));
-      var getDerivedStateFromProps = Component.getDerivedStateFromProps;
-      contextType$jscomp$0 = "function" === typeof getDerivedStateFromProps || "function" === typeof context.getSnapshotBeforeUpdate;
+      var getDerivedStateFromProps = Component2.getDerivedStateFromProps;
+      contextType$jscomp$0 = "function" === typeof getDerivedStateFromProps || "function" === typeof context2.getSnapshotBeforeUpdate;
       unresolvedOldProps = workInProgress2.pendingProps !== unresolvedOldProps;
-      contextType$jscomp$0 || "function" !== typeof context.UNSAFE_componentWillReceiveProps && "function" !== typeof context.componentWillReceiveProps || (unresolvedOldProps || oldContext !== contextType) && callComponentWillReceiveProps(
+      contextType$jscomp$0 || "function" !== typeof context2.UNSAFE_componentWillReceiveProps && "function" !== typeof context2.componentWillReceiveProps || (unresolvedOldProps || oldContext !== contextType) && callComponentWillReceiveProps(
         workInProgress2,
-        context,
+        context2,
         nextProps,
         contextType
       );
       hasForceUpdate = false;
       var oldState = workInProgress2.memoizedState;
-      context.state = oldState;
-      processUpdateQueue(workInProgress2, nextProps, context, renderLanes2);
+      context2.state = oldState;
+      processUpdateQueue(workInProgress2, nextProps, context2, renderLanes2);
       suspendIfUpdateReadFromEntangledAsyncAction();
       oldContext = workInProgress2.memoizedState;
       unresolvedOldProps || oldState !== oldContext || hasForceUpdate ? ("function" === typeof getDerivedStateFromProps && (applyDerivedStateFromProps(
         workInProgress2,
-        Component,
+        Component2,
         getDerivedStateFromProps,
         nextProps
       ), oldContext = workInProgress2.memoizedState), (oldProps = hasForceUpdate || checkShouldComponentUpdate(
         workInProgress2,
-        Component,
+        Component2,
         oldProps,
         nextProps,
         oldState,
         oldContext,
         contextType
-      )) ? (contextType$jscomp$0 || "function" !== typeof context.UNSAFE_componentWillMount && "function" !== typeof context.componentWillMount || ("function" === typeof context.componentWillMount && context.componentWillMount(), "function" === typeof context.UNSAFE_componentWillMount && context.UNSAFE_componentWillMount()), "function" === typeof context.componentDidMount && (workInProgress2.flags |= 4194308)) : ("function" === typeof context.componentDidMount && (workInProgress2.flags |= 4194308), workInProgress2.memoizedProps = nextProps, workInProgress2.memoizedState = oldContext), context.props = nextProps, context.state = oldContext, context.context = contextType, nextProps = oldProps) : ("function" === typeof context.componentDidMount && (workInProgress2.flags |= 4194308), nextProps = false);
+      )) ? (contextType$jscomp$0 || "function" !== typeof context2.UNSAFE_componentWillMount && "function" !== typeof context2.componentWillMount || ("function" === typeof context2.componentWillMount && context2.componentWillMount(), "function" === typeof context2.UNSAFE_componentWillMount && context2.UNSAFE_componentWillMount()), "function" === typeof context2.componentDidMount && (workInProgress2.flags |= 4194308)) : ("function" === typeof context2.componentDidMount && (workInProgress2.flags |= 4194308), workInProgress2.memoizedProps = nextProps, workInProgress2.memoizedState = oldContext), context2.props = nextProps, context2.state = oldContext, context2.context = contextType, nextProps = oldProps) : ("function" === typeof context2.componentDidMount && (workInProgress2.flags |= 4194308), nextProps = false);
     } else {
-      context = workInProgress2.stateNode;
+      context2 = workInProgress2.stateNode;
       cloneUpdateQueue(current, workInProgress2);
       contextType = workInProgress2.memoizedProps;
-      contextType$jscomp$0 = resolveClassComponentProps(Component, contextType);
-      context.props = contextType$jscomp$0;
+      contextType$jscomp$0 = resolveClassComponentProps(Component2, contextType);
+      context2.props = contextType$jscomp$0;
       getDerivedStateFromProps = workInProgress2.pendingProps;
-      oldState = context.context;
-      oldContext = Component.contextType;
+      oldState = context2.context;
+      oldContext = Component2.contextType;
       oldProps = emptyContextObject;
       "object" === typeof oldContext && null !== oldContext && (oldProps = readContext(oldContext));
-      unresolvedOldProps = Component.getDerivedStateFromProps;
-      (oldContext = "function" === typeof unresolvedOldProps || "function" === typeof context.getSnapshotBeforeUpdate) || "function" !== typeof context.UNSAFE_componentWillReceiveProps && "function" !== typeof context.componentWillReceiveProps || (contextType !== getDerivedStateFromProps || oldState !== oldProps) && callComponentWillReceiveProps(
+      unresolvedOldProps = Component2.getDerivedStateFromProps;
+      (oldContext = "function" === typeof unresolvedOldProps || "function" === typeof context2.getSnapshotBeforeUpdate) || "function" !== typeof context2.UNSAFE_componentWillReceiveProps && "function" !== typeof context2.componentWillReceiveProps || (contextType !== getDerivedStateFromProps || oldState !== oldProps) && callComponentWillReceiveProps(
         workInProgress2,
-        context,
+        context2,
         nextProps,
         oldProps
       );
       hasForceUpdate = false;
       oldState = workInProgress2.memoizedState;
-      context.state = oldState;
-      processUpdateQueue(workInProgress2, nextProps, context, renderLanes2);
+      context2.state = oldState;
+      processUpdateQueue(workInProgress2, nextProps, context2, renderLanes2);
       suspendIfUpdateReadFromEntangledAsyncAction();
       var newState = workInProgress2.memoizedState;
       contextType !== getDerivedStateFromProps || oldState !== newState || hasForceUpdate || null !== current && null !== current.dependencies && checkIfContextChanged(current.dependencies) ? ("function" === typeof unresolvedOldProps && (applyDerivedStateFromProps(
         workInProgress2,
-        Component,
+        Component2,
         unresolvedOldProps,
         nextProps
       ), newState = workInProgress2.memoizedState), (contextType$jscomp$0 = hasForceUpdate || checkShouldComponentUpdate(
         workInProgress2,
-        Component,
+        Component2,
         contextType$jscomp$0,
         nextProps,
         oldState,
         newState,
         oldProps
-      ) || null !== current && null !== current.dependencies && checkIfContextChanged(current.dependencies)) ? (oldContext || "function" !== typeof context.UNSAFE_componentWillUpdate && "function" !== typeof context.componentWillUpdate || ("function" === typeof context.componentWillUpdate && context.componentWillUpdate(nextProps, newState, oldProps), "function" === typeof context.UNSAFE_componentWillUpdate && context.UNSAFE_componentWillUpdate(
+      ) || null !== current && null !== current.dependencies && checkIfContextChanged(current.dependencies)) ? (oldContext || "function" !== typeof context2.UNSAFE_componentWillUpdate && "function" !== typeof context2.componentWillUpdate || ("function" === typeof context2.componentWillUpdate && context2.componentWillUpdate(nextProps, newState, oldProps), "function" === typeof context2.UNSAFE_componentWillUpdate && context2.UNSAFE_componentWillUpdate(
         nextProps,
         newState,
         oldProps
-      )), "function" === typeof context.componentDidUpdate && (workInProgress2.flags |= 4), "function" === typeof context.getSnapshotBeforeUpdate && (workInProgress2.flags |= 1024)) : ("function" !== typeof context.componentDidUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 4), "function" !== typeof context.getSnapshotBeforeUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 1024), workInProgress2.memoizedProps = nextProps, workInProgress2.memoizedState = newState), context.props = nextProps, context.state = newState, context.context = oldProps, nextProps = contextType$jscomp$0) : ("function" !== typeof context.componentDidUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 4), "function" !== typeof context.getSnapshotBeforeUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 1024), nextProps = false);
+      )), "function" === typeof context2.componentDidUpdate && (workInProgress2.flags |= 4), "function" === typeof context2.getSnapshotBeforeUpdate && (workInProgress2.flags |= 1024)) : ("function" !== typeof context2.componentDidUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 4), "function" !== typeof context2.getSnapshotBeforeUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 1024), workInProgress2.memoizedProps = nextProps, workInProgress2.memoizedState = newState), context2.props = nextProps, context2.state = newState, context2.context = oldProps, nextProps = contextType$jscomp$0) : ("function" !== typeof context2.componentDidUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 4), "function" !== typeof context2.getSnapshotBeforeUpdate || contextType === current.memoizedProps && oldState === current.memoizedState || (workInProgress2.flags |= 1024), nextProps = false);
     }
-    context = nextProps;
+    context2 = nextProps;
     markRef(current, workInProgress2);
     nextProps = 0 !== (workInProgress2.flags & 128);
-    context || nextProps ? (context = workInProgress2.stateNode, Component = nextProps && "function" !== typeof Component.getDerivedStateFromError ? null : context.render(), workInProgress2.flags |= 1, null !== current && nextProps ? (workInProgress2.child = reconcileChildFibers(
+    context2 || nextProps ? (context2 = workInProgress2.stateNode, Component2 = nextProps && "function" !== typeof Component2.getDerivedStateFromError ? null : context2.render(), workInProgress2.flags |= 1, null !== current && nextProps ? (workInProgress2.child = reconcileChildFibers(
       workInProgress2,
       current.child,
       null,
@@ -5451,9 +5451,9 @@ function requireReactDomClient_production() {
     ), workInProgress2.child = reconcileChildFibers(
       workInProgress2,
       null,
-      Component,
+      Component2,
       renderLanes2
-    )) : reconcileChildren(current, workInProgress2, Component, renderLanes2), workInProgress2.memoizedState = context.state, current = workInProgress2.child) : current = bailoutOnAlreadyFinishedWork(
+    )) : reconcileChildren(current, workInProgress2, Component2, renderLanes2), workInProgress2.memoizedState = context2.state, current = workInProgress2.child) : current = bailoutOnAlreadyFinishedWork(
       current,
       workInProgress2,
       renderLanes2
@@ -12800,11 +12800,11 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
     }) }) })
   ] });
 }, "NavigationSidebar");
-const { useEffect: useEffect$1 } = await importShared("react");
+const { useEffect: useEffect$2 } = await importShared("react");
 function useExpenseIdForSwap() {
   const isAuthenticated = useJWTStore((state) => state.isAuthenticated);
   const navigate = useNavigate();
-  useEffect$1(() => {
+  useEffect$2(() => {
     if (isAuthenticated) {
       const id = sessionStorage.getItem(SessionStorageKeys.EXPENSE_ID_FOR_SWAP);
       if (id) {
@@ -12815,14 +12815,1058 @@ function useExpenseIdForSwap() {
   }, [isAuthenticated, navigate]);
 }
 __name(useExpenseIdForSwap, "useExpenseIdForSwap");
+const VERSION = "1.9.1";
+const re = /^(\d+)\.(\d+)\.(\d+)(-(.+))?$/;
+function _makeCompatibilityCheck(ownVersion) {
+  const acceptedVersions = /* @__PURE__ */ new Set([ownVersion]);
+  const rejectedVersions = /* @__PURE__ */ new Set();
+  const myVersionMatch = ownVersion.match(re);
+  if (!myVersionMatch) {
+    return () => false;
+  }
+  const ownVersionParsed = {
+    major: +myVersionMatch[1],
+    minor: +myVersionMatch[2],
+    patch: +myVersionMatch[3],
+    prerelease: myVersionMatch[4]
+  };
+  if (ownVersionParsed.prerelease != null) {
+    return /* @__PURE__ */ __name(function isExactmatch(globalVersion) {
+      return globalVersion === ownVersion;
+    }, "isExactmatch");
+  }
+  function _reject(v) {
+    rejectedVersions.add(v);
+    return false;
+  }
+  __name(_reject, "_reject");
+  function _accept(v) {
+    acceptedVersions.add(v);
+    return true;
+  }
+  __name(_accept, "_accept");
+  return /* @__PURE__ */ __name(function isCompatible2(globalVersion) {
+    if (acceptedVersions.has(globalVersion)) {
+      return true;
+    }
+    if (rejectedVersions.has(globalVersion)) {
+      return false;
+    }
+    const globalVersionMatch = globalVersion.match(re);
+    if (!globalVersionMatch) {
+      return _reject(globalVersion);
+    }
+    const globalVersionParsed = {
+      major: +globalVersionMatch[1],
+      minor: +globalVersionMatch[2],
+      patch: +globalVersionMatch[3],
+      prerelease: globalVersionMatch[4]
+    };
+    if (globalVersionParsed.prerelease != null) {
+      return _reject(globalVersion);
+    }
+    if (ownVersionParsed.major !== globalVersionParsed.major) {
+      return _reject(globalVersion);
+    }
+    if (ownVersionParsed.major === 0) {
+      if (ownVersionParsed.minor === globalVersionParsed.minor && ownVersionParsed.patch <= globalVersionParsed.patch) {
+        return _accept(globalVersion);
+      }
+      return _reject(globalVersion);
+    }
+    if (ownVersionParsed.minor <= globalVersionParsed.minor) {
+      return _accept(globalVersion);
+    }
+    return _reject(globalVersion);
+  }, "isCompatible");
+}
+__name(_makeCompatibilityCheck, "_makeCompatibilityCheck");
+const isCompatible = _makeCompatibilityCheck(VERSION);
+const major = VERSION.split(".")[0];
+const GLOBAL_OPENTELEMETRY_API_KEY = /* @__PURE__ */ Symbol.for(`opentelemetry.js.api.${major}`);
+const _global = typeof globalThis === "object" ? globalThis : typeof self === "object" ? self : typeof window === "object" ? window : typeof global === "object" ? global : {};
+function registerGlobal(type, instance, diag2, allowOverride = false) {
+  var _a;
+  const api = _global[GLOBAL_OPENTELEMETRY_API_KEY] = (_a = _global[GLOBAL_OPENTELEMETRY_API_KEY]) !== null && _a !== void 0 ? _a : {
+    version: VERSION
+  };
+  if (!allowOverride && api[type]) {
+    const err = new Error(`@opentelemetry/api: Attempted duplicate registration of API: ${type}`);
+    diag2.error(err.stack || err.message);
+    return false;
+  }
+  if (api.version !== VERSION) {
+    const err = new Error(`@opentelemetry/api: Registration of version v${api.version} for ${type} does not match previously registered API v${VERSION}`);
+    diag2.error(err.stack || err.message);
+    return false;
+  }
+  api[type] = instance;
+  diag2.debug(`@opentelemetry/api: Registered a global for ${type} v${VERSION}.`);
+  return true;
+}
+__name(registerGlobal, "registerGlobal");
+function getGlobal(type) {
+  var _a, _b;
+  const globalVersion = (_a = _global[GLOBAL_OPENTELEMETRY_API_KEY]) === null || _a === void 0 ? void 0 : _a.version;
+  if (!globalVersion || !isCompatible(globalVersion)) {
+    return;
+  }
+  return (_b = _global[GLOBAL_OPENTELEMETRY_API_KEY]) === null || _b === void 0 ? void 0 : _b[type];
+}
+__name(getGlobal, "getGlobal");
+function unregisterGlobal(type, diag2) {
+  diag2.debug(`@opentelemetry/api: Unregistering a global for ${type} v${VERSION}.`);
+  const api = _global[GLOBAL_OPENTELEMETRY_API_KEY];
+  if (api) {
+    delete api[type];
+  }
+}
+__name(unregisterGlobal, "unregisterGlobal");
+const _DiagComponentLogger = class _DiagComponentLogger {
+  constructor(props) {
+    this._namespace = props.namespace || "DiagComponentLogger";
+  }
+  debug(...args) {
+    return logProxy("debug", this._namespace, args);
+  }
+  error(...args) {
+    return logProxy("error", this._namespace, args);
+  }
+  info(...args) {
+    return logProxy("info", this._namespace, args);
+  }
+  warn(...args) {
+    return logProxy("warn", this._namespace, args);
+  }
+  verbose(...args) {
+    return logProxy("verbose", this._namespace, args);
+  }
+};
+__name(_DiagComponentLogger, "DiagComponentLogger");
+let DiagComponentLogger = _DiagComponentLogger;
+function logProxy(funcName, namespace, args) {
+  const logger = getGlobal("diag");
+  if (!logger) {
+    return;
+  }
+  return logger[funcName](namespace, ...args);
+}
+__name(logProxy, "logProxy");
+var DiagLogLevel;
+(function(DiagLogLevel2) {
+  DiagLogLevel2[DiagLogLevel2["NONE"] = 0] = "NONE";
+  DiagLogLevel2[DiagLogLevel2["ERROR"] = 30] = "ERROR";
+  DiagLogLevel2[DiagLogLevel2["WARN"] = 50] = "WARN";
+  DiagLogLevel2[DiagLogLevel2["INFO"] = 60] = "INFO";
+  DiagLogLevel2[DiagLogLevel2["DEBUG"] = 70] = "DEBUG";
+  DiagLogLevel2[DiagLogLevel2["VERBOSE"] = 80] = "VERBOSE";
+  DiagLogLevel2[DiagLogLevel2["ALL"] = 9999] = "ALL";
+})(DiagLogLevel || (DiagLogLevel = {}));
+function createLogLevelDiagLogger(maxLevel, logger) {
+  if (maxLevel < DiagLogLevel.NONE) {
+    maxLevel = DiagLogLevel.NONE;
+  } else if (maxLevel > DiagLogLevel.ALL) {
+    maxLevel = DiagLogLevel.ALL;
+  }
+  logger = logger || {};
+  function _filterFunc(funcName, theLevel) {
+    const theFunc = logger[funcName];
+    if (typeof theFunc === "function" && maxLevel >= theLevel) {
+      return theFunc.bind(logger);
+    }
+    return function() {
+    };
+  }
+  __name(_filterFunc, "_filterFunc");
+  return {
+    error: _filterFunc("error", DiagLogLevel.ERROR),
+    warn: _filterFunc("warn", DiagLogLevel.WARN),
+    info: _filterFunc("info", DiagLogLevel.INFO),
+    debug: _filterFunc("debug", DiagLogLevel.DEBUG),
+    verbose: _filterFunc("verbose", DiagLogLevel.VERBOSE)
+  };
+}
+__name(createLogLevelDiagLogger, "createLogLevelDiagLogger");
+const API_NAME$3 = "diag";
+const _DiagAPI = class _DiagAPI {
+  /** Get the singleton instance of the DiagAPI API */
+  static instance() {
+    if (!this._instance) {
+      this._instance = new _DiagAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Private internal constructor
+   * @private
+   */
+  constructor() {
+    function _logProxy(funcName) {
+      return function(...args) {
+        const logger = getGlobal("diag");
+        if (!logger)
+          return;
+        return logger[funcName](...args);
+      };
+    }
+    __name(_logProxy, "_logProxy");
+    const self2 = this;
+    const setLogger = /* @__PURE__ */ __name((logger, optionsOrLogLevel = { logLevel: DiagLogLevel.INFO }) => {
+      var _a, _b, _c;
+      if (logger === self2) {
+        const err = new Error("Cannot use diag as the logger for itself. Please use a DiagLogger implementation like ConsoleDiagLogger or a custom implementation");
+        self2.error((_a = err.stack) !== null && _a !== void 0 ? _a : err.message);
+        return false;
+      }
+      if (typeof optionsOrLogLevel === "number") {
+        optionsOrLogLevel = {
+          logLevel: optionsOrLogLevel
+        };
+      }
+      const oldLogger = getGlobal("diag");
+      const newLogger = createLogLevelDiagLogger((_b = optionsOrLogLevel.logLevel) !== null && _b !== void 0 ? _b : DiagLogLevel.INFO, logger);
+      if (oldLogger && !optionsOrLogLevel.suppressOverrideMessage) {
+        const stack = (_c = new Error().stack) !== null && _c !== void 0 ? _c : "<failed to generate stacktrace>";
+        oldLogger.warn(`Current logger will be overwritten from ${stack}`);
+        newLogger.warn(`Current logger will overwrite one already registered from ${stack}`);
+      }
+      return registerGlobal("diag", newLogger, self2, true);
+    }, "setLogger");
+    self2.setLogger = setLogger;
+    self2.disable = () => {
+      unregisterGlobal(API_NAME$3, self2);
+    };
+    self2.createComponentLogger = (options) => {
+      return new DiagComponentLogger(options);
+    };
+    self2.verbose = _logProxy("verbose");
+    self2.debug = _logProxy("debug");
+    self2.info = _logProxy("info");
+    self2.warn = _logProxy("warn");
+    self2.error = _logProxy("error");
+  }
+};
+__name(_DiagAPI, "DiagAPI");
+let DiagAPI = _DiagAPI;
+const _BaggageImpl = class _BaggageImpl {
+  constructor(entries) {
+    this._entries = entries ? new Map(entries) : /* @__PURE__ */ new Map();
+  }
+  getEntry(key) {
+    const entry = this._entries.get(key);
+    if (!entry) {
+      return void 0;
+    }
+    return Object.assign({}, entry);
+  }
+  getAllEntries() {
+    return Array.from(this._entries.entries());
+  }
+  setEntry(key, entry) {
+    const newBaggage = new _BaggageImpl(this._entries);
+    newBaggage._entries.set(key, entry);
+    return newBaggage;
+  }
+  removeEntry(key) {
+    const newBaggage = new _BaggageImpl(this._entries);
+    newBaggage._entries.delete(key);
+    return newBaggage;
+  }
+  removeEntries(...keys) {
+    const newBaggage = new _BaggageImpl(this._entries);
+    for (const key of keys) {
+      newBaggage._entries.delete(key);
+    }
+    return newBaggage;
+  }
+  clear() {
+    return new _BaggageImpl();
+  }
+};
+__name(_BaggageImpl, "BaggageImpl");
+let BaggageImpl = _BaggageImpl;
+const baggageEntryMetadataSymbol = /* @__PURE__ */ Symbol("BaggageEntryMetadata");
+const diag = DiagAPI.instance();
+function createBaggage(entries = {}) {
+  return new BaggageImpl(new Map(Object.entries(entries)));
+}
+__name(createBaggage, "createBaggage");
+function baggageEntryMetadataFromString(str) {
+  if (typeof str !== "string") {
+    diag.error(`Cannot create baggage metadata from unknown type: ${typeof str}`);
+    str = "";
+  }
+  return {
+    __TYPE__: baggageEntryMetadataSymbol,
+    toString() {
+      return str;
+    }
+  };
+}
+__name(baggageEntryMetadataFromString, "baggageEntryMetadataFromString");
+function createContextKey(description) {
+  return Symbol.for(description);
+}
+__name(createContextKey, "createContextKey");
+const _BaseContext = class _BaseContext {
+  /**
+   * Construct a new context which inherits values from an optional parent context.
+   *
+   * @param parentContext a context from which to inherit values
+   */
+  constructor(parentContext) {
+    const self2 = this;
+    self2._currentContext = parentContext ? new Map(parentContext) : /* @__PURE__ */ new Map();
+    self2.getValue = (key) => self2._currentContext.get(key);
+    self2.setValue = (key, value) => {
+      const context2 = new _BaseContext(self2._currentContext);
+      context2._currentContext.set(key, value);
+      return context2;
+    };
+    self2.deleteValue = (key) => {
+      const context2 = new _BaseContext(self2._currentContext);
+      context2._currentContext.delete(key);
+      return context2;
+    };
+  }
+};
+__name(_BaseContext, "BaseContext");
+let BaseContext = _BaseContext;
+const ROOT_CONTEXT = new BaseContext();
+const defaultTextMapGetter = {
+  get(carrier, key) {
+    if (carrier == null) {
+      return void 0;
+    }
+    return carrier[key];
+  },
+  keys(carrier) {
+    if (carrier == null) {
+      return [];
+    }
+    return Object.keys(carrier);
+  }
+};
+const defaultTextMapSetter = {
+  set(carrier, key, value) {
+    if (carrier == null) {
+      return;
+    }
+    carrier[key] = value;
+  }
+};
+const _NoopContextManager = class _NoopContextManager {
+  active() {
+    return ROOT_CONTEXT;
+  }
+  with(_context, fn, thisArg, ...args) {
+    return fn.call(thisArg, ...args);
+  }
+  bind(_context, target) {
+    return target;
+  }
+  enable() {
+    return this;
+  }
+  disable() {
+    return this;
+  }
+};
+__name(_NoopContextManager, "NoopContextManager");
+let NoopContextManager = _NoopContextManager;
+const API_NAME$2 = "context";
+const NOOP_CONTEXT_MANAGER = new NoopContextManager();
+const _ContextAPI = class _ContextAPI {
+  /** Empty private constructor prevents end users from constructing a new instance of the API */
+  constructor() {
+  }
+  /** Get the singleton instance of the Context API */
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _ContextAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Set the current context manager.
+   *
+   * @returns true if the context manager was successfully registered, else false
+   */
+  setGlobalContextManager(contextManager) {
+    return registerGlobal(API_NAME$2, contextManager, DiagAPI.instance());
+  }
+  /**
+   * Get the currently active context
+   */
+  active() {
+    return this._getContextManager().active();
+  }
+  /**
+   * Execute a function with an active context
+   *
+   * @param context context to be active during function execution
+   * @param fn function to execute in a context
+   * @param thisArg optional receiver to be used for calling fn
+   * @param args optional arguments forwarded to fn
+   */
+  with(context2, fn, thisArg, ...args) {
+    return this._getContextManager().with(context2, fn, thisArg, ...args);
+  }
+  /**
+   * Bind a context to a target function or event emitter
+   *
+   * @param context context to bind to the event emitter or function. Defaults to the currently active context
+   * @param target function or event emitter to bind
+   */
+  bind(context2, target) {
+    return this._getContextManager().bind(context2, target);
+  }
+  _getContextManager() {
+    return getGlobal(API_NAME$2) || NOOP_CONTEXT_MANAGER;
+  }
+  /** Disable and remove the global context manager */
+  disable() {
+    this._getContextManager().disable();
+    unregisterGlobal(API_NAME$2, DiagAPI.instance());
+  }
+};
+__name(_ContextAPI, "ContextAPI");
+let ContextAPI = _ContextAPI;
+var TraceFlags;
+(function(TraceFlags2) {
+  TraceFlags2[TraceFlags2["NONE"] = 0] = "NONE";
+  TraceFlags2[TraceFlags2["SAMPLED"] = 1] = "SAMPLED";
+})(TraceFlags || (TraceFlags = {}));
+const INVALID_SPANID = "0000000000000000";
+const INVALID_TRACEID = "00000000000000000000000000000000";
+const INVALID_SPAN_CONTEXT = {
+  traceId: INVALID_TRACEID,
+  spanId: INVALID_SPANID,
+  traceFlags: TraceFlags.NONE
+};
+const _NonRecordingSpan = class _NonRecordingSpan {
+  constructor(spanContext = INVALID_SPAN_CONTEXT) {
+    this._spanContext = spanContext;
+  }
+  // Returns a SpanContext.
+  spanContext() {
+    return this._spanContext;
+  }
+  // By default does nothing
+  setAttribute(_key, _value) {
+    return this;
+  }
+  // By default does nothing
+  setAttributes(_attributes) {
+    return this;
+  }
+  // By default does nothing
+  addEvent(_name, _attributes) {
+    return this;
+  }
+  addLink(_link) {
+    return this;
+  }
+  addLinks(_links) {
+    return this;
+  }
+  // By default does nothing
+  setStatus(_status) {
+    return this;
+  }
+  // By default does nothing
+  updateName(_name) {
+    return this;
+  }
+  // By default does nothing
+  end(_endTime) {
+  }
+  // isRecording always returns false for NonRecordingSpan.
+  isRecording() {
+    return false;
+  }
+  // By default does nothing
+  recordException(_exception, _time) {
+  }
+};
+__name(_NonRecordingSpan, "NonRecordingSpan");
+let NonRecordingSpan = _NonRecordingSpan;
+const SPAN_KEY = createContextKey("OpenTelemetry Context Key SPAN");
+function getSpan(context2) {
+  return context2.getValue(SPAN_KEY) || void 0;
+}
+__name(getSpan, "getSpan");
+function getActiveSpan() {
+  return getSpan(ContextAPI.getInstance().active());
+}
+__name(getActiveSpan, "getActiveSpan");
+function setSpan(context2, span) {
+  return context2.setValue(SPAN_KEY, span);
+}
+__name(setSpan, "setSpan");
+function deleteSpan(context2) {
+  return context2.deleteValue(SPAN_KEY);
+}
+__name(deleteSpan, "deleteSpan");
+function setSpanContext(context2, spanContext) {
+  return setSpan(context2, new NonRecordingSpan(spanContext));
+}
+__name(setSpanContext, "setSpanContext");
+function getSpanContext(context2) {
+  var _a;
+  return (_a = getSpan(context2)) === null || _a === void 0 ? void 0 : _a.spanContext();
+}
+__name(getSpanContext, "getSpanContext");
+const isHex = new Uint8Array([
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+]);
+function isValidHex(id, length) {
+  if (typeof id !== "string" || id.length !== length)
+    return false;
+  let r = 0;
+  for (let i = 0; i < id.length; i += 4) {
+    r += (isHex[id.charCodeAt(i)] | 0) + (isHex[id.charCodeAt(i + 1)] | 0) + (isHex[id.charCodeAt(i + 2)] | 0) + (isHex[id.charCodeAt(i + 3)] | 0);
+  }
+  return r === length;
+}
+__name(isValidHex, "isValidHex");
+function isValidTraceId(traceId) {
+  return isValidHex(traceId, 32) && traceId !== INVALID_TRACEID;
+}
+__name(isValidTraceId, "isValidTraceId");
+function isValidSpanId(spanId) {
+  return isValidHex(spanId, 16) && spanId !== INVALID_SPANID;
+}
+__name(isValidSpanId, "isValidSpanId");
+function isSpanContextValid(spanContext) {
+  return isValidTraceId(spanContext.traceId) && isValidSpanId(spanContext.spanId);
+}
+__name(isSpanContextValid, "isSpanContextValid");
+function wrapSpanContext(spanContext) {
+  return new NonRecordingSpan(spanContext);
+}
+__name(wrapSpanContext, "wrapSpanContext");
+const contextApi = ContextAPI.getInstance();
+const _NoopTracer = class _NoopTracer {
+  // startSpan starts a noop span.
+  startSpan(name, options, context2 = contextApi.active()) {
+    const root = Boolean(options === null || options === void 0 ? void 0 : options.root);
+    if (root) {
+      return new NonRecordingSpan();
+    }
+    const parentFromContext = context2 && getSpanContext(context2);
+    if (isSpanContext(parentFromContext) && isSpanContextValid(parentFromContext)) {
+      return new NonRecordingSpan(parentFromContext);
+    } else {
+      return new NonRecordingSpan();
+    }
+  }
+  startActiveSpan(name, arg2, arg3, arg4) {
+    let opts;
+    let ctx;
+    let fn;
+    if (arguments.length < 2) {
+      return;
+    } else if (arguments.length === 2) {
+      fn = arg2;
+    } else if (arguments.length === 3) {
+      opts = arg2;
+      fn = arg3;
+    } else {
+      opts = arg2;
+      ctx = arg3;
+      fn = arg4;
+    }
+    const parentContext = ctx !== null && ctx !== void 0 ? ctx : contextApi.active();
+    const span = this.startSpan(name, opts, parentContext);
+    const contextWithSpanSet = setSpan(parentContext, span);
+    return contextApi.with(contextWithSpanSet, fn, void 0, span);
+  }
+};
+__name(_NoopTracer, "NoopTracer");
+let NoopTracer = _NoopTracer;
+function isSpanContext(spanContext) {
+  return spanContext !== null && typeof spanContext === "object" && "spanId" in spanContext && typeof spanContext["spanId"] === "string" && "traceId" in spanContext && typeof spanContext["traceId"] === "string" && "traceFlags" in spanContext && typeof spanContext["traceFlags"] === "number";
+}
+__name(isSpanContext, "isSpanContext");
+const NOOP_TRACER = new NoopTracer();
+const _ProxyTracer = class _ProxyTracer {
+  constructor(provider, name, version, options) {
+    this._provider = provider;
+    this.name = name;
+    this.version = version;
+    this.options = options;
+  }
+  startSpan(name, options, context2) {
+    return this._getTracer().startSpan(name, options, context2);
+  }
+  startActiveSpan(_name, _options, _context, _fn) {
+    const tracer = this._getTracer();
+    return Reflect.apply(tracer.startActiveSpan, tracer, arguments);
+  }
+  /**
+   * Try to get a tracer from the proxy tracer provider.
+   * If the proxy tracer provider has no delegate, return a noop tracer.
+   */
+  _getTracer() {
+    if (this._delegate) {
+      return this._delegate;
+    }
+    const tracer = this._provider.getDelegateTracer(this.name, this.version, this.options);
+    if (!tracer) {
+      return NOOP_TRACER;
+    }
+    this._delegate = tracer;
+    return this._delegate;
+  }
+};
+__name(_ProxyTracer, "ProxyTracer");
+let ProxyTracer = _ProxyTracer;
+const _NoopTracerProvider = class _NoopTracerProvider {
+  getTracer(_name, _version, _options) {
+    return new NoopTracer();
+  }
+};
+__name(_NoopTracerProvider, "NoopTracerProvider");
+let NoopTracerProvider = _NoopTracerProvider;
+const NOOP_TRACER_PROVIDER = new NoopTracerProvider();
+const _ProxyTracerProvider = class _ProxyTracerProvider {
+  /**
+   * Get a {@link ProxyTracer}
+   */
+  getTracer(name, version, options) {
+    var _a;
+    return (_a = this.getDelegateTracer(name, version, options)) !== null && _a !== void 0 ? _a : new ProxyTracer(this, name, version, options);
+  }
+  getDelegate() {
+    var _a;
+    return (_a = this._delegate) !== null && _a !== void 0 ? _a : NOOP_TRACER_PROVIDER;
+  }
+  /**
+   * Set the delegate tracer provider
+   */
+  setDelegate(delegate) {
+    this._delegate = delegate;
+  }
+  getDelegateTracer(name, version, options) {
+    var _a;
+    return (_a = this._delegate) === null || _a === void 0 ? void 0 : _a.getTracer(name, version, options);
+  }
+};
+__name(_ProxyTracerProvider, "ProxyTracerProvider");
+let ProxyTracerProvider = _ProxyTracerProvider;
+var SpanStatusCode;
+(function(SpanStatusCode2) {
+  SpanStatusCode2[SpanStatusCode2["UNSET"] = 0] = "UNSET";
+  SpanStatusCode2[SpanStatusCode2["OK"] = 1] = "OK";
+  SpanStatusCode2[SpanStatusCode2["ERROR"] = 2] = "ERROR";
+})(SpanStatusCode || (SpanStatusCode = {}));
+const context = ContextAPI.getInstance();
+const _NoopTextMapPropagator = class _NoopTextMapPropagator {
+  /** Noop inject function does nothing */
+  inject(_context, _carrier) {
+  }
+  /** Noop extract function does nothing and returns the input context */
+  extract(context2, _carrier) {
+    return context2;
+  }
+  fields() {
+    return [];
+  }
+};
+__name(_NoopTextMapPropagator, "NoopTextMapPropagator");
+let NoopTextMapPropagator = _NoopTextMapPropagator;
+const BAGGAGE_KEY = createContextKey("OpenTelemetry Baggage Key");
+function getBaggage(context2) {
+  return context2.getValue(BAGGAGE_KEY) || void 0;
+}
+__name(getBaggage, "getBaggage");
+function getActiveBaggage() {
+  return getBaggage(ContextAPI.getInstance().active());
+}
+__name(getActiveBaggage, "getActiveBaggage");
+function setBaggage(context2, baggage) {
+  return context2.setValue(BAGGAGE_KEY, baggage);
+}
+__name(setBaggage, "setBaggage");
+function deleteBaggage(context2) {
+  return context2.deleteValue(BAGGAGE_KEY);
+}
+__name(deleteBaggage, "deleteBaggage");
+const API_NAME$1 = "propagation";
+const NOOP_TEXT_MAP_PROPAGATOR = new NoopTextMapPropagator();
+const _PropagationAPI = class _PropagationAPI {
+  /** Empty private constructor prevents end users from constructing a new instance of the API */
+  constructor() {
+    this.createBaggage = createBaggage;
+    this.getBaggage = getBaggage;
+    this.getActiveBaggage = getActiveBaggage;
+    this.setBaggage = setBaggage;
+    this.deleteBaggage = deleteBaggage;
+  }
+  /** Get the singleton instance of the Propagator API */
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _PropagationAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Set the current propagator.
+   *
+   * @returns true if the propagator was successfully registered, else false
+   */
+  setGlobalPropagator(propagator) {
+    return registerGlobal(API_NAME$1, propagator, DiagAPI.instance());
+  }
+  /**
+   * Inject context into a carrier to be propagated inter-process
+   *
+   * @param context Context carrying tracing data to inject
+   * @param carrier carrier to inject context into
+   * @param setter Function used to set values on the carrier
+   */
+  inject(context2, carrier, setter = defaultTextMapSetter) {
+    return this._getGlobalPropagator().inject(context2, carrier, setter);
+  }
+  /**
+   * Extract context from a carrier
+   *
+   * @param context Context which the newly created context will inherit from
+   * @param carrier Carrier to extract context from
+   * @param getter Function used to extract keys from a carrier
+   */
+  extract(context2, carrier, getter = defaultTextMapGetter) {
+    return this._getGlobalPropagator().extract(context2, carrier, getter);
+  }
+  /**
+   * Return a list of all fields which may be used by the propagator.
+   */
+  fields() {
+    return this._getGlobalPropagator().fields();
+  }
+  /** Remove the global propagator */
+  disable() {
+    unregisterGlobal(API_NAME$1, DiagAPI.instance());
+  }
+  _getGlobalPropagator() {
+    return getGlobal(API_NAME$1) || NOOP_TEXT_MAP_PROPAGATOR;
+  }
+};
+__name(_PropagationAPI, "PropagationAPI");
+let PropagationAPI = _PropagationAPI;
+const propagation = PropagationAPI.getInstance();
+const API_NAME = "trace";
+const _TraceAPI = class _TraceAPI {
+  /** Empty private constructor prevents end users from constructing a new instance of the API */
+  constructor() {
+    this._proxyTracerProvider = new ProxyTracerProvider();
+    this.wrapSpanContext = wrapSpanContext;
+    this.isSpanContextValid = isSpanContextValid;
+    this.deleteSpan = deleteSpan;
+    this.getSpan = getSpan;
+    this.getActiveSpan = getActiveSpan;
+    this.getSpanContext = getSpanContext;
+    this.setSpan = setSpan;
+    this.setSpanContext = setSpanContext;
+  }
+  /** Get the singleton instance of the Trace API */
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _TraceAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Set the current global tracer.
+   *
+   * @returns true if the tracer provider was successfully registered, else false
+   */
+  setGlobalTracerProvider(provider) {
+    const success = registerGlobal(API_NAME, this._proxyTracerProvider, DiagAPI.instance());
+    if (success) {
+      this._proxyTracerProvider.setDelegate(provider);
+    }
+    return success;
+  }
+  /**
+   * Returns the global tracer provider.
+   */
+  getTracerProvider() {
+    return getGlobal(API_NAME) || this._proxyTracerProvider;
+  }
+  /**
+   * Returns a tracer from the global tracer provider.
+   */
+  getTracer(name, version) {
+    return this.getTracerProvider().getTracer(name, version);
+  }
+  /** Remove the global tracer provider */
+  disable() {
+    unregisterGlobal(API_NAME, DiagAPI.instance());
+    this._proxyTracerProvider = new ProxyTracerProvider();
+  }
+};
+__name(_TraceAPI, "TraceAPI");
+let TraceAPI = _TraceAPI;
+const trace = TraceAPI.getInstance();
+const { Component } = await importShared("react");
+const TRACER_NAME$1 = "expenses-mfe.react";
+const SPAN_NAME$1 = "react_render_error";
+const _ObservabilityErrorBoundary = class _ObservabilityErrorBoundary extends Component {
+  state = { hasError: false, resetKeySnapshot: this.props.resetKeys ?? [] };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  static getDerivedStateFromProps(props, state) {
+    const next = props.resetKeys ?? [];
+    const changed = !shallowEqual(state.resetKeySnapshot, next);
+    if (state.hasError && changed) {
+      return { hasError: false, resetKeySnapshot: next };
+    }
+    if (changed) {
+      return { resetKeySnapshot: next };
+    }
+    return null;
+  }
+  componentDidCatch(error, info) {
+    const span = trace.getTracer(TRACER_NAME$1).startSpan(SPAN_NAME$1);
+    span.recordException(error);
+    span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
+    span.setAttribute("error.type", error.name);
+    span.setAttribute("error.componentStack", info.componentStack ?? "");
+    span.end();
+  }
+  reset = /* @__PURE__ */ __name(() => {
+    this.setState({ hasError: false });
+  }, "reset");
+  render() {
+    if (this.state.hasError) {
+      const { fallback } = this.props;
+      if (typeof fallback === "function") return fallback(this.reset);
+      return fallback ?? null;
+    }
+    return this.props.children;
+  }
+};
+__name(_ObservabilityErrorBoundary, "ObservabilityErrorBoundary");
+let ObservabilityErrorBoundary = _ObservabilityErrorBoundary;
+function shallowEqual(a, b) {
+  if (a === b) return true;
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) {
+    if (!Object.is(a[i], b[i])) return false;
+  }
+  return true;
+}
+__name(shallowEqual, "shallowEqual");
+const AppErrorFallback = /* @__PURE__ */ __name(({ reset }) => {
+  const onClick = reset ?? (() => window.location.reload());
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      role: "alert",
+      className: "flex h-full w-full flex-col items-center justify-center gap-3 p-8",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold text-exp-neutral-900", children: "Something went wrong." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-exp-grey-700", children: "An unexpected error occurred. You can retry or reload the page." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { onClick, children: reset ? "Try again" : "Reload page" })
+      ]
+    }
+  );
+}, "AppErrorFallback");
+const { useEffect: useEffect$1 } = await importShared("react");
+const TRACER_NAME = "expenses-mfe.router";
+const SPAN_NAME = "route_change";
+function useTraceRoute() {
+  const location = useLocation();
+  useEffect$1(() => {
+    const span = trace.getTracer(TRACER_NAME).startSpan(SPAN_NAME);
+    span.setAttribute("http.route", location.pathname);
+    span.setAttribute("url.path", location.pathname);
+    if (location.search) {
+      span.setAttribute("url.query", location.search);
+    }
+    span.end();
+  }, [location.pathname]);
+}
+__name(useTraceRoute, "useTraceRoute");
+const STATE_SYMBOL = /* @__PURE__ */ Symbol.for("@expenses-mfe/observability/state");
+function getState() {
+  const g = globalThis;
+  if (!g[STATE_SYMBOL]) {
+    g[STATE_SYMBOL] = { active: null, pendingInit: null, refCount: 0 };
+  }
+  return g[STATE_SYMBOL];
+}
+__name(getState, "getState");
+async function setupObservability() {
+  const state = getState();
+  state.refCount += 1;
+  if (state.active) return;
+  if (state.pendingInit) return state.pendingInit;
+  const collectorUrl = "http://nor-clobs-t04.kore.solutions:4318";
+  state.pendingInit = (async () => {
+    try {
+      const { initializeObservability } = await __vitePreload(async () => {
+        const { initializeObservability: initializeObservability2 } = await import("./setup-BTZteuP_.js");
+        return { initializeObservability: initializeObservability2 };
+      }, true ? [] : void 0, import.meta.url);
+      const active = initializeObservability({
+        collectorUrl,
+        apiUrl: "http://172.16.30.75:8000"
+      });
+      state.active = active;
+    } catch (error) {
+      devError("Observability setup failed:", error);
+      state.pendingInit = null;
+    }
+  })();
+  return state.pendingInit;
+}
+__name(setupObservability, "setupObservability");
+async function shutdownObservability() {
+  const state = getState();
+  if (state.refCount > 0) state.refCount -= 1;
+  if (state.refCount > 0) return;
+  if (state.pendingInit) {
+    try {
+      await state.pendingInit;
+    } catch {
+    }
+    if (state.refCount > 0) return;
+  }
+  const active = state.active;
+  state.active = null;
+  if (!active) {
+    return;
+  }
+  state.pendingInit = null;
+  try {
+    await active.teardown();
+  } catch (error) {
+    devError("Observability teardown failed:", error);
+  } finally {
+    if (state.refCount === 0 && !state.active) {
+      trace.disable();
+      context.disable();
+      propagation.disable();
+    }
+  }
+}
+__name(shutdownObservability, "shutdownObservability");
 const { useCallback } = await importShared("react");
 const Layout = /* @__PURE__ */ __name(() => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { data: companies } = useCompanies();
   const adminCompany = useCompanyStore((state) => state.adminCompany);
   const setAdminCompany = useCompanyStore((state) => state.setAdminCompany);
   usePreventPageReload();
   useExpenseIdForSwap();
+  useTraceRoute();
   const handleNavigation = useCallback((path) => {
     navigate(path);
   }, [navigate]);
@@ -12842,12 +13886,28 @@ const Layout = /* @__PURE__ */ __name(() => {
         onNavigate: handleNavigation
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ObservabilityErrorBoundary,
+      {
+        resetKeys: [location.pathname],
+        fallback: /* @__PURE__ */ __name((reset) => /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, { reset }), "fallback"),
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
+      }
+    ) })
   ] });
 }, "Layout");
 const FullscreenLayout = /* @__PURE__ */ __name(() => {
+  const location = useLocation();
   usePreventPageReload();
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full bg-exp-neutral-0 flex flex-col", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
+  useTraceRoute();
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-full bg-exp-neutral-0 flex flex-col", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ObservabilityErrorBoundary,
+    {
+      resetKeys: [location.pathname],
+      fallback: /* @__PURE__ */ __name((reset) => /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, { reset }), "fallback"),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {})
+    }
+  ) });
 }, "FullscreenLayout");
 const toRelativePath = /* @__PURE__ */ __name((path) => path.startsWith("/") ? path.slice(1) : path, "toRelativePath");
 const { lazy } = await importShared("react");
@@ -12913,18 +13973,18 @@ __name(lazyRoute, "lazyRoute");
 const SCOPE_CLASS = "expenses-mfe-scope";
 const CONTAINER_ID = "expenses-mfe";
 const { Suspense } = await importShared("react");
-const Expenses = lazyRoute(() => __vitePreload(() => import("./ExpensesPage-DtY3H-iF.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]) : void 0, import.meta.url));
-const Approvals = lazyRoute(() => __vitePreload(() => import("./ApprovalsPage-X_J7sOML.js"), true ? __vite__mapDeps([16,1,3,4,5,6,7,8,9,14,13,11,12,17,18,19,20,15,21,22,23,24]) : void 0, import.meta.url));
-const UnifiedExpensePage = lazyRoute(() => __vitePreload(() => import("./UnifiedExpensePage-DzlPcN36.js"), true ? __vite__mapDeps([25,1,4,3,2,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20,21,22,26,27]) : void 0, import.meta.url));
+const Expenses = lazyRoute(() => __vitePreload(() => import("./ExpensesPage-Cp2UIJ0R.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]) : void 0, import.meta.url));
+const Approvals = lazyRoute(() => __vitePreload(() => import("./ApprovalsPage-Bmk4CO5M.js"), true ? __vite__mapDeps([16,1,3,4,5,6,7,8,9,14,13,11,12,17,18,19,20,15,21,22,23,24]) : void 0, import.meta.url));
+const UnifiedExpensePage = lazyRoute(() => __vitePreload(() => import("./UnifiedExpensePage-DaC5lfgD.js"), true ? __vite__mapDeps([25,1,4,3,2,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20,21,22,26,27]) : void 0, import.meta.url));
 const Configurations = lazyRoute(() => __vitePreload(() => import("./Configurations-fvUOfiny.js"), true ? __vite__mapDeps([28,1]) : void 0, import.meta.url));
-const ExpenseType = lazyRoute(() => __vitePreload(() => import("./ExpenseType-CZikSv7B.js"), true ? __vite__mapDeps([29,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
-const MileageType = lazyRoute(() => __vitePreload(() => import("./MileageType-Cr5Fmswb.js"), true ? __vite__mapDeps([31,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
-const BusinessPurpose = lazyRoute(() => __vitePreload(() => import("./BusinessPurpose-BMBHBNXK.js"), true ? __vite__mapDeps([32,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
-const CorporateCards = lazyRoute(() => __vitePreload(() => import("./CorporateCards-5MMI3Wz-.js"), true ? __vite__mapDeps([33,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
-const ReconciliationPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationPage-CzSijiaF.js"), true ? __vite__mapDeps([34,1,35,3,4,5,6,7,11,12,14,20,10]) : void 0, import.meta.url));
-const ReconciliationDetailPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationDetailPage-B9u6zlgA.js"), true ? __vite__mapDeps([36,3,1,5,6,7,4,11,12,35,14,20,10]) : void 0, import.meta.url));
-const TestingAuthentication = lazyRoute(() => __vitePreload(() => import("./JWTDemo-CJI_HXHz.js"), true ? __vite__mapDeps([37,3,1,6,7,24,9,4,38,22,27]) : void 0, import.meta.url));
-const TestingIcons = lazyRoute(() => __vitePreload(() => import("./IconsTestingPage-BH0cWmBs.js"), true ? __vite__mapDeps([39,3,1,11,12]) : void 0, import.meta.url));
+const ExpenseType = lazyRoute(() => __vitePreload(() => import("./ExpenseType-CkTfa6pj.js"), true ? __vite__mapDeps([29,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
+const MileageType = lazyRoute(() => __vitePreload(() => import("./MileageType-DuVrkeRi.js"), true ? __vite__mapDeps([31,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
+const BusinessPurpose = lazyRoute(() => __vitePreload(() => import("./BusinessPurpose-t6aTvvNv.js"), true ? __vite__mapDeps([32,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
+const CorporateCards = lazyRoute(() => __vitePreload(() => import("./CorporateCards-iwZaPT5a.js"), true ? __vite__mapDeps([33,1,30,3,5,6,7,4,10,11,12,18,8,9,26,14,15]) : void 0, import.meta.url));
+const ReconciliationPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationPage-DFljbNr7.js"), true ? __vite__mapDeps([34,1,35,3,4,5,6,7,11,12,14,20,10]) : void 0, import.meta.url));
+const ReconciliationDetailPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationDetailPage-BpG3128r.js"), true ? __vite__mapDeps([36,3,1,5,6,7,4,11,12,35,14,20,10]) : void 0, import.meta.url));
+const TestingAuthentication = lazyRoute(() => __vitePreload(() => import("./JWTDemo-ca0zYDCh.js"), true ? __vite__mapDeps([37,3,1,6,7,24,9,4,38,22,27]) : void 0, import.meta.url));
+const TestingIcons = lazyRoute(() => __vitePreload(() => import("./IconsTestingPage-CrG1rAVt.js"), true ? __vite__mapDeps([39,3,1,11,12]) : void 0, import.meta.url));
 const createRouteConfig = /* @__PURE__ */ __name(() => {
   const baseRoutes = [
     {
@@ -13258,7 +14318,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.19", commit: "754db42", branch: "dev", timestamp: "2026-05-15T14:22:39.616Z", environment: "expenses-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.21", commit: "052135a", branch: "feat/TRX-648-otel-basic-config", timestamp: "2026-05-20T19:11:39.942Z", environment: "expenses-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {
@@ -13272,6 +14332,7 @@ __name(resolveTargetElement, "resolveTargetElement");
 const mount = /* @__PURE__ */ __name(async (element, config) => {
   await initDevAuthIfEnabled();
   await initMockingIfEnabled(config == null ? void 0 : config.forceMSW);
+  await setupObservability();
   const targetElement = resolveTargetElement(element);
   if (!(targetElement instanceof HTMLElement)) {
     console.error("Expenses MFE: Target element not found or not an HTMLElement");
@@ -13285,7 +14346,7 @@ const mount = /* @__PURE__ */ __name(async (element, config) => {
     targetElement.classList.add(SCOPE_CLASS);
     const root = clientExports.createRoot(targetElement);
     root.render(
-      /* @__PURE__ */ jsxRuntimeExports.jsx(StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(ObservabilityErrorBoundary, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) }) })
     );
     mountedInstances.set(targetElement, root);
     console.log("✅ Expenses MFE: Successfully mounted with CSS scoping!");
@@ -13295,25 +14356,34 @@ const mount = /* @__PURE__ */ __name(async (element, config) => {
     return null;
   }
 }, "mount");
-const unmount = /* @__PURE__ */ __name((root) => {
+const unmount = /* @__PURE__ */ __name(async (root) => {
+  if (!root || typeof root.unmount !== "function") return;
   try {
-    if (root && typeof root.unmount === "function") {
-      root.unmount();
-      for (const [element, registeredRoot] of mountedInstances.entries()) {
-        if (registeredRoot === root) {
-          element.classList.remove(SCOPE_CLASS);
-          mountedInstances.delete(element);
-          break;
-        }
+    root.unmount();
+  } catch (error) {
+    console.error("Expenses MFE: Error during React unmount", error);
+  }
+  try {
+    for (const [element, registeredRoot] of mountedInstances.entries()) {
+      if (registeredRoot === root) {
+        element.classList.remove(SCOPE_CLASS);
+        mountedInstances.delete(element);
+        break;
       }
-      console.log("Expenses MFE: Successfully unmounted");
     }
   } catch (error) {
-    console.error("Expenses MFE: Error during unmount", error);
+    console.error("Expenses MFE: Error during registry cleanup", error);
   }
+  try {
+    await shutdownObservability();
+  } catch (error) {
+    console.error("Expenses MFE: Error during observability shutdown", error);
+  }
+  console.log("Expenses MFE: Unmount complete");
 }, "unmount");
 const cleanupAll = /* @__PURE__ */ __name(() => {
   console.log("Expenses MFE: Cleaning up all instances");
+  const count = mountedInstances.size;
   for (const [element, root] of mountedInstances.entries()) {
     try {
       if (root && typeof root.unmount === "function") {
@@ -13326,6 +14396,7 @@ const cleanupAll = /* @__PURE__ */ __name(() => {
     }
   }
   mountedInstances.clear();
+  for (let i = 0; i < count; i++) void shutdownObservability();
 }, "cleanupAll");
 let devAuthInitPromise = null;
 function initDevAuthIfEnabled() {
@@ -13346,8 +14417,8 @@ function initMockingIfEnabled(forceMSW) {
   mockingInitPromise = (async () => {
     try {
       const [{ initializeMocking }, { apiClient }] = await Promise.all([
-        __vitePreload(() => import("./init-djgVNTCD.js"), true ? __vite__mapDeps([40,12,7]) : void 0, import.meta.url),
-        __vitePreload(() => import("./axiosInstance-QVJPXrUf.js").then((n) => n.f), true ? __vite__mapDeps([6,7,3]) : void 0, import.meta.url)
+        __vitePreload(() => import("./init-B737KWXZ.js"), true ? __vite__mapDeps([40,12,7]) : void 0, import.meta.url),
+        __vitePreload(() => import("./axiosInstance-DN4OVlUD.js").then((n) => n.f), true ? __vite__mapDeps([6,7,3]) : void 0, import.meta.url)
       ]);
       await initializeMocking({
         axiosInstance: apiClient.getAxiosInstance(),
@@ -13392,7 +14463,7 @@ const setupCleanupListeners = /* @__PURE__ */ __name(() => {
 }, "setupCleanupListeners");
 if (typeof window !== "undefined") {
   const w = window;
-  w.__EXPENSES_MFE_VERSION__ = "0.1.0-dev.19";
+  w.__EXPENSES_MFE_VERSION__ = "0.1.0-dev.21";
   w.__EXPENSES_MFE_BUILD__ = define_MFE_BUILD_default;
   console.info(
     `[expenses-mfe] v${define_MFE_BUILD_default.version} (${define_MFE_BUILD_default.commit}, ${define_MFE_BUILD_default.environment}, ${define_MFE_BUILD_default.timestamp})`
@@ -13406,7 +14477,28 @@ if (typeof window !== "undefined") {
     autoMount();
   }
 }
-export {
+const bootstrap = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
   mount,
+  unmount
+}, Symbol.toStringTag, { value: "Module" }));
+export {
+  DiagAPI as D,
+  INVALID_SPAN_CONTEXT as I,
+  ROOT_CONTEXT as R,
+  SpanStatusCode as S,
+  TraceFlags as T,
+  context as a,
+  baggageEntryMetadataFromString as b,
+  createContextKey as c,
+  isValidTraceId as d,
+  bootstrap as e,
+  getGlobal as g,
+  isSpanContextValid as i,
+  mount,
+  propagation as p,
+  registerGlobal as r,
+  trace as t,
+  unregisterGlobal as u,
   unmount
 };

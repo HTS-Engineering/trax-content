@@ -616,6 +616,10 @@
 @layer components;
 
 @layer utilities {
+  .expenses-mfe-scope .collapse, .trax-ui-component .collapse {
+    visibility: collapse;
+  }
+
   .sticky, .expenses-mfe-scope .sticky, .trax-ui-component .sticky, .expenses-mfe-scope.sticky, .trax-ui-component.sticky {
     position: sticky;
   }
