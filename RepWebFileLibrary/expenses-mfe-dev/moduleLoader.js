@@ -14,12 +14,12 @@
   // Replaced at build by mfe-post-build. Stays null under `npm run dev`,
   // where this loader is not used.
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.21",
-  "commit": "052135a",
-  "branch": "feat/TRX-648-otel-basic-config",
-  "timestamp": "2026-05-20T19:11:39.942Z",
+  "version": "0.1.0-dev.22",
+  "commit": "8228a06",
+  "branch": "dev",
+  "timestamp": "2026-05-20T20:53:40.908Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-Bhbf9_Js.js",
+  "bootstrap": "__federation_expose_Mount-Bq6iMDn9.js",
   "css": "style-C3AYMG-J.css"
 };
 

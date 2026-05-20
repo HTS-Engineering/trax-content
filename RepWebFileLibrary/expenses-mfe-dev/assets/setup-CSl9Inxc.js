@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { D as DiagAPI, r as registerGlobal, g as getGlobal, u as unregisterGlobal, c as createContextKey, b as baggageEntryMetadataFromString, p as propagation, t as trace, i as isSpanContextValid, T as TraceFlags, a as context, S as SpanStatusCode, d as isValidTraceId, I as INVALID_SPAN_CONTEXT, R as ROOT_CONTEXT } from "./__federation_expose_Mount-Bhbf9_Js.js";
+import { D as DiagAPI, r as registerGlobal, g as getGlobal, u as unregisterGlobal, c as createContextKey, b as baggageEntryMetadataFromString, p as propagation, t as trace, i as isSpanContextValid, T as TraceFlags, a as context, S as SpanStatusCode, d as isValidTraceId, I as INVALID_SPAN_CONTEXT, R as ROOT_CONTEXT } from "./__federation_expose_Mount-Bq6iMDn9.js";
 const _NoopMeter = class _NoopMeter {
   constructor() {
   }
@@ -5133,7 +5133,7 @@ __name(mapEnvironment, "mapEnvironment");
 function buildResource() {
   return resourceFromAttributes({
     [ATTR_SERVICE_NAME]: SERVICE_NAME,
-    [ATTR_SERVICE_VERSION]: "0.1.0-dev.21",
+    [ATTR_SERVICE_VERSION]: "0.1.0-dev.22",
     [ATTR_SERVICE_ENVIRONMENT]: mapEnvironment("development")
   });
 }
