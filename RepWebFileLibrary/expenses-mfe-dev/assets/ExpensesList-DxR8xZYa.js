@@ -6,7 +6,7 @@ import { A as apiClient, u as Tr, x as Ws, E as Ea, H as ar, W as Wa, z as Zs, M
 import { _ as useCompanyStore, ab as useQuery, B as keepPreviousData, c as EXPENSE_ENDPOINTS, P as queryKeys, af as useSearchParams, a3 as useLocation, a7 as useNavigateWithReturn, a0 as useErrorToast, t as generatePath, h as RoutePaths } from "./date-format-D3C_Myvb.js";
 import { E as EmptyState } from "./EmptyState-Cs-wuyC7.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import "./expense-api-DTK1gyB4.js";
+import "./expense-api-CjjRhXXk.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmRfP61L.js";
 import { f as formatAmountWithCurrency } from "./formatters-BndmIIYd.js";
 import { P as Plus } from "./plus-CrfZVUIZ.js";

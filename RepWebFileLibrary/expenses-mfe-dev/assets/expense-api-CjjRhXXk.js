@@ -281,7 +281,7 @@ function buildCurrencyInfo(response, currencies) {
   };
   const foreignCode = response.foreignCurrencyCode;
   const isDifferentCurrency = !!foreignCode && foreignCode !== totalCode;
-  const netCurrency = isDifferentCurrency ? { code: foreignCode, symbol: resolveCurrencySymbol(foreignCode, currencies) } : void 0;
+  const netCurrency = isDifferentCurrency ? { code: foreignCode, symbol: resolveCurrencySymbol(foreignCode, currencies) } : totalCurrency;
   return { totalCurrency, netCurrency };
 }
 __name(buildCurrencyInfo, "buildCurrencyInfo");
