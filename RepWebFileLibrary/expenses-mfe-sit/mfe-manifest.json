@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.29",
-  "commit": "1488f1f",
-  "branch": "dev",
-  "timestamp": "2026-05-26T18:22:27.917Z",
+  "version": "0.1.0-dev.30",
+  "commit": "6c47bdf",
+  "branch": "feat/TRX-624-date-aware-mileage-rate-validation",
+  "timestamp": "2026-05-27T14:40:05.793Z",
   "environment": "expenses-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-BCtHDdXR.js",
+  "bootstrap": "__federation_expose_Mount-D3RGSzTn.js",
   "css": "style-DncoA6sG.css"
 }

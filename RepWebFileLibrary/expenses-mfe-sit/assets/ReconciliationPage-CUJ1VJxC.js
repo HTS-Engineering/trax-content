@@ -1,1 +1,0 @@
-var r=Object.defineProperty;var o=(t,i)=>r(t,"name",{value:i,configurable:!0});import{j as s}from"./jsx-runtime-BHIWlbBZ.js";import{R as a}from"./CompanySummaryCard-DgxMhv3d.js";import"./configuration-B4-uAFub.js";import"./date-format-BkoerdpL.js";const x=o(()=>s.jsx(a,{}),"ReconciliationPage");export{x as default};
