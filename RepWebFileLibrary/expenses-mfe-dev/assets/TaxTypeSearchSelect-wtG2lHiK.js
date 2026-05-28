@@ -2,7 +2,7 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { O as createLucideIcon, H as create, a3 as devtools, ap as subscribeWithSelector, a9 as immer, x as apiClient, C as CONFIGURATION_ENDPOINTS, a2 as devWarn, ah as ln } from "./configuration-B4FJFUoo.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
-import { x as formatToISODate, W as parseDateOnlyAsLocal, F as FILE_ENDPOINTS, D as DEFAULT_CURRENCY_CODE, B as getCurrencySymbol, ah as useQuery, ai as useQueryClient, Y as queryKeys, a4 as useCompanyStore, b as EXPENSE_ENDPOINTS, aa as useMutation } from "./use-scroll-into-view-ref-Bh4xL90y.js";
+import { D as DEFAULT_CURRENCY_CODE, B as getCurrencySymbol, x as formatToISODate, W as parseDateOnlyAsLocal, F as FILE_ENDPOINTS, ah as useQuery, ai as useQueryClient, Y as queryKeys, a4 as useCompanyStore, b as EXPENSE_ENDPOINTS, aa as useMutation } from "./use-scroll-into-view-ref-Bh4xL90y.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 const __iconNode = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
@@ -134,6 +134,51 @@ const MIME_TYPE_CONFIG = /* @__PURE__ */ new Map([
     displayName: "PDF"
   }]
 ]);
+function isCacheDefinitiveMiss(id, activeList, isActive) {
+  if (!activeList) return false;
+  return !activeList.some((item) => parseInt(item.id, 10) === id && isActive(item));
+}
+__name(isCacheDefinitiveMiss, "isCacheDefinitiveMiss");
+function needsExpenseTypeClear(expenseTypeId, activeExpenseTypes) {
+  if (expenseTypeId == null) return true;
+  return isCacheDefinitiveMiss(expenseTypeId, activeExpenseTypes, (et) => et.status === "active");
+}
+__name(needsExpenseTypeClear, "needsExpenseTypeClear");
+function needsBusinessPurposeClear(businessPurposeId, activeBusinessPurposes) {
+  if (businessPurposeId == null) return true;
+  return isCacheDefinitiveMiss(businessPurposeId, activeBusinessPurposes, (bp) => bp.isActive);
+}
+__name(needsBusinessPurposeClear, "needsBusinessPurposeClear");
+function needsPaymentMethodClear(paymentMethod, activePaymentMethods) {
+  if (!paymentMethod) return true;
+  if (paymentMethod.active === false) return true;
+  if (!activePaymentMethods) return false;
+  return !activePaymentMethods.some((pm) => parseInt(pm.id, 10) === paymentMethod.id);
+}
+__name(needsPaymentMethodClear, "needsPaymentMethodClear");
+function buildCurrency(code) {
+  return { code, symbol: getCurrencySymbol(code) };
+}
+__name(buildCurrency, "buildCurrency");
+function applyPaymentMethodCascade(data, defaultCurrencyCode = DEFAULT_CURRENCY_CODE) {
+  return {
+    ...data,
+    paymentMethod: "",
+    totalAmount: "",
+    taxAmount: void 0,
+    totalCurrency: buildCurrency(defaultCurrencyCode)
+  };
+}
+__name(applyPaymentMethodCascade, "applyPaymentMethodCascade");
+function applyMileageTypeCascade(data) {
+  return {
+    ...data,
+    mileageType: "",
+    ratePerUnit: "",
+    reimbursableAmount: ""
+  };
+}
+__name(applyMileageTypeCascade, "applyMileageTypeCascade");
 function stringifyEntityId(id) {
   return id ? String(id) : "";
 }
@@ -141,7 +186,7 @@ __name(stringifyEntityId, "stringifyEntityId");
 function inferFormTypeId(expenseTypeId, expenseTypes) {
   var _a;
   if (expenseTypeId == null) return null;
-  return ((_a = expenseTypes.find((et) => parseInt(et.id, 10) === expenseTypeId)) == null ? void 0 : _a.formTypeId) ?? null;
+  return ((_a = expenseTypes == null ? void 0 : expenseTypes.find((et) => parseInt(et.id, 10) === expenseTypeId)) == null ? void 0 : _a.formTypeId) ?? null;
 }
 __name(inferFormTypeId, "inferFormTypeId");
 function inferTotalCurrencyCode(response) {
@@ -151,7 +196,7 @@ function inferTotalCurrencyCode(response) {
 __name(inferTotalCurrencyCode, "inferTotalCurrencyCode");
 function resolveRateUnit(expenseTypeId, expenseTypes) {
   if (expenseTypeId == null) return "km";
-  const found = expenseTypes.find(
+  const found = expenseTypes == null ? void 0 : expenseTypes.find(
     (et) => parseInt(et.id, 10) === expenseTypeId
   );
   return (found == null ? void 0 : found.unitOfMeasurement) === "mile" ? "mi" : "km";
@@ -322,12 +367,15 @@ function mapToExpenseFormData(response, isDraft, context) {
     response,
     receiptFile
   );
-  return {
+  const shouldClearExpenseType = isDraft && needsExpenseTypeClear(response.expenseTypeId, context.expenseTypes);
+  const shouldClearBusinessPurpose = isDraft && needsBusinessPurposeClear(response.businessPurposeId, context.businessPurposes);
+  const shouldClearPaymentMethod = isDraft && needsPaymentMethodClear(response.paymentMethod, context.paymentMethods);
+  const data = {
     // Dual mode: IDs for draft (form selects), display names for preview
-    expenseType: isDraft ? stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
-    paymentMethod: isDraft ? stringifyEntityId((_a = response.paymentMethod) == null ? void 0 : _a.id) : ((_b = response.paymentMethod) == null ? void 0 : _b.name) ?? "",
+    expenseType: isDraft ? shouldClearExpenseType ? "" : stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
+    paymentMethod: isDraft ? shouldClearPaymentMethod ? "" : stringifyEntityId((_a = response.paymentMethod) == null ? void 0 : _a.id) : ((_b = response.paymentMethod) == null ? void 0 : _b.name) ?? "",
     expenseLocation: isDraft ? stringifyEntityId((_c = response.country) == null ? void 0 : _c.id) : ((_d = response.country) == null ? void 0 : _d.name) ?? "",
-    businessPurpose: isDraft ? stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
+    businessPurpose: isDraft ? shouldClearBusinessPurpose ? "" : stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
     // Same for both modes
     vendor: response.vendor ?? "",
     expenseDate: formatToISODate(response.expenseDate) ?? "",
@@ -349,14 +397,20 @@ function mapToExpenseFormData(response, isDraft, context) {
     isEqualSplit: inferEqualSplit(response.costAllocations ?? []),
     deferToApprover: response.costAllocationDeferral ?? false
   };
+  if (shouldClearPaymentMethod) {
+    return applyPaymentMethodCascade(data);
+  }
+  return data;
 }
 __name(mapToExpenseFormData, "mapToExpenseFormData");
 function mapToMileageTripFormData(response, isDraft, context) {
   var _a, _b, _c;
   const { totalCurrency } = buildCurrencyInfo(response, context.currencies ?? []);
-  return {
+  const shouldClearMileageType = isDraft && needsExpenseTypeClear(response.expenseTypeId, context.expenseTypes);
+  const shouldClearBusinessPurpose = isDraft && needsBusinessPurposeClear(response.businessPurposeId, context.businessPurposes);
+  const data = {
     formType: "trip",
-    mileageType: isDraft ? stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
+    mileageType: isDraft ? shouldClearMileageType ? "" : stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
     expenseDate: formatToISODate(response.expenseDate) ?? "",
     fromLocation: response.from ?? "",
     toLocation: response.to ?? "",
@@ -365,7 +419,7 @@ function mapToMileageTripFormData(response, isDraft, context) {
     ratePerUnit: ((_b = response.effectiveRate) == null ? void 0 : _b.toString()) ?? "",
     rateUnit: resolveRateUnit(response.expenseTypeId, context.expenseTypes),
     reimbursableAmount: ((_c = response.totalAmount) == null ? void 0 : _c.toString()) ?? "",
-    businessPurpose: isDraft ? stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
+    businessPurpose: isDraft ? shouldClearBusinessPurpose ? "" : stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
     expenseDescription: response.description ?? "",
     costAllocations: (response.costAllocations ?? []).map(mapCostAllocationDetail),
     isEqualSplit: inferEqualSplit(response.costAllocations ?? []),
@@ -373,15 +427,21 @@ function mapToMileageTripFormData(response, isDraft, context) {
     additionalComments: response.additionalComments ?? void 0,
     totalCurrency
   };
+  if (shouldClearMileageType) {
+    return applyMileageTypeCascade(data);
+  }
+  return data;
 }
 __name(mapToMileageTripFormData, "mapToMileageTripFormData");
 function mapToMileagePeriodFormData(response, isDraft, context) {
   var _a, _b, _c;
   const supportingFiles = (response.files ?? []).filter((f) => f.documentType === "supporting").map(mapFileMetadataToAttachment);
   const { totalCurrency } = buildCurrencyInfo(response, context.currencies ?? []);
-  return {
+  const shouldClearMileageType = isDraft && needsExpenseTypeClear(response.expenseTypeId, context.expenseTypes);
+  const shouldClearBusinessPurpose = isDraft && needsBusinessPurposeClear(response.businessPurposeId, context.businessPurposes);
+  const data = {
     formType: "period",
-    mileageType: isDraft ? stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
+    mileageType: isDraft ? shouldClearMileageType ? "" : stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
     // Fallback to today for non-period expenses where these fields are null
     expensePeriod: {
       from: response.periodStart ? parseDateOnlyAsLocal(response.periodStart) : /* @__PURE__ */ new Date(),
@@ -391,7 +451,7 @@ function mapToMileagePeriodFormData(response, isDraft, context) {
     ratePerUnit: ((_b = response.effectiveRate) == null ? void 0 : _b.toString()) ?? "",
     rateUnit: resolveRateUnit(response.expenseTypeId, context.expenseTypes),
     reimbursableAmount: ((_c = response.totalAmount) == null ? void 0 : _c.toString()) ?? "",
-    businessPurpose: isDraft ? stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
+    businessPurpose: isDraft ? shouldClearBusinessPurpose ? "" : stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
     expenseDescription: response.description ?? "",
     supportingFiles,
     costAllocations: (response.costAllocations ?? []).map(mapCostAllocationDetail),
@@ -400,6 +460,10 @@ function mapToMileagePeriodFormData(response, isDraft, context) {
     additionalComments: response.additionalComments ?? void 0,
     totalCurrency
   };
+  if (shouldClearMileageType) {
+    return applyMileageTypeCascade(data);
+  }
+  return data;
 }
 __name(mapToMileagePeriodFormData, "mapToMileagePeriodFormData");
 function buildBaseFields(response) {
@@ -806,8 +870,13 @@ const useTaxTypesDisplay = /* @__PURE__ */ __name(({
 }, "useTaxTypesDisplay");
 const findCachedExpenseTypes = /* @__PURE__ */ __name((queryClient) => {
   var _a;
-  return ((_a = queryClient.getQueriesData({ queryKey: queryKeys.expenseTypes.all() }).find(([, data]) => Array.isArray(data) && data.length > 0)) == null ? void 0 : _a[1]) ?? [];
+  return (_a = queryClient.getQueriesData({ queryKey: queryKeys.expenseTypes.all() }).find(([, data]) => Array.isArray(data) && data.length > 0)) == null ? void 0 : _a[1];
 }, "findCachedExpenseTypes");
+const findCachedActiveBusinessPurposes = /* @__PURE__ */ __name((queryClient) => {
+  var _a;
+  return (_a = queryClient.getQueriesData({ queryKey: queryKeys.businessPurposes.all() }).find(([, data]) => Array.isArray(data) && data.length > 0)) == null ? void 0 : _a[1];
+}, "findCachedActiveBusinessPurposes");
+const findCachedActivePaymentMethods = /* @__PURE__ */ __name((queryClient, companyShortName) => queryClient.getQueryData(queryKeys.paymentMethods.list(companyShortName)), "findCachedActivePaymentMethods");
 const useExpenseItem = /* @__PURE__ */ __name((itemId, options = {}) => {
   const { enabled = true } = options;
   const company = useCompanyStore((s) => {
@@ -824,7 +893,14 @@ const useExpenseItem = /* @__PURE__ */ __name((itemId, options = {}) => {
       );
       const expenseTypes = findCachedExpenseTypes(queryClient);
       const currencies = queryClient.getQueryData(queryKeys.currencies.list()) ?? [];
-      return mapSingleExpenseFormToExpenseItem(response.data, { expenseTypes, currencies });
+      const businessPurposes = findCachedActiveBusinessPurposes(queryClient);
+      const paymentMethods = findCachedActivePaymentMethods(queryClient, company);
+      return mapSingleExpenseFormToExpenseItem(response.data, {
+        expenseTypes,
+        currencies,
+        businessPurposes,
+        paymentMethods
+      });
     }, "queryFn"),
     enabled: enabled && !!itemId && !!company,
     retry: false,
