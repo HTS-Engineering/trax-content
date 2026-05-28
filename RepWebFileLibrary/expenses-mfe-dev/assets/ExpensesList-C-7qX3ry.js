@@ -3,13 +3,38 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { x as apiClient, az as zr, t as Ws, E as Ea, ao as sr, W as Wa, v as Zs, M as Ma, af as ka, ab as jn } from "./configuration-B4FJFUoo.js";
-import { _ as useCompanyStore, ab as useQuery, B as keepPreviousData, c as EXPENSE_ENDPOINTS, P as queryKeys, af as useSearchParams, a3 as useLocation, a7 as useNavigateWithReturn, a0 as useErrorToast, t as generatePath, h as RoutePaths } from "./date-format-Ban7B2GG.js";
+import { a4 as useCompanyStore, ah as useQuery, K as keepPreviousData, b as EXPENSE_ENDPOINTS, Y as queryKeys, n as formatAmountWithCurrency, al as useSearchParams, a9 as useLocation, ad as useNavigateWithReturn, a6 as useErrorToast, z as generatePath, g as RoutePaths } from "./use-scroll-into-view-ref-Bh4xL90y.js";
 import { E as EmptyState } from "./EmptyState-CqMOxOYE.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import "./expense-api-CFDRCnr8.js";
+import { P as Plus } from "./TaxTypeSearchSelect-D3a36RDT.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmRfP61L.js";
-import { f as formatAmountWithCurrency } from "./formatters-DV4AvCZw.js";
-import { P as Plus } from "./plus-DaqI5Fee.js";
+const STATUS_BADGE_CONFIG = {
+  draft: {
+    bgColor: "bg-exp-yellow-200",
+    textColor: "text-exp-yellow-800",
+    label: "Draft"
+  },
+  submitted: {
+    bgColor: "bg-exp-primary-blue-100",
+    textColor: "text-exp-primary-blue-600",
+    label: "Submitted"
+  },
+  approved: {
+    bgColor: "bg-exp-green-100",
+    textColor: "text-exp-green-800",
+    label: "Approved"
+  },
+  rejected: {
+    bgColor: "bg-exp-red-100",
+    textColor: "text-exp-red-600",
+    label: "Rejected"
+  },
+  cancelled: {
+    bgColor: "bg-exp-grey-100",
+    textColor: "text-exp-grey-600",
+    label: "Cancelled"
+  }
+};
 const normalizeStatus = /* @__PURE__ */ __name((status) => {
   return status.toLowerCase();
 }, "normalizeStatus");
@@ -206,33 +231,6 @@ const parseReturnUrl = /* @__PURE__ */ __name((returnUrl) => {
     return null;
   }
 }, "parseReturnUrl");
-const STATUS_BADGE_CONFIG = {
-  draft: {
-    bgColor: "bg-exp-yellow-200",
-    textColor: "text-exp-yellow-800",
-    label: "Draft"
-  },
-  submitted: {
-    bgColor: "bg-exp-primary-blue-100",
-    textColor: "text-exp-primary-blue-600",
-    label: "Submitted"
-  },
-  approved: {
-    bgColor: "bg-exp-green-100",
-    textColor: "text-exp-green-800",
-    label: "Approved"
-  },
-  rejected: {
-    bgColor: "bg-exp-red-100",
-    textColor: "text-exp-red-600",
-    label: "Rejected"
-  },
-  cancelled: {
-    bgColor: "bg-exp-grey-100",
-    textColor: "text-exp-grey-600",
-    label: "Cancelled"
-  }
-};
 const ExpenseStatusBadge = /* @__PURE__ */ __name(({ status, className = "" }) => {
   const config = STATUS_BADGE_CONFIG[status];
   return /* @__PURE__ */ jsxRuntimeExports.jsx(

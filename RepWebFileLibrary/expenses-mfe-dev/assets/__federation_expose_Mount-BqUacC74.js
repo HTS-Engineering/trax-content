@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-BSwxx0uC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-aCTp6CKK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-Diwdx3Tw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CDCQK-Sj.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-B4FJFUoo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/date-format-Ban7B2GG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-CqMOxOYE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-qrAJyYZL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-api-CFDRCnr8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-CmRfP61L.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/formatters-DV4AvCZw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/plus-DaqI5Fee.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-5Ty51cvX.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-BPTY34mY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/useMileageRates-C1IbqS9e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/queryClient-Cty3G98M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/http-errors-CkJhN68X.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-B_GOtBCv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-C4PQKHFK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-DhGJjjwf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-CLwMbrNr.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-B1KlaLOY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-DgvTUCCp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-fvUOfiny.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-I3NCxCM0.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-Do2mYqrV.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-njn9h9we.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-B5Afwhj1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-DDvVL3tj.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-DjHi-6nt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CompanySummaryCard-DQnoqZpP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-DrNxcfIN.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-r0iYqNHB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-B2Greo_4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-4zM0wWjo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-CwBRB1c4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-aCTp6CKK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-C-7qX3ry.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CDCQK-Sj.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-B4FJFUoo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-scroll-into-view-ref-Bh4xL90y.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-CqMOxOYE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-qrAJyYZL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/TaxTypeSearchSelect-D3a36RDT.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-CmRfP61L.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-CctsHZi_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsList-CLRGFgeS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-183jj3fU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/useMileageRates-B2TdNzkc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/http-errors-CkJhN68X.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-B_GOtBCv.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-DhGJjjwf.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-CZysNsv_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-CurjWsfM.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-DgvTUCCp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-fvUOfiny.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-DYqXKEGc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-apft8COZ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-CbVIXjAz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-BJqcXqqo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-t3fr51P6.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-DmVYE2PY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CompanySummaryCard-Dp3hQJOp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-DXw4mJsu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-r0iYqNHB.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-B2Greo_4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-tjze7Cwy.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
@@ -6,14 +6,14 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { r as requireReact } from "./index-5aj2_QMA.js";
 import { r as requireReactDom } from "./index-9p2Bpne_.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
-import { i as RouterProvider$1, h as RoutePaths, g as RouteNames, d as Navigate, N as NavLink, a5 as useNavigate, t as generatePath, a3 as useLocation, _ as useCompanyStore, aa as usePreventPageReload, O as Outlet, j as createHashRouter, e as QueryClientProvider, A as ALL_ENDPOINT_TEMPLATES } from "./date-format-Ban7B2GG.js";
+import { h as RouterProvider$1, g as RoutePaths, f as RouteNames, c as Navigate, N as NavLink, ab as useNavigate, z as generatePath, a9 as useLocation, a4 as useCompanyStore, ag as usePreventPageReload, O as Outlet, i as createHashRouter, d as QueryClientProvider, A as ALL_ENDPOINT_TEMPLATES } from "./use-scroll-into-view-ref-Bh4xL90y.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import { R as Role, u as useRoles } from "./hooks-C4PQKHFK.js";
+import { R as Role, b as useRoles, u as useApprovalsList, A as ApprovalTab } from "./ApprovalsList-CLRGFgeS.js";
 import { S as Shield } from "./shield-B2Greo_4.js";
 import { O as createLucideIcon, ab as jn, U as Ue, T as Ta, at as useJWTStore, S as SessionStorageKeys, a0 as devError, an as qs, a1 as devLog, N as Nr } from "./configuration-B4FJFUoo.js";
-import { u as useCompanies, q as queryClient } from "./queryClient-Cty3G98M.js";
+import { Z as useCompanies, U as queryClient } from "./CostAllocationSection-183jj3fU.js";
 import { u as useAuth } from "./hooks-DhGJjjwf.js";
-import { t as useFormTypes, p as useExpenseTypes } from "./expense-api-CFDRCnr8.js";
+import { t as useFormTypes, p as useExpenseTypes } from "./TaxTypeSearchSelect-D3a36RDT.js";
 if (typeof window !== "undefined" && typeof performance !== "undefined") {
   const entries = performance.getEntriesByType("navigation");
   const nav = entries[0];
@@ -12603,6 +12603,17 @@ const ProtectedRoute = /* @__PURE__ */ __name(({
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children });
 }, "ProtectedRoute");
+const SCOPE_CLASS = "expenses-mfe-scope";
+const CONTAINER_ID = "expenses-mfe";
+const toRelativePath = /* @__PURE__ */ __name((path) => path.startsWith("/") ? path.slice(1) : path, "toRelativePath");
+const useHasPendingApprovals = /* @__PURE__ */ __name(({ enabled = true } = {}) => {
+  var _a;
+  const query = useApprovalsList(
+    { status: ApprovalTab.Submitted, pageSize: 1 },
+    { enabled }
+  );
+  return (((_a = query.data) == null ? void 0 : _a.totalObjects) ?? 0) > 0;
+}, "useHasPendingApprovals");
 const { useCallback: useCallback$1, useMemo, useState } = await importShared("react");
 const NavigationSidebar = /* @__PURE__ */ __name(({
   className,
@@ -12614,6 +12625,8 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
   const companies = useMemo(() => companiesQuery.data || [], [companiesQuery.data]);
   const environmentLabel = useMemo(() => "", []);
   const { hasAnyRole } = useRoles();
+  const canSeeApprovals = hasAnyRole([Role.Manager, Role.Admin, Role.AP]);
+  const hasPendingApprovals = useHasPendingApprovals({ enabled: canSeeApprovals });
   const navigationElements = useMemo(() => {
     const allElements = getNavigationElements();
     const roleFiltered = allElements.filter((element) => {
@@ -12694,6 +12707,7 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
     const hasChildren = Boolean(item.children && item.children.length > 0);
     const isExpanded = expandedItems.has(String(item.label));
     const navPath = item.path;
+    const showDot = item.id === "approvals" && hasPendingApprovals;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: hasChildren ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
         Ue,
@@ -12720,13 +12734,24 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
           className: /* @__PURE__ */ __name(({ isActive }) => `flex items-center gap-2 px-2 py-1.5 text-sm font-medium transition-colors hover:bg-exp-neutral-30 rounded-lg ${level > 0 ? "pl-8" : ""} ${isActive ? "bg-exp-primary-blue-50 text-exp-primary-blue-600 font-semibold" : "text-exp-neutral-600"}`, "className"),
           children: [
             item.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(item.icon, { className: `w-4 h-4 shrink-0 ${level > 0 ? "ml-4" : ""}` }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "color-exp-neutral-600", children: item.label })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "color-exp-neutral-600", children: item.label }),
+            showDot && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: " - action required" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "span",
+                {
+                  className: "size-1.5 rounded-full bg-exp-blue-400 shrink-0",
+                  "aria-hidden": "true",
+                  "data-testid": `nav-dot-${item.id}`
+                }
+              )
+            ] })
           ]
         }
       ) }),
       hasChildren && isExpanded && item.children && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50", children: item.children.map((child) => renderNavItem(child, level + 1)) })
     ] }, item.path);
-  }, [expandedItems, handleNavigation, handleExpandClick]);
+  }, [expandedItems, handleNavigation, handleExpandClick, hasPendingApprovals]);
   const renderSeparator = useCallback$1(() => {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-exp-primary-blue-100 my-4" });
   }, []);
@@ -13809,7 +13834,7 @@ async function setupObservability(options = {}) {
   state.pendingInit = (async () => {
     try {
       const { initializeObservability } = await __vitePreload(async () => {
-        const { initializeObservability: initializeObservability2 } = await import("./setup-BVj6sn4z.js");
+        const { initializeObservability: initializeObservability2 } = await import("./setup-Bo9SIkkn.js");
         return { initializeObservability: initializeObservability2 };
       }, true ? [] : void 0, import.meta.url);
       const active = initializeObservability({
@@ -13908,7 +13933,6 @@ const FullscreenLayout = /* @__PURE__ */ __name(() => {
     }
   ) });
 }, "FullscreenLayout");
-const toRelativePath = /* @__PURE__ */ __name((path) => path.startsWith("/") ? path.slice(1) : path, "toRelativePath");
 const { lazy } = await importShared("react");
 const RELOAD_KEY = "expenses-mfe.chunk-reload-attempt";
 const MAX_RELOADS = 2;
@@ -13969,21 +13993,19 @@ function lazyRoute(loader) {
   });
 }
 __name(lazyRoute, "lazyRoute");
-const SCOPE_CLASS = "expenses-mfe-scope";
-const CONTAINER_ID = "expenses-mfe";
 const { Suspense } = await importShared("react");
-const Expenses = lazyRoute(() => __vitePreload(() => import("./ExpensesPage-BSwxx0uC.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10,11,12]) : void 0, import.meta.url));
-const Approvals = lazyRoute(() => __vitePreload(() => import("./ApprovalsPage-5Ty51cvX.js"), true ? __vite__mapDeps([13,1,3,4,5,11,9,10,7,8,14,15,16,17,12,18,19,20]) : void 0, import.meta.url));
-const UnifiedExpensePage = lazyRoute(() => __vitePreload(() => import("./UnifiedExpensePage-CLwMbrNr.js"), true ? __vite__mapDeps([21,1,4,3,2,5,6,7,8,9,10,11,12,14,15,16,17,18,22,23]) : void 0, import.meta.url));
-const Configurations = lazyRoute(() => __vitePreload(() => import("./Configurations-fvUOfiny.js"), true ? __vite__mapDeps([24,1]) : void 0, import.meta.url));
-const ExpenseType = lazyRoute(() => __vitePreload(() => import("./ExpenseType-I3NCxCM0.js"), true ? __vite__mapDeps([25,1,26,3,5,4,6,7,8,15,9,22,11,12]) : void 0, import.meta.url));
-const MileageType = lazyRoute(() => __vitePreload(() => import("./MileageType-njn9h9we.js"), true ? __vite__mapDeps([27,1,26,3,5,4,6,7,8,15,9,22,11,12]) : void 0, import.meta.url));
-const BusinessPurpose = lazyRoute(() => __vitePreload(() => import("./BusinessPurpose-B5Afwhj1.js"), true ? __vite__mapDeps([28,1,26,3,5,4,6,7,8,15,9,22,11,12]) : void 0, import.meta.url));
-const CorporateCards = lazyRoute(() => __vitePreload(() => import("./CorporateCards-DDvVL3tj.js"), true ? __vite__mapDeps([29,1,26,3,5,4,6,7,8,15,9,22,11,12]) : void 0, import.meta.url));
-const ReconciliationPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationPage-DjHi-6nt.js"), true ? __vite__mapDeps([30,1,31,3,4,5,7,8,11,17,6]) : void 0, import.meta.url));
-const ReconciliationDetailPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationDetailPage-DrNxcfIN.js"), true ? __vite__mapDeps([32,3,1,5,4,7,8,31,11,17,6]) : void 0, import.meta.url));
-const TestingAuthentication = lazyRoute(() => __vitePreload(() => import("./JWTDemo-r0iYqNHB.js"), true ? __vite__mapDeps([33,3,1,4,20,34,18,23]) : void 0, import.meta.url));
-const TestingIcons = lazyRoute(() => __vitePreload(() => import("./IconsTestingPage-4zM0wWjo.js"), true ? __vite__mapDeps([35,3,1,7,8]) : void 0, import.meta.url));
+const Expenses = lazyRoute(() => __vitePreload(() => import("./ExpensesPage-CwBRB1c4.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10]) : void 0, import.meta.url));
+const Approvals = lazyRoute(() => __vitePreload(() => import("./ApprovalsPage-CctsHZi_.js"), true ? __vite__mapDeps([11,1,12,3,4,5,9,10,7,8,13,14,15,16,17]) : void 0, import.meta.url));
+const UnifiedExpensePage = lazyRoute(() => __vitePreload(() => import("./UnifiedExpensePage-CZysNsv_.js"), true ? __vite__mapDeps([18,1,4,3,2,5,6,7,8,9,10,13,14,15,16,19,20]) : void 0, import.meta.url));
+const Configurations = lazyRoute(() => __vitePreload(() => import("./Configurations-fvUOfiny.js"), true ? __vite__mapDeps([21,1]) : void 0, import.meta.url));
+const ExpenseType = lazyRoute(() => __vitePreload(() => import("./ExpenseType-DYqXKEGc.js"), true ? __vite__mapDeps([22,1,23,3,5,4,6,7,8,14,9,19]) : void 0, import.meta.url));
+const MileageType = lazyRoute(() => __vitePreload(() => import("./MileageType-CbVIXjAz.js"), true ? __vite__mapDeps([24,1,23,3,5,4,6,7,8,14,9,19]) : void 0, import.meta.url));
+const BusinessPurpose = lazyRoute(() => __vitePreload(() => import("./BusinessPurpose-BJqcXqqo.js"), true ? __vite__mapDeps([25,1,23,3,5,4,6,7,8,14,9,19]) : void 0, import.meta.url));
+const CorporateCards = lazyRoute(() => __vitePreload(() => import("./CorporateCards-t3fr51P6.js"), true ? __vite__mapDeps([26,1,23,3,5,4,6,7,8,14,9,19]) : void 0, import.meta.url));
+const ReconciliationPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationPage-DmVYE2PY.js"), true ? __vite__mapDeps([27,1,28,3,4,5,7,8,15,6]) : void 0, import.meta.url));
+const ReconciliationDetailPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationDetailPage-DXw4mJsu.js"), true ? __vite__mapDeps([29,3,1,5,4,7,8,28,15,6]) : void 0, import.meta.url));
+const TestingAuthentication = lazyRoute(() => __vitePreload(() => import("./JWTDemo-r0iYqNHB.js"), true ? __vite__mapDeps([30,3,1,4,17,31,16,20]) : void 0, import.meta.url));
+const TestingIcons = lazyRoute(() => __vitePreload(() => import("./IconsTestingPage-tjze7Cwy.js"), true ? __vite__mapDeps([32,3,1,7,8]) : void 0, import.meta.url));
 const createRouteConfig = /* @__PURE__ */ __name(() => {
   const baseRoutes = [
     {
@@ -14317,7 +14339,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.31", commit: "8163cee", branch: "dev", timestamp: "2026-05-27T15:53:30.128Z", environment: "expenses-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.33", commit: "e93e146", branch: "dev", timestamp: "2026-05-28T16:27:12.706Z", environment: "expenses-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {
@@ -14451,7 +14473,7 @@ const setupCleanupListeners = /* @__PURE__ */ __name(() => {
 }, "setupCleanupListeners");
 if (typeof window !== "undefined") {
   const w = window;
-  w.__EXPENSES_MFE_VERSION__ = "0.1.0-dev.31";
+  w.__EXPENSES_MFE_VERSION__ = "0.1.0-dev.33";
   w.__EXPENSES_MFE_BUILD__ = define_MFE_BUILD_default;
   console.info(
     `[expenses-mfe] v${define_MFE_BUILD_default.version} (${define_MFE_BUILD_default.commit}, ${define_MFE_BUILD_default.environment}, ${define_MFE_BUILD_default.timestamp})`

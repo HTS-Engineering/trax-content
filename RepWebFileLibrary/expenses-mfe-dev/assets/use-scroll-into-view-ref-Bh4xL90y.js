@@ -10159,6 +10159,179 @@ const queryKeys = {
     aggregation: /* @__PURE__ */ __name((statementId) => [...queryKeys.companyTransactions.aggregations(), { statementId }], "aggregation")
   }
 };
+const EMPTY_CURRENCY_SYMBOL = "-";
+const getCurrencySymbol = /* @__PURE__ */ __name((code) => {
+  var _a2;
+  if (!code) return EMPTY_CURRENCY_SYMBOL;
+  try {
+    return ((_a2 = new Intl.NumberFormat("en", {
+      style: "currency",
+      currency: code,
+      currencyDisplay: "narrowSymbol"
+    }).formatToParts(0).find((part) => part.type === "currency")) == null ? void 0 : _a2.value) ?? EMPTY_CURRENCY_SYMBOL;
+  } catch {
+    return EMPTY_CURRENCY_SYMBOL;
+  }
+}, "getCurrencySymbol");
+const DEFAULT_CURRENCY = {
+  code: "CAD",
+  symbol: "$"
+};
+const DEFAULT_CURRENCY_CODE = DEFAULT_CURRENCY.code;
+const DEFAULT_CURRENCY_SYMBOL = DEFAULT_CURRENCY.symbol;
+const isValidDate = /* @__PURE__ */ __name((date) => !isNaN(date.getTime()), "isValidDate");
+const parseDateOnlyAsLocal = /* @__PURE__ */ __name((dateString) => {
+  const isoDateMatch = dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!isoDateMatch) return new Date(Number.NaN);
+  const [, year, month, day] = isoDateMatch;
+  return new Date(Number(year), Number(month) - 1, Number(day));
+}, "parseDateOnlyAsLocal");
+const formatToISODate = /* @__PURE__ */ __name((date) => {
+  if (!date) return null;
+  const d = typeof date === "string" ? parseDateOnlyAsLocal(date) : date;
+  if (isNaN(d.getTime())) return null;
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}, "formatToISODate");
+const normalizeDateRange = /* @__PURE__ */ __name((range) => {
+  if (!(range == null ? void 0 : range.from)) return void 0;
+  try {
+    const fromDate = typeof range.from === "string" ? parseDateOnlyAsLocal(range.from) : range.from;
+    if (!isValidDate(fromDate)) return void 0;
+    const toDate = range.to ? typeof range.to === "string" ? parseDateOnlyAsLocal(range.to) : range.to : void 0;
+    if (toDate && !isValidDate(toDate)) return void 0;
+    return { from: fromDate, to: toDate };
+  } catch {
+    return void 0;
+  }
+}, "normalizeDateRange");
+const formatExpenseDate = /* @__PURE__ */ __name((date) => {
+  if (!date) return "";
+  try {
+    const parsedDate = typeof date === "string" ? parseDateOnlyAsLocal(date) : date;
+    if (!isValidDate(parsedDate)) return "";
+    const month = parsedDate.toLocaleDateString("en-US", { month: "short" });
+    const day = parsedDate.getDate();
+    const year = parsedDate.getFullYear();
+    return `${month} ${day}, ${year}`;
+  } catch {
+    return "";
+  }
+}, "formatExpenseDate");
+const formatExpensePeriod = /* @__PURE__ */ __name((range) => {
+  const normalizedRange = normalizeDateRange(range);
+  if (!(normalizedRange == null ? void 0 : normalizedRange.from)) return "";
+  try {
+    const fromDate = normalizedRange.from;
+    const toDate = normalizedRange.to;
+    const formatDate2 = /* @__PURE__ */ __name((date, includeYear = false) => {
+      const month = date.toLocaleDateString("en-US", { month: "short" });
+      const day = date.getDate();
+      const year = date.getFullYear();
+      return includeYear ? `${month} ${day}, ${year}` : `${month} ${day}`;
+    }, "formatDate");
+    if (toDate && fromDate.getTime() !== toDate.getTime()) {
+      const isCrossYear = fromDate.getFullYear() !== toDate.getFullYear();
+      if (isCrossYear) {
+        return `${formatDate2(fromDate, true)} - ${formatDate2(toDate, true)}`;
+      }
+      return `${formatDate2(fromDate)} - ${formatDate2(toDate)}, ${fromDate.getFullYear()}`;
+    }
+    return `${formatDate2(fromDate)}, ${fromDate.getFullYear()}`;
+  } catch {
+    return "";
+  }
+}, "formatExpensePeriod");
+const formatHistoryTimestamp = /* @__PURE__ */ __name((timestamp) => {
+  if (!timestamp) return "";
+  try {
+    const date = typeof timestamp === "string" ? new Date(timestamp) : timestamp;
+    if (!isValidDate(date)) return "";
+    const month = date.toLocaleDateString("en-US", { month: "short" });
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const displayHours = hours % 12 || 12;
+    const displayMinutes = minutes.toString().padStart(2, "0");
+    return `${month} ${day}, ${year} at ${displayHours}:${displayMinutes} ${ampm}`;
+  } catch {
+    return "";
+  }
+}, "formatHistoryTimestamp");
+const ensureValidCurrency = /* @__PURE__ */ __name((currency) => {
+  if (!currency || !currency.code) return DEFAULT_CURRENCY;
+  if (currency.symbol) return currency;
+  return { code: currency.code, symbol: getCurrencySymbol(currency.code) };
+}, "ensureValidCurrency");
+function resolveSymbol(currency, spaceAfterSymbol) {
+  return spaceAfterSymbol ? `${currency.symbol} ` : currency.symbol;
+}
+__name(resolveSymbol, "resolveSymbol");
+const formatDate = /* @__PURE__ */ __name((dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+}, "formatDate");
+const formatDateRange = /* @__PURE__ */ __name((from, to) => {
+  const fromDate = typeof from === "string" ? parseDateOnlyAsLocal(from) : from;
+  const toDate = typeof to === "string" ? parseDateOnlyAsLocal(to) : to;
+  const fromMonth = fromDate.toLocaleDateString("en-US", { month: "short" });
+  const toMonth = toDate.toLocaleDateString("en-US", { month: "short" });
+  const fromDay = fromDate.getDate();
+  const toDay = toDate.getDate();
+  const fromYear = fromDate.getFullYear();
+  const toYear = toDate.getFullYear();
+  if (fromYear !== toYear) {
+    return `${fromMonth} ${fromDay}, ${fromYear} - ${toMonth} ${toDay}, ${toYear}`;
+  }
+  if (fromMonth === toMonth) {
+    return `${fromMonth} ${fromDay} - ${toDay}, ${toYear}`;
+  }
+  return `${fromMonth} ${fromDay} - ${toMonth} ${toDay}, ${toYear}`;
+}, "formatDateRange");
+const formatCurrency = /* @__PURE__ */ __name((amount, { currency, spaceAfterSymbol = false, includeCurrencyCode = true } = {}) => {
+  const validCurrency = ensureValidCurrency(currency);
+  const numericAmount = typeof amount === "string" ? parseFloat(amount) : amount;
+  if (isNaN(numericAmount)) return String(amount);
+  const prefix = resolveSymbol(validCurrency, spaceAfterSymbol);
+  const formattedNumber = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(numericAmount);
+  return includeCurrencyCode ? `${prefix}${formattedNumber} ${validCurrency.code}` : `${prefix}${formattedNumber}`;
+}, "formatCurrency");
+const formatAmountWithCurrency = /* @__PURE__ */ __name((amount, currencyCode) => {
+  if (amount == null || amount === "") return EMPTY_CURRENCY_SYMBOL;
+  if (!currencyCode) return EMPTY_CURRENCY_SYMBOL;
+  return formatCurrency(amount, {
+    currency: { code: currencyCode, symbol: getCurrencySymbol(currencyCode) },
+    includeCurrencyCode: false
+  });
+}, "formatAmountWithCurrency");
+const formatRate = /* @__PURE__ */ __name((rate, unit, { currency, spaceAfterSymbol = false } = {}) => {
+  const validCurrency = ensureValidCurrency(currency);
+  const numericRate = typeof rate === "string" ? parseFloat(rate) : rate;
+  if (isNaN(numericRate)) return `${rate} per ${unit}`;
+  const prefix = resolveSymbol(validCurrency, spaceAfterSymbol);
+  return `${prefix}${numericRate.toFixed(2)} per ${unit}`;
+}, "formatRate");
+const formatRateCompact = /* @__PURE__ */ __name((rate, unit, { currency, spaceAfterSymbol = false } = {}) => {
+  if (rate == null) return "-";
+  const validCurrency = ensureValidCurrency(currency);
+  const prefix = resolveSymbol(validCurrency, spaceAfterSymbol);
+  return `${prefix}${rate.toFixed(2)}/${unit || "-"}`;
+}, "formatRateCompact");
+const formatDistance = /* @__PURE__ */ __name((distance, unit) => {
+  if (!distance || !unit) return void 0;
+  return `${distance} ${unit}`;
+}, "formatDistance");
 function debounce(func, delay) {
   let timeoutId = null;
   return /* @__PURE__ */ __name(function debounced(...args) {
@@ -10349,178 +10522,81 @@ function useScrollIntoViewRef(options) {
   }, []);
 }
 __name(useScrollIntoViewRef, "useScrollIntoViewRef");
-const EMPTY_CURRENCY_SYMBOL = "-";
-const getCurrencySymbol = /* @__PURE__ */ __name((code) => {
-  var _a2;
-  if (!code) return EMPTY_CURRENCY_SYMBOL;
-  try {
-    return ((_a2 = new Intl.NumberFormat("en", {
-      style: "currency",
-      currency: code,
-      currencyDisplay: "narrowSymbol"
-    }).formatToParts(0).find((part) => part.type === "currency")) == null ? void 0 : _a2.value) ?? EMPTY_CURRENCY_SYMBOL;
-  } catch {
-    return EMPTY_CURRENCY_SYMBOL;
-  }
-}, "getCurrencySymbol");
-const DEFAULT_CURRENCY = {
-  code: "CAD",
-  symbol: "$"
-};
-const DEFAULT_CURRENCY_CODE = DEFAULT_CURRENCY.code;
-const DEFAULT_CURRENCY_SYMBOL = DEFAULT_CURRENCY.symbol;
-const isValidDate = /* @__PURE__ */ __name((date) => !isNaN(date.getTime()), "isValidDate");
-const parseDateOnlyAsLocal = /* @__PURE__ */ __name((dateString) => {
-  const isoDateMatch = dateString.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!isoDateMatch) return new Date(Number.NaN);
-  const [, year, month, day] = isoDateMatch;
-  return new Date(Number(year), Number(month) - 1, Number(day));
-}, "parseDateOnlyAsLocal");
-const formatToISODate = /* @__PURE__ */ __name((date) => {
-  if (!date) return null;
-  const d = typeof date === "string" ? parseDateOnlyAsLocal(date) : date;
-  if (isNaN(d.getTime())) return null;
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}, "formatToISODate");
-const normalizeDateRange = /* @__PURE__ */ __name((range) => {
-  if (!(range == null ? void 0 : range.from)) return void 0;
-  try {
-    const fromDate = typeof range.from === "string" ? parseDateOnlyAsLocal(range.from) : range.from;
-    if (!isValidDate(fromDate)) return void 0;
-    const toDate = range.to ? typeof range.to === "string" ? parseDateOnlyAsLocal(range.to) : range.to : void 0;
-    if (toDate && !isValidDate(toDate)) return void 0;
-    return { from: fromDate, to: toDate };
-  } catch {
-    return void 0;
-  }
-}, "normalizeDateRange");
-const formatExpenseDate = /* @__PURE__ */ __name((date) => {
-  if (!date) return "";
-  try {
-    const parsedDate = typeof date === "string" ? parseDateOnlyAsLocal(date) : date;
-    if (!isValidDate(parsedDate)) return "";
-    const month = parsedDate.toLocaleDateString("en-US", { month: "short" });
-    const day = parsedDate.getDate();
-    const year = parsedDate.getFullYear();
-    return `${month} ${day}, ${year}`;
-  } catch {
-    return "";
-  }
-}, "formatExpenseDate");
-const formatExpensePeriod = /* @__PURE__ */ __name((range) => {
-  const normalizedRange = normalizeDateRange(range);
-  if (!(normalizedRange == null ? void 0 : normalizedRange.from)) return "";
-  try {
-    const fromDate = normalizedRange.from;
-    const toDate = normalizedRange.to;
-    const formatDate = /* @__PURE__ */ __name((date, includeYear = false) => {
-      const month = date.toLocaleDateString("en-US", { month: "short" });
-      const day = date.getDate();
-      const year = date.getFullYear();
-      return includeYear ? `${month} ${day}, ${year}` : `${month} ${day}`;
-    }, "formatDate");
-    if (toDate && fromDate.getTime() !== toDate.getTime()) {
-      const isCrossYear = fromDate.getFullYear() !== toDate.getFullYear();
-      if (isCrossYear) {
-        return `${formatDate(fromDate, true)} - ${formatDate(toDate, true)}`;
-      }
-      return `${formatDate(fromDate)} - ${formatDate(toDate)}, ${fromDate.getFullYear()}`;
-    }
-    return `${formatDate(fromDate)}, ${fromDate.getFullYear()}`;
-  } catch {
-    return "";
-  }
-}, "formatExpensePeriod");
-const formatHistoryTimestamp = /* @__PURE__ */ __name((timestamp) => {
-  if (!timestamp) return "";
-  try {
-    const date = typeof timestamp === "string" ? new Date(timestamp) : timestamp;
-    if (!isValidDate(date)) return "";
-    const month = date.toLocaleDateString("en-US", { month: "short" });
-    const day = date.getDate();
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? "PM" : "AM";
-    const displayHours = hours % 12 || 12;
-    const displayMinutes = minutes.toString().padStart(2, "0");
-    return `${month} ${day}, ${year} at ${displayHours}:${displayMinutes} ${ampm}`;
-  } catch {
-    return "";
-  }
-}, "formatHistoryTimestamp");
 export {
-  useDebouncedCallback as $,
+  shallowEqualObjects as $,
   ALL_ENDPOINT_TEMPLATES as A,
-  keepPreviousData as B,
-  matchMutation as C,
-  DEFAULT_CURRENCY as D,
+  getCurrencySymbol as B,
+  getHasError as C,
+  DEFAULT_CURRENCY_CODE as D,
   EMPTY_CURRENCY_SYMBOL as E,
   FILE_ENDPOINTS as F,
-  matchQuery as G,
-  noop as H,
-  notifyManager as I,
-  onlineManager as J,
-  parseDateOnlyAsLocal as K,
-  partialMatchKey as L,
+  hasNextPage as G,
+  hasPreviousPage as H,
+  hashKey as I,
+  hashQueryKeyByOptions as J,
+  keepPreviousData as K,
+  matchMutation as L,
   Mutation as M,
   NavLink as N,
   Outlet as O,
-  queryKeys as P,
+  matchQuery as P,
   Query as Q,
   RECONCILIATION_ENDPOINTS as R,
   Subscribable as S,
-  replaceEqualDeep as T,
-  resolveStaleTime as U,
-  shallowEqualObjects as V,
-  shouldSuspend as W,
-  skipToken as X,
-  useBaseQuery as Y,
-  useClearResetErrorBoundary as Z,
-  useCompanyStore as _,
-  DEFAULT_CURRENCY_CODE as a,
-  useErrorToast as a0,
-  useEscapeHandler as a1,
-  useIsRestoring as a2,
-  useLocation as a3,
-  useMutation as a4,
-  useNavigate as a5,
-  useNavigateBack as a6,
-  useNavigateWithReturn as a7,
-  useNumericDisplay as a8,
-  useParams as a9,
-  usePreventPageReload as aa,
-  useQuery as ab,
-  useQueryClient as ac,
-  useQueryErrorResetBoundary as ad,
-  useScrollIntoViewRef as ae,
-  useSearchParams as af,
-  DEFAULT_CURRENCY_SYMBOL as b,
-  EXPENSE_ENDPOINTS as c,
-  Navigate as d,
-  QueryClientProvider as e,
-  QueryObserver as f,
-  RouteNames as g,
-  RoutePaths as h,
-  RouterProvider as i,
-  createHashRouter as j,
-  ensurePreventErrorBoundaryRetry as k,
-  ensureSuspenseTimers as l,
-  fetchOptimistic as m,
-  focusManager as n,
-  formatExpenseDate as o,
-  formatExpensePeriod as p,
-  formatHistoryTimestamp as q,
-  formatToISODate as r,
-  functionalUpdate as s,
-  generatePath as t,
-  getCurrencySymbol as u,
-  getHasError as v,
-  hasNextPage as w,
-  hasPreviousPage as x,
-  hashKey as y,
-  hashQueryKeyByOptions as z
+  noop as T,
+  notifyManager as U,
+  onlineManager as V,
+  parseDateOnlyAsLocal as W,
+  partialMatchKey as X,
+  queryKeys as Y,
+  replaceEqualDeep as Z,
+  resolveStaleTime as _,
+  DEFAULT_CURRENCY_SYMBOL as a,
+  shouldSuspend as a0,
+  skipToken as a1,
+  useBaseQuery as a2,
+  useClearResetErrorBoundary as a3,
+  useCompanyStore as a4,
+  useDebouncedCallback as a5,
+  useErrorToast as a6,
+  useEscapeHandler as a7,
+  useIsRestoring as a8,
+  useLocation as a9,
+  useMutation as aa,
+  useNavigate as ab,
+  useNavigateBack as ac,
+  useNavigateWithReturn as ad,
+  useNumericDisplay as ae,
+  useParams as af,
+  usePreventPageReload as ag,
+  useQuery as ah,
+  useQueryClient as ai,
+  useQueryErrorResetBoundary as aj,
+  useScrollIntoViewRef as ak,
+  useSearchParams as al,
+  EXPENSE_ENDPOINTS as b,
+  Navigate as c,
+  QueryClientProvider as d,
+  QueryObserver as e,
+  RouteNames as f,
+  RoutePaths as g,
+  RouterProvider as h,
+  createHashRouter as i,
+  ensurePreventErrorBoundaryRetry as j,
+  ensureSuspenseTimers as k,
+  fetchOptimistic as l,
+  focusManager as m,
+  formatAmountWithCurrency as n,
+  formatCurrency as o,
+  formatDate as p,
+  formatDateRange as q,
+  formatDistance as r,
+  formatExpenseDate as s,
+  formatExpensePeriod as t,
+  formatHistoryTimestamp as u,
+  formatRate as v,
+  formatRateCompact as w,
+  formatToISODate as x,
+  functionalUpdate as y,
+  generatePath as z
 };

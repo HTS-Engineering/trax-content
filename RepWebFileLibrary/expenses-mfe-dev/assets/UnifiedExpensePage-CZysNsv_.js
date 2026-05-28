@@ -1,17 +1,15 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { O as createLucideIcon, T as Ta, a0 as devError, s as Us, a1 as devLog, x as apiClient, $ as $a, ay as za, ah as ln, K as Ka, A as Aa, aj as ms, k as Js, Z as Za, Q as Qa, a6 as es, ab as jn, J as Ja, w as _t, i as Ft, U as Ue, f as Dt, al as ns } from "./configuration-B4FJFUoo.js";
-import { E as ExpenseStatusBadge, a as ExpensesList } from "./ExpensesList-Diwdx3Tw.js";
-import { r as formatToISODate, ac as useQueryClient, _ as useCompanyStore, a4 as useMutation, P as queryKeys, c as EXPENSE_ENDPOINTS, ab as useQuery, a as DEFAULT_CURRENCY_CODE, K as parseDateOnlyAsLocal, p as formatExpensePeriod, a5 as useNavigate, a3 as useLocation, a6 as useNavigateBack, t as generatePath, h as RoutePaths, a9 as useParams, af as useSearchParams } from "./date-format-Ban7B2GG.js";
-import { D as isValidFileAttachment, E as ExpenseFormField, a0 as useFormFieldValues, a3 as useMileageRateSync, a6 as useReimbursableAmountSync, V as useAmountAllocationSync, I as mapFormDataToUpdateRequest, H as mapFormDataToCreateRequest, G as mapCostAllocation, T as parseOptionalInt, R as parseOptionalDecimal, w as getMileageTypesFromCache, z as isMileageTripData, t as findActiveSelectedMileageType, l as affidavitSchema, m as basicDetailsSchema, q as createValidationStrategy, p as createDraftSaveChecker, a8 as useTaxFieldVisibility, x as isConvertedExpense, a7 as useSetDefaultCurrency, e as ExpenseTypeSelect, g as MileagePeriodFormField, S as SupportingFiles, M as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, A as isSameCalendarMonth, N as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, F as FormSectionType, r as expenseDetailsSchema, s as expenseJustificationSchema, o as costAllocationSchema, k as additionalCommentsSchema, v as getExpenseBaseAmount, C as CostAllocationHeaderActions, a as CostAllocationSection, i as MileageTripFormField, L as mileageDetailsSchema, O as mileageJustificationSchema, X as useBaseExpenseForm, a9 as useValidatePrefilledFields, W as useAutoSave, $ as useFormButtonStateSync, a1 as useFormImperativeHandle, B as BaseExpenseFormRenderer, Z as useExpenseFormHandlers, _ as useExpenseFormSync, u as fullExpenseValidationStrategy, c as ExpenseFormLeftColumn, a4 as useMileageTripFormHandlers, K as mapMileageTripToDefaultValues, Q as mileageTripValidationStrategy, U as supportingFilesSchema, a2 as useMileagePeriodFormHandlers, J as mapMileagePeriodToDefaultValues, P as mileagePeriodValidationStrategy, y as isMileagePeriodData, f as MileageFormType, a5 as usePendingUploadStore, b as ExpenseFormHistoryLog, d as ExpensePreview, j as MileageTripPreview, h as MileagePeriodPreview } from "./CostAllocationSection-BPTY34mY.js";
-import { p as useExpenseTypes, d as FormTypeId, I as ItemCategory, l as useCurrencies, u as useCountries, v as useTaxTypesDisplay, n as useDefaultCurrency, q as useFormTypeId, a as ExpenseFormType, j as isRegularExpense, h as isMileageExpense, f as isExpenseItemSubmitted, o as useExpenseItem, i as isExpenseItemDraft } from "./expense-api-CFDRCnr8.js";
-import { M as MILEAGE_RATES_STALE_TIME, g as fetchEffectiveMileageRate, o as object, s as string, c as boolean, e as custom, a as Controller, d as createDecimalChangeHandler, w as useWatch, v as useMileageRates, p as useEffectiveMileageRate, C as ConfirmDialog } from "./useMileageRates-C1IbqS9e.js";
+import { O as createLucideIcon, T as Ta, a0 as devError, s as Us, a1 as devLog, x as apiClient, $ as $a, ay as za, ah as ln, K as Ka, A as Aa, aj as ms, k as Js, Z as Za, Q as Qa, a6 as es, al as ns, ab as jn, J as Ja, w as _t, i as Ft, U as Ue, f as Dt } from "./configuration-B4FJFUoo.js";
+import { E as ExpenseStatusBadge, a as ExpensesList } from "./ExpensesList-C-7qX3ry.js";
+import { x as formatToISODate, ai as useQueryClient, a4 as useCompanyStore, aa as useMutation, Y as queryKeys, b as EXPENSE_ENDPOINTS, ah as useQuery, D as DEFAULT_CURRENCY_CODE, W as parseDateOnlyAsLocal, v as formatRate, o as formatCurrency, t as formatExpensePeriod, p as formatDate, ab as useNavigate, a9 as useLocation, ac as useNavigateBack, z as generatePath, g as RoutePaths, af as useParams, al as useSearchParams } from "./use-scroll-into-view-ref-Bh4xL90y.js";
+import { $ as useDefaultCompany, D as isValidFileAttachment, E as ExpenseFormField, a3 as useFormFieldValues, a6 as useMileageRateSync, a9 as useReimbursableAmountSync, W as useAmountAllocationSync, I as mapFormDataToUpdateRequest, H as mapFormDataToCreateRequest, G as mapCostAllocation, T as parseOptionalInt, R as parseOptionalDecimal, w as getMileageTypesFromCache, z as isMileageTripData, t as findActiveSelectedMileageType, l as affidavitSchema, m as basicDetailsSchema, q as createValidationStrategy, p as createDraftSaveChecker, ab as useTaxFieldVisibility, x as isConvertedExpense, aa as useSetDefaultCurrency, e as ExpenseTypeSelect, g as MileagePeriodFormField, S as SupportingFiles, M as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, A as isSameCalendarMonth, N as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, F as FormSectionType, r as expenseDetailsSchema, s as expenseJustificationSchema, o as costAllocationSchema, k as additionalCommentsSchema, v as getExpenseBaseAmount, C as CostAllocationHeaderActions, a as CostAllocationSection, i as MileageTripFormField, L as mileageDetailsSchema, O as mileageJustificationSchema, Y as useBaseExpenseForm, ac as useValidatePrefilledFields, X as useAutoSave, a2 as useFormButtonStateSync, a4 as useFormImperativeHandle, B as BaseExpenseFormRenderer, a0 as useExpenseFormHandlers, a1 as useExpenseFormSync, u as fullExpenseValidationStrategy, c as ExpenseFormLeftColumn, a7 as useMileageTripFormHandlers, K as mapMileageTripToDefaultValues, Q as mileageTripValidationStrategy, V as supportingFilesSchema, a5 as useMileagePeriodFormHandlers, J as mapMileagePeriodToDefaultValues, P as mileagePeriodValidationStrategy, y as isMileagePeriodData, f as MileageFormType, a8 as usePendingUploadStore, b as ExpenseFormHistoryLog, d as ExpensePreview, j as MileageTripPreview, h as MileagePeriodPreview } from "./CostAllocationSection-183jj3fU.js";
+import { p as useExpenseTypes, d as FormTypeId, I as ItemCategory, l as useCurrencies, u as useCountries, v as useTaxTypesDisplay, n as useDefaultCurrency, T as TaxTypeSearchSelect, q as useFormTypeId, a as ExpenseFormType, j as isRegularExpense, h as isMileageExpense, f as isExpenseItemSubmitted, o as useExpenseItem, i as isExpenseItemDraft } from "./TaxTypeSearchSelect-D3a36RDT.js";
+import { M as MILEAGE_RATES_STALE_TIME, g as fetchEffectiveMileageRate, o as object, s as string, c as boolean, e as custom, a as Controller, d as createDecimalChangeHandler, w as useWatch, v as useMileageRates, p as useEffectiveMileageRate, C as ConfirmDialog } from "./useMileageRates-B2TdNzkc.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
-import { u as useBusinessPurposes } from "./business-purpose-api-B1KlaLOY.js";
-import { a as useDefaultCompany } from "./queryClient-Cty3G98M.js";
+import { u as useBusinessPurposes } from "./business-purpose-api-CurjWsfM.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import { e as formatRate, a as formatCurrency, b as formatDate } from "./formatters-DV4AvCZw.js";
 import { T as Trash2, S as Send } from "./trash-2-DgvTUCCp.js";
 const __iconNode$1 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
@@ -651,7 +649,7 @@ createValidationStrategy(
     )
   }
 );
-const { useEffect: useEffect$4, useMemo: useMemo$5, useRef: useRef$4 } = await importShared("react");
+const { useCallback: useCallback$6, useEffect: useEffect$4, useMemo: useMemo$5, useRef: useRef$4 } = await importShared("react");
 const TAX_CURRENCY = "CAD";
 const ExpenseDetailsSection = /* @__PURE__ */ __name(({
   control,
@@ -705,6 +703,31 @@ const ExpenseDetailsSection = /* @__PURE__ */ __name(({
     }
     prevShowTaxFields.current = showTaxFields;
   }, [showTaxFields, setValue]);
+  const searchCountries = useCallback$6(async (query) => {
+    const q = query.toLowerCase();
+    return (countries ?? []).reduce((acc, option) => {
+      if (option.name.toLowerCase().includes(q)) {
+        acc.push({
+          value: option.id.toString(),
+          label: option.name,
+          data: {
+            code: option.defaultCurrencyIso,
+            symbol: codeToSymbolMap.get(option.defaultCurrencyIso) ?? defaultCurrencySymbol
+          }
+        });
+      }
+      return acc;
+    }, []);
+  }, [countries, codeToSymbolMap, defaultCurrencySymbol]);
+  const searchCurrencies = useCallback$6(async (query) => {
+    const q = query.toLowerCase();
+    return (currencies ?? []).reduce((acc, option) => {
+      if (option.isoCode.toLowerCase().includes(q) || option.name.toLowerCase().includes(q)) {
+        acc.push({ value: option.isoCode, label: option.name, data: option.symbol });
+      }
+      return acc;
+    }, []);
+  }, [currencies]);
   const prevShowConvertedTotal = useRef$4(showConvertedTotal);
   useEffect$4(() => {
     if (prevShowConvertedTotal.current === showConvertedTotal) return;
@@ -810,27 +833,12 @@ const ExpenseDetailsSection = /* @__PURE__ */ __name(({
                   symbol: ((_b = item == null ? void 0 : item.data) == null ? void 0 : _b.symbol) ?? defaultCurrencySymbol
                 });
               }, "onValueChange"),
-              onSearch: /* @__PURE__ */ __name(async (query) => {
-                return (countries ?? []).reduce((acc, option) => {
-                  if (option.name.toLowerCase().includes(query.toLowerCase())) {
-                    acc.push({
-                      value: option.id.toString(),
-                      label: option.name,
-                      data: {
-                        code: option.defaultCurrencyIso,
-                        symbol: codeToSymbolMap.get(option.defaultCurrencyIso) ?? defaultCurrencySymbol
-                      }
-                    });
-                  }
-                  return acc;
-                }, []);
-              }, "onSearch"),
+              onSearch: searchCountries,
               searchOnFocus: true,
               searchDelay: 300,
               minSearchLength: 0,
               onBlur: field.onBlur,
               clearOnBlur: false,
-              dropdownClassName: "max-h-47",
               error: (_a = fieldState.error) == null ? void 0 : _a.message,
               disabled: disabled || countriesLoading
             }
@@ -909,14 +917,7 @@ const ExpenseDetailsSection = /* @__PURE__ */ __name(({
                     }, "onValueChange"),
                     placeholder: "Search currency",
                     buttonLabel: (netCurrency == null ? void 0 : netCurrency.code) ?? defaultCurrencyCode,
-                    onSearch: /* @__PURE__ */ __name(async (query) => {
-                      return (currencies ?? []).reduce((acc, option) => {
-                        if (option.isoCode.toLowerCase().includes(query.toLowerCase()) || option.name.toLowerCase().includes(query.toLowerCase())) {
-                          acc.push({ value: option.isoCode, label: option.name, data: option.symbol });
-                        }
-                        return acc;
-                      }, []);
-                    }, "onSearch"),
+                    onSearch: searchCurrencies,
                     renderItem: /* @__PURE__ */ __name((item, highlight, isSelected) => /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
                       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `text-xs leading-[140%] ${isSelected ? "text-white" : "text-exp-grey-900"} font-medium [&_strong]:font-bold`, children: highlight(item.value) }),
                       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `text-xxs leading-[140%] ${isSelected ? "text-white" : "text-exp-grey-600"} [&_strong]:font-bold`, children: highlight(item.label) })
@@ -971,42 +972,23 @@ const ExpenseDetailsSection = /* @__PURE__ */ __name(({
             control,
             render: /* @__PURE__ */ __name(({ field, fieldState }) => {
               var _a;
-              const selectedTaxType = taxTypes == null ? void 0 : taxTypes.find((tt) => tt.id.toString() === field.value);
               return /* @__PURE__ */ jsxRuntimeExports.jsx(
-                ln,
+                TaxTypeSearchSelect,
                 {
                   label: "Tax type",
                   placeholder: "Select type",
-                  value: field.value ? {
-                    value: field.value,
-                    label: selectedTaxType ? selectedTaxType.displayText : ""
-                  } : null,
-                  onValueChange: /* @__PURE__ */ __name((item) => {
-                    field.onChange((item == null ? void 0 : item.value) ?? "");
-                  }, "onValueChange"),
-                  onSearch: /* @__PURE__ */ __name(async (query) => {
-                    return (taxTypes ?? []).reduce((acc, tt) => {
-                      if (tt.displayText.toLowerCase().includes(query.toLowerCase())) {
-                        acc.push({ value: tt.id.toString(), label: tt.displayText });
-                      }
-                      return acc;
-                    }, []);
-                  }, "onSearch"),
-                  renderItem: /* @__PURE__ */ __name((item, highlight, isSelected) => {
-                    const tt = taxTypes == null ? void 0 : taxTypes.find((t) => t.id.toString() === item.value);
-                    if (!tt) return null;
+                  value: field.value ? parseInt(field.value, 10) : null,
+                  onChange: /* @__PURE__ */ __name((id) => field.onChange(id != null ? id.toString() : ""), "onChange"),
+                  onBlur: field.onBlur,
+                  taxTypes,
+                  renderItem: /* @__PURE__ */ __name((tt, highlight, isSelected) => {
                     const [, ratePart] = tt.displayText.split(" - ");
                     return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
                       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `text-sm leading-[140%] ${isSelected ? "text-white" : "text-exp-grey-900"} font-medium [&_strong]:font-bold`, children: highlight(tt.taxDescription ?? tt.taxCode) }),
                       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `text-xs leading-[140%] ${isSelected ? "text-white" : "text-exp-grey-600"} [&_strong]:font-bold`, children: highlight(ratePart ?? "") })
                     ] });
                   }, "renderItem"),
-                  searchOnFocus: true,
                   searchDelay: 300,
-                  minSearchLength: 0,
-                  onBlur: field.onBlur,
-                  clearOnBlur: false,
-                  dropdownClassName: "max-h-47",
                   tooltipProps: { delayDuration: 300 },
                   error: (_a = fieldState.error) == null ? void 0 : _a.message,
                   disabled: disabled || taxTypesLoading
@@ -2003,7 +1985,7 @@ function FormPageDialog({
 }) {
   const renderHeader = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx(Qa, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between gap-2 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start gap-1", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center justify-center gap-2", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold", children: header.title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ns, { variant: "light", size: "sm", maxWidth: 320, children: header.title }) }),
       header.titleSuffix,
       header.amount && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-base font-medium text-exp-neutral-900", children: [
         "$",
@@ -2085,6 +2067,7 @@ function FormPageDialog({
             e.preventDefault();
           }
         }, "onEscapeKeyDown"),
+        onInteractOutside: /* @__PURE__ */ __name((e) => e.preventDefault(), "onInteractOutside"),
         children: [
           renderHeader(),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 overflow-y-auto flex flex-col", children: [

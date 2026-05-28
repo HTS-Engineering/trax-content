@@ -157,6 +157,7 @@
     --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-exp-blue-400: #618bb3;
     --color-exp-neutral-0: #fff;
     --color-exp-neutral-10: #fbfbfc;
     --color-exp-neutral-20: #f5f6f7;
@@ -706,6 +707,11 @@
     margin-left: calc(var(--spacing) * 4);
   }
 
+  .expenses-mfe-scope .size-1\.5, .trax-ui-component .size-1\.5, .expenses-mfe-scope.size-1\.5, .trax-ui-component.size-1\.5 {
+    width: calc(var(--spacing) * 1.5);
+    height: calc(var(--spacing) * 1.5);
+  }
+
   .expenses-mfe-scope .size-11\.5, .trax-ui-component .size-11\.5, .expenses-mfe-scope.size-11\.5, .trax-ui-component.size-11\.5 {
     width: calc(var(--spacing) * 11.5);
     height: calc(var(--spacing) * 11.5);
@@ -742,10 +748,6 @@
 
   .expenses-mfe-scope .max-h-34, .trax-ui-component .max-h-34, .expenses-mfe-scope.max-h-34, .trax-ui-component.max-h-34 {
     max-height: calc(var(--spacing) * 34);
-  }
-
-  .expenses-mfe-scope .max-h-47, .trax-ui-component .max-h-47, .expenses-mfe-scope.max-h-47, .trax-ui-component.max-h-47 {
-    max-height: calc(var(--spacing) * 47);
   }
 
   .expenses-mfe-scope .max-h-\[40vh\], .trax-ui-component .max-h-\[40vh\], .expenses-mfe-scope.max-h-\[40vh\], .trax-ui-component.max-h-\[40vh\] {
@@ -1031,6 +1033,10 @@
 
   .expenses-mfe-scope .bg-blue-500, .trax-ui-component .bg-blue-500, .expenses-mfe-scope.bg-blue-500, .trax-ui-component.bg-blue-500 {
     background-color: var(--color-blue-500);
+  }
+
+  .expenses-mfe-scope .bg-exp-blue-400, .trax-ui-component .bg-exp-blue-400, .expenses-mfe-scope.bg-exp-blue-400, .trax-ui-component.bg-exp-blue-400 {
+    background-color: var(--color-exp-blue-400);
   }
 
   .expenses-mfe-scope .bg-exp-green-50, .trax-ui-component .bg-exp-green-50, .expenses-mfe-scope.bg-exp-green-50, .trax-ui-component.bg-exp-green-50 {

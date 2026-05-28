@@ -1,19 +1,593 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/core-B6fVcA1e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/_commonjsHelpers-DRoQK5uS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateWrapper = (obj, member, setter, getter) => ({
+  set _(value) {
+    __privateSet(obj, member, value, setter);
+  },
+  get _() {
+    return __privateGet(obj, member, getter);
+  }
+});
+var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { x as apiClient, a7 as hs, aw as xs, ai as lr, av as ws, ab as jn, aj as ms, az as zr, s as Us, am as p, ak as mt, P as Pt, U as Ue, a8 as ht, T as Ta, H as create, a3 as devtools, a2 as devWarn, a0 as devError, a1 as devLog, u as Yt, ah as ln$1, K as Ka, w as _t, i as Ft, f as Dt, d as Bs, ad as js, G as Gs, A as Aa, $ as $a, aa as ir, p as Qs, Y as Ye, L as La } from "./configuration-B4FJFUoo.js";
+import { x as apiClient, C as CONFIGURATION_ENDPOINTS, a7 as hs, aw as xs, ai as lr, av as ws, ab as jn, aj as ms, az as zr, s as Us, am as p, ak as mt, P as Pt, U as Ue, a8 as ht, T as Ta, H as create, a3 as devtools, a2 as devWarn, a0 as devError, a1 as devLog, u as Yt, ah as ln$1, K as Ka, w as _t, i as Ft, f as Dt, d as Bs, ad as js, G as Gs, A as Aa, $ as $a, aa as ir, L as La, p as Qs, Y as Ye } from "./configuration-B4FJFUoo.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import { v as useTaxTypesDisplay, r as useFormTypeName, a as ExpenseFormType, E as ECostAllocation, n as useDefaultCurrency, p as useExpenseTypes, d as FormTypeId, A as AllowedMimeType, F as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, c as FilePreviewType, u as useCountries, m as useDefaultCountry, q as useFormTypeId } from "./expense-api-CFDRCnr8.js";
-import { a as formatCurrency, d as formatDistance, e as formatRate } from "./formatters-DV4AvCZw.js";
-import { F as FILE_ENDPOINTS, _ as useCompanyStore, o as formatExpenseDate, E as EMPTY_CURRENCY_SYMBOL, p as formatExpensePeriod, ab as useQuery, c as EXPENSE_ENDPOINTS, P as queryKeys, q as formatHistoryTimestamp, a as DEFAULT_CURRENCY_CODE, r as formatToISODate, $ as useDebouncedCallback, a8 as useNumericDisplay, u as getCurrencySymbol } from "./date-format-Ban7B2GG.js";
+import { v as useTaxTypesDisplay, r as useFormTypeName, a as ExpenseFormType, E as ECostAllocation, n as useDefaultCurrency, p as useExpenseTypes, d as FormTypeId, A as AllowedMimeType, F as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, c as FilePreviewType, u as useCountries, m as useDefaultCountry, q as useFormTypeId, P as Plus } from "./TaxTypeSearchSelect-D3a36RDT.js";
+import { S as Subscribable, M as Mutation, U as notifyManager, L as matchMutation, T as noop, J as hashQueryKeyByOptions, Q as Query, P as matchQuery, m as focusManager, V as onlineManager, _ as resolveStaleTime, y as functionalUpdate, I as hashKey, X as partialMatchKey, a1 as skipToken, ah as useQuery, Y as queryKeys, a4 as useCompanyStore, F as FILE_ENDPOINTS, s as formatExpenseDate, o as formatCurrency, E as EMPTY_CURRENCY_SYMBOL, r as formatDistance, v as formatRate, t as formatExpensePeriod, b as EXPENSE_ENDPOINTS, u as formatHistoryTimestamp, D as DEFAULT_CURRENCY_CODE, x as formatToISODate, a5 as useDebouncedCallback, ae as useNumericDisplay, B as getCurrencySymbol } from "./use-scroll-into-view-ref-Bh4xL90y.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
-import { I as Info, s as string, D as DECIMAL_FORMAT_REGEX, o as object, e as custom, c as boolean, b as array, f as date, i as unknown, n as number, C as ConfirmDialog, w as useWatch, r as useForm, u, l as literal, p as useEffectiveMileageRate, t as useFormState, a as Controller, d as createDecimalChangeHandler } from "./useMileageRates-C1IbqS9e.js";
-import { a as useDefaultCompany, q as queryClient } from "./queryClient-Cty3G98M.js";
+import { I as Info, s as string, D as DECIMAL_FORMAT_REGEX, o as object, e as custom, c as boolean, b as array, f as date, i as unknown, n as number, C as ConfirmDialog, w as useWatch, r as useForm, u, l as literal, p as useEffectiveMileageRate, t as useFormState, a as Controller, d as createDecimalChangeHandler } from "./useMileageRates-B2TdNzkc.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { i as isHttpApiError, g as getHttpErrorMessage, T as TOOLTIP_DELAY_QUICK, a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./http-errors-CkJhN68X.js";
-import { P as Plus } from "./plus-DaqI5Fee.js";
 import { R as RefreshCw } from "./refresh-cw-B_GOtBCv.js";
+var MutationCache = (_a = class extends Subscribable {
+  constructor(config2 = {}) {
+    super();
+    __privateAdd(this, _mutations);
+    __privateAdd(this, _scopes);
+    __privateAdd(this, _mutationId);
+    this.config = config2;
+    __privateSet(this, _mutations, /* @__PURE__ */ new Set());
+    __privateSet(this, _scopes, /* @__PURE__ */ new Map());
+    __privateSet(this, _mutationId, 0);
+  }
+  build(client, options, state) {
+    const mutation = new Mutation({
+      client,
+      mutationCache: this,
+      mutationId: ++__privateWrapper(this, _mutationId)._,
+      options: client.defaultMutationOptions(options),
+      state
+    });
+    this.add(mutation);
+    return mutation;
+  }
+  add(mutation) {
+    __privateGet(this, _mutations).add(mutation);
+    const scope = scopeFor(mutation);
+    if (typeof scope === "string") {
+      const scopedMutations = __privateGet(this, _scopes).get(scope);
+      if (scopedMutations) {
+        scopedMutations.push(mutation);
+      } else {
+        __privateGet(this, _scopes).set(scope, [mutation]);
+      }
+    }
+    this.notify({ type: "added", mutation });
+  }
+  remove(mutation) {
+    if (__privateGet(this, _mutations).delete(mutation)) {
+      const scope = scopeFor(mutation);
+      if (typeof scope === "string") {
+        const scopedMutations = __privateGet(this, _scopes).get(scope);
+        if (scopedMutations) {
+          if (scopedMutations.length > 1) {
+            const index = scopedMutations.indexOf(mutation);
+            if (index !== -1) {
+              scopedMutations.splice(index, 1);
+            }
+          } else if (scopedMutations[0] === mutation) {
+            __privateGet(this, _scopes).delete(scope);
+          }
+        }
+      }
+    }
+    this.notify({ type: "removed", mutation });
+  }
+  canRun(mutation) {
+    const scope = scopeFor(mutation);
+    if (typeof scope === "string") {
+      const mutationsWithSameScope = __privateGet(this, _scopes).get(scope);
+      const firstPendingMutation = mutationsWithSameScope == null ? void 0 : mutationsWithSameScope.find(
+        (m) => m.state.status === "pending"
+      );
+      return !firstPendingMutation || firstPendingMutation === mutation;
+    } else {
+      return true;
+    }
+  }
+  runNext(mutation) {
+    var _a2;
+    const scope = scopeFor(mutation);
+    if (typeof scope === "string") {
+      const foundMutation = (_a2 = __privateGet(this, _scopes).get(scope)) == null ? void 0 : _a2.find((m) => m !== mutation && m.state.isPaused);
+      return (foundMutation == null ? void 0 : foundMutation.continue()) ?? Promise.resolve();
+    } else {
+      return Promise.resolve();
+    }
+  }
+  clear() {
+    notifyManager.batch(() => {
+      __privateGet(this, _mutations).forEach((mutation) => {
+        this.notify({ type: "removed", mutation });
+      });
+      __privateGet(this, _mutations).clear();
+      __privateGet(this, _scopes).clear();
+    });
+  }
+  getAll() {
+    return Array.from(__privateGet(this, _mutations));
+  }
+  find(filters) {
+    const defaultedFilters = { exact: true, ...filters };
+    return this.getAll().find(
+      (mutation) => matchMutation(defaultedFilters, mutation)
+    );
+  }
+  findAll(filters = {}) {
+    return this.getAll().filter((mutation) => matchMutation(filters, mutation));
+  }
+  notify(event) {
+    notifyManager.batch(() => {
+      this.listeners.forEach((listener) => {
+        listener(event);
+      });
+    });
+  }
+  resumePausedMutations() {
+    const pausedMutations = this.getAll().filter((x) => x.state.isPaused);
+    return notifyManager.batch(
+      () => Promise.all(
+        pausedMutations.map((mutation) => mutation.continue().catch(noop))
+      )
+    );
+  }
+}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), __name(_a, "MutationCache"), _a);
+function scopeFor(mutation) {
+  var _a2;
+  return (_a2 = mutation.options.scope) == null ? void 0 : _a2.id;
+}
+__name(scopeFor, "scopeFor");
+var QueryCache = (_b = class extends Subscribable {
+  constructor(config2 = {}) {
+    super();
+    __privateAdd(this, _queries);
+    this.config = config2;
+    __privateSet(this, _queries, /* @__PURE__ */ new Map());
+  }
+  build(client, options, state) {
+    const queryKey = options.queryKey;
+    const queryHash = options.queryHash ?? hashQueryKeyByOptions(queryKey, options);
+    let query = this.get(queryHash);
+    if (!query) {
+      query = new Query({
+        client,
+        queryKey,
+        queryHash,
+        options: client.defaultQueryOptions(options),
+        state,
+        defaultOptions: client.getQueryDefaults(queryKey)
+      });
+      this.add(query);
+    }
+    return query;
+  }
+  add(query) {
+    if (!__privateGet(this, _queries).has(query.queryHash)) {
+      __privateGet(this, _queries).set(query.queryHash, query);
+      this.notify({
+        type: "added",
+        query
+      });
+    }
+  }
+  remove(query) {
+    const queryInMap = __privateGet(this, _queries).get(query.queryHash);
+    if (queryInMap) {
+      query.destroy();
+      if (queryInMap === query) {
+        __privateGet(this, _queries).delete(query.queryHash);
+      }
+      this.notify({ type: "removed", query });
+    }
+  }
+  clear() {
+    notifyManager.batch(() => {
+      this.getAll().forEach((query) => {
+        this.remove(query);
+      });
+    });
+  }
+  get(queryHash) {
+    return __privateGet(this, _queries).get(queryHash);
+  }
+  getAll() {
+    return [...__privateGet(this, _queries).values()];
+  }
+  find(filters) {
+    const defaultedFilters = { exact: true, ...filters };
+    return this.getAll().find(
+      (query) => matchQuery(defaultedFilters, query)
+    );
+  }
+  findAll(filters = {}) {
+    const queries = this.getAll();
+    return Object.keys(filters).length > 0 ? queries.filter((query) => matchQuery(filters, query)) : queries;
+  }
+  notify(event) {
+    notifyManager.batch(() => {
+      this.listeners.forEach((listener) => {
+        listener(event);
+      });
+    });
+  }
+  onFocus() {
+    notifyManager.batch(() => {
+      this.getAll().forEach((query) => {
+        query.onFocus();
+      });
+    });
+  }
+  onOnline() {
+    notifyManager.batch(() => {
+      this.getAll().forEach((query) => {
+        query.onOnline();
+      });
+    });
+  }
+}, _queries = new WeakMap(), __name(_b, "QueryCache"), _b);
+var QueryClient = (_c = class {
+  constructor(config2 = {}) {
+    __privateAdd(this, _queryCache);
+    __privateAdd(this, _mutationCache);
+    __privateAdd(this, _defaultOptions);
+    __privateAdd(this, _queryDefaults);
+    __privateAdd(this, _mutationDefaults);
+    __privateAdd(this, _mountCount);
+    __privateAdd(this, _unsubscribeFocus);
+    __privateAdd(this, _unsubscribeOnline);
+    __privateSet(this, _queryCache, config2.queryCache || new QueryCache());
+    __privateSet(this, _mutationCache, config2.mutationCache || new MutationCache());
+    __privateSet(this, _defaultOptions, config2.defaultOptions || {});
+    __privateSet(this, _queryDefaults, /* @__PURE__ */ new Map());
+    __privateSet(this, _mutationDefaults, /* @__PURE__ */ new Map());
+    __privateSet(this, _mountCount, 0);
+  }
+  mount() {
+    __privateWrapper(this, _mountCount)._++;
+    if (__privateGet(this, _mountCount) !== 1) return;
+    __privateSet(this, _unsubscribeFocus, focusManager.subscribe(async (focused) => {
+      if (focused) {
+        await this.resumePausedMutations();
+        __privateGet(this, _queryCache).onFocus();
+      }
+    }));
+    __privateSet(this, _unsubscribeOnline, onlineManager.subscribe(async (online) => {
+      if (online) {
+        await this.resumePausedMutations();
+        __privateGet(this, _queryCache).onOnline();
+      }
+    }));
+  }
+  unmount() {
+    var _a2, _b2;
+    __privateWrapper(this, _mountCount)._--;
+    if (__privateGet(this, _mountCount) !== 0) return;
+    (_a2 = __privateGet(this, _unsubscribeFocus)) == null ? void 0 : _a2.call(this);
+    __privateSet(this, _unsubscribeFocus, void 0);
+    (_b2 = __privateGet(this, _unsubscribeOnline)) == null ? void 0 : _b2.call(this);
+    __privateSet(this, _unsubscribeOnline, void 0);
+  }
+  isFetching(filters) {
+    return __privateGet(this, _queryCache).findAll({ ...filters, fetchStatus: "fetching" }).length;
+  }
+  isMutating(filters) {
+    return __privateGet(this, _mutationCache).findAll({ ...filters, status: "pending" }).length;
+  }
+  /**
+   * Imperative (non-reactive) way to retrieve data for a QueryKey.
+   * Should only be used in callbacks or functions where reading the latest data is necessary, e.g. for optimistic updates.
+   *
+   * Hint: Do not use this function inside a component, because it won't receive updates.
+   * Use `useQuery` to create a `QueryObserver` that subscribes to changes.
+   */
+  getQueryData(queryKey) {
+    var _a2;
+    const options = this.defaultQueryOptions({ queryKey });
+    return (_a2 = __privateGet(this, _queryCache).get(options.queryHash)) == null ? void 0 : _a2.state.data;
+  }
+  ensureQueryData(options) {
+    const defaultedOptions = this.defaultQueryOptions(options);
+    const query = __privateGet(this, _queryCache).build(this, defaultedOptions);
+    const cachedData = query.state.data;
+    if (cachedData === void 0) {
+      return this.fetchQuery(options);
+    }
+    if (options.revalidateIfStale && query.isStaleByTime(resolveStaleTime(defaultedOptions.staleTime, query))) {
+      void this.prefetchQuery(defaultedOptions);
+    }
+    return Promise.resolve(cachedData);
+  }
+  getQueriesData(filters) {
+    return __privateGet(this, _queryCache).findAll(filters).map(({ queryKey, state }) => {
+      const data = state.data;
+      return [queryKey, data];
+    });
+  }
+  setQueryData(queryKey, updater, options) {
+    const defaultedOptions = this.defaultQueryOptions({ queryKey });
+    const query = __privateGet(this, _queryCache).get(
+      defaultedOptions.queryHash
+    );
+    const prevData = query == null ? void 0 : query.state.data;
+    const data = functionalUpdate(updater, prevData);
+    if (data === void 0) {
+      return void 0;
+    }
+    return __privateGet(this, _queryCache).build(this, defaultedOptions).setData(data, { ...options, manual: true });
+  }
+  setQueriesData(filters, updater, options) {
+    return notifyManager.batch(
+      () => __privateGet(this, _queryCache).findAll(filters).map(({ queryKey }) => [
+        queryKey,
+        this.setQueryData(queryKey, updater, options)
+      ])
+    );
+  }
+  getQueryState(queryKey) {
+    var _a2;
+    const options = this.defaultQueryOptions({ queryKey });
+    return (_a2 = __privateGet(this, _queryCache).get(
+      options.queryHash
+    )) == null ? void 0 : _a2.state;
+  }
+  removeQueries(filters) {
+    const queryCache = __privateGet(this, _queryCache);
+    notifyManager.batch(() => {
+      queryCache.findAll(filters).forEach((query) => {
+        queryCache.remove(query);
+      });
+    });
+  }
+  resetQueries(filters, options) {
+    const queryCache = __privateGet(this, _queryCache);
+    return notifyManager.batch(() => {
+      queryCache.findAll(filters).forEach((query) => {
+        query.reset();
+      });
+      return this.refetchQueries(
+        {
+          type: "active",
+          ...filters
+        },
+        options
+      );
+    });
+  }
+  cancelQueries(filters, cancelOptions = {}) {
+    const defaultedCancelOptions = { revert: true, ...cancelOptions };
+    const promises = notifyManager.batch(
+      () => __privateGet(this, _queryCache).findAll(filters).map((query) => query.cancel(defaultedCancelOptions))
+    );
+    return Promise.all(promises).then(noop).catch(noop);
+  }
+  invalidateQueries(filters, options = {}) {
+    return notifyManager.batch(() => {
+      __privateGet(this, _queryCache).findAll(filters).forEach((query) => {
+        query.invalidate();
+      });
+      if ((filters == null ? void 0 : filters.refetchType) === "none") {
+        return Promise.resolve();
+      }
+      return this.refetchQueries(
+        {
+          ...filters,
+          type: (filters == null ? void 0 : filters.refetchType) ?? (filters == null ? void 0 : filters.type) ?? "active"
+        },
+        options
+      );
+    });
+  }
+  refetchQueries(filters, options = {}) {
+    const fetchOptions = {
+      ...options,
+      cancelRefetch: options.cancelRefetch ?? true
+    };
+    const promises = notifyManager.batch(
+      () => __privateGet(this, _queryCache).findAll(filters).filter((query) => !query.isDisabled() && !query.isStatic()).map((query) => {
+        let promise = query.fetch(void 0, fetchOptions);
+        if (!fetchOptions.throwOnError) {
+          promise = promise.catch(noop);
+        }
+        return query.state.fetchStatus === "paused" ? Promise.resolve() : promise;
+      })
+    );
+    return Promise.all(promises).then(noop);
+  }
+  fetchQuery(options) {
+    const defaultedOptions = this.defaultQueryOptions(options);
+    if (defaultedOptions.retry === void 0) {
+      defaultedOptions.retry = false;
+    }
+    const query = __privateGet(this, _queryCache).build(this, defaultedOptions);
+    return query.isStaleByTime(
+      resolveStaleTime(defaultedOptions.staleTime, query)
+    ) ? query.fetch(defaultedOptions) : Promise.resolve(query.state.data);
+  }
+  prefetchQuery(options) {
+    return this.fetchQuery(options).then(noop).catch(noop);
+  }
+  fetchInfiniteQuery(options) {
+    options._type = "infinite";
+    return this.fetchQuery(options);
+  }
+  prefetchInfiniteQuery(options) {
+    return this.fetchInfiniteQuery(options).then(noop).catch(noop);
+  }
+  ensureInfiniteQueryData(options) {
+    options._type = "infinite";
+    return this.ensureQueryData(options);
+  }
+  resumePausedMutations() {
+    if (onlineManager.isOnline()) {
+      return __privateGet(this, _mutationCache).resumePausedMutations();
+    }
+    return Promise.resolve();
+  }
+  getQueryCache() {
+    return __privateGet(this, _queryCache);
+  }
+  getMutationCache() {
+    return __privateGet(this, _mutationCache);
+  }
+  getDefaultOptions() {
+    return __privateGet(this, _defaultOptions);
+  }
+  setDefaultOptions(options) {
+    __privateSet(this, _defaultOptions, options);
+  }
+  setQueryDefaults(queryKey, options) {
+    __privateGet(this, _queryDefaults).set(hashKey(queryKey), {
+      queryKey,
+      defaultOptions: options
+    });
+  }
+  getQueryDefaults(queryKey) {
+    const defaults = [...__privateGet(this, _queryDefaults).values()];
+    const result = {};
+    defaults.forEach((queryDefault) => {
+      if (partialMatchKey(queryKey, queryDefault.queryKey)) {
+        Object.assign(result, queryDefault.defaultOptions);
+      }
+    });
+    return result;
+  }
+  setMutationDefaults(mutationKey, options) {
+    __privateGet(this, _mutationDefaults).set(hashKey(mutationKey), {
+      mutationKey,
+      defaultOptions: options
+    });
+  }
+  getMutationDefaults(mutationKey) {
+    const defaults = [...__privateGet(this, _mutationDefaults).values()];
+    const result = {};
+    defaults.forEach((queryDefault) => {
+      if (partialMatchKey(mutationKey, queryDefault.mutationKey)) {
+        Object.assign(result, queryDefault.defaultOptions);
+      }
+    });
+    return result;
+  }
+  defaultQueryOptions(options) {
+    if (options._defaulted) {
+      return options;
+    }
+    const defaultedOptions = {
+      ...__privateGet(this, _defaultOptions).queries,
+      ...this.getQueryDefaults(options.queryKey),
+      ...options,
+      _defaulted: true
+    };
+    if (!defaultedOptions.queryHash) {
+      defaultedOptions.queryHash = hashQueryKeyByOptions(
+        defaultedOptions.queryKey,
+        defaultedOptions
+      );
+    }
+    if (defaultedOptions.refetchOnReconnect === void 0) {
+      defaultedOptions.refetchOnReconnect = defaultedOptions.networkMode !== "always";
+    }
+    if (defaultedOptions.throwOnError === void 0) {
+      defaultedOptions.throwOnError = !!defaultedOptions.suspense;
+    }
+    if (!defaultedOptions.networkMode && defaultedOptions.persister) {
+      defaultedOptions.networkMode = "offlineFirst";
+    }
+    if (defaultedOptions.queryFn === skipToken) {
+      defaultedOptions.enabled = false;
+    }
+    return defaultedOptions;
+  }
+  defaultMutationOptions(options) {
+    if (options == null ? void 0 : options._defaulted) {
+      return options;
+    }
+    return {
+      ...__privateGet(this, _defaultOptions).mutations,
+      ...(options == null ? void 0 : options.mutationKey) && this.getMutationDefaults(options.mutationKey),
+      ...options,
+      _defaulted: true
+    };
+  }
+  clear() {
+    __privateGet(this, _queryCache).clear();
+    __privateGet(this, _mutationCache).clear();
+  }
+}, _queryCache = new WeakMap(), _mutationCache = new WeakMap(), _defaultOptions = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), __name(_c, "QueryClient"), _c);
+const mapToLogicalCompany = /* @__PURE__ */ __name((apiCompany, userDefaultLogicalCompanyId) => ({
+  id: apiCompany.logicalCompanyShortName,
+  name: apiCompany.logicalCompanyName,
+  shortName: apiCompany.logicalCompanyShortName,
+  isDefault: apiCompany.id === userDefaultLogicalCompanyId
+}), "mapToLogicalCompany");
+const useCompanies = /* @__PURE__ */ __name(() => {
+  return useQuery({
+    queryKey: queryKeys.companies.list(),
+    queryFn: /* @__PURE__ */ __name(async () => {
+      const response = await apiClient.get(
+        CONFIGURATION_ENDPOINTS.LOGICAL_COMPANIES.build()
+      );
+      const { items, userDefaultLogicalCompanyId } = response.data;
+      return items.map((item) => mapToLogicalCompany(item, userDefaultLogicalCompanyId));
+    }, "queryFn"),
+    staleTime: 5 * 60 * 1e3,
+    gcTime: 10 * 60 * 1e3
+  });
+}, "useCompanies");
+const useDefaultCompany = /* @__PURE__ */ __name(() => {
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  const { data: companiesData, isLoading } = useCompanies();
+  const fallback = companiesData && companiesData.length > 0 ? companiesData[0] : null;
+  return {
+    company: userDefaultCompany ?? fallback,
+    userDefaultCompany,
+    isLoading
+  };
+}, "useDefaultCompany");
+const splitFilename = /* @__PURE__ */ __name((filename) => {
+  if (!filename) return { name: "", ext: "" };
+  const lastDot = filename.lastIndexOf(".");
+  if (lastDot <= 0) return { name: filename, ext: "" };
+  return {
+    name: filename.slice(0, lastDot),
+    ext: filename.slice(lastDot)
+  };
+}, "splitFilename");
+const renameConflictingFiles = /* @__PURE__ */ __name((newFiles, existingFilenames) => {
+  const filesWithUniqueNames = newFiles.map((file) => {
+    let finalName = file.name;
+    if (existingFilenames.has(finalName)) {
+      const { name, ext } = splitFilename(file.name);
+      let counter = 1;
+      do {
+        finalName = `${name} (${counter})${ext}`;
+        counter++;
+      } while (existingFilenames.has(finalName));
+    }
+    existingFilenames.add(finalName);
+    if (finalName !== file.name) {
+      return new File([file], finalName, { type: file.type, lastModified: file.lastModified });
+    }
+    return file;
+  });
+  return filesWithUniqueNames;
+}, "renameConflictingFiles");
+function calculateExponentialBackoff(retryCount, baseDelay = 1e3, maxDelay = 5e3) {
+  const exponentialDelay = baseDelay * Math.pow(2, retryCount);
+  return Math.min(exponentialDelay, maxDelay);
+}
+__name(calculateExponentialBackoff, "calculateExponentialBackoff");
+function sleep(ms2) {
+  return new Promise((resolve) => setTimeout(resolve, ms2));
+}
+__name(sleep, "sleep");
 function isConvertedExpense(netCurrencyCode, totalCurrencyCode) {
   return !!netCurrencyCode && !!totalCurrencyCode && netCurrencyCode !== totalCurrencyCode;
 }
@@ -70,43 +644,6 @@ function mapFormStatus(value) {
   throw new Error(`Invalid FormStatus: ${value}`);
 }
 __name(mapFormStatus, "mapFormStatus");
-const splitFilename = /* @__PURE__ */ __name((filename) => {
-  if (!filename) return { name: "", ext: "" };
-  const lastDot = filename.lastIndexOf(".");
-  if (lastDot <= 0) return { name: filename, ext: "" };
-  return {
-    name: filename.slice(0, lastDot),
-    ext: filename.slice(lastDot)
-  };
-}, "splitFilename");
-const renameConflictingFiles = /* @__PURE__ */ __name((newFiles, existingFilenames) => {
-  const filesWithUniqueNames = newFiles.map((file) => {
-    let finalName = file.name;
-    if (existingFilenames.has(finalName)) {
-      const { name, ext } = splitFilename(file.name);
-      let counter = 1;
-      do {
-        finalName = `${name} (${counter})${ext}`;
-        counter++;
-      } while (existingFilenames.has(finalName));
-    }
-    existingFilenames.add(finalName);
-    if (finalName !== file.name) {
-      return new File([file], finalName, { type: file.type, lastModified: file.lastModified });
-    }
-    return file;
-  });
-  return filesWithUniqueNames;
-}, "renameConflictingFiles");
-function calculateExponentialBackoff(retryCount, baseDelay = 1e3, maxDelay = 5e3) {
-  const exponentialDelay = baseDelay * Math.pow(2, retryCount);
-  return Math.min(exponentialDelay, maxDelay);
-}
-__name(calculateExponentialBackoff, "calculateExponentialBackoff");
-function sleep(ms2) {
-  return new Promise((resolve) => setTimeout(resolve, ms2));
-}
-__name(sleep, "sleep");
 function isViteDevMode() {
   try {
     const url = new URL(import.meta.url);
@@ -171,7 +708,7 @@ function isApiFileUrl(url) {
 __name(isApiFileUrl, "isApiFileUrl");
 const { useEffect: useEffect$j, useRef: useRef$g, useState: useState$8 } = await importShared("react");
 const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill = false }) => {
-  var _a;
+  var _a2;
   const [imageError, setImageError] = useState$8(false);
   const [loadedBlobUrl, setLoadedBlobUrl] = useState$8();
   const [isLoading, setIsLoading] = useState$8(false);
@@ -179,7 +716,7 @@ const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill =
   const receiptId = receipt == null ? void 0 : receipt.id;
   const receiptBlobUrl = receipt == null ? void 0 : receipt.blobUrl;
   const receiptUrl = receipt == null ? void 0 : receipt.url;
-  const isImage = (_a = receipt == null ? void 0 : receipt.mimeType) == null ? void 0 : _a.startsWith("image/");
+  const isImage = (_a2 = receipt == null ? void 0 : receipt.mimeType) == null ? void 0 : _a2.startsWith("image/");
   const isPdf = (receipt == null ? void 0 : receipt.mimeType) === "application/pdf";
   const needsDownload = !receiptBlobUrl && isApiFileUrl(receiptUrl);
   useEffect$j(() => {
@@ -326,8 +863,8 @@ const PreviewField = /* @__PURE__ */ __name(({ label, value, className = "", ico
 const TAX_CURRENCY_CODE = "CAD";
 const TAX_CURRENCY_SYMBOL = "$";
 const PreviewExpenseDetailsSection = /* @__PURE__ */ __name(({ data }) => {
-  var _a, _b;
-  const isConvertedTotal = isConvertedExpense((_a = data.netCurrency) == null ? void 0 : _a.code, (_b = data.totalCurrency) == null ? void 0 : _b.code);
+  var _a2, _b2;
+  const isConvertedTotal = isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code);
   const hasTaxData = !!(data.taxType || data.taxAmount);
   const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
   const { data: taxTypes } = useTaxTypesDisplay({
@@ -410,8 +947,8 @@ const PreviewExpenseJustificationSection = /* @__PURE__ */ __name(({
   data
 }) => {
   const companyShortName = useCompanyStore((state) => {
-    var _a;
-    return ((_a = state.userDefaultCompany) == null ? void 0 : _a.shortName) ?? null;
+    var _a2;
+    return ((_a2 = state.userDefaultCompany) == null ? void 0 : _a2.shortName) ?? null;
   });
   const expenseTypeName = data.expenseType;
   const formType = useFormTypeName(expenseTypeName, companyShortName);
@@ -872,8 +1409,8 @@ const useExpenseFormHistory = /* @__PURE__ */ __name(({
 }) => {
   const logicalCompanyShortName = useCompanyStore(
     (state) => {
-      var _a;
-      return (_a = state.userDefaultCompany) == null ? void 0 : _a.shortName;
+      var _a2;
+      return (_a2 = state.userDefaultCompany) == null ? void 0 : _a2.shortName;
     }
   );
   return useQuery({
@@ -882,14 +1419,14 @@ const useExpenseFormHistory = /* @__PURE__ */ __name(({
       expenseFormId.toString()
     ),
     queryFn: /* @__PURE__ */ __name(async () => {
-      var _a;
+      var _a2;
       const response = await apiClient.get(
         EXPENSE_ENDPOINTS.GET_APPROVAL_HISTORY.build({
           tenant: logicalCompanyShortName,
           expenseFormId: expenseFormId.toString()
         })
       );
-      const history = ((_a = response.data.history) == null ? void 0 : _a.map((entry) => ({
+      const history = ((_a2 = response.data.history) == null ? void 0 : _a2.map((entry) => ({
         ...entry,
         actionType: mapActionType(entry.actionType),
         formStatus: mapFormStatus(entry.formStatus)
@@ -936,7 +1473,7 @@ const ExpenseFormHistoryLog = /* @__PURE__ */ __name(({
   expenseFormId,
   className = ""
 }) => {
-  var _a, _b;
+  var _a2, _b2;
   const [open, setOpen] = useState$6(false);
   const {
     data: historyData,
@@ -946,7 +1483,7 @@ const ExpenseFormHistoryLog = /* @__PURE__ */ __name(({
   } = useExpenseFormHistory({
     expenseFormId
   });
-  const mostRecentStatus = ((_b = (_a = historyData == null ? void 0 : historyData.history) == null ? void 0 : _a[0]) == null ? void 0 : _b.formStatus) ?? null;
+  const mostRecentStatus = ((_b2 = (_a2 = historyData == null ? void 0 : historyData.history) == null ? void 0 : _a2[0]) == null ? void 0 : _b2.formStatus) ?? null;
   const statusLabel = mostRecentStatus ? capitalize(mostRecentStatus) : null;
   const handleOpenChange = /* @__PURE__ */ __name((newOpen) => {
     setOpen(newOpen);
@@ -1072,10 +1609,10 @@ function mapCostAllocation(allocation) {
 }
 __name(mapCostAllocation, "mapCostAllocation");
 function mapFormDataToCreateRequest(data, expenseTypes) {
-  var _a, _b, _c, _d, _e, _f, _g;
+  var _a2, _b2, _c2, _d, _e, _f, _g;
   const typeId = parseOptionalInt(data.expenseType);
   const selectedExpenseType = typeId !== null ? expenseTypes == null ? void 0 : expenseTypes.find((et) => parseInt(et.id, 10) === typeId) : void 0;
-  const isConverted = isConvertedExpense((_a = data.netCurrency) == null ? void 0 : _a.code, (_b = data.totalCurrency) == null ? void 0 : _b.code);
+  const isConverted = isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code);
   return {
     typeId,
     formTypeId: (selectedExpenseType == null ? void 0 : selectedExpenseType.formTypeId) ?? null,
@@ -1091,7 +1628,7 @@ function mapFormDataToCreateRequest(data, expenseTypes) {
     description: data.expenseDescription || null,
     personsEntertained: data.personsEntertained || null,
     additionalComments: data.additionalComments || null,
-    affidavitJustification: ((_c = data.affidavit) == null ? void 0 : _c.justification) || null,
+    affidavitJustification: ((_c2 = data.affidavit) == null ? void 0 : _c2.justification) || null,
     affidavitInitials: ((_d = data.affidavit) == null ? void 0 : _d.digitalSignature) || null,
     // Tax currency is always CAD per business rules (TRX-117)
     // Optimally returns CAD only when tax fields are showing, but difficult to check, so this is next best solution
@@ -1275,8 +1812,8 @@ function useBlobUrlManager(options = {}) {
     return blobUrlsRef.current.has(url);
   }, []);
   const getAbortSignal = useCallback$l(() => {
-    var _a;
-    (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
+    var _a2;
+    (_a2 = abortControllerRef.current) == null ? void 0 : _a2.abort();
     abortControllerRef.current = new AbortController();
     return abortControllerRef.current.signal;
   }, []);
@@ -1295,13 +1832,13 @@ function useBlobUrlManager(options = {}) {
     const urls = blobUrlsRef.current;
     const batchControllers = batchControllersRef.current;
     return () => {
-      var _a;
-      (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
+      var _a2;
+      (_a2 = abortControllerRef.current) == null ? void 0 : _a2.abort();
       [...batchControllers].forEach((controller) => controller.abort());
       batchControllers.clear();
       urls.forEach((url) => {
-        var _a2;
-        if ((_a2 = shouldKeepUrlRef.current) == null ? void 0 : _a2.call(shouldKeepUrlRef, url)) {
+        var _a3;
+        if ((_a3 = shouldKeepUrlRef.current) == null ? void 0 : _a3.call(shouldKeepUrlRef, url)) {
           devWarn("[BlobUrlManager] cleanup: KEEPING url (parent needs it):", url.substring(0, 30));
           return;
         }
@@ -1466,7 +2003,7 @@ const sanitizeUrl = /* @__PURE__ */ __name((url) => {
   }
 }, "sanitizeUrl");
 const validateFileContent = /* @__PURE__ */ __name(async (file) => {
-  var _a;
+  var _a2;
   const fileSignatures = [
     {
       mimeTypes: [AllowedMimeType.PNG],
@@ -1557,9 +2094,9 @@ const validateFileContent = /* @__PURE__ */ __name(async (file) => {
         message: "Unable to verify file type. File content does not match any supported format."
       };
     }
-    const expectedTypes = ((_a = fileSignatures.find(
+    const expectedTypes = ((_a2 = fileSignatures.find(
       (s) => s.mimeTypes.includes(detectedType)
-    )) == null ? void 0 : _a.mimeTypes) || [];
+    )) == null ? void 0 : _a2.mimeTypes) || [];
     if (expectedTypes.includes(file.type)) {
       return { isValid: true, actualMimeType: detectedType };
     }
@@ -4625,11 +5162,49 @@ const useTaxFieldVisibility = /* @__PURE__ */ __name((expenseLocationId) => {
     return result;
   }, [countries, userDefaultCountryIso, expenseLocationId]);
 }, "useTaxFieldVisibility");
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Stale time: 5 minutes (data is fresh for 5 minutes)
+      staleTime: 5 * 60 * 1e3,
+      // Cache time: 10 minutes (data stays in cache for 10 minutes after becoming inactive)
+      gcTime: 10 * 60 * 1e3,
+      // Retry failed requests 3 times with exponential backoff
+      retry: /* @__PURE__ */ __name((failureCount, error) => {
+        const apiError = error;
+        if (apiError.code && typeof apiError.code === "string" && apiError.code.startsWith("4")) {
+          return false;
+        }
+        return failureCount < 3;
+      }, "retry"),
+      retryDelay: /* @__PURE__ */ __name((attemptIndex) => Math.min(1e3 * 2 ** attemptIndex, 3e4), "retryDelay"),
+      // Refetch on window focus for fresh data
+      refetchOnWindowFocus: false,
+      // Don't refetch on reconnect by default (can be overridden per query)
+      refetchOnReconnect: "always"
+    },
+    mutations: {
+      // Retry mutations once on failure
+      retry: 1,
+      retryDelay: 1e3
+    }
+  },
+  queryCache: new QueryCache({
+    onError: /* @__PURE__ */ __name((error, query) => {
+      devError(`Query error for ${query.queryKey}:`, error);
+    }, "onError")
+  }),
+  mutationCache: new MutationCache({
+    onError: /* @__PURE__ */ __name((error, _variables, _context, mutation) => {
+      devError(`Mutation error for ${mutation.options.mutationKey}:`, error);
+    }, "onError")
+  })
+});
 const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expenseDetailsSchema.shape).safeExtend(expenseJustificationSchema.shape).safeExtend(costAllocationSchema.shape).safeExtend(additionalCommentsSchema.shape).safeExtend({
   formType: string().optional()
 }).refine((data) => {
-  var _a, _b;
-  if (isConvertedExpense((_a = data.netCurrency) == null ? void 0 : _a.code, (_b = data.totalCurrency) == null ? void 0 : _b.code)) {
+  var _a2, _b2;
+  if (isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code)) {
     return data.totalAmount && data.totalAmount.trim() !== "";
   }
   return true;
@@ -4637,14 +5212,14 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
   message: "Converted total is required",
   path: [ExpenseFormField.TotalAmount]
 }).refine((data) => {
-  var _a, _b, _c, _d;
+  var _a2, _b2, _c2, _d;
   if (!data.taxAmount) return true;
   if (!DECIMAL_FORMAT_REGEX.test(data.taxAmount)) return true;
   const taxAmt = parseFloat(data.taxAmount);
   const convertedTotal = data.totalAmount ? parseFloat(data.totalAmount) : null;
   const receiptTotal = data.netAmount ? parseFloat(data.netAmount) : null;
-  const isConverted = isConvertedExpense((_a = data.netCurrency) == null ? void 0 : _a.code, (_b = data.totalCurrency) == null ? void 0 : _b.code);
-  const validateConvertedTotal = isConverted && ((_c = data.totalCurrency) == null ? void 0 : _c.code) === DEFAULT_CURRENCY_CODE;
+  const isConverted = isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code);
+  const validateConvertedTotal = isConverted && ((_c2 = data.totalCurrency) == null ? void 0 : _c2.code) === DEFAULT_CURRENCY_CODE;
   const validateReceiptTotal = !validateConvertedTotal && ((_d = data.netCurrency) == null ? void 0 : _d.code) === DEFAULT_CURRENCY_CODE;
   if (validateConvertedTotal && convertedTotal != null) {
     return taxAmt <= convertedTotal;
@@ -4664,12 +5239,12 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
   message: "Persons entertained is required",
   path: [ExpenseFormField.PersonsEntertained]
 }).superRefine((data, ctx) => {
-  var _a, _b, _c, _d;
+  var _a2, _b2, _c2, _d;
   const countriesData = queryClient.getQueryData(queryKeys.countries.list());
   const { showTaxFields } = checkTaxFieldVisibility(countriesData == null ? void 0 : countriesData.items, countriesData == null ? void 0 : countriesData.userDefaultCountryIso, data.expenseLocation);
-  const isConverted = isConvertedExpense((_a = data.netCurrency) == null ? void 0 : _a.code, (_b = data.totalCurrency) == null ? void 0 : _b.code);
+  const isConverted = isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code);
   const amount = isConverted ? data.totalAmount : data.netAmount;
-  const currencyCode = isConverted ? (_c = data.totalCurrency) == null ? void 0 : _c.code : (_d = data.netCurrency) == null ? void 0 : _d.code;
+  const currencyCode = isConverted ? (_c2 = data.totalCurrency) == null ? void 0 : _c2.code : (_d = data.netCurrency) == null ? void 0 : _d.code;
   if (showTaxFields) {
     if (!data.taxType || data.taxType.trim() === "") {
       ctx.addIssue({
@@ -4800,8 +5375,8 @@ const getFormValidationErrors$2 = /* @__PURE__ */ __name((data) => {
 const canSaveDraft$2 = createDraftSaveChecker(
   getDraftSaveableFields(),
   (data) => {
-    var _a, _b, _c, _d;
-    const hasAffidavitData = !!(((_b = (_a = data[ExpenseFormField.Affidavit]) == null ? void 0 : _a.justification) == null ? void 0 : _b.trim()) || ((_d = (_c = data[ExpenseFormField.Affidavit]) == null ? void 0 : _c.digitalSignature) == null ? void 0 : _d.trim()));
+    var _a2, _b2, _c2, _d;
+    const hasAffidavitData = !!(((_b2 = (_a2 = data[ExpenseFormField.Affidavit]) == null ? void 0 : _a2.justification) == null ? void 0 : _b2.trim()) || ((_d = (_c2 = data[ExpenseFormField.Affidavit]) == null ? void 0 : _c2.digitalSignature) == null ? void 0 : _d.trim()));
     return hasAffidavitData;
   }
 );
@@ -4854,13 +5429,13 @@ async function validateAndPrepareFile(file) {
 }
 __name(validateAndPrepareFile, "validateAndPrepareFile");
 function handleUploadError(error) {
-  var _a, _b;
+  var _a2, _b2;
   if (error instanceof Error && (error.name === "CanceledError" || error.code === "ECONNABORTED")) {
     throw new Error("Upload timeout. Please check your connection and try again.");
   }
   if (isHttpApiError(error)) {
-    const status = (_a = error.response) == null ? void 0 : _a.status;
-    const data = (_b = error.response) == null ? void 0 : _b.data;
+    const status = (_a2 = error.response) == null ? void 0 : _a2.status;
+    const data = (_b2 = error.response) == null ? void 0 : _b2.data;
     const detail = typeof (data == null ? void 0 : data.detail) === "string" ? data.detail : void 0;
     const message = (data == null ? void 0 : data.message) || detail;
     switch (status) {
@@ -4883,7 +5458,7 @@ function handleUploadError(error) {
 }
 __name(handleUploadError, "handleUploadError");
 const uploadFile = /* @__PURE__ */ __name(async (params, retryCount = 0) => {
-  var _a;
+  var _a2;
   const { file, companyShortName, expenseId, documentType, onProgress, signal } = params;
   if (signal == null ? void 0 : signal.aborted) {
     throw new DOMException("Aborted", "AbortError");
@@ -4926,7 +5501,7 @@ const uploadFile = /* @__PURE__ */ __name(async (params, retryCount = 0) => {
       throw error;
     }
     if (isHttpApiError(error) && !(signal == null ? void 0 : signal.aborted)) {
-      const status = (_a = error.response) == null ? void 0 : _a.status;
+      const status = (_a2 = error.response) == null ? void 0 : _a2.status;
       if (status && status >= 500 && status < 600 && retryCount < FILE_UPLOAD_MAX_RETRIES) {
         const delay = calculateExponentialBackoff(retryCount);
         await sleep(delay);
@@ -4940,16 +5515,16 @@ const uploadFile = /* @__PURE__ */ __name(async (params, retryCount = 0) => {
   }
 }, "uploadFile");
 const deleteFile = /* @__PURE__ */ __name(async (fileId) => {
-  var _a, _b;
+  var _a2, _b2;
   try {
     await apiClient.delete(FILE_ENDPOINTS.DELETE.build({ fileId }));
   } catch (error) {
-    const message = isHttpApiError(error) ? ((_b = (_a = error.response) == null ? void 0 : _a.data) == null ? void 0 : _b.message) || "Failed to delete file" : getHttpErrorMessage(error);
+    const message = isHttpApiError(error) ? ((_b2 = (_a2 = error.response) == null ? void 0 : _a2.data) == null ? void 0 : _b2.message) || "Failed to delete file" : getHttpErrorMessage(error);
     throw new Error(message);
   }
 }, "deleteFile");
 const downloadFile = /* @__PURE__ */ __name(async (fileId, signal, retryCount = 0) => {
-  var _a;
+  var _a2;
   try {
     const response = await apiClient.get(FILE_ENDPOINTS.DOWNLOAD.build({ fileId }), {
       responseType: "blob",
@@ -4961,7 +5536,7 @@ const downloadFile = /* @__PURE__ */ __name(async (fileId, signal, retryCount = 
       throw error;
     }
     if (isHttpApiError(error)) {
-      const status = (_a = error.response) == null ? void 0 : _a.status;
+      const status = (_a2 = error.response) == null ? void 0 : _a2.status;
       if (status === 404) {
         throw new Error("File not found");
       }
@@ -4990,11 +5565,11 @@ const canPreviewFile = /* @__PURE__ */ __name((attachment) => {
 const BLOB_URL_CLEANUP_DELAY = 5e3;
 const BLOB_URL_REGISTRY = /* @__PURE__ */ new WeakMap();
 const registerBlobUrl = /* @__PURE__ */ __name((window2, url) => {
-  var _a;
+  var _a2;
   if (!BLOB_URL_REGISTRY.has(window2)) {
     BLOB_URL_REGISTRY.set(window2, /* @__PURE__ */ new Set());
   }
-  (_a = BLOB_URL_REGISTRY.get(window2)) == null ? void 0 : _a.add(url);
+  (_a2 = BLOB_URL_REGISTRY.get(window2)) == null ? void 0 : _a2.add(url);
 }, "registerBlobUrl");
 const cleanupBlobUrl = /* @__PURE__ */ __name((url) => {
   try {
@@ -5160,8 +5735,8 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
     documentType: "receipt",
     expenseId,
     shouldKeepUrl: /* @__PURE__ */ __name((url) => {
-      var _a, _b;
-      return ((_a = attachmentRef.current) == null ? void 0 : _a.blobUrl) === url || ((_b = initialReceiptRef.current) == null ? void 0 : _b.blobUrl) === url;
+      var _a2, _b2;
+      return ((_a2 = attachmentRef.current) == null ? void 0 : _a2.blobUrl) === url || ((_b2 = initialReceiptRef.current) == null ? void 0 : _b2.blobUrl) === url;
     }, "shouldKeepUrl")
   });
   const { receipt, startUploadFlow, updateDraftId } = usePendingUploadStore();
@@ -5219,12 +5794,12 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
     }
   }, [initialReceipt, uploadedAttachment, isStoreDataRelevant, attachment, clearUploadedAttachment, onReceiptChange, blobManager]);
   useEffect$g(() => {
-    var _a;
+    var _a2;
     if (expenseId && pendingFile && isStoreDataRelevant && uploadStatus !== "uploading" && !attachment) {
       const fileToUpload = pendingFile;
       clearPendingFile();
       setUploadStatus("uploading");
-      (_a = handleFileUploadInternalRef.current) == null ? void 0 : _a.call(handleFileUploadInternalRef, fileToUpload);
+      (_a2 = handleFileUploadInternalRef.current) == null ? void 0 : _a2.call(handleFileUploadInternalRef, fileToUpload);
     }
   }, [expenseId, pendingFile, isStoreDataRelevant, uploadStatus, attachment, clearPendingFile, setUploadStatus]);
   const loadFile = useCallback$j(async (targetAttachment) => {
@@ -5348,8 +5923,8 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
     }
   }, [expenseId, handleFileUploadInternal, handleError, onSaveDraftForUpload, startUploadFlow, updateDraftId, setPendingFile, clearPendingFile, setUploadStatus, blobManager, validateFile]);
   const handleFileSelect = useCallback$j((event) => {
-    var _a;
-    const file = (_a = event.target.files) == null ? void 0 : _a[0];
+    var _a2;
+    const file = (_a2 = event.target.files) == null ? void 0 : _a2[0];
     if (file) {
       handleFileUpload(file);
     }
@@ -5358,9 +5933,9 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
     }
   }, [handleFileUpload]);
   const handleChooseFileClick = useCallback$j(() => {
-    var _a;
+    var _a2;
     if (isUploadDisabled || isProcessing) return;
-    (_a = fileInputRef.current) == null ? void 0 : _a.click();
+    (_a2 = fileInputRef.current) == null ? void 0 : _a2.click();
   }, [isUploadDisabled, isProcessing]);
   const handleDeleteClick = useCallback$j(() => {
     if (!attachment || disabled) return;
@@ -6557,12 +7132,12 @@ const useFormImperativeHandle = /* @__PURE__ */ __name(({
     onFormErrorsRef.current = onFormErrors;
   });
   const handleFormSubmit = useCallback$a(async () => {
-    var _a;
+    var _a2;
     const isValid = await formRef.current.validateForm();
     if (isValid) {
       await formRef.current.handleSubmit();
     } else {
-      (_a = onFormErrorsRef.current) == null ? void 0 : _a.call(onFormErrorsRef, formRef.current.validationErrors);
+      (_a2 = onFormErrorsRef.current) == null ? void 0 : _a2.call(onFormErrorsRef, formRef.current.validationErrors);
     }
   }, []);
   const handleDraftSave = useCallback$a(async () => {
@@ -6786,13 +7361,13 @@ const mileageTripFormSchema = object({
   [MileageTripFormField.DeferToApprover]: boolean().optional(),
   [MileageTripFormField.AdditionalComments]: additionalCommentsFieldOptional
 }).superRefine((data, ctx) => {
-  var _a;
+  var _a2;
   validateCostAllocation(
     ctx,
     data.costAllocations,
     data.reimbursableAmount,
     data.deferToApprover,
-    (_a = data.totalCurrency) == null ? void 0 : _a.code
+    (_a2 = data.totalCurrency) == null ? void 0 : _a2.code
   );
   if (data.mileageType && data.expenseDate && !data.ratePerUnit) {
     ctx.addIssue({
@@ -6909,13 +7484,13 @@ const mileagePeriodFormSchema = object({
   [MileagePeriodFormField.SupportingFiles]: supportingFilesField,
   [MileagePeriodFormField.AdditionalComments]: additionalCommentsFieldOptional
 }).superRefine((data, ctx) => {
-  var _a;
+  var _a2;
   validateCostAllocation(
     ctx,
     data.costAllocations,
     data.reimbursableAmount,
     data.deferToApprover,
-    (_a = data.totalCurrency) == null ? void 0 : _a.code
+    (_a2 = data.totalCurrency) == null ? void 0 : _a2.code
   );
   const { from, to } = data.expensePeriod ?? {};
   if (from && to && !isSameCalendarMonth(from, to)) {
@@ -7172,8 +7747,8 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
   trigger
 }) => {
   const companyShortName = useCompanyStore((state) => {
-    var _a;
-    return ((_a = state.userDefaultCompany) == null ? void 0 : _a.shortName) ?? null;
+    var _a2;
+    return ((_a2 = state.userDefaultCompany) == null ? void 0 : _a2.shortName) ?? null;
   });
   const {
     totalAmount,
@@ -7345,7 +7920,7 @@ function CostAllocationField({
   onRemove,
   isEqualSplitField
 }) {
-  var _a, _b, _c;
+  var _a2, _b2, _c2;
   const amountPath = `costAllocations.${index}.amount`;
   const percentagePath = `costAllocations.${index}.percentage`;
   const amountValue = useWatch({ control, name: amountPath });
@@ -7367,9 +7942,9 @@ function CostAllocationField({
   const allocationConfig = costAllocationTypes().find((config2) => config2.type === type);
   const allocationErrors = errors.costAllocations;
   const currentAllocationErrors = allocationErrors == null ? void 0 : allocationErrors[index];
-  const nameError = (_a = currentAllocationErrors == null ? void 0 : currentAllocationErrors.name) == null ? void 0 : _a.message;
-  const amountError = (_b = currentAllocationErrors == null ? void 0 : currentAllocationErrors.amount) == null ? void 0 : _b.message;
-  const percentageError = (_c = currentAllocationErrors == null ? void 0 : currentAllocationErrors.percentage) == null ? void 0 : _c.message;
+  const nameError = (_a2 = currentAllocationErrors == null ? void 0 : currentAllocationErrors.name) == null ? void 0 : _a2.message;
+  const amountError = (_b2 = currentAllocationErrors == null ? void 0 : currentAllocationErrors.amount) == null ? void 0 : _b2.message;
+  const percentageError = (_c2 = currentAllocationErrors == null ? void 0 : currentAllocationErrors.percentage) == null ? void 0 : _c2.message;
   const searchFunction = getSearchFunctionByType(type);
   const placeholder = getPlaceholderByType(type);
   const displayLabel = getDisplayLabel(type, value);
@@ -7565,7 +8140,7 @@ function AffidavitContent({
         name: "affidavit.justification",
         control,
         render: /* @__PURE__ */ __name(({ field, fieldState }) => {
-          var _a;
+          var _a2;
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
             Aa,
             {
@@ -7585,7 +8160,7 @@ function AffidavitContent({
               maxCharacters: 150,
               showCharacterCount: true,
               enforceMaxLength: true,
-              error: (_a = fieldState.error) == null ? void 0 : _a.message,
+              error: (_a2 = fieldState.error) == null ? void 0 : _a2.message,
               disabled,
               required: true
             }
@@ -7600,7 +8175,7 @@ function AffidavitContent({
         name: "affidavit.digitalSignature",
         control,
         render: /* @__PURE__ */ __name(({ field, fieldState }) => {
-          var _a;
+          var _a2;
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
             $a,
             {
@@ -7617,7 +8192,7 @@ function AffidavitContent({
               label: "Digital Signature",
               placeholder: "Enter initials",
               maxLength: 3,
-              error: (_a = fieldState.error) == null ? void 0 : _a.message,
+              error: (_a2 = fieldState.error) == null ? void 0 : _a2.message,
               disabled,
               required: true
             }
@@ -7895,7 +8470,7 @@ function SupportingFileCard({
   isLoadingPreview,
   disabled
 }) {
-  var _a;
+  var _a2;
   const previewType = getFilePreviewType(file.mimeType);
   if (isUploading || isLoadingPreview) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(hs, { className: "bg-white px-2 py-2 w-full flex justify-between flex-row items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 min-w-0 flex-1", children: [
@@ -7912,7 +8487,7 @@ function SupportingFileCard({
         /* @__PURE__ */ jsxRuntimeExports.jsx(FileName, { name: file.originalName })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 mr-2 text-sm h-full text-trax-red-600", children: errorMessage.includes("Unsupported file type") ? "Invalid format" : errorMessage.includes("exceeds limit") ? `>${((_a = errorMessage.match(/\d+MB/)) == null ? void 0 : _a[0]) || "Size limit"}` : errorMessage }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 mr-2 text-sm h-full text-trax-red-600", children: errorMessage.includes("Unsupported file type") ? "Invalid format" : errorMessage.includes("exceeds limit") ? `>${((_a2 = errorMessage.match(/\d+MB/)) == null ? void 0 : _a2[0]) || "Size limit"}` : errorMessage }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "button",
           {
@@ -8062,10 +8637,10 @@ function SupportingFiles({
     };
   }, []);
   const handleAddSupportingDocumentClick = useCallback$1((e) => {
-    var _a;
+    var _a2;
     e.preventDefault();
     if (disabled || state.isUploading || isSavingDraft) return;
-    (_a = fileInputRef.current) == null ? void 0 : _a.click();
+    (_a2 = fileInputRef.current) == null ? void 0 : _a2.click();
   }, [disabled, state.isUploading, isSavingDraft]);
   const handleFilesUpload = useCallback$1(async (filesToProcess, targetExpenseId) => {
     if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
@@ -8150,11 +8725,11 @@ function SupportingFiles({
   }, [userDefaultCompany == null ? void 0 : userDefaultCompany.shortName, state.attachments.length, blobManager, uploadSingleFile, addUploadedSupportingFiles, clearPendingSupportingFiles, setSupportingFilesUploadStatus]);
   handleFilesUploadRef.current = handleFilesUpload;
   useEffect$1(() => {
-    var _a;
+    var _a2;
     if (expenseId && pendingSupportingFiles.length > 0 && isStoreDataRelevant && !isUploading) {
       const filesToUpload = pendingSupportingFiles.map((file) => ({ file, error: null }));
       setSupportingFilesUploadStatus("uploading");
-      (_a = handleFilesUploadRef.current) == null ? void 0 : _a.call(handleFilesUploadRef, filesToUpload, expenseId);
+      (_a2 = handleFilesUploadRef.current) == null ? void 0 : _a2.call(handleFilesUploadRef, filesToUpload, expenseId);
     }
   }, [expenseId, pendingSupportingFiles, isStoreDataRelevant, isUploading, setSupportingFilesUploadStatus]);
   const handleFileChange = useCallback$1(async (e) => {
@@ -8310,7 +8885,7 @@ function SupportingFiles({
     });
   }, []);
   const handlePreviewClick = useCallback$1(async (file) => {
-    var _a;
+    var _a2;
     if (file.status === "error") {
       return;
     }
@@ -8318,7 +8893,7 @@ function SupportingFiles({
       return;
     }
     let blobUrl = loadedBlobUrls.get(file.id) || file.blobUrl;
-    if (!blobUrl && ((_a = file.url) == null ? void 0 : _a.startsWith("/api/"))) {
+    if (!blobUrl && ((_a2 = file.url) == null ? void 0 : _a2.startsWith("/api/"))) {
       const controller = new AbortController();
       previewAbortControllersRef.current.set(file.id, controller);
       setLoadingPreviewFileIds((prev) => new Set(prev).add(file.id));
@@ -8727,7 +9302,7 @@ const MemoizedCostAllocationSection = memo(CostAllocationSectionComponent);
 const CostAllocationSection = MemoizedCostAllocationSection;
 MemoizedCostAllocationSection.displayName = "CostAllocationSection";
 export {
-  useFormButtonStateSync as $,
+  useDefaultCompany as $,
   isSameCalendarMonth as A,
   BaseExpenseFormRenderer as B,
   CostAllocationHeaderActions as C,
@@ -8748,25 +9323,28 @@ export {
   parseOptionalDecimal as R,
   SupportingFiles as S,
   parseOptionalInt as T,
-  supportingFilesSchema as U,
-  useAmountAllocationSync as V,
-  useAutoSave as W,
-  useBaseExpenseForm as X,
-  useCostAllocationHandlers as Y,
-  useExpenseFormHandlers as Z,
-  useExpenseFormSync as _,
+  queryClient as U,
+  supportingFilesSchema as V,
+  useAmountAllocationSync as W,
+  useAutoSave as X,
+  useBaseExpenseForm as Y,
+  useCompanies as Z,
+  useCostAllocationHandlers as _,
   CostAllocationSection as a,
-  useFormFieldValues as a0,
-  useFormImperativeHandle as a1,
-  useMileagePeriodFormHandlers as a2,
-  useMileageRateSync as a3,
-  useMileageTripFormHandlers as a4,
-  usePendingUploadStore as a5,
-  useReimbursableAmountSync as a6,
-  useSetDefaultCurrency as a7,
-  useTaxFieldVisibility as a8,
-  useValidatePrefilledFields as a9,
-  validateCostAllocation as aa,
+  useExpenseFormHandlers as a0,
+  useExpenseFormSync as a1,
+  useFormButtonStateSync as a2,
+  useFormFieldValues as a3,
+  useFormImperativeHandle as a4,
+  useMileagePeriodFormHandlers as a5,
+  useMileageRateSync as a6,
+  useMileageTripFormHandlers as a7,
+  usePendingUploadStore as a8,
+  useReimbursableAmountSync as a9,
+  useSetDefaultCurrency as aa,
+  useTaxFieldVisibility as ab,
+  useValidatePrefilledFields as ac,
+  validateCostAllocation as ad,
   ExpenseFormHistoryLog as b,
   ExpenseFormLeftColumn as c,
   ExpensePreview as d,

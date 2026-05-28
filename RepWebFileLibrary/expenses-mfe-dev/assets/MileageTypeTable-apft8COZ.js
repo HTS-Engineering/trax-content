@@ -3,15 +3,13 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 var _a;
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { f as QueryObserver, x as hasPreviousPage, w as hasNextPage, Y as useBaseQuery, ac as useQueryClient, P as queryKeys, a1 as useEscapeHandler, _ as useCompanyStore, ab as useQuery, a4 as useMutation, r as formatToISODate, K as parseDateOnlyAsLocal, b as DEFAULT_CURRENCY_SYMBOL } from "./date-format-Ban7B2GG.js";
+import { e as QueryObserver, H as hasPreviousPage, G as hasNextPage, a2 as useBaseQuery, ai as useQueryClient, Y as queryKeys, a7 as useEscapeHandler, a4 as useCompanyStore, ah as useQuery, aa as useMutation, x as formatToISODate, W as parseDateOnlyAsLocal, a as DEFAULT_CURRENCY_SYMBOL, w as formatRateCompact } from "./use-scroll-into-view-ref-Bh4xL90y.js";
 import { a0 as devError, $ as $a, T as Ta, U as Ue, ab as jn, X as Xs, am as p, az as zr, j as Ir, h as Er, n as Mr, ag as kr, v as Zs, x as apiClient, C as CONFIGURATION_ENDPOINTS, c as Ba, s as Us, a1 as devLog, ah as ln, ac as jr, w as _t, i as Ft, f as Dt, ao as sr, k as Js, Z as Za, aq as ti, Q as Qa, a6 as es, K as Ka, aj as ms, as as ts, a as $s } from "./configuration-B4FJFUoo.js";
 import { E as EmptyState } from "./EmptyState-CqMOxOYE.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import { o as object, _ as _enum, s as string, l as literal, r as useForm, u, a as Controller, C as ConfirmDialog, w as useWatch, n as number, f as date, d as createDecimalChangeHandler, t as useFormState, v as useMileageRates, k as useCreateMileageRate, m as useDeleteMileageRate, h as filterDecimalInput, j as useController, I as Info, q as useEffectiveMileageRatesByIds } from "./useMileageRates-C1IbqS9e.js";
-import { p as useExpenseTypes, b as ExpenseTypeScope, d as FormTypeId, a as ExpenseFormType, k as useCreateExpenseType, x as useUpdateExpenseType, w as useToggleExpenseTypeStatus, s as useFormTypeOptions, l as useCurrencies, e as MileageRateStatus, v as useTaxTypesDisplay } from "./expense-api-CFDRCnr8.js";
-import { a as useCreateBusinessPurpose, c as useUpdateBusinessPurpose, b as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-B1KlaLOY.js";
-import { g as formatRateCompact } from "./formatters-DV4AvCZw.js";
-import { P as Plus } from "./plus-DaqI5Fee.js";
+import { o as object, _ as _enum, s as string, l as literal, r as useForm, u, a as Controller, C as ConfirmDialog, w as useWatch, n as number, f as date, d as createDecimalChangeHandler, t as useFormState, v as useMileageRates, k as useCreateMileageRate, m as useDeleteMileageRate, h as filterDecimalInput, j as useController, I as Info, q as useEffectiveMileageRatesByIds } from "./useMileageRates-B2TdNzkc.js";
+import { p as useExpenseTypes, b as ExpenseTypeScope, d as FormTypeId, a as ExpenseFormType, k as useCreateExpenseType, x as useUpdateExpenseType, w as useToggleExpenseTypeStatus, s as useFormTypeOptions, l as useCurrencies, e as MileageRateStatus, P as Plus, T as TaxTypeSearchSelect, v as useTaxTypesDisplay } from "./TaxTypeSearchSelect-D3a36RDT.js";
+import { a as useCreateBusinessPurpose, c as useUpdateBusinessPurpose, b as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-CurjWsfM.js";
 var InfiniteQueryObserver = (_a = class extends QueryObserver {
   constructor(client, options) {
     super(client, options);
@@ -172,7 +170,7 @@ const getDefaultValues$4 = /* @__PURE__ */ __name((initialData) => ({
   formType: (initialData == null ? void 0 : initialData.formType) ?? ""
 }), "getDefaultValues$4");
 const transformFormTypeOptions = /* @__PURE__ */ __name((formTypes) => formTypes.map((option) => ({ value: option.value, label: option.label })).filter((option) => option.value !== ExpenseFormType.MILEAGE), "transformFormTypeOptions");
-const { useCallback: useCallback$p, useEffect: useEffect$9, useMemo: useMemo$f } = await importShared("react");
+const { useCallback: useCallback$o, useEffect: useEffect$9, useMemo: useMemo$e } = await importShared("react");
 const useExpenseTypeForm = /* @__PURE__ */ __name(({
   initialData,
   existingData = [],
@@ -182,11 +180,11 @@ const useExpenseTypeForm = /* @__PURE__ */ __name(({
   isActive = false
 } = {}) => {
   const initialDataId = initialData == null ? void 0 : initialData.id;
-  const schema = useMemo$f(
+  const schema = useMemo$e(
     () => createExpenseTypeSchema(existingData, initialDataId),
     [existingData, initialDataId]
   );
-  const defaultValues = useMemo$f(
+  const defaultValues = useMemo$e(
     () => getDefaultValues$4(initialData),
     [initialData]
   );
@@ -218,7 +216,7 @@ const useExpenseTypeForm = /* @__PURE__ */ __name(({
     }
   } = form;
   const formType = watch("formType");
-  const handleFormSubmit = useCallback$p(
+  const handleFormSubmit = useCallback$o(
     async (data) => {
       try {
         await (onSubmit == null ? void 0 : onSubmit(data));
@@ -229,7 +227,7 @@ const useExpenseTypeForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
-  const handleCancel = useCallback$p(() => {
+  const handleCancel = useCallback$o(() => {
     reset();
     onCancel == null ? void 0 : onCancel();
   }, [reset, onCancel]);
@@ -250,15 +248,15 @@ const useExpenseTypeForm = /* @__PURE__ */ __name(({
     touchedFields,
     dirtyFields,
     handleCancel,
-    canSubmit: useMemo$f(() => {
+    canSubmit: useMemo$e(() => {
       return isValid && !isSubmitting && !isLoading && (initialData ? isDirty : true);
     }, [isValid, isSubmitting, isLoading, isDirty, initialData]),
     isFormLoading: isLoading || isSubmitting
   };
 }, "useExpenseTypeForm");
-const { useCallback: useCallback$o, useEffect: useEffect$8, useState: useState$b } = await importShared("react");
+const { useCallback: useCallback$n, useEffect: useEffect$8, useState: useState$a } = await importShared("react");
 const useExpenseTypeTableState = /* @__PURE__ */ __name((companyId) => {
-  const [state, setState] = useState$b({
+  const [state, setState] = useState$a({
     editingRowId: void 0,
     isAddingNew: false,
     editingData: void 0
@@ -270,7 +268,7 @@ const useExpenseTypeTableState = /* @__PURE__ */ __name((companyId) => {
       editingData: void 0
     });
   }, [companyId]);
-  const handleStartAdd = useCallback$o(() => {
+  const handleStartAdd = useCallback$n(() => {
     setState((prev) => ({
       ...prev,
       editingRowId: NEW_ROW_ID$4,
@@ -278,7 +276,7 @@ const useExpenseTypeTableState = /* @__PURE__ */ __name((companyId) => {
       editingData: void 0
     }));
   }, []);
-  const handleRowEdit = useCallback$o((row) => {
+  const handleRowEdit = useCallback$n((row) => {
     setState((prev) => ({
       ...prev,
       editingRowId: row.original.id,
@@ -286,7 +284,7 @@ const useExpenseTypeTableState = /* @__PURE__ */ __name((companyId) => {
       editingData: row.original
     }));
   }, []);
-  const handleFormCancel = useCallback$o(() => {
+  const handleFormCancel = useCallback$n(() => {
     setState({
       editingRowId: void 0,
       isAddingNew: false,
@@ -302,13 +300,13 @@ const useExpenseTypeTableState = /* @__PURE__ */ __name((companyId) => {
     resetState
   };
 }, "useExpenseTypeTableState");
-const { useCallback: useCallback$n } = await importShared("react");
+const { useCallback: useCallback$m } = await importShared("react");
 const useExpenseTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) => {
   var _a2;
   const createExpenseTypeMutation = useCreateExpenseType();
   const updateExpenseTypeMutation = useUpdateExpenseType();
   const toggleExpenseTypeMutation = useToggleExpenseTypeStatus();
-  const handleCreateExpenseType = useCallback$n(async (data) => {
+  const handleCreateExpenseType = useCallback$m(async (data) => {
     if (!companyId) return;
     try {
       const expenseTypeData = {
@@ -328,7 +326,7 @@ const useExpenseTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) =
       throw error;
     }
   }, [companyId, createExpenseTypeMutation, onSuccess]);
-  const handleUpdateExpenseType = useCallback$n(async (id, data, originalData) => {
+  const handleUpdateExpenseType = useCallback$m(async (id, data, originalData) => {
     if (!companyId) return;
     try {
       const expenseTypeData = {};
@@ -355,7 +353,7 @@ const useExpenseTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) =
       throw error;
     }
   }, [companyId, updateExpenseTypeMutation, onSuccess]);
-  const toggleActiveExpenseType = useCallback$n(async (id, currentStatus) => {
+  const toggleActiveExpenseType = useCallback$m(async (id, currentStatus) => {
     if (!companyId || toggleExpenseTypeMutation.isPending) return;
     try {
       await toggleExpenseTypeMutation.mutateAsync({ id, companyShortName: companyId, isActive: !currentStatus });
@@ -802,7 +800,7 @@ function sortByCreatedDate(items, direction = "desc") {
 }
 __name(sortByCreatedDate, "sortByCreatedDate");
 const React$b = await importShared("react");
-const { useCallback: useCallback$m, useMemo: useMemo$e } = React$b;
+const { useCallback: useCallback$l, useMemo: useMemo$d } = React$b;
 const ExpenseTypeTable = /* @__PURE__ */ __name(({ className }) => {
   const { adminCompany } = useCompanyStore();
   const { data: expenseTypes, isLoading, error } = useNonMileageTypes((adminCompany == null ? void 0 : adminCompany.id) || null, true);
@@ -822,18 +820,18 @@ const ExpenseTypeTable = /* @__PURE__ */ __name(({ className }) => {
     isOperating,
     togglingRowId
   } = useExpenseTypeOperations(adminCompany == null ? void 0 : adminCompany.id, resetState);
-  const processedData = useMemo$e(() => {
+  const processedData = useMemo$d(() => {
     const dataArray = Array.isArray(expenseTypes) ? expenseTypes : [];
     return sortByCreatedDate(dataArray, "asc");
   }, [expenseTypes]);
-  const handleFormSubmit = useCallback$m(async (data) => {
+  const handleFormSubmit = useCallback$l(async (data) => {
     if (editingRowId === NEW_ROW_ID$4) {
       await handleCreateExpenseType(data);
     } else if (editingRowId) {
       await handleUpdateExpenseType(editingRowId, data, editingData);
     }
   }, [editingRowId, handleCreateExpenseType, handleUpdateExpenseType, editingData]);
-  const formHookOptions = useMemo$e(() => ({
+  const formHookOptions = useMemo$d(() => ({
     initialData: editingData,
     existingData: processedData,
     onSubmit: handleFormSubmit,
@@ -842,12 +840,12 @@ const ExpenseTypeTable = /* @__PURE__ */ __name(({ className }) => {
     isActive: editingRowId !== void 0
   }), [editingData, processedData, handleFormSubmit, handleFormCancel, isOperating, editingRowId]);
   const formHook = useExpenseTypeForm(formHookOptions);
-  const stableControl = useMemo$e(() => formHook.control, [formHook.control]);
-  const isEditingExisting = useMemo$e(
+  const stableControl = useMemo$d(() => formHook.control, [formHook.control]);
+  const isEditingExisting = useMemo$d(
     () => editingRowId !== void 0 && editingRowId !== NEW_ROW_ID$4,
     [editingRowId]
   );
-  const baseColumns = useMemo$e(() => [
+  const baseColumns = useMemo$d(() => [
     createNameColumn$1({
       editingRowId,
       formControl: stableControl,
@@ -878,7 +876,7 @@ const ExpenseTypeTable = /* @__PURE__ */ __name(({ className }) => {
     formHook.touchedFields,
     formHook.dirtyFields
   ]);
-  const actionsColumn = useMemo$e(
+  const actionsColumn = useMemo$d(
     () => createActionsColumn$3({
       editingRowId,
       onRowEdit: handleRowEdit,
@@ -993,14 +991,14 @@ const CORPORATE_CARDS_VALIDATION = {
   DESCRIPTION_MAX_LENGTH: 35
 };
 const NEW_ROW_ID$3 = "new";
-const { useCallback: useCallback$l, useState: useState$a } = await importShared("react");
+const { useCallback: useCallback$k, useState: useState$9 } = await importShared("react");
 const useMasterAccountTableState = /* @__PURE__ */ __name(() => {
-  const [state, setState] = useState$a({
+  const [state, setState] = useState$9({
     editingRowId: void 0,
     isAddingNew: false,
     editingData: void 0
   });
-  const handleStartAdd = useCallback$l(() => {
+  const handleStartAdd = useCallback$k(() => {
     setState((prev) => ({
       ...prev,
       editingRowId: NEW_ROW_ID$3,
@@ -1008,7 +1006,7 @@ const useMasterAccountTableState = /* @__PURE__ */ __name(() => {
       editingData: void 0
     }));
   }, []);
-  const handleRowEdit = useCallback$l((row) => {
+  const handleRowEdit = useCallback$k((row) => {
     setState((prev) => ({
       ...prev,
       editingRowId: row.original.id,
@@ -1016,7 +1014,7 @@ const useMasterAccountTableState = /* @__PURE__ */ __name(() => {
       editingData: row.original
     }));
   }, []);
-  const handleFormCancel = useCallback$l(() => {
+  const handleFormCancel = useCallback$k(() => {
     setState({
       editingRowId: void 0,
       isAddingNew: false,
@@ -1132,12 +1130,12 @@ const useUpdateMasterAccount = /* @__PURE__ */ __name(() => {
     }, "onSuccess")
   });
 }, "useUpdateMasterAccount");
-const { useCallback: useCallback$k } = await importShared("react");
+const { useCallback: useCallback$j } = await importShared("react");
 const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onSuccess) => {
   var _a2;
   const createMasterAccountMutation = useCreateMasterAccount();
   const updateMasterAccountMutation = useUpdateMasterAccount();
-  const handleCreateMasterAccount = useCallback$k(async (data) => {
+  const handleCreateMasterAccount = useCallback$j(async (data) => {
     if (!companyShortName) return;
     try {
       const masterAccountData = {
@@ -1157,7 +1155,7 @@ const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onS
       throw error;
     }
   }, [companyShortName, createMasterAccountMutation, onSuccess]);
-  const handleUpdateMasterAccount = useCallback$k(async (id, data, originalData) => {
+  const handleUpdateMasterAccount = useCallback$j(async (id, data, originalData) => {
     if (!companyShortName) return;
     try {
       const masterAccountData = {};
@@ -1187,7 +1185,7 @@ const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onS
       throw error;
     }
   }, [companyShortName, updateMasterAccountMutation, onSuccess]);
-  const toggleActiveMasterAccount = useCallback$k(async (id, active) => {
+  const toggleActiveMasterAccount = useCallback$j(async (id, active) => {
     if (!companyShortName || updateMasterAccountMutation.isPending) return;
     try {
       await updateMasterAccountMutation.mutateAsync({ companyShortName, id, data: { active: !active } });
@@ -1235,7 +1233,7 @@ const getDefaultValues$3 = /* @__PURE__ */ __name((initialData) => ({
   statementEndDate: (initialData == null ? void 0 : initialData.statementEndDate.toString().padStart(2, "0")) ?? "",
   reconciliationDueDate: (initialData == null ? void 0 : initialData.reconciliationDueDate.toString()) ?? ""
 }), "getDefaultValues$3");
-const { useCallback: useCallback$j, useEffect: useEffect$6, useMemo: useMemo$d } = await importShared("react");
+const { useCallback: useCallback$i, useEffect: useEffect$6, useMemo: useMemo$c } = await importShared("react");
 const useMasterAccountForm = /* @__PURE__ */ __name(({
   initialData,
   existingData = [],
@@ -1245,11 +1243,11 @@ const useMasterAccountForm = /* @__PURE__ */ __name(({
   isActive = false
 } = {}) => {
   const initialDataId = initialData == null ? void 0 : initialData.id;
-  const schema = useMemo$d(
+  const schema = useMemo$c(
     () => createMasterAccountSchema(existingData, initialDataId),
     [existingData, initialDataId]
   );
-  const defaultValues = useMemo$d(
+  const defaultValues = useMemo$c(
     () => getDefaultValues$3(initialData),
     [initialData]
   );
@@ -1280,7 +1278,7 @@ const useMasterAccountForm = /* @__PURE__ */ __name(({
       dirtyFields
     }
   } = form;
-  const handleFormSubmit = useCallback$j(
+  const handleFormSubmit = useCallback$i(
     async (data) => {
       try {
         await (onSubmit == null ? void 0 : onSubmit(data));
@@ -1291,7 +1289,7 @@ const useMasterAccountForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
-  const handleCancel = useCallback$j(() => {
+  const handleCancel = useCallback$i(() => {
     reset();
     onCancel == null ? void 0 : onCancel();
   }, [reset, onCancel]);
@@ -1311,7 +1309,7 @@ const useMasterAccountForm = /* @__PURE__ */ __name(({
     touchedFields,
     dirtyFields,
     handleCancel,
-    canSubmit: useMemo$d(() => {
+    canSubmit: useMemo$c(() => {
       return isValid && !isSubmitting && !isLoading && (initialData ? isDirty : true);
     }, [isValid, isSubmitting, isLoading, isDirty, initialData]),
     isFormLoading: isLoading || isSubmitting
@@ -2016,7 +2014,7 @@ const getDefaultValues$2 = /* @__PURE__ */ __name((initialData) => ({
   userId: (initialData == null ? void 0 : initialData.userId) ?? "",
   cardLastDigits: (initialData == null ? void 0 : initialData.cardLastDigits) ?? ""
 }), "getDefaultValues$2");
-const { useCallback: useCallback$i, useEffect: useEffect$5, useMemo: useMemo$c } = await importShared("react");
+const { useCallback: useCallback$h, useEffect: useEffect$5, useMemo: useMemo$b } = await importShared("react");
 const useCardholderForm = /* @__PURE__ */ __name(({
   initialData,
   existingCardholders = [],
@@ -2026,11 +2024,11 @@ const useCardholderForm = /* @__PURE__ */ __name(({
   isActive = false
 } = {}) => {
   const initialDataId = initialData ? String(initialData.id) : void 0;
-  const schema = useMemo$c(
+  const schema = useMemo$b(
     () => createCardholderSchema(existingCardholders, initialDataId),
     [existingCardholders, initialDataId]
   );
-  const defaultValues = useMemo$c(
+  const defaultValues = useMemo$b(
     () => getDefaultValues$2(initialData),
     [initialData]
   );
@@ -2060,7 +2058,7 @@ const useCardholderForm = /* @__PURE__ */ __name(({
       dirtyFields
     }
   } = form;
-  const handleFormSubmit = useCallback$i(
+  const handleFormSubmit = useCallback$h(
     async (data) => {
       try {
         await (onSubmit == null ? void 0 : onSubmit(data));
@@ -2071,7 +2069,7 @@ const useCardholderForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
-  const handleCancel = useCallback$i(() => {
+  const handleCancel = useCallback$h(() => {
     reset();
     onCancel == null ? void 0 : onCancel();
   }, [reset, onCancel]);
@@ -2090,41 +2088,41 @@ const useCardholderForm = /* @__PURE__ */ __name(({
     touchedFields,
     dirtyFields,
     handleCancel,
-    canSubmit: useMemo$c(() => {
+    canSubmit: useMemo$b(() => {
       return isValid && !isSubmitting && !isLoading && (initialData ? isDirty : true);
     }, [isValid, isSubmitting, isLoading, isDirty, initialData]),
     isFormLoading: isLoading || isSubmitting
   };
 }, "useCardholderForm");
-const { useCallback: useCallback$h, useState: useState$9 } = await importShared("react");
+const { useCallback: useCallback$g, useState: useState$8 } = await importShared("react");
 const useCardholderTableState = /* @__PURE__ */ __name(() => {
-  const [state, setState] = useState$9({
+  const [state, setState] = useState$8({
     editingRowId: void 0,
     isAddingNew: false,
     editingData: void 0
   });
-  const handleStartAdd = useCallback$h(() => {
+  const handleStartAdd = useCallback$g(() => {
     setState({
       editingRowId: NEW_ROW_ID$2,
       isAddingNew: true,
       editingData: void 0
     });
   }, []);
-  const handleRowEdit = useCallback$h((row) => {
+  const handleRowEdit = useCallback$g((row) => {
     setState({
       editingRowId: String(row.original.id),
       isAddingNew: false,
       editingData: row.original
     });
   }, []);
-  const handleFormCancel = useCallback$h(() => {
+  const handleFormCancel = useCallback$g(() => {
     setState({
       editingRowId: void 0,
       isAddingNew: false,
       editingData: void 0
     });
   }, []);
-  const resetState = useCallback$h(() => {
+  const resetState = useCallback$g(() => {
     setState({
       editingRowId: void 0,
       isAddingNew: false,
@@ -2139,12 +2137,12 @@ const useCardholderTableState = /* @__PURE__ */ __name(() => {
     resetState
   };
 }, "useCardholderTableState");
-const { useCallback: useCallback$g } = await importShared("react");
+const { useCallback: useCallback$f } = await importShared("react");
 const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, masterAccountId, onSuccess) => {
   var _a2;
   const createMutation = useCreateCardholder();
   const updateMutation = useUpdateCardholder();
-  const handleCreateCardholder = useCallback$g(async (data) => {
+  const handleCreateCardholder = useCallback$f(async (data) => {
     if (!companyShortName || masterAccountId === null) return;
     try {
       await createMutation.mutateAsync({
@@ -2164,7 +2162,7 @@ const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, master
       throw error;
     }
   }, [companyShortName, masterAccountId, createMutation, onSuccess]);
-  const handleUpdateCardholder = useCallback$g(async (id, data, originalData) => {
+  const handleUpdateCardholder = useCallback$f(async (id, data, originalData) => {
     if (!companyShortName || masterAccountId === null) return;
     const hasDigitsChange = originalData && data.cardLastDigits !== originalData.cardLastDigits;
     if (!hasDigitsChange) {
@@ -2184,7 +2182,7 @@ const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, master
       throw error;
     }
   }, [companyShortName, masterAccountId, updateMutation, onSuccess]);
-  const toggleActiveCardholder = useCallback$g(async (id, currentStatus) => {
+  const toggleActiveCardholder = useCallback$f(async (id, currentStatus) => {
     if (!companyShortName || masterAccountId === null || updateMutation.isPending) return;
     try {
       await updateMutation.mutateAsync({
@@ -2225,7 +2223,7 @@ const searchCardholderEmployees = /* @__PURE__ */ __name(async ({
   return response.data;
 }, "searchCardholderEmployees");
 const React$9 = await importShared("react");
-const { useCallback: useCallback$f, useMemo: useMemo$b } = React$9;
+const { useCallback: useCallback$e, useMemo: useMemo$a } = React$9;
 const getFieldError$2 = /* @__PURE__ */ __name((errors, touchedFields, dirtyFields, fieldName, fieldValue) => {
   const fieldError = errors == null ? void 0 : errors[fieldName];
   const isTouched = touchedFields == null ? void 0 : touchedFields[fieldName];
@@ -2247,7 +2245,7 @@ const CardholderNameField = /* @__PURE__ */ __name(({
   const companyShortName = (adminCompany == null ? void 0 : adminCompany.id) || null;
   const userId = useWatch({ control, name: "userId" });
   const employeeName = useWatch({ control, name: "employeeName" });
-  const handleSearch = useCallback$f(async (query) => {
+  const handleSearch = useCallback$e(async (query) => {
     if (!companyShortName || masterAccountId === null || query.trim().length < 2) return [];
     try {
       const employees = await searchCardholderEmployees({
@@ -2265,7 +2263,7 @@ const CardholderNameField = /* @__PURE__ */ __name(({
       return [];
     }
   }, [companyShortName, masterAccountId]);
-  const handleValueChange = useCallback$f((item) => {
+  const handleValueChange = useCallback$e((item) => {
     if (item == null ? void 0 : item.data) {
       onEmployeeSelect == null ? void 0 : onEmployeeSelect(item.data);
     } else {
@@ -2273,7 +2271,7 @@ const CardholderNameField = /* @__PURE__ */ __name(({
     }
   }, [onEmployeeSelect]);
   const errorMessage = getFieldError$2(errors, touchedFields, dirtyFields, "employeeName", employeeName);
-  const currentValue = useMemo$b(
+  const currentValue = useMemo$a(
     () => userId && employeeName ? { value: userId, label: employeeName } : null,
     [userId, employeeName]
   );
@@ -2685,13 +2683,13 @@ const createCardholderActionsColumn = /* @__PURE__ */ __name(({
   }, "cell")
 }), "createCardholderActionsColumn");
 const React$7 = await importShared("react");
-const { useCallback: useCallback$e, useMemo: useMemo$a, useState: useState$8 } = React$7;
+const { useCallback: useCallback$d, useMemo: useMemo$9, useState: useState$7 } = React$7;
 const CardholderTable = /* @__PURE__ */ __name(({
   cardholders,
   companyShortName,
   masterAccountId
 }) => {
-  const [searchQuery, setSearchQuery] = useState$8("");
+  const [searchQuery, setSearchQuery] = useState$7("");
   const {
     editingRowId,
     isAddingNew,
@@ -2708,7 +2706,7 @@ const CardholderTable = /* @__PURE__ */ __name(({
     isOperating,
     togglingRowId
   } = useCardholderOperations(companyShortName, masterAccountId, resetState);
-  const processedData = useMemo$a(() => {
+  const processedData = useMemo$9(() => {
     const sorted = [...cardholders].sort(
       (a, b) => a.userFullname.localeCompare(b.userFullname)
     );
@@ -2718,18 +2716,18 @@ const CardholderTable = /* @__PURE__ */ __name(({
       (ch) => ch.userFullname.toLowerCase().includes(query)
     );
   }, [cardholders, searchQuery]);
-  const activeCount = useMemo$a(
+  const activeCount = useMemo$9(
     () => cardholders.filter((ch) => ch.active).length,
     [cardholders]
   );
-  const handleFormSubmit = useCallback$e(async (data) => {
+  const handleFormSubmit = useCallback$d(async (data) => {
     if (editingRowId === NEW_ROW_ID$2) {
       await handleCreateCardholder(data);
     } else if (editingRowId) {
       await handleUpdateCardholder(editingRowId, data, editingData);
     }
   }, [editingRowId, handleCreateCardholder, handleUpdateCardholder, editingData]);
-  const formHookOptions = useMemo$a(() => ({
+  const formHookOptions = useMemo$9(() => ({
     initialData: editingData,
     existingCardholders: cardholders,
     onSubmit: handleFormSubmit,
@@ -2738,16 +2736,16 @@ const CardholderTable = /* @__PURE__ */ __name(({
     isActive: editingRowId !== void 0
   }), [editingData, cardholders, handleFormSubmit, handleFormCancel, isOperating, editingRowId]);
   const formHook = useCardholderForm(formHookOptions);
-  const handleEmployeeSelect = useCallback$e((employee) => {
+  const handleEmployeeSelect = useCallback$d((employee) => {
     formHook.setValue("userId", employee.userGuid, { shouldValidate: true });
     formHook.setValue("employeeName", employee.name, { shouldValidate: true, shouldDirty: true });
   }, [formHook.setValue]);
-  const stableControl = useMemo$a(() => formHook.control, [formHook.control]);
-  const isEditingExisting = useMemo$a(
+  const stableControl = useMemo$9(() => formHook.control, [formHook.control]);
+  const isEditingExisting = useMemo$9(
     () => editingRowId !== void 0 && editingRowId !== NEW_ROW_ID$2,
     [editingRowId]
   );
-  const baseColumns = useMemo$a(() => [
+  const baseColumns = useMemo$9(() => [
     createCardholderNameColumn({
       editingRowId,
       formControl: stableControl,
@@ -2776,7 +2774,7 @@ const CardholderTable = /* @__PURE__ */ __name(({
     formHook.touchedFields,
     formHook.dirtyFields
   ]);
-  const actionsColumn = useMemo$a(
+  const actionsColumn = useMemo$9(
     () => createCardholderActionsColumn({
       editingRowId,
       onRowEdit: handleRowEdit,
@@ -2790,7 +2788,7 @@ const CardholderTable = /* @__PURE__ */ __name(({
     [editingRowId, handleRowEdit, formHook.handleSubmit, formHook.handleCancel, formHook.canSubmit, formHook.isFormLoading, toggleActiveCardholder, togglingRowId]
   );
   const columns = [...baseColumns, actionsColumn];
-  const tableData = useMemo$a(() => {
+  const tableData = useMemo$9(() => {
     if (!isAddingNew) return processedData;
     return [...processedData, {
       id: NEW_ROW_ID$2,
@@ -2862,7 +2860,7 @@ const CardholderTable = /* @__PURE__ */ __name(({
   ] });
 }, "CardholderTable");
 const React$6 = await importShared("react");
-const { useEffect: useEffect$4, useState: useState$7 } = React$6;
+const { useEffect: useEffect$4, useState: useState$6 } = React$6;
 const ManageCardholdersDialog = /* @__PURE__ */ __name(({
   open,
   onOpenChange,
@@ -2877,7 +2875,7 @@ const ManageCardholdersDialog = /* @__PURE__ */ __name(({
     masterAccountId,
     enabled: open
   });
-  const [tableKey, setTableKey] = useState$7(0);
+  const [tableKey, setTableKey] = useState$6(0);
   useEffect$4(() => {
     if (open) setTableKey((k) => k + 1);
   }, [open]);
@@ -2917,17 +2915,17 @@ const ManageCardholdersDialog = /* @__PURE__ */ __name(({
   ) });
 }, "ManageCardholdersDialog");
 const React$5 = await importShared("react");
-const { useCallback: useCallback$d, useMemo: useMemo$9, useState: useState$6 } = React$5;
+const { useCallback: useCallback$c, useMemo: useMemo$8, useState: useState$5 } = React$5;
 const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
   const { adminCompany } = useCompanyStore();
   const { data: masterAccounts, isLoading, isFetching, error } = useMasterAccounts((adminCompany == null ? void 0 : adminCompany.id) || null);
   const isDataReady = !!adminCompany && !isLoading && !isFetching;
-  const [setAsInactiveDialog, setSetAsInactiveDialog] = useState$6({
+  const [setAsInactiveDialog, setSetAsInactiveDialog] = useState$5({
     isOpen: false,
     masterAccountId: null,
     masterAccountName: ""
   });
-  const [cardholdersDialog, setCardholdersDialog] = useState$6({
+  const [cardholdersDialog, setCardholdersDialog] = useState$5({
     isOpen: false,
     masterAccountId: null,
     masterAccountName: "",
@@ -2949,25 +2947,25 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
     isOperating,
     togglingRowId
   } = useMasterAccountOperations(adminCompany == null ? void 0 : adminCompany.id, resetState);
-  const processedData = useMemo$9(() => {
+  const processedData = useMemo$8(() => {
     const dataArray = Array.isArray(masterAccounts) ? masterAccounts : [];
     return sortByCreatedDate(dataArray, "asc");
   }, [masterAccounts]);
-  const handleFormSubmit = useCallback$d(async (data) => {
+  const handleFormSubmit = useCallback$c(async (data) => {
     if (editingRowId === NEW_ROW_ID$3) {
       await handleCreateMasterAccount(data);
     } else if (editingRowId) {
       await handleUpdateMasterAccount(editingRowId, data, editingData);
     }
   }, [editingRowId, handleCreateMasterAccount, handleUpdateMasterAccount, editingData]);
-  const handleSetAsInactive = useCallback$d((masterAccountId, masterAccountName) => {
+  const handleSetAsInactive = useCallback$c((masterAccountId, masterAccountName) => {
     setSetAsInactiveDialog({
       isOpen: true,
       masterAccountId: parseInt(masterAccountId, 10),
       masterAccountName
     });
   }, []);
-  const handleManageCardholders = useCallback$d((masterAccountId, masterAccountName, currencyCode) => {
+  const handleManageCardholders = useCallback$c((masterAccountId, masterAccountName, currencyCode) => {
     setCardholdersDialog({
       isOpen: true,
       masterAccountId,
@@ -2975,7 +2973,7 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
       currencyCode
     });
   }, []);
-  const handleCloseCardholdersDialog = useCallback$d((open) => {
+  const handleCloseCardholdersDialog = useCallback$c((open) => {
     if (!open) {
       setCardholdersDialog({
         isOpen: false,
@@ -2985,7 +2983,7 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
       });
     }
   }, []);
-  const handleCloseSetAsInactiveDialog = useCallback$d((open) => {
+  const handleCloseSetAsInactiveDialog = useCallback$c((open) => {
     if (!open) {
       setSetAsInactiveDialog({
         isOpen: false,
@@ -2994,7 +2992,7 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
       });
     }
   }, []);
-  const formHookOptions = useMemo$9(() => ({
+  const formHookOptions = useMemo$8(() => ({
     initialData: editingData,
     existingData: processedData,
     onSubmit: handleFormSubmit,
@@ -3003,12 +3001,12 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
     isActive: editingRowId !== void 0
   }), [editingData, processedData, handleFormSubmit, handleFormCancel, isOperating, editingRowId]);
   const formHook = useMasterAccountForm(formHookOptions);
-  const stableControl = useMemo$9(() => formHook.control, [formHook.control]);
-  const isEditingExisting = useMemo$9(
+  const stableControl = useMemo$8(() => formHook.control, [formHook.control]);
+  const isEditingExisting = useMemo$8(
     () => editingRowId !== void 0 && editingRowId !== NEW_ROW_ID$3,
     [editingRowId]
   );
-  const baseColumns = useMemo$9(() => [
+  const baseColumns = useMemo$8(() => [
     createNameColumn({
       editingRowId,
       formControl: stableControl,
@@ -3049,7 +3047,7 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
     formHook.touchedFields,
     formHook.dirtyFields
   ]);
-  const actionsColumn = useMemo$9(
+  const actionsColumn = useMemo$8(
     () => createActionsColumn$2({
       editingRowId,
       onRowEdit: handleRowEdit,
@@ -3078,7 +3076,7 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
       ] })
     }
   );
-  const loadingState = useMemo$9(() => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center gap-3 p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(jn, { className: "size-8 text-exp-primary-blue-600" }) }), []);
+  const loadingState = useMemo$8(() => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center gap-3 p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(jn, { className: "size-8 text-exp-primary-blue-600" }) }), []);
   if (error) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-8 text-center text-red-500", children: CORPORATE_CARDS_MESSAGES.LOADING_ERROR });
   }
@@ -3203,7 +3201,7 @@ const getDefaultValues$1 = /* @__PURE__ */ __name((initialData) => ({
   businessPurpose: (initialData == null ? void 0 : initialData.businessPurpose) ?? "",
   description: (initialData == null ? void 0 : initialData.description) ?? ""
 }), "getDefaultValues$1");
-const { useCallback: useCallback$c, useEffect: useEffect$3, useMemo: useMemo$8 } = await importShared("react");
+const { useCallback: useCallback$b, useEffect: useEffect$3, useMemo: useMemo$7 } = await importShared("react");
 const useBusinessPurposeForm = /* @__PURE__ */ __name(({
   initialData,
   existingData = [],
@@ -3213,11 +3211,11 @@ const useBusinessPurposeForm = /* @__PURE__ */ __name(({
   isActive = false
 } = {}) => {
   const initialDataId = initialData == null ? void 0 : initialData.id;
-  const schema = useMemo$8(
+  const schema = useMemo$7(
     () => createBusinessPurposeSchema(existingData, initialDataId),
     [existingData, initialDataId]
   );
-  const defaultValues = useMemo$8(
+  const defaultValues = useMemo$7(
     () => getDefaultValues$1(initialData),
     [initialData]
   );
@@ -3248,7 +3246,7 @@ const useBusinessPurposeForm = /* @__PURE__ */ __name(({
       dirtyFields
     }
   } = form;
-  const handleFormSubmit = useCallback$c(
+  const handleFormSubmit = useCallback$b(
     async (data) => {
       try {
         await (onSubmit == null ? void 0 : onSubmit(data));
@@ -3259,7 +3257,7 @@ const useBusinessPurposeForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
-  const handleCancel = useCallback$c(() => {
+  const handleCancel = useCallback$b(() => {
     reset();
     onCancel == null ? void 0 : onCancel();
   }, [reset, onCancel]);
@@ -3279,15 +3277,15 @@ const useBusinessPurposeForm = /* @__PURE__ */ __name(({
     touchedFields,
     dirtyFields,
     handleCancel,
-    canSubmit: useMemo$8(() => {
+    canSubmit: useMemo$7(() => {
       return isValid && !isSubmitting && !isLoading && (initialData ? isDirty : true);
     }, [isValid, isSubmitting, isLoading, isDirty, initialData]),
     isFormLoading: isLoading || isSubmitting
   };
 }, "useBusinessPurposeForm");
-const { useCallback: useCallback$b, useEffect: useEffect$2, useState: useState$5 } = await importShared("react");
+const { useCallback: useCallback$a, useEffect: useEffect$2, useState: useState$4 } = await importShared("react");
 const useBusinessPurposeTableState = /* @__PURE__ */ __name((companyId) => {
-  const [state, setState] = useState$5({
+  const [state, setState] = useState$4({
     editingRowId: void 0,
     isAddingNew: false,
     editingData: void 0
@@ -3299,7 +3297,7 @@ const useBusinessPurposeTableState = /* @__PURE__ */ __name((companyId) => {
       editingData: void 0
     });
   }, [companyId]);
-  const handleStartAdd = useCallback$b(() => {
+  const handleStartAdd = useCallback$a(() => {
     setState((prev) => ({
       ...prev,
       isAddingNew: true,
@@ -3307,7 +3305,7 @@ const useBusinessPurposeTableState = /* @__PURE__ */ __name((companyId) => {
       editingData: void 0
     }));
   }, []);
-  const handleRowEdit = useCallback$b((row) => {
+  const handleRowEdit = useCallback$a((row) => {
     setState((prev) => ({
       ...prev,
       editingRowId: row.original.id,
@@ -3315,7 +3313,7 @@ const useBusinessPurposeTableState = /* @__PURE__ */ __name((companyId) => {
       isAddingNew: false
     }));
   }, []);
-  const handleFormCancel = useCallback$b(() => {
+  const handleFormCancel = useCallback$a(() => {
     setState({
       editingRowId: void 0,
       editingData: void 0,
@@ -3331,12 +3329,12 @@ const useBusinessPurposeTableState = /* @__PURE__ */ __name((companyId) => {
     resetState
   };
 }, "useBusinessPurposeTableState");
-const { useCallback: useCallback$a } = await importShared("react");
+const { useCallback: useCallback$9 } = await importShared("react");
 const useBusinessPurposeOperations = /* @__PURE__ */ __name((companyShortName, onSuccess) => {
   const createMutation = useCreateBusinessPurpose();
   const updateMutation = useUpdateBusinessPurpose();
   const toggleMutation = useToggleBusinessPurposeStatus();
-  const handleCreate = useCallback$a(async (data) => {
+  const handleCreate = useCallback$9(async (data) => {
     if (!companyShortName) return;
     try {
       const newBP = {
@@ -3352,7 +3350,7 @@ const useBusinessPurposeOperations = /* @__PURE__ */ __name((companyShortName, o
       throw err;
     }
   }, [companyShortName, createMutation, onSuccess]);
-  const handleUpdate = useCallback$a(async (id, data, originalData) => {
+  const handleUpdate = useCallback$9(async (id, data, originalData) => {
     if (!companyShortName) return;
     try {
       const updatedBP = {};
@@ -3375,7 +3373,7 @@ const useBusinessPurposeOperations = /* @__PURE__ */ __name((companyShortName, o
       throw err;
     }
   }, [companyShortName, updateMutation, onSuccess]);
-  const toggleActive = useCallback$a(async (id, currentStatus) => {
+  const toggleActive = useCallback$9(async (id, currentStatus) => {
     if (!companyShortName || toggleMutation.isPending) return;
     try {
       await toggleMutation.mutateAsync({ id, companyShortName, isActive: !currentStatus });
@@ -3642,7 +3640,7 @@ const createActionsColumn$1 = /* @__PURE__ */ __name(({
   }, "cell")
 }), "createActionsColumn$1");
 const React$3 = await importShared("react");
-const { useCallback: useCallback$9, useMemo: useMemo$7 } = React$3;
+const { useCallback: useCallback$8, useMemo: useMemo$6 } = React$3;
 const BusinessPurposeTable = /* @__PURE__ */ __name(({ className }) => {
   const { adminCompany } = useCompanyStore();
   const { data: businessPurposes, isLoading, error } = useBusinessPurposes((adminCompany == null ? void 0 : adminCompany.id) || null, true);
@@ -3661,18 +3659,18 @@ const BusinessPurposeTable = /* @__PURE__ */ __name(({ className }) => {
     toggleActive,
     isOperating
   } = useBusinessPurposeOperations(adminCompany == null ? void 0 : adminCompany.id, resetState);
-  const processedData = useMemo$7(() => {
+  const processedData = useMemo$6(() => {
     const dataArray = Array.isArray(businessPurposes) ? businessPurposes : [];
     return sortByCreatedDate(dataArray, "asc");
   }, [businessPurposes]);
-  const handleFormSubmit = useCallback$9(async (data) => {
+  const handleFormSubmit = useCallback$8(async (data) => {
     if (editingRowId === NEW_ROW_ID$1) {
       await handleCreate(data);
     } else if (editingRowId) {
       await handleUpdate(editingRowId, data, editingData);
     }
   }, [editingRowId, editingData, handleCreate, handleUpdate]);
-  const formHookOptions = useMemo$7(() => ({
+  const formHookOptions = useMemo$6(() => ({
     initialData: editingData,
     existingData: processedData,
     onSubmit: handleFormSubmit,
@@ -3681,8 +3679,8 @@ const BusinessPurposeTable = /* @__PURE__ */ __name(({ className }) => {
     isActive: editingRowId !== void 0
   }), [editingData, processedData, handleFormSubmit, handleFormCancel, isOperating, editingRowId]);
   const formHook = useBusinessPurposeForm(formHookOptions);
-  const stableControl = useMemo$7(() => formHook.control, [formHook.control]);
-  const baseColumns = useMemo$7(() => [
+  const stableControl = useMemo$6(() => formHook.control, [formHook.control]);
+  const baseColumns = useMemo$6(() => [
     createBusinessPurposeColumn({
       editingRowId,
       formControl: stableControl,
@@ -3704,7 +3702,7 @@ const BusinessPurposeTable = /* @__PURE__ */ __name(({ className }) => {
     formHook.touchedFields,
     formHook.dirtyFields
   ]);
-  const actionsColumn = useMemo$7(
+  const actionsColumn = useMemo$6(
     () => createActionsColumn$1({
       editingRowId,
       onRowEdit: handleRowEdit,
@@ -3899,7 +3897,7 @@ const getCurrentMonthStart = /* @__PURE__ */ __name(() => {
   const now = /* @__PURE__ */ new Date();
   return new Date(now.getFullYear(), now.getMonth(), 1);
 }, "getCurrentMonthStart");
-const { useCallback: useCallback$8, useEffect: useEffect$1, useMemo: useMemo$6, useRef: useRef$2 } = await importShared("react");
+const { useCallback: useCallback$7, useEffect: useEffect$1, useMemo: useMemo$5, useRef: useRef$2 } = await importShared("react");
 const useMileageTypeForm = /* @__PURE__ */ __name(({
   initialData,
   existingData = [],
@@ -3909,11 +3907,11 @@ const useMileageTypeForm = /* @__PURE__ */ __name(({
   isActive = false
 } = {}) => {
   const initialDataId = initialData == null ? void 0 : initialData.id;
-  const schema = useMemo$6(
+  const schema = useMemo$5(
     () => createMileageTypeSchema(existingData, initialDataId),
     [existingData, initialDataId]
   );
-  const defaultValues = useMemo$6(() => {
+  const defaultValues = useMemo$5(() => {
     if (initialData) {
       return getDefaultMileageTypeValues({
         name: initialData.name,
@@ -3980,7 +3978,7 @@ const useMileageTypeForm = /* @__PURE__ */ __name(({
       dirtyFields
     }
   } = form;
-  const handleFormSubmit = useCallback$8(
+  const handleFormSubmit = useCallback$7(
     async (data) => {
       try {
         await (onSubmit == null ? void 0 : onSubmit(data));
@@ -3992,7 +3990,7 @@ const useMileageTypeForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
-  const handleCancel = useCallback$8(() => {
+  const handleCancel = useCallback$7(() => {
     reset();
     onCancel == null ? void 0 : onCancel();
   }, [reset, onCancel]);
@@ -4013,19 +4011,19 @@ const useMileageTypeForm = /* @__PURE__ */ __name(({
     touchedFields,
     dirtyFields,
     handleCancel,
-    canSubmit: useMemo$6(() => {
+    canSubmit: useMemo$5(() => {
       return isValid && !isSubmitting && !isLoading && (initialData ? isDirty : true);
     }, [isValid, isSubmitting, isLoading, isDirty, initialData]),
     isFormLoading: isLoading || isSubmitting
   };
 }, "useMileageTypeForm");
-const { useCallback: useCallback$7 } = await importShared("react");
+const { useCallback: useCallback$6 } = await importShared("react");
 const useMileageTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) => {
   var _a2;
   const createExpenseTypeMutation = useCreateExpenseType();
   const updateExpenseTypeMutation = useUpdateExpenseType();
   const toggleExpenseTypeMutation = useToggleExpenseTypeStatus();
-  const handleCreateMileageType = useCallback$7(async (data) => {
+  const handleCreateMileageType = useCallback$6(async (data) => {
     if (!companyId) return;
     try {
       devLog("Creating mileage type:", data);
@@ -4050,7 +4048,7 @@ const useMileageTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) =
       throw error;
     }
   }, [companyId, createExpenseTypeMutation, onSuccess]);
-  const handleUpdateMileageType = useCallback$7(async (id, data, originalData) => {
+  const handleUpdateMileageType = useCallback$6(async (id, data, originalData) => {
     if (!companyId) return;
     try {
       devLog("Updating mileage type:", { id, data });
@@ -4079,7 +4077,7 @@ const useMileageTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) =
       throw error;
     }
   }, [companyId, updateExpenseTypeMutation, onSuccess]);
-  const toggleActiveMileageType = useCallback$7(async (id, currentStatus) => {
+  const toggleActiveMileageType = useCallback$6(async (id, currentStatus) => {
     if (!companyId || toggleExpenseTypeMutation.isPending) return;
     try {
       devLog("Toggling mileage type status:", { id, currentStatus });
@@ -4185,14 +4183,14 @@ function getMileageRateRowId(id) {
   return id === NEW_RATE_NUMERIC_ID ? NEW_RATE_ROW_ID : String(id);
 }
 __name(getMileageRateRowId, "getMileageRateRowId");
-const { useCallback: useCallback$6, useState: useState$4 } = await importShared("react");
+const { useCallback: useCallback$5, useState: useState$3 } = await importShared("react");
 const useMileageRateTableState = /* @__PURE__ */ __name(() => {
-  const [state, setState] = useState$4({
+  const [state, setState] = useState$3({
     editingRowId: void 0,
     isAddingNew: false,
     editingData: void 0
   });
-  const handleStartAdd = useCallback$6(() => {
+  const handleStartAdd = useCallback$5(() => {
     setState((prev) => ({
       ...prev,
       isAddingNew: true,
@@ -4200,7 +4198,7 @@ const useMileageRateTableState = /* @__PURE__ */ __name(() => {
       editingData: void 0
     }));
   }, []);
-  const handleFormCancel = useCallback$6(() => {
+  const handleFormCancel = useCallback$5(() => {
     setState({
       editingRowId: void 0,
       editingData: void 0,
@@ -4226,14 +4224,14 @@ const getDefaultValues = /* @__PURE__ */ __name(() => ({
   rate: "",
   effectiveMonth: ""
 }), "getDefaultValues");
-const { useCallback: useCallback$5, useMemo: useMemo$5 } = await importShared("react");
+const { useCallback: useCallback$4, useMemo: useMemo$4 } = await importShared("react");
 const useMileageRateForm = /* @__PURE__ */ __name(({
   onSubmit,
   onCancel,
   isLoading = false,
   isActive = false
 } = {}) => {
-  const defaultValues = useMemo$5(() => getDefaultValues(), []);
+  const defaultValues = useMemo$4(() => getDefaultValues(), []);
   const form = useForm({
     resolver: u(mileageRateSchema),
     defaultValues,
@@ -4255,7 +4253,7 @@ const useMileageRateForm = /* @__PURE__ */ __name(({
       dirtyFields
     }
   } = form;
-  const handleFormSubmit = useCallback$5(
+  const handleFormSubmit = useCallback$4(
     async (data) => {
       try {
         await (onSubmit == null ? void 0 : onSubmit(data));
@@ -4266,7 +4264,7 @@ const useMileageRateForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
-  const handleCancel = useCallback$5(() => {
+  const handleCancel = useCallback$4(() => {
     reset(getDefaultValues());
     onCancel == null ? void 0 : onCancel();
   }, [reset, onCancel]);
@@ -4284,7 +4282,7 @@ const useMileageRateForm = /* @__PURE__ */ __name(({
     touchedFields,
     dirtyFields,
     handleCancel,
-    canSubmit: useMemo$5(() => {
+    canSubmit: useMemo$4(() => {
       return isValid && !isSubmitting && !isLoading && isDirty;
     }, [isValid, isSubmitting, isLoading, isDirty]),
     isFormLoading: isLoading || isSubmitting
@@ -4575,7 +4573,7 @@ const createActionsColumn = /* @__PURE__ */ __name(({
     return deleteButton;
   }, "cell")
 }), "createActionsColumn");
-const { useCallback: useCallback$4, useMemo: useMemo$4, useRef: useRef$1 } = await importShared("react");
+const { useCallback: useCallback$3, useMemo: useMemo$3, useRef: useRef$1 } = await importShared("react");
 const MileageRateTable = /* @__PURE__ */ __name(({
   rates,
   unit,
@@ -4594,11 +4592,11 @@ const MileageRateTable = /* @__PURE__ */ __name(({
     resetState
   } = useMileageRateTableState();
   const canAddNewRate = isExpenseTypeActive;
-  const availableMonthOptions = useMemo$4(() => {
+  const availableMonthOptions = useMemo$3(() => {
     const existingDates = rates.map((rate) => rate.effectiveDate);
     return filterAvailableMonthOptions(futureMonthOptions, existingDates);
   }, [futureMonthOptions, rates]);
-  const handleFormSubmit = useCallback$4(async (data) => {
+  const handleFormSubmit = useCallback$3(async (data) => {
     const rateValue = parseFloat(data.rate);
     const roundedRate = Math.round(rateValue * 100) / 100;
     await onCreateRate({
@@ -4613,17 +4611,17 @@ const MileageRateTable = /* @__PURE__ */ __name(({
     isLoading: isCreating,
     isActive: isAddingNew
   });
-  const handleDelete = useCallback$4(async (rateId) => {
+  const handleDelete = useCallback$3(async (rateId) => {
     await onDeleteRate(rateId);
   }, [onDeleteRate]);
-  const stableControl = useMemo$4(() => formHook.control, [formHook.control]);
+  const stableControl = useMemo$3(() => formHook.control, [formHook.control]);
   const submitRef = useRef$1(formHook.handleSubmit);
   submitRef.current = formHook.handleSubmit;
   const cancelRef = useRef$1(formHook.handleCancel);
   cancelRef.current = formHook.handleCancel;
-  const stableOnSubmit = useCallback$4(() => submitRef.current(), []);
-  const stableOnCancel = useCallback$4(() => cancelRef.current(), []);
-  const baseColumns = useMemo$4(() => [
+  const stableOnSubmit = useCallback$3(() => submitRef.current(), []);
+  const stableOnCancel = useCallback$3(() => cancelRef.current(), []);
+  const baseColumns = useMemo$3(() => [
     createRateColumn({
       editingRowId,
       formControl: stableControl,
@@ -4637,7 +4635,7 @@ const MileageRateTable = /* @__PURE__ */ __name(({
     createEffectiveToColumn({ editingRowId }),
     createStatusColumn({ editingRowId, isExpenseTypeActive })
   ], [editingRowId, stableControl, unit, availableMonthOptions, isExpenseTypeActive]);
-  const actionsColumn = useMemo$4(() => createActionsColumn({
+  const actionsColumn = useMemo$3(() => createActionsColumn({
     editingRowId,
     formControl: stableControl,
     onSubmit: stableOnSubmit,
@@ -4647,8 +4645,8 @@ const MileageRateTable = /* @__PURE__ */ __name(({
     isExpenseTypeActive,
     deletingRateIds
   }), [editingRowId, stableControl, stableOnSubmit, stableOnCancel, isCreating, handleDelete, isExpenseTypeActive, deletingRateIds]);
-  const columns = useMemo$4(() => [...baseColumns, actionsColumn], [baseColumns, actionsColumn]);
-  const tableData = useMemo$4(() => {
+  const columns = useMemo$3(() => [...baseColumns, actionsColumn], [baseColumns, actionsColumn]);
+  const tableData = useMemo$3(() => {
     if (isAddingNew) {
       const newRow = {
         id: NEW_RATE_NUMERIC_ID,
@@ -4716,7 +4714,7 @@ const MileageRateTable = /* @__PURE__ */ __name(({
     ] }) })
   ] });
 }, "MileageRateTable");
-const { useCallback: useCallback$3, useMemo: useMemo$3, useState: useState$3 } = await importShared("react");
+const { useCallback: useCallback$2, useMemo: useMemo$2, useState: useState$2 } = await importShared("react");
 const ManageMileageRatesDialog = /* @__PURE__ */ __name(({
   open,
   onOpenChange,
@@ -4734,9 +4732,9 @@ const ManageMileageRatesDialog = /* @__PURE__ */ __name(({
   });
   const createMutation = useCreateMileageRate();
   const deleteMutation = useDeleteMileageRate();
-  const [deletingRateIds, setDeletingRateIds] = useState$3(/* @__PURE__ */ new Set());
-  const futureMonthOptions = useMemo$3(() => generateFutureMonthOptions(), []);
-  const handleCreateRate = useCallback$3(async (rateData) => {
+  const [deletingRateIds, setDeletingRateIds] = useState$2(/* @__PURE__ */ new Set());
+  const futureMonthOptions = useMemo$2(() => generateFutureMonthOptions(), []);
+  const handleCreateRate = useCallback$2(async (rateData) => {
     if (!companyShortName) return;
     await createMutation.mutateAsync({
       companyShortName,
@@ -4744,7 +4742,7 @@ const ManageMileageRatesDialog = /* @__PURE__ */ __name(({
       data: rateData
     });
   }, [companyShortName, mileageRateId, createMutation]);
-  const handleDeleteRate = useCallback$3(async (effectiveRateId) => {
+  const handleDeleteRate = useCallback$2(async (effectiveRateId) => {
     if (!companyShortName) return;
     setDeletingRateIds((prev) => new Set(prev).add(effectiveRateId));
     try {
@@ -4858,7 +4856,7 @@ const useAssignEmployees = /* @__PURE__ */ __name(() => {
     }, "onSuccess")
   });
 }, "useAssignEmployees");
-const { useCallback: useCallback$2, useEffect, useMemo: useMemo$2, useRef, useState: useState$2 } = await importShared("react");
+const { useCallback: useCallback$1, useEffect, useMemo: useMemo$1, useRef, useState: useState$1 } = await importShared("react");
 const AssignEmployeesDialog = /* @__PURE__ */ __name(({
   open,
   onOpenChange,
@@ -4867,10 +4865,10 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
 }) => {
   const { adminCompany } = useCompanyStore();
   const companyShortName = (adminCompany == null ? void 0 : adminCompany.shortName) || null;
-  const [search, setSearch] = useState$2("");
-  const [selectedGuids, setSelectedGuids] = useState$2(/* @__PURE__ */ new Set());
-  const [initialGuids, setInitialGuids] = useState$2(/* @__PURE__ */ new Set());
-  const [isInitialized, setIsInitialized] = useState$2(false);
+  const [search, setSearch] = useState$1("");
+  const [selectedGuids, setSelectedGuids] = useState$1(/* @__PURE__ */ new Set());
+  const [initialGuids, setInitialGuids] = useState$1(/* @__PURE__ */ new Set());
+  const [isInitialized, setIsInitialized] = useState$1(false);
   const knownAssignedRef = useRef(/* @__PURE__ */ new Set());
   const {
     data,
@@ -4886,7 +4884,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
     enabled: open
   });
   const assignMutation = useAssignEmployees();
-  const { allAssigned, allUnassigned, serverAssignedGuids } = useMemo$2(() => {
+  const { allAssigned, allUnassigned, serverAssignedGuids } = useMemo$1(() => {
     if (!(data == null ? void 0 : data.pages)) {
       return {
         allAssigned: [],
@@ -4912,7 +4910,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
       serverAssignedGuids: assignedGuids
     };
   }, [data]);
-  const hasMoreAssigned = useMemo$2(() => {
+  const hasMoreAssigned = useMemo$1(() => {
     var _a2;
     if (!((_a2 = data == null ? void 0 : data.pages) == null ? void 0 : _a2.length)) return false;
     return data.pages[data.pages.length - 1].assigned.nextCursor !== null;
@@ -4958,7 +4956,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
       knownAssignedRef.current = /* @__PURE__ */ new Set();
     }
   }, [open]);
-  const { displayAssigned, displayUnassigned } = useMemo$2(() => {
+  const { displayAssigned, displayUnassigned } = useMemo$1(() => {
     const assigned = [];
     const unassigned = [];
     const seen = /* @__PURE__ */ new Set();
@@ -4973,7 +4971,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
     partition(allUnassigned);
     return { displayAssigned: assigned, displayUnassigned: unassigned };
   }, [allAssigned, allUnassigned, selectedGuids]);
-  const handleToggle = useCallback$2((userGuid) => {
+  const handleToggle = useCallback$1((userGuid) => {
     setSelectedGuids((prev) => {
       const next = new Set(prev);
       if (next.has(userGuid)) {
@@ -4984,17 +4982,17 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
       return next;
     });
   }, []);
-  const handleSearch = useCallback$2((value) => {
+  const handleSearch = useCallback$1((value) => {
     setSearch(value);
   }, []);
-  const hasChanges = useMemo$2(() => {
+  const hasChanges = useMemo$1(() => {
     if (selectedGuids.size !== initialGuids.size) return true;
     for (const guid of selectedGuids) {
       if (!initialGuids.has(guid)) return true;
     }
     return false;
   }, [selectedGuids, initialGuids]);
-  const handleSave = useCallback$2(async () => {
+  const handleSave = useCallback$1(async () => {
     if (!companyShortName) return;
     try {
       await assignMutation.mutateAsync({
@@ -5240,7 +5238,6 @@ const SetAsDefaultDialog = /* @__PURE__ */ __name(({
   ) });
 }, "SetAsDefaultDialog");
 const React$1 = await importShared("react");
-const { useCallback: useCallback$1, useMemo: useMemo$1, useState: useState$1 } = React$1;
 const getFieldError = /* @__PURE__ */ __name((errors, touchedFields, dirtyFields, fieldName, fieldValue) => {
   const fieldError = errors == null ? void 0 : errors[fieldName];
   const isTouched = touchedFields == null ? void 0 : touchedFields[fieldName];
@@ -5406,91 +5403,21 @@ const EffectiveFromField = /* @__PURE__ */ __name(({ control, errors, touchedFie
     }
   );
 }, "EffectiveFromField");
-const MAX_DROPDOWN_RESULTS = 50;
-const FOOTER_SENTINEL_VALUE = "__tax-type-footer__";
-const toItem = /* @__PURE__ */ __name((tt) => ({
-  value: tt.id.toString(),
-  label: tt.displayText
-}), "toItem");
 const TaxTypeField = /* @__PURE__ */ __name(({ control, taxTypes }) => {
   var _a2;
   const { field, fieldState } = useController({ control, name: "taxTypeId" });
-  const [remountKey, setRemountKey] = useState$1(0);
-  const taxTypeById = useMemo$1(() => {
-    const map = /* @__PURE__ */ new Map();
-    for (const tt of taxTypes ?? []) map.set(tt.id, tt);
-    return map;
-  }, [taxTypes]);
-  const searchIndex = useMemo$1(
-    () => (taxTypes ?? []).map((tt) => ({ tt, lower: tt.displayText.toLowerCase() })),
-    [taxTypes]
-  );
-  const value = useMemo$1(() => {
-    if (field.value == null) return null;
-    const tt = taxTypeById.get(field.value);
-    return tt ? toItem(tt) : null;
-  }, [field.value, taxTypeById]);
-  const search = useCallback$1(async (query) => {
-    const q = query.trim().toLowerCase();
-    const matches = [];
-    let totalMatches = 0;
-    for (const entry of searchIndex) {
-      if (!q || entry.lower.includes(q)) {
-        totalMatches++;
-        if (matches.length < MAX_DROPDOWN_RESULTS) {
-          matches.push(toItem(entry.tt));
-        }
-      }
-    }
-    if (totalMatches > MAX_DROPDOWN_RESULTS) {
-      matches.push({
-        value: FOOTER_SENTINEL_VALUE,
-        label: `Showing ${MAX_DROPDOWN_RESULTS} of ${totalMatches} matches. Refine search to narrow.`
-      });
-    }
-    return matches;
-  }, [searchIndex]);
-  const handleChange = /* @__PURE__ */ __name((item) => {
-    if ((item == null ? void 0 : item.value) === FOOTER_SENTINEL_VALUE) {
-      setRemountKey((k) => k + 1);
-      return;
-    }
-    field.onChange(item ? parseInt(item.value, 10) : null);
-  }, "handleChange");
-  const renderItem = useCallback$1(
-    (item, highlight) => {
-      if (item.value === FOOTER_SENTINEL_VALUE) {
-        return /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "span",
-          {
-            onClick: /* @__PURE__ */ __name((e) => e.stopPropagation(), "onClick"),
-            className: "block -mx-3 -my-2 px-3 py-2 text-xs italic text-exp-grey-600 cursor-default",
-            children: item.label
-          }
-        );
-      }
-      return highlight(item.label);
-    },
-    []
-  );
   const errorMessage = (fieldState.isTouched || fieldState.isDirty) && ((_a2 = fieldState.error) == null ? void 0 : _a2.message) ? fieldState.error.message : void 0;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    ln,
+    TaxTypeSearchSelect,
     {
-      value,
-      onValueChange: handleChange,
+      value: field.value ?? null,
+      onChange: field.onChange,
       onBlur: field.onBlur,
-      onSearch: search,
-      renderItem,
+      taxTypes,
       placeholder: MILEAGE_TYPE_PLACEHOLDERS.TAX_TYPE,
-      searchOnFocus: true,
-      minSearchLength: 0,
-      searchDelay: 150,
-      clearOnBlur: false,
-      portal: true,
-      error: errorMessage
-    },
-    remountKey
+      error: errorMessage,
+      portal: true
+    }
   );
 }, "TaxTypeField");
 const MileageTypeActionButtons = React$1.memo(({

@@ -1,17 +1,54 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
-import { x as apiClient, t as Ws, E as Ea, az as zr, a0 as devError, s as Us, J as Ja, $ as $a, U as Ue, ab as jn, w as _t, i as Ft, f as Dt, ai as lr, k as Js, Z as Za, Q as Qa, a6 as es, M as Ma, af as ka, v as Zs } from "./configuration-B4FJFUoo.js";
-import { o as formatExpenseDate, _ as useCompanyStore, ab as useQuery, B as keepPreviousData, c as EXPENSE_ENDPOINTS, P as queryKeys, af as useSearchParams, a3 as useLocation, h as RoutePaths, ac as useQueryClient, a4 as useMutation, ae as useScrollIntoViewRef, a0 as useErrorToast, a5 as useNavigate, a9 as useParams, t as generatePath } from "./date-format-Ban7B2GG.js";
-import { f as formatAmountWithCurrency, b as formatDate, c as formatDateRange } from "./formatters-DV4AvCZw.js";
-import { f as isExpenseItemSubmitted, j as isRegularExpense, g as getExpenseItemAmount, h as isMileageExpense, o as useExpenseItem } from "./expense-api-CFDRCnr8.js";
+import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
+import { at as useJWTStore, x as apiClient, t as Ws, E as Ea, az as zr, a0 as devError, s as Us, J as Ja, $ as $a, U as Ue, ab as jn, w as _t, i as Ft, f as Dt, ai as lr, k as Js, Z as Za, Q as Qa, a6 as es, al as ns, M as Ma, af as ka, v as Zs } from "./configuration-B4FJFUoo.js";
+import { n as formatAmountWithCurrency, p as formatDate, q as formatDateRange, s as formatExpenseDate, a4 as useCompanyStore, ah as useQuery, Y as queryKeys, K as keepPreviousData, b as EXPENSE_ENDPOINTS, al as useSearchParams, a9 as useLocation, g as RoutePaths, t as formatExpensePeriod, ai as useQueryClient, aa as useMutation, ak as useScrollIntoViewRef, a6 as useErrorToast, ab as useNavigate, af as useParams, z as generatePath } from "./use-scroll-into-view-ref-Bh4xL90y.js";
+import { f as isExpenseItemSubmitted, g as getExpenseItemAmount, h as isMileageExpense, j as isRegularExpense, o as useExpenseItem } from "./TaxTypeSearchSelect-D3a36RDT.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmRfP61L.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import { G as mapCostAllocation, v as getExpenseBaseAmount, Y as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, aa as validateCostAllocation, n as costAllocationItemSchema, d as ExpensePreview, z as isMileageTripData, j as MileageTripPreview, y as isMileagePeriodData, h as MileagePeriodPreview, b as ExpenseFormHistoryLog } from "./CostAllocationSection-BPTY34mY.js";
-import { u as useRoles, R as Role } from "./hooks-C4PQKHFK.js";
+import { z as isMileageTripData, y as isMileagePeriodData, G as mapCostAllocation, ad as validateCostAllocation, v as getExpenseBaseAmount, _ as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, n as costAllocationItemSchema, d as ExpensePreview, j as MileageTripPreview, h as MileagePeriodPreview, b as ExpenseFormHistoryLog } from "./CostAllocationSection-183jj3fU.js";
 import "./hooks-DhGJjjwf.js";
-import { r as useForm, u, o as object, b as array, s as string, c as boolean, e as custom, C as ConfirmDialog } from "./useMileageRates-C1IbqS9e.js";
+import { o as object, s as string, c as boolean, b as array, e as custom, r as useForm, u, C as ConfirmDialog } from "./useMileageRates-B2TdNzkc.js";
+var Role = /* @__PURE__ */ ((Role2) => {
+  Role2["Employee"] = "Expense.Employee";
+  Role2["Manager"] = "Expense.Manager";
+  Role2["Admin"] = "Expense.Admin";
+  Role2["AP"] = "Expense.AP";
+  Role2["CardHolder"] = "Expense.CardHolder";
+  return Role2;
+})(Role || {});
+const { useCallback: useCallback$4, useMemo: useMemo$5 } = await importShared("react");
+const EMPTY_ROLES = [];
+const useRoles = /* @__PURE__ */ __name(() => {
+  const roles = useJWTStore((state) => {
+    var _a;
+    return ((_a = state.user) == null ? void 0 : _a.roles) ?? EMPTY_ROLES;
+  });
+  const hasRole = useCallback$4(
+    (role) => roles.includes(role),
+    [roles]
+  );
+  const hasAnyRole = useCallback$4(
+    (requiredRoles) => requiredRoles.some((role) => roles.includes(role)),
+    [roles]
+  );
+  const hasAllRoles = useCallback$4(
+    (requiredRoles) => requiredRoles.every((role) => roles.includes(role)),
+    [roles]
+  );
+  return useMemo$5(() => ({
+    roles,
+    hasRole,
+    hasAnyRole,
+    hasAllRoles,
+    isEmployee: roles.includes(Role.Employee),
+    isManager: roles.includes(Role.Manager),
+    isAdmin: roles.includes(Role.Admin),
+    isAP: roles.includes(Role.AP),
+    isCardHolder: roles.includes(Role.CardHolder)
+  }), [roles, hasRole, hasAnyRole, hasAllRoles]);
+}, "useRoles");
 const MISSING_VALUE_INDICATOR = "-";
 var ApprovalTab = /* @__PURE__ */ ((ApprovalTab2) => {
   ApprovalTab2["Submitted"] = "submitted";
@@ -508,7 +545,7 @@ function buildHeaderFromExpenseItem(expenseItem) {
     else if (status === ApprovalTab.Cancelled && expenseItem.cancelledAt) actionDate = expenseItem.cancelledAt;
     else actionDate = expenseItem.submittedAt;
   }
-  const vendor = isRegularExpense(expenseItem) ? expenseItem.data.vendor : "";
+  const titleSuffix = buildTitleSuffix(expenseItem);
   const rawAmount = getExpenseItemAmount(expenseItem);
   const currencyCode = (_a = expenseItem.data.totalCurrency) == null ? void 0 : _a.code;
   const amount = formatAmountWithCurrency(rawAmount, currencyCode);
@@ -519,13 +556,32 @@ function buildHeaderFromExpenseItem(expenseItem) {
   ].filter(Boolean);
   return {
     title,
-    titleSuffix: vendor !== MISSING_VALUE_INDICATOR ? vendor : "",
+    titleSuffix,
     amount,
     status,
     subtitle: subtitleParts.join(" • ")
   };
 }
 __name(buildHeaderFromExpenseItem, "buildHeaderFromExpenseItem");
+function buildTitleSuffix(expenseItem) {
+  if (isMileageExpense(expenseItem)) {
+    if (isMileageTripData(expenseItem.data)) {
+      const location = expenseItem.data.toLocation || MISSING_VALUE_INDICATOR;
+      return `Mileage (${location})`;
+    }
+    if (isMileagePeriodData(expenseItem.data)) {
+      const period = formatExpensePeriod(expenseItem.data.expensePeriod);
+      return `Mileage (${period || MISSING_VALUE_INDICATOR})`;
+    }
+    return "Mileage";
+  }
+  if (isRegularExpense(expenseItem)) {
+    const vendor = expenseItem.data.vendor;
+    return vendor && vendor !== MISSING_VALUE_INDICATOR ? vendor : "";
+  }
+  return "";
+}
+__name(buildTitleSuffix, "buildTitleSuffix");
 function isAllocationDeferredAndEmpty(expenseItem) {
   if (!isExpenseItemSubmitted(expenseItem)) return false;
   const { data } = expenseItem;
@@ -1010,21 +1066,23 @@ const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose
   const header = useMemo$1(() => {
     const derivedStatus = statusOverride ?? (expenseItem == null ? void 0 : expenseItem.status) ?? (item == null ? void 0 : item.status);
     const derivedActionDate = actionDateOverride ?? getActionDateForStatus(derivedStatus, expenseItem) ?? (item == null ? void 0 : item.actionDate);
+    if (expenseItem) {
+      const baseHeader = buildHeaderFromExpenseItem(expenseItem);
+      if (!derivedStatus || !actionDateOverride && derivedStatus === baseHeader.status) return baseHeader;
+      const overriddenDatePart = `${ACTION_DATE_PREFIX[derivedStatus] ?? "Submitted on"} ${derivedActionDate ?? ""}`.trim();
+      const overriddenSubtitle = [expenseItem.businessId, overriddenDatePart].filter(Boolean).join(" • ");
+      return {
+        ...baseHeader,
+        status: derivedStatus,
+        subtitle: overriddenSubtitle
+      };
+    }
     if (item && derivedStatus && derivedActionDate) {
       return buildHeaderConfig({
         ...item,
         status: derivedStatus,
         actionDate: derivedActionDate
       });
-    }
-    if (expenseItem) {
-      const baseHeader = buildHeaderFromExpenseItem(expenseItem);
-      if (!derivedStatus || !actionDateOverride && derivedStatus === baseHeader.status) return baseHeader;
-      return {
-        ...baseHeader,
-        status: derivedStatus,
-        subtitle: `${ACTION_DATE_PREFIX[derivedStatus] ?? "Submitted on"} ${derivedActionDate ?? ""}`.trim()
-      };
     }
     return null;
   }, [item, expenseItem, statusOverride, actionDateOverride, getActionDateForStatus]);
@@ -1186,7 +1244,16 @@ const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose
           /* @__PURE__ */ jsxRuntimeExports.jsx(Qa, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: header ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between gap-2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start gap-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-2", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold", children: header.title }),
-              header.titleSuffix && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-base font-medium text-exp-neutral-900", children: header.titleSuffix }),
+              header.titleSuffix && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                ns,
+                {
+                  variant: "light",
+                  size: "sm",
+                  maxWidth: 320,
+                  className: "text-base font-medium text-exp-neutral-900",
+                  children: header.titleSuffix
+                }
+              ),
               header.amount && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-base font-medium text-exp-neutral-900", children: [
                 "(",
                 header.amount,
@@ -1357,9 +1424,10 @@ const ApprovalsList = /* @__PURE__ */ __name(() => {
     )
   ] });
 }, "ApprovalsList");
-const ApprovalsPage = /* @__PURE__ */ __name(() => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(ApprovalsList, {});
-}, "ApprovalsPage");
 export {
-  ApprovalsPage as default
+  ApprovalTab as A,
+  Role as R,
+  ApprovalsList as a,
+  useRoles as b,
+  useApprovalsList as u
 };

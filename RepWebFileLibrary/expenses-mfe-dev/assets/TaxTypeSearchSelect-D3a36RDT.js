@@ -1,8 +1,14 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+import { O as createLucideIcon, H as create, a3 as devtools, ap as subscribeWithSelector, a9 as immer, x as apiClient, C as CONFIGURATION_ENDPOINTS, a2 as devWarn, ah as ln } from "./configuration-B4FJFUoo.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
-import { r as formatToISODate, K as parseDateOnlyAsLocal, F as FILE_ENDPOINTS, a as DEFAULT_CURRENCY_CODE, u as getCurrencySymbol, ab as useQuery, ac as useQueryClient, P as queryKeys, _ as useCompanyStore, c as EXPENSE_ENDPOINTS, a4 as useMutation } from "./date-format-Ban7B2GG.js";
-import { H as create, a3 as devtools, ap as subscribeWithSelector, a9 as immer, x as apiClient, C as CONFIGURATION_ENDPOINTS, a2 as devWarn } from "./configuration-B4FJFUoo.js";
+import { x as formatToISODate, W as parseDateOnlyAsLocal, F as FILE_ENDPOINTS, D as DEFAULT_CURRENCY_CODE, B as getCurrencySymbol, ah as useQuery, ai as useQueryClient, Y as queryKeys, a4 as useCompanyStore, b as EXPENSE_ENDPOINTS, aa as useMutation } from "./use-scroll-into-view-ref-Bh4xL90y.js";
+import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
+const __iconNode = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode);
 var ExpenseFormType = /* @__PURE__ */ ((ExpenseFormType2) => {
   ExpenseFormType2["STANDARD"] = "standard";
   ExpenseFormType2["ENTERTAINMENT"] = "entertainment";
@@ -825,12 +831,127 @@ const useExpenseItem = /* @__PURE__ */ __name((itemId, options = {}) => {
     staleTime: 30 * 1e3
   });
 }, "useExpenseItem");
+const React = await importShared("react");
+const { useCallback, useMemo, useState } = React;
+const DEFAULT_MAX_DROPDOWN_RESULTS = 50;
+const FOOTER_SENTINEL_VALUE = "__tax-type-search-footer__";
+const toSearchItem = /* @__PURE__ */ __name((tt) => ({
+  value: tt.id.toString(),
+  label: tt.displayText
+}), "toSearchItem");
+const TaxTypeSearchSelect = /* @__PURE__ */ __name(({
+  value,
+  onChange,
+  onBlur,
+  taxTypes,
+  placeholder,
+  error,
+  disabled,
+  label,
+  required,
+  renderItem: customRenderItem,
+  maxResults = DEFAULT_MAX_DROPDOWN_RESULTS,
+  searchDelay = 150,
+  dropdownClassName,
+  portal = false,
+  tooltipProps
+}) => {
+  const [remountKey, setRemountKey] = useState(0);
+  const taxTypeById = useMemo(() => {
+    const map = /* @__PURE__ */ new Map();
+    for (const tt of taxTypes ?? []) map.set(tt.id, tt);
+    return map;
+  }, [taxTypes]);
+  const searchIndex = useMemo(
+    () => (taxTypes ?? []).map((tt) => ({ tt, lower: tt.displayText.toLowerCase() })),
+    [taxTypes]
+  );
+  const selectedItem = useMemo(() => {
+    if (value == null) return null;
+    const tt = taxTypeById.get(value);
+    return tt ? toSearchItem(tt) : null;
+  }, [value, taxTypeById]);
+  const search = useCallback(async (query) => {
+    const q = query.trim().toLowerCase();
+    const matches = [];
+    let totalMatches = 0;
+    for (const entry of searchIndex) {
+      if (!q || entry.lower.includes(q)) {
+        totalMatches++;
+        if (matches.length < maxResults) {
+          matches.push(toSearchItem(entry.tt));
+        }
+      }
+    }
+    if (totalMatches > maxResults) {
+      matches.push({
+        value: FOOTER_SENTINEL_VALUE,
+        label: `Showing ${maxResults} of ${totalMatches} matches. Refine search to narrow.`
+      });
+    }
+    return matches;
+  }, [searchIndex, maxResults]);
+  const handleChange = useCallback((item) => {
+    if ((item == null ? void 0 : item.value) === FOOTER_SENTINEL_VALUE) {
+      setRemountKey((k) => k + 1);
+      return;
+    }
+    onChange(item ? parseInt(item.value, 10) : null);
+  }, [onChange]);
+  const renderItem = useCallback(
+    (item, highlight, isSelected) => {
+      if (item.value === FOOTER_SENTINEL_VALUE) {
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "span",
+          {
+            onClick: /* @__PURE__ */ __name((e) => e.stopPropagation(), "onClick"),
+            className: "block -mx-3 -my-2 px-3 py-2 text-xs italic text-exp-grey-600 cursor-default",
+            children: item.label
+          }
+        );
+      }
+      if (customRenderItem) {
+        const tt = taxTypeById.get(parseInt(item.value, 10));
+        if (!tt) return highlight(item.label);
+        return customRenderItem(tt, highlight, isSelected);
+      }
+      return highlight(item.label);
+    },
+    [customRenderItem, taxTypeById]
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ln,
+    {
+      label,
+      required,
+      value: selectedItem,
+      onValueChange: handleChange,
+      onBlur,
+      onSearch: search,
+      renderItem,
+      placeholder,
+      searchOnFocus: true,
+      minSearchLength: 0,
+      searchDelay,
+      clearOnBlur: false,
+      portal,
+      error,
+      disabled,
+      dropdownClassName,
+      tooltipProps
+    },
+    remountKey
+  );
+}, "TaxTypeSearchSelect");
+TaxTypeSearchSelect.displayName = "TaxTypeSearchSelect";
 export {
   AllowedMimeType as A,
   ECostAllocation as E,
   FILE_SIZE_LIMITS as F,
   ItemCategory as I,
   MIME_TYPE_CONFIG as M,
+  Plus as P,
+  TaxTypeSearchSelect as T,
   ExpenseFormType as a,
   ExpenseTypeScope as b,
   FilePreviewType as c,
