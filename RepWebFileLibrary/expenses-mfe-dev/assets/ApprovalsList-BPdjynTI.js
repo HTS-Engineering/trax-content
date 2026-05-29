@@ -1243,7 +1243,7 @@ const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Qa, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: header ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between gap-2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start gap-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold", children: header.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ns, { variant: "light", size: "sm", maxWidth: 320, className: "text-exp-neutral-900 text-xl font-bold", children: header.title }) }),
               header.titleSuffix && /* @__PURE__ */ jsxRuntimeExports.jsx(
                 ns,
                 {

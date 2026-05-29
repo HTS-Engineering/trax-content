@@ -1985,7 +1985,7 @@ function FormPageDialog({
 }) {
   const renderHeader = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx(Qa, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between gap-2 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start gap-1", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center justify-center gap-2", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ns, { variant: "light", size: "sm", maxWidth: 320, children: header.title }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(es, { className: "text-exp-neutral-900 text-xl font-bold flex justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ns, { variant: "light", size: "sm", maxWidth: 320, className: "text-exp-neutral-900 text-xl font-bold", children: header.title }) }),
       header.titleSuffix,
       header.amount && /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-base font-medium text-exp-neutral-900", children: [
         "$",
