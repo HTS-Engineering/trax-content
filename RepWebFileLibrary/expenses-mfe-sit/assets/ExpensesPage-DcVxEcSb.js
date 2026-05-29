@@ -1,1 +1,0 @@
-var e=Object.defineProperty;var s=(t,r)=>e(t,"name",{value:r,configurable:!0});import{j as o}from"./jsx-runtime-BHIWlbBZ.js";import{a as p}from"./ExpensesList-BQkhlpXe.js";import"./configuration-tzEfVsNC.js";import"./date-format-BDSPoza4.js";const f=s(()=>o.jsx(p,{}),"ExpensesPage");export{f as default};
