@@ -4831,18 +4831,19 @@ const receiptSchema = object({
   receiptAttachment: receiptAttachmentField,
   isReceiptUnavailable: isReceiptUnavailableField,
   affidavit: affidavitField
-}).refine((data) => {
-  if (data.isReceiptUnavailable) {
-    return data.affidavit !== null && data.affidavit !== void 0 && data.affidavit.justification.length > 0 && data.affidavit.digitalSignature.length > 0;
+}).refine(
+  (data) => data.isReceiptUnavailable || data.receiptAttachment !== null && data.receiptAttachment !== void 0,
+  {
+    message: "Receipt is required unless marked as unavailable",
+    path: ["receiptAttachment"]
   }
-  if (!data.isReceiptUnavailable) {
-    return data.receiptAttachment !== null && data.receiptAttachment !== void 0;
+).refine(
+  (data) => !data.isReceiptUnavailable || data.affidavit !== null && data.affidavit !== void 0,
+  {
+    message: "Affidavit is required when receipt is unavailable",
+    path: ["affidavit"]
   }
-  return true;
-}, {
-  message: ((data) => (data == null ? void 0 : data.isReceiptUnavailable) ? "Affidavit is required when receipt is unavailable" : "Receipt is required unless marked as unavailable")(),
-  path: ["receiptAttachment"]
-}).refine((data) => {
+).refine((data) => {
   if (data.receiptAttachment && !data.isReceiptUnavailable) {
     return isValidFileAttachment(data.receiptAttachment);
   }
@@ -7266,7 +7267,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
       setValue(
         receiptAttachmentField2,
         null,
-        { shouldValidate: false, shouldDirty: false }
+        { shouldValidate: true, shouldDirty: false }
       );
       if (affidavitField2) {
         const current = watch(affidavitField2);
@@ -7282,7 +7283,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
       setValue(
         affidavitField2,
         null,
-        { shouldValidate: false }
+        { shouldValidate: true }
       );
     }
   }, [isReceiptUnavailable, setValue, receiptAttachmentField2, affidavitField2]);
@@ -7297,7 +7298,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
         setValue(
           affidavitField2,
           null,
-          { shouldValidate: false }
+          { shouldValidate: true }
         );
       }
     }
