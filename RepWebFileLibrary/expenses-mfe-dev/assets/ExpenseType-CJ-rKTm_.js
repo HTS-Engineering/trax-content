@@ -4,8 +4,8 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { E as EXPENSE_TYPE_MESSAGES, b as ExpenseTypeTable } from "./MileageTypeTable-Dk-UhPey.js";
 import "./useMileageRates-Bjejcicl.js";
 import "./TaxTypeSearchSelect-BOBAPbzh.js";
-import "./configuration-B4FJFUoo.js";
 import "./use-scroll-into-view-ref-B9ZfFHUy.js";
+import "./configuration-B4FJFUoo.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
 const ExpenseType = /* @__PURE__ */ __name(() => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-full flex flex-col p-6 pt-0!", children: [

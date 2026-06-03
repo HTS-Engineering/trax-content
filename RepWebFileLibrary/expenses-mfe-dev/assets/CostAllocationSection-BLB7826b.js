@@ -17,11 +17,11 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
+import { S as Subscribable, M as Mutation, U as notifyManager, L as matchMutation, T as noop, J as hashQueryKeyByOptions, Q as Query, P as matchQuery, m as focusManager, V as onlineManager, _ as resolveStaleTime, y as functionalUpdate, I as hashKey, X as partialMatchKey, a1 as skipToken, ah as useQuery, Y as queryKeys, a4 as useCompanyStore, p as formatDate, F as FILE_ENDPOINTS, s as formatExpenseDate, o as formatCurrency, E as EMPTY_CURRENCY_SYMBOL, r as formatDistance, v as formatRate, t as formatExpensePeriod, b as EXPENSE_ENDPOINTS, u as formatHistoryTimestamp, D as DEFAULT_CURRENCY_CODE, x as formatToISODate, a5 as useDebouncedCallback, ae as useNumericDisplay, B as getCurrencySymbol } from "./use-scroll-into-view-ref-B9ZfFHUy.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { x as apiClient, C as CONFIGURATION_ENDPOINTS, a7 as hs, aw as xs, ai as lr, av as ws, ab as jn, aj as ms, az as zr, s as Us, am as p, ak as mt, P as Pt, U as Ue, a8 as ht, T as Ta, H as create, a3 as devtools, a2 as devWarn, a0 as devError, a1 as devLog, u as Yt, ah as ln$1, K as Ka, w as _t, i as Ft, f as Dt, d as Bs, ad as js, G as Gs, A as Aa, $ as $a, aa as ir, L as La, p as Qs, Y as Ye } from "./configuration-B4FJFUoo.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
 import { v as useTaxTypesDisplay, r as useFormTypeName, a as ExpenseFormType, E as ECostAllocation, n as useDefaultCurrency, p as useExpenseTypes, d as FormTypeId, A as AllowedMimeType, F as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, c as FilePreviewType, u as useCountries, m as useDefaultCountry, q as useFormTypeId, P as Plus } from "./TaxTypeSearchSelect-BOBAPbzh.js";
-import { S as Subscribable, M as Mutation, U as notifyManager, L as matchMutation, T as noop, J as hashQueryKeyByOptions, Q as Query, P as matchQuery, m as focusManager, V as onlineManager, _ as resolveStaleTime, y as functionalUpdate, I as hashKey, X as partialMatchKey, a1 as skipToken, ah as useQuery, Y as queryKeys, a4 as useCompanyStore, F as FILE_ENDPOINTS, s as formatExpenseDate, o as formatCurrency, E as EMPTY_CURRENCY_SYMBOL, r as formatDistance, v as formatRate, t as formatExpensePeriod, b as EXPENSE_ENDPOINTS, u as formatHistoryTimestamp, D as DEFAULT_CURRENCY_CODE, x as formatToISODate, a5 as useDebouncedCallback, ae as useNumericDisplay, B as getCurrencySymbol } from "./use-scroll-into-view-ref-B9ZfFHUy.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
 import { I as Info, s as string, D as DECIMAL_FORMAT_REGEX, o as object, e as custom, c as boolean, b as array, f as date, i as unknown, n as number, C as ConfirmDialog, w as useWatch, r as useForm, u, l as literal, p as useEffectiveMileageRate, t as useFormState, a as Controller, d as createDecimalChangeHandler } from "./useMileageRates-Bjejcicl.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -644,6 +644,24 @@ function mapFormStatus(value) {
   throw new Error(`Invalid FormStatus: ${value}`);
 }
 __name(mapFormStatus, "mapFormStatus");
+const ACTION_DATE_PREFIX = {
+  submitted: "Submitted on",
+  approved: "Approved on",
+  rejected: "Rejected on",
+  cancelled: "Cancelled on"
+};
+function getExpenseActionDate(item) {
+  if (item.status === "approved" && item.approvedAt) return item.approvedAt;
+  if (item.status === "rejected" && item.rejectedAt) return item.rejectedAt;
+  if (item.status === "cancelled" && item.cancelledAt) return item.cancelledAt;
+  return item.submittedAt;
+}
+__name(getExpenseActionDate, "getExpenseActionDate");
+function getExpenseActionSubtitle(item) {
+  const datePart = `${ACTION_DATE_PREFIX[item.status]} ${formatDate(getExpenseActionDate(item))}`;
+  return [item.businessId, datePart].filter(Boolean).join(" • ");
+}
+__name(getExpenseActionSubtitle, "getExpenseActionSubtitle");
 function isViteDevMode() {
   try {
     const url = new URL(import.meta.url);
@@ -9303,49 +9321,50 @@ const MemoizedCostAllocationSection = memo(CostAllocationSectionComponent);
 const CostAllocationSection = MemoizedCostAllocationSection;
 MemoizedCostAllocationSection.displayName = "CostAllocationSection";
 export {
-  useDefaultCompany as $,
-  isSameCalendarMonth as A,
+  useCostAllocationHandlers as $,
+  isMileageTripData as A,
   BaseExpenseFormRenderer as B,
   CostAllocationHeaderActions as C,
-  isValidFileAttachment as D,
+  isSameCalendarMonth as D,
   ExpenseFormField as E,
   FormSectionType as F,
-  mapCostAllocation as G,
-  mapFormDataToCreateRequest as H,
-  mapFormDataToUpdateRequest as I,
-  mapMileagePeriodToDefaultValues as J,
-  mapMileageTripToDefaultValues as K,
-  mileageDetailsSchema as L,
+  isValidFileAttachment as G,
+  mapCostAllocation as H,
+  mapFormDataToCreateRequest as I,
+  mapFormDataToUpdateRequest as J,
+  mapMileagePeriodToDefaultValues as K,
+  mapMileageTripToDefaultValues as L,
   MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as M,
   NO_MILEAGE_RATE_FOR_DATE_MESSAGE as N,
-  mileageJustificationSchema as O,
-  mileagePeriodValidationStrategy as P,
-  mileageTripValidationStrategy as Q,
-  parseOptionalDecimal as R,
+  mileageDetailsSchema as O,
+  mileageJustificationSchema as P,
+  mileagePeriodValidationStrategy as Q,
+  mileageTripValidationStrategy as R,
   SupportingFiles as S,
-  parseOptionalInt as T,
-  queryClient as U,
-  supportingFilesSchema as V,
-  useAmountAllocationSync as W,
-  useAutoSave as X,
-  useBaseExpenseForm as Y,
-  useCompanies as Z,
-  useCostAllocationHandlers as _,
+  parseOptionalDecimal as T,
+  parseOptionalInt as U,
+  queryClient as V,
+  supportingFilesSchema as W,
+  useAmountAllocationSync as X,
+  useAutoSave as Y,
+  useBaseExpenseForm as Z,
+  useCompanies as _,
   CostAllocationSection as a,
-  useExpenseFormHandlers as a0,
-  useExpenseFormSync as a1,
-  useFormButtonStateSync as a2,
-  useFormFieldValues as a3,
-  useFormImperativeHandle as a4,
-  useMileagePeriodFormHandlers as a5,
-  useMileageRateSync as a6,
-  useMileageTripFormHandlers as a7,
-  usePendingUploadStore as a8,
-  useReimbursableAmountSync as a9,
-  useSetDefaultCurrency as aa,
-  useTaxFieldVisibility as ab,
-  useValidatePrefilledFields as ac,
-  validateCostAllocation as ad,
+  useDefaultCompany as a0,
+  useExpenseFormHandlers as a1,
+  useExpenseFormSync as a2,
+  useFormButtonStateSync as a3,
+  useFormFieldValues as a4,
+  useFormImperativeHandle as a5,
+  useMileagePeriodFormHandlers as a6,
+  useMileageRateSync as a7,
+  useMileageTripFormHandlers as a8,
+  usePendingUploadStore as a9,
+  useReimbursableAmountSync as aa,
+  useSetDefaultCurrency as ab,
+  useTaxFieldVisibility as ac,
+  useValidatePrefilledFields as ad,
+  validateCostAllocation as ae,
   ExpenseFormHistoryLog as b,
   ExpenseFormLeftColumn as c,
   ExpensePreview as d,
@@ -9366,9 +9385,9 @@ export {
   expenseJustificationSchema as s,
   findActiveSelectedMileageType as t,
   fullExpenseValidationStrategy as u,
-  getExpenseBaseAmount as v,
-  getMileageTypesFromCache as w,
-  isConvertedExpense as x,
-  isMileagePeriodData as y,
-  isMileageTripData as z
+  getExpenseActionSubtitle as v,
+  getExpenseBaseAmount as w,
+  getMileageTypesFromCache as x,
+  isConvertedExpense as y,
+  isMileagePeriodData as z
 };
