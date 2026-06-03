@@ -50,7 +50,7 @@ const ICON_NAMES = [
   "textsms"
 ];
 const ICON_METADATA = {
-  generatedAt: "2026-06-03T14:25:38.544Z"
+  generatedAt: "2026-06-03T18:17:26.166Z"
 };
 const React = await importShared("react");
 const { useMemo, useState } = React;
