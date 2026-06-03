@@ -7,7 +7,7 @@ import { a4 as useCompanyStore, ah as useQuery, K as keepPreviousData, b as EXPE
 import { E as EmptyState } from "./EmptyState-CqMOxOYE.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
 import { P as Plus } from "./TaxTypeSearchSelect-BOBAPbzh.js";
-import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmRfP61L.js";
+import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-Dl5VNgz1.js";
 const STATUS_BADGE_CONFIG = {
   draft: {
     bgColor: "bg-exp-yellow-200",
@@ -314,7 +314,10 @@ const useExpensesColumns = /* @__PURE__ */ __name(({
             }
           );
         }
-        const badgeConfig = getExpenseTypeBadgeConfig(expenseType);
+        const badgeConfig = getExpenseTypeBadgeConfig({
+          formTypeId: context.row.original.formTypeId,
+          label: expenseType
+        });
         return /* @__PURE__ */ jsxRuntimeExports.jsx(
           Ws,
           {

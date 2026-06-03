@@ -5,7 +5,7 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { at as useJWTStore, x as apiClient, t as Ws, E as Ea, az as zr, a0 as devError, s as Us, J as Ja, $ as $a, U as Ue, ab as jn, w as _t, i as Ft, f as Dt, ai as lr, k as Js, Z as Za, Q as Qa, a6 as es, al as ns, M as Ma, af as ka, v as Zs } from "./configuration-B4FJFUoo.js";
 import { n as formatAmountWithCurrency, p as formatDate, q as formatDateRange, s as formatExpenseDate, a4 as useCompanyStore, ah as useQuery, Y as queryKeys, K as keepPreviousData, b as EXPENSE_ENDPOINTS, al as useSearchParams, a9 as useLocation, g as RoutePaths, t as formatExpensePeriod, ai as useQueryClient, aa as useMutation, ak as useScrollIntoViewRef, a6 as useErrorToast, ab as useNavigate, af as useParams, z as generatePath } from "./use-scroll-into-view-ref-B9ZfFHUy.js";
 import { f as isExpenseItemSubmitted, g as getExpenseItemAmount, h as isMileageExpense, j as isRegularExpense, o as useExpenseItem } from "./TaxTypeSearchSelect-BOBAPbzh.js";
-import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CmRfP61L.js";
+import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-Dl5VNgz1.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
 import { z as isMileageTripData, y as isMileagePeriodData, G as mapCostAllocation, ad as validateCostAllocation, v as getExpenseBaseAmount, _ as useCostAllocationHandlers, C as CostAllocationHeaderActions, a as CostAllocationSection, n as costAllocationItemSchema, d as ExpensePreview, j as MileageTripPreview, h as MileagePeriodPreview, b as ExpenseFormHistoryLog } from "./CostAllocationSection-BRQDUMah.js";
 import "./hooks-DhGJjjwf.js";
@@ -94,6 +94,7 @@ const mapApprovalApiResponse = /* @__PURE__ */ __name((item) => {
     employeeFullName: item.employeeFullName,
     expenseDate: buildExpenseDateDisplay(item),
     expenseType: item.expenseType,
+    formTypeId: item.formTypeId ?? null,
     vendor: item.vendor || MISSING_VALUE_INDICATOR,
     totalAmount: formatAmountWithCurrency(item.totalAmount, (_a = item.totalAmountCurrency) == null ? void 0 : _a.isoCode),
     totalAmountCurrency: ((_b = item.totalAmountCurrency) == null ? void 0 : _b.isoCode) ?? MISSING_VALUE_INDICATOR,
@@ -240,7 +241,10 @@ const useApprovalsColumns = /* @__PURE__ */ __name(({
             }
           );
         }
-        const badgeConfig = getExpenseTypeBadgeConfig(expenseType);
+        const badgeConfig = getExpenseTypeBadgeConfig({
+          formTypeId: context.row.original.formTypeId,
+          label: expenseType
+        });
         return /* @__PURE__ */ jsxRuntimeExports.jsx(
           Ws,
           {
