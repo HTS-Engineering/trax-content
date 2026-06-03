@@ -3,13 +3,13 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 var _a;
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { e as QueryObserver, H as hasPreviousPage, G as hasNextPage, a2 as useBaseQuery, ai as useQueryClient, Y as queryKeys, a7 as useEscapeHandler, a4 as useCompanyStore, ah as useQuery, aa as useMutation, x as formatToISODate, W as parseDateOnlyAsLocal, a as DEFAULT_CURRENCY_SYMBOL, w as formatRateCompact } from "./use-scroll-into-view-ref-Bh4xL90y.js";
+import { e as QueryObserver, H as hasPreviousPage, G as hasNextPage, a2 as useBaseQuery, ai as useQueryClient, Y as queryKeys, a7 as useEscapeHandler, a4 as useCompanyStore, ah as useQuery, aa as useMutation, x as formatToISODate, W as parseDateOnlyAsLocal, a as DEFAULT_CURRENCY_SYMBOL, w as formatRateCompact } from "./use-scroll-into-view-ref-B9ZfFHUy.js";
 import { a0 as devError, $ as $a, T as Ta, U as Ue, ab as jn, X as Xs, am as p, az as zr, j as Ir, h as Er, n as Mr, ag as kr, v as Zs, x as apiClient, C as CONFIGURATION_ENDPOINTS, c as Ba, s as Us, a1 as devLog, ah as ln, ac as jr, w as _t, i as Ft, f as Dt, ao as sr, k as Js, Z as Za, aq as ti, Q as Qa, a6 as es, K as Ka, aj as ms, as as ts, a as $s } from "./configuration-B4FJFUoo.js";
 import { E as EmptyState } from "./EmptyState-CqMOxOYE.js";
 import { I as Icon } from "./Icon-qrAJyYZL.js";
-import { o as object, _ as _enum, s as string, l as literal, r as useForm, u, a as Controller, C as ConfirmDialog, w as useWatch, n as number, f as date, d as createDecimalChangeHandler, t as useFormState, v as useMileageRates, k as useCreateMileageRate, m as useDeleteMileageRate, h as filterDecimalInput, j as useController, I as Info, q as useEffectiveMileageRatesByIds } from "./useMileageRates-B2TdNzkc.js";
-import { p as useExpenseTypes, b as ExpenseTypeScope, d as FormTypeId, a as ExpenseFormType, k as useCreateExpenseType, x as useUpdateExpenseType, w as useToggleExpenseTypeStatus, s as useFormTypeOptions, l as useCurrencies, e as MileageRateStatus, P as Plus, T as TaxTypeSearchSelect, v as useTaxTypesDisplay } from "./TaxTypeSearchSelect-wtG2lHiK.js";
-import { a as useCreateBusinessPurpose, c as useUpdateBusinessPurpose, b as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-CurjWsfM.js";
+import { o as object, _ as _enum, s as string, l as literal, r as useForm, u, a as Controller, C as ConfirmDialog, w as useWatch, n as number, f as date, d as createDecimalChangeHandler, t as useFormState, v as useMileageRates, k as useCreateMileageRate, m as useDeleteMileageRate, h as filterDecimalInput, j as useController, I as Info, q as useEffectiveMileageRatesByIds } from "./useMileageRates-Bjejcicl.js";
+import { p as useExpenseTypes, b as ExpenseTypeScope, d as FormTypeId, a as ExpenseFormType, k as useCreateExpenseType, x as useUpdateExpenseType, w as useToggleExpenseTypeStatus, s as useFormTypeOptions, l as useCurrencies, e as MileageRateStatus, P as Plus, T as TaxTypeSearchSelect, v as useTaxTypesDisplay } from "./TaxTypeSearchSelect-BOBAPbzh.js";
+import { a as useCreateBusinessPurpose, c as useUpdateBusinessPurpose, b as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-Cy_zmwep.js";
 var InfiniteQueryObserver = (_a = class extends QueryObserver {
   constructor(client, options) {
     super(client, options);

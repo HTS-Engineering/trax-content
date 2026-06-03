@@ -12,7 +12,7 @@ var _client, _result, _queries, _options, _observers, _combinedResult, _lastComb
 import { O as createLucideIcon, q as Ss, R as Rs, o as Ns, F as Fs, e as Ds, _ as _s, U as Ue, ab as jn, x as apiClient, C as CONFIGURATION_ENDPOINTS, a0 as devError } from "./configuration-B4FJFUoo.js";
 import { importShared } from "./__federation_fn_import-CDCQK-Sj.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { S as Subscribable, U as notifyManager, $ as shallowEqualObjects, Z as replaceEqualDeep, e as QueryObserver, ai as useQueryClient, a8 as useIsRestoring, aj as useQueryErrorResetBoundary, k as ensureSuspenseTimers, j as ensurePreventErrorBoundaryRetry, a3 as useClearResetErrorBoundary, T as noop, a0 as shouldSuspend, l as fetchOptimistic, C as getHasError, Y as queryKeys, ah as useQuery, aa as useMutation } from "./use-scroll-into-view-ref-Bh4xL90y.js";
+import { S as Subscribable, U as notifyManager, $ as shallowEqualObjects, Z as replaceEqualDeep, e as QueryObserver, ai as useQueryClient, a8 as useIsRestoring, aj as useQueryErrorResetBoundary, k as ensureSuspenseTimers, j as ensurePreventErrorBoundaryRetry, a3 as useClearResetErrorBoundary, T as noop, a0 as shouldSuspend, l as fetchOptimistic, C as getHasError, Y as queryKeys, ah as useQuery, aa as useMutation } from "./use-scroll-into-view-ref-B9ZfFHUy.js";
 const __iconNode = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 16v-4", key: "1dtifu" }],

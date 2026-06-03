@@ -9952,7 +9952,6 @@ const FILE_ENDPOINTS = {
   DELETE: endpoint("/api/v1.0/files/:fileId")
 };
 const RECONCILIATION_ENDPOINTS = {
-  // `statement_id` goes in the query string.
   CSV_UPLOAD: endpoint("/api/v1.0/reconciliation/:masterAccountId/csv-upload"),
   GET_BANK_STATEMENTS: endpoint("/api/v1.0/reconciliation/bank-statements"),
   BANK_STATEMENT_RELEASE: endpoint(
@@ -9963,7 +9962,8 @@ const RECONCILIATION_ENDPOINTS = {
   ),
   GET_COMPANY_TRANSACTIONS_AGGREGATION: endpoint(
     "/api/v1.0/reconciliation/:statementId/transactions-company"
-  )
+  ),
+  GET_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/:statementId/transactions")
 };
 const ALL_ENDPOINT_TEMPLATES = collectEndpointTemplates(
   EXPENSE_ENDPOINTS,
@@ -9999,6 +9999,7 @@ var QueryKeyScope = /* @__PURE__ */ ((QueryKeyScope2) => {
   QueryKeyScope2["RECONCILIATIONS"] = "reconciliations";
   QueryKeyScope2["BANK_STATEMENTS"] = "bankStatements";
   QueryKeyScope2["COMPANY_TRANSACTIONS"] = "companyTransactions";
+  QueryKeyScope2["TRANSACTIONS"] = "transactions";
   return QueryKeyScope2;
 })(QueryKeyScope || {});
 var QueryKeyOperation = /* @__PURE__ */ ((QueryKeyOperation2) => {
@@ -10157,6 +10158,11 @@ const queryKeys = {
     all: /* @__PURE__ */ __name(() => [QueryKeyScope.COMPANY_TRANSACTIONS], "all"),
     aggregations: /* @__PURE__ */ __name(() => [QueryKeyScope.COMPANY_TRANSACTIONS, QueryKeyOperation.LIST], "aggregations"),
     aggregation: /* @__PURE__ */ __name((statementId) => [...queryKeys.companyTransactions.aggregations(), { statementId }], "aggregation")
+  },
+  transactions: {
+    all: /* @__PURE__ */ __name(() => [QueryKeyScope.TRANSACTIONS], "all"),
+    lists: /* @__PURE__ */ __name(() => [QueryKeyScope.TRANSACTIONS, QueryKeyOperation.LIST], "lists"),
+    list: /* @__PURE__ */ __name((params) => [...queryKeys.transactions.lists(), params], "list")
   }
 };
 const EMPTY_CURRENCY_SYMBOL = "-";

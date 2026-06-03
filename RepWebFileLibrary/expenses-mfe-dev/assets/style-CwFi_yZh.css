@@ -896,10 +896,6 @@
     cursor: help;
   }
 
-  .expenses-mfe-scope .grid-cols-\[auto_1fr\], .trax-ui-component .grid-cols-\[auto_1fr\], .expenses-mfe-scope.grid-cols-\[auto_1fr\], .trax-ui-component.grid-cols-\[auto_1fr\] {
-    grid-template-columns: auto 1fr;
-  }
-
   .expenses-mfe-scope .gap-0, .trax-ui-component .gap-0, .expenses-mfe-scope.gap-0, .trax-ui-component.gap-0 {
     gap: calc(var(--spacing) * 0);
   }
@@ -916,20 +912,12 @@
     column-gap: calc(var(--spacing) * 2);
   }
 
-  .expenses-mfe-scope .gap-x-3, .trax-ui-component .gap-x-3, .expenses-mfe-scope.gap-x-3, .trax-ui-component.gap-x-3 {
-    column-gap: calc(var(--spacing) * 3);
-  }
-
   .expenses-mfe-scope .gap-x-4, .trax-ui-component .gap-x-4, .expenses-mfe-scope.gap-x-4, .trax-ui-component.gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
   }
 
   .expenses-mfe-scope .gap-x-8, .trax-ui-component .gap-x-8, .expenses-mfe-scope.gap-x-8, .trax-ui-component.gap-x-8 {
     column-gap: calc(var(--spacing) * 8);
-  }
-
-  .expenses-mfe-scope .gap-y-1, .trax-ui-component .gap-y-1, .expenses-mfe-scope.gap-y-1, .trax-ui-component.gap-y-1 {
-    row-gap: calc(var(--spacing) * 1);
   }
 
   .expenses-mfe-scope .gap-y-3, .trax-ui-component .gap-y-3, .expenses-mfe-scope.gap-y-3, .trax-ui-component.gap-y-3 {
@@ -956,6 +944,11 @@
     border-radius: 20px;
   }
 
+  .expenses-mfe-scope .rounded-l-lg, .trax-ui-component .rounded-l-lg, .expenses-mfe-scope.rounded-l-lg, .trax-ui-component.rounded-l-lg {
+    border-top-left-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
+  }
+
   .expenses-mfe-scope .rounded-b-lg, .trax-ui-component .rounded-b-lg, .expenses-mfe-scope.rounded-b-lg, .trax-ui-component.rounded-b-lg {
     border-bottom-right-radius: var(--radius-lg);
     border-bottom-left-radius: var(--radius-lg);
@@ -979,6 +972,11 @@
   .expenses-mfe-scope .border-b-0\!, .trax-ui-component .border-b-0\!, .expenses-mfe-scope.border-b-0\!, .trax-ui-component.border-b-0\! {
     border-bottom-style: var(--tw-border-style) !important;
     border-bottom-width: 0 !important;
+  }
+
+  .expenses-mfe-scope .border-l, .trax-ui-component .border-l, .expenses-mfe-scope.border-l, .trax-ui-component.border-l {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
   }
 
   .expenses-mfe-scope .border-exp-neutral-0, .trax-ui-component .border-exp-neutral-0, .expenses-mfe-scope.border-exp-neutral-0, .trax-ui-component.border-exp-neutral-0 {
@@ -1181,12 +1179,20 @@
     padding-block: calc(var(--spacing) * 0);
   }
 
+  .expenses-mfe-scope .py-0\!, .trax-ui-component .py-0\!, .expenses-mfe-scope.py-0\!, .trax-ui-component.py-0\! {
+    padding-block: calc(var(--spacing) * 0) !important;
+  }
+
   .expenses-mfe-scope .py-16, .trax-ui-component .py-16, .expenses-mfe-scope.py-16, .trax-ui-component.py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
 
   .expenses-mfe-scope .pt-0\!, .trax-ui-component .pt-0\!, .expenses-mfe-scope.pt-0\!, .trax-ui-component.pt-0\! {
     padding-top: calc(var(--spacing) * 0) !important;
+  }
+
+  .expenses-mfe-scope .pr-4, .trax-ui-component .pr-4, .expenses-mfe-scope.pr-4, .trax-ui-component.pr-4 {
+    padding-right: calc(var(--spacing) * 4);
   }
 
   .expenses-mfe-scope .pb-3, .trax-ui-component .pb-3, .expenses-mfe-scope.pb-3, .trax-ui-component.pb-3 {
@@ -1203,10 +1209,6 @@
 
   .expenses-mfe-scope .font-sans, .trax-ui-component .font-sans, .expenses-mfe-scope.font-sans, .trax-ui-component.font-sans {
     font-family: var(--font-sans) !important;
-  }
-
-  .expenses-mfe-scope .text-\[11px\], .trax-ui-component .text-\[11px\], .expenses-mfe-scope.text-\[11px\], .trax-ui-component.text-\[11px\] {
-    font-size: 11px !important;
   }
 
   .expenses-mfe-scope .text-xxs, .trax-ui-component .text-xxs, .expenses-mfe-scope.text-xxs, .trax-ui-component.text-xxs {
@@ -1229,10 +1231,6 @@
 
   .expenses-mfe-scope .text-wrap, .trax-ui-component .text-wrap, .expenses-mfe-scope.text-wrap, .trax-ui-component.text-wrap {
     text-wrap: wrap !important;
-  }
-
-  .expenses-mfe-scope .break-all, .trax-ui-component .break-all, .expenses-mfe-scope.break-all, .trax-ui-component.break-all {
-    word-break: break-all;
   }
 
   .expenses-mfe-scope .text-ellipsis, .trax-ui-component .text-ellipsis, .expenses-mfe-scope.text-ellipsis, .trax-ui-component.text-ellipsis {
@@ -1544,6 +1542,10 @@
   .expenses-mfe-scope .focus-visible\:ring-2:focus-visible, .trax-ui-component .focus-visible\:ring-2:focus-visible, .expenses-mfe-scope.focus-visible\:ring-2:focus-visible, .trax-ui-component.focus-visible\:ring-2:focus-visible {
     --tw-ring-shadow: var(--tw-ring-inset, ) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+  .expenses-mfe-scope .focus-visible\:ring-exp-primary-blue-300:focus-visible, .trax-ui-component .focus-visible\:ring-exp-primary-blue-300:focus-visible, .expenses-mfe-scope.focus-visible\:ring-exp-primary-blue-300:focus-visible, .trax-ui-component.focus-visible\:ring-exp-primary-blue-300:focus-visible {
+    --tw-ring-color: var(--color-exp-primary-blue-300);
   }
 
   .expenses-mfe-scope .focus-visible\:ring-exp-primary-blue-600:focus-visible, .trax-ui-component .focus-visible\:ring-exp-primary-blue-600:focus-visible, .expenses-mfe-scope.focus-visible\:ring-exp-primary-blue-600:focus-visible, .trax-ui-component.focus-visible\:ring-exp-primary-blue-600:focus-visible {

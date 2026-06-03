@@ -1,9 +1,9 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { R as ReconciliationsList } from "./CompanySummaryCard-Dp3hQJOp.js";
+import { R as ReconciliationsList } from "./TransactionsList-BSWIlndq.js";
 import "./configuration-B4FJFUoo.js";
-import "./use-scroll-into-view-ref-Bh4xL90y.js";
+import "./use-scroll-into-view-ref-B9ZfFHUy.js";
 const ReconciliationPage = /* @__PURE__ */ __name(() => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(ReconciliationsList, {});
 }, "ReconciliationPage");
