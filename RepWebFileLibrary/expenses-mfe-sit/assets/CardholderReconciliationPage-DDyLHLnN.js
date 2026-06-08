@@ -1,0 +1,1 @@
+var i=Object.defineProperty;var o=(r,t)=>i(r,"name",{value:t,configurable:!0});import{j as a}from"./jsx-runtime-BHIWlbBZ.js";import{c as e}from"./TransactionsList-D7vojA00.js";import"./configuration-QEgaNK8q.js";import"./use-scroll-into-view-ref-C2I-hlW6.js";const d=o(()=>a.jsx(e,{}),"CardholderReconciliationPage");export{d as default};

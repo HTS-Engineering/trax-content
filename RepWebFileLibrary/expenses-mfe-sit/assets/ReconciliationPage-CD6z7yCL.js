@@ -1,0 +1,1 @@
+var r=Object.defineProperty;var o=(t,i)=>r(t,"name",{value:i,configurable:!0});import{j as s}from"./jsx-runtime-BHIWlbBZ.js";import{R as a}from"./TransactionsList-D7vojA00.js";import"./configuration-QEgaNK8q.js";import"./use-scroll-into-view-ref-C2I-hlW6.js";const x=o(()=>s.jsx(a,{}),"ReconciliationPage");export{x as default};
