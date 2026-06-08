@@ -7543,6 +7543,7 @@ var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
   RoutePaths2["BusinessPurpose"] = `/configurations/business-purpose`;
   RoutePaths2["Reconciliations"] = "/reconciliations";
   RoutePaths2["ReconciliationsId"] = "/reconciliations/:id";
+  RoutePaths2["CardholderReconciliation"] = "/reconciliation";
   return RoutePaths2;
 })(RoutePaths || {});
 var RouteNames = /* @__PURE__ */ ((RouteNames2) => {
@@ -7557,6 +7558,7 @@ var RouteNames = /* @__PURE__ */ ((RouteNames2) => {
   RouteNames2["MileageType"] = "Mileage Type";
   RouteNames2["BusinessPurpose"] = "Business Purpose";
   RouteNames2["Reconciliations"] = "Reconciliations";
+  RouteNames2["CardholderReconciliation"] = "Reconciliation";
   return RouteNames2;
 })(RouteNames || {});
 const initialState = {
@@ -9963,7 +9965,8 @@ const RECONCILIATION_ENDPOINTS = {
   GET_COMPANY_TRANSACTIONS_AGGREGATION: endpoint(
     "/api/v1.0/reconciliation/:statementId/transactions-company"
   ),
-  GET_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/:statementId/transactions")
+  GET_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/:statementId/transactions"),
+  GET_CARDHOLDER_DASHBOARD: endpoint("/api/v1.0/reconciliation/cardholder/dashboard")
 };
 const ALL_ENDPOINT_TEMPLATES = collectEndpointTemplates(
   EXPENSE_ENDPOINTS,
@@ -9999,6 +10002,7 @@ var QueryKeyScope = /* @__PURE__ */ ((QueryKeyScope2) => {
   QueryKeyScope2["AUTHORIZED_USERS"] = "authorizedUsers";
   QueryKeyScope2["RECONCILIATIONS"] = "reconciliations";
   QueryKeyScope2["BANK_STATEMENTS"] = "bankStatements";
+  QueryKeyScope2["CARDHOLDER_RECONCILIATIONS"] = "cardholderReconciliations";
   QueryKeyScope2["COMPANY_TRANSACTIONS"] = "companyTransactions";
   QueryKeyScope2["TRANSACTIONS"] = "transactions";
   return QueryKeyScope2;
@@ -10167,6 +10171,11 @@ const queryKeys = {
     all: /* @__PURE__ */ __name(() => [QueryKeyScope.BANK_STATEMENTS], "all"),
     lists: /* @__PURE__ */ __name(() => [QueryKeyScope.BANK_STATEMENTS, QueryKeyOperation.LIST], "lists"),
     list: /* @__PURE__ */ __name((params) => [...queryKeys.bankStatements.lists(), params], "list")
+  },
+  cardholderReconciliations: {
+    all: /* @__PURE__ */ __name(() => [QueryKeyScope.CARDHOLDER_RECONCILIATIONS], "all"),
+    lists: /* @__PURE__ */ __name(() => [QueryKeyScope.CARDHOLDER_RECONCILIATIONS, QueryKeyOperation.LIST], "lists"),
+    list: /* @__PURE__ */ __name((params) => [...queryKeys.cardholderReconciliations.lists(), params], "list")
   },
   companyTransactions: {
     all: /* @__PURE__ */ __name(() => [QueryKeyScope.COMPANY_TRANSACTIONS], "all"),

@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-BmjKkd0C.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-aCTp6CKK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-BYHrk4gH.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CZ2UOLBn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-B22LCkq1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-scroll-into-view-ref-8GNKvRzU.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-78GKove4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-5RIpWGMw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/TaxTypeSearchSelect-lyA36dcQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-Be1Lfo3e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-Dve2zsFF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsList-XbZV50Tg.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-MBiDIPJm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/useMileageRates-wMngm8uo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/http-errors-BNeGbjSk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/tooltip-DLFvzVtg.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-safy_18E.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-1D2gm83J.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-QT-hGGpb.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-CC3ED2dp.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-BjRaBD6t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-fvUOfiny.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-BBysXVQA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-DVvnHLQa.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-BwvTaF2C.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-DJYODxcu.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-DZlr2QfG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-BHd4J7-g.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/TransactionsList-BKfuX-G_.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-DwE5emZ7.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-4vFtzzZC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-Dbiw0_lO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-PtmscS07.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/ExpensesPage-Xn_jn2WI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/jsx-runtime-aCTp6CKK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpensesList-iBby_dKs.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-CZ2UOLBn.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/configuration-B22LCkq1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/use-scroll-into-view-ref-NBja2wgz.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/EmptyState-78GKove4.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Icon-5RIpWGMw.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/TaxTypeSearchSelect-DSVaBpmc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/expense-type-badge-DXZ-NsY1.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsPage-DmdPs266.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ApprovalsList-Qd48ObrD.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CostAllocationSection-CbJMA9wx.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/useMileageRates-DiMaq0Fm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/http-errors-BNeGbjSk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/tooltip-DLFvzVtg.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/refresh-cw-safy_18E.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/hooks-1D2gm83J.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/UnifiedExpensePage-Cn9YsgyY.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/business-purpose-api-CmKy8oNG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/trash-2-BjRaBD6t.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/Configurations-fvUOfiny.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ExpenseType-D_Xy_KcV.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageTypeTable-Dc5tD9XQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/MileageType-But1ixRt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/BusinessPurpose-CGXkKfzk.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CorporateCards-B-8eqSMJ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationPage-DeE9A4a9.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/TransactionsList-Vc4pDxIO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/ReconciliationDetailPage-BouskhnL.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/CardholderReconciliationPage-83ho-AGR.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/JWTDemo-4vFtzzZC.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/shield-Dbiw0_lO.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/IconsTestingPage-DSefIumm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
@@ -6,14 +6,15 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { r as requireReact } from "./index-CMNWjCXa.js";
 import { r as requireReactDom } from "./index-CQCl7R0G.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
-import { R as RouterProvider$1, a as RoutePaths, b as RouteNames, N as Navigate, c as NavLink, u as useNavigate, g as generatePath, d as useLocation, e as useCompanyStore, f as usePreventPageReload, O as Outlet, h as createHashRouter, Q as QueryClientProvider, A as ALL_ENDPOINT_TEMPLATES } from "./use-scroll-into-view-ref-8GNKvRzU.js";
+import { R as RouterProvider$1, a as RoutePaths, b as RouteNames, N as Navigate, c as NavLink, u as useNavigate, g as generatePath, d as useLocation, e as useCompanyStore, f as usePreventPageReload, O as Outlet, h as createHashRouter, Q as QueryClientProvider, A as ALL_ENDPOINT_TEMPLATES } from "./use-scroll-into-view-ref-NBja2wgz.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { R as Role, u as useRoles, a as useApprovalsList, A as ApprovalTab } from "./ApprovalsList-XbZV50Tg.js";
+import { R as Role, u as useRoles, a as useApprovalsList, A as ApprovalTab } from "./ApprovalsList-Qd48ObrD.js";
 import { S as Shield } from "./shield-Dbiw0_lO.js";
 import { c as createLucideIcon, Y as Yn, U as Ue, O as Oa, u as useJWTStore, S as SessionStorageKeys, d as devError, X as Xs, a as devLog, M as Mr } from "./configuration-B22LCkq1.js";
-import { u as useCompanies, q as queryClient } from "./CostAllocationSection-MBiDIPJm.js";
+import { u as useCompanies, q as queryClient } from "./CostAllocationSection-CbJMA9wx.js";
 import { u as useAuth } from "./hooks-1D2gm83J.js";
-import { u as useFormTypes, a as useExpenseTypes } from "./TaxTypeSearchSelect-lyA36dcQ.js";
+import { u as useCardholderReconciliationList, C as CardholderReconciliationStatus, A as ACTION_REQUIRED_PROBE_PAGE_SIZE } from "./TransactionsList-Vc4pDxIO.js";
+import { u as useFormTypes, a as useExpenseTypes } from "./TaxTypeSearchSelect-DSVaBpmc.js";
 if (typeof window !== "undefined" && typeof performance !== "undefined") {
   const entries = performance.getEntriesByType("navigation");
   const nav = entries[0];
@@ -12408,6 +12409,42 @@ const __iconNode = [
   ["path", { d: "M14.5 16h-5", key: "1ox875" }]
 ];
 const TestTube = createLucideIcon("test-tube", __iconNode);
+var AppMode = /* @__PURE__ */ ((AppMode2) => {
+  AppMode2["Development"] = "development";
+  AppMode2["Sit"] = "sit";
+  AppMode2["Stage"] = "stage";
+  AppMode2["Production"] = "production";
+  AppMode2["Localdev"] = "localdev";
+  return AppMode2;
+})(AppMode || {});
+const EnvConfig = {
+  /** Get current Vite mode */
+  getMode: /* @__PURE__ */ __name(() => "development", "getMode"),
+  /** Get human-readable label for current environment */
+  getLabel: /* @__PURE__ */ __name(() => {
+    const labels = {
+      [
+        "development"
+        /* Development */
+      ]: "DEV"
+    };
+    return labels["development"];
+  }, "getLabel")
+};
+var FeatureFlag = /* @__PURE__ */ ((FeatureFlag2) => {
+  FeatureFlag2["EmployeeReconciliation"] = "employee-reconciliation";
+  return FeatureFlag2;
+})(FeatureFlag || {});
+const FEATURE_ENVIRONMENTS = {
+  [
+    "employee-reconciliation"
+    /* EmployeeReconciliation */
+  ]: [AppMode.Development, AppMode.Sit]
+};
+function isFeatureEnabled(flag) {
+  return FEATURE_ENVIRONMENTS[flag].includes(EnvConfig.getMode());
+}
+__name(isFeatureEnabled, "isFeatureEnabled");
 const ReceiptIcon = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "receipt", className: "size-4 shrink-0" }), "ReceiptIcon");
 const ClipboardWarningIcon = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "clipboard-warning", className: "size-4 shrink-0" }), "ClipboardWarningIcon");
 const RequestQuoteIcon = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "request-quote" }), "RequestQuoteIcon");
@@ -12438,11 +12475,15 @@ const getNavigationConfig = /* @__PURE__ */ __name(() => {
               icon: ReceiptIcon,
               isVisible: true
             },
-            // Employee/cardholder reconciliation submenu - gated until built. Uncomment once
-            // RoutePaths.EmployeeReconciliation exists (needs isFeatureEnabled, FeatureFlag from @shared/config).
-            // ...(isFeatureEnabled(FeatureFlag.EmployeeReconciliation)
-            //   ? [{ id: 'employee-reconciliation', label: 'Reconciliation', path: RoutePaths.EmployeeReconciliation, icon: ReceiptIcon, isVisible: true, requiredRoles: [Role.Employee, Role.CardHolder] }]
-            //   : []),
+            // Gated behind the EmployeeReconciliation feature flag (dev/sit only).
+            ...isFeatureEnabled(FeatureFlag.EmployeeReconciliation) ? [{
+              id: "reconciliation",
+              label: RouteNames.CardholderReconciliation,
+              path: RoutePaths.CardholderReconciliation,
+              icon: CheckListIcon,
+              isVisible: true,
+              requiredRoles: [Role.CardHolder]
+            }] : [],
             {
               id: "approvals",
               label: RouteNames.Approvals,
@@ -12619,6 +12660,21 @@ const useHasPendingApprovals = /* @__PURE__ */ __name(({ enabled = true } = {}) 
   );
   return (((_a = query.data) == null ? void 0 : _a.totalObjects) ?? 0) > 0;
 }, "useHasPendingApprovals");
+const useCardholderReconciliationActionRequired = /* @__PURE__ */ __name((options = {}) => {
+  var _a;
+  const query = useCardholderReconciliationList(
+    {
+      pageNumber: 1,
+      pageSize: ACTION_REQUIRED_PROBE_PAGE_SIZE
+    },
+    {
+      enabled: options.enabled
+    }
+  );
+  return ((_a = query.data) == null ? void 0 : _a.items.some(
+    (item) => item.status === CardholderReconciliationStatus.ActionRequired || item.status === CardholderReconciliationStatus.ActionRequiredOverdue
+  )) ?? false;
+}, "useCardholderReconciliationActionRequired");
 const { useCallback: useCallback$1, useMemo, useState } = await importShared("react");
 const NavigationSidebar = /* @__PURE__ */ __name(({
   className,
@@ -12632,6 +12688,8 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
   const { hasAnyRole } = useRoles();
   const canSeeApprovals = hasAnyRole([Role.Manager, Role.Admin, Role.AP]);
   const hasPendingApprovals = useHasPendingApprovals({ enabled: canSeeApprovals });
+  const isCardholder = hasAnyRole([Role.CardHolder]);
+  const hasActionRequired = useCardholderReconciliationActionRequired({ enabled: isCardholder });
   const navigationElements = useMemo(() => {
     const allElements = getNavigationElements();
     const roleFiltered = allElements.filter((element) => {
@@ -12712,7 +12770,9 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
     const hasChildren = Boolean(item.children && item.children.length > 0);
     const isExpanded = expandedItems.has(String(item.label));
     const navPath = item.path;
-    const showDot = item.id === "approvals" && hasPendingApprovals;
+    const showApprovalsDot = item.id === "approvals" && hasPendingApprovals;
+    const showReconciliationDot = item.id === "reconciliation" && hasActionRequired;
+    const showDot = showApprovalsDot || showReconciliationDot;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative", children: hasChildren ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
         Ue,
@@ -12756,7 +12816,7 @@ const NavigationSidebar = /* @__PURE__ */ __name(({
       ) }),
       hasChildren && isExpanded && item.children && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-gray-50", children: item.children.map((child) => renderNavItem(child, level + 1)) })
     ] }, item.path);
-  }, [expandedItems, handleNavigation, handleExpandClick, hasPendingApprovals]);
+  }, [expandedItems, handleNavigation, handleExpandClick, hasPendingApprovals, hasActionRequired]);
   const renderSeparator = useCallback$1(() => {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-exp-primary-blue-100 my-4" });
   }, []);
@@ -13839,7 +13899,7 @@ async function setupObservability(options = {}) {
   state.pendingInit = (async () => {
     try {
       const { initializeObservability } = await __vitePreload(async () => {
-        const { initializeObservability: initializeObservability2 } = await import("./setup-BjARn3Au.js");
+        const { initializeObservability: initializeObservability2 } = await import("./setup-DhgVHNbe.js");
         return { initializeObservability: initializeObservability2 };
       }, true ? [] : void 0, import.meta.url);
       const active = initializeObservability({
@@ -13999,18 +14059,19 @@ function lazyRoute(loader) {
 }
 __name(lazyRoute, "lazyRoute");
 const { Suspense } = await importShared("react");
-const Expenses = lazyRoute(() => __vitePreload(() => import("./ExpensesPage-BmjKkd0C.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10]) : void 0, import.meta.url));
-const Approvals = lazyRoute(() => __vitePreload(() => import("./ApprovalsPage-Dve2zsFF.js"), true ? __vite__mapDeps([11,1,12,3,4,5,9,10,7,8,13,14,15,16,17,18]) : void 0, import.meta.url));
-const UnifiedExpensePage = lazyRoute(() => __vitePreload(() => import("./UnifiedExpensePage-QT-hGGpb.js"), true ? __vite__mapDeps([19,1,4,3,2,5,6,7,8,9,10,13,14,15,16,17,20,21]) : void 0, import.meta.url));
+const Expenses = lazyRoute(() => __vitePreload(() => import("./ExpensesPage-Xn_jn2WI.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10]) : void 0, import.meta.url));
+const Approvals = lazyRoute(() => __vitePreload(() => import("./ApprovalsPage-DmdPs266.js"), true ? __vite__mapDeps([11,1,12,3,4,5,9,10,7,8,13,14,15,16,17,18]) : void 0, import.meta.url));
+const UnifiedExpensePage = lazyRoute(() => __vitePreload(() => import("./UnifiedExpensePage-Cn9YsgyY.js"), true ? __vite__mapDeps([19,1,4,3,2,5,6,7,8,9,10,13,14,15,16,17,20,21]) : void 0, import.meta.url));
 const Configurations = lazyRoute(() => __vitePreload(() => import("./Configurations-fvUOfiny.js"), true ? __vite__mapDeps([22,1]) : void 0, import.meta.url));
-const ExpenseType = lazyRoute(() => __vitePreload(() => import("./ExpenseType-BBysXVQA.js"), true ? __vite__mapDeps([23,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
-const MileageType = lazyRoute(() => __vitePreload(() => import("./MileageType-BwvTaF2C.js"), true ? __vite__mapDeps([25,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
-const BusinessPurpose = lazyRoute(() => __vitePreload(() => import("./BusinessPurpose-DJYODxcu.js"), true ? __vite__mapDeps([26,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
-const CorporateCards = lazyRoute(() => __vitePreload(() => import("./CorporateCards-DZlr2QfG.js"), true ? __vite__mapDeps([27,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
-const ReconciliationPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationPage-BHd4J7-g.js"), true ? __vite__mapDeps([28,1,29,3,4,5,7,8,15,6,16]) : void 0, import.meta.url));
-const ReconciliationDetailPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationDetailPage-DwE5emZ7.js"), true ? __vite__mapDeps([30,3,1,5,4,7,8,29,15,6,16]) : void 0, import.meta.url));
-const TestingAuthentication = lazyRoute(() => __vitePreload(() => import("./JWTDemo-4vFtzzZC.js"), true ? __vite__mapDeps([31,3,1,4,18,32,17,21]) : void 0, import.meta.url));
-const TestingIcons = lazyRoute(() => __vitePreload(() => import("./IconsTestingPage-PtmscS07.js"), true ? __vite__mapDeps([33,3,1,7,8]) : void 0, import.meta.url));
+const ExpenseType = lazyRoute(() => __vitePreload(() => import("./ExpenseType-D_Xy_KcV.js"), true ? __vite__mapDeps([23,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
+const MileageType = lazyRoute(() => __vitePreload(() => import("./MileageType-But1ixRt.js"), true ? __vite__mapDeps([25,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
+const BusinessPurpose = lazyRoute(() => __vitePreload(() => import("./BusinessPurpose-CGXkKfzk.js"), true ? __vite__mapDeps([26,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
+const CorporateCards = lazyRoute(() => __vitePreload(() => import("./CorporateCards-B-8eqSMJ.js"), true ? __vite__mapDeps([27,1,24,3,5,4,6,7,8,14,9,16,20]) : void 0, import.meta.url));
+const ReconciliationPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationPage-DeE9A4a9.js"), true ? __vite__mapDeps([28,1,29,3,4,5,7,8,15,6,16]) : void 0, import.meta.url));
+const ReconciliationDetailPage = lazyRoute(() => __vitePreload(() => import("./ReconciliationDetailPage-BouskhnL.js"), true ? __vite__mapDeps([30,3,1,5,4,7,8,29,15,6,16]) : void 0, import.meta.url));
+const CardholderReconciliationPage = isFeatureEnabled(FeatureFlag.EmployeeReconciliation) ? lazyRoute(() => __vitePreload(() => import("./CardholderReconciliationPage-83ho-AGR.js"), true ? __vite__mapDeps([31,1,29,3,4,5,7,8,15,6,16]) : void 0, import.meta.url)) : null;
+const TestingAuthentication = lazyRoute(() => __vitePreload(() => import("./JWTDemo-4vFtzzZC.js"), true ? __vite__mapDeps([32,3,1,4,18,33,17,21]) : void 0, import.meta.url));
+const TestingIcons = lazyRoute(() => __vitePreload(() => import("./IconsTestingPage-DSefIumm.js"), true ? __vite__mapDeps([34,3,1,7,8]) : void 0, import.meta.url));
 const createRouteConfig = /* @__PURE__ */ __name(() => {
   const baseRoutes = [
     {
@@ -14083,6 +14144,12 @@ const createRouteConfig = /* @__PURE__ */ __name(() => {
     path: toRelativePath(RoutePaths.Reconciliations),
     element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProtectedRoute, { requiredRoles: [Role.AP], children: /* @__PURE__ */ jsxRuntimeExports.jsx(ReconciliationPage, {}) })
   });
+  if (CardholderReconciliationPage) {
+    baseRoutes.push({
+      path: toRelativePath(RoutePaths.CardholderReconciliation),
+      element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProtectedRoute, { requiredRoles: [Role.CardHolder], children: /* @__PURE__ */ jsxRuntimeExports.jsx(CardholderReconciliationPage, {}) })
+    });
+  }
   baseRoutes.push({
     path: "*",
     element: /* @__PURE__ */ jsxRuntimeExports.jsx(Navigate, { to: RoutePaths.ExpensesDefault, replace: true })
@@ -14344,7 +14411,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.47", commit: "eca4f19", branch: "dev", timestamp: "2026-06-05T20:41:05.424Z", environment: "expenses-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.48", commit: "45daa18", branch: "dev", timestamp: "2026-06-08T14:12:14.251Z", environment: "expenses-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {
@@ -14478,7 +14545,7 @@ const setupCleanupListeners = /* @__PURE__ */ __name(() => {
 }, "setupCleanupListeners");
 if (typeof window !== "undefined") {
   const w = window;
-  w.__EXPENSES_MFE_VERSION__ = "0.1.0-dev.47";
+  w.__EXPENSES_MFE_VERSION__ = "0.1.0-dev.48";
   w.__EXPENSES_MFE_BUILD__ = define_MFE_BUILD_default;
   console.info(
     `[expenses-mfe] v${define_MFE_BUILD_default.version} (${define_MFE_BUILD_default.commit}, ${define_MFE_BUILD_default.environment}, ${define_MFE_BUILD_default.timestamp})`

@@ -1465,6 +1465,10 @@
       cursor: pointer;
     }
 
+    .expenses-mfe-scope .hover\:bg-exp-neutral-10:hover, .trax-ui-component .hover\:bg-exp-neutral-10:hover, .expenses-mfe-scope.hover\:bg-exp-neutral-10:hover, .trax-ui-component.hover\:bg-exp-neutral-10:hover {
+      background-color: var(--color-exp-neutral-10);
+    }
+
     .expenses-mfe-scope .hover\:bg-exp-neutral-30:hover, .trax-ui-component .hover\:bg-exp-neutral-30:hover, .expenses-mfe-scope.hover\:bg-exp-neutral-30:hover, .trax-ui-component.hover\:bg-exp-neutral-30:hover {
       background-color: var(--color-exp-neutral-30);
     }

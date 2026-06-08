@@ -4,7 +4,7 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { c as createLucideIcon, b as apiClient, d as devError, Z as Zs, U as Ue, Y as Yn, B as Br, al as Rn, am as Vo, an as Ht, ao as To, ap as $o, aq as Nn, o as oi, r as rs, a9 as si, i as os, s as ss, e as ei, $ as $a, n as ni, l as ls, x as h, T as Ta, z as za } from "./configuration-B22LCkq1.js";
-import { e as useCompanyStore, m as useQuery, n as keepPreviousData, al as RECONCILIATION_ENDPOINTS, q as queryKeys, l as formatExpenseDate, p as formatExpensePeriod, y as parseDateOnlyAsLocal, s as useMutation, r as useQueryClient, a3 as getCurrencySymbol, B as formatCurrency, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, a as RoutePaths, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, _ as EMPTY_CURRENCY_SYMBOL } from "./use-scroll-into-view-ref-8GNKvRzU.js";
+import { e as useCompanyStore, m as useQuery, n as keepPreviousData, al as RECONCILIATION_ENDPOINTS, q as queryKeys, l as formatExpenseDate, p as formatExpensePeriod, y as parseDateOnlyAsLocal, s as useMutation, r as useQueryClient, a3 as getCurrencySymbol, B as formatCurrency, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, a as RoutePaths, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, _ as EMPTY_CURRENCY_SYMBOL } from "./use-scroll-into-view-ref-NBja2wgz.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
 import { i as isHttpApiError } from "./http-errors-BNeGbjSk.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -24,13 +24,13 @@ var ReconciliationStatus = /* @__PURE__ */ ((ReconciliationStatus2) => {
   ReconciliationStatus2["Complete"] = "complete";
   return ReconciliationStatus2;
 })(ReconciliationStatus || {});
-const parseReconciliationStatus = /* @__PURE__ */ __name((value) => {
+const parseReconciliationStatus$1 = /* @__PURE__ */ __name((value) => {
   if (!value) return null;
   const normalized = value.toLowerCase().replace(/\s+/g, "_");
   const known = Object.values(ReconciliationStatus).find((s) => s === normalized);
   return known ?? null;
-}, "parseReconciliationStatus");
-const mapReconciliationApiItem = /* @__PURE__ */ __name((item) => {
+}, "parseReconciliationStatus$1");
+const mapReconciliationApiItem$1 = /* @__PURE__ */ __name((item) => {
   return {
     id: item.id,
     masterAccountId: item.masterAccountId,
@@ -44,9 +44,9 @@ const mapReconciliationApiItem = /* @__PURE__ */ __name((item) => {
     totalAmount: item.totalAmount ? parseFloat(item.totalAmount) : void 0,
     reconciledAmount: item.reconciledAmount ? parseFloat(item.reconciledAmount) : void 0,
     varianceAmount: item.variance ? parseFloat(item.variance) : void 0,
-    actionOrStatus: parseReconciliationStatus(item.status)
+    actionOrStatus: parseReconciliationStatus$1(item.status)
   };
-}, "mapReconciliationApiItem");
+}, "mapReconciliationApiItem$1");
 const useReconciliationsList = /* @__PURE__ */ __name((queryParams, options = {}) => {
   const selectedCompany = useCompanyStore((state) => state.userDefaultCompany);
   const { enabled = true } = options;
@@ -71,7 +71,7 @@ const useReconciliationsList = /* @__PURE__ */ __name((queryParams, options = {}
       const url = `${RECONCILIATION_ENDPOINTS.GET_BANK_STATEMENTS.build()}?${params.toString()}`;
       const response = await apiClient.get(url);
       return {
-        items: response.data.results.filter((item) => item.masterAccountActive || parseReconciliationStatus(item.status) !== ReconciliationStatus.Upload).map(mapReconciliationApiItem),
+        items: response.data.results.filter((item) => item.masterAccountActive || parseReconciliationStatus$1(item.status) !== ReconciliationStatus.Upload).map(mapReconciliationApiItem$1),
         totalPages: response.data.totalPages ?? 0,
         totalObjects: response.data.totalObjects ?? 0
       };
@@ -299,7 +299,7 @@ const parseImportErrorPayload = /* @__PURE__ */ __name((error) => {
   if (endings.length === 0) return null;
   return endings;
 }, "parseImportErrorPayload");
-const { useCallback: useCallback$5, useEffect: useEffect$2, useRef: useRef$4, useState: useState$2 } = await importShared("react");
+const { useCallback: useCallback$6, useEffect: useEffect$3, useRef: useRef$4, useState: useState$2 } = await importShared("react");
 const useUploadFlow = /* @__PURE__ */ __name(({
   context,
   onFinished
@@ -311,13 +311,13 @@ const useUploadFlow = /* @__PURE__ */ __name(({
   const { mutateAsync: uploadMutate } = useUploadStatementCsv();
   const { mutate: releaseMutate } = useReleaseStatement();
   const { mutate: cancelMutate } = useCancelStatement();
-  const stopPhaseAnimation = useCallback$5(() => {
+  const stopPhaseAnimation = useCallback$6(() => {
     if (phaseIntervalRef.current) {
       clearInterval(phaseIntervalRef.current);
       phaseIntervalRef.current = null;
     }
   }, []);
-  const startPhaseAnimation = useCallback$5(() => {
+  const startPhaseAnimation = useCallback$6(() => {
     stopPhaseAnimation();
     let index = 0;
     setState({ kind: "processing", phase: PROCESSING_PHASE_ORDER[0] });
@@ -330,7 +330,7 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       setState({ kind: "processing", phase: PROCESSING_PHASE_ORDER[index] });
     }, PROCESSING_PHASE_DURATION_MS);
   }, [stopPhaseAnimation]);
-  const performUpload = useCallback$5(
+  const performUpload = useCallback$6(
     async (file) => {
       var _a;
       const myAttempt = ++attemptRef.current;
@@ -405,36 +405,36 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       uploadMutate
     ]
   );
-  const startUpload = useCallback$5(
+  const startUpload = useCallback$6(
     (file) => {
       void performUpload(file);
     },
     [performUpload]
   );
-  const cancelProcessing = useCallback$5(() => {
+  const cancelProcessing = useCallback$6(() => {
     var _a;
     if (state.kind !== "processing") return;
     setState({ kind: "cancelling" });
     (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
   }, [state.kind]);
-  const replaceFile = useCallback$5(
+  const replaceFile = useCallback$6(
     (file) => {
       void performUpload(file);
     },
     [performUpload]
   );
-  const retryImport = useCallback$5(() => {
+  const retryImport = useCallback$6(() => {
     if (state.kind !== "importError") return;
     void performUpload(state.payload.file);
   }, [state, performUpload]);
-  const resetToIdle = useCallback$5(() => {
+  const resetToIdle = useCallback$6(() => {
     var _a;
     attemptRef.current += 1;
     (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
     stopPhaseAnimation();
     setState({ kind: "idle" });
   }, [stopPhaseAnimation]);
-  const cancelStagedUpload = useCallback$5(() => {
+  const cancelStagedUpload = useCallback$6(() => {
     if (state.kind !== "success") return;
     const { summary } = state;
     setState({ kind: "cancellingSuccess", summary });
@@ -461,7 +461,7 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       }
     );
   }, [state, cancelMutate]);
-  const release = useCallback$5(() => {
+  const release = useCallback$6(() => {
     if (state.kind !== "success") return;
     const { summary } = state;
     setState({ kind: "releasing", summary });
@@ -499,7 +499,7 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       }
     );
   }, [state, releaseMutate, onFinished]);
-  useEffect$2(
+  useEffect$3(
     () => () => {
       var _a;
       (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
@@ -777,7 +777,7 @@ const SummaryRow$1 = /* @__PURE__ */ __name(({ label, value }) => /* @__PURE__ *
   /* @__PURE__ */ jsxRuntimeExports.jsx("dd", { className: "font-semibold", children: value })
 ] }), "SummaryRow$1");
 const React = await importShared("react");
-const { useCallback: useCallback$4, useMemo: useMemo$6, useRef: useRef$3 } = React;
+const { useCallback: useCallback$5, useMemo: useMemo$9, useRef: useRef$3 } = React;
 const UploadStatementDialog = /* @__PURE__ */ __name(({
   open,
   context,
@@ -794,18 +794,18 @@ const UploadStatementDialog = /* @__PURE__ */ __name(({
     resetToIdle,
     release
   } = useUploadFlow({ context, onFinished: onClose });
-  const formatAmount = useMemo$6(() => {
+  const formatAmount = useMemo$9(() => {
     const currency = {
       code: context.currencyCode,
       symbol: getCurrencySymbol(context.currencyCode)
     };
     return (amount) => formatCurrency(amount, { currency, includeCurrencyCode: false });
   }, [context.currencyCode]);
-  const openFilePicker = useCallback$4(() => {
+  const openFilePicker = useCallback$5(() => {
     var _a;
     (_a = fileInputRef.current) == null ? void 0 : _a.click();
   }, []);
-  const handleFileSelect = useCallback$4(
+  const handleFileSelect = useCallback$5(
     (event) => {
       var _a;
       const file = (_a = event.target.files) == null ? void 0 : _a[0];
@@ -821,7 +821,7 @@ const UploadStatementDialog = /* @__PURE__ */ __name(({
     [state.kind, startUpload, replaceFile]
   );
   const showHeaderClose = state.kind === "idle" || state.kind === "uploadError";
-  const handleOpenChange = useCallback$4(
+  const handleOpenChange = useCallback$5(
     (nextOpen) => {
       if (nextOpen) return;
       if (!showHeaderClose) return;
@@ -896,11 +896,11 @@ const UploadStatementDialog = /* @__PURE__ */ __name(({
     }
   ) });
 }, "UploadStatementDialog");
-const DEFAULT_PAGE_SIZE$1 = 20;
-const { useMemo: useMemo$5 } = await importShared("react");
-const TextCell = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell");
+const DEFAULT_PAGE_SIZE$2 = 20;
+const { useMemo: useMemo$8 } = await importShared("react");
+const TextCell$1 = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell$1");
 const AmountCell$1 = /* @__PURE__ */ __name(({ value, currencyCode }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-right", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium truncate", children: formatAmountWithCurrency(value, currencyCode) }) }), "AmountCell$1");
-const ACTION_STATUS_CONFIG = {
+const ACTION_STATUS_CONFIG$1 = {
   [ReconciliationStatus.Complete]: { textColor: "text-exp-green-800", bgColor: "bg-exp-green-100", label: "Complete" },
   [ReconciliationStatus.Overdue]: { textColor: "text-exp-red-600", bgColor: "bg-exp-red-100", label: "Overdue" },
   [ReconciliationStatus.InProgress]: { textColor: "text-exp-primary-blue-600", bgColor: "bg-exp-primary-blue-100", label: "In progress" }
@@ -922,16 +922,16 @@ const ActionStatusCell = /* @__PURE__ */ __name(({ value, onUpload }) => {
     );
   }
   if (value === null) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: "-" });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: "-" });
   }
-  const config = ACTION_STATUS_CONFIG[value];
+  const config = ACTION_STATUS_CONFIG$1[value];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Br, { variant: "outline", className: `${config.bgColor} ${config.textColor} rounded-[20px]`, children: config.label }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "size-4 text-exp-neutral-50 group-hover:text-exp-neutral-200 transition-colors shrink-0" })
   ] });
 }, "ActionStatusCell");
 const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
-  const staticColumns = useMemo$5(() => [
+  const staticColumns = useMemo$8(() => [
     {
       id: "name",
       accessorKey: "name",
@@ -943,7 +943,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -957,7 +957,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -971,7 +971,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -985,7 +985,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -1072,40 +1072,40 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
   ], [onUpload]);
   return { columns: staticColumns };
 }, "useReconciliationsColumns");
-const URL_PARAM_SORT_BY = "sortBy";
-const URL_PARAM_SORT_ORDER = "sortOrder";
-const URL_PARAM_PAGE$1 = "page";
-const DEFAULT_PAGE_INDEX = 0;
-const MIN_PAGE_NUMBER = 1;
-const isValidSortField = /* @__PURE__ */ __name((value) => value !== null && Object.values(ReconciliationSortableColumn).includes(value), "isValidSortField");
-const isValidSortOrder = /* @__PURE__ */ __name((value) => value === "asc" || value === "desc", "isValidSortOrder");
-const getDefaultSortOrder = /* @__PURE__ */ __name(() => "desc", "getDefaultSortOrder");
-const getDefaultSortField = /* @__PURE__ */ __name(() => ReconciliationSortableColumn.ReconciliationDueDate, "getDefaultSortField");
-const parsePageNumber = /* @__PURE__ */ __name((value) => {
-  if (value === null) return DEFAULT_PAGE_INDEX;
+const URL_PARAM_SORT_BY$1 = "sortBy";
+const URL_PARAM_SORT_ORDER$1 = "sortOrder";
+const URL_PARAM_PAGE$2 = "page";
+const DEFAULT_PAGE_INDEX$1 = 0;
+const MIN_PAGE_NUMBER$1 = 1;
+const isValidSortField$1 = /* @__PURE__ */ __name((value) => value !== null && Object.values(ReconciliationSortableColumn).includes(value), "isValidSortField$1");
+const isValidSortOrder$1 = /* @__PURE__ */ __name((value) => value === "asc" || value === "desc", "isValidSortOrder$1");
+const getDefaultSortOrder$1 = /* @__PURE__ */ __name(() => "desc", "getDefaultSortOrder$1");
+const getDefaultSortField$1 = /* @__PURE__ */ __name(() => ReconciliationSortableColumn.ReconciliationDueDate, "getDefaultSortField$1");
+const parsePageNumber$1 = /* @__PURE__ */ __name((value) => {
+  if (value === null) return DEFAULT_PAGE_INDEX$1;
   const parsed = parseInt(value, 10);
-  if (Number.isNaN(parsed) || parsed < MIN_PAGE_NUMBER) return DEFAULT_PAGE_INDEX;
+  if (Number.isNaN(parsed) || parsed < MIN_PAGE_NUMBER$1) return DEFAULT_PAGE_INDEX$1;
   return parsed - 1;
-}, "parsePageNumber");
-const formatPageForUrl$1 = /* @__PURE__ */ __name((pageIndex) => {
-  if (pageIndex === DEFAULT_PAGE_INDEX) return null;
+}, "parsePageNumber$1");
+const formatPageForUrl$2 = /* @__PURE__ */ __name((pageIndex) => {
+  if (pageIndex === DEFAULT_PAGE_INDEX$1) return null;
   return String(pageIndex + 1);
-}, "formatPageForUrl$1");
+}, "formatPageForUrl$2");
 const createDefaultFilterState = /* @__PURE__ */ __name(() => ({
   sorting: [{ id: ReconciliationSortableColumn.ReconciliationDueDate, desc: true }],
-  pageIndex: DEFAULT_PAGE_INDEX
+  pageIndex: DEFAULT_PAGE_INDEX$1
 }), "createDefaultFilterState");
 const parseReturnUrl = /* @__PURE__ */ __name((returnUrl) => {
   if (!returnUrl) return null;
   try {
     const url = new URL(returnUrl, window.location.origin);
     const params = url.searchParams;
-    const sortBy = params.get(URL_PARAM_SORT_BY);
-    const sortOrder = params.get(URL_PARAM_SORT_ORDER);
-    const page = params.get(URL_PARAM_PAGE$1);
-    const validSortBy = isValidSortField(sortBy) ? sortBy : getDefaultSortField();
-    const validSortOrder = isValidSortOrder(sortOrder) ? sortOrder : getDefaultSortOrder();
-    const pageIndex = parsePageNumber(page);
+    const sortBy = params.get(URL_PARAM_SORT_BY$1);
+    const sortOrder = params.get(URL_PARAM_SORT_ORDER$1);
+    const page = params.get(URL_PARAM_PAGE$2);
+    const validSortBy = isValidSortField$1(sortBy) ? sortBy : getDefaultSortField$1();
+    const validSortOrder = isValidSortOrder$1(sortOrder) ? sortOrder : getDefaultSortOrder$1();
+    const pageIndex = parsePageNumber$1(page);
     return {
       sorting: [{ id: validSortBy, desc: validSortOrder === "desc" }],
       pageIndex
@@ -1114,81 +1114,81 @@ const parseReturnUrl = /* @__PURE__ */ __name((returnUrl) => {
     return null;
   }
 }, "parseReturnUrl");
-const { useCallback: useCallback$3, useEffect: useEffect$1, useMemo: useMemo$4, useRef: useRef$2 } = await importShared("react");
+const { useCallback: useCallback$4, useEffect: useEffect$2, useMemo: useMemo$7, useRef: useRef$2 } = await importShared("react");
 const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const isOnListPage = location.pathname.startsWith(RoutePaths.Reconciliations);
   const locationState = location.state;
-  const urlSortBy = searchParams.get(URL_PARAM_SORT_BY);
-  const urlSortOrder = searchParams.get(URL_PARAM_SORT_ORDER);
-  const urlPage = searchParams.get(URL_PARAM_PAGE$1);
-  const restoredState = useMemo$4(
+  const urlSortBy = searchParams.get(URL_PARAM_SORT_BY$1);
+  const urlSortOrder = searchParams.get(URL_PARAM_SORT_ORDER$1);
+  const urlPage = searchParams.get(URL_PARAM_PAGE$2);
+  const restoredState = useMemo$7(
     () => parseReturnUrl(locationState == null ? void 0 : locationState.returnUrl),
     [locationState == null ? void 0 : locationState.returnUrl]
   );
   const preservedStateRef = useRef$2(restoredState ?? createDefaultFilterState());
-  useEffect$1(() => {
+  useEffect$2(() => {
     if (!isOnListPage) return;
-    const needsSortBy = !urlSortBy || !isValidSortField(urlSortBy);
-    const needsSortOrder = !urlSortOrder || !isValidSortOrder(urlSortOrder);
+    const needsSortBy = !urlSortBy || !isValidSortField$1(urlSortBy);
+    const needsSortOrder = !urlSortOrder || !isValidSortOrder$1(urlSortOrder);
     if (needsSortBy || needsSortOrder) {
       setSearchParams((prev) => {
         const next = new URLSearchParams(prev);
-        next.set(URL_PARAM_SORT_BY, getDefaultSortField());
-        next.set(URL_PARAM_SORT_ORDER, getDefaultSortOrder());
+        next.set(URL_PARAM_SORT_BY$1, getDefaultSortField$1());
+        next.set(URL_PARAM_SORT_ORDER$1, getDefaultSortOrder$1());
         return next;
       }, { replace: true });
     }
   }, [isOnListPage, urlSortBy, urlSortOrder, setSearchParams]);
-  const sorting = useMemo$4(() => {
+  const sorting = useMemo$7(() => {
     if (!isOnListPage) return preservedStateRef.current.sorting;
-    const sortBy = isValidSortField(urlSortBy) ? urlSortBy : getDefaultSortField();
-    const sortOrder = isValidSortOrder(urlSortOrder) ? urlSortOrder : getDefaultSortOrder();
+    const sortBy = isValidSortField$1(urlSortBy) ? urlSortBy : getDefaultSortField$1();
+    const sortOrder = isValidSortOrder$1(urlSortOrder) ? urlSortOrder : getDefaultSortOrder$1();
     const result = [{ id: sortBy, desc: sortOrder === "desc" }];
     preservedStateRef.current.sorting = result;
     return result;
   }, [urlSortBy, urlSortOrder, isOnListPage]);
-  const columnFilters = useMemo$4(() => [], []);
-  const pagination = useMemo$4(() => {
+  const columnFilters = useMemo$7(() => [], []);
+  const pagination = useMemo$7(() => {
     if (!isOnListPage) {
       return {
         pageIndex: preservedStateRef.current.pageIndex,
-        pageSize: DEFAULT_PAGE_SIZE$1
+        pageSize: DEFAULT_PAGE_SIZE$2
       };
     }
-    const pageIndex = parsePageNumber(urlPage);
+    const pageIndex = parsePageNumber$1(urlPage);
     preservedStateRef.current.pageIndex = pageIndex;
-    return { pageIndex, pageSize: DEFAULT_PAGE_SIZE$1 };
+    return { pageIndex, pageSize: DEFAULT_PAGE_SIZE$2 };
   }, [urlPage, isOnListPage]);
-  const handleColumnFiltersChange = useCallback$3(
+  const handleColumnFiltersChange = useCallback$4(
     (_updater) => {
     },
     []
   );
-  const handleSortingChange = useCallback$3((updater) => {
+  const handleSortingChange = useCallback$4((updater) => {
     const newSorting = typeof updater === "function" ? updater(sorting) : updater;
     const sortConfig = newSorting[0];
-    const sortBy = (sortConfig == null ? void 0 : sortConfig.id) ?? getDefaultSortField();
+    const sortBy = (sortConfig == null ? void 0 : sortConfig.id) ?? getDefaultSortField$1();
     const sortOrder = (sortConfig == null ? void 0 : sortConfig.desc) ? "desc" : "asc";
     setSearchParams((prev) => {
       const next = new URLSearchParams(prev);
-      next.set(URL_PARAM_SORT_BY, sortBy);
-      next.set(URL_PARAM_SORT_ORDER, sortOrder);
-      next.delete(URL_PARAM_PAGE$1);
+      next.set(URL_PARAM_SORT_BY$1, sortBy);
+      next.set(URL_PARAM_SORT_ORDER$1, sortOrder);
+      next.delete(URL_PARAM_PAGE$2);
       return next;
     }, { replace: true });
   }, [sorting, setSearchParams]);
-  const handlePaginationChange = useCallback$3((updater) => {
+  const handlePaginationChange = useCallback$4((updater) => {
     const newPagination = typeof updater === "function" ? updater(pagination) : updater;
     if (newPagination.pageIndex === pagination.pageIndex) return;
-    const pageForUrl = formatPageForUrl$1(newPagination.pageIndex);
+    const pageForUrl = formatPageForUrl$2(newPagination.pageIndex);
     setSearchParams((prev) => {
       const next = new URLSearchParams(prev);
       if (pageForUrl === null) {
-        next.delete(URL_PARAM_PAGE$1);
+        next.delete(URL_PARAM_PAGE$2);
       } else {
-        next.set(URL_PARAM_PAGE$1, pageForUrl);
+        next.set(URL_PARAM_PAGE$2, pageForUrl);
       }
       return next;
     }, { replace: true });
@@ -1203,7 +1203,7 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
     handlePaginationChange
   };
 }, "useReconciliationsUrlFilters");
-const { useCallback: useCallback$2, useMemo: useMemo$3, useState: useState$1 } = await importShared("react");
+const { useCallback: useCallback$3, useMemo: useMemo$6, useState: useState$1 } = await importShared("react");
 const ReconciliationsList = /* @__PURE__ */ __name(() => {
   const navigateWithReturn = useNavigateWithReturn();
   const {
@@ -1215,12 +1215,12 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
     handleSortingChange,
     handlePaginationChange
   } = useReconciliationsUrlFilters();
-  const queryParams = useMemo$3(() => {
+  const queryParams = useMemo$6(() => {
     var _a;
     return {
       sortOrder: ((_a = sorting[0]) == null ? void 0 : _a.desc) ? "desc" : "asc",
       pageNumber: pagination.pageIndex + 1,
-      pageSize: DEFAULT_PAGE_SIZE$1
+      pageSize: DEFAULT_PAGE_SIZE$2
     };
   }, [sorting, pagination.pageIndex]);
   const { data, isFetching, isPending, isError } = useReconciliationsList(queryParams, { enabled: isOnListPage });
@@ -1230,7 +1230,7 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
   const isLoading = isPending || isFetching;
   useErrorToast(isError, "Failed to load reconciliations. Please try again later.");
   const [uploadContext, setUploadContext] = useState$1(null);
-  const handleUpload = useCallback$2((item) => {
+  const handleUpload = useCallback$3((item) => {
     setUploadContext({
       masterAccountId: item.masterAccountId,
       statementId: item.id,
@@ -1239,18 +1239,18 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
       statementPeriod: item.statementPeriod
     });
   }, []);
-  const handleUploadClose = useCallback$2(() => {
+  const handleUploadClose = useCallback$3(() => {
     setUploadContext(null);
   }, []);
   const { columns } = useReconciliationsColumns({ onUpload: handleUpload });
-  const handleRowClick = useCallback$2((row) => {
+  const handleRowClick = useCallback$3((row) => {
     const { id, actionOrStatus } = row.original;
     if (actionOrStatus === ReconciliationStatus.Upload) return;
     navigateWithReturn(generatePath(RoutePaths.ReconciliationsId, { id: String(id) }), {
       state: { item: row.original }
     });
   }, [navigateWithReturn]);
-  const customLoadingState = useMemo$3(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
+  const customLoadingState = useMemo$6(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-8 text-exp-primary-blue-600" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-exp-neutral-600", children: "Loading" })
   ] }), []);
@@ -1329,6 +1329,325 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
     )
   ] });
 }, "ReconciliationsList");
+var CardholderReconciliationSortableColumn = /* @__PURE__ */ ((CardholderReconciliationSortableColumn2) => {
+  CardholderReconciliationSortableColumn2["ReconciliationDueDate"] = "reconciliationDueDate";
+  return CardholderReconciliationSortableColumn2;
+})(CardholderReconciliationSortableColumn || {});
+var CardholderReconciliationStatus = /* @__PURE__ */ ((CardholderReconciliationStatus2) => {
+  CardholderReconciliationStatus2["ActionRequired"] = "in_progress";
+  CardholderReconciliationStatus2["ActionRequiredOverdue"] = "overdue";
+  CardholderReconciliationStatus2["Matched"] = "complete";
+  return CardholderReconciliationStatus2;
+})(CardholderReconciliationStatus || {});
+const parseReconciliationStatus = /* @__PURE__ */ __name((value) => {
+  if (!value) return null;
+  const normalized = value.toLowerCase();
+  const known = Object.values(CardholderReconciliationStatus).find((s) => s === normalized);
+  return known ?? null;
+}, "parseReconciliationStatus");
+const mapReconciliationApiItem = /* @__PURE__ */ __name((item) => {
+  return {
+    id: item.id,
+    masterAccountId: item.masterAccountId,
+    name: item.masterAccountName,
+    currencyCode: item.currency,
+    statementPeriod: formatExpensePeriod({
+      from: parseDateOnlyAsLocal(item.startPeriod),
+      to: parseDateOnlyAsLocal(item.endPeriod)
+    }),
+    reconciliationDueDate: formatExpenseDate(item.reconciliationDueDate),
+    status: parseReconciliationStatus(item.status)
+  };
+}, "mapReconciliationApiItem");
+const useCardholderReconciliationList = /* @__PURE__ */ __name((queryParams, options = {}) => {
+  const selectedCompany = useCompanyStore((state) => state.userDefaultCompany);
+  const { enabled = true } = options;
+  return useQuery({
+    queryKey: queryKeys.cardholderReconciliations.list({ ...queryParams, company: selectedCompany == null ? void 0 : selectedCompany.shortName }),
+    enabled: enabled && !!(selectedCompany == null ? void 0 : selectedCompany.shortName),
+    placeholderData: keepPreviousData,
+    queryFn: /* @__PURE__ */ __name(async () => {
+      if (!(selectedCompany == null ? void 0 : selectedCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const params = new URLSearchParams();
+      if (queryParams.sortOrder) {
+        params.append("sortOrder", queryParams.sortOrder);
+      }
+      if (queryParams.pageNumber !== void 0) {
+        params.append("pageNumber", String(queryParams.pageNumber));
+      }
+      if (queryParams.pageSize !== void 0) {
+        params.append("pageSize", String(queryParams.pageSize));
+      }
+      const url = `${RECONCILIATION_ENDPOINTS.GET_CARDHOLDER_DASHBOARD.build()}?${params.toString()}`;
+      const response = await apiClient.get(url);
+      return {
+        items: response.data.results.map(mapReconciliationApiItem),
+        totalPages: response.data.totalPages ?? 0,
+        totalObjects: response.data.totalObjects ?? 0
+      };
+    }, "queryFn"),
+    staleTime: 60 * 1e3
+  });
+}, "useCardholderReconciliationList");
+const DEFAULT_PAGE_SIZE$1 = 20;
+const ACTION_REQUIRED_PROBE_PAGE_SIZE = 100;
+const { useMemo: useMemo$5 } = await importShared("react");
+const ACTION_STATUS_CONFIG = {
+  [CardholderReconciliationStatus.Matched]: { textColor: "text-exp-green-800", bgColor: "bg-exp-green-100", label: "Matched" },
+  [CardholderReconciliationStatus.ActionRequiredOverdue]: { textColor: "text-exp-red-600", bgColor: "bg-exp-red-100", label: "Action Required" },
+  [CardholderReconciliationStatus.ActionRequired]: { textColor: "text-exp-yellow-800", bgColor: "bg-exp-yellow-200", label: "Action Required" }
+};
+const TextCell = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell");
+const StatusCell$1 = /* @__PURE__ */ __name(({ value }) => {
+  if (value === null) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: "-" });
+  }
+  const config = ACTION_STATUS_CONFIG[value];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Br, { variant: "outline", className: `${config.bgColor} ${config.textColor} rounded-20!`, children: config.label }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "size-4 text-exp-neutral-50 group-hover:text-exp-neutral-200 transition-colors shrink-0" })
+  ] });
+}, "StatusCell$1");
+const useCardholderReconciliationColumns = /* @__PURE__ */ __name(() => {
+  const columns = useMemo$5(() => [
+    {
+      id: "name",
+      accessorKey: "name",
+      enableSorting: false,
+      minSize: 150,
+      maxSize: 250,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Corporate Card" }), "header"),
+      cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ei,
+        {
+          context,
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+        }
+      ), "cell")
+    },
+    {
+      id: "currencyCode",
+      accessorKey: "currencyCode",
+      enableSorting: false,
+      size: 100,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Currency" }), "header"),
+      cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ei,
+        {
+          context,
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+        }
+      ), "cell")
+    },
+    {
+      id: "statementPeriod",
+      accessorKey: "statementPeriod",
+      enableSorting: false,
+      size: 160,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Statement Period" }), "header"),
+      cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ei,
+        {
+          context,
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+        }
+      ), "cell")
+    },
+    {
+      id: CardholderReconciliationSortableColumn.ReconciliationDueDate,
+      accessorKey: "reconciliationDueDate",
+      enableSorting: true,
+      size: 160,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Due Date" }), "header"),
+      cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ei,
+        {
+          context,
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+        }
+      ), "cell")
+    },
+    {
+      id: "status",
+      accessorKey: "status",
+      enableSorting: false,
+      size: 140,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Status" }), "header"),
+      cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ei,
+        {
+          context,
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(StatusCell$1, { value: context.getValue() })
+        }
+      ), "cell")
+    }
+  ], []);
+  return { columns };
+}, "useCardholderReconciliationColumns");
+const URL_PARAM_SORT_BY = "sortBy";
+const URL_PARAM_SORT_ORDER = "sortOrder";
+const URL_PARAM_PAGE$1 = "page";
+const DEFAULT_PAGE_INDEX = 0;
+const MIN_PAGE_NUMBER = 1;
+const isValidSortField = /* @__PURE__ */ __name((value) => value !== null && Object.values(CardholderReconciliationSortableColumn).includes(value), "isValidSortField");
+const isValidSortOrder = /* @__PURE__ */ __name((value) => value === "asc" || value === "desc", "isValidSortOrder");
+const getDefaultSortOrder = /* @__PURE__ */ __name(() => "desc", "getDefaultSortOrder");
+const getDefaultSortField = /* @__PURE__ */ __name(() => CardholderReconciliationSortableColumn.ReconciliationDueDate, "getDefaultSortField");
+const parsePageNumber = /* @__PURE__ */ __name((value) => {
+  if (value === null) return DEFAULT_PAGE_INDEX;
+  const parsed = parseInt(value, 10);
+  if (Number.isNaN(parsed) || parsed < MIN_PAGE_NUMBER) return DEFAULT_PAGE_INDEX;
+  return parsed - 1;
+}, "parsePageNumber");
+const formatPageForUrl$1 = /* @__PURE__ */ __name((pageIndex) => {
+  if (pageIndex === DEFAULT_PAGE_INDEX) return null;
+  return String(pageIndex + 1);
+}, "formatPageForUrl$1");
+const { useCallback: useCallback$2, useEffect: useEffect$1, useMemo: useMemo$4 } = await importShared("react");
+const useCardholderReconciliationUrlFilters = /* @__PURE__ */ __name(() => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const urlSortBy = searchParams.get(URL_PARAM_SORT_BY);
+  const urlSortOrder = searchParams.get(URL_PARAM_SORT_ORDER);
+  const urlPage = searchParams.get(URL_PARAM_PAGE$1);
+  useEffect$1(() => {
+    const needsSortBy = !urlSortBy || !isValidSortField(urlSortBy);
+    const needsSortOrder = !urlSortOrder || !isValidSortOrder(urlSortOrder);
+    if (needsSortBy || needsSortOrder) {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        next.set(URL_PARAM_SORT_BY, getDefaultSortField());
+        next.set(URL_PARAM_SORT_ORDER, getDefaultSortOrder());
+        return next;
+      }, { replace: true });
+    }
+  }, [urlSortBy, urlSortOrder, setSearchParams]);
+  const sorting = useMemo$4(() => {
+    const sortBy = isValidSortField(urlSortBy) ? urlSortBy : getDefaultSortField();
+    const sortOrder = isValidSortOrder(urlSortOrder) ? urlSortOrder : getDefaultSortOrder();
+    return [{ id: sortBy, desc: sortOrder === "desc" }];
+  }, [urlSortBy, urlSortOrder]);
+  const columnFilters = useMemo$4(() => [], []);
+  const pagination = useMemo$4(() => ({
+    pageIndex: parsePageNumber(urlPage),
+    pageSize: DEFAULT_PAGE_SIZE$1
+  }), [urlPage]);
+  const handleColumnFiltersChange = useCallback$2((_updater) => {
+  }, []);
+  const handleSortingChange = useCallback$2((updater) => {
+    const newSorting = typeof updater === "function" ? updater(sorting) : updater;
+    const sortConfig = newSorting[0];
+    const sortBy = (sortConfig == null ? void 0 : sortConfig.id) ?? getDefaultSortField();
+    const sortOrder = sortConfig ? sortConfig.desc ? "desc" : "asc" : getDefaultSortOrder();
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.set(URL_PARAM_SORT_BY, sortBy);
+      next.set(URL_PARAM_SORT_ORDER, sortOrder);
+      next.delete(URL_PARAM_PAGE$1);
+      return next;
+    }, { replace: true });
+  }, [sorting, setSearchParams]);
+  const handlePaginationChange = useCallback$2((updater) => {
+    const newPagination = typeof updater === "function" ? updater(pagination) : updater;
+    if (newPagination.pageIndex === pagination.pageIndex) return;
+    const pageForUrl = formatPageForUrl$1(newPagination.pageIndex);
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      if (pageForUrl === null) {
+        next.delete(URL_PARAM_PAGE$1);
+      } else {
+        next.set(URL_PARAM_PAGE$1, pageForUrl);
+      }
+      return next;
+    }, { replace: true });
+  }, [pagination, setSearchParams]);
+  return {
+    columnFilters,
+    sorting,
+    pagination,
+    handleColumnFiltersChange,
+    handleSortingChange,
+    handlePaginationChange
+  };
+}, "useCardholderReconciliationUrlFilters");
+const { useMemo: useMemo$3 } = await importShared("react");
+const CardholderReconciliationList = /* @__PURE__ */ __name(() => {
+  const {
+    columnFilters,
+    sorting,
+    pagination,
+    handleColumnFiltersChange,
+    handleSortingChange,
+    handlePaginationChange
+  } = useCardholderReconciliationUrlFilters();
+  const queryParams = useMemo$3(() => {
+    var _a;
+    return {
+      sortOrder: ((_a = sorting[0]) == null ? void 0 : _a.desc) ? "desc" : "asc",
+      pageNumber: pagination.pageIndex + 1,
+      pageSize: DEFAULT_PAGE_SIZE$1
+    };
+  }, [sorting, pagination.pageIndex]);
+  const { data, isPending, isError } = useCardholderReconciliationList(queryParams);
+  const reconciliations = (data == null ? void 0 : data.items) ?? [];
+  const pageCount = (data == null ? void 0 : data.totalPages) ?? 0;
+  const totalItems = (data == null ? void 0 : data.totalObjects) ?? 0;
+  const isLoading = isPending;
+  useErrorToast(isError, "Failed to load reconciliations. Please try again later.");
+  const { columns } = useCardholderReconciliationColumns();
+  const customLoadingState = useMemo$3(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-8 text-exp-primary-blue-600" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-exp-neutral-600", children: "Loading" })
+  ] }), []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-full flex flex-col p-6 pt-0!", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-4 mb-4 shrink-0", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-exp-primary-blue-50 size-11.5 flex items-center justify-center fit-content rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "check-list", className: "size-6 shrink-0 text-exp-primary-blue-800" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-base font-semibold text-exp-primary-blue-800", children: "Reconciliation" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-sm font-normal text-exp-grey-700", children: "Review and match corporate card transactions to expenses for each statement period" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-h-0 overflow-auto exp-custom-scrollbar", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ni,
+      {
+        columns,
+        data: reconciliations,
+        getRowId: /* @__PURE__ */ __name((row) => `reconciliation-${row.id}`, "getRowId"),
+        enablePagination: true,
+        enableSorting: true,
+        enableFiltering: true,
+        manualPagination: true,
+        manualSorting: true,
+        pageCount,
+        rowCount: totalItems,
+        pagination,
+        onPaginationChange: handlePaginationChange,
+        sorting,
+        onSortingChange: handleSortingChange,
+        columnFilters,
+        onColumnFiltersChange: handleColumnFiltersChange,
+        isLoading,
+        loadingState: customLoadingState,
+        styles: {
+          bodyRow: "group hover:bg-exp-neutral-10",
+          pagination: {
+            selectContentWidthMode: "trigger"
+          }
+        },
+        emptyState: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          EmptyState,
+          {
+            iconComponent: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "featured-play-list", className: "size-9 text-exp-neutral-100" }),
+            title: "No statements to reconcile",
+            description: "Statements appear here once your AP team uploads them for a corporate card assigned to you. You can then review and match transactions for each statement period.",
+            "data-testid": "reconciliation-empty-state"
+          }
+        )
+      }
+    ) })
+  ] });
+}, "CardholderReconciliationList");
 const placeholder = /* @__PURE__ */ __name(() => ({
   text: EMPTY_CURRENCY_SYMBOL,
   isPlaceholder: true
@@ -2050,8 +2369,12 @@ const TransactionsList = /* @__PURE__ */ __name(({
   );
 }, "TransactionsList");
 export {
-  ALL_COMPANIES_SELECTION as A,
-  CompanySummaryCard as C,
+  ACTION_REQUIRED_PROBE_PAGE_SIZE as A,
+  CardholderReconciliationStatus as C,
   ReconciliationsList as R,
-  TransactionsList as T
+  TransactionsList as T,
+  CompanySummaryCard as a,
+  ALL_COMPANIES_SELECTION as b,
+  CardholderReconciliationList as c,
+  useCardholderReconciliationList as u
 };
