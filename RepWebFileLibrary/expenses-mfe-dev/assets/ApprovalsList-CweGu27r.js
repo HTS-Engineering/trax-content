@@ -7,7 +7,7 @@ import { i as formatAmountWithCurrency, j as formatDate, k as formatDateRange, l
 import { g as getExpenseItemAmount, i as isExpenseItemSubmitted, b as isMileageExpense, c as isRegularExpense, d as useExpenseItem } from "./TaxTypeSearchSelect-Bzmpz5-n.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DMnSrcZs.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { g as getExpenseActionSubtitle, i as isMileageTripData, a as isMileagePeriodData, m as mapCostAllocation, v as validateCostAllocation, b as getExpenseBaseAmount, c as useCostAllocationHandlers, C as CostAllocationHeaderActions, d as CostAllocationSection, e as costAllocationItemSchema, E as ExpensePreview, M as MileageTripPreview, f as MileagePeriodPreview, h as ExpenseFormHistoryLog } from "./CostAllocationSection-C8GQapXD.js";
+import { g as getExpenseActionSubtitle, i as isMileageTripData, a as isMileagePeriodData, m as mapCostAllocation, v as validateCostAllocation, b as getExpenseBaseAmount, c as useCostAllocationHandlers, C as CostAllocationHeaderActions, d as CostAllocationSection, e as costAllocationItemSchema, E as ExpensePreview, M as MileageTripPreview, f as MileagePeriodPreview, h as ExpenseFormHistoryLog } from "./CostAllocationSection-C9AWFWFC.js";
 import "./hooks-1D2gm83J.js";
 import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-DQ_X-Buj.js";
 var Role = /* @__PURE__ */ ((Role2) => {
@@ -857,27 +857,14 @@ const ApproverAllocationForm = /* @__PURE__ */ __name(({ ref, expense, onSave, i
       expense.data.totalAmount
     );
   }, [expense]);
-  const { actions: rawActions, helpers } = useCostAllocationHandlers(
+  const { actions, helpers } = useCostAllocationHandlers(
     setValue,
     getValues,
+    trigger,
     FIELD_CONFIG.costAllocationsField,
     FIELD_CONFIG.isEqualSplitField,
     getBaseAmount
   );
-  const actions = useMemo$2(() => ({
-    addAllocation: /* @__PURE__ */ __name((...args) => {
-      rawActions.addAllocation(...args);
-      trigger();
-    }, "addAllocation"),
-    updateAllocationEntity: /* @__PURE__ */ __name((...args) => {
-      rawActions.updateAllocationEntity(...args);
-      trigger();
-    }, "updateAllocationEntity"),
-    removeAllocation: /* @__PURE__ */ __name((...args) => {
-      rawActions.removeAllocation(...args);
-      trigger();
-    }, "removeAllocation")
-  }), [rawActions, trigger]);
   const submitForm = useMemo$2(
     () => handleSubmit((formData) => {
       onSave(formData.costAllocations);

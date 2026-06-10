@@ -6762,7 +6762,18 @@ const useCostAllocation = /* @__PURE__ */ __name(({
   };
 }, "useCostAllocation");
 const { useCallback: useCallback$g, useMemo: useMemo$b } = await importShared("react");
-const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, costAllocationsField, isEqualSplitField, getBaseAmount) => {
+const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger, costAllocationsField, isEqualSplitField, getBaseAmount) => {
+  const commitAllocations = useCallback$g(
+    (next) => {
+      setValue(
+        costAllocationsField,
+        next,
+        { shouldValidate: true, shouldDirty: true }
+      );
+      trigger(costAllocationsField);
+    },
+    [setValue, trigger, costAllocationsField]
+  );
   const addAllocation = useCallback$g(
     (type) => {
       const currentAllocations = getValues(costAllocationsField) || [];
@@ -6778,13 +6789,9 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, c
         type
       };
       const updatedAllocations = [...currentAllocations, newAllocation];
-      setValue(
-        costAllocationsField,
-        updatedAllocations,
-        { shouldValidate: true, shouldDirty: true }
-      );
+      commitAllocations(updatedAllocations);
     },
-    [getValues, setValue, costAllocationsField, getBaseAmount]
+    [getValues, commitAllocations, costAllocationsField, getBaseAmount]
   );
   const updateAllocationEntity = useCallback$g(
     (id, entity) => {
@@ -6800,13 +6807,9 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, c
       let baseAmount = getBaseAmount ? getBaseAmount() : 0;
       if (Number.isNaN(baseAmount)) baseAmount = 0;
       const updatedAllocations = isEqualSplit ? distributeEquallyAmongValid(allocationsWithEntity, baseAmount) : allocationsWithEntity;
-      setValue(
-        costAllocationsField,
-        updatedAllocations,
-        { shouldValidate: true, shouldDirty: true }
-      );
+      commitAllocations(updatedAllocations);
     },
-    [getValues, setValue, costAllocationsField, isEqualSplitField, getBaseAmount]
+    [getValues, commitAllocations, costAllocationsField, isEqualSplitField, getBaseAmount]
   );
   const removeAllocation = useCallback$g(
     (id) => {
@@ -6821,13 +6824,9 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, c
       if (isEqualSplit && filteredAllocations.length >= 1) {
         finalAllocations = distributeEquallyAmongValid(filteredAllocations, baseAmount);
       }
-      setValue(
-        costAllocationsField,
-        finalAllocations,
-        { shouldValidate: true, shouldDirty: true }
-      );
+      commitAllocations(finalAllocations);
     },
-    [getValues, setValue, costAllocationsField, isEqualSplitField, getBaseAmount]
+    [getValues, commitAllocations, costAllocationsField, isEqualSplitField, getBaseAmount]
   );
   const getSelectedValue = useCallback$g(
     (allocationId, allocations) => {
@@ -7619,7 +7618,7 @@ var FormSectionType = /* @__PURE__ */ ((FormSectionType2) => {
   return FormSectionType2;
 })(FormSectionType || {});
 const { useCallback: useCallback$5, useMemo: useMemo$4 } = await importShared("react");
-const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues, context) => {
+const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger, context) => {
   const getBaseAmount = useCallback$5(
     () => parseFloat(getValues(MileagePeriodFormField.ReimbursableAmount) || "0"),
     [getValues]
@@ -7627,6 +7626,7 @@ const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues
   const costAllocationHandlers = useCostAllocationHandlers(
     setValue,
     getValues,
+    trigger,
     MileagePeriodFormField.CostAllocations,
     MileagePeriodFormField.IsEqualSplit,
     getBaseAmount
@@ -7834,7 +7834,7 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
   });
 }, "useExpenseFormSync");
 const { useCallback: useCallback$4, useMemo: useMemo$2 } = await importShared("react");
-const useExpenseFormHandlers = /* @__PURE__ */ __name((setValue, getValues) => {
+const useExpenseFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger) => {
   const getBaseAmount = useCallback$4(() => {
     const netCurrency = getValues(ExpenseFormField.NetCurrency);
     const totalCurrency = getValues(ExpenseFormField.TotalCurrency);
@@ -7848,6 +7848,7 @@ const useExpenseFormHandlers = /* @__PURE__ */ __name((setValue, getValues) => {
   const costAllocationHandlers = useCostAllocationHandlers(
     setValue,
     getValues,
+    trigger,
     ExpenseFormField.CostAllocations,
     ExpenseFormField.IsEqualSplit,
     getBaseAmount
@@ -7905,7 +7906,7 @@ const useExpenseFormLeftColumn = /* @__PURE__ */ __name(({
   };
 }, "useExpenseFormLeftColumn");
 const { useCallback: useCallback$3, useMemo } = await importShared("react");
-const useMileageTripFormHandlers = /* @__PURE__ */ __name((setValue, getValues) => {
+const useMileageTripFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger) => {
   const getBaseAmount = useCallback$3(
     () => parseFloat(getValues(MileageTripFormField.ReimbursableAmount) || "0"),
     [getValues]
@@ -7913,6 +7914,7 @@ const useMileageTripFormHandlers = /* @__PURE__ */ __name((setValue, getValues) 
   const costAllocationHandlers = useCostAllocationHandlers(
     setValue,
     getValues,
+    trigger,
     MileageTripFormField.CostAllocations,
     MileageTripFormField.IsEqualSplit,
     getBaseAmount
