@@ -1,82 +1,16 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-var _a;
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { a4 as QueryObserver, a5 as hasPreviousPage, a6 as hasNextPage, a7 as useBaseQuery, r as useQueryClient, q as queryKeys, a8 as useEscapeHandler, e as useCompanyStore, m as useQuery, s as useMutation, x as formatToISODate, y as parseDateOnlyAsLocal, a9 as DEFAULT_CURRENCY_SYMBOL, aa as formatRateCompact } from "./use-scroll-into-view-ref-NBja2wgz.js";
+import { r as useQueryClient, q as queryKeys, a4 as useEscapeHandler, e as useCompanyStore, m as useQuery, s as useMutation, x as formatToISODate, y as parseDateOnlyAsLocal, a5 as DEFAULT_CURRENCY_SYMBOL, a6 as formatRateCompact } from "./use-scroll-into-view-ref-pp-oQFyY.js";
 import { d as devError, H as Ha, O as Oa, U as Ue, Y as Yn, a1 as ti, x as h, B as Br, a2 as Vr, a3 as $r, a4 as Tr, a5 as zr, n as ni, b as apiClient, C as CONFIGURATION_ENDPOINTS, a6 as Ka, Z as Zs, a as devLog, k as gn, a7 as Wa, l as ls, a8 as Kr, g as Mt, E as Et, P as Pt, q as dr, o as oi, r as rs, a9 as si, i as os, s as ss, m as es, w as ws, aa as is, ab as Hs } from "./configuration-B22LCkq1.js";
 import { E as EmptyState } from "./EmptyState-78GKove4.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { o as object, _ as _enum, s as string, m as literal, u as useForm, d as u, e as Controller, C as ConfirmDialog, a as array, h as useWatch, n as number, k as date, g as createDecimalChangeHandler, p as useFormState, i as useMileageRates, q as useCreateMileageRate, r as useDeleteMileageRate, t as filterDecimalInput, v as useController, I as Info, w as useEffectiveMileageRatesByIds } from "./useMileageRates-DiMaq0Fm.js";
-import { a as useExpenseTypes, r as ExpenseTypeScope, F as FormTypeId, E as ExpenseFormType, s as useCreateExpenseType, t as useUpdateExpenseType, v as useToggleExpenseTypeStatus, w as useFormTypeOptions, e as useCurrencies, x as MileageRateStatus, P as Plus, T as TaxTypeSearchSelect, h as useTaxTypesDisplay } from "./TaxTypeSearchSelect-DSVaBpmc.js";
+import { o as object, _ as _enum, s as string, m as literal, u as useForm, d as u, e as Controller, C as ConfirmDialog, a as array, h as useWatch, n as number, k as date, g as createDecimalChangeHandler, p as useFormState, i as useMileageRates, q as useCreateMileageRate, r as useDeleteMileageRate, t as filterDecimalInput, v as useController, I as Info, w as useEffectiveMileageRatesByIds } from "./useMileageRates-DQ_X-Buj.js";
+import { a as useExpenseTypes, r as ExpenseTypeScope, F as FormTypeId, E as ExpenseFormType, s as useCreateExpenseType, t as useUpdateExpenseType, v as useToggleExpenseTypeStatus, w as useFormTypeOptions, e as useCurrencies, x as MileageRateStatus, P as Plus, T as TaxTypeSearchSelect, h as useTaxTypesDisplay } from "./TaxTypeSearchSelect-Bzmpz5-n.js";
 import { a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./tooltip-DLFvzVtg.js";
-import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-CmKy8oNG.js";
-var InfiniteQueryObserver = (_a = class extends QueryObserver {
-  constructor(client, options) {
-    super(client, options);
-  }
-  bindMethods() {
-    super.bindMethods();
-    this.fetchNextPage = this.fetchNextPage.bind(this);
-    this.fetchPreviousPage = this.fetchPreviousPage.bind(this);
-  }
-  setOptions(options) {
-    options._type = "infinite";
-    super.setOptions(options);
-  }
-  getOptimisticResult(options) {
-    options._type = "infinite";
-    return super.getOptimisticResult(options);
-  }
-  fetchNextPage(options) {
-    return this.fetch({
-      ...options,
-      meta: {
-        fetchMore: { direction: "forward" }
-      }
-    });
-  }
-  fetchPreviousPage(options) {
-    return this.fetch({
-      ...options,
-      meta: {
-        fetchMore: { direction: "backward" }
-      }
-    });
-  }
-  createResult(query, options) {
-    var _a2, _b;
-    const { state } = query;
-    const parentResult = super.createResult(query, options);
-    const { isFetching, isRefetching, isError, isRefetchError } = parentResult;
-    const fetchDirection = (_b = (_a2 = state.fetchMeta) == null ? void 0 : _a2.fetchMore) == null ? void 0 : _b.direction;
-    const isFetchNextPageError = isError && fetchDirection === "forward";
-    const isFetchingNextPage = isFetching && fetchDirection === "forward";
-    const isFetchPreviousPageError = isError && fetchDirection === "backward";
-    const isFetchingPreviousPage = isFetching && fetchDirection === "backward";
-    const result = {
-      ...parentResult,
-      fetchNextPage: this.fetchNextPage,
-      fetchPreviousPage: this.fetchPreviousPage,
-      hasNextPage: hasNextPage(options, state.data),
-      hasPreviousPage: hasPreviousPage(options, state.data),
-      isFetchNextPageError,
-      isFetchingNextPage,
-      isFetchPreviousPageError,
-      isFetchingPreviousPage,
-      isRefetchError: isRefetchError && !isFetchNextPageError && !isFetchPreviousPageError,
-      isRefetching: isRefetching && !isFetchingNextPage && !isFetchingPreviousPage
-    };
-    return result;
-  }
-}, __name(_a, "InfiniteQueryObserver"), _a);
-function useInfiniteQuery(options, queryClient) {
-  return useBaseQuery(
-    options,
-    InfiniteQueryObserver
-  );
-}
-__name(useInfiniteQuery, "useInfiniteQuery");
+import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-DIRzvaqe.js";
+import { u as useInfiniteQuery } from "./useInfiniteQuery-xh-3vA23.js";
 const getFormTypeIdFromCache = /* @__PURE__ */ __name((queryClient, formTypeName) => {
   const formTypes = queryClient.getQueryData(queryKeys.formTypes.list());
   if (formTypes && formTypes.length > 0) {
@@ -303,7 +237,7 @@ const useExpenseTypeTableState = /* @__PURE__ */ __name((companyId) => {
 }, "useExpenseTypeTableState");
 const { useCallback: useCallback$m } = await importShared("react");
 const useExpenseTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) => {
-  var _a2;
+  var _a;
   const createExpenseTypeMutation = useCreateExpenseType();
   const updateExpenseTypeMutation = useUpdateExpenseType();
   const toggleExpenseTypeMutation = useToggleExpenseTypeStatus();
@@ -371,7 +305,7 @@ const useExpenseTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) =
     isCreating: createExpenseTypeMutation.isPending,
     isUpdating: updateExpenseTypeMutation.isPending,
     isOperating: createExpenseTypeMutation.isPending || updateExpenseTypeMutation.isPending || toggleExpenseTypeMutation.isPending,
-    togglingRowId: toggleExpenseTypeMutation.isPending ? (_a2 = toggleExpenseTypeMutation.variables) == null ? void 0 : _a2.id : void 0
+    togglingRowId: toggleExpenseTypeMutation.isPending ? (_a = toggleExpenseTypeMutation.variables) == null ? void 0 : _a.id : void 0
   };
 }, "useExpenseTypeOperations");
 const { useEffect: useEffect$8 } = await importShared("react");
@@ -1032,13 +966,13 @@ const useMasterAccountTableState = /* @__PURE__ */ __name(() => {
   };
 }, "useMasterAccountTableState");
 const mapBackendToFrontend = /* @__PURE__ */ __name((backend) => {
-  var _a2;
+  var _a;
   return {
     ...backend,
     id: backend.id.toString(),
     statementEndDate: backend.statementEndDate.toString(),
     reconciliationDueDate: backend.reconciliationDueDate.toString(),
-    cardholders: ((_a2 = backend.cardholders) == null ? void 0 : _a2.toString()) ?? "",
+    cardholders: ((_a = backend.cardholders) == null ? void 0 : _a.toString()) ?? "",
     created: new Date(backend.createdAt),
     updated: backend.updatedAt ? new Date(backend.updatedAt) : void 0
   };
@@ -1133,7 +1067,7 @@ const useUpdateMasterAccount = /* @__PURE__ */ __name(() => {
 }, "useUpdateMasterAccount");
 const { useCallback: useCallback$j } = await importShared("react");
 const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onSuccess) => {
-  var _a2;
+  var _a;
   const createMasterAccountMutation = useCreateMasterAccount();
   const updateMasterAccountMutation = useUpdateMasterAccount();
   const handleCreateMasterAccount = useCallback$j(async (data) => {
@@ -1203,7 +1137,7 @@ const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onS
     isCreating: createMasterAccountMutation.isPending,
     isUpdating: updateMasterAccountMutation.isPending,
     isOperating: createMasterAccountMutation.isPending || updateMasterAccountMutation.isPending,
-    togglingRowId: updateMasterAccountMutation.isPending ? (_a2 = updateMasterAccountMutation.variables) == null ? void 0 : _a2.id : void 0
+    togglingRowId: updateMasterAccountMutation.isPending ? (_a = updateMasterAccountMutation.variables) == null ? void 0 : _a.id : void 0
   };
 }, "useMasterAccountOperations");
 const checkNameUniqueness$2 = /* @__PURE__ */ __name((name, existingData, currentId) => {
@@ -2148,11 +2082,11 @@ const useCardholderTableState = /* @__PURE__ */ __name(() => {
 }, "useCardholderTableState");
 const { useCallback: useCallback$f } = await importShared("react");
 const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, masterAccountId, onSuccess) => {
-  var _a2;
+  var _a;
   const createMutation = useCreateCardholder();
   const updateMutation = useUpdateCardholder();
   const handleCreateCardholder = useCallback$f(async (data) => {
-    var _a3;
+    var _a2;
     if (!companyShortName || masterAccountId === null) return;
     try {
       await createMutation.mutateAsync({
@@ -2164,7 +2098,7 @@ const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, master
           masterAccountId,
           cardLastDigits: data.cardLastDigits,
           // omit when empty: BE documents an empty list as "all users", we mean "none"
-          authorizedUserIds: ((_a3 = data.authorizedUserIds) == null ? void 0 : _a3.length) ? data.authorizedUserIds : void 0
+          authorizedUserIds: ((_a2 = data.authorizedUserIds) == null ? void 0 : _a2.length) ? data.authorizedUserIds : void 0
         }
       });
       onSuccess == null ? void 0 : onSuccess();
@@ -2217,7 +2151,7 @@ const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, master
     handleUpdateCardholder,
     toggleActiveCardholder,
     isOperating: createMutation.isPending || updateMutation.isPending,
-    togglingRowId: updateMutation.isPending ? (_a2 = updateMutation.variables) == null ? void 0 : _a2.data.id : void 0
+    togglingRowId: updateMutation.isPending ? (_a = updateMutation.variables) == null ? void 0 : _a.data.id : void 0
   };
 }, "useCardholderOperations");
 const searchCardholderEmployees = /* @__PURE__ */ __name(async ({
@@ -2345,10 +2279,10 @@ const CardholderNameField = /* @__PURE__ */ __name(({
       portal: true,
       "data-testid": "cardholder-name-search",
       renderItem: /* @__PURE__ */ __name((item) => {
-        var _a2;
+        var _a;
         return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-exp-primary-blue-800", children: item.label }),
-          ((_a2 = item.data) == null ? void 0 : _a2.email) && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-exp-neutral-70", children: item.data.email })
+          ((_a = item.data) == null ? void 0 : _a.email) && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-exp-neutral-70", children: item.data.email })
         ] });
       }, "renderItem")
     }
@@ -4170,7 +4104,7 @@ const useMileageTypeForm = /* @__PURE__ */ __name(({
 }, "useMileageTypeForm");
 const { useCallback: useCallback$6 } = await importShared("react");
 const useMileageTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) => {
-  var _a2;
+  var _a;
   const createExpenseTypeMutation = useCreateExpenseType();
   const updateExpenseTypeMutation = useUpdateExpenseType();
   const toggleExpenseTypeMutation = useToggleExpenseTypeStatus();
@@ -4251,7 +4185,7 @@ const useMileageTypeOperations = /* @__PURE__ */ __name((companyId, onSuccess) =
     isCreating: createExpenseTypeMutation.isPending,
     isUpdating: updateExpenseTypeMutation.isPending,
     isOperating: createExpenseTypeMutation.isPending || updateExpenseTypeMutation.isPending || toggleExpenseTypeMutation.isPending,
-    togglingRowId: toggleExpenseTypeMutation.isPending ? (_a2 = toggleExpenseTypeMutation.variables) == null ? void 0 : _a2.id : void 0
+    togglingRowId: toggleExpenseTypeMutation.isPending ? (_a = toggleExpenseTypeMutation.variables) == null ? void 0 : _a.id : void 0
   };
 }, "useMileageTypeOperations");
 const MILEAGE_RATE_LABELS = {
@@ -4446,7 +4380,7 @@ const RateField = /* @__PURE__ */ __name(({ control, unit }) => /* @__PURE__ */ 
     name: "rate",
     control,
     render: /* @__PURE__ */ __name(({ field, fieldState }) => {
-      var _a2;
+      var _a;
       const hasValue = field.value !== void 0 && field.value !== "" && field.value !== null;
       const shouldShow = fieldState.isTouched || fieldState.isDirty || hasValue;
       return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -4459,7 +4393,7 @@ const RateField = /* @__PURE__ */ __name(({ control, unit }) => /* @__PURE__ */ 
           value: field.value,
           onChange: createDecimalChangeHandler(field.onChange),
           onBlur: field.onBlur,
-          error: shouldShow ? (_a2 = fieldState.error) == null ? void 0 : _a2.message : void 0
+          error: shouldShow ? (_a = fieldState.error) == null ? void 0 : _a.message : void 0
         }
       );
     }, "render")
@@ -4472,7 +4406,7 @@ const EffectiveMonthField = /* @__PURE__ */ __name(({ control, options }) => /* 
     name: "effectiveMonth",
     control,
     render: /* @__PURE__ */ __name(({ field, fieldState }) => {
-      var _a2;
+      var _a;
       const hasValue = field.value !== void 0 && field.value !== "" && field.value !== null;
       const shouldShow = fieldState.isTouched || fieldState.isDirty || hasValue;
       return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -4482,7 +4416,7 @@ const EffectiveMonthField = /* @__PURE__ */ __name(({ control, options }) => /* 
           onValueChange: field.onChange,
           options,
           placeholder: MILEAGE_RATE_PLACEHOLDERS.SELECT_MONTH,
-          error: shouldShow ? (_a2 = fieldState.error) == null ? void 0 : _a2.message : void 0
+          error: shouldShow ? (_a = fieldState.error) == null ? void 0 : _a.message : void 0
         }
       );
     }, "render")
@@ -5025,7 +4959,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
     data,
     isFetching,
     isFetchingNextPage,
-    hasNextPage: hasNextPage2,
+    hasNextPage,
     fetchNextPage,
     error
   } = useExpenseTypeUsers({
@@ -5062,17 +4996,17 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
     };
   }, [data]);
   const hasMoreAssigned = useMemo$1(() => {
-    var _a2;
-    if (!((_a2 = data == null ? void 0 : data.pages) == null ? void 0 : _a2.length)) return false;
+    var _a;
+    if (!((_a = data == null ? void 0 : data.pages) == null ? void 0 : _a.length)) return false;
     return data.pages[data.pages.length - 1].assigned.nextCursor !== null;
   }, [data]);
   useEffect(() => {
-    if (!open || !hasMoreAssigned || isFetchingNextPage || !hasNextPage2) return;
+    if (!open || !hasMoreAssigned || isFetchingNextPage || !hasNextPage) return;
     fetchNextPage();
-  }, [open, hasMoreAssigned, isFetchingNextPage, hasNextPage2, fetchNextPage]);
+  }, [open, hasMoreAssigned, isFetchingNextPage, hasNextPage, fetchNextPage]);
   useEffect(() => {
-    var _a2;
-    if (!((_a2 = data == null ? void 0 : data.pages) == null ? void 0 : _a2.length)) return;
+    var _a;
+    if (!((_a = data == null ? void 0 : data.pages) == null ? void 0 : _a.length)) return;
     const newGuids = [];
     for (const guid of serverAssignedGuids) {
       if (!knownAssignedRef.current.has(guid)) {
@@ -5164,7 +5098,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
     if (!open) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries.some((e) => e.isIntersecting) && hasNextPage2 && !isFetchingNextPage) {
+        if (entries.some((e) => e.isIntersecting) && hasNextPage && !isFetchingNextPage) {
           fetchNextPage();
         }
       },
@@ -5179,7 +5113,7 @@ const AssignEmployeesDialog = /* @__PURE__ */ __name(({
     }
     if (sentinelRef.current) observer.observe(sentinelRef.current);
     return () => observer.disconnect();
-  }, [open, hasNextPage2, isFetchingNextPage, fetchNextPage, data]);
+  }, [open, hasNextPage, isFetchingNextPage, fetchNextPage, data]);
   const isLoading = isFetching && !isFetchingNextPage || hasMoreAssigned;
   const noResults = !isLoading && displayAssigned.length === 0 && displayUnassigned.length === 0;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(oi, { open, onOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -5469,7 +5403,7 @@ const CurrentRateField = /* @__PURE__ */ __name(({
           name: "unitOfMeasurementId",
           control,
           render: /* @__PURE__ */ __name(({ field: uomField }) => {
-            var _a2;
+            var _a;
             return /* @__PURE__ */ jsxRuntimeExports.jsx(
               es,
               {
@@ -5486,7 +5420,7 @@ const CurrentRateField = /* @__PURE__ */ __name(({
                 min: "0.01",
                 placeholder: MILEAGE_TYPE_PLACEHOLDERS.CURRENT_RATE,
                 textAlign: "right",
-                value: ((_a2 = rateField.value) == null ? void 0 : _a2.toString()) || "",
+                value: ((_a = rateField.value) == null ? void 0 : _a.toString()) || "",
                 onChange: /* @__PURE__ */ __name((e) => {
                   const filtered = filterDecimalInput(e.target.value);
                   if (filtered === null) return;
@@ -5555,9 +5489,9 @@ const EffectiveFromField = /* @__PURE__ */ __name(({ control, errors, touchedFie
   );
 }, "EffectiveFromField");
 const TaxTypeField = /* @__PURE__ */ __name(({ control, taxTypes }) => {
-  var _a2;
+  var _a;
   const { field, fieldState } = useController({ control, name: "taxTypeId" });
-  const errorMessage = (fieldState.isTouched || fieldState.isDirty) && ((_a2 = fieldState.error) == null ? void 0 : _a2.message) ? fieldState.error.message : void 0;
+  const errorMessage = (fieldState.isTouched || fieldState.isDirty) && ((_a = fieldState.error) == null ? void 0 : _a.message) ? fieldState.error.message : void 0;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     TaxTypeSearchSelect,
     {
@@ -6110,8 +6044,8 @@ const MileageTypeTable = /* @__PURE__ */ __name(({ className }) => {
     const dataArray = Array.isArray(mileageTypes) ? mileageTypes : [];
     const sorted = sortByCreatedDate(dataArray, "asc");
     return sorted.map((item) => {
-      var _a2;
-      const uomId = (_a2 = unitOfMeasurements == null ? void 0 : unitOfMeasurements.find((u2) => u2.unit === item.unitOfMeasurement)) == null ? void 0 : _a2.id;
+      var _a;
+      const uomId = (_a = unitOfMeasurements == null ? void 0 : unitOfMeasurements.find((u2) => u2.unit === item.unitOfMeasurement)) == null ? void 0 : _a.id;
       const hasRateId = typeof item.mileageRateId === "number";
       const resolvedRate = hasRateId ? ratesById.get(item.mileageRateId) ?? null : null;
       const isRateFetching = hasRateId ? fetchingById.get(item.mileageRateId) ?? false : false;

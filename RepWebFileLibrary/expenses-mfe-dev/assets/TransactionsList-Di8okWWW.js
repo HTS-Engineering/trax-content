@@ -3,15 +3,22 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { c as createLucideIcon, b as apiClient, d as devError, Z as Zs, U as Ue, Y as Yn, B as Br, al as Rn, am as Vo, an as Ht, ao as To, ap as $o, aq as Nn, o as oi, r as rs, a9 as si, i as os, s as ss, e as ei, $ as $a, n as ni, l as ls, x as h, T as Ta, z as za } from "./configuration-B22LCkq1.js";
-import { e as useCompanyStore, m as useQuery, n as keepPreviousData, al as RECONCILIATION_ENDPOINTS, q as queryKeys, l as formatExpenseDate, p as formatExpensePeriod, y as parseDateOnlyAsLocal, s as useMutation, r as useQueryClient, a3 as getCurrencySymbol, B as formatCurrency, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, a as RoutePaths, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, _ as EMPTY_CURRENCY_SYMBOL } from "./use-scroll-into-view-ref-NBja2wgz.js";
+import { c as createLucideIcon, b as apiClient, d as devError, Z as Zs, U as Ue, Y as Yn, B as Br, al as Rn, am as Vo, an as Ht, ao as To, ap as $o, aq as Nn, o as oi, r as rs, a9 as si, i as os, s as ss, e as ei, $ as $a, n as ni, x as h, g as Mt, E as Et, P as Pt, a8 as Kr, l as ls, T as Ta, z as za } from "./configuration-B22LCkq1.js";
+import { e as useCompanyStore, m as useQuery, n as keepPreviousData, ai as RECONCILIATION_ENDPOINTS, q as queryKeys, l as formatExpenseDate, p as formatExpensePeriod, y as parseDateOnlyAsLocal, s as useMutation, r as useQueryClient, a3 as getCurrencySymbol, B as formatCurrency, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, a as RoutePaths, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, _ as EMPTY_CURRENCY_SYMBOL } from "./use-scroll-into-view-ref-pp-oQFyY.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
 import { i as isHttpApiError } from "./http-errors-BNeGbjSk.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { E as EmptyState } from "./EmptyState-78GKove4.js";
+import { u as useInfiniteQuery } from "./useInfiniteQuery-xh-3vA23.js";
 import { a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./tooltip-DLFvzVtg.js";
-const __iconNode = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode);
+const __iconNode$1 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$1);
+const __iconNode = [
+  ["path", { d: "M9 17H7A5 5 0 0 1 7 7h2", key: "8i5ue5" }],
+  ["path", { d: "M15 7h2a5 5 0 1 1 0 10h-2", key: "1b9ql8" }],
+  ["line", { x1: "8", x2: "16", y1: "12", y2: "12", key: "1jonct" }]
+];
+const Link2 = createLucideIcon("link-2", __iconNode);
 const bankStatementTemplateUrl = "data:text/csv;base64,77u/VHJhbnNhY3Rpb24gRGF0ZSxUcmFuc2FjdGlvbiBBbW91bnQsVmVuZG9yIE5hbWUsTWFzdGVyIEFjY291bnQgRGVzY3JpcHRpb24sTGFzdCA0IGRpZ2l0cyBvZiBhY2NvdW50ICMgDQoxMi8zMS8yMDI1LCQxMDUuMDAgLEFpciBDYW5hZGEsSFRTIEVOR0lORUVSSU5HIFVTRCw3MTE5DQoxLzUvMjAyNiwkOTkyLjQ4ICxBaXIgQ2FuYWRhIDEsSFRTIEVOR0lORUVSSU5HIFVTRCw4NjA0DQoxLzI5LzIwMjYsKCQyOS4yOSksQWlyIENhbmFkYSAyLEhUUyBFTkdJTkVFUklORyBVU0QsOTk5OQ0K";
 var ReconciliationSortableColumn = /* @__PURE__ */ ((ReconciliationSortableColumn2) => {
   ReconciliationSortableColumn2["ReconciliationDueDate"] = "reconciliationDueDate";
@@ -299,25 +306,25 @@ const parseImportErrorPayload = /* @__PURE__ */ __name((error) => {
   if (endings.length === 0) return null;
   return endings;
 }, "parseImportErrorPayload");
-const { useCallback: useCallback$6, useEffect: useEffect$3, useRef: useRef$4, useState: useState$2 } = await importShared("react");
+const { useCallback: useCallback$8, useEffect: useEffect$4, useRef: useRef$7, useState: useState$2 } = await importShared("react");
 const useUploadFlow = /* @__PURE__ */ __name(({
   context,
   onFinished
 }) => {
   const [state, setState] = useState$2({ kind: "idle" });
-  const abortControllerRef = useRef$4(null);
-  const phaseIntervalRef = useRef$4(null);
-  const attemptRef = useRef$4(0);
+  const abortControllerRef = useRef$7(null);
+  const phaseIntervalRef = useRef$7(null);
+  const attemptRef = useRef$7(0);
   const { mutateAsync: uploadMutate } = useUploadStatementCsv();
   const { mutate: releaseMutate } = useReleaseStatement();
   const { mutate: cancelMutate } = useCancelStatement();
-  const stopPhaseAnimation = useCallback$6(() => {
+  const stopPhaseAnimation = useCallback$8(() => {
     if (phaseIntervalRef.current) {
       clearInterval(phaseIntervalRef.current);
       phaseIntervalRef.current = null;
     }
   }, []);
-  const startPhaseAnimation = useCallback$6(() => {
+  const startPhaseAnimation = useCallback$8(() => {
     stopPhaseAnimation();
     let index = 0;
     setState({ kind: "processing", phase: PROCESSING_PHASE_ORDER[0] });
@@ -330,7 +337,7 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       setState({ kind: "processing", phase: PROCESSING_PHASE_ORDER[index] });
     }, PROCESSING_PHASE_DURATION_MS);
   }, [stopPhaseAnimation]);
-  const performUpload = useCallback$6(
+  const performUpload = useCallback$8(
     async (file) => {
       var _a;
       const myAttempt = ++attemptRef.current;
@@ -405,36 +412,36 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       uploadMutate
     ]
   );
-  const startUpload = useCallback$6(
+  const startUpload = useCallback$8(
     (file) => {
       void performUpload(file);
     },
     [performUpload]
   );
-  const cancelProcessing = useCallback$6(() => {
+  const cancelProcessing = useCallback$8(() => {
     var _a;
     if (state.kind !== "processing") return;
     setState({ kind: "cancelling" });
     (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
   }, [state.kind]);
-  const replaceFile = useCallback$6(
+  const replaceFile = useCallback$8(
     (file) => {
       void performUpload(file);
     },
     [performUpload]
   );
-  const retryImport = useCallback$6(() => {
+  const retryImport = useCallback$8(() => {
     if (state.kind !== "importError") return;
     void performUpload(state.payload.file);
   }, [state, performUpload]);
-  const resetToIdle = useCallback$6(() => {
+  const resetToIdle = useCallback$8(() => {
     var _a;
     attemptRef.current += 1;
     (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
     stopPhaseAnimation();
     setState({ kind: "idle" });
   }, [stopPhaseAnimation]);
-  const cancelStagedUpload = useCallback$6(() => {
+  const cancelStagedUpload = useCallback$8(() => {
     if (state.kind !== "success") return;
     const { summary } = state;
     setState({ kind: "cancellingSuccess", summary });
@@ -461,7 +468,7 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       }
     );
   }, [state, cancelMutate]);
-  const release = useCallback$6(() => {
+  const release = useCallback$8(() => {
     if (state.kind !== "success") return;
     const { summary } = state;
     setState({ kind: "releasing", summary });
@@ -499,7 +506,7 @@ const useUploadFlow = /* @__PURE__ */ __name(({
       }
     );
   }, [state, releaseMutate, onFinished]);
-  useEffect$3(
+  useEffect$4(
     () => () => {
       var _a;
       (_a = abortControllerRef.current) == null ? void 0 : _a.abort();
@@ -777,13 +784,13 @@ const SummaryRow$1 = /* @__PURE__ */ __name(({ label, value }) => /* @__PURE__ *
   /* @__PURE__ */ jsxRuntimeExports.jsx("dd", { className: "font-semibold", children: value })
 ] }), "SummaryRow$1");
 const React = await importShared("react");
-const { useCallback: useCallback$5, useMemo: useMemo$9, useRef: useRef$3 } = React;
+const { useCallback: useCallback$7, useMemo: useMemo$d, useRef: useRef$6 } = React;
 const UploadStatementDialog = /* @__PURE__ */ __name(({
   open,
   context,
   onClose
 }) => {
-  const fileInputRef = useRef$3(null);
+  const fileInputRef = useRef$6(null);
   const {
     state,
     startUpload,
@@ -794,18 +801,18 @@ const UploadStatementDialog = /* @__PURE__ */ __name(({
     resetToIdle,
     release
   } = useUploadFlow({ context, onFinished: onClose });
-  const formatAmount = useMemo$9(() => {
+  const formatAmount = useMemo$d(() => {
     const currency = {
       code: context.currencyCode,
       symbol: getCurrencySymbol(context.currencyCode)
     };
     return (amount) => formatCurrency(amount, { currency, includeCurrencyCode: false });
   }, [context.currencyCode]);
-  const openFilePicker = useCallback$5(() => {
+  const openFilePicker = useCallback$7(() => {
     var _a;
     (_a = fileInputRef.current) == null ? void 0 : _a.click();
   }, []);
-  const handleFileSelect = useCallback$5(
+  const handleFileSelect = useCallback$7(
     (event) => {
       var _a;
       const file = (_a = event.target.files) == null ? void 0 : _a[0];
@@ -821,7 +828,7 @@ const UploadStatementDialog = /* @__PURE__ */ __name(({
     [state.kind, startUpload, replaceFile]
   );
   const showHeaderClose = state.kind === "idle" || state.kind === "uploadError";
-  const handleOpenChange = useCallback$5(
+  const handleOpenChange = useCallback$7(
     (nextOpen) => {
       if (nextOpen) return;
       if (!showHeaderClose) return;
@@ -897,9 +904,9 @@ const UploadStatementDialog = /* @__PURE__ */ __name(({
   ) });
 }, "UploadStatementDialog");
 const DEFAULT_PAGE_SIZE$2 = 20;
-const { useMemo: useMemo$8 } = await importShared("react");
-const TextCell$1 = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell$1");
-const AmountCell$1 = /* @__PURE__ */ __name(({ value, currencyCode }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-right", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium truncate", children: formatAmountWithCurrency(value, currencyCode) }) }), "AmountCell$1");
+const { useMemo: useMemo$c } = await importShared("react");
+const TextCell$2 = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell$2");
+const AmountCell$2 = /* @__PURE__ */ __name(({ value, currencyCode }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-right", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium truncate", children: formatAmountWithCurrency(value, currencyCode) }) }), "AmountCell$2");
 const ACTION_STATUS_CONFIG$1 = {
   [ReconciliationStatus.Complete]: { textColor: "text-exp-green-800", bgColor: "bg-exp-green-100", label: "Complete" },
   [ReconciliationStatus.Overdue]: { textColor: "text-exp-red-600", bgColor: "bg-exp-red-100", label: "Overdue" },
@@ -922,7 +929,7 @@ const ActionStatusCell = /* @__PURE__ */ __name(({ value, onUpload }) => {
     );
   }
   if (value === null) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: "-" });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$2, { value: "-" });
   }
   const config = ACTION_STATUS_CONFIG$1[value];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
@@ -931,7 +938,7 @@ const ActionStatusCell = /* @__PURE__ */ __name(({ value, onUpload }) => {
   ] });
 }, "ActionStatusCell");
 const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
-  const staticColumns = useMemo$8(() => [
+  const staticColumns = useMemo$c(() => [
     {
       id: "name",
       accessorKey: "name",
@@ -943,7 +950,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$2, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -957,7 +964,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$2, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -971,7 +978,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$2, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -985,7 +992,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$2, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -1000,7 +1007,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         {
           context,
           viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            AmountCell$1,
+            AmountCell$2,
             {
               value: context.getValue(),
               currencyCode: context.row.original.currencyCode
@@ -1020,7 +1027,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         {
           context,
           viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            AmountCell$1,
+            AmountCell$2,
             {
               value: context.getValue(),
               currencyCode: context.row.original.currencyCode
@@ -1040,7 +1047,7 @@ const useReconciliationsColumns = /* @__PURE__ */ __name(({ onUpload }) => {
         {
           context,
           viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(
-            AmountCell$1,
+            AmountCell$2,
             {
               value: context.getValue(),
               currencyCode: context.row.original.currencyCode
@@ -1114,7 +1121,7 @@ const parseReturnUrl = /* @__PURE__ */ __name((returnUrl) => {
     return null;
   }
 }, "parseReturnUrl");
-const { useCallback: useCallback$4, useEffect: useEffect$2, useMemo: useMemo$7, useRef: useRef$2 } = await importShared("react");
+const { useCallback: useCallback$6, useEffect: useEffect$3, useMemo: useMemo$b, useRef: useRef$5 } = await importShared("react");
 const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
@@ -1123,12 +1130,12 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
   const urlSortBy = searchParams.get(URL_PARAM_SORT_BY$1);
   const urlSortOrder = searchParams.get(URL_PARAM_SORT_ORDER$1);
   const urlPage = searchParams.get(URL_PARAM_PAGE$2);
-  const restoredState = useMemo$7(
+  const restoredState = useMemo$b(
     () => parseReturnUrl(locationState == null ? void 0 : locationState.returnUrl),
     [locationState == null ? void 0 : locationState.returnUrl]
   );
-  const preservedStateRef = useRef$2(restoredState ?? createDefaultFilterState());
-  useEffect$2(() => {
+  const preservedStateRef = useRef$5(restoredState ?? createDefaultFilterState());
+  useEffect$3(() => {
     if (!isOnListPage) return;
     const needsSortBy = !urlSortBy || !isValidSortField$1(urlSortBy);
     const needsSortOrder = !urlSortOrder || !isValidSortOrder$1(urlSortOrder);
@@ -1141,7 +1148,7 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
       }, { replace: true });
     }
   }, [isOnListPage, urlSortBy, urlSortOrder, setSearchParams]);
-  const sorting = useMemo$7(() => {
+  const sorting = useMemo$b(() => {
     if (!isOnListPage) return preservedStateRef.current.sorting;
     const sortBy = isValidSortField$1(urlSortBy) ? urlSortBy : getDefaultSortField$1();
     const sortOrder = isValidSortOrder$1(urlSortOrder) ? urlSortOrder : getDefaultSortOrder$1();
@@ -1149,8 +1156,8 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
     preservedStateRef.current.sorting = result;
     return result;
   }, [urlSortBy, urlSortOrder, isOnListPage]);
-  const columnFilters = useMemo$7(() => [], []);
-  const pagination = useMemo$7(() => {
+  const columnFilters = useMemo$b(() => [], []);
+  const pagination = useMemo$b(() => {
     if (!isOnListPage) {
       return {
         pageIndex: preservedStateRef.current.pageIndex,
@@ -1161,12 +1168,12 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
     preservedStateRef.current.pageIndex = pageIndex;
     return { pageIndex, pageSize: DEFAULT_PAGE_SIZE$2 };
   }, [urlPage, isOnListPage]);
-  const handleColumnFiltersChange = useCallback$4(
+  const handleColumnFiltersChange = useCallback$6(
     (_updater) => {
     },
     []
   );
-  const handleSortingChange = useCallback$4((updater) => {
+  const handleSortingChange = useCallback$6((updater) => {
     const newSorting = typeof updater === "function" ? updater(sorting) : updater;
     const sortConfig = newSorting[0];
     const sortBy = (sortConfig == null ? void 0 : sortConfig.id) ?? getDefaultSortField$1();
@@ -1179,7 +1186,7 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
       return next;
     }, { replace: true });
   }, [sorting, setSearchParams]);
-  const handlePaginationChange = useCallback$4((updater) => {
+  const handlePaginationChange = useCallback$6((updater) => {
     const newPagination = typeof updater === "function" ? updater(pagination) : updater;
     if (newPagination.pageIndex === pagination.pageIndex) return;
     const pageForUrl = formatPageForUrl$2(newPagination.pageIndex);
@@ -1203,7 +1210,7 @@ const useReconciliationsUrlFilters = /* @__PURE__ */ __name(() => {
     handlePaginationChange
   };
 }, "useReconciliationsUrlFilters");
-const { useCallback: useCallback$3, useMemo: useMemo$6, useState: useState$1 } = await importShared("react");
+const { useCallback: useCallback$5, useMemo: useMemo$a, useState: useState$1 } = await importShared("react");
 const ReconciliationsList = /* @__PURE__ */ __name(() => {
   const navigateWithReturn = useNavigateWithReturn();
   const {
@@ -1215,7 +1222,7 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
     handleSortingChange,
     handlePaginationChange
   } = useReconciliationsUrlFilters();
-  const queryParams = useMemo$6(() => {
+  const queryParams = useMemo$a(() => {
     var _a;
     return {
       sortOrder: ((_a = sorting[0]) == null ? void 0 : _a.desc) ? "desc" : "asc",
@@ -1230,7 +1237,7 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
   const isLoading = isPending || isFetching;
   useErrorToast(isError, "Failed to load reconciliations. Please try again later.");
   const [uploadContext, setUploadContext] = useState$1(null);
-  const handleUpload = useCallback$3((item) => {
+  const handleUpload = useCallback$5((item) => {
     setUploadContext({
       masterAccountId: item.masterAccountId,
       statementId: item.id,
@@ -1239,18 +1246,18 @@ const ReconciliationsList = /* @__PURE__ */ __name(() => {
       statementPeriod: item.statementPeriod
     });
   }, []);
-  const handleUploadClose = useCallback$3(() => {
+  const handleUploadClose = useCallback$5(() => {
     setUploadContext(null);
   }, []);
   const { columns } = useReconciliationsColumns({ onUpload: handleUpload });
-  const handleRowClick = useCallback$3((row) => {
+  const handleRowClick = useCallback$5((row) => {
     const { id, actionOrStatus } = row.original;
     if (actionOrStatus === ReconciliationStatus.Upload) return;
     navigateWithReturn(generatePath(RoutePaths.ReconciliationsId, { id: String(id) }), {
       state: { item: row.original }
     });
   }, [navigateWithReturn]);
-  const customLoadingState = useMemo$6(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
+  const customLoadingState = useMemo$a(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-8 text-exp-primary-blue-600" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-exp-neutral-600", children: "Loading" })
   ] }), []);
@@ -1393,16 +1400,16 @@ const useCardholderReconciliationList = /* @__PURE__ */ __name((queryParams, opt
 }, "useCardholderReconciliationList");
 const DEFAULT_PAGE_SIZE$1 = 20;
 const ACTION_REQUIRED_PROBE_PAGE_SIZE = 100;
-const { useMemo: useMemo$5 } = await importShared("react");
+const { useMemo: useMemo$9 } = await importShared("react");
 const ACTION_STATUS_CONFIG = {
   [CardholderReconciliationStatus.Matched]: { textColor: "text-exp-green-800", bgColor: "bg-exp-green-100", label: "Matched" },
   [CardholderReconciliationStatus.ActionRequiredOverdue]: { textColor: "text-exp-red-600", bgColor: "bg-exp-red-100", label: "Action Required" },
   [CardholderReconciliationStatus.ActionRequired]: { textColor: "text-exp-yellow-800", bgColor: "bg-exp-yellow-200", label: "Action Required" }
 };
-const TextCell = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell");
+const TextCell$1 = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal truncate", children: value }), "TextCell$1");
 const StatusCell$1 = /* @__PURE__ */ __name(({ value }) => {
   if (value === null) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: "-" });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: "-" });
   }
   const config = ACTION_STATUS_CONFIG[value];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
@@ -1411,7 +1418,7 @@ const StatusCell$1 = /* @__PURE__ */ __name(({ value }) => {
   ] });
 }, "StatusCell$1");
 const useCardholderReconciliationColumns = /* @__PURE__ */ __name(() => {
-  const columns = useMemo$5(() => [
+  const columns = useMemo$9(() => [
     {
       id: "name",
       accessorKey: "name",
@@ -1423,7 +1430,7 @@ const useCardholderReconciliationColumns = /* @__PURE__ */ __name(() => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -1437,7 +1444,7 @@ const useCardholderReconciliationColumns = /* @__PURE__ */ __name(() => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -1451,7 +1458,7 @@ const useCardholderReconciliationColumns = /* @__PURE__ */ __name(() => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -1465,7 +1472,7 @@ const useCardholderReconciliationColumns = /* @__PURE__ */ __name(() => {
         ei,
         {
           context,
-          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell$1, { value: context.getValue() })
         }
       ), "cell")
     },
@@ -1505,13 +1512,13 @@ const formatPageForUrl$1 = /* @__PURE__ */ __name((pageIndex) => {
   if (pageIndex === DEFAULT_PAGE_INDEX) return null;
   return String(pageIndex + 1);
 }, "formatPageForUrl$1");
-const { useCallback: useCallback$2, useEffect: useEffect$1, useMemo: useMemo$4 } = await importShared("react");
+const { useCallback: useCallback$4, useEffect: useEffect$2, useMemo: useMemo$8 } = await importShared("react");
 const useCardholderReconciliationUrlFilters = /* @__PURE__ */ __name(() => {
   const [searchParams, setSearchParams] = useSearchParams();
   const urlSortBy = searchParams.get(URL_PARAM_SORT_BY);
   const urlSortOrder = searchParams.get(URL_PARAM_SORT_ORDER);
   const urlPage = searchParams.get(URL_PARAM_PAGE$1);
-  useEffect$1(() => {
+  useEffect$2(() => {
     const needsSortBy = !urlSortBy || !isValidSortField(urlSortBy);
     const needsSortOrder = !urlSortOrder || !isValidSortOrder(urlSortOrder);
     if (needsSortBy || needsSortOrder) {
@@ -1523,19 +1530,19 @@ const useCardholderReconciliationUrlFilters = /* @__PURE__ */ __name(() => {
       }, { replace: true });
     }
   }, [urlSortBy, urlSortOrder, setSearchParams]);
-  const sorting = useMemo$4(() => {
+  const sorting = useMemo$8(() => {
     const sortBy = isValidSortField(urlSortBy) ? urlSortBy : getDefaultSortField();
     const sortOrder = isValidSortOrder(urlSortOrder) ? urlSortOrder : getDefaultSortOrder();
     return [{ id: sortBy, desc: sortOrder === "desc" }];
   }, [urlSortBy, urlSortOrder]);
-  const columnFilters = useMemo$4(() => [], []);
-  const pagination = useMemo$4(() => ({
+  const columnFilters = useMemo$8(() => [], []);
+  const pagination = useMemo$8(() => ({
     pageIndex: parsePageNumber(urlPage),
     pageSize: DEFAULT_PAGE_SIZE$1
   }), [urlPage]);
-  const handleColumnFiltersChange = useCallback$2((_updater) => {
+  const handleColumnFiltersChange = useCallback$4((_updater) => {
   }, []);
-  const handleSortingChange = useCallback$2((updater) => {
+  const handleSortingChange = useCallback$4((updater) => {
     const newSorting = typeof updater === "function" ? updater(sorting) : updater;
     const sortConfig = newSorting[0];
     const sortBy = (sortConfig == null ? void 0 : sortConfig.id) ?? getDefaultSortField();
@@ -1548,7 +1555,7 @@ const useCardholderReconciliationUrlFilters = /* @__PURE__ */ __name(() => {
       return next;
     }, { replace: true });
   }, [sorting, setSearchParams]);
-  const handlePaginationChange = useCallback$2((updater) => {
+  const handlePaginationChange = useCallback$4((updater) => {
     const newPagination = typeof updater === "function" ? updater(pagination) : updater;
     if (newPagination.pageIndex === pagination.pageIndex) return;
     const pageForUrl = formatPageForUrl$1(newPagination.pageIndex);
@@ -1571,8 +1578,9 @@ const useCardholderReconciliationUrlFilters = /* @__PURE__ */ __name(() => {
     handlePaginationChange
   };
 }, "useCardholderReconciliationUrlFilters");
-const { useMemo: useMemo$3 } = await importShared("react");
+const { useCallback: useCallback$3, useMemo: useMemo$7 } = await importShared("react");
 const CardholderReconciliationList = /* @__PURE__ */ __name(() => {
+  const navigateWithReturn = useNavigateWithReturn();
   const {
     columnFilters,
     sorting,
@@ -1581,7 +1589,7 @@ const CardholderReconciliationList = /* @__PURE__ */ __name(() => {
     handleSortingChange,
     handlePaginationChange
   } = useCardholderReconciliationUrlFilters();
-  const queryParams = useMemo$3(() => {
+  const queryParams = useMemo$7(() => {
     var _a;
     return {
       sortOrder: ((_a = sorting[0]) == null ? void 0 : _a.desc) ? "desc" : "asc",
@@ -1596,7 +1604,16 @@ const CardholderReconciliationList = /* @__PURE__ */ __name(() => {
   const isLoading = isPending;
   useErrorToast(isError, "Failed to load reconciliations. Please try again later.");
   const { columns } = useCardholderReconciliationColumns();
-  const customLoadingState = useMemo$3(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
+  const handleRowClick = useCallback$3(
+    (row) => {
+      navigateWithReturn(
+        generatePath(RoutePaths.CardholderReconciliationId, { id: String(row.original.id) }),
+        { state: { item: row.original } }
+      );
+    },
+    [navigateWithReturn]
+  );
+  const customLoadingState = useMemo$7(() => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-8 text-exp-primary-blue-600" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-exp-neutral-600", children: "Loading" })
   ] }), []);
@@ -1629,6 +1646,7 @@ const CardholderReconciliationList = /* @__PURE__ */ __name(() => {
         onColumnFiltersChange: handleColumnFiltersChange,
         isLoading,
         loadingState: customLoadingState,
+        onRowClick: handleRowClick,
         styles: {
           bodyRow: "group hover:bg-exp-neutral-10",
           pagination: {
@@ -1648,6 +1666,487 @@ const CardholderReconciliationList = /* @__PURE__ */ __name(() => {
     ) })
   ] });
 }, "CardholderReconciliationList");
+var CardholderTransactionTab = /* @__PURE__ */ ((CardholderTransactionTab2) => {
+  CardholderTransactionTab2["Unmatched"] = "unmatched";
+  CardholderTransactionTab2["Matched"] = "matched";
+  CardholderTransactionTab2["Flagged"] = "flagged";
+  return CardholderTransactionTab2;
+})(CardholderTransactionTab || {});
+const { useMemo: useMemo$6 } = await importShared("react");
+const TAB_ORDER = [
+  { tab: CardholderTransactionTab.Unmatched, label: "Unmatched" },
+  { tab: CardholderTransactionTab.Matched, label: "Matched" },
+  { tab: CardholderTransactionTab.Flagged, label: "Flagged" }
+];
+const countFor = /* @__PURE__ */ __name((tab, summary) => {
+  if (!summary) return 0;
+  const counts = {
+    [CardholderTransactionTab.Unmatched]: summary.unmatched,
+    [CardholderTransactionTab.Matched]: summary.matched,
+    [CardholderTransactionTab.Flagged]: summary.flagged
+  };
+  return counts[tab];
+}, "countFor");
+const CardholderTransactionTabs = /* @__PURE__ */ __name(({
+  currentTab,
+  summary,
+  onChange
+}) => {
+  const tabs = useMemo$6(
+    () => TAB_ORDER.map(({ tab, label }) => ({ tab, label, count: countFor(tab, summary) })),
+    [summary]
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { role: "group", "aria-label": "Transaction status filter", className: "flex items-center gap-2", children: tabs.map(({ tab, label, count }) => {
+    const isActive = tab === currentTab;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        type: "button",
+        "aria-pressed": isActive,
+        onClick: /* @__PURE__ */ __name(() => onChange(tab), "onClick"),
+        className: h(
+          "rounded-full px-3 py-1 text-sm font-medium transition-colors",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-exp-primary-blue-300",
+          isActive ? "bg-exp-primary-blue-600 text-white" : "border border-exp-neutral-30 bg-exp-neutral-10 text-exp-neutral-600 hover:bg-exp-primary-blue-50"
+        ),
+        children: [
+          label,
+          " (",
+          count,
+          ")"
+        ]
+      },
+      tab
+    );
+  }) });
+}, "CardholderTransactionTabs");
+const { useEffect: useEffect$1, useLayoutEffect: useLayoutEffect$2, useRef: useRef$4 } = await importShared("react");
+const useInfiniteScroll = /* @__PURE__ */ __name(({
+  hasNextPage,
+  isLoading,
+  onLoadMore,
+  rootRef,
+  rootMargin = "0px"
+}) => {
+  const sentinelRef = useRef$4(null);
+  const onLoadMoreRef = useRef$4(onLoadMore);
+  useLayoutEffect$2(() => {
+    onLoadMoreRef.current = onLoadMore;
+  });
+  useEffect$1(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel || !hasNextPage) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting) && !isLoading) {
+          onLoadMoreRef.current();
+        }
+      },
+      // Read the root at effect time: the ref is populated after the first paint.
+      { root: (rootRef == null ? void 0 : rootRef.current) ?? null, rootMargin, threshold: 0 }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [hasNextPage, isLoading, rootRef, rootMargin]);
+  return sentinelRef;
+}, "useInfiniteScroll");
+const { useCallback: useCallback$2, useMemo: useMemo$5 } = await importShared("react");
+const URL_PARAM_TAB$1 = "tab";
+const URL_PARAM_SORT$1 = "sort";
+const SORT_COLUMN_ID$1 = "transactionDate";
+const DEFAULT_TAB$1 = CardholderTransactionTab.Unmatched;
+const DEFAULT_SORT_ORDER$1 = "desc";
+const VALID_TABS$1 = new Set(Object.values(CardholderTransactionTab));
+const isValidTab$1 = /* @__PURE__ */ __name((value) => value !== null && VALID_TABS$1.has(value), "isValidTab$1");
+const useCardholderTransactionsUrlFilters = /* @__PURE__ */ __name(() => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  const preservedState = location.state;
+  const urlTab = searchParams.get(URL_PARAM_TAB$1);
+  const urlSort = searchParams.get(URL_PARAM_SORT$1);
+  const currentTab = useMemo$5(
+    () => isValidTab$1(urlTab) ? urlTab : DEFAULT_TAB$1,
+    [urlTab]
+  );
+  const sortOrder = urlSort === "asc" ? "asc" : DEFAULT_SORT_ORDER$1;
+  const sorting = useMemo$5(
+    () => [{ id: SORT_COLUMN_ID$1, desc: sortOrder === "desc" }],
+    [sortOrder]
+  );
+  const setTab = useCallback$2(
+    (tab) => {
+      setSearchParams(
+        (prev) => {
+          const params = new URLSearchParams(prev);
+          if (tab === DEFAULT_TAB$1) {
+            params.delete(URL_PARAM_TAB$1);
+          } else {
+            params.set(URL_PARAM_TAB$1, tab);
+          }
+          return params;
+        },
+        { replace: true, state: preservedState }
+      );
+    },
+    [setSearchParams, preservedState]
+  );
+  const handleSortingChange = useCallback$2(
+    (updater) => {
+      var _a;
+      const next = typeof updater === "function" ? updater(sorting) : updater;
+      const nextOrder = ((_a = next[0]) == null ? void 0 : _a.desc) ? "desc" : "asc";
+      if (nextOrder === sortOrder) return;
+      setSearchParams(
+        (prev) => {
+          const params = new URLSearchParams(prev);
+          if (nextOrder === DEFAULT_SORT_ORDER$1) {
+            params.delete(URL_PARAM_SORT$1);
+          } else {
+            params.set(URL_PARAM_SORT$1, nextOrder);
+          }
+          return params;
+        },
+        { replace: true, state: preservedState }
+      );
+    },
+    [sorting, sortOrder, setSearchParams, preservedState]
+  );
+  return { currentTab, sortOrder, sorting, setTab, handleSortingChange };
+}, "useCardholderTransactionsUrlFilters");
+const { useLayoutEffect: useLayoutEffect$1, useMemo: useMemo$4, useRef: useRef$3 } = await importShared("react");
+const EMPTY_PLACEHOLDER$1 = "-";
+const MATCHING_DISABLED_TOOLTIP = "No expenses for matching";
+const TruncCell$1 = /* @__PURE__ */ __name(({ value }) => {
+  const isEmpty = !value;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block truncate text-sm font-normal", title: isEmpty ? void 0 : value, children: isEmpty ? EMPTY_PLACEHOLDER$1 : value });
+}, "TruncCell$1");
+const TextCell = /* @__PURE__ */ __name(({ value }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal", children: value || EMPTY_PLACEHOLDER$1 }), "TextCell");
+const AmountCell$1 = /* @__PURE__ */ __name(({
+  value,
+  currencyCode
+}) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-right", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium", children: formatAmountWithCurrency(value, currencyCode) }) }), "AmountCell$1");
+const MatchActionCell = /* @__PURE__ */ __name(({ disabled, onMatch }) => {
+  if (disabled) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-end", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Et, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "span",
+        {
+          "aria-disabled": "true",
+          tabIndex: 0,
+          "aria-label": MATCHING_DISABLED_TOOLTIP,
+          "data-testid": "cardholder-match-action-disabled",
+          className: "inline-flex cursor-not-allowed text-exp-neutral-70",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link2, { className: "size-4" })
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Pt, { children: MATCHING_DISABLED_TOOLTIP })
+    ] }) });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Ue,
+    {
+      type: "button",
+      variant: "outlined",
+      "aria-label": "Match transaction",
+      "data-testid": "cardholder-match-action",
+      onClick: /* @__PURE__ */ __name((event) => {
+        event.stopPropagation();
+        onMatch == null ? void 0 : onMatch();
+      }, "onClick"),
+      className: h(
+        "px-0! py-0! cursor-pointer text-exp-primary-blue-600 hover:text-exp-primary-blue-800",
+        "focus-visible:ring-2 focus-visible:ring-exp-primary-blue-300"
+      ),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link2, { className: "size-4" })
+    }
+  ) });
+}, "MatchActionCell");
+const useCardholderTransactionsColumns = /* @__PURE__ */ __name(({
+  currencyCode,
+  showMatchAction = true,
+  matchingDisabled = false,
+  onMatch
+}) => {
+  const onMatchRef = useRef$3(onMatch);
+  useLayoutEffect$1(() => {
+    onMatchRef.current = onMatch;
+  });
+  const columns = useMemo$4(() => {
+    const baseColumns = [
+      {
+        id: "vendor",
+        accessorKey: "vendor",
+        enableSorting: false,
+        minSize: 200,
+        maxSize: 320,
+        header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Transaction" }), "header"),
+        cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ei,
+          {
+            context,
+            viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TruncCell$1, { value: context.getValue() })
+          }
+        ), "cell")
+      },
+      {
+        id: SORT_COLUMN_ID$1,
+        accessorKey: "transactionDate",
+        enableSorting: true,
+        size: 180,
+        header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Date" }), "header"),
+        cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ei,
+          {
+            context,
+            viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: context.getValue() })
+          }
+        ), "cell")
+      },
+      {
+        id: "amount",
+        accessorKey: "amount",
+        enableSorting: false,
+        size: 160,
+        header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Amount" }) }), "header"),
+        cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ei,
+          {
+            context,
+            viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(AmountCell$1, { value: context.getValue(), currencyCode })
+          }
+        ), "cell")
+      }
+    ];
+    if (!showMatchAction) {
+      return baseColumns;
+    }
+    return [
+      ...baseColumns,
+      {
+        id: "action",
+        enableSorting: false,
+        size: 100,
+        header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-end", children: /* @__PURE__ */ jsxRuntimeExports.jsx($a, { column, title: "Action" }) }), "header"),
+        cell: /* @__PURE__ */ __name((context) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ei,
+          {
+            context,
+            viewContent: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              MatchActionCell,
+              {
+                disabled: matchingDisabled,
+                onMatch: /* @__PURE__ */ __name(() => {
+                  var _a;
+                  return (_a = onMatchRef.current) == null ? void 0 : _a.call(onMatchRef, context.row.original);
+                }, "onMatch")
+              }
+            )
+          }
+        ), "cell")
+      }
+    ];
+  }, [currencyCode, showMatchAction, matchingDisabled]);
+  return { columns };
+}, "useCardholderTransactionsColumns");
+const { useRef: useRef$2 } = await importShared("react");
+const EMPTY_STATE_MESSAGE = "No results to display";
+const CardholderTransactionsTable = /* @__PURE__ */ __name(({
+  columns,
+  data,
+  sorting,
+  onSortingChange,
+  isInitialLoading,
+  isFetchingNextPage,
+  hasNextPage,
+  onLoadMore
+}) => {
+  const scrollRef = useRef$2(null);
+  const sentinelRef = useInfiniteScroll({
+    hasNextPage,
+    isLoading: isFetchingNextPage,
+    onLoadMore,
+    rootRef: scrollRef,
+    rootMargin: "120px"
+  });
+  const emptyState = /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      className: "flex w-full items-center justify-center p-4",
+      "data-testid": "cardholder-transactions-empty-state",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm italic text-exp-grey-600", children: EMPTY_STATE_MESSAGE })
+    }
+  );
+  const loadingState = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3 py-4", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-8 text-exp-primary-blue-600" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-exp-neutral-600", children: "Loading" })
+  ] });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      ref: scrollRef,
+      className: "exp-custom-scrollbar flex min-h-0 flex-1 flex-col overflow-auto",
+      "data-testid": "cardholder-transactions-table",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ni,
+          {
+            columns,
+            data,
+            getRowId: /* @__PURE__ */ __name((row) => String(row.transactionId), "getRowId"),
+            enableSorting: true,
+            manualSorting: true,
+            sorting,
+            onSortingChange,
+            isLoading: isInitialLoading,
+            loadingState,
+            emptyState
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: sentinelRef, className: "h-px", "aria-hidden": "true" }),
+        isFetchingNextPage && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center py-3", "data-testid": "cardholder-transactions-next-spinner", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-5 text-exp-primary-blue-600" }) })
+      ]
+    }
+  );
+}, "CardholderTransactionsTable");
+const CARDHOLDER_TRANSACTIONS_PAGE_SIZE = 20;
+const parseAmount$1 = /* @__PURE__ */ __name((value, ctx) => {
+  if (value == null) return null;
+  const parsed = parseFloat(value);
+  if (Number.isFinite(parsed)) return parsed;
+  devError("Invalid cardholder transaction amount from BE", { id: ctx.id, raw: value });
+  return null;
+}, "parseAmount$1");
+const mapCardholderTransactionItem = /* @__PURE__ */ __name((api) => ({
+  transactionId: api.transactionId,
+  vendor: api.vendor,
+  // BE date is Optional[datetime]; take the date portion so the calendar date
+  // renders as a local date with no UTC day-shift. null/invalid -> '' -> "-".
+  transactionDate: formatExpenseDate(api.date ? api.date.slice(0, 10) : void 0),
+  amount: parseAmount$1(api.amount, { id: api.transactionId }),
+  matchedExpenseBusinessId: api.matchedExpenseBusinessId,
+  expenseStatus: api.expenseStatus
+}), "mapCardholderTransactionItem");
+const mapCardholderTransactionsPage = /* @__PURE__ */ __name((api) => ({
+  statusSummary: {
+    unmatched: api.statusSummary.unmatched,
+    matched: api.statusSummary.matched,
+    flagged: api.statusSummary.flagged
+  },
+  totalObjects: api.totalObjects,
+  pageNumber: api.pageNumber,
+  pageSize: api.pageSize,
+  totalPages: api.totalPages,
+  results: api.results.map(mapCardholderTransactionItem),
+  hasMatchableExpenses: api.hasMatchableExpenses,
+  masterAccountName: api.masterAccountName,
+  currencyCode: api.currencyCode,
+  statementPeriod: api.statementPeriod,
+  reconciliationDueDate: api.reconciliationDueDate
+}), "mapCardholderTransactionsPage");
+const useCardholderTransactions = /* @__PURE__ */ __name(({
+  tab,
+  sortOrder = "desc",
+  statementId
+}) => useInfiniteQuery({
+  queryKey: queryKeys.cardholderTransactions.list({ tab, sortOrder, statementId }),
+  initialPageParam: 1,
+  queryFn: /* @__PURE__ */ __name(async ({ pageParam }) => {
+    const url = RECONCILIATION_ENDPOINTS.GET_CARDHOLDER_TRANSACTIONS.build();
+    const response = await apiClient.get(url, {
+      // statementId scopes the list + statusSummary to one statement once the BE
+      // filter lands; sent only when present (current BE ignores an unknown param).
+      params: {
+        tab,
+        pageNumber: pageParam,
+        pageSize: CARDHOLDER_TRANSACTIONS_PAGE_SIZE,
+        sortOrder,
+        ...statementId ? { statementId } : {}
+      }
+    });
+    return mapCardholderTransactionsPage(response.data);
+  }, "queryFn"),
+  getNextPageParam: /* @__PURE__ */ __name((lastPage) => lastPage.pageNumber < lastPage.totalPages ? lastPage.pageNumber + 1 : void 0, "getNextPageParam"),
+  staleTime: 60 * 1e3,
+  // Keep the previous tab's rows + counts on screen while the next tab loads
+  // (matches the AP sibling); avoids flashing (0) counts and an empty table.
+  placeholderData: keepPreviousData
+}), "useCardholderTransactions");
+const dedupeTransactions = /* @__PURE__ */ __name((pages) => {
+  const byId = /* @__PURE__ */ new Map();
+  for (const page of pages ?? []) {
+    for (const row of page.results) byId.set(row.transactionId, row);
+  }
+  return [...byId.values()];
+}, "dedupeTransactions");
+const { useMemo: useMemo$3 } = await importShared("react");
+const formatTitle = /* @__PURE__ */ __name((name, currency) => `${name || EMPTY_CURRENCY_SYMBOL} (${currency || EMPTY_CURRENCY_SYMBOL})`, "formatTitle");
+const formatSubtitle = /* @__PURE__ */ __name((period, due) => `${period || EMPTY_CURRENCY_SYMBOL} • Due on ${due || EMPTY_CURRENCY_SYMBOL}`, "formatSubtitle");
+const CardholderTransactionsView = /* @__PURE__ */ __name(({
+  header,
+  statementId,
+  onBack,
+  onMatchTransaction
+}) => {
+  const { currentTab, sorting, sortOrder, setTab, handleSortingChange } = useCardholderTransactionsUrlFilters();
+  const {
+    data,
+    isPending,
+    isPlaceholderData,
+    isError,
+    isFetchingNextPage,
+    hasNextPage,
+    fetchNextPage
+  } = useCardholderTransactions({ tab: currentTab, sortOrder, statementId });
+  useErrorToast(isError, "Failed to load transactions. Please try again later.");
+  const firstPage = data == null ? void 0 : data.pages[0];
+  const summary = firstPage == null ? void 0 : firstPage.statusSummary;
+  const matchingDisabled = (firstPage == null ? void 0 : firstPage.hasMatchableExpenses) === false;
+  const masterAccountName = (firstPage == null ? void 0 : firstPage.masterAccountName) ?? (header == null ? void 0 : header.masterAccountName);
+  const currencyCode = (firstPage == null ? void 0 : firstPage.currencyCode) ?? (header == null ? void 0 : header.currencyCode);
+  const statementPeriod = (firstPage == null ? void 0 : firstPage.statementPeriod) ?? (header == null ? void 0 : header.statementPeriod);
+  const reconciliationDueDate = (firstPage == null ? void 0 : firstPage.reconciliationDueDate) ?? (header == null ? void 0 : header.reconciliationDueDate);
+  const isTableLoading = isPending || isPlaceholderData;
+  const rows = useMemo$3(() => dedupeTransactions(data == null ? void 0 : data.pages), [data]);
+  const { columns } = useCardholderTransactionsColumns({
+    currencyCode,
+    showMatchAction: currentTab === CardholderTransactionTab.Unmatched,
+    matchingDisabled,
+    onMatch: onMatchTransaction
+  });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex h-full min-h-0 flex-col p-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-4 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Ue,
+      {
+        type: "button",
+        variant: "outlined",
+        onClick: onBack,
+        className: "flex items-center gap-1 px-0! text-exp-neutral-600 hover:text-exp-primary-blue-600",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "back", className: "size-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal", children: "Reconciliation" })
+        ]
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "mb-4 shrink-0 rounded-lg bg-exp-neutral-10 px-4 py-2 shadow-exp-menu", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "truncate text-xl font-bold text-exp-neutral-900", children: formatTitle(masterAccountName, currencyCode) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-1 text-sm font-medium text-exp-neutral-600", children: formatSubtitle(statementPeriod, reconciliationDueDate) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-3 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CardholderTransactionTabs, { currentTab, summary, onChange: setTab }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Kr, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      CardholderTransactionsTable,
+      {
+        columns,
+        data: rows,
+        sorting,
+        onSortingChange: handleSortingChange,
+        isInitialLoading: isTableLoading,
+        isFetchingNextPage,
+        hasNextPage,
+        onLoadMore: fetchNextPage
+      }
+    ) })
+  ] });
+}, "CardholderTransactionsView");
 const placeholder = /* @__PURE__ */ __name(() => ({
   text: EMPTY_CURRENCY_SYMBOL,
   isPlaceholder: true
@@ -2376,5 +2875,6 @@ export {
   CompanySummaryCard as a,
   ALL_COMPANIES_SELECTION as b,
   CardholderReconciliationList as c,
+  CardholderTransactionsView as d,
   useCardholderReconciliationList as u
 };

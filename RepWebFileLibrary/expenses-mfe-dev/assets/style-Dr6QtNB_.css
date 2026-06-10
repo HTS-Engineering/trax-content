@@ -1097,6 +1097,10 @@
     background-color: var(--color-exp-primary-blue-100);
   }
 
+  .expenses-mfe-scope .bg-exp-primary-blue-600, .trax-ui-component .bg-exp-primary-blue-600, .expenses-mfe-scope.bg-exp-primary-blue-600, .trax-ui-component.bg-exp-primary-blue-600 {
+    background-color: var(--color-exp-primary-blue-600);
+  }
+
   .expenses-mfe-scope .bg-exp-red-100, .trax-ui-component .bg-exp-red-100, .expenses-mfe-scope.bg-exp-red-100, .trax-ui-component.bg-exp-red-100 {
     background-color: var(--color-exp-red-100);
   }
@@ -1520,6 +1524,10 @@
 
     .expenses-mfe-scope .hover\:text-exp-primary-blue-600:hover, .trax-ui-component .hover\:text-exp-primary-blue-600:hover, .expenses-mfe-scope.hover\:text-exp-primary-blue-600:hover, .trax-ui-component.hover\:text-exp-primary-blue-600:hover {
       color: var(--color-exp-primary-blue-600) !important;
+    }
+
+    .expenses-mfe-scope .hover\:text-exp-primary-blue-800:hover, .trax-ui-component .hover\:text-exp-primary-blue-800:hover, .expenses-mfe-scope.hover\:text-exp-primary-blue-800:hover, .trax-ui-component.hover\:text-exp-primary-blue-800:hover {
+      color: var(--color-exp-primary-blue-800) !important;
     }
 
     .expenses-mfe-scope .hover\:text-exp-red-600:hover, .trax-ui-component .hover\:text-exp-red-600:hover, .expenses-mfe-scope.hover\:text-exp-red-600:hover, .trax-ui-component.hover\:text-exp-red-600:hover {

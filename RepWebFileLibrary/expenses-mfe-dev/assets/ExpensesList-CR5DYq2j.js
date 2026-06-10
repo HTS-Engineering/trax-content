@@ -3,11 +3,11 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { b as apiClient, B as Br, e as ei, $ as $a, q as dr, t as ts, n as ni, T as Ta, z as za, Y as Yn } from "./configuration-B22LCkq1.js";
-import { e as useCompanyStore, m as useQuery, n as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-NBja2wgz.js";
+import { e as useCompanyStore, m as useQuery, n as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-pp-oQFyY.js";
 import { E as EmptyState } from "./EmptyState-78GKove4.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { P as Plus } from "./TaxTypeSearchSelect-DSVaBpmc.js";
-import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DXZ-NsY1.js";
+import { P as Plus } from "./TaxTypeSearchSelect-Bzmpz5-n.js";
+import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DMnSrcZs.js";
 const STATUS_BADGE_CONFIG = {
   draft: {
     bgColor: "bg-exp-yellow-200",

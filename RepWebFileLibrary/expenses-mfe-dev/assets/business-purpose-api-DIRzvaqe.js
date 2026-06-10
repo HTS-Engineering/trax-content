@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { m as useQuery, q as queryKeys, r as useQueryClient, s as useMutation } from "./use-scroll-into-view-ref-NBja2wgz.js";
+import { m as useQuery, q as queryKeys, r as useQueryClient, s as useMutation } from "./use-scroll-into-view-ref-pp-oQFyY.js";
 import { b as apiClient, ac as BUSINESS_PURPOSE_ENDPOINTS } from "./configuration-B22LCkq1.js";
 const mapToBusinessPurpose = /* @__PURE__ */ __name((apiData) => {
   return {

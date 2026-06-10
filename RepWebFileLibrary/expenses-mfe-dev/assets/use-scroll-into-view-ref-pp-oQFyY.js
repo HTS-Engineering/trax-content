@@ -7544,6 +7544,7 @@ var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
   RoutePaths2["Reconciliations"] = "/reconciliations";
   RoutePaths2["ReconciliationsId"] = "/reconciliations/:id";
   RoutePaths2["CardholderReconciliation"] = "/reconciliation";
+  RoutePaths2["CardholderReconciliationId"] = "/reconciliation/:id";
   return RoutePaths2;
 })(RoutePaths || {});
 var RouteNames = /* @__PURE__ */ ((RouteNames2) => {
@@ -9966,7 +9967,8 @@ const RECONCILIATION_ENDPOINTS = {
     "/api/v1.0/reconciliation/:statementId/transactions-company"
   ),
   GET_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/:statementId/transactions"),
-  GET_CARDHOLDER_DASHBOARD: endpoint("/api/v1.0/reconciliation/cardholder/dashboard")
+  GET_CARDHOLDER_DASHBOARD: endpoint("/api/v1.0/reconciliation/cardholder/dashboard"),
+  GET_CARDHOLDER_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/cardholder/transactions")
 };
 const ALL_ENDPOINT_TEMPLATES = collectEndpointTemplates(
   EXPENSE_ENDPOINTS,
@@ -10005,6 +10007,7 @@ var QueryKeyScope = /* @__PURE__ */ ((QueryKeyScope2) => {
   QueryKeyScope2["CARDHOLDER_RECONCILIATIONS"] = "cardholderReconciliations";
   QueryKeyScope2["COMPANY_TRANSACTIONS"] = "companyTransactions";
   QueryKeyScope2["TRANSACTIONS"] = "transactions";
+  QueryKeyScope2["CARDHOLDER_TRANSACTIONS"] = "cardholderTransactions";
   return QueryKeyScope2;
 })(QueryKeyScope || {});
 var QueryKeyOperation = /* @__PURE__ */ ((QueryKeyOperation2) => {
@@ -10186,6 +10189,11 @@ const queryKeys = {
     all: /* @__PURE__ */ __name(() => [QueryKeyScope.TRANSACTIONS], "all"),
     lists: /* @__PURE__ */ __name(() => [QueryKeyScope.TRANSACTIONS, QueryKeyOperation.LIST], "lists"),
     list: /* @__PURE__ */ __name((params) => [...queryKeys.transactions.lists(), params], "list")
+  },
+  cardholderTransactions: {
+    all: /* @__PURE__ */ __name(() => [QueryKeyScope.CARDHOLDER_TRANSACTIONS], "all"),
+    lists: /* @__PURE__ */ __name(() => [QueryKeyScope.CARDHOLDER_TRANSACTIONS, QueryKeyOperation.LIST], "lists"),
+    list: /* @__PURE__ */ __name((params) => [...queryKeys.cardholderTransactions.lists(), params], "list")
   }
 };
 const EMPTY_CURRENCY_SYMBOL = "-";
@@ -10585,24 +10593,24 @@ export {
   useDebouncedCallback as a1,
   useNumericDisplay as a2,
   getCurrencySymbol as a3,
-  QueryObserver as a4,
-  hasPreviousPage as a5,
-  hasNextPage as a6,
-  useBaseQuery as a7,
-  useEscapeHandler as a8,
-  DEFAULT_CURRENCY_SYMBOL as a9,
-  formatRateCompact as aa,
-  shallowEqualObjects as ab,
-  replaceEqualDeep as ac,
-  useIsRestoring as ad,
-  useQueryErrorResetBoundary as ae,
-  ensureSuspenseTimers as af,
-  ensurePreventErrorBoundaryRetry as ag,
-  useClearResetErrorBoundary as ah,
-  shouldSuspend as ai,
-  fetchOptimistic as aj,
-  getHasError as ak,
-  RECONCILIATION_ENDPOINTS as al,
+  useEscapeHandler as a4,
+  DEFAULT_CURRENCY_SYMBOL as a5,
+  formatRateCompact as a6,
+  shallowEqualObjects as a7,
+  replaceEqualDeep as a8,
+  QueryObserver as a9,
+  useIsRestoring as aa,
+  useQueryErrorResetBoundary as ab,
+  ensureSuspenseTimers as ac,
+  ensurePreventErrorBoundaryRetry as ad,
+  useClearResetErrorBoundary as ae,
+  shouldSuspend as af,
+  fetchOptimistic as ag,
+  getHasError as ah,
+  RECONCILIATION_ENDPOINTS as ai,
+  hasPreviousPage as aj,
+  hasNextPage as ak,
+  useBaseQuery as al,
   RouteNames as b,
   NavLink as c,
   useLocation as d,

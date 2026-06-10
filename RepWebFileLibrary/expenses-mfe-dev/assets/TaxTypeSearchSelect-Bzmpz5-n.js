@@ -2,7 +2,7 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { c as createLucideIcon, G as create, I as devtools, aj as subscribeWithSelector, ak as immer, b as apiClient, C as CONFIGURATION_ENDPOINTS, J as devWarn, k as gn } from "./configuration-B22LCkq1.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { D as DEFAULT_CURRENCY_CODE, a3 as getCurrencySymbol, x as formatToISODate, y as parseDateOnlyAsLocal, Z as FILE_ENDPOINTS, m as useQuery, r as useQueryClient, q as queryKeys, e as useCompanyStore, E as EXPENSE_ENDPOINTS, s as useMutation } from "./use-scroll-into-view-ref-NBja2wgz.js";
+import { D as DEFAULT_CURRENCY_CODE, a3 as getCurrencySymbol, x as formatToISODate, y as parseDateOnlyAsLocal, Z as FILE_ENDPOINTS, m as useQuery, r as useQueryClient, q as queryKeys, e as useCompanyStore, E as EXPENSE_ENDPOINTS, s as useMutation } from "./use-scroll-into-view-ref-pp-oQFyY.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 const __iconNode = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
