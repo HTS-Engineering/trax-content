@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.61",
-  "commit": "6701f0c",
+  "version": "0.1.0-dev.67",
+  "commit": "b829979",
   "branch": "dev",
-  "timestamp": "2026-06-10T20:02:39.732Z",
+  "timestamp": "2026-06-11T00:15:00.310Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-DSZ_WFOT.js",
-  "css": "style-Dr6QtNB_.css"
+  "bootstrap": "__federation_expose_Mount-DNDkE76b.js",
+  "css": "style-CtjMInM_.css"
 }
