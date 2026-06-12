@@ -21,9 +21,9 @@ import { S as Subscribable, M as Mutation, G as notifyManager, H as matchMutatio
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, y as ys, v as Ss, h as gr, N as Ns, Y as Yn, w as ws, B as Br, Z as Zs, x as h, A as wt, D as zt, U as Ue, F as yt, O as Oa, G as create, I as devtools, J as devWarn, d as devError, a as devLog, Q as Qt, k as gn, m as es, g as Mt, E as Et, P as Pt, K as Ys, L as Ks, W as Ws, p as ja, H as Ha, R as cr, V as Ga, _ as ri, a0 as Ye } from "./configuration-B22LCkq1.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { h as useTaxTypesDisplay, m as useFormTypeName, E as ExpenseFormType, n as ECostAllocation, j as useDefaultCurrency, a as useExpenseTypes, F as FormTypeId, A as AllowedMimeType, o as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, p as FilePreviewType, f as useCountries, q as useDefaultCountry, k as useFormTypeId, P as Plus } from "./TaxTypeSearchSelect-Bzmpz5-n.js";
+import { h as useTaxTypesDisplay, E as ExpenseFormType, m as ECostAllocation, j as useDefaultCurrency, a as useExpenseTypes, F as FormTypeId, A as AllowedMimeType, n as FILE_SIZE_LIMITS, M as MIME_TYPE_CONFIG, o as FilePreviewType, f as useCountries, p as useDefaultCountry, k as useFormTypeId, P as Plus } from "./TaxTypeSearchSelect-8t6A0nRn.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { I as Info, s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, k as date, l as unknown, n as number, C as ConfirmDialog, h as useWatch, u as useForm, d as u, m as literal, j as useEffectiveMileageRate, p as useFormState, e as Controller, g as createDecimalChangeHandler } from "./useMileageRates-DQ_X-Buj.js";
+import { I as Info, s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, k as date, l as unknown, n as number, _ as _enum, C as ConfirmDialog, h as useWatch, u as useForm, d as u, m as literal, j as useEffectiveMileageRate, p as useFormState, e as Controller, g as createDecimalChangeHandler } from "./useMileageRates-DQ_X-Buj.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { i as isHttpApiError, g as getHttpErrorMessage } from "./http-errors-BNeGbjSk.js";
 import { T as TOOLTIP_DELAY_QUICK, a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./tooltip-DLFvzVtg.js";
@@ -965,12 +965,6 @@ const PreviewExpenseDetailsSection = /* @__PURE__ */ __name(({ data }) => {
 const PreviewExpenseJustificationSection = /* @__PURE__ */ __name(({
   data
 }) => {
-  const companyShortName = useCompanyStore((state) => {
-    var _a2;
-    return ((_a2 = state.userDefaultCompany) == null ? void 0 : _a2.shortName) ?? null;
-  });
-  const expenseTypeName = data.expenseType;
-  const formType = useFormTypeName(expenseTypeName, companyShortName);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(ys, { className: "shadow-none border-0 bg-transparent p-0", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Ss, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       gr,
@@ -983,7 +977,7 @@ const PreviewExpenseJustificationSection = /* @__PURE__ */ __name(({
     /* @__PURE__ */ jsxRuntimeExports.jsx(Ns, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Business purpose", value: data.businessPurpose }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Expense description", value: data.expenseDescription }),
-      formType === ExpenseFormType.ENTERTAINMENT && /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Persons entertained", value: data.personsEntertained })
+      data.formType === ExpenseFormType.ENTERTAINMENT && /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Persons entertained", value: data.personsEntertained })
     ] }) })
   ] });
 }, "PreviewExpenseJustificationSection");
@@ -5221,7 +5215,7 @@ const queryClient = new QueryClient({
   })
 });
 const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expenseDetailsSchema.shape).safeExtend(expenseJustificationSchema.shape).safeExtend(costAllocationSchema.shape).safeExtend(additionalCommentsSchema.shape).safeExtend({
-  formType: string().optional()
+  formType: _enum(ExpenseFormType).optional()
 }).refine((data) => {
   var _a2, _b2;
   if (isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code)) {

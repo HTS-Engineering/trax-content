@@ -6,8 +6,8 @@ import { b as apiClient, B as Br, e as ei, $ as $a, q as dr, t as ts, n as ni, T
 import { e as useCompanyStore, m as useQuery, n as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, i as formatAmountWithCurrency, o as useSearchParams, d as useLocation, F as useNavigateWithReturn, v as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-pp-oQFyY.js";
 import { E as EmptyState } from "./EmptyState-78GKove4.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { P as Plus } from "./TaxTypeSearchSelect-Bzmpz5-n.js";
-import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DMnSrcZs.js";
+import { P as Plus } from "./TaxTypeSearchSelect-8t6A0nRn.js";
+import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-BfDo8B_4.js";
 const STATUS_BADGE_CONFIG = {
   draft: {
     bgColor: "bg-exp-yellow-200",

@@ -21,6 +21,22 @@ var FormTypeId = /* @__PURE__ */ ((FormTypeId2) => {
   FormTypeId2[FormTypeId2["ENTERTAINMENT"] = 3] = "ENTERTAINMENT";
   return FormTypeId2;
 })(FormTypeId || {});
+const FORM_TYPE_ID_TO_FORM_TYPE = {
+  [
+    1
+    /* STANDARD */
+  ]: "standard",
+  [
+    2
+    /* MILEAGE */
+  ]: "mileage",
+  [
+    3
+    /* ENTERTAINMENT */
+  ]: "entertainment"
+  /* ENTERTAINMENT */
+};
+const formTypeIdToFormType = /* @__PURE__ */ __name((formTypeId) => formTypeId == null ? void 0 : FORM_TYPE_ID_TO_FORM_TYPE[formTypeId], "formTypeIdToFormType");
 var MileageRateStatus = /* @__PURE__ */ ((MileageRateStatus2) => {
   MileageRateStatus2["FUTURE"] = "Future";
   MileageRateStatus2["CURRENT"] = "Current";
@@ -353,7 +369,7 @@ function inferEqualSplit(allocations) {
   return allocations.every((a) => Number(a.percentage) === first);
 }
 __name(inferEqualSplit, "inferEqualSplit");
-function mapToExpenseFormData(response, isDraft, context) {
+function mapToExpenseFormData(response, isDraft, context, formTypeId) {
   var _a, _b, _c, _d, _e, _f, _g, _h;
   const files = response.files ?? [];
   const receiptFile = files.find(
@@ -373,6 +389,8 @@ function mapToExpenseFormData(response, isDraft, context) {
   const data = {
     // Dual mode: IDs for draft (form selects), display names for preview
     expenseType: isDraft ? shouldClearExpenseType ? "" : stringifyEntityId(response.expenseTypeId) : response.expenseType ?? "",
+    // Tracks the shown expenseType: cleared together when a draft drops a deactivated type
+    formType: shouldClearExpenseType ? void 0 : formTypeIdToFormType(formTypeId),
     paymentMethod: isDraft ? shouldClearPaymentMethod ? "" : stringifyEntityId((_a = response.paymentMethod) == null ? void 0 : _a.id) : ((_b = response.paymentMethod) == null ? void 0 : _b.name) ?? "",
     expenseLocation: isDraft ? stringifyEntityId((_c = response.country) == null ? void 0 : _c.id) : ((_d = response.country) == null ? void 0 : _d.name) ?? "",
     businessPurpose: isDraft ? shouldClearBusinessPurpose ? "" : stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
@@ -512,7 +530,7 @@ function mapSingleExpenseFormToExpenseItem(response, context) {
       submittedAt: response.updatedDate ?? ""
     };
   }
-  const data = mapToExpenseFormData(response, isDraft, context);
+  const data = mapToExpenseFormData(response, isDraft, context, formTypeId);
   if (isDraft) {
     return { ...base, itemType: ItemCategory.Expense, status: "draft", data };
   }
@@ -843,12 +861,6 @@ function useFormTypeId(expenseTypeId, companyShortName) {
   return (_a = expenseTypes == null ? void 0 : expenseTypes.find((et) => et.id === expenseTypeId)) == null ? void 0 : _a.formType;
 }
 __name(useFormTypeId, "useFormTypeId");
-function useFormTypeName(expenseTypeName, companyShortName) {
-  var _a;
-  const { data: expenseTypes } = useExpenseTypes(companyShortName, false);
-  return (_a = expenseTypes == null ? void 0 : expenseTypes.find((et) => et.name === expenseTypeName)) == null ? void 0 : _a.formType;
-}
-__name(useFormTypeName, "useFormTypeName");
 const useTaxTypesDisplay = /* @__PURE__ */ __name(({
   companyShortName,
   enabled = true
@@ -1040,16 +1052,15 @@ export {
   useDefaultCurrency as j,
   useFormTypeId as k,
   isExpenseItemDraft as l,
-  useFormTypeName as m,
-  ECostAllocation as n,
-  FILE_SIZE_LIMITS as o,
-  FilePreviewType as p,
-  useDefaultCountry as q,
-  ExpenseTypeScope as r,
-  useCreateExpenseType as s,
-  useUpdateExpenseType as t,
+  ECostAllocation as m,
+  FILE_SIZE_LIMITS as n,
+  FilePreviewType as o,
+  useDefaultCountry as p,
+  ExpenseTypeScope as q,
+  useCreateExpenseType as r,
+  useUpdateExpenseType as s,
+  useToggleExpenseTypeStatus as t,
   useFormTypes as u,
-  useToggleExpenseTypeStatus as v,
-  useFormTypeOptions as w,
-  MileageRateStatus as x
+  useFormTypeOptions as v,
+  MileageRateStatus as w
 };
