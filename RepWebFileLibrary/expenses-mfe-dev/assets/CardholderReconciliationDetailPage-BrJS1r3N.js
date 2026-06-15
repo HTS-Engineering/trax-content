@@ -2,7 +2,7 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { C as useParams, d as useLocation, X as useNavigateBack, a as RoutePaths } from "./use-scroll-into-view-ref-DMoY05sN.js";
-import { d as CardholderTransactionsView } from "./MatchedExpenseDetail-DCP8_jpJ.js";
+import { d as CardholderTransactionsView } from "./MatchedExpenseDetail-CFmXTSGK.js";
 import "./configuration-Dlke37f6.js";
 const CardholderReconciliationDetailPage = /* @__PURE__ */ __name(() => {
   const { id } = useParams();

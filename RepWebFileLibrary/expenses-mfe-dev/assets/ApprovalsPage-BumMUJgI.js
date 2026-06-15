@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { b as ApprovalsList } from "./ApprovalsList-_mXEbHkI.js";
+import { b as ApprovalsList } from "./ApprovalsList-DA1mHenz.js";
 import "./configuration-Dlke37f6.js";
 import "./use-scroll-into-view-ref-DMoY05sN.js";
 const ApprovalsPage = /* @__PURE__ */ __name(() => {

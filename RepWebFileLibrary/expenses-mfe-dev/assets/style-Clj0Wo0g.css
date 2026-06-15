@@ -1250,6 +1250,10 @@
     text-wrap: wrap !important;
   }
 
+  .expenses-mfe-scope .wrap-anywhere, .trax-ui-component .wrap-anywhere {
+    overflow-wrap: anywhere;
+  }
+
   .expenses-mfe-scope .text-ellipsis, .trax-ui-component .text-ellipsis, .expenses-mfe-scope.text-ellipsis, .trax-ui-component.text-ellipsis {
     text-overflow: ellipsis !important;
   }

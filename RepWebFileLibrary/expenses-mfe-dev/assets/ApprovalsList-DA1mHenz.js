@@ -3,13 +3,13 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { u as useJWTStore, b as apiClient, e as ei, $ as $a, B as Br, d as devError, Z as Zs, f as as, H as Ha, U as Ue, Y as Yn, g as Mt, E as Et, P as Pt, h as gr, o as oi, r as rs, i as os, s as ss, l as ls, T as Ta, z as za, n as ni } from "./configuration-Dlke37f6.js";
-import { k as formatAmountWithCurrency, l as formatDate, m as formatDateRange, n as formatExpenseDate, e as useCompanyStore, o as useQuery, q as queryKeys, p as keepPreviousData, E as EXPENSE_ENDPOINTS, r as useSearchParams, d as useLocation, a as RoutePaths, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, u as useNavigate, C as useParams, g as generatePath } from "./use-scroll-into-view-ref-DMoY05sN.js";
+import { k as formatAmountWithCurrency, l as formatDate, m as formatDateRange, n as formatExpenseDate, e as useCompanyStore, o as useQuery, q as queryKeys, p as keepPreviousData, E as EXPENSE_ENDPOINTS, r as useSearchParams, d as useLocation, a as RoutePaths, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, u as useNavigate, C as useParams, g as generatePath } from "./use-scroll-into-view-ref-DMoY05sN.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CULEcD_5.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { g as getExpenseBaseAmount, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, a as isMileagePeriodData, b as MileagePeriodPreview } from "./http-errors-PCMNaVpo.js";
-import { g as getExpenseErrorMessage, b as buildHeaderFromExpenseItem } from "./expense-error-message-FDRUN6mO.js";
+import { g as getExpenseBaseAmount, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, a as isMileagePeriodData, b as MileagePeriodPreview } from "./http-errors-BYNZpOPP.js";
+import { g as getExpenseErrorMessage, b as buildHeaderFromExpenseItem } from "./expense-error-message-C5iyvzni.js";
 import "./hooks-DIQ8CTTh.js";
-import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema, E as ExpenseFormHistoryLog } from "./CostAllocationSection-B1_bx8QU.js";
+import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema, E as ExpenseFormHistoryLog } from "./CostAllocationSection-XyePxnlE.js";
 import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-B79N8sX_.js";
 var Role = /* @__PURE__ */ ((Role2) => {
   Role2["Employee"] = "Expense.Employee";
@@ -522,7 +522,7 @@ function buildHeaderConfig(item) {
   return {
     title: item.employeeFullName,
     titleSuffix: item.vendor !== MISSING_VALUE_INDICATOR ? item.vendor : "",
-    amount: item.totalAmount,
+    amount: item.formTypeId == FormTypeId.MILEAGE ? "" : item.totalAmount,
     status: item.status,
     subtitle: `${item.businessId} • ${datePrefix} ${item.actionDate}`
   };

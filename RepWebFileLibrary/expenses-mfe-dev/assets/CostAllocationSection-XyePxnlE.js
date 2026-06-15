@@ -17,7 +17,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
-import { c as isConvertedExpense, f as isHttpApiError, h as getHttpErrorMessage, r as resolveFileUrl, e as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-PCMNaVpo.js";
+import { c as isConvertedExpense, f as isHttpApiError, h as getHttpErrorMessage, r as resolveFileUrl, e as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-BYNZpOPP.js";
 import { _ as Subscribable, $ as Mutation, a0 as notifyManager, a1 as matchMutation, a2 as noop, a3 as hashQueryKeyByOptions, a4 as Query, a5 as matchQuery, a6 as focusManager, a7 as onlineManager, a8 as resolveStaleTime, a9 as functionalUpdate, aa as hashKey, ab as partialMatchKey, ac as skipToken, o as useQuery, q as queryKeys, e as useCompanyStore, E as EXPENSE_ENDPOINTS, ad as formatHistoryTimestamp, ae as ECostAllocation, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, j as useExpenseTypes, F as FormTypeId, af as AllowedMimeType, ag as FILE_SIZE_LIMITS, ah as MIME_TYPE_CONFIG, ai as FilePreviewType, J as useCountries, aj as useDefaultCountry, S as ExpenseFormType, ak as FILE_ENDPOINTS, al as useDebouncedCallback, P as useFormTypeId, am as useNumericDisplay, an as getCurrencySymbol, L as useDefaultCurrency } from "./use-scroll-into-view-ref-DMoY05sN.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, v as h, x as wt, y as zt, U as Ue, Y as Yn, A as yt, O as Oa, D as create, F as devtools, G as devWarn, d as devError, a as devLog, Z as Zs, I as ys, N as Ns, J as Ss, h as gr, Q as Qt, k as gn, m as es, g as Mt, E as Et, P as Pt, K as Ys, L as Ks, W as Ws, p as ja, H as Ha, w as ws, R as cr, V as Ga, _ as ri, a0 as Ye } from "./configuration-Dlke37f6.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
@@ -676,7 +676,7 @@ const ExpenseHistoryLogEntry = /* @__PURE__ */ __name(({ entry }) => {
     entry.comment && /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
-        className: h("text-xs italic text-wrap text-exp-neutral-600", {
+        className: h("text-xs italic wrap-anywhere text-exp-neutral-600", {
           "text-exp-red-500": entry.actionType === ActionType.Rejected,
           "text-exp-grey-600": entry.actionType === ActionType.Cancelled
         }),

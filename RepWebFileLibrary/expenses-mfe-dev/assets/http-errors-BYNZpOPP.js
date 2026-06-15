@@ -2,7 +2,7 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { l as formatDate, ak as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, n as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, ae as ECostAllocation, aJ as EMPTY_CURRENCY_SYMBOL, L as useDefaultCurrency, aL as formatDistance, U as formatRate, W as formatExpensePeriod } from "./use-scroll-into-view-ref-DMoY05sN.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { b as apiClient, I as ys, J as Ss, h as gr, N as Ns, Y as Yn, w as ws, B as Br, Z as Zs } from "./configuration-Dlke37f6.js";
+import { b as apiClient, I as ys, J as Ss, h as gr, N as Ns, Y as Yn, w as ws, B as Br, l as ls, Z as Zs } from "./configuration-Dlke37f6.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 function isConvertedExpense(netCurrencyCode, totalCurrencyCode) {
@@ -255,7 +255,7 @@ const PreviewAffidavitSection = /* @__PURE__ */ __name(({ affidavit }) => {
 const PreviewField = /* @__PURE__ */ __name(({ label, value, className = "", icon }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "block font-medium text-xs text-exp-neutral-300 mb-1", children: label }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5 font-normal text-sm text-exp-grey-900 wrap-break-word relative", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1.5 font-normal text-sm text-exp-grey-900 wrap-anywhere relative", children: [
       icon && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "absolute -left-6", children: icon }),
       value || "—"
     ] })
@@ -551,7 +551,7 @@ const PreviewSupportingFilesSection = /* @__PURE__ */ __name(({
           className: "flex items-center gap-2 px-2 py-1 bg-exp-primary-blue-50 rounded-lg w-fit group cursor-pointer disabled:cursor-wait",
           children: [
             isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-4 shrink-0" }) : getFileIcon(file.mimeType),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-medium text-exp-neutral-700 group-hover:underline truncate", children: file.filename })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ls, { className: "text-xs font-medium text-exp-neutral-700 group-hover:underline", maxWidth: 200, children: file.filename })
           ]
         },
         file.id
