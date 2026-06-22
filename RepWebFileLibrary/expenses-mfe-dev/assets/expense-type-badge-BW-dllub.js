@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { F as FormTypeId } from "./use-scroll-into-view-ref-DQAM4lrc.js";
+import { F as FormTypeId } from "./use-scroll-into-view-ref-DPvbfUeD.js";
 const getExpenseTypeBadgeColor = /* @__PURE__ */ __name((formTypeId) => {
   switch (formTypeId) {
     case FormTypeId.MILEAGE:

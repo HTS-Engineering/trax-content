@@ -2,15 +2,15 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { c as createLucideIcon, O as Oa, d as devError, Z as Zs, a as devLog, b as apiClient, H as Ha, j as Ba, k as gn, m as es, p as ja, w as ws, o as oi, r as rs, i as os, s as ss, l as ls, Y as Yn, f as as, g as Mt, E as Et, U as Ue, P as Pt } from "./configuration-yhOjQUnR.js";
-import { E as ExpensesList } from "./ExpensesList-yBSEPrRT.js";
-import { j as useExpenseTypes, F as FormTypeId, D as formatToISODate, t as useQueryClient, e as useCompanyStore, v as useMutation, q as queryKeys, E as EXPENSE_ENDPOINTS, I as ItemCategory, o as useQuery, G as DEFAULT_CURRENCY_CODE, H as useCurrencies, J as useCountries, K as useTaxTypesDisplay, L as useDefaultCurrency, M as parseDateOnlyAsLocal, T as TaxTypeSearchSelect, P as useFormTypeId, S as ExpenseFormType, U as formatRate, V as formatCurrency, w as isRegularExpense, x as isMileageExpense, W as formatExpensePeriod, s as isExpenseItemSubmitted, l as formatDate, u as useNavigate, d as useLocation, X as useNavigateBack, g as generatePath, a as RoutePaths, C as useParams, r as useSearchParams, z as useExpenseItem, Y as isExpenseItemDraft } from "./use-scroll-into-view-ref-DQAM4lrc.js";
-import { d as useDefaultCompany, i as isValidFileAttachment, e as ExpenseFormField, f as useFormFieldValues, g as useMileageRateSync, h as useReimbursableAmountSync, j as useAmountAllocationSync, k as mapFormDataToUpdateRequest, l as mapFormDataToCreateRequest, m as mapCostAllocation, p as parseOptionalInt, n as parseOptionalDecimal, o as getMileageTypesFromCache, r as findActiveSelectedMileageType, s as affidavitSchema, t as basicDetailsSchema, w as createValidationStrategy, x as createDraftSaveChecker, y as useTaxFieldVisibility, z as useSetDefaultCurrency, A as ExpenseTypeSelect, M as MileagePeriodFormField, S as SupportingFiles, B as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, D as isSameCalendarMonth, N as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, F as FormSectionType, G as expenseDetailsSchema, H as expenseJustificationSchema, I as costAllocationSchema, J as additionalCommentsSchema, C as CostAllocationHeaderActions, b as CostAllocationSection, K as MileageTripFormField, L as mileageDetailsSchema, O as mileageJustificationSchema, P as useBaseExpenseForm, Q as useValidatePrefilledFields, R as useAutoSave, T as useFormButtonStateSync, U as useFormImperativeHandle, V as BaseExpenseFormRenderer, W as useExpenseFormHandlers, X as useExpenseFormSync, Y as fullExpenseValidationStrategy, Z as ExpenseFormLeftColumn, _ as useMileageTripFormHandlers, $ as mapMileageTripToDefaultValues, a0 as mileageTripValidationStrategy, a1 as supportingFilesSchema, a2 as useMileagePeriodFormHandlers, a3 as mapMileagePeriodToDefaultValues, a4 as mileagePeriodValidationStrategy, a5 as usePendingUploadStore, E as ExpenseFormHistoryLog } from "./CostAllocationSection-CubZ67_m.js";
-import { i as isMileageTripData, c as isConvertedExpense, g as getExpenseBaseAmount, a as isMileagePeriodData, d as getExpenseActionSubtitle, e as MileageFormType, E as ExpensePreview, M as MileageTripPreview, b as MileagePeriodPreview } from "./http-errors-FLpPp98M.js";
-import { M as MILEAGE_RATES_STALE_TIME, f as fetchEffectiveMileageRate, o as object, s as string, b as boolean, c as custom, e as Controller, g as createDecimalChangeHandler, h as useWatch, i as useMileageRates, j as useEffectiveMileageRate, C as ConfirmDialog } from "./useMileageRates-CyribCKE.js";
+import { E as ExpensesList } from "./ExpensesList-CvqKp1M5.js";
+import { j as useExpenseTypes, F as FormTypeId, D as formatToISODate, t as useQueryClient, e as useCompanyStore, v as useMutation, q as queryKeys, E as EXPENSE_ENDPOINTS, I as ItemCategory, o as useQuery, G as DEFAULT_CURRENCY_CODE, H as useCurrencies, J as useCountries, K as useTaxTypesDisplay, L as useDefaultCurrency, M as parseDateOnlyAsLocal, T as TaxTypeSearchSelect, P as useFormTypeId, S as ExpenseFormType, U as formatRate, V as formatCurrency, w as isRegularExpense, x as isMileageExpense, W as formatExpensePeriod, s as isExpenseItemSubmitted, X as isExpenseItemDraft, l as formatDate, u as useNavigate, d as useLocation, Y as useNavigateBack, g as generatePath, a as RoutePaths, C as useParams, r as useSearchParams, z as useExpenseItem } from "./use-scroll-into-view-ref-DPvbfUeD.js";
+import { d as useDefaultCompany, i as isValidFileAttachment, e as ExpenseFormField, f as useFormFieldValues, g as useMileageRateSync, h as useReimbursableAmountSync, j as useAmountAllocationSync, k as mapFormDataToUpdateRequest, l as mapFormDataToCreateRequest, m as mapCostAllocation, p as parseOptionalInt, n as parseOptionalDecimal, o as getMileageTypesFromCache, r as findActiveSelectedMileageType, s as affidavitSchema, t as basicDetailsSchema, w as createValidationStrategy, x as createDraftSaveChecker, y as useTaxFieldVisibility, z as useSetDefaultCurrency, A as ExpenseTypeSelect, M as MileagePeriodFormField, S as SupportingFiles, B as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, D as isSameCalendarMonth, N as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, F as FormSectionType, G as expenseDetailsSchema, H as expenseJustificationSchema, I as costAllocationSchema, J as additionalCommentsSchema, C as CostAllocationHeaderActions, b as CostAllocationSection, K as MileageTripFormField, L as mileageDetailsSchema, O as mileageJustificationSchema, P as useBaseExpenseForm, Q as useValidatePrefilledFields, R as useAutoSave, T as useFormButtonStateSync, U as useFormImperativeHandle, V as BaseExpenseFormRenderer, W as useExpenseFormHandlers, X as useExpenseFormSync, Y as fullExpenseValidationStrategy, Z as ExpenseFormLeftColumn, _ as useMileageTripFormHandlers, $ as mapMileageTripToDefaultValues, a0 as mileageTripValidationStrategy, a1 as supportingFilesSchema, a2 as useMileagePeriodFormHandlers, a3 as mapMileagePeriodToDefaultValues, a4 as mileagePeriodValidationStrategy, a5 as usePendingUploadStore, E as ExpenseFormHistoryLog } from "./CostAllocationSection-f_dRjSFP.js";
+import { i as isMileageTripData, c as isConvertedExpense, g as getExpenseBaseAmount, a as isMileagePeriodData, d as getExpenseActionSubtitle, e as MileageFormType, E as ExpensePreview, M as MileageTripPreview, b as MileagePeriodPreview } from "./http-errors-tf-F7cSg.js";
+import { M as MILEAGE_RATES_STALE_TIME, f as fetchEffectiveMileageRate, o as object, s as string, b as boolean, c as custom, e as Controller, g as createDecimalChangeHandler, h as useWatch, i as useMileageRates, j as useEffectiveMileageRate, C as ConfirmDialog } from "./useMileageRates-DMwbaOhj.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { u as useBusinessPurposes } from "./business-purpose-api-CBtH7dyU.js";
+import { u as useBusinessPurposes } from "./business-purpose-api-D8Yc9xfo.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-DcCkxadY.js";
+import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-D9FWCKjd.js";
 import { T as Trash2, S as Send } from "./trash-2-BiF4uR8D.js";
 const __iconNode$1 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
@@ -2186,19 +2186,20 @@ function getItemAmount(item) {
   return void 0;
 }
 __name(getItemAmount, "getItemAmount");
-function getHeaderSubtitle(item, mode, itemId) {
+function getHeaderSubtitle(item, mode) {
   if (!item) return void 0;
   if (mode === "preview" && isExpenseItemSubmitted(item)) {
     return getExpenseActionSubtitle(item);
   }
-  if (mode === "draft") {
-    return `${itemId} • Created on ${formatDate(item.createdAt)}`;
+  if (mode === "draft" && isExpenseItemDraft(item)) {
+    const parts = [item.businessId, `Created on ${formatDate(item.createdAt)}`].filter(Boolean);
+    return parts.join(" • ");
   }
   return void 0;
 }
 __name(getHeaderSubtitle, "getHeaderSubtitle");
 function useExpenseItemHeader(options) {
-  const { expenseItem, mode, isNewItem, itemType, itemId } = options;
+  const { expenseItem, mode, isNewItem, itemType } = options;
   const title = useMemo$1(
     () => getItemTitle(expenseItem, mode, isNewItem, itemType),
     [expenseItem, mode, isNewItem, itemType]
@@ -2212,8 +2213,8 @@ function useExpenseItemHeader(options) {
     [expenseItem]
   );
   const subtitle = useMemo$1(
-    () => getHeaderSubtitle(expenseItem, mode, itemId),
-    [expenseItem, mode, itemId]
+    () => getHeaderSubtitle(expenseItem, mode),
+    [expenseItem, mode]
   );
   const status = expenseItem == null ? void 0 : expenseItem.status;
   return {
@@ -2443,8 +2444,7 @@ function useUnifiedExpensePage() {
     expenseItem,
     mode,
     isNewItem,
-    itemType,
-    itemId: id
+    itemType
   });
   const mutations = useExpenseItemMutations({
     currentDraftId,

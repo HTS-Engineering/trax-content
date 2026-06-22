@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { l as formatDate, ak as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, n as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, ae as ECostAllocation, aJ as EMPTY_CURRENCY_SYMBOL, L as useDefaultCurrency, aL as formatDistance, U as formatRate, W as formatExpensePeriod } from "./use-scroll-into-view-ref-DQAM4lrc.js";
+import { l as formatDate, ak as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, n as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, ae as ECostAllocation, aJ as EMPTY_CURRENCY_SYMBOL, L as useDefaultCurrency, aL as formatDistance, U as formatRate, W as formatExpensePeriod } from "./use-scroll-into-view-ref-DPvbfUeD.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { b as apiClient, I as ys, J as Ss, h as gr, N as Ns, Y as Yn, w as ws, B as Br, l as ls, Z as Zs } from "./configuration-yhOjQUnR.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";

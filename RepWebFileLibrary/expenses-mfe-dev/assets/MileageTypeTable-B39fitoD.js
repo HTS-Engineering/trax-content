@@ -2,15 +2,15 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { t as useQueryClient, j as useExpenseTypes, ao as ExpenseTypeScope, q as queryKeys, F as FormTypeId, S as ExpenseFormType, ap as useEscapeHandler, aq as useCreateExpenseType, ar as useUpdateExpenseType, as as useToggleExpenseTypeStatus, at as useFormTypeOptions, e as useCompanyStore, o as useQuery, v as useMutation, H as useCurrencies, D as formatToISODate, M as parseDateOnlyAsLocal, au as DEFAULT_CURRENCY_SYMBOL, av as formatRateCompact, aw as MileageRateStatus, T as TaxTypeSearchSelect, K as useTaxTypesDisplay } from "./use-scroll-into-view-ref-DQAM4lrc.js";
+import { t as useQueryClient, j as useExpenseTypes, ao as ExpenseTypeScope, q as queryKeys, F as FormTypeId, S as ExpenseFormType, ap as useEscapeHandler, aq as useCreateExpenseType, ar as useUpdateExpenseType, as as useToggleExpenseTypeStatus, at as useFormTypeOptions, e as useCompanyStore, o as useQuery, v as useMutation, H as useCurrencies, D as formatToISODate, M as parseDateOnlyAsLocal, au as DEFAULT_CURRENCY_SYMBOL, av as formatRateCompact, aw as MileageRateStatus, T as TaxTypeSearchSelect, K as useTaxTypesDisplay } from "./use-scroll-into-view-ref-DPvbfUeD.js";
 import { d as devError, H as Ha, O as Oa, U as Ue, Y as Yn, a1 as ti, v as h, B as Br, a2 as Vr, a3 as $r, a4 as Tr, a5 as zr, n as ni, b as apiClient, C as CONFIGURATION_ENDPOINTS, a6 as Ka, Z as Zs, a as devLog, k as gn, a7 as Wa, l as ls, a8 as Kr, g as Mt, E as Et, P as Pt, q as dr, o as oi, r as rs, a9 as si, i as os, s as ss, m as es, w as ws, aa as is, ab as Hs } from "./configuration-yhOjQUnR.js";
 import { E as EmptyState } from "./EmptyState-ChPm3hqc.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { o as object, _ as _enum, s as string, m as literal, u as useForm, d as u, e as Controller, C as ConfirmDialog, a as array, h as useWatch, n as number, k as date, g as createDecimalChangeHandler, p as useFormState, i as useMileageRates, q as useCreateMileageRate, r as useDeleteMileageRate, t as filterDecimalInput, v as useController, I as Info, w as useEffectiveMileageRatesByIds } from "./useMileageRates-CyribCKE.js";
+import { o as object, _ as _enum, s as string, m as literal, u as useForm, d as u, e as Controller, C as ConfirmDialog, a as array, h as useWatch, n as number, k as date, g as createDecimalChangeHandler, p as useFormState, i as useMileageRates, q as useCreateMileageRate, r as useDeleteMileageRate, t as filterDecimalInput, v as useController, I as Info, w as useEffectiveMileageRatesByIds } from "./useMileageRates-DMwbaOhj.js";
 import { a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./tooltip-DLFvzVtg.js";
-import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-CBtH7dyU.js";
+import { a as useCreateBusinessPurpose, b as useUpdateBusinessPurpose, c as useToggleBusinessPurposeStatus, u as useBusinessPurposes } from "./business-purpose-api-D8Yc9xfo.js";
 import { P as Plus } from "./plus-B5wY36wF.js";
-import { u as useInfiniteQuery } from "./useInfiniteQuery-CKdxdnxN.js";
+import { u as useInfiniteQuery } from "./useInfiniteQuery-Db-Mwmsx.js";
 const getFormTypeIdFromCache = /* @__PURE__ */ __name((queryClient, formTypeName) => {
   const formTypes = queryClient.getQueryData(queryKeys.formTypes.list());
   if (formTypes && formTypes.length > 0) {
