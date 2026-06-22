@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.83",
-  "commit": "e3947a9",
+  "version": "0.1.0-dev.86",
+  "commit": "b20fd13",
   "branch": "dev",
-  "timestamp": "2026-06-17T19:02:44.349Z",
+  "timestamp": "2026-06-22T14:34:22.418Z",
   "environment": "expenses-mfe-stage",
-  "bootstrap": "__federation_expose_Mount-Cm-KEwea.js",
+  "bootstrap": "__federation_expose_Mount-rdw53JNO.js",
   "css": "style-BmbTngFv.css"
 }
