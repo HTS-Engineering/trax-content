@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { E as EXPENSE_TYPE_MESSAGES, a as ExpenseTypeTable } from "./MileageTypeTable-B39fitoD.js";
+import { E as EXPENSE_TYPE_MESSAGES, a as ExpenseTypeTable } from "./MileageTypeTable-kYpDvILQ.js";
 import "./useMileageRates-DMwbaOhj.js";
 import "./use-scroll-into-view-ref-DPvbfUeD.js";
 import "./configuration-yhOjQUnR.js";

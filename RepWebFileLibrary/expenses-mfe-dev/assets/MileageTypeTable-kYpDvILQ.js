@@ -1506,7 +1506,6 @@ const CARDHOLDER_MESSAGES = {
   CARD_DIGITS_DUPLICATE: "Card ending digits already exist",
   NO_RESULTS: "No results found",
   NO_EMPLOYEES_FOUND: "No employees found",
-  AUTHORIZED_USERS_EDIT_UNAVAILABLE: "Editing authorized users is not yet available",
   CANNOT_EDIT_INACTIVE: "Cannot edit an inactive cardholder",
   MARK_ACTIVE: "Mark active",
   MARK_INACTIVE: "Mark inactive",
@@ -2111,15 +2110,27 @@ const useCardholderOperations = /* @__PURE__ */ __name((companyShortName, master
   const handleUpdateCardholder = useCallback$f(async (id, data, originalData) => {
     if (!companyShortName || masterAccountId === null) return;
     const hasDigitsChange = originalData && data.cardLastDigits !== originalData.cardLastDigits;
-    if (!hasDigitsChange) {
+    const originalUserIds = ((originalData == null ? void 0 : originalData.authorizedUsers) ?? []).map((u2) => u2.userGuid).sort();
+    const newUserIds = [...data.authorizedUserIds ?? []].sort();
+    const hasAuthUsersChange = originalData && (originalUserIds.length !== newUserIds.length || originalUserIds.some((v, i) => v !== newUserIds[i]));
+    if (!hasDigitsChange && !hasAuthUsersChange) {
       onSuccess == null ? void 0 : onSuccess();
       return;
     }
     try {
+      const payload = {
+        id: Number(id)
+      };
+      if (hasDigitsChange) {
+        payload.cardLastDigits = data.cardLastDigits;
+      }
+      if (hasAuthUsersChange) {
+        payload.authorizedUserIds = newUserIds;
+      }
       await updateMutation.mutateAsync({
         companyShortName,
         masterAccountId,
-        data: { id: Number(id), cardLastDigits: data.cardLastDigits }
+        data: payload
       });
       onSuccess == null ? void 0 : onSuccess();
     } catch (error) {
@@ -2507,29 +2518,15 @@ const createAuthorizedUsersColumn = /* @__PURE__ */ __name(({
     const rowData = cellContext.row.original;
     const isEditing = editingRowId === String(rowData.id);
     const authorizedUsers = rowData.authorizedUsers || [];
-    if (isEditing) {
-      if (!isEditingExisting && formControl) {
-        return /* @__PURE__ */ jsxRuntimeExports.jsx(
-          AuthorizedUsersField,
-          {
-            control: formControl,
-            paymentMethodId: AUTHORIZED_USER_SEARCH_ADD_MODE_ID,
-            knownUsersRef,
-            onChange: onAuthorizedUsersChange
-          }
-        );
-      }
-      return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        "div",
+    if (isEditing && formControl) {
+      const paymentMethodId = isEditingExisting ? rowData.id : AUTHORIZED_USER_SEARCH_ADD_MODE_ID;
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(
+        AuthorizedUsersField,
         {
-          className: "bg-exp-neutral-20 cursor-not-allowed rounded-md px-3 py-1.5 max-w-90",
-          title: CARDHOLDER_MESSAGES.AUTHORIZED_USERS_EDIT_UNAVAILABLE,
-          "aria-disabled": "true",
-          "data-testid": "authorized-users-readonly",
-          children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: CARDHOLDER_MESSAGES.AUTHORIZED_USERS_EDIT_UNAVAILABLE }),
-            renderNames(authorizedUsers)
-          ]
+          control: formControl,
+          paymentMethodId,
+          knownUsersRef,
+          onChange: onAuthorizedUsersChange
         }
       );
     }
@@ -2801,19 +2798,32 @@ const CardholderTable = /* @__PURE__ */ __name(({
     isActive: editingRowId !== void 0
   }), [editingData, cardholders, handleFormSubmit, handleFormCancel, isOperating, editingRowId]);
   const formHook = useCardholderForm(formHookOptions);
+  const { canSubmit, handleCancel, handleSubmit, isFormLoading, setValue } = formHook;
   const handleEmployeeSelect = useCallback$d((employee) => {
-    formHook.setValue("userId", employee.userGuid, { shouldValidate: true });
-    formHook.setValue("employeeName", employee.name, { shouldValidate: true, shouldDirty: true });
-  }, [formHook.setValue]);
+    setValue("userId", employee.userGuid, { shouldValidate: true });
+    setValue("employeeName", employee.name, { shouldValidate: true, shouldDirty: true });
+  }, [setValue]);
   const knownAuthorizedUsersRef = useRef$3(/* @__PURE__ */ new Map());
   useEffect$5(() => {
     if (editingRowId === void 0) {
       knownAuthorizedUsersRef.current.clear();
     }
   }, [editingRowId]);
+  useEffect$5(() => {
+    if (editingData == null ? void 0 : editingData.authorizedUsers) {
+      editingData.authorizedUsers.forEach((u2) => {
+        knownAuthorizedUsersRef.current.set(u2.userGuid, {
+          userGuid: u2.userGuid,
+          name: u2.fullName,
+          email: "",
+          isAlreadyAuthorized: true
+        });
+      });
+    }
+  }, [editingData]);
   const handleAuthorizedUsersChange = useCallback$d((userIds) => {
-    formHook.setValue("authorizedUserIds", [...userIds].sort(), { shouldDirty: false });
-  }, [formHook.setValue]);
+    setValue("authorizedUserIds", [...userIds].sort(), { shouldDirty: true });
+  }, [setValue]);
   const stableControl = useMemo$9(() => formHook.control, [formHook.control]);
   const isEditingExisting = useMemo$9(
     () => editingRowId !== void 0 && editingRowId !== NEW_ROW_ID$2,
@@ -2861,14 +2871,14 @@ const CardholderTable = /* @__PURE__ */ __name(({
     () => createCardholderActionsColumn({
       editingRowId,
       onRowEdit: handleRowEdit,
-      onSubmit: /* @__PURE__ */ __name(() => formHook.handleSubmit(), "onSubmit"),
-      onCancel: /* @__PURE__ */ __name(() => formHook.handleCancel(), "onCancel"),
-      canSubmit: formHook.canSubmit,
-      isFormLoading: formHook.isFormLoading,
+      onSubmit: /* @__PURE__ */ __name(() => handleSubmit(), "onSubmit"),
+      onCancel: /* @__PURE__ */ __name(() => handleCancel(), "onCancel"),
+      canSubmit,
+      isFormLoading,
       onToggleActive: toggleActiveCardholder,
       togglingRowId
     }),
-    [editingRowId, handleRowEdit, formHook.handleSubmit, formHook.handleCancel, formHook.canSubmit, formHook.isFormLoading, toggleActiveCardholder, togglingRowId]
+    [editingRowId, handleRowEdit, handleSubmit, handleCancel, canSubmit, isFormLoading, toggleActiveCardholder, togglingRowId]
   );
   const columns = [...baseColumns, authorizedUsersColumn, actionsColumn];
   const tableData = useMemo$9(() => {
