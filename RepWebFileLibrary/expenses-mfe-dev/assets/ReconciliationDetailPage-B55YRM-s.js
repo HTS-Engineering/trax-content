@@ -5,7 +5,7 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { o as useQuery, aI as RECONCILIATION_ENDPOINTS, q as queryKeys, C as useParams, d as useLocation, Y as useNavigateBack, a as RoutePaths, aJ as EMPTY_CURRENCY_SYMBOL } from "./use-scroll-into-view-ref-DPvbfUeD.js";
 import { b as apiClient, Y as Yn, v as h, U as Ue } from "./configuration-yhOjQUnR.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { a as CompanySummaryCard, b as ALL_COMPANIES_SELECTION, T as TransactionsList, M as MatchedExpenseDetail } from "./MatchedExpenseDetail-Clx-iBZb.js";
+import { C as CompanySummaryCard, A as ALL_COMPANIES_SELECTION, T as TransactionsList, M as MatchedExpenseDetail } from "./MatchedExpenseDetail-Bv9VEE37.js";
 const sortCompanyBreakdown = /* @__PURE__ */ __name((items) => {
   return [...items].sort((a, b) => {
     const physicalCmp = a.physicalCompanyName.localeCompare(b.physicalCompanyName);

@@ -1394,14 +1394,18 @@ const useCardholderReconciliationList = /* @__PURE__ */ __name((queryParams, opt
       return {
         items: response.data.results.map(mapReconciliationApiItem),
         totalPages: response.data.totalPages ?? 0,
-        totalObjects: response.data.totalObjects ?? 0
+        totalObjects: response.data.totalObjects ?? 0,
+        statusSummary: {
+          in_progress: response.data.statusSummary.in_progress,
+          overdue: response.data.statusSummary.overdue,
+          complete: response.data.statusSummary.complete
+        }
       };
     }, "queryFn"),
     staleTime: 60 * 1e3
   });
 }, "useCardholderReconciliationList");
 const DEFAULT_PAGE_SIZE$1 = 20;
-const ACTION_REQUIRED_PROBE_PAGE_SIZE = 100;
 const { useMemo: useMemo$a } = await importShared("react");
 const ACTION_STATUS_CONFIG = {
   [CardholderReconciliationStatus.Matched]: { textColor: "text-exp-green-800", bgColor: "bg-exp-green-100", label: "Matched" },
@@ -2957,14 +2961,12 @@ const MatchedExpenseDetail = /* @__PURE__ */ __name(({ formId, onClose }) => {
   ) });
 }, "MatchedExpenseDetail");
 export {
-  ACTION_REQUIRED_PROBE_PAGE_SIZE as A,
-  CardholderReconciliationStatus as C,
+  ALL_COMPANIES_SELECTION as A,
+  CompanySummaryCard as C,
   MatchedExpenseDetail as M,
   ReconciliationsList as R,
   TransactionsList as T,
-  CompanySummaryCard as a,
-  ALL_COMPANIES_SELECTION as b,
-  CardholderReconciliationList as c,
-  CardholderTransactionsView as d,
+  CardholderReconciliationList as a,
+  CardholderTransactionsView as b,
   useCardholderReconciliationList as u
 };
