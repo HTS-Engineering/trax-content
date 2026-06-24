@@ -201,6 +201,7 @@ __name(normalizeExpenseDraftResponse, "normalizeExpenseDraftResponse");
 function buildExpenseItemForCache(response, formData) {
   return {
     id: String(response.id),
+    businessId: response.businessId,
     itemType: ItemCategory.Expense,
     status: "draft",
     createdAt: response.createdDate,
@@ -448,6 +449,7 @@ __name(normalizeMileageDraftResponse, "normalizeMileageDraftResponse");
 function buildMileageItemForCache(response, formData) {
   return {
     id: String(response.id),
+    businessId: response.businessId,
     itemType: ItemCategory.Mileage,
     status: "draft",
     createdAt: response.createdDate,
