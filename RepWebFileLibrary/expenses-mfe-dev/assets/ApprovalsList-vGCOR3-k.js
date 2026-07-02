@@ -1171,7 +1171,7 @@ const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose
     /* @__PURE__ */ jsxRuntimeExports.jsx(oi, { open: true, onOpenChange: handleDialogOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
       rs,
       {
-        className: "w-auto max-w-none max-h-[90vh] h-full overflow-hidden flex flex-col",
+        className: "max-w-5xl max-h-[90vh] h-full overflow-hidden flex flex-col",
         onInteractOutside: /* @__PURE__ */ __name((e) => e.preventDefault(), "onInteractOutside"),
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(os, { className: "pb-3 mb-3 border-b border-exp-primary-blue-100", children: header ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-between gap-2", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-start gap-1", children: [
