@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.92",
-  "commit": "befacf5",
+  "version": "0.1.0-dev.98",
+  "commit": "18495d2",
   "branch": "dev",
-  "timestamp": "2026-06-24T19:28:17.449Z",
+  "timestamp": "2026-07-02T18:00:27.200Z",
   "environment": "expenses-mfe-stage",
-  "bootstrap": "__federation_expose_Mount-BZpCDYxm.js",
-  "css": "style-BmbTngFv.css"
+  "bootstrap": "__federation_expose_Mount-VoPO62WJ.js",
+  "css": "style-L0t9TvaF.css"
 }
