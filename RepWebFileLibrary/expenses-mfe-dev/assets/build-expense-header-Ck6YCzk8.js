@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { e as getExpenseActionSubtitle, i as isMileageTripData, a as isMileagePeriodData } from "./http-errors-D-7DCEFK.js";
-import { x as isMileageExpense, k as formatAmountWithCurrency, aJ as getExpenseItemAmount, s as isExpenseItemSubmitted, W as formatExpensePeriod, w as isRegularExpense } from "./use-scroll-into-view-ref-C9Kl5FyD.js";
+import { f as getExpenseActionSubtitle, i as isMileageTripData, b as isMileagePeriodData } from "./http-errors-DqdtIJPx.js";
+import { x as isMileageExpense, k as formatAmountWithCurrency, aJ as getExpenseItemAmount, s as isExpenseItemSubmitted, W as formatExpensePeriod, w as isRegularExpense } from "./use-scroll-into-view-ref-5KW7vbjG.js";
 const MISSING_VALUE_INDICATOR = "-";
 function buildTitleSuffix(expenseItem) {
   if (isMileageExpense(expenseItem)) {
@@ -38,18 +38,6 @@ function buildHeaderFromExpenseItem(expenseItem) {
   };
 }
 __name(buildHeaderFromExpenseItem, "buildHeaderFromExpenseItem");
-function getExpenseErrorMessage(error) {
-  const code = error == null ? void 0 : error.code;
-  if (code === "404") {
-    return "Expense form could not be found.";
-  }
-  if (code === "403") {
-    return "You do not have permission to view this expense form.";
-  }
-  return "Failed to load expense form. Please check your connection and try again.";
-}
-__name(getExpenseErrorMessage, "getExpenseErrorMessage");
 export {
-  buildHeaderFromExpenseItem as b,
-  getExpenseErrorMessage as g
+  buildHeaderFromExpenseItem as b
 };

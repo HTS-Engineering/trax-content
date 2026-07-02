@@ -9968,7 +9968,16 @@ const RECONCILIATION_ENDPOINTS = {
   ),
   GET_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/:statementId/transactions"),
   GET_CARDHOLDER_DASHBOARD: endpoint("/api/v1.0/reconciliation/cardholder/dashboard"),
-  GET_CARDHOLDER_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/cardholder/transactions")
+  GET_CARDHOLDER_TRANSACTIONS: endpoint("/api/v1.0/reconciliation/cardholder/transactions"),
+  GET_MATCHABLE_EXPENSES: endpoint(
+    "/api/v1.0/reconciliation/cardholder/transactions/:transactionId/matchable-expenses"
+  ),
+  MATCH_TRANSACTION: endpoint(
+    "/api/v1.0/reconciliation/cardholder/transactions/:transactionId/match"
+  ),
+  UNMATCH_TRANSACTION: endpoint(
+    "/api/v1.0/reconciliation/cardholder/transactions/:transactionId/match"
+  )
 };
 const ALL_ENDPOINT_TEMPLATES = collectEndpointTemplates(
   EXPENSE_ENDPOINTS,
@@ -10193,7 +10202,8 @@ const queryKeys = {
   cardholderTransactions: {
     all: /* @__PURE__ */ __name(() => [QueryKeyScope.CARDHOLDER_TRANSACTIONS], "all"),
     lists: /* @__PURE__ */ __name(() => [QueryKeyScope.CARDHOLDER_TRANSACTIONS, QueryKeyOperation.LIST], "lists"),
-    list: /* @__PURE__ */ __name((params) => [...queryKeys.cardholderTransactions.lists(), params], "list")
+    list: /* @__PURE__ */ __name((params) => [...queryKeys.cardholderTransactions.lists(), params], "list"),
+    matchableExpenses: /* @__PURE__ */ __name((transactionId) => [...queryKeys.cardholderTransactions.all(), "matchable-expenses", transactionId], "matchableExpenses")
   }
 };
 const EMPTY_CURRENCY_SYMBOL = "-";
@@ -11477,6 +11487,9 @@ const isValidListUrl = /* @__PURE__ */ __name((url, basePath) => {
 const getValidReturnUrl = /* @__PURE__ */ __name((state, fallback, basePath) => {
   if (!isNavigationState(state) || !state.returnUrl) {
     return fallback;
+  }
+  if (state.returnUrl.startsWith("/reconciliation")) {
+    return state.returnUrl;
   }
   return isValidListUrl(state.returnUrl, basePath) ? state.returnUrl : fallback;
 }, "getValidReturnUrl");

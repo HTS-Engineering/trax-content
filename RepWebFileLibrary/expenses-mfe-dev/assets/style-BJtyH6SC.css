@@ -727,6 +727,10 @@
     height: calc(var(--spacing) * 0);
   }
 
+  .expenses-mfe-scope .h-4\.5, .trax-ui-component .h-4\.5, .expenses-mfe-scope.h-4\.5, .trax-ui-component.h-4\.5 {
+    height: calc(var(--spacing) * 4.5);
+  }
+
   .expenses-mfe-scope .h-48, .trax-ui-component .h-48, .expenses-mfe-scope.h-48, .trax-ui-component.h-48 {
     height: calc(var(--spacing) * 48);
   }
@@ -781,6 +785,10 @@
 
   .expenses-mfe-scope .w-60, .trax-ui-component .w-60, .expenses-mfe-scope.w-60, .trax-ui-component.w-60 {
     width: calc(var(--spacing) * 60);
+  }
+
+  .expenses-mfe-scope .w-96, .trax-ui-component .w-96, .expenses-mfe-scope.w-96, .trax-ui-component.w-96 {
+    width: calc(var(--spacing) * 96);
   }
 
   .expenses-mfe-scope .w-\[128px\], .trax-ui-component .w-\[128px\], .expenses-mfe-scope.w-\[128px\], .trax-ui-component.w-\[128px\] {
@@ -1212,6 +1220,10 @@
     padding-right: calc(var(--spacing) * 4);
   }
 
+  .expenses-mfe-scope .pr-12, .trax-ui-component .pr-12, .expenses-mfe-scope.pr-12, .trax-ui-component.pr-12 {
+    padding-right: calc(var(--spacing) * 12);
+  }
+
   .expenses-mfe-scope .pb-3, .trax-ui-component .pb-3, .expenses-mfe-scope.pb-3, .trax-ui-component.pb-3 {
     padding-bottom: calc(var(--spacing) * 3);
   }
@@ -1469,6 +1481,10 @@
     color: var(--color-exp-grey-500) !important;
   }
 
+  .expenses-mfe-scope .first\:relative:first-child, .trax-ui-component .first\:relative:first-child {
+    position: relative;
+  }
+
   @media (hover: hover) {
     .expenses-mfe-scope .hover\:cursor-not-allowed:hover, .trax-ui-component .hover\:cursor-not-allowed:hover, .expenses-mfe-scope.hover\:cursor-not-allowed:hover, .trax-ui-component.hover\:cursor-not-allowed:hover {
       cursor: not-allowed;
@@ -1529,6 +1545,10 @@
 
     .expenses-mfe-scope .hover\:text-exp-green-800:hover, .trax-ui-component .hover\:text-exp-green-800:hover, .expenses-mfe-scope.hover\:text-exp-green-800:hover, .trax-ui-component.hover\:text-exp-green-800:hover {
       color: var(--color-exp-green-800) !important;
+    }
+
+    .expenses-mfe-scope .hover\:text-exp-neutral-900:hover, .trax-ui-component .hover\:text-exp-neutral-900:hover, .expenses-mfe-scope.hover\:text-exp-neutral-900:hover, .trax-ui-component.hover\:text-exp-neutral-900:hover {
+      color: var(--color-exp-neutral-900) !important;
     }
 
     .expenses-mfe-scope .hover\:text-exp-primary-blue-600:hover, .trax-ui-component .hover\:text-exp-primary-blue-600:hover, .expenses-mfe-scope.hover\:text-exp-primary-blue-600:hover, .trax-ui-component.hover\:text-exp-primary-blue-600:hover {

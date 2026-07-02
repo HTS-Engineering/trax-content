@@ -12,7 +12,7 @@ var _client, _result, _queries, _options, _observers, _combinedResult, _lastComb
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { aa as Fs, ab as Is, ac as Ms, ad as Ps, ae as ks, af as Es, U as Ue, Y as Yn, b as apiClient, C as CONFIGURATION_ENDPOINTS, d as devError } from "./configuration-D10EiL3X.js";
-import { _ as Subscribable, a0 as notifyManager, aw as shallowEqualObjects, ax as replaceEqualDeep, ay as QueryObserver, t as useQueryClient, az as useIsRestoring, aA as useQueryErrorResetBoundary, aB as ensureSuspenseTimers, aC as ensurePreventErrorBoundaryRetry, aD as useClearResetErrorBoundary, a2 as noop, aE as shouldSuspend, aF as fetchOptimistic, aG as getHasError, q as queryKeys, o as useQuery, v as useMutation } from "./use-scroll-into-view-ref-C9Kl5FyD.js";
+import { _ as Subscribable, a0 as notifyManager, aw as shallowEqualObjects, ax as replaceEqualDeep, ay as QueryObserver, t as useQueryClient, az as useIsRestoring, aA as useQueryErrorResetBoundary, aB as ensureSuspenseTimers, aC as ensurePreventErrorBoundaryRetry, aD as useClearResetErrorBoundary, a2 as noop, aE as shouldSuspend, aF as fetchOptimistic, aG as getHasError, q as queryKeys, o as useQuery, v as useMutation } from "./use-scroll-into-view-ref-5KW7vbjG.js";
 function difference(array1, array2) {
   const excludeSet = new Set(array2);
   return array1.filter((x) => !excludeSet.has(x));

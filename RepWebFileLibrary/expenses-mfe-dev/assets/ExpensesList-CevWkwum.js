@@ -2,39 +2,13 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { b as apiClient, B as Br, e as ei, $ as $a, q as dr, t as ts, n as ni, T as Ta, z as za, Y as Yn } from "./configuration-D10EiL3X.js";
-import { e as useCompanyStore, o as useQuery, p as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, k as formatAmountWithCurrency, r as useSearchParams, d as useLocation, Z as useNavigateWithReturn, B as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-C9Kl5FyD.js";
+import { b as apiClient, e as ei, $ as $a, B as Br, q as dr, t as ts, n as ni, T as Ta, z as za, Y as Yn } from "./configuration-D10EiL3X.js";
+import { e as useCompanyStore, o as useQuery, p as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, k as formatAmountWithCurrency, r as useSearchParams, d as useLocation, Z as useNavigateWithReturn, B as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-5KW7vbjG.js";
 import { E as EmptyState } from "./EmptyState-B2B59hw5.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-CoQblXS3.js";
+import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-DZJ9i6Mw.js";
+import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DWfTn9J4.js";
 import { P as Plus } from "./plus-BEct13Z3.js";
-const STATUS_BADGE_CONFIG = {
-  draft: {
-    bgColor: "bg-exp-yellow-200",
-    textColor: "text-exp-yellow-800",
-    label: "Draft"
-  },
-  submitted: {
-    bgColor: "bg-exp-primary-blue-100",
-    textColor: "text-exp-primary-blue-600",
-    label: "Submitted"
-  },
-  approved: {
-    bgColor: "bg-exp-green-100",
-    textColor: "text-exp-green-800",
-    label: "Approved"
-  },
-  rejected: {
-    bgColor: "bg-exp-red-100",
-    textColor: "text-exp-red-600",
-    label: "Rejected"
-  },
-  cancelled: {
-    bgColor: "bg-exp-grey-100",
-    textColor: "text-exp-grey-600",
-    label: "Cancelled"
-  }
-};
 const normalizeStatus = /* @__PURE__ */ __name((status) => {
   return status.toLowerCase();
 }, "normalizeStatus");
@@ -231,17 +205,6 @@ const parseReturnUrl = /* @__PURE__ */ __name((returnUrl) => {
     return null;
   }
 }, "parseReturnUrl");
-const ExpenseStatusBadge = /* @__PURE__ */ __name(({ status, className = "" }) => {
-  const config = STATUS_BADGE_CONFIG[status];
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Br,
-    {
-      variant: "outline",
-      className: `rounded-20! ${config.bgColor} ${config.textColor} ${className}`,
-      children: config.label
-    }
-  );
-}, "ExpenseStatusBadge");
 const DEFAULT_PAGE_SIZE = 20;
 const STATUS_DATE_COLUMN_ID = "statusDate";
 const { useMemo: useMemo$2 } = await importShared("react");
@@ -813,6 +776,5 @@ const ExpensesList = /* @__PURE__ */ __name(() => {
   ] });
 }, "ExpensesList");
 export {
-  ExpensesList as E,
-  ExpenseStatusBadge as a
+  ExpensesList as E
 };

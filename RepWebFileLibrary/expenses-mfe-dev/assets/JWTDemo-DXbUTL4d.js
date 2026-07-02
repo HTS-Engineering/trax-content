@@ -5,14 +5,9 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { c as createLucideIcon, at as DOMEventNames, S as SessionStorageKeys, A as ys, B as Br, au as ht, av as TokenPlaceholders, U as Ue, aw as jn, ax as sn, b as apiClient, C as CONFIGURATION_ENDPOINTS, ay as axios } from "./configuration-D10EiL3X.js";
 import { u as useAuth, a as useJWT, b as useUser, c as usePermissions, d as useTokenExpiration, e as useJWTStatus, f as useJWTPayload } from "./hooks-CAqmqx5c.js";
 import { S as Shield } from "./shield-Bbop5vZX.js";
+import { C as CircleAlert } from "./circle-alert-DT1PvBcT.js";
 import { R as RefreshCw } from "./refresh-cw-Ucs8BWft.js";
 import { T as Trash2, S as Send } from "./trash-2-OEZbWsdx.js";
-const __iconNode$6 = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
-  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
-];
-const CircleAlert = createLucideIcon("circle-alert", __iconNode$6);
 const __iconNode$5 = [
   ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
   ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
