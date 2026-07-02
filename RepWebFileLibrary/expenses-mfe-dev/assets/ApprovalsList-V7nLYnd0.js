@@ -6,11 +6,11 @@ import { u as useJWTStore, b as apiClient, e as ei, $ as $a, B as Br, d as devEr
 import { k as formatAmountWithCurrency, l as formatDate, m as formatDateRange, n as formatExpenseDate, e as useCompanyStore, o as useQuery, q as queryKeys, p as keepPreviousData, E as EXPENSE_ENDPOINTS, r as useSearchParams, d as useLocation, a as RoutePaths, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, u as useNavigate, C as useParams, g as generatePath } from "./use-scroll-into-view-ref-5KW7vbjG.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DWfTn9J4.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { g as getExpenseBaseAmount, a as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, c as MileagePeriodPreview, d as ExpenseFormHistoryLog } from "./http-errors-DqdtIJPx.js";
-import { b as buildHeaderFromExpenseItem } from "./build-expense-header-Ck6YCzk8.js";
+import { g as getExpenseBaseAmount, a as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, c as MileagePeriodPreview, d as ExpenseFormHistoryLog } from "./http-errors-DVP83gL0.js";
+import { b as buildHeaderFromExpenseItem } from "./build-expense-header-Btf_hykH.js";
 import "./hooks-CAqmqx5c.js";
 import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-zcv15_zC.js";
-import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema } from "./CostAllocationSection-Dya6hVdZ.js";
+import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema } from "./CostAllocationSection-Cz3eP32v.js";
 var Role = /* @__PURE__ */ ((Role2) => {
   Role2["Employee"] = "Expense.Employee";
   Role2["Manager"] = "Expense.Manager";

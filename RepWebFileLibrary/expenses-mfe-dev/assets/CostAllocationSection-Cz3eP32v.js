@@ -17,7 +17,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
-import { e as isConvertedExpense, j as isHttpApiError, k as getHttpErrorMessage, r as resolveFileUrl, h as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-DqdtIJPx.js";
+import { e as isConvertedExpense, j as isHttpApiError, k as getHttpErrorMessage, r as resolveFileUrl, h as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-DVP83gL0.js";
 import { _ as Subscribable, $ as Mutation, a0 as notifyManager, a1 as matchMutation, a2 as noop, a3 as hashQueryKeyByOptions, a4 as Query, a5 as matchQuery, a6 as focusManager, a7 as onlineManager, a8 as resolveStaleTime, a9 as functionalUpdate, aa as hashKey, ab as partialMatchKey, ac as skipToken, o as useQuery, q as queryKeys, e as useCompanyStore, ad as ECostAllocation, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, j as useExpenseTypes, F as FormTypeId, ae as AllowedMimeType, af as FILE_SIZE_LIMITS, ag as MIME_TYPE_CONFIG, ah as FilePreviewType, J as useCountries, ai as useDefaultCountry, S as ExpenseFormType, aj as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, ak as useDebouncedCallback, P as useFormTypeId, al as useNumericDisplay, am as getCurrencySymbol, L as useDefaultCurrency } from "./use-scroll-into-view-ref-5KW7vbjG.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, O as Oa, v as create, x as devtools, y as devWarn, d as devError, a as devLog, Z as Zs, Y as Yn, U as Ue, A as ys, N as Ns, D as Ss, h as gr, Q as Qt, k as gn, m as es, g as Mt, E as Et, P as Pt, F as Ys, K as Ks, W as Ws, p as ja, H as Ha, w as ws, G as cr, I as Ga, J as ri, L as Ye } from "./configuration-D10EiL3X.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
@@ -4266,7 +4266,7 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
   }
   return true;
 }, {
-  message: "Persons entertained is required",
+  message: "Person entertained is required",
   path: [ExpenseFormField.PersonsEntertained]
 }).superRefine((data, ctx) => {
   var _a2, _b2, _c2, _d;

@@ -395,7 +395,7 @@ const PreviewExpenseJustificationSection = /* @__PURE__ */ __name(({
     /* @__PURE__ */ jsxRuntimeExports.jsx(Ns, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Business purpose", value: data.businessPurpose }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Expense description", value: data.expenseDescription }),
-      data.formType === ExpenseFormType.ENTERTAINMENT && /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Persons entertained", value: data.personsEntertained })
+      data.formType === ExpenseFormType.ENTERTAINMENT && /* @__PURE__ */ jsxRuntimeExports.jsx(PreviewField, { label: "Person entertained", value: data.personsEntertained })
     ] }) })
   ] });
 }, "PreviewExpenseJustificationSection");
