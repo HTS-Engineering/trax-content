@@ -17,12 +17,12 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
-import { e as isConvertedExpense, j as isHttpApiError, k as getHttpErrorMessage, r as resolveFileUrl, h as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-DVP83gL0.js";
-import { _ as Subscribable, $ as Mutation, a0 as notifyManager, a1 as matchMutation, a2 as noop, a3 as hashQueryKeyByOptions, a4 as Query, a5 as matchQuery, a6 as focusManager, a7 as onlineManager, a8 as resolveStaleTime, a9 as functionalUpdate, aa as hashKey, ab as partialMatchKey, ac as skipToken, o as useQuery, q as queryKeys, e as useCompanyStore, ad as ECostAllocation, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, j as useExpenseTypes, F as FormTypeId, ae as AllowedMimeType, af as FILE_SIZE_LIMITS, ag as MIME_TYPE_CONFIG, ah as FilePreviewType, J as useCountries, ai as useDefaultCountry, S as ExpenseFormType, aj as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, ak as useDebouncedCallback, P as useFormTypeId, al as useNumericDisplay, am as getCurrencySymbol, L as useDefaultCurrency } from "./use-scroll-into-view-ref-5KW7vbjG.js";
+import { e as isConvertedExpense, j as isHttpApiError, k as getHttpErrorMessage, r as resolveFileUrl, h as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-B-5BELwJ.js";
+import { _ as Subscribable, $ as Mutation, a0 as notifyManager, a1 as matchMutation, a2 as noop, a3 as hashQueryKeyByOptions, a4 as Query, a5 as matchQuery, a6 as focusManager, a7 as onlineManager, a8 as resolveStaleTime, a9 as functionalUpdate, aa as hashKey, ab as partialMatchKey, ac as skipToken, o as useQuery, q as queryKeys, e as useCompanyStore, ad as ECostAllocation, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, j as useExpenseTypes, F as FormTypeId, ae as AllowedMimeType, af as FILE_SIZE_LIMITS, ag as MIME_TYPE_CONFIG, ah as FilePreviewType, J as useCountries, ai as useDefaultCountry, S as ExpenseFormType, aj as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, ak as useDebouncedCallback, P as useFormTypeId, al as useNumericDisplay, am as getCurrencySymbol, L as useDefaultCurrency } from "./use-scroll-into-view-ref-BqrSYd7e.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, O as Oa, v as create, x as devtools, y as devWarn, d as devError, a as devLog, Z as Zs, Y as Yn, U as Ue, A as ys, N as Ns, D as Ss, h as gr, Q as Qt, k as gn, m as es, g as Mt, E as Et, P as Pt, F as Ys, K as Ks, W as Ws, p as ja, H as Ha, w as ws, G as cr, I as Ga, J as ri, L as Ye } from "./configuration-D10EiL3X.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, k as date, l as unknown, n as number, _ as _enum, C as ConfirmDialog, h as useWatch, u as useForm, d as u, m as literal, j as useEffectiveMileageRate, p as useFormState, e as Controller, g as createDecimalChangeHandler } from "./useMileageRates-zcv15_zC.js";
+import { s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, k as date, l as unknown, n as number, _ as _enum, C as ConfirmDialog, h as useWatch, u as useForm, d as u, m as literal, j as useEffectiveMileageRate, p as useFormState, e as Controller, g as createDecimalChangeHandler } from "./useMileageRates-BFn8ycfa.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { T as TOOLTIP_DELAY_QUICK, a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./tooltip-DR3aZV6G.js";
@@ -637,6 +637,14 @@ function mapCostAllocation(allocation) {
   }
 }
 __name(mapCostAllocation, "mapCostAllocation");
+function hasAllocationTarget(allocation) {
+  return allocation.salesRepId != null || Number.isFinite(allocation.teamId) || Number.isFinite(allocation.projectId) && Number.isFinite(allocation.purchaseOrderId) && Number.isFinite(allocation.supplierId);
+}
+__name(hasAllocationTarget, "hasAllocationTarget");
+function mapCostAllocations(allocations) {
+  return (allocations ?? []).map(mapCostAllocation).filter(hasAllocationTarget);
+}
+__name(mapCostAllocations, "mapCostAllocations");
 function mapFormDataToCreateRequest(data, expenseTypes) {
   var _a2, _b2, _c2, _d, _e, _f, _g;
   const typeId = parseOptionalInt(data.expenseType);
@@ -665,7 +673,7 @@ function mapFormDataToCreateRequest(data, expenseTypes) {
     foreignCurrencyCode: isConverted ? ((_e = data.netCurrency) == null ? void 0 : _e.code) || null : null,
     totalCurrencyCode: isConverted ? ((_f = data.totalCurrency) == null ? void 0 : _f.code) || null : ((_g = data.netCurrency) == null ? void 0 : _g.code) || null,
     costAllocationDeferred: data.deferToApprover ?? null,
-    costAllocations: data.costAllocations && data.costAllocations.length > 0 ? data.costAllocations.map(mapCostAllocation) : null
+    costAllocations: mapCostAllocations(data.costAllocations)
   };
 }
 __name(mapFormDataToCreateRequest, "mapFormDataToCreateRequest");
@@ -5578,7 +5586,7 @@ function useBaseExpenseForm(config2, props) {
     handleSubmit: rhfHandleSubmit,
     control,
     getValues,
-    formState: { isDirty, errors, isValid },
+    formState: { isDirty, errors, isValid, defaultValues: rhfDefaultValues },
     trigger,
     reset
   } = form;
@@ -5652,6 +5660,11 @@ function useBaseExpenseForm(config2, props) {
     [formDataForValidation, config2]
   );
   const canSubmit = isValid && !isSubmitting;
+  const watchedCostAllocations = useWatch({ control, name: "costAllocations" });
+  const costAllocationsDirty = useMemo$d(() => {
+    const baseline = rhfDefaultValues == null ? void 0 : rhfDefaultValues.costAllocations;
+    return JSON.stringify(watchedCostAllocations ?? []) !== JSON.stringify(baseline ?? []);
+  }, [watchedCostAllocations, rhfDefaultValues]);
   const handleFormSubmit = useCallback$h(
     async (data) => {
       try {
@@ -5710,20 +5723,21 @@ function useBaseExpenseForm(config2, props) {
     if (isDrafting) {
       return { disabled: true, tooltip: "Saving draft..." };
     }
-    if (!isDirty) {
+    if (!isDirty && !costAllocationsDirty) {
       return { disabled: true, tooltip: "No changes to save" };
     }
     if (!canSave) {
       return { disabled: true, tooltip: "At least one field must be filled" };
     }
     return { disabled: false };
-  }, [isDrafting, isDirty, canSave]);
+  }, [isDrafting, isDirty, costAllocationsDirty, canSave]);
   return {
     form,
     validationErrors,
     hasErrors,
     canSave,
     canSubmit,
+    costAllocationsDirty,
     handleSubmit: rhfHandleSubmit(handleFormSubmit),
     handleDraftSave,
     validateForm,
@@ -6220,6 +6234,7 @@ const useFormButtonStateSync = /* @__PURE__ */ __name(({
     formState.isValid,
     form.hasErrors,
     form.canSave,
+    form.costAllocationsDirty,
     isSubmitting,
     isDrafting
   ]);
@@ -8334,40 +8349,41 @@ const MemoizedCostAllocationSection = memo(CostAllocationSectionComponent);
 const CostAllocationSection = MemoizedCostAllocationSection;
 MemoizedCostAllocationSection.displayName = "CostAllocationSection";
 export {
-  mileageTripValidationStrategy as $,
-  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as A,
-  isSameCalendarMonth as B,
+  mapMileageTripToDefaultValues as $,
+  ExpenseTypeSelect as A,
+  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as B,
   CostAllocationHeaderActions as C,
-  expenseDetailsSchema as D,
+  isSameCalendarMonth as D,
   ExpenseFormField as E,
   FormSectionType as F,
-  expenseJustificationSchema as G,
-  costAllocationSchema as H,
-  additionalCommentsSchema as I,
-  MileageTripFormField as J,
-  mileageDetailsSchema as K,
-  mileageJustificationSchema as L,
+  expenseDetailsSchema as G,
+  expenseJustificationSchema as H,
+  costAllocationSchema as I,
+  additionalCommentsSchema as J,
+  MileageTripFormField as K,
+  mileageDetailsSchema as L,
   MileagePeriodFormField as M,
   NO_MILEAGE_RATE_FOR_DATE_MESSAGE as N,
-  useBaseExpenseForm as O,
-  useValidatePrefilledFields as P,
-  useAutoSave as Q,
-  useFormButtonStateSync as R,
+  mileageJustificationSchema as O,
+  useBaseExpenseForm as P,
+  useValidatePrefilledFields as Q,
+  useAutoSave as R,
   SupportingFiles as S,
-  useFormImperativeHandle as T,
-  BaseExpenseFormRenderer as U,
-  useExpenseFormHandlers as V,
-  useExpenseFormSync as W,
-  fullExpenseValidationStrategy as X,
-  ExpenseFormLeftColumn as Y,
-  useMileageTripFormHandlers as Z,
-  mapMileageTripToDefaultValues as _,
+  useFormButtonStateSync as T,
+  useFormImperativeHandle as U,
+  BaseExpenseFormRenderer as V,
+  useExpenseFormHandlers as W,
+  useExpenseFormSync as X,
+  fullExpenseValidationStrategy as Y,
+  ExpenseFormLeftColumn as Z,
+  useMileageTripFormHandlers as _,
   useCostAllocationHandlers as a,
-  supportingFilesSchema as a0,
-  useMileagePeriodFormHandlers as a1,
-  mapMileagePeriodToDefaultValues as a2,
-  mileagePeriodValidationStrategy as a3,
-  usePendingUploadStore as a4,
+  mileageTripValidationStrategy as a0,
+  supportingFilesSchema as a1,
+  useMileagePeriodFormHandlers as a2,
+  mapMileagePeriodToDefaultValues as a3,
+  mileagePeriodValidationStrategy as a4,
+  usePendingUploadStore as a5,
   CostAllocationSection as b,
   costAllocationItemSchema as c,
   useDefaultCompany as d,
@@ -8378,19 +8394,19 @@ export {
   isValidFileAttachment as i,
   mapFormDataToUpdateRequest as j,
   mapFormDataToCreateRequest as k,
-  parseOptionalDecimal as l,
+  mapCostAllocations as l,
   mapCostAllocation as m,
-  getMileageTypesFromCache as n,
-  findActiveSelectedMileageType as o,
+  parseOptionalDecimal as n,
+  getMileageTypesFromCache as o,
   parseOptionalInt as p,
   queryClient as q,
-  affidavitSchema as r,
-  basicDetailsSchema as s,
-  createValidationStrategy as t,
+  findActiveSelectedMileageType as r,
+  affidavitSchema as s,
+  basicDetailsSchema as t,
   useCompanies as u,
   validateCostAllocation as v,
-  createDraftSaveChecker as w,
-  useTaxFieldVisibility as x,
-  useSetDefaultCurrency as y,
-  ExpenseTypeSelect as z
+  createValidationStrategy as w,
+  createDraftSaveChecker as x,
+  useTaxFieldVisibility as y,
+  useSetDefaultCurrency as z
 };

@@ -3,11 +3,11 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { b as apiClient, e as ei, $ as $a, B as Br, q as dr, t as ts, n as ni, T as Ta, z as za, Y as Yn } from "./configuration-D10EiL3X.js";
-import { e as useCompanyStore, o as useQuery, p as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, k as formatAmountWithCurrency, r as useSearchParams, d as useLocation, Z as useNavigateWithReturn, B as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-5KW7vbjG.js";
+import { e as useCompanyStore, o as useQuery, p as keepPreviousData, E as EXPENSE_ENDPOINTS, q as queryKeys, k as formatAmountWithCurrency, r as useSearchParams, d as useLocation, Z as useNavigateWithReturn, B as useErrorToast, g as generatePath, a as RoutePaths } from "./use-scroll-into-view-ref-BqrSYd7e.js";
 import { E as EmptyState } from "./EmptyState-B2B59hw5.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
-import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-DZJ9i6Mw.js";
-import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DWfTn9J4.js";
+import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-DtG3cHl4.js";
+import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-DIx0tioY.js";
 import { P as Plus } from "./plus-BEct13Z3.js";
 const normalizeStatus = /* @__PURE__ */ __name((status) => {
   return status.toLowerCase();

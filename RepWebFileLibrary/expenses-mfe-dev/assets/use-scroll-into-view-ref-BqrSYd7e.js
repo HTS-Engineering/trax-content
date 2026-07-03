@@ -10747,7 +10747,7 @@ function buildAffidavitInfo(response, receiptFile) {
 }
 __name(buildAffidavitInfo, "buildAffidavitInfo");
 function inferEqualSplit(allocations) {
-  if (allocations.length <= 1) return true;
+  if (allocations.length <= 1) return false;
   const first = Number(allocations[0].percentage);
   return allocations.every((a) => Number(a.percentage) === first);
 }

@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { l as formatDate, aj as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, n as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, ad as ECostAllocation, aI as EMPTY_CURRENCY_SYMBOL, L as useDefaultCurrency, aK as formatDistance, U as formatRate, W as formatExpensePeriod, o as useQuery, E as EXPENSE_ENDPOINTS, q as queryKeys, aL as formatHistoryTimestamp } from "./use-scroll-into-view-ref-5KW7vbjG.js";
+import { l as formatDate, aj as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, n as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, ad as ECostAllocation, aI as EMPTY_CURRENCY_SYMBOL, L as useDefaultCurrency, aK as formatDistance, U as formatRate, W as formatExpensePeriod, o as useQuery, E as EXPENSE_ENDPOINTS, q as queryKeys, aL as formatHistoryTimestamp } from "./use-scroll-into-view-ref-BqrSYd7e.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { b as apiClient, A as ys, D as Ss, h as gr, N as Ns, Y as Yn, w as ws, B as Br, l as ls, Z as Zs, V as h, am as wt, an as zt, U as Ue, ao as yt } from "./configuration-D10EiL3X.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
