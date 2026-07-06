@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.99",
-  "commit": "1459d4f",
-  "branch": "dev",
-  "timestamp": "2026-07-03T12:25:54.527Z",
+  "version": "0.1.0-dev.local-1783344969470",
+  "commit": "a21268ca",
+  "branch": "feat/TRX-696-ap-cancel-expense-flow",
+  "timestamp": "2026-07-06T13:36:09.500Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-CY8cI-qS.js",
+  "bootstrap": "__federation_expose_Mount-B78bV8wr.js",
   "css": "style-BJtyH6SC.css"
 }
