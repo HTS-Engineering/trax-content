@@ -1008,6 +1008,7 @@ const CancelExpenseFooter = /* @__PURE__ */ __name(({
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "min-w-0 flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Ha,
         {
+          autoFocus: true,
           "aria-label": "Cancellation Note",
           value: cancellationNote,
           onChange: /* @__PURE__ */ __name((e) => onNoteChange(e.target.value), "onChange"),
@@ -1048,7 +1049,16 @@ const CancelExpenseFooter = /* @__PURE__ */ __name(({
       ] })
     ] }) });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(as, { className: "pt-4 w-full max-w-[600px] ml-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-end w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { type: "button", variant: "secondary", onClick: onStartCancel, children: "Cancel Expense" }) }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(as, { className: "pt-4 w-full max-w-[600px] ml-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-end w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Ue,
+    {
+      className: "h-9",
+      type: "button",
+      variant: "secondary",
+      onClick: onStartCancel,
+      children: "Cancel Expense"
+    }
+  ) }) });
 }, "CancelExpenseFooter");
 const { useCallback: useCallback$1, useEffect, useMemo: useMemo$1, useRef, useState } = await importShared("react");
 const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose }) => {
@@ -1109,10 +1119,11 @@ const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose
     () => isError ? getExpenseErrorMessage(fetchError) : "",
     [isError, fetchError]
   );
-  useErrorToast(isError, errorMessage, 5e3);
+  const hasCommittedStatusChange = statusOverride !== null;
+  useErrorToast(isError && !hasCommittedStatusChange, errorMessage, 5e3);
   useEffect(() => {
-    if (isError) onClose();
-  }, [isError, onClose]);
+    if (isError && !hasCommittedStatusChange) onClose();
+  }, [isError, hasCommittedStatusChange, onClose]);
   useEffect(() => {
     if (expenseItem && expenseItem.status === "draft") {
       Zs.error("Expense form is still in draft and cannot be viewed in the approval flow.", { duration: 5e3 });
