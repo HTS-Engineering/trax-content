@@ -5,10 +5,10 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { u as useJWTStore, b as apiClient, e as ei, $ as $a, B as Br, f as create, g as devtools, s as subscribeWithSelector, i as immer, S as SessionStorageKeys, d as devError, Z as Zs, h as as, H as Ha, U as Ue, Y as Yn, j as Mt, E as Et, P as Pt, k as gr, o as oi, r as rs, l as os, m as ss, n as ls, T as Ta, z as za, p as ni } from "./configuration-VilRQx4O.js";
 import { j as formatAmountWithCurrency, k as formatDate, l as formatDateRange, m as formatExpenseDate, e as useCompanyStore, n as useQuery, q as queryKeys, o as keepPreviousData, E as EXPENSE_ENDPOINTS, p as useSearchParams, u as useLocation, a as RoutePaths, d as useNavigate, r as generatePath, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, C as useParams } from "./use-scroll-into-view-ref-BewaPYHo.js";
 import { g as getExpenseTypeBadgeConfig } from "./expense-type-badge-B1atayuT.js";
+import "./hooks-BN0XYutS.js";
 import { I as Icon } from "./Icon-5RIpWGMw.js";
 import { g as getExpenseBaseAmount, a as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, c as MileagePeriodPreview, d as ExpenseFormHistoryLog } from "./http-errors-DzgLX61b.js";
 import { b as buildHeaderFromExpenseItem } from "./build-expense-header-IOkz63SE.js";
-import "./hooks-BN0XYutS.js";
 import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-QuaWe_fb.js";
 import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema } from "./CostAllocationSection-BdvGBADM.js";
 var Role = /* @__PURE__ */ ((Role2) => {
@@ -17,6 +17,7 @@ var Role = /* @__PURE__ */ ((Role2) => {
   Role2["Admin"] = "Expense.Admin";
   Role2["AP"] = "Expense.AP";
   Role2["CardHolder"] = "Expense.CardHolder";
+  Role2["SalesRep"] = "Expense.SalesRep";
   return Role2;
 })(Role || {});
 const { useCallback: useCallback$4, useMemo: useMemo$5 } = await importShared("react");
@@ -47,7 +48,8 @@ const useRoles = /* @__PURE__ */ __name(() => {
     isManager: roles.includes(Role.Manager),
     isAdmin: roles.includes(Role.Admin),
     isAP: roles.includes(Role.AP),
-    isCardHolder: roles.includes(Role.CardHolder)
+    isCardHolder: roles.includes(Role.CardHolder),
+    isSalesRep: roles.includes(Role.SalesRep)
   }), [roles, hasRole, hasAnyRole, hasAllRoles]);
 }, "useRoles");
 const MISSING_VALUE_INDICATOR = "-";
@@ -1468,6 +1470,8 @@ const ApprovalsList = /* @__PURE__ */ __name(() => {
     handleSortingChange,
     handlePaginationChange
   } = useApprovalsUrlFilters();
+  const { hasAnyRole } = useRoles();
+  const canViewApprovalsDashboard = hasAnyRole([Role.Manager, Role.Admin, Role.AP]);
   const queryParams = useMemo(() => {
     var _a, _b;
     return {
@@ -1478,7 +1482,9 @@ const ApprovalsList = /* @__PURE__ */ __name(() => {
       pageSize: DEFAULT_PAGE_SIZE
     };
   }, [currentTab, sorting, pagination.pageIndex]);
-  const { data, isFetching, isPending, isError } = useApprovalsList(queryParams, { enabled: isOnListPage });
+  const { data, isFetching, isPending, isError } = useApprovalsList(queryParams, {
+    enabled: isOnListPage && canViewApprovalsDashboard
+  });
   const approvals = (data == null ? void 0 : data.items) ?? [];
   const pageCount = (data == null ? void 0 : data.totalPages) ?? 0;
   const totalItems = (data == null ? void 0 : data.totalObjects) ?? 0;
