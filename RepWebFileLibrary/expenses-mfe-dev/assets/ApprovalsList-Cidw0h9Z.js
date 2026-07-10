@@ -3,14 +3,14 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { u as useJWTStore, b as apiClient, e as ei, $ as $a, B as Br, f as create, g as devtools, s as subscribeWithSelector, i as immer, S as SessionStorageKeys, d as devError, Z as Zs, h as as, H as Ha, U as Ue, Y as Yn, j as Mt, E as Et, P as Pt, k as gr, o as oi, r as rs, l as os, m as ss, n as ls, T as Ta, z as za, p as ni } from "./configuration-VilRQx4O.js";
-import { j as formatAmountWithCurrency, k as formatDate, l as formatDateRange, m as formatExpenseDate, e as useCompanyStore, n as useQuery, q as queryKeys, o as keepPreviousData, E as EXPENSE_ENDPOINTS, p as useSearchParams, u as useLocation, a as RoutePaths, d as useNavigate, r as generatePath, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, C as useParams } from "./use-scroll-into-view-ref-CeP4SkVx.js";
-import { g as getExpenseTypeBadgeConfig, E as EtlErrorIndicator } from "./EtlErrorIndicator-hWJHU7fl.js";
+import { j as formatAmountWithCurrency, k as formatDate, l as formatDateRange, m as formatExpenseDate, e as useCompanyStore, n as useQuery, q as queryKeys, o as keepPreviousData, E as EXPENSE_ENDPOINTS, p as useSearchParams, u as useLocation, a as RoutePaths, d as useNavigate, r as generatePath, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, C as useParams } from "./use-scroll-into-view-ref-CXAj2TM5.js";
+import { g as getExpenseTypeBadgeConfig, E as EtlErrorIndicator } from "./EtlErrorIndicator-Dcjm5EbG.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
 import "./hooks-BN0XYutS.js";
-import { g as getExpenseBaseAmount, a as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, c as MileagePeriodPreview, d as ExpenseFormHistoryLog, e as EtlErrorBanner } from "./http-errors-BmsW_jEQ.js";
-import { b as buildHeaderFromExpenseItem } from "./build-expense-header-CEai1m_P.js";
-import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-C3KDJ3Nj.js";
-import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema } from "./CostAllocationSection-CFHGt_-f.js";
+import { g as getExpenseBaseAmount, a as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, b as isMileagePeriodData, c as MileagePeriodPreview, d as ExpenseFormHistoryLog, e as EtlErrorBanner } from "./http-errors-BLtKOi-8.js";
+import { b as buildHeaderFromExpenseItem } from "./build-expense-header-D3BCg8Es.js";
+import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-CVAGYmKm.js";
+import { m as mapCostAllocation, v as validateCostAllocation, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema } from "./CostAllocationSection-B3W2WEuL.js";
 var Role = /* @__PURE__ */ ((Role2) => {
   Role2["Employee"] = "Expense.Employee";
   Role2["Manager"] = "Expense.Manager";

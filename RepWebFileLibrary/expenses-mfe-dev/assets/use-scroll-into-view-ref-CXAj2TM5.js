@@ -10352,8 +10352,10 @@ const formatCurrency = /* @__PURE__ */ __name((amount, { currency, spaceAfterSym
   const formattedNumber = new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
-  }).format(numericAmount);
-  return includeCurrencyCode ? `${prefix}${formattedNumber} ${validCurrency.code}` : `${prefix}${formattedNumber}`;
+  }).format(Math.abs(numericAmount));
+  const sign = numericAmount < 0 && formattedNumber !== "0.00" ? "-" : "";
+  const body = `${sign}${prefix}${formattedNumber}`;
+  return includeCurrencyCode ? `${body} ${validCurrency.code}` : body;
 }, "formatCurrency");
 const formatAmountWithCurrency = /* @__PURE__ */ __name((amount, currencyCode) => {
   if (amount == null || amount === "") return EMPTY_CURRENCY_SYMBOL;

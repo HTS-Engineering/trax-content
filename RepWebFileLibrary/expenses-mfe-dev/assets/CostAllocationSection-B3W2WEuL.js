@@ -17,12 +17,12 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
-import { f as isConvertedExpense, k as isHttpApiError, l as getHttpErrorMessage, r as resolveFileUrl, j as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-BmsW_jEQ.js";
-import { _ as Subscribable, $ as Mutation, a0 as notifyManager, a1 as matchMutation, a2 as noop, a3 as hashQueryKeyByOptions, a4 as Query, a5 as matchQuery, a6 as focusManager, a7 as onlineManager, a8 as resolveStaleTime, a9 as functionalUpdate, aa as hashKey, ab as partialMatchKey, ac as skipToken, n as useQuery, q as queryKeys, e as useCompanyStore, ad as ECostAllocation, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, i as useExpenseTypes, F as FormTypeId, ae as AllowedMimeType, af as FILE_SIZE_LIMITS, ag as MIME_TYPE_CONFIG, ah as FilePreviewType, J as useCountries, ai as useDefaultCountry, S as ExpenseFormType, aj as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, ak as useDebouncedCallback, P as useFormTypeId, al as useNumericDisplay, am as getCurrencySymbol, L as useDefaultCurrency } from "./use-scroll-into-view-ref-CeP4SkVx.js";
+import { f as isConvertedExpense, k as isHttpApiError, l as getHttpErrorMessage, r as resolveFileUrl, j as MileageFormType, g as getExpenseBaseAmount } from "./http-errors-BLtKOi-8.js";
+import { _ as Subscribable, $ as Mutation, a0 as notifyManager, a1 as matchMutation, a2 as noop, a3 as hashQueryKeyByOptions, a4 as Query, a5 as matchQuery, a6 as focusManager, a7 as onlineManager, a8 as resolveStaleTime, a9 as functionalUpdate, aa as hashKey, ab as partialMatchKey, ac as skipToken, n as useQuery, q as queryKeys, e as useCompanyStore, ad as ECostAllocation, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, i as useExpenseTypes, F as FormTypeId, ae as AllowedMimeType, af as FILE_SIZE_LIMITS, ag as MIME_TYPE_CONFIG, ah as FilePreviewType, J as useCountries, ai as useDefaultCountry, S as ExpenseFormType, aj as FILE_ENDPOINTS, E as EXPENSE_ENDPOINTS, ak as useDebouncedCallback, P as useFormTypeId, al as useNumericDisplay, am as getCurrencySymbol, L as useDefaultCurrency } from "./use-scroll-into-view-ref-CXAj2TM5.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, O as Oa, f as create, g as devtools, D as devWarn, d as devError, a as devLog, Z as Zs, Y as Yn, U as Ue, F as ys, N as Ns, G as Ss, k as gr, Q as Qt, t as gn, v as es, j as Mt, E as Et, P as Pt, I as Ys, K as Ks, W as Ws, w as ja, H as Ha, x as ws, J as cr, L as Ga, R as ri, V as Ye } from "./configuration-VilRQx4O.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { s as string, D as DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, k as date, l as unknown, n as number, _ as _enum, C as ConfirmDialog, h as useWatch, u as useForm, d as u, m as literal, j as useEffectiveMileageRate, p as useFormState, e as Controller, g as createDecimalChangeHandler } from "./useMileageRates-C3KDJ3Nj.js";
+import { s as string, S as SIGNED_DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, D as DECIMAL_FORMAT_REGEX, k as date, l as unknown, n as number, _ as _enum, C as ConfirmDialog, h as useWatch, u as useForm, d as u, m as literal, j as useEffectiveMileageRate, p as useFormState, e as Controller, g as createDecimalChangeHandler } from "./useMileageRates-CVAGYmKm.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { T as TOOLTIP_DELAY_QUICK, a as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./tooltip-CGriEw_j.js";
@@ -961,6 +961,9 @@ const MIN_SEARCH_LENGTH = COST_ALLOCATION_CONSTANTS.MIN_SEARCH_LENGTH;
 const SEARCH_DELAY_MS = COST_ALLOCATION_CONSTANTS.SEARCH_DELAY_MS;
 const FILE_UPLOAD_TIMEOUT = 12e4;
 const FILE_UPLOAD_MAX_RETRIES = 2;
+const DEFAULT_PAYMENT_METHOD = { id: "1" };
+const allowsNegativeAmounts = /* @__PURE__ */ __name((paymentMethodId) => !!paymentMethodId && paymentMethodId !== DEFAULT_PAYMENT_METHOD.id, "allowsNegativeAmounts");
+const DEFAULT_MILEAGE_VENDOR = "N/A";
 const getFileExtension = /* @__PURE__ */ __name((filename) => {
   if (!filename) return "unknown";
   const lastDotIndex = filename.lastIndexOf(".");
@@ -3646,6 +3649,12 @@ const areAllocationsEqual = /* @__PURE__ */ __name((allocations, totalAmount) =>
 }, "areAllocationsEqual");
 const calculateEqualDistribution = /* @__PURE__ */ __name((allocations, totalAmount) => {
   if (allocations.length === 0) return allocations;
+  if (totalAmount < 0) {
+    return calculateEqualDistribution(allocations, -totalAmount).map((allocation) => ({
+      ...allocation,
+      amount: allocation.amount === 0 ? 0 : -allocation.amount
+    }));
+  }
   const count = allocations.length;
   if (!totalAmount) {
     const equalPercentageDecimal = new Decimal(100).dividedBy(count);
@@ -3789,14 +3798,14 @@ const expenseTypeField = string().min(1, "Expense type is required");
 string().optional();
 const paymentMethodField = string().min(1, "Payment method is required");
 string().optional();
-const netAmountField = string().min(1, "Receipt total is required").regex(DECIMAL_FORMAT_REGEX, "Invalid amount format");
-string().min(1, "Converted total is required").regex(DECIMAL_FORMAT_REGEX, "Invalid amount format");
+const netAmountField = string().min(1, "Receipt total is required").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
+string().min(1, "Converted total is required").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
 string().optional().refine(
-  (val) => !val || DECIMAL_FORMAT_REGEX.test(val),
+  (val) => !val || SIGNED_DECIMAL_FORMAT_REGEX.test(val),
   "Invalid amount format"
 );
 const totalAmountFieldOptional = string().optional().refine(
-  (val) => !val || DECIMAL_FORMAT_REGEX.test(val),
+  (val) => !val || SIGNED_DECIMAL_FORMAT_REGEX.test(val),
   "Invalid amount format"
 );
 const currencyObjectSchema = object({
@@ -3858,10 +3867,10 @@ const expensePeriodFieldOptional = object({
   to: date()
 }).optional();
 string().min(1, "Tax type is required");
-string().min(1, "Tax amount is required").regex(DECIMAL_FORMAT_REGEX, "Invalid amount format");
+string().min(1, "Tax amount is required").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
 const taxTypeFieldOptional = string().optional();
 const taxAmountFieldOptional = string().optional().refine(
-  (val) => !val || DECIMAL_FORMAT_REGEX.test(val),
+  (val) => !val || SIGNED_DECIMAL_FORMAT_REGEX.test(val),
   "Invalid amount format"
 );
 const receiptSchema = object({
@@ -4061,6 +4070,10 @@ const costAllocationItemSchema = object({
   type: costAllocationTypeSchema,
   entityData: unknown().optional()
 });
+const costAllocationItemSignedSchema = object({
+  ...costAllocationItemSchema.shape,
+  amount: number()
+});
 const costAllocationItemDraftSchema = object({
   id: string(),
   name: string(),
@@ -4070,7 +4083,7 @@ const costAllocationItemDraftSchema = object({
   entityData: unknown().optional()
 });
 const costAllocationSchema = object({
-  costAllocations: array(costAllocationItemSchema).optional(),
+  costAllocations: array(costAllocationItemSignedSchema).optional(),
   isEqualSplit: boolean().optional().default(false),
   deferToApprover: boolean().optional()
 });
@@ -4096,10 +4109,10 @@ const validateCostAllocation = /* @__PURE__ */ __name((ctx, costAllocations, amo
         path: ["costAllocations", index, "percentage"]
       });
     }
-    if (amountValue > 0 && allocation.amount > amountValue) {
+    if (amountValue !== 0 && Math.abs(allocation.amount) > Math.abs(amountValue)) {
       ctx.addIssue({
         code: "custom",
-        message: CostAllocationValidationRules.getAmountExceedsErrorMessage(amountValue),
+        message: CostAllocationValidationRules.getAmountExceedsErrorMessage(Math.abs(amountValue)),
         path: ["costAllocations", index, "amount"]
       });
     }
@@ -4121,7 +4134,7 @@ const validateCostAllocation = /* @__PURE__ */ __name((ctx, costAllocations, amo
       path: ["costAllocations"]
     });
   }
-  if (amountValue > 0 && !CostAllocationValidationRules.isSumValid(allocations, amountValue)) {
+  if (amountValue !== 0 && !CostAllocationValidationRules.isSumValid(allocations, amountValue)) {
     const allocationsSum = allocations.reduce((sum2, a) => sum2 + a.amount, 0);
     ctx.addIssue({
       code: "custom",
@@ -4238,6 +4251,58 @@ const queryClient = new QueryClient({
     }, "onError")
   })
 });
+const MIXED_SIGN_MESSAGE = "Cannot mix positive and negative values";
+const NEGATIVE_NOT_ALLOWED_MESSAGE = "Negative amounts are not allowed for this payment method";
+const ZERO_RECEIPT_TOTAL_MESSAGE = "This field cannot be 0";
+const ZERO_CONVERTED_TOTAL_MESSAGE = "This field cannot be 0";
+const parseSigned = /* @__PURE__ */ __name((value) => {
+  if (!value || !SIGNED_DECIMAL_FORMAT_REGEX.test(value)) return null;
+  const parsed = parseFloat(value);
+  return Number.isNaN(parsed) ? null : parsed;
+}, "parseSigned");
+const validateAmountSigns = /* @__PURE__ */ __name((data, ctx) => {
+  var _a2, _b2;
+  const isConverted = isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code);
+  const receipt = parseSigned(data.netAmount);
+  const converted = parseSigned(data.totalAmount);
+  const tax = parseSigned(data.taxAmount);
+  const allocations = data.costAllocations ?? [];
+  if (!allowsNegativeAmounts(data.paymentMethod)) {
+    const flagNegative = /* @__PURE__ */ __name((value, path) => {
+      if (value != null && value < 0) {
+        ctx.addIssue({ code: "custom", message: NEGATIVE_NOT_ALLOWED_MESSAGE, path });
+      }
+    }, "flagNegative");
+    flagNegative(receipt, [ExpenseFormField.NetAmount]);
+    if (isConverted) flagNegative(converted, [ExpenseFormField.TotalAmount]);
+    flagNegative(tax, [ExpenseFormField.TaxAmount]);
+    allocations.forEach(
+      (a, i) => flagNegative(a.amount, [ExpenseFormField.CostAllocations, i, "amount"])
+    );
+    return;
+  }
+  const expectedSign = receipt == null ? 0 : Math.sign(receipt);
+  if (expectedSign === 0) return;
+  const flagMismatch = /* @__PURE__ */ __name((value, path) => {
+    if (value != null && value !== 0 && Math.sign(value) !== expectedSign) {
+      ctx.addIssue({ code: "custom", message: MIXED_SIGN_MESSAGE, path });
+    }
+  }, "flagMismatch");
+  if (isConverted) flagMismatch(converted, [ExpenseFormField.TotalAmount]);
+  flagMismatch(tax, [ExpenseFormField.TaxAmount]);
+  allocations.forEach(
+    (a, i) => flagMismatch(a.amount, [ExpenseFormField.CostAllocations, i, "amount"])
+  );
+}, "validateAmountSigns");
+const validateNonZeroTotals = /* @__PURE__ */ __name((data, ctx) => {
+  var _a2, _b2;
+  if (parseSigned(data.netAmount) === 0) {
+    ctx.addIssue({ code: "custom", message: ZERO_RECEIPT_TOTAL_MESSAGE, path: [ExpenseFormField.NetAmount] });
+  }
+  if (isConvertedExpense((_a2 = data.netCurrency) == null ? void 0 : _a2.code, (_b2 = data.totalCurrency) == null ? void 0 : _b2.code) && parseSigned(data.totalAmount) === 0) {
+    ctx.addIssue({ code: "custom", message: ZERO_CONVERTED_TOTAL_MESSAGE, path: [ExpenseFormField.TotalAmount] });
+  }
+}, "validateNonZeroTotals");
 const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expenseDetailsSchema.shape).safeExtend(expenseJustificationSchema.shape).safeExtend(costAllocationSchema.shape).safeExtend(additionalCommentsSchema.shape).safeExtend({
   formType: _enum(ExpenseFormType).optional()
 }).refine((data) => {
@@ -4252,7 +4317,7 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
 }).refine((data) => {
   var _a2, _b2, _c2, _d;
   if (!data.taxAmount) return true;
-  if (!DECIMAL_FORMAT_REGEX.test(data.taxAmount)) return true;
+  if (!SIGNED_DECIMAL_FORMAT_REGEX.test(data.taxAmount)) return true;
   const taxAmt = parseFloat(data.taxAmount);
   const convertedTotal = data.totalAmount ? parseFloat(data.totalAmount) : null;
   const receiptTotal = data.netAmount ? parseFloat(data.netAmount) : null;
@@ -4260,9 +4325,9 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
   const validateConvertedTotal = isConverted && ((_c2 = data.totalCurrency) == null ? void 0 : _c2.code) === DEFAULT_CURRENCY_CODE;
   const validateReceiptTotal = !validateConvertedTotal && ((_d = data.netCurrency) == null ? void 0 : _d.code) === DEFAULT_CURRENCY_CODE;
   if (validateConvertedTotal && convertedTotal != null) {
-    return taxAmt <= convertedTotal;
+    return Math.abs(taxAmt) <= Math.abs(convertedTotal);
   } else if (validateReceiptTotal && receiptTotal != null) {
-    return taxAmt <= receiptTotal;
+    return Math.abs(taxAmt) <= Math.abs(receiptTotal);
   }
   return true;
 }, {
@@ -4300,6 +4365,8 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
     }
   }
   validateCostAllocation(ctx, data.costAllocations, amount, data.deferToApprover, currencyCode);
+  validateAmountSigns(data, ctx);
+  validateNonZeroTotals(data, ctx);
 });
 function hasFieldValue(value) {
   if (value === null || value === void 0) {
@@ -5919,10 +5986,10 @@ const useAllocationSync = /* @__PURE__ */ __name(({
   const syncPercentageFromAmount = useCallback$e(
     (amount) => {
       if (isEditingPercentageRef.current) return;
-      if (totalAmount === 0 || !isFinite(amount) || isNaN(amount) || amount < 0) return;
+      if (totalAmount === 0 || !isFinite(amount) || isNaN(amount)) return;
       disableEqualSplit();
-      const amountDecimal = new Decimal(amount);
-      const totalDecimal = new Decimal(totalAmount);
+      const amountDecimal = new Decimal(amount).abs();
+      const totalDecimal = new Decimal(totalAmount).abs();
       const rawPercentage = amountDecimal.dividedBy(totalDecimal).times(100);
       const roundedPercentage = parseFloat(rawPercentage.toDecimalPlaces(DECIMAL_PLACES).toString());
       setValue(percentagePath, roundedPercentage, {
@@ -6801,23 +6868,30 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
     expenseType,
     expenseLocation,
     netCurrency,
-    totalCurrency
+    totalCurrency,
+    paymentMethod
   } = useFormFieldValues(control, [
     ExpenseFormField.TotalAmount,
     ExpenseFormField.NetAmount,
     ExpenseFormField.ExpenseType,
     ExpenseFormField.ExpenseLocation,
     ExpenseFormField.NetCurrency,
-    ExpenseFormField.TotalCurrency
+    ExpenseFormField.TotalCurrency,
+    ExpenseFormField.PaymentMethod
   ]);
   const formType = useFormTypeId(expenseType, companyShortName);
   const prevNetAmountRef = useRef$3(netAmount);
   const prevExpenseLocationRef = useRef$3(expenseLocation);
+  const prevPaymentMethodRef = useRef$3(paymentMethod);
   const shouldRevalidateField = /* @__PURE__ */ __name((field) => {
     if (formState.touchedFields[field]) return true;
     const value = getValues(field);
     return typeof value === "string" && value.trim() !== "";
   }, "shouldRevalidateField");
+  const hasCostAllocations = /* @__PURE__ */ __name(() => {
+    const allocations = getValues(ExpenseFormField.CostAllocations);
+    return Array.isArray(allocations) && allocations.length > 0;
+  }, "hasCostAllocations");
   useEffect$3(() => {
     if (formType) {
       setValue("formType", formType);
@@ -6831,8 +6905,21 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
       prevNetAmountRef.current = netAmount;
       const fields = [ExpenseFormField.TaxAmount, ExpenseFormField.TotalAmount].filter(shouldRevalidateField);
       if (fields.length > 0) trigger(fields);
+      if (hasCostAllocations()) trigger(ExpenseFormField.CostAllocations);
     }
   }, [netAmount, trigger, formState.touchedFields]);
+  useEffect$3(() => {
+    if (prevPaymentMethodRef.current !== paymentMethod) {
+      prevPaymentMethodRef.current = paymentMethod;
+      const fields = [
+        ExpenseFormField.NetAmount,
+        ExpenseFormField.TotalAmount,
+        ExpenseFormField.TaxAmount
+      ].filter(shouldRevalidateField);
+      if (fields.length > 0) trigger(fields);
+      if (hasCostAllocations()) trigger(ExpenseFormField.CostAllocations);
+    }
+  }, [paymentMethod, trigger, formState.touchedFields]);
   useEffect$3(() => {
     if (prevExpenseLocationRef.current !== expenseLocation) {
       prevExpenseLocationRef.current = expenseLocation;
@@ -6842,8 +6929,9 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
   }, [expenseLocation, trigger, formState.touchedFields]);
   const isConverted = isConvertedExpense(netCurrency == null ? void 0 : netCurrency.code, totalCurrency == null ? void 0 : totalCurrency.code);
   const amount = isConverted ? totalAmount : netAmount;
+  const parsedAmount = parseFloat(amount || "0");
   useAmountAllocationSync({
-    amount: parseFloat(amount || "0"),
+    amount: Number.isFinite(parsedAmount) ? parsedAmount : 0,
     setValue,
     getValues,
     trigger,
@@ -7075,7 +7163,7 @@ function CostAllocationField({
                     field.onChange(newAmount);
                     syncPercentageFromAmount(newAmount);
                   }
-                }),
+                }, totalAmount < 0),
                 onBlur: /* @__PURE__ */ __name(() => {
                   amountDisplay.handleBlur();
                   setAmountEditing(false);
@@ -8349,41 +8437,44 @@ const MemoizedCostAllocationSection = memo(CostAllocationSectionComponent);
 const CostAllocationSection = MemoizedCostAllocationSection;
 MemoizedCostAllocationSection.displayName = "CostAllocationSection";
 export {
-  mapMileageTripToDefaultValues as $,
-  ExpenseTypeSelect as A,
-  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as B,
+  fullExpenseValidationStrategy as $,
+  useSetDefaultCurrency as A,
+  ExpenseTypeSelect as B,
   CostAllocationHeaderActions as C,
-  isSameCalendarMonth as D,
+  DEFAULT_PAYMENT_METHOD as D,
   ExpenseFormField as E,
-  FormSectionType as F,
-  expenseDetailsSchema as G,
-  expenseJustificationSchema as H,
-  costAllocationSchema as I,
-  additionalCommentsSchema as J,
-  MileageTripFormField as K,
-  mileageDetailsSchema as L,
+  allowsNegativeAmounts as F,
+  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as G,
+  isSameCalendarMonth as H,
+  FormSectionType as I,
+  expenseDetailsSchema as J,
+  expenseJustificationSchema as K,
+  costAllocationSchema as L,
   MileagePeriodFormField as M,
   NO_MILEAGE_RATE_FOR_DATE_MESSAGE as N,
-  mileageJustificationSchema as O,
-  useBaseExpenseForm as P,
-  useValidatePrefilledFields as Q,
-  useAutoSave as R,
+  additionalCommentsSchema as O,
+  MileageTripFormField as P,
+  mileageDetailsSchema as Q,
+  mileageJustificationSchema as R,
   SupportingFiles as S,
-  useFormButtonStateSync as T,
-  useFormImperativeHandle as U,
-  BaseExpenseFormRenderer as V,
-  useExpenseFormHandlers as W,
-  useExpenseFormSync as X,
-  fullExpenseValidationStrategy as Y,
-  ExpenseFormLeftColumn as Z,
-  useMileageTripFormHandlers as _,
+  useBaseExpenseForm as T,
+  useValidatePrefilledFields as U,
+  useAutoSave as V,
+  useFormButtonStateSync as W,
+  useFormImperativeHandle as X,
+  BaseExpenseFormRenderer as Y,
+  useExpenseFormHandlers as Z,
+  useExpenseFormSync as _,
   useCostAllocationHandlers as a,
-  mileageTripValidationStrategy as a0,
-  supportingFilesSchema as a1,
-  useMileagePeriodFormHandlers as a2,
-  mapMileagePeriodToDefaultValues as a3,
-  mileagePeriodValidationStrategy as a4,
-  usePendingUploadStore as a5,
+  ExpenseFormLeftColumn as a0,
+  useMileageTripFormHandlers as a1,
+  mapMileageTripToDefaultValues as a2,
+  mileageTripValidationStrategy as a3,
+  supportingFilesSchema as a4,
+  useMileagePeriodFormHandlers as a5,
+  mapMileagePeriodToDefaultValues as a6,
+  mileagePeriodValidationStrategy as a7,
+  usePendingUploadStore as a8,
   CostAllocationSection as b,
   costAllocationItemSchema as c,
   useDefaultCompany as d,
@@ -8394,19 +8485,19 @@ export {
   isValidFileAttachment as i,
   mapFormDataToUpdateRequest as j,
   mapFormDataToCreateRequest as k,
-  mapCostAllocations as l,
+  DEFAULT_MILEAGE_VENDOR as l,
   mapCostAllocation as m,
-  parseOptionalDecimal as n,
-  getMileageTypesFromCache as o,
+  mapCostAllocations as n,
+  parseOptionalDecimal as o,
   parseOptionalInt as p,
   queryClient as q,
-  findActiveSelectedMileageType as r,
-  affidavitSchema as s,
-  basicDetailsSchema as t,
+  getMileageTypesFromCache as r,
+  findActiveSelectedMileageType as s,
+  affidavitSchema as t,
   useCompanies as u,
   validateCostAllocation as v,
-  createValidationStrategy as w,
-  createDraftSaveChecker as x,
-  useTaxFieldVisibility as y,
-  useSetDefaultCurrency as z
+  basicDetailsSchema as w,
+  createValidationStrategy as x,
+  createDraftSaveChecker as y,
+  useTaxFieldVisibility as z
 };

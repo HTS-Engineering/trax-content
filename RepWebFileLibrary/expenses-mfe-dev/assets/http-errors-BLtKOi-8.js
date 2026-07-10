@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { k as formatDate, aj as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, m as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, ad as ECostAllocation, aI as EMPTY_CURRENCY_SYMBOL, L as useDefaultCurrency, aK as formatDistance, U as formatRate, W as formatExpensePeriod, n as useQuery, E as EXPENSE_ENDPOINTS, q as queryKeys, aL as formatHistoryTimestamp } from "./use-scroll-into-view-ref-CeP4SkVx.js";
+import { k as formatDate, aj as FILE_ENDPOINTS, e as useCompanyStore, K as useTaxTypesDisplay, m as formatExpenseDate, V as formatCurrency, S as ExpenseFormType, aI as EMPTY_CURRENCY_SYMBOL, ad as ECostAllocation, L as useDefaultCurrency, aK as formatDistance, U as formatRate, W as formatExpensePeriod, n as useQuery, E as EXPENSE_ENDPOINTS, q as queryKeys, aL as formatHistoryTimestamp } from "./use-scroll-into-view-ref-CXAj2TM5.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
 import { E as ETL_ERROR_MESSAGE } from "./constants-D3EhCWcC.js";
@@ -411,6 +411,7 @@ const PreviewExpenseJustificationSection = /* @__PURE__ */ __name(({
     ] }) })
   ] });
 }, "PreviewExpenseJustificationSection");
+const formatAllocationAmount = /* @__PURE__ */ __name((amount, currency) => `${amount < 0 ? "-" : ""}${(currency == null ? void 0 : currency.symbol) || EMPTY_CURRENCY_SYMBOL}${Math.abs(amount).toFixed(2)}`, "formatAllocationAmount");
 const ALLOCATION_TYPE_LABELS = {
   [ECostAllocation.Project]: "PROJECT",
   [ECostAllocation.Admin]: "ADMIN",
@@ -510,8 +511,7 @@ const PreviewCostAllocationSection = /* @__PURE__ */ __name(({
               ] })
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "shrink-0 text-right flex", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Br, { className: "rounded-lg bg-exp-primary-blue-50 text-exp-neutral-900 hover:bg-exp-primary-blue-50", children: [
-              (currency == null ? void 0 : currency.symbol) || EMPTY_CURRENCY_SYMBOL,
-              allocation.amount.toFixed(2),
+              formatAllocationAmount(allocation.amount, currency),
               " (",
               formatPercentage(allocation.percentage),
               ")"

@@ -12,7 +12,7 @@ var _client, _result, _queries, _options, _observers, _combinedResult, _lastComb
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { ac as Fs, ad as Is, ae as Ms, af as Ps, ag as ks, ah as Es, U as Ue, Y as Yn, b as apiClient, C as CONFIGURATION_ENDPOINTS, d as devError } from "./configuration-VilRQx4O.js";
-import { _ as Subscribable, a0 as notifyManager, aw as shallowEqualObjects, ax as replaceEqualDeep, ay as QueryObserver, t as useQueryClient, az as useIsRestoring, aA as useQueryErrorResetBoundary, aB as ensureSuspenseTimers, aC as ensurePreventErrorBoundaryRetry, aD as useClearResetErrorBoundary, a2 as noop, aE as shouldSuspend, aF as fetchOptimistic, aG as getHasError, q as queryKeys, n as useQuery, v as useMutation } from "./use-scroll-into-view-ref-CeP4SkVx.js";
+import { _ as Subscribable, a0 as notifyManager, aw as shallowEqualObjects, ax as replaceEqualDeep, ay as QueryObserver, t as useQueryClient, az as useIsRestoring, aA as useQueryErrorResetBoundary, aB as ensureSuspenseTimers, aC as ensurePreventErrorBoundaryRetry, aD as useClearResetErrorBoundary, a2 as noop, aE as shouldSuspend, aF as fetchOptimistic, aG as getHasError, q as queryKeys, n as useQuery, v as useMutation } from "./use-scroll-into-view-ref-CXAj2TM5.js";
 function difference(array1, array2) {
   const excludeSet = new Set(array2);
   return array1.filter((x) => !excludeSet.has(x));
@@ -296,17 +296,21 @@ function useQueries({
 }
 __name(useQueries, "useQueries");
 const DECIMAL_FORMAT_REGEX = /^\d+(\.\d{1,2})?$/;
+const SIGNED_DECIMAL_FORMAT_REGEX = /^-?\d+(\.\d{1,2})?$/;
 const DECIMAL_INPUT_REGEX = /^\d+\.?\d{0,2}$/;
-function filterDecimalInput(value) {
+function filterDecimalInput(value, allowNegative = false) {
   if (value === "") return value;
-  if (value.startsWith("-")) return null;
-  if (!DECIMAL_INPUT_REGEX.test(value)) return null;
-  return value.replace(/^0+(\d)/, "$1");
+  const negative = value.startsWith("-");
+  if (negative && value === "-") return allowNegative ? value : null;
+  const unsigned = negative ? value.slice(1) : value;
+  if (!DECIMAL_INPUT_REGEX.test(unsigned)) return null;
+  const normalized = unsigned.replace(/^0+(\d)/, "$1");
+  return negative && allowNegative ? `-${normalized}` : normalized;
 }
 __name(filterDecimalInput, "filterDecimalInput");
-function createDecimalChangeHandler(onChange) {
+function createDecimalChangeHandler(onChange, allowNegative = false) {
   return (e) => {
-    const val = filterDecimalInput(e.target.value);
+    const val = filterDecimalInput(e.target.value, allowNegative);
     if (val !== null) onChange(val);
   };
 }
@@ -7212,6 +7216,7 @@ export {
   ConfirmDialog as C,
   DECIMAL_FORMAT_REGEX as D,
   MILEAGE_RATES_STALE_TIME as M,
+  SIGNED_DECIMAL_FORMAT_REGEX as S,
   _enum as _,
   array as a,
   boolean as b,
