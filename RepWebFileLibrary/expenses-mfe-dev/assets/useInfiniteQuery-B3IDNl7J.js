@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 var _a;
-import { aC as QueryObserver, aD as hasPreviousPage, aE as hasNextPage, aF as useBaseQuery } from "./use-scroll-into-view-ref-DRd2DuRO.js";
+import { aC as QueryObserver, aD as hasPreviousPage, aE as hasNextPage, aF as useBaseQuery } from "./use-scroll-into-view-ref-ByGpyaZV.js";
 var InfiniteQueryObserver = (_a = class extends QueryObserver {
   constructor(client, options) {
     super(client, options);

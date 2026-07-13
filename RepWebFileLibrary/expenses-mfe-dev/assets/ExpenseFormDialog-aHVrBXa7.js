@@ -1,13 +1,13 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { c as createLucideIcon, O as Oa, b as apiClient, d as devError, Z as Zs, a as devLog, H as Ha, a6 as Ba, D as gn, I as es, a7 as ja, J as ws } from "./configuration-CXYlvGz8.js";
-import { y as useDefaultCompany, z as isValidFileAttachment, n as DEFAULT_PAYMENT_METHOD, A as ExpenseFormField, B as useFormFieldValues, F as useMileageRateSync, G as useReimbursableAmountSync, H as useAmountAllocationSync, I as mapFormDataToUpdateRequest, J as mapFormDataToCreateRequest, K as affidavitSchema, L as basicDetailsSchema, N as createValidationStrategy, O as createDraftSaveChecker, P as useTaxFieldVisibility, Q as isConvertedExpense, R as useSetDefaultCurrency, S as ExpenseTypeSelect, T as allowsNegativeAmounts, U as MileagePeriodFormField, V as SupportingFiles, W as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, X as isSameCalendarMonth, Y as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, Z as FormSectionType, _ as expenseDetailsSchema, $ as expenseJustificationSchema, a0 as costAllocationSchema, a1 as additionalCommentsSchema, g as getExpenseBaseAmount, C as CostAllocationHeaderActions, b as CostAllocationSection, a2 as MileageTripFormField, a3 as mileageDetailsSchema, a4 as mileageJustificationSchema, a5 as useBaseExpenseForm, a6 as useValidatePrefilledFields, a7 as useAutoSave, a8 as useFormButtonStateSync, a9 as useFormImperativeHandle, aa as BaseExpenseFormRenderer, ab as useExpenseFormHandlers, ac as useExpenseFormSync, ad as fullExpenseValidationStrategy, ae as ExpenseFormLeftColumn, af as useMileageTripFormHandlers, ag as mapMileageTripToDefaultValues, ah as mileageTripValidationStrategy, ai as supportingFilesSchema, aj as useMileagePeriodFormHandlers, ak as mapMileagePeriodToDefaultValues, al as mileagePeriodValidationStrategy } from "./CostAllocationSection-CC7EWCqn.js";
+import { c as createLucideIcon, O as Oa, H as Ha, a6 as Ba, D as gn, I as es, a7 as ja, J as ws, a as devLog } from "./configuration-CXYlvGz8.js";
+import { p as useDefaultCompany, r as isValidFileAttachment, D as DEFAULT_PAYMENT_METHOD, s as ExpenseFormField, t as useFormFieldValues, w as computeMileageEffectiveOn, x as useMileageRateSync, y as useReimbursableAmountSync, z as useAmountAllocationSync, A as affidavitSchema, B as basicDetailsSchema, F as createValidationStrategy, G as createDraftSaveChecker, H as useTaxFieldVisibility, I as isConvertedExpense, J as usePaymentMethods, K as useSetDefaultCurrency, L as ExpenseTypeSelect, N as allowsNegativeAmounts, O as MileagePeriodFormField, S as SupportingFiles, P as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, Q as isSameCalendarMonth, R as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, T as FormSectionType, U as expenseDetailsSchema, V as expenseJustificationSchema, W as costAllocationSchema, X as additionalCommentsSchema, g as getExpenseBaseAmount, C as CostAllocationHeaderActions, b as CostAllocationSection, Y as MileageTripFormField, Z as mileageDetailsSchema, _ as mileageJustificationSchema, $ as useBaseExpenseForm, a0 as useValidatePrefilledFields, a1 as useAutoSave, a2 as useFormButtonStateSync, a3 as useFormImperativeHandle, a4 as BaseExpenseFormRenderer, a5 as useExpenseFormHandlers, a6 as useExpenseFormSync, a7 as fullExpenseValidationStrategy, a8 as ExpenseFormLeftColumn, a9 as useMileageTripFormHandlers, aa as mapMileageTripToDefaultValues, ab as mileageTripValidationStrategy, ac as supportingFilesSchema, ad as useMileagePeriodFormHandlers, ae as mapMileagePeriodToDefaultValues, af as mileagePeriodValidationStrategy } from "./CostAllocationSection-Dp8_xlpf.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
-import { i as useExpenseTypes, F as FormTypeId, D as formatToISODate, n as useQuery, E as EXPENSE_ENDPOINTS, q as queryKeys, t as useQueryClient, e as useCompanyStore, v as useMutation, I as ItemCategory, Y as useCurrencies, a8 as useCountries, a2 as useTaxTypesDisplay, a9 as useDefaultCurrency, Z as parseDateOnlyAsLocal, a1 as TaxTypeSearchSelect, aa as useFormTypeId, S as ExpenseFormType, ab as formatRate, a6 as formatCurrency } from "./use-scroll-into-view-ref-DRd2DuRO.js";
-import { o as object, s as string, b as boolean, c as custom, e as Controller, i as createDecimalChangeHandler, g as useWatch, k as useMileageRates, v as useEffectiveMileageRate } from "./useMileageRates-CjKYx2Sx.js";
+import { i as useExpenseTypes, F as FormTypeId, e as useCompanyStore, U as useCurrencies, a6 as useCountries, $ as useTaxTypesDisplay, a7 as useDefaultCurrency, V as formatToISODate, W as parseDateOnlyAsLocal, _ as TaxTypeSearchSelect, a8 as useFormTypeId, J as ExpenseFormType, a9 as formatRate, a4 as formatCurrency } from "./use-scroll-into-view-ref-ByGpyaZV.js";
+import { o as object, s as string, b as boolean, c as custom, e as Controller, h as createDecimalChangeHandler, f as useWatch, j as useMileageRates, t as useEffectiveMileageRate } from "./useMileageRates-Hq_87mv7.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { c as useBusinessPurposes } from "./business-purpose-api-fyx6o-QA.js";
+import { c as useBusinessPurposes } from "./business-purpose-api-daC1B-YF.js";
 const __iconNode$1 = [
   ["rect", { width: "20", height: "12", x: "2", y: "6", rx: "2", key: "9lu3g6" }],
   ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }],
@@ -124,10 +124,6 @@ const mapFullExpenseToDefaultValues = /* @__PURE__ */ __name((initialData) => {
     [ExpenseFormField.IsEqualSplit]: (initialData == null ? void 0 : initialData.isEqualSplit) ?? false
   };
 }, "mapFullExpenseToDefaultValues");
-function computeMileageEffectiveOn(expenseDate, periodFrom) {
-  return expenseDate || formatToISODate(periodFrom) || "";
-}
-__name(computeMileageEffectiveOn, "computeMileageEffectiveOn");
 function useMileageFormSync({
   control,
   setValue,
@@ -173,191 +169,6 @@ function useMileageFormSync({
   });
 }
 __name(useMileageFormSync, "useMileageFormSync");
-const mapToPaymentMethod = /* @__PURE__ */ __name((api) => ({
-  id: String(api.id),
-  name: api.name,
-  currencyCode: api.currencyCode
-}), "mapToPaymentMethod");
-function normalizeExpenseDraftResponse(response) {
-  return {
-    id: String(response.id),
-    businessId: response.businessId,
-    status: response.status,
-    vendor: response.vendor ?? "",
-    expenseDate: response.date ?? "",
-    totalAmount: Number(response.totalAmount ?? 0),
-    totalCurrencyCode: response.totalCurrencyCode ?? "",
-    createdAt: response.createdDate,
-    updatedAt: response.updatedDate
-  };
-}
-__name(normalizeExpenseDraftResponse, "normalizeExpenseDraftResponse");
-function buildExpenseItemForCache(response, formData) {
-  return {
-    id: String(response.id),
-    businessId: response.businessId,
-    itemType: ItemCategory.Expense,
-    status: "draft",
-    createdAt: response.createdDate,
-    updatedAt: response.updatedDate ?? response.createdDate,
-    userId: response.formOwner,
-    data: formData
-  };
-}
-__name(buildExpenseItemForCache, "buildExpenseItemForCache");
-const useSaveExpenseDraft = /* @__PURE__ */ __name(() => {
-  const queryClient = useQueryClient();
-  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
-  return useMutation({
-    mutationFn: /* @__PURE__ */ __name(async ({ data, draftId, signal }) => {
-      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
-        throw new Error("No company selected");
-      }
-      const company = userDefaultCompany.shortName;
-      const expenseTypes = queryClient.getQueriesData({ queryKey: queryKeys.expenseTypes.list(company, false) }).flatMap(([, data2]) => data2 ?? []);
-      if (draftId) {
-        const payload = mapFormDataToUpdateRequest(data, expenseTypes);
-        devLog("📤 Update draft payload:", payload);
-        const response = await apiClient.put(
-          EXPENSE_ENDPOINTS.UPDATE_DRAFT.build({ tenant: company, id: draftId }),
-          payload,
-          { signal }
-        );
-        devLog("📥 Update draft response:", response.data);
-        return {
-          draft: normalizeExpenseDraftResponse(response.data),
-          response: response.data,
-          formData: data
-        };
-      } else {
-        const payload = mapFormDataToCreateRequest(data, expenseTypes);
-        devLog("📤 Create draft payload:", payload);
-        const response = await apiClient.post(
-          EXPENSE_ENDPOINTS.SAVE_DRAFT.build({ tenant: company }),
-          payload,
-          { signal }
-        );
-        devLog("📥 Create draft response:", response.data);
-        return {
-          draft: normalizeExpenseDraftResponse(response.data),
-          response: response.data,
-          formData: data
-        };
-      }
-    }, "mutationFn"),
-    onSuccess: /* @__PURE__ */ __name(({ draft, response, formData }, variables) => {
-      var _a;
-      if ((_a = variables.signal) == null ? void 0 : _a.aborted) return;
-      queryClient.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
-      queryClient.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
-      const expenseItem = buildExpenseItemForCache(response, formData);
-      if (variables.draftId) {
-        queryClient.setQueryData(
-          queryKeys.expenseItem.detail(variables.draftId),
-          expenseItem
-        );
-      } else {
-        queryClient.setQueryData(queryKeys.expenseItem.detail(draft.id), expenseItem);
-      }
-      Zs.success("All changes are saved", {
-        duration: 3e3
-      });
-    }, "onSuccess"),
-    onError: /* @__PURE__ */ __name((error, variables) => {
-      var _a;
-      if ((_a = variables.signal) == null ? void 0 : _a.aborted) return;
-      devError("Failed to save expense draft:", error);
-      Zs.error("Failed to save. Please try again", {
-        duration: 3e3
-      });
-    }, "onError")
-  });
-}, "useSaveExpenseDraft");
-const useDeleteExpenseDraft = /* @__PURE__ */ __name((options) => {
-  const queryClient = useQueryClient();
-  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
-  return useMutation({
-    mutationFn: /* @__PURE__ */ __name(async ({ draftId }) => {
-      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
-        throw new Error("No company selected");
-      }
-      const company = userDefaultCompany.shortName;
-      await apiClient.delete(EXPENSE_ENDPOINTS.DELETE_DRAFT.build({ tenant: company, id: draftId }));
-    }, "mutationFn"),
-    onSuccess: /* @__PURE__ */ __name(async (_data, variables) => {
-      var _a;
-      queryClient.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
-      queryClient.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
-      await queryClient.cancelQueries({
-        queryKey: queryKeys.expenseItem.detail(variables.draftId)
-      });
-      queryClient.removeQueries({
-        queryKey: queryKeys.expenseItem.detail(variables.draftId)
-      });
-      Zs.success("Draft deleted", {
-        duration: 3e3
-      });
-      (_a = options == null ? void 0 : options.onSuccess) == null ? void 0 : _a.call(options);
-    }, "onSuccess"),
-    onError: /* @__PURE__ */ __name((error) => {
-      devError("Failed to delete draft:", error);
-      Zs.error("Fail to delete. Please try again.", {
-        duration: 3e3
-      });
-    }, "onError")
-  });
-}, "useDeleteExpenseDraft");
-const useSubmitExpense = /* @__PURE__ */ __name(() => {
-  const queryClient = useQueryClient();
-  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
-  return useMutation({
-    mutationFn: /* @__PURE__ */ __name(async ({ draftId }) => {
-      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
-        throw new Error("No company selected");
-      }
-      const company = userDefaultCompany.shortName;
-      await apiClient.post(EXPENSE_ENDPOINTS.SUBMIT_DRAFT.build({ tenant: company, id: draftId }));
-      return { draftId };
-    }, "mutationFn"),
-    onSuccess: /* @__PURE__ */ __name((_data, { draftId }) => {
-      queryClient.invalidateQueries({ queryKey: queryKeys.expenses.all() });
-      queryClient.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
-      queryClient.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
-      queryClient.removeQueries({
-        queryKey: queryKeys.expenseItem.detail(draftId)
-      });
-      Zs.success("Expense submitted", {
-        duration: 3e3
-      });
-    }, "onSuccess"),
-    onError: /* @__PURE__ */ __name((error) => {
-      devError("Failed to submit expense:", error);
-      Zs.error("Fail to submit", {
-        duration: 3e3
-      });
-    }, "onError")
-  });
-}, "useSubmitExpense");
-const usePaymentMethods = /* @__PURE__ */ __name(({
-  companyShortName,
-  enabled = true
-}) => {
-  return useQuery({
-    queryKey: companyShortName ? queryKeys.paymentMethods.list(companyShortName) : queryKeys.paymentMethods.all(),
-    queryFn: /* @__PURE__ */ __name(async () => {
-      if (!companyShortName) {
-        throw new Error("Company short name is required");
-      }
-      const response = await apiClient.get(
-        EXPENSE_ENDPOINTS.GET_PAYMENT_METHODS.build({ tenant: companyShortName })
-      );
-      return response.data.map(mapToPaymentMethod);
-    }, "queryFn"),
-    enabled: enabled && !!companyShortName,
-    staleTime: 10 * 60 * 1e3,
-    gcTime: 30 * 60 * 1e3
-  });
-}, "usePaymentMethods");
 const affidavitExpenseSchema = object({
   affidavit: affidavitSchema,
   expenseDate: string().min(1, "Expense date is required")
@@ -1738,9 +1549,5 @@ const { useCallback, useRef, useState } = await importShared("react");
 export {
   ExpenseForm as E,
   MileageTripForm as M,
-  useSubmitExpense as a,
-  useDeleteExpenseDraft as b,
-  computeMileageEffectiveOn as c,
-  MileagePeriodForm as d,
-  useSaveExpenseDraft as u
+  MileagePeriodForm as a
 };

@@ -17,13 +17,13 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 var _mutations, _scopes, _mutationId, _a, _queries, _b, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _c;
-import { ac as Subscribable, ad as Mutation, ae as notifyManager, af as matchMutation, ag as noop, ah as hashQueryKeyByOptions, ai as Query, aj as matchQuery, ak as focusManager, al as onlineManager, am as resolveStaleTime, an as functionalUpdate, ao as hashKey, ap as partialMatchKey, aq as skipToken, n as useQuery, q as queryKeys, e as useCompanyStore, k as formatDate, ar as FILE_ENDPOINTS, a2 as useTaxTypesDisplay, m as formatExpenseDate, a6 as formatCurrency, S as ExpenseFormType, a4 as EMPTY_CURRENCY_SYMBOL, as as ECostAllocation, a9 as useDefaultCurrency, at as formatDistance, ab as formatRate, H as formatExpensePeriod, E as EXPENSE_ENDPOINTS, au as formatHistoryTimestamp, G as DEFAULT_CURRENCY_CODE, D as formatToISODate, i as useExpenseTypes, F as FormTypeId, av as AllowedMimeType, aw as FILE_SIZE_LIMITS, ax as MIME_TYPE_CONFIG, ay as FilePreviewType, a8 as useCountries, az as useDefaultCountry, aA as useDebouncedCallback, aa as useFormTypeId, aB as useNumericDisplay, a5 as getCurrencySymbol, P as Plus } from "./use-scroll-into-view-ref-DRd2DuRO.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
 import { E as ETL_ERROR_MESSAGE } from "./constants-D3EhCWcC.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, a8 as ys, a9 as Ss, k as gr, aa as Ns, Y as Yn, J as ws, B as Br, p as ls, Z as Zs, w as h, a3 as wt, a4 as zt, U as Ue, a5 as yt, O as Oa, f as create, g as devtools, ab as devWarn, d as devError, a as devLog, ac as Qt, D as gn, I as es, j as Mt, E as Et, P as Pt, ad as Ys, ae as Ks, af as Ws, a7 as ja, H as Ha, ag as cr, ah as Ga, ai as ri, aj as Ye } from "./configuration-CXYlvGz8.js";
+import { aa as Subscribable, ab as Mutation, ac as notifyManager, ad as matchMutation, ae as noop, af as hashQueryKeyByOptions, ag as Query, ah as matchQuery, ai as focusManager, aj as onlineManager, ak as resolveStaleTime, al as functionalUpdate, am as hashKey, an as partialMatchKey, ao as skipToken, n as useQuery, q as queryKeys, e as useCompanyStore, k as formatDate, ap as FILE_ENDPOINTS, $ as useTaxTypesDisplay, m as formatExpenseDate, a4 as formatCurrency, J as ExpenseFormType, a1 as EMPTY_CURRENCY_SYMBOL, aq as ECostAllocation, a7 as useDefaultCurrency, ar as formatDistance, a9 as formatRate, a2 as formatExpensePeriod, E as EXPENSE_ENDPOINTS, as as formatHistoryTimestamp, at as DEFAULT_CURRENCY_CODE, V as formatToISODate, i as useExpenseTypes, F as FormTypeId, au as AllowedMimeType, av as FILE_SIZE_LIMITS, aw as MIME_TYPE_CONFIG, ax as FilePreviewType, a6 as useCountries, ay as useDefaultCountry, az as useDebouncedCallback, a8 as useFormTypeId, w as isRegularExpense, x as isMileageExpense, s as isExpenseItemSubmitted, G as isExpenseItemDraft, t as useQueryClient, v as useMutation, aA as ItemCategory, z as useExpenseItem, aB as useNumericDisplay, a3 as getCurrencySymbol, P as Plus } from "./use-scroll-into-view-ref-ByGpyaZV.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { I as Info, s as string, S as SIGNED_DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, D as DECIMAL_FORMAT_REGEX, h as date, w as unknown, n as number, _ as _enum, C as ConfirmDialog, g as useWatch, u as useForm, d as u, l as literal, v as useEffectiveMileageRate, j as useFormState, x as TOOLTIP_DELAY_QUICK, e as Controller, i as createDecimalChangeHandler, T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./useMileageRates-CjKYx2Sx.js";
+import { I as Info, s as string, S as SIGNED_DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, D as DECIMAL_FORMAT_REGEX, g as date, v as unknown, n as number, _ as _enum, C as ConfirmDialog, f as useWatch, u as useForm, d as u, l as literal, t as useEffectiveMileageRate, M as MILEAGE_RATES_STALE_TIME, w as fetchEffectiveMileageRate, i as useFormState, x as TOOLTIP_DELAY_QUICK, e as Controller, h as createDecimalChangeHandler, T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./useMileageRates-Hq_87mv7.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { R as RefreshCw } from "./refresh-cw-ClK2195v.js";
 var MutationCache = (_a = class extends Subscribable {
@@ -734,20 +734,20 @@ function isApiFileUrl(url) {
   return !!url && url.startsWith("/api/");
 }
 __name(isApiFileUrl, "isApiFileUrl");
-const { useEffect: useEffect$j, useRef: useRef$g, useState: useState$8 } = await importShared("react");
+const { useEffect: useEffect$l, useRef: useRef$i, useState: useState$a } = await importShared("react");
 const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill = false }) => {
   var _a2;
-  const [imageError, setImageError] = useState$8(false);
-  const [loadedBlobUrl, setLoadedBlobUrl] = useState$8();
-  const [isLoading, setIsLoading] = useState$8(false);
-  const abortRef = useRef$g(null);
+  const [imageError, setImageError] = useState$a(false);
+  const [loadedBlobUrl, setLoadedBlobUrl] = useState$a();
+  const [isLoading, setIsLoading] = useState$a(false);
+  const abortRef = useRef$i(null);
   const receiptId = receipt == null ? void 0 : receipt.id;
   const receiptBlobUrl = receipt == null ? void 0 : receipt.blobUrl;
   const receiptUrl = receipt == null ? void 0 : receipt.url;
   const isImage = (_a2 = receipt == null ? void 0 : receipt.mimeType) == null ? void 0 : _a2.startsWith("image/");
   const isPdf = (receipt == null ? void 0 : receipt.mimeType) === "application/pdf";
   const needsDownload = !receiptBlobUrl && isApiFileUrl(receiptUrl);
-  useEffect$j(() => {
+  useEffect$l(() => {
     if (!receiptId || !needsDownload) return;
     if (!isImage && !isPdf) return;
     const controller = new AbortController();
@@ -769,14 +769,14 @@ const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill =
       controller.abort();
     };
   }, [receiptId, needsDownload, isImage, isPdf]);
-  useEffect$j(() => {
+  useEffect$l(() => {
     return () => {
       if (loadedBlobUrl) {
         URL.revokeObjectURL(loadedBlobUrl);
       }
     };
   }, [loadedBlobUrl]);
-  useEffect$j(() => {
+  useEffect$l(() => {
     setImageError(false);
     setLoadedBlobUrl(void 0);
   }, [receiptId]);
@@ -1102,7 +1102,7 @@ const PreviewCostAllocationSection = /* @__PURE__ */ __name(({
     }) }) })
   ] });
 }, "PreviewCostAllocationSection");
-const { useEffect: useEffect$i, useRef: useRef$f, useState: useState$7 } = await importShared("react");
+const { useEffect: useEffect$k, useRef: useRef$h, useState: useState$9 } = await importShared("react");
 const getFileIcon = /* @__PURE__ */ __name((mimeType) => {
   if (mimeType === "application/pdf") {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "icon-file-pdf", className: "size-5" });
@@ -1115,10 +1115,10 @@ const getFileIcon = /* @__PURE__ */ __name((mimeType) => {
 const PreviewSupportingFilesSection = /* @__PURE__ */ __name(({
   files
 }) => {
-  const [loadingFileIds, setLoadingFileIds] = useState$7(/* @__PURE__ */ new Set());
-  const [cachedBlobUrls, setCachedBlobUrls] = useState$7(/* @__PURE__ */ new Map());
-  const controllersRef = useRef$f(/* @__PURE__ */ new Map());
-  useEffect$i(() => {
+  const [loadingFileIds, setLoadingFileIds] = useState$9(/* @__PURE__ */ new Set());
+  const [cachedBlobUrls, setCachedBlobUrls] = useState$9(/* @__PURE__ */ new Map());
+  const controllersRef = useRef$h(/* @__PURE__ */ new Map());
+  useEffect$k(() => {
     return () => {
       controllersRef.current.forEach((c) => c.abort());
       cachedBlobUrls.forEach((url) => URL.revokeObjectURL(url));
@@ -1501,13 +1501,13 @@ const ExpenseHistoryLogEntry = /* @__PURE__ */ __name(({ entry }) => {
     )
   ] });
 }, "ExpenseHistoryLogEntry");
-const { useState: useState$6 } = await importShared("react");
+const { useState: useState$8 } = await importShared("react");
 const ExpenseFormHistoryLog = /* @__PURE__ */ __name(({
   expenseFormId,
   className = ""
 }) => {
   var _a2, _b2;
-  const [open, setOpen] = useState$6(false);
+  const [open, setOpen] = useState$8(false);
   const {
     data: historyData,
     isLoading,
@@ -1682,7 +1682,7 @@ function mapFormDataToCreateRequest(data, expenseTypes) {
 }
 __name(mapFormDataToCreateRequest, "mapFormDataToCreateRequest");
 const mapFormDataToUpdateRequest = mapFormDataToCreateRequest;
-const { useMemo: useMemo$i } = await importShared("react");
+const { useMemo: useMemo$k } = await importShared("react");
 const ExpenseTypeSelect = /* @__PURE__ */ __name(({
   value,
   onChange,
@@ -1697,7 +1697,7 @@ const ExpenseTypeSelect = /* @__PURE__ */ __name(({
   const { data: expenseTypes, isLoading: isLoadingTypes } = useExpenseTypes(companyId, {
     formTypeIds: [FormTypeId.STANDARD, FormTypeId.ENTERTAINMENT]
   });
-  const options = useMemo$i(() => {
+  const options = useMemo$k(() => {
     if (!expenseTypes) return [];
     return expenseTypes.map((et) => ({ value: et.id, label: et.name })).sort((a, b) => a.label.localeCompare(b.label));
   }, [expenseTypes]);
@@ -1831,34 +1831,34 @@ const usePendingUploadStore = create()(
     }
   )
 );
-const { useCallback: useCallback$l, useEffect: useEffect$h, useMemo: useMemo$h, useRef: useRef$e } = await importShared("react");
+const { useCallback: useCallback$o, useEffect: useEffect$j, useMemo: useMemo$j, useRef: useRef$g } = await importShared("react");
 function useBlobUrlManager(options = {}) {
   const { shouldKeepUrl } = options;
-  const blobUrlsRef = useRef$e(/* @__PURE__ */ new Set());
-  const abortControllerRef = useRef$e(null);
-  const batchControllersRef = useRef$e(/* @__PURE__ */ new Set());
-  const shouldKeepUrlRef = useRef$e(shouldKeepUrl);
+  const blobUrlsRef = useRef$g(/* @__PURE__ */ new Set());
+  const abortControllerRef = useRef$g(null);
+  const batchControllersRef = useRef$g(/* @__PURE__ */ new Set());
+  const shouldKeepUrlRef = useRef$g(shouldKeepUrl);
   shouldKeepUrlRef.current = shouldKeepUrl;
-  const trackUrl = useCallback$l((url) => {
+  const trackUrl = useCallback$o((url) => {
     blobUrlsRef.current.add(url);
   }, []);
-  const revokeUrl = useCallback$l((url) => {
+  const revokeUrl = useCallback$o((url) => {
     blobUrlsRef.current.delete(url);
     try {
       URL.revokeObjectURL(url);
     } catch {
     }
   }, []);
-  const isOwned = useCallback$l((url) => {
+  const isOwned = useCallback$o((url) => {
     return blobUrlsRef.current.has(url);
   }, []);
-  const getAbortSignal = useCallback$l(() => {
+  const getAbortSignal = useCallback$o(() => {
     var _a2;
     (_a2 = abortControllerRef.current) == null ? void 0 : _a2.abort();
     abortControllerRef.current = new AbortController();
     return abortControllerRef.current.signal;
   }, []);
-  const createBatchController = useCallback$l(() => {
+  const createBatchController = useCallback$o(() => {
     const controller = new AbortController();
     batchControllersRef.current.add(controller);
     controller.signal.addEventListener("abort", () => {
@@ -1869,7 +1869,7 @@ function useBlobUrlManager(options = {}) {
     }, "release");
     return Object.assign(controller, { release });
   }, []);
-  useEffect$h(() => {
+  useEffect$j(() => {
     const urls = blobUrlsRef.current;
     const batchControllers = batchControllersRef.current;
     return () => {
@@ -1892,7 +1892,7 @@ function useBlobUrlManager(options = {}) {
       urls.clear();
     };
   }, []);
-  return useMemo$h(
+  return useMemo$j(
     () => ({
       trackUrl,
       revokeUrl,
@@ -5191,7 +5191,7 @@ const mileageJustificationSchema = object({
   [MileageTripFormField.BusinessPurpose]: businessPurposeField,
   [MileageTripFormField.ExpenseDescription]: expenseDescriptionField
 });
-const { useMemo: useMemo$g } = await importShared("react");
+const { useMemo: useMemo$i } = await importShared("react");
 const CANADA_ISO_CODE = "CAN";
 function checkTaxFieldVisibility(countries, userDefaultCountryIso, expenseLocationId) {
   if (!countries || countries.length === 0) {
@@ -5212,7 +5212,7 @@ const useTaxFieldVisibility = /* @__PURE__ */ __name((expenseLocationId) => {
   const { data: countriesResponse } = useCountries();
   const countries = countriesResponse == null ? void 0 : countriesResponse.items;
   const { userDefaultCountryIso } = useDefaultCountry();
-  return useMemo$g(() => {
+  return useMemo$i(() => {
     const result = checkTaxFieldVisibility(countries, userDefaultCountryIso ?? void 0, expenseLocationId);
     return result;
   }, [countries, userDefaultCountryIso, expenseLocationId]);
@@ -5759,20 +5759,20 @@ const openFilePreview = /* @__PURE__ */ __name(async (attachment) => {
   }
   window.open(previewUrl, "_blank", "noopener,noreferrer");
 }, "openFilePreview");
-const { useCallback: useCallback$k } = await importShared("react");
+const { useCallback: useCallback$n } = await importShared("react");
 function useFileOperations(options) {
   const { documentType, expenseId, shouldKeepUrl } = options;
   const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
   const { isForDraft } = usePendingUploadStore();
   const blobManager = useBlobUrlManager({ shouldKeepUrl });
   const isStoreDataRelevant = isForDraft(expenseId);
-  const validateFile = useCallback$k(
+  const validateFile = useCallback$n(
     (file) => {
       return validateReceiptFile(file);
     },
     []
   );
-  const createAttachmentFromResponse = useCallback$k(
+  const createAttachmentFromResponse = useCallback$n(
     (file, response) => {
       const attachment = createSafeFileMetadata(file, response);
       if (response.blobUrl) {
@@ -5782,7 +5782,7 @@ function useFileOperations(options) {
     },
     [blobManager]
   );
-  const uploadSingleFile = useCallback$k(
+  const uploadSingleFile = useCallback$n(
     async (file, targetExpenseId, signal, onProgress) => {
       if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
         throw new Error("No company selected");
@@ -5799,10 +5799,10 @@ function useFileOperations(options) {
     },
     [userDefaultCompany == null ? void 0 : userDefaultCompany.shortName, documentType, createAttachmentFromResponse]
   );
-  const deleteFileById = useCallback$k(async (fileId) => {
+  const deleteFileById = useCallback$n(async (fileId) => {
     await deleteFile(fileId);
   }, []);
-  const loadFileContent = useCallback$k(
+  const loadFileContent = useCallback$n(
     async (fileId, signal) => {
       const blobUrl = await downloadFile(fileId, signal);
       blobManager.trackUrl(blobUrl);
@@ -5810,7 +5810,7 @@ function useFileOperations(options) {
     },
     [blobManager]
   );
-  const openPreview = useCallback$k(
+  const openPreview = useCallback$n(
     async (attachment) => {
       try {
         await openFilePreview(attachment);
@@ -5835,7 +5835,7 @@ function useFileOperations(options) {
 }
 __name(useFileOperations, "useFileOperations");
 const React$2 = await importShared("react");
-const { useCallback: useCallback$j, useEffect: useEffect$g, useRef: useRef$d, useState: useState$5 } = React$2;
+const { useCallback: useCallback$m, useEffect: useEffect$i, useRef: useRef$f, useState: useState$7 } = React$2;
 const ReceiptUpload = /* @__PURE__ */ __name(({
   onReceiptChange,
   onUploadingChange,
@@ -5845,9 +5845,9 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
   expenseId,
   onSaveDraftForUpload
 }) => {
-  const fileInputRef = useRef$d(null);
-  const initialReceiptRef = useRef$d(initialReceipt);
-  const attachmentRef = useRef$d(void 0);
+  const fileInputRef = useRef$f(null);
+  const initialReceiptRef = useRef$f(initialReceipt);
+  const attachmentRef = useRef$f(void 0);
   const {
     userDefaultCompany,
     blobManager,
@@ -5877,17 +5877,17 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
     setStatus: setUploadStatus
   } = receipt;
   const effectiveInitialReceipt = isStoreDataRelevant ? uploadedAttachment || initialReceipt : initialReceipt;
-  const [attachment, setAttachment] = useState$5(effectiveInitialReceipt);
-  const [localError, setLocalError] = useState$5();
-  const [dragActive, setDragActive] = useState$5(false);
-  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState$5(false);
-  const [isDeleting, setIsDeleting] = useState$5(false);
-  const [deleteError, setDeleteError] = useState$5(null);
-  const [isLoadingFile, setIsLoadingFile] = useState$5(false);
-  const [fileLoadError, setFileLoadError] = useState$5(null);
-  const [loadedBlobUrl, setLoadedBlobUrl] = useState$5(null);
-  const fileLoadAttemptedRef = useRef$d(/* @__PURE__ */ new Set());
-  const handleFileUploadInternalRef = useRef$d(null);
+  const [attachment, setAttachment] = useState$7(effectiveInitialReceipt);
+  const [localError, setLocalError] = useState$7();
+  const [dragActive, setDragActive] = useState$7(false);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState$7(false);
+  const [isDeleting, setIsDeleting] = useState$7(false);
+  const [deleteError, setDeleteError] = useState$7(null);
+  const [isLoadingFile, setIsLoadingFile] = useState$7(false);
+  const [fileLoadError, setFileLoadError] = useState$7(null);
+  const [loadedBlobUrl, setLoadedBlobUrl] = useState$7(null);
+  const fileLoadAttemptedRef = useRef$f(/* @__PURE__ */ new Set());
+  const handleFileUploadInternalRef = useRef$f(null);
   const isProcessing = uploadStatus === "saving-draft" || uploadStatus === "uploading";
   const isUploadDisabled = disabled;
   initialReceiptRef.current = initialReceipt;
@@ -5895,7 +5895,7 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
   if (effectiveInitialReceipt == null ? void 0 : effectiveInitialReceipt.blobUrl) {
     blobManager.trackUrl(effectiveInitialReceipt.blobUrl);
   }
-  useEffect$g(() => {
+  useEffect$i(() => {
     const newAttachment = isStoreDataRelevant ? uploadedAttachment || initialReceipt : initialReceipt;
     devLog("[ReceiptUpload] sync effect:", {
       isStoreDataRelevant,
@@ -5919,7 +5919,7 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       setAttachment(newAttachment);
     }
   }, [initialReceipt, uploadedAttachment, isStoreDataRelevant, attachment, clearUploadedAttachment, onReceiptChange, blobManager]);
-  useEffect$g(() => {
+  useEffect$i(() => {
     var _a2;
     if (expenseId && pendingFile && isStoreDataRelevant && uploadStatus !== "uploading" && !attachment) {
       const fileToUpload = pendingFile;
@@ -5928,7 +5928,7 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       (_a2 = handleFileUploadInternalRef.current) == null ? void 0 : _a2.call(handleFileUploadInternalRef, fileToUpload);
     }
   }, [expenseId, pendingFile, isStoreDataRelevant, uploadStatus, attachment, clearPendingFile, setUploadStatus]);
-  const loadFile = useCallback$j(async (targetAttachment) => {
+  const loadFile = useCallback$m(async (targetAttachment) => {
     const signal = blobManager.getAbortSignal();
     setIsLoadingFile(true);
     setFileLoadError(null);
@@ -5948,8 +5948,8 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       setIsLoadingFile(false);
     }
   }, [blobManager, loadFileContent]);
-  const prevAttachmentIdRef = useRef$d(void 0);
-  useEffect$g(() => {
+  const prevAttachmentIdRef = useRef$f(void 0);
+  useEffect$i(() => {
     const currentId = attachment == null ? void 0 : attachment.id;
     if (prevAttachmentIdRef.current !== currentId) {
       setLoadedBlobUrl(null);
@@ -5961,16 +5961,16 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       loadFile(attachment);
     }
   }, [attachment, loadFile, blobManager]);
-  const handleRetry = useCallback$j(() => {
+  const handleRetry = useCallback$m(() => {
     if (!attachment) return;
     fileLoadAttemptedRef.current.delete(attachment.id);
     loadFile(attachment);
   }, [attachment, loadFile]);
-  const handleError = useCallback$j((error) => {
+  const handleError = useCallback$m((error) => {
     setLocalError(error);
     setUploadStatus("error", error.message);
   }, [setUploadStatus]);
-  const handleFileUploadInternal = useCallback$j(async (file, targetExpenseId) => {
+  const handleFileUploadInternal = useCallback$m(async (file, targetExpenseId) => {
     const effectiveExpenseId = targetExpenseId || expenseId;
     if (!effectiveExpenseId) return;
     const signal = blobManager.getAbortSignal();
@@ -6009,7 +6009,7 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
     }
   }, [handleError, onReceiptChange, onUploadingChange, expenseId, userDefaultCompany == null ? void 0 : userDefaultCompany.shortName, setUploadedAttachment, setUploadStatus, blobManager, uploadSingleFile]);
   handleFileUploadInternalRef.current = handleFileUploadInternal;
-  const handleFileUpload = useCallback$j(async (file) => {
+  const handleFileUpload = useCallback$m(async (file) => {
     const validationError = validateFile(file);
     if (validationError) {
       handleError(validationError);
@@ -6048,7 +6048,7 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       });
     }
   }, [expenseId, handleFileUploadInternal, handleError, onSaveDraftForUpload, startUploadFlow, updateDraftId, setPendingFile, clearPendingFile, setUploadStatus, blobManager, validateFile]);
-  const handleFileSelect = useCallback$j((event) => {
+  const handleFileSelect = useCallback$m((event) => {
     var _a2;
     const file = (_a2 = event.target.files) == null ? void 0 : _a2[0];
     if (file) {
@@ -6058,17 +6058,17 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       fileInputRef.current.value = "";
     }
   }, [handleFileUpload]);
-  const handleChooseFileClick = useCallback$j(() => {
+  const handleChooseFileClick = useCallback$m(() => {
     var _a2;
     if (isUploadDisabled || isProcessing) return;
     (_a2 = fileInputRef.current) == null ? void 0 : _a2.click();
   }, [isUploadDisabled, isProcessing]);
-  const handleDeleteClick = useCallback$j(() => {
+  const handleDeleteClick = useCallback$m(() => {
     if (!attachment || disabled) return;
     setDeleteError(null);
     setIsDeleteDialogOpen(true);
   }, [attachment, disabled]);
-  const handleDeleteConfirm = useCallback$j(async () => {
+  const handleDeleteConfirm = useCallback$m(async () => {
     if (!attachment || disabled) return;
     setIsDeleting(true);
     setDeleteError(null);
@@ -6091,28 +6091,28 @@ const ReceiptUpload = /* @__PURE__ */ __name(({
       setIsDeleting(false);
     }
   }, [attachment, disabled, onReceiptChange, clearUploadedAttachment, loadedBlobUrl, blobManager, deleteFileById]);
-  const handleDeleteCancel = useCallback$j(() => {
+  const handleDeleteCancel = useCallback$m(() => {
     setIsDeleteDialogOpen(false);
     setDeleteError(null);
   }, []);
-  const handlePreviewClick = useCallback$j(async () => {
+  const handlePreviewClick = useCallback$m(async () => {
     if (attachment) {
       const fileWithBlobUrl = loadedBlobUrl ? { ...attachment, blobUrl: loadedBlobUrl } : attachment;
       await openPreview(fileWithBlobUrl).catch(() => {
       });
     }
   }, [attachment, loadedBlobUrl, openPreview]);
-  const handleDragOver = useCallback$j((e) => {
+  const handleDragOver = useCallback$m((e) => {
     e.preventDefault();
     if (!isUploadDisabled && !isProcessing) {
       setDragActive(true);
     }
   }, [isUploadDisabled, isProcessing]);
-  const handleDragLeave = useCallback$j((e) => {
+  const handleDragLeave = useCallback$m((e) => {
     e.preventDefault();
     setDragActive(false);
   }, []);
-  const handleDrop = useCallback$j((e) => {
+  const handleDrop = useCallback$m((e) => {
     e.preventDefault();
     setDragActive(false);
     if (isUploadDisabled || isProcessing) return;
@@ -6297,7 +6297,7 @@ function FormSectionProvider({
   return /* @__PURE__ */ jsxRuntimeExports.jsx(FormSectionContext.Provider, { value, children });
 }
 __name(FormSectionProvider, "FormSectionProvider");
-const { useEffect: useEffect$f, useRef: useRef$c } = await importShared("react");
+const { useEffect: useEffect$h, useRef: useRef$e } = await importShared("react");
 function ConditionalSection({
   control,
   behavior,
@@ -6306,7 +6306,7 @@ function ConditionalSection({
 }) {
   const shouldWatch = behavior.isVisible || behavior.isEnabled;
   const hasDependencies = behavior.dependsOn && behavior.dependsOn.length > 0;
-  const previousDisabledRef = useRef$c(void 0);
+  const previousDisabledRef = useRef$e(void 0);
   const watchedFieldsArray = useWatch({
     control,
     name: behavior.dependsOn ?? [],
@@ -6321,7 +6321,7 @@ function ConditionalSection({
     return acc;
   }, {}) : allFormValues;
   const isDisabled = behavior.isEnabled ? !behavior.isEnabled(formValues) : false;
-  useEffect$f(() => {
+  useEffect$h(() => {
     if (previousDisabledRef.current !== isDisabled) {
       previousDisabledRef.current = isDisabled;
       onDisabledChange == null ? void 0 : onDisabledChange(isDisabled);
@@ -6333,17 +6333,17 @@ function ConditionalSection({
   return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children });
 }
 __name(ConditionalSection, "ConditionalSection");
-const { Fragment, memo: memo$3, useCallback: useCallback$i, useContext, useMemo: useMemo$f, useState: useState$4 } = await importShared("react");
+const { Fragment, memo: memo$3, useCallback: useCallback$l, useContext, useMemo: useMemo$h, useState: useState$6 } = await importShared("react");
 const FormSectionComponent = /* @__PURE__ */ __name(({
   section,
   handlersMap
 }) => {
   const renderProps = useContext(FormSectionContext);
-  const [conditionalDisabled, setConditionalDisabled] = useState$4(false);
+  const [conditionalDisabled, setConditionalDisabled] = useState$6(false);
   if (!renderProps) {
     throw new Error("FormSection must be used within FormSectionProvider");
   }
-  const handleDisabledChange = useCallback$i((disabled) => {
+  const handleDisabledChange = useCallback$l((disabled) => {
     setConditionalDisabled((prev) => {
       if (prev !== disabled) {
         return disabled;
@@ -6351,7 +6351,7 @@ const FormSectionComponent = /* @__PURE__ */ __name(({
       return prev;
     });
   }, []);
-  const behavior = useMemo$f(
+  const behavior = useMemo$h(
     () => ({
       isVisible: section.isVisible,
       isEnabled: section.isEnabled,
@@ -6359,14 +6359,14 @@ const FormSectionComponent = /* @__PURE__ */ __name(({
     }),
     [section.isVisible, section.isEnabled, section.dependsOn]
   );
-  const propsWithDisabled = useMemo$f(
+  const propsWithDisabled = useMemo$h(
     () => ({
       ...renderProps,
       disabled: conditionalDisabled || renderProps.disabled
     }),
     [renderProps, conditionalDisabled]
   );
-  const finalProps = useMemo$f(() => {
+  const finalProps = useMemo$h(() => {
     const sectionHandlers = handlersMap == null ? void 0 : handlersMap[section.type];
     return sectionHandlers ? { ...propsWithDisabled, ...sectionHandlers } : propsWithDisabled;
   }, [propsWithDisabled, handlersMap, section.type]);
@@ -6437,7 +6437,7 @@ function FormRenderer({
   )) });
 }
 __name(FormRenderer, "FormRenderer");
-const { useMemo: useMemo$e } = await importShared("react");
+const { useMemo: useMemo$g } = await importShared("react");
 const BaseExpenseFormRenderer = /* @__PURE__ */ __name(({
   control,
   setValue,
@@ -6450,7 +6450,7 @@ const BaseExpenseFormRenderer = /* @__PURE__ */ __name(({
   leftColumn,
   errorDisplay
 }) => {
-  const renderProps = useMemo$e(
+  const renderProps = useMemo$g(
     () => ({
       control,
       setValue,
@@ -6621,7 +6621,7 @@ const getSearchFunctionByType = /* @__PURE__ */ __name((type) => {
   };
   return searchMap[type];
 }, "getSearchFunctionByType");
-const { useEffect: useEffect$e, useRef: useRef$b } = await importShared("react");
+const { useEffect: useEffect$g, useRef: useRef$d } = await importShared("react");
 const useSetDefaultCurrency = /* @__PURE__ */ __name(({
   setValue,
   netCurrency,
@@ -6632,8 +6632,8 @@ const useSetDefaultCurrency = /* @__PURE__ */ __name(({
   const netSymbol = netCurrency.symbol;
   const totalCode = totalCurrency.code;
   const totalSymbol = totalCurrency.symbol;
-  const hasSeeded = useRef$b(false);
-  useEffect$e(() => {
+  const hasSeeded = useRef$d(false);
+  useEffect$g(() => {
     if (hasSeeded.current || !canSeed) return;
     setValue(
       "netCurrency",
@@ -6648,7 +6648,7 @@ const useSetDefaultCurrency = /* @__PURE__ */ __name(({
     hasSeeded.current = true;
   }, [setValue, netCode, netSymbol, totalCode, totalSymbol, canSeed]);
 }, "useSetDefaultCurrency");
-const { useCallback: useCallback$h, useEffect: useEffect$d, useMemo: useMemo$d, useRef: useRef$a } = await importShared("react");
+const { useCallback: useCallback$k, useEffect: useEffect$f, useMemo: useMemo$f, useRef: useRef$c } = await importShared("react");
 function useBaseExpenseForm(config2, props) {
   const {
     onSubmit,
@@ -6678,8 +6678,8 @@ function useBaseExpenseForm(config2, props) {
     trigger,
     reset
   } = form;
-  const prevIsDraftingRef = useRef$a(isDrafting);
-  useEffect$d(() => {
+  const prevIsDraftingRef = useRef$c(isDrafting);
+  useEffect$f(() => {
     if (prevIsDraftingRef.current === true && isDrafting === false && !draftSaveError) {
       const currentValues = getValues();
       const receipt = currentValues.receiptAttachment;
@@ -6707,7 +6707,7 @@ function useBaseExpenseForm(config2, props) {
     }
     prevIsDraftingRef.current = isDrafting;
   }, [isDrafting, draftSaveError, getValues, reset, onDraftSaved]);
-  const fieldsForValidation = useMemo$d(() => {
+  const fieldsForValidation = useMemo$f(() => {
     const draftFields = config2.fieldsForDraftCheck || [];
     return draftFields.length > 0 ? [...draftFields] : void 0;
   }, [config2.fieldsForDraftCheck]);
@@ -6717,7 +6717,7 @@ function useBaseExpenseForm(config2, props) {
     disabled: !fieldsForValidation
   });
   const allFormData = useWatch({ control, disabled: !!fieldsForValidation });
-  const formDataForValidation = useMemo$d(() => {
+  const formDataForValidation = useMemo$f(() => {
     if (!fieldsForValidation) {
       return allFormData;
     }
@@ -6729,7 +6729,7 @@ function useBaseExpenseForm(config2, props) {
       return acc;
     }, {});
   }, [fieldsForValidation, watchedFieldValues, allFormData]);
-  const validationErrors = useMemo$d(() => {
+  const validationErrors = useMemo$f(() => {
     const errorMessages = [];
     Object.entries(errors).forEach(([, error]) => {
       if (error == null ? void 0 : error.message) {
@@ -6743,17 +6743,17 @@ function useBaseExpenseForm(config2, props) {
     return errorMessages;
   }, [errors, Object.keys(errors).length]);
   const hasErrors = validationErrors.length > 0;
-  const canSave = useMemo$d(
+  const canSave = useMemo$f(
     () => config2.canSaveDraft(formDataForValidation),
     [formDataForValidation, config2]
   );
   const canSubmit = isValid && !isSubmitting;
   const watchedCostAllocations = useWatch({ control, name: "costAllocations" });
-  const costAllocationsDirty = useMemo$d(() => {
+  const costAllocationsDirty = useMemo$f(() => {
     const baseline = rhfDefaultValues == null ? void 0 : rhfDefaultValues.costAllocations;
     return JSON.stringify(watchedCostAllocations ?? []) !== JSON.stringify(baseline ?? []);
   }, [watchedCostAllocations, rhfDefaultValues]);
-  const handleFormSubmit = useCallback$h(
+  const handleFormSubmit = useCallback$k(
     async (data) => {
       try {
         const result = config2.validateForSubmission(data);
@@ -6769,7 +6769,7 @@ function useBaseExpenseForm(config2, props) {
     },
     [config2, onSubmit]
   );
-  const handleDraftSave = useCallback$h(
+  const handleDraftSave = useCallback$k(
     async () => {
       try {
         const data = getValues();
@@ -6791,11 +6791,11 @@ function useBaseExpenseForm(config2, props) {
     },
     [getValues, canSave, config2, onSaveDraft]
   );
-  const validateForm = useCallback$h(async () => {
+  const validateForm = useCallback$k(async () => {
     const isFormValid = await trigger();
     return isFormValid && !isSubmitting;
   }, [trigger, isSubmitting]);
-  const getSubmitButtonState = useCallback$h(() => {
+  const getSubmitButtonState = useCallback$k(() => {
     if (isSubmitting || isDrafting) {
       return { disabled: true, tooltip: "Submitting..." };
     }
@@ -6807,7 +6807,7 @@ function useBaseExpenseForm(config2, props) {
     }
     return { disabled: false };
   }, [isSubmitting, isDrafting, hasErrors, isValid]);
-  const getSaveDraftButtonState = useCallback$h(() => {
+  const getSaveDraftButtonState = useCallback$k(() => {
     if (isDrafting) {
       return { disabled: true, tooltip: "Saving draft..." };
     }
@@ -6835,16 +6835,16 @@ function useBaseExpenseForm(config2, props) {
   };
 }
 __name(useBaseExpenseForm, "useBaseExpenseForm");
-const { useMemo: useMemo$c } = await importShared("react");
+const { useMemo: useMemo$e } = await importShared("react");
 const useCostAllocation = /* @__PURE__ */ __name(({
   allocations,
   totalAmount
 }) => {
-  const isEnabled = useMemo$c(
+  const isEnabled = useMemo$e(
     () => allocations.length > 0 || totalAmount > 0,
     [allocations.length, totalAmount]
   );
-  const allocatedPercentage = useMemo$c(() => {
+  const allocatedPercentage = useMemo$e(() => {
     const validAllocations = allocations.filter(isValidAllocation);
     const totalPercentageDecimal = validAllocations.reduce(
       (sum2, validAllocation) => sum2.plus(validAllocation.percentage ?? 0),
@@ -6852,13 +6852,13 @@ const useCostAllocation = /* @__PURE__ */ __name(({
     );
     return totalPercentageDecimal.toNumber();
   }, [allocations]);
-  const remainingPercentage = useMemo$c(() => {
+  const remainingPercentage = useMemo$e(() => {
     return Math.max(0, 100 - allocatedPercentage);
   }, [allocatedPercentage]);
-  const progressValue = useMemo$c(() => {
+  const progressValue = useMemo$e(() => {
     return parseFloat(allocatedPercentage.toFixed(2));
   }, [allocatedPercentage]);
-  const progressError = useMemo$c(() => {
+  const progressError = useMemo$e(() => {
     const roundedPercentage = parseFloat(allocatedPercentage.toFixed(2));
     if (roundedPercentage > 100) {
       return "Total allocation cannot exceed 100%";
@@ -6873,9 +6873,9 @@ const useCostAllocation = /* @__PURE__ */ __name(({
     progressError
   };
 }, "useCostAllocation");
-const { useCallback: useCallback$g, useMemo: useMemo$b } = await importShared("react");
+const { useCallback: useCallback$j, useMemo: useMemo$d } = await importShared("react");
 const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger, costAllocationsField, isEqualSplitField, getBaseAmount) => {
-  const commitAllocations = useCallback$g(
+  const commitAllocations = useCallback$j(
     (next) => {
       setValue(
         costAllocationsField,
@@ -6886,7 +6886,7 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     },
     [setValue, trigger, costAllocationsField]
   );
-  const addAllocation = useCallback$g(
+  const addAllocation = useCallback$j(
     (type) => {
       const currentAllocations = getValues(costAllocationsField) || [];
       const isFirstAllocation = currentAllocations.length === 0;
@@ -6905,7 +6905,7 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     },
     [getValues, commitAllocations, costAllocationsField, getBaseAmount]
   );
-  const updateAllocationEntity = useCallback$g(
+  const updateAllocationEntity = useCallback$j(
     (id, entity) => {
       const currentAllocations = getValues(costAllocationsField) || [];
       const isEqualSplit = isEqualSplitField ? getValues(isEqualSplitField) : false;
@@ -6923,7 +6923,7 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     },
     [getValues, commitAllocations, costAllocationsField, isEqualSplitField, getBaseAmount]
   );
-  const removeAllocation = useCallback$g(
+  const removeAllocation = useCallback$j(
     (id) => {
       const currentAllocations = getValues(costAllocationsField) || [];
       const isEqualSplit = isEqualSplitField ? getValues(isEqualSplitField) : false;
@@ -6940,7 +6940,7 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     },
     [getValues, commitAllocations, costAllocationsField, isEqualSplitField, getBaseAmount]
   );
-  const getSelectedValue = useCallback$g(
+  const getSelectedValue = useCallback$j(
     (allocationId, allocations) => {
       const allocation = allocations.find((a) => a.id === allocationId);
       if (!allocation || !allocation.name) {
@@ -6954,7 +6954,7 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     },
     []
   );
-  return useMemo$b(() => ({
+  return useMemo$d(() => ({
     actions: {
       addAllocation,
       updateAllocationEntity,
@@ -6966,9 +6966,9 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     }
   }), [addAllocation, updateAllocationEntity, removeAllocation, getSelectedValue, getValues]);
 }, "useCostAllocationHandlers");
-const { useCallback: useCallback$f } = await importShared("react");
+const { useCallback: useCallback$i } = await importShared("react");
 const useDisableEqualSplit = /* @__PURE__ */ __name((setValue, getValues, field) => {
-  return useCallback$f(() => {
+  return useCallback$i(() => {
     if (!field) return;
     const current = getValues(field);
     if (current) {
@@ -6983,7 +6983,7 @@ const useDisableEqualSplit = /* @__PURE__ */ __name((setValue, getValues, field)
     }
   }, [field, setValue, getValues]);
 }, "useDisableEqualSplit");
-const { useCallback: useCallback$e, useRef: useRef$9 } = await importShared("react");
+const { useCallback: useCallback$h, useRef: useRef$b } = await importShared("react");
 const useAllocationSync = /* @__PURE__ */ __name(({
   index,
   totalAmount,
@@ -6992,19 +6992,19 @@ const useAllocationSync = /* @__PURE__ */ __name(({
   getValues,
   isEqualSplitField
 }) => {
-  const isEditingAmountRef = useRef$9(false);
-  const isEditingPercentageRef = useRef$9(false);
+  const isEditingAmountRef = useRef$b(false);
+  const isEditingPercentageRef = useRef$b(false);
   const disableEqualSplit = useDisableEqualSplit(setValue, getValues, isEqualSplitField);
-  const setAmountEditing = useCallback$e((editing) => {
+  const setAmountEditing = useCallback$h((editing) => {
     isEditingAmountRef.current = editing;
   }, []);
-  const setPercentageEditing = useCallback$e((editing) => {
+  const setPercentageEditing = useCallback$h((editing) => {
     isEditingPercentageRef.current = editing;
   }, []);
   const amountPath = `costAllocations.${index}.amount`;
   const percentagePath = `costAllocations.${index}.percentage`;
   const allocationsPath = "costAllocations";
-  const syncPercentageFromAmount = useCallback$e(
+  const syncPercentageFromAmount = useCallback$h(
     (amount) => {
       if (isEditingPercentageRef.current) return;
       if (totalAmount === 0 || !isFinite(amount) || isNaN(amount)) return;
@@ -7021,7 +7021,7 @@ const useAllocationSync = /* @__PURE__ */ __name(({
     },
     [index, totalAmount, setValue, trigger, disableEqualSplit]
   );
-  const syncAmountFromPercentage = useCallback$e(
+  const syncAmountFromPercentage = useCallback$h(
     (percentage) => {
       if (isEditingAmountRef.current) return;
       if (!isFinite(percentage) || isNaN(percentage)) return;
@@ -7052,7 +7052,7 @@ const useAllocationSync = /* @__PURE__ */ __name(({
     setPercentageEditing
   };
 }, "useAllocationSync");
-const { useCallback: useCallback$d, useEffect: useEffect$c, useMemo: useMemo$a } = await importShared("react");
+const { useCallback: useCallback$g, useEffect: useEffect$e, useMemo: useMemo$c } = await importShared("react");
 const useEqualSplit = /* @__PURE__ */ __name(({
   allocations,
   isEqualSplit,
@@ -7064,14 +7064,14 @@ const useEqualSplit = /* @__PURE__ */ __name(({
   costAllocationsField,
   isEqualSplitField
 }) => {
-  const canEnableEqualSplit = useMemo$a(() => {
+  const canEnableEqualSplit = useMemo$c(() => {
     const validAllocations = allocations.filter(isValidAllocation);
     return allocations.length > 1 && validAllocations.length > 0;
   }, [allocations]);
-  const isCurrentlyEqual = useMemo$a(() => {
+  const isCurrentlyEqual = useMemo$c(() => {
     return areAllocationsEqual(allocations, totalAmount);
   }, [allocations, totalAmount]);
-  const distributeEqually = useCallback$d(() => {
+  const distributeEqually = useCallback$g(() => {
     const currentAllocations = getValues(costAllocationsField) || [];
     const currentTotalAmountStr = getValues(totalAmountField);
     const currentTotalAmount = parseFloat(currentTotalAmountStr || "0");
@@ -7095,7 +7095,7 @@ const useEqualSplit = /* @__PURE__ */ __name(({
       }
     );
   }, [getValues, setValue, costAllocationsField, totalAmountField, isEqualSplitField, trigger]);
-  const toggleEqualSplit = useCallback$d(() => {
+  const toggleEqualSplit = useCallback$g(() => {
     if (!canEnableEqualSplit) return;
     if (isEqualSplit) {
       setValue(
@@ -7111,7 +7111,7 @@ const useEqualSplit = /* @__PURE__ */ __name(({
     }
   }, [isEqualSplit, canEnableEqualSplit, distributeEqually, setValue, isEqualSplitField]);
   const shouldDisableEqualSplit = isEqualSplit && !canEnableEqualSplit;
-  useEffect$c(() => {
+  useEffect$e(() => {
     if (shouldDisableEqualSplit) {
       const currentAllocations = getValues(costAllocationsField) || [];
       if (currentAllocations.length === 1) {
@@ -7158,7 +7158,7 @@ const useEqualSplit = /* @__PURE__ */ __name(({
     distributeEqually
   };
 }, "useEqualSplit");
-const { useEffect: useEffect$b, useRef: useRef$8 } = await importShared("react");
+const { useEffect: useEffect$d, useRef: useRef$a } = await importShared("react");
 const useAmountAllocationSync = /* @__PURE__ */ __name(({
   amount,
   setValue,
@@ -7167,16 +7167,16 @@ const useAmountAllocationSync = /* @__PURE__ */ __name(({
   costAllocationsField,
   isEqualSplitField
 }) => {
-  const prevAmountRef = useRef$8(amount);
-  const setValueRef = useRef$8(setValue);
-  const getValuesRef = useRef$8(getValues);
-  const triggerRef = useRef$8(trigger);
-  useEffect$b(() => {
+  const prevAmountRef = useRef$a(amount);
+  const setValueRef = useRef$a(setValue);
+  const getValuesRef = useRef$a(getValues);
+  const triggerRef = useRef$a(trigger);
+  useEffect$d(() => {
     setValueRef.current = setValue;
     getValuesRef.current = getValues;
     triggerRef.current = trigger;
   }, [setValue, getValues, trigger]);
-  useEffect$b(() => {
+  useEffect$d(() => {
     const amountChanged = prevAmountRef.current !== amount;
     prevAmountRef.current = amount;
     if (!amountChanged) {
@@ -7199,9 +7199,9 @@ const useAmountAllocationSync = /* @__PURE__ */ __name(({
     triggerRef.current(costAllocationsField);
   }, [amount, costAllocationsField, isEqualSplitField]);
 }, "useAmountAllocationSync");
-const { useEffect: useEffect$a } = await importShared("react");
+const { useEffect: useEffect$c } = await importShared("react");
 const useValidatePrefilledFields = /* @__PURE__ */ __name((form, initialData) => {
-  useEffect$a(() => {
+  useEffect$c(() => {
     if (!initialData) return;
     const timeout = setTimeout(() => {
       const values = form.getValues();
@@ -7234,7 +7234,7 @@ const useValidatePrefilledFields = /* @__PURE__ */ __name((form, initialData) =>
     return () => clearTimeout(timeout);
   }, []);
 }, "useValidatePrefilledFields");
-const { useCallback: useCallback$c, useMemo: useMemo$9 } = await importShared("react");
+const { useCallback: useCallback$f, useMemo: useMemo$b } = await importShared("react");
 function useFormFieldValues(control, fields) {
   const values = useWatch({
     control,
@@ -7249,20 +7249,20 @@ function useFormFieldValues(control, fields) {
   }, {});
 }
 __name(useFormFieldValues, "useFormFieldValues");
-const { useCallback: useCallback$b, useEffect: useEffect$9, useMemo: useMemo$8, useRef: useRef$7 } = await importShared("react");
-const { useCallback: useCallback$a, useEffect: useEffect$8, useImperativeHandle, useRef: useRef$6 } = await importShared("react");
+const { useCallback: useCallback$e, useEffect: useEffect$b, useMemo: useMemo$a, useRef: useRef$9 } = await importShared("react");
+const { useCallback: useCallback$d, useEffect: useEffect$a, useImperativeHandle, useRef: useRef$8 } = await importShared("react");
 const useFormImperativeHandle = /* @__PURE__ */ __name(({
   ref,
   form,
   onFormErrors
 }) => {
-  const formRef = useRef$6(form);
-  const onFormErrorsRef = useRef$6(onFormErrors);
-  useEffect$8(() => {
+  const formRef = useRef$8(form);
+  const onFormErrorsRef = useRef$8(onFormErrors);
+  useEffect$a(() => {
     formRef.current = form;
     onFormErrorsRef.current = onFormErrors;
   });
-  const handleFormSubmit = useCallback$a(async () => {
+  const handleFormSubmit = useCallback$d(async () => {
     var _a2;
     const isValid = await formRef.current.validateForm();
     if (isValid) {
@@ -7271,7 +7271,7 @@ const useFormImperativeHandle = /* @__PURE__ */ __name(({
       (_a2 = onFormErrorsRef.current) == null ? void 0 : _a2.call(onFormErrorsRef, formRef.current.validationErrors);
     }
   }, []);
-  const handleDraftSave = useCallback$a(async () => {
+  const handleDraftSave = useCallback$d(async () => {
     await formRef.current.handleDraftSave();
   }, []);
   useImperativeHandle(
@@ -7298,7 +7298,7 @@ const useFormImperativeHandle = /* @__PURE__ */ __name(({
     handleDraftSave
   };
 }, "useFormImperativeHandle");
-const { useEffect: useEffect$7, useRef: useRef$5 } = await importShared("react");
+const { useEffect: useEffect$9, useRef: useRef$7 } = await importShared("react");
 const useFormButtonStateSync = /* @__PURE__ */ __name(({
   form,
   formState,
@@ -7306,13 +7306,13 @@ const useFormButtonStateSync = /* @__PURE__ */ __name(({
   isDrafting,
   onButtonStateChange
 }) => {
-  const formRef = useRef$5(form);
-  const onButtonStateChangeRef = useRef$5(onButtonStateChange);
-  useEffect$7(() => {
+  const formRef = useRef$7(form);
+  const onButtonStateChangeRef = useRef$7(onButtonStateChange);
+  useEffect$9(() => {
     formRef.current = form;
     onButtonStateChangeRef.current = onButtonStateChange;
   });
-  useEffect$7(() => {
+  useEffect$9(() => {
     if (!onButtonStateChangeRef.current) return;
     const submitState = formRef.current.getSubmitButtonState();
     const draftState = formRef.current.getSaveDraftButtonState();
@@ -7327,7 +7327,7 @@ const useFormButtonStateSync = /* @__PURE__ */ __name(({
     isDrafting
   ]);
 }, "useFormButtonStateSync");
-const { useCallback: useCallback$9 } = await importShared("react");
+const { useCallback: useCallback$c } = await importShared("react");
 const useFileHandlers = /* @__PURE__ */ __name((options) => {
   const {
     setValue,
@@ -7336,7 +7336,7 @@ const useFileHandlers = /* @__PURE__ */ __name((options) => {
     onReceiptUploaded,
     onSupportingFilesChanged
   } = options;
-  const handleReceiptChange = useCallback$9(
+  const handleReceiptChange = useCallback$c(
     (attachment) => {
       setValue(
         receiptAttachmentField2,
@@ -7349,7 +7349,7 @@ const useFileHandlers = /* @__PURE__ */ __name((options) => {
     },
     [setValue, receiptAttachmentField2, onReceiptUploaded]
   );
-  const handleSupportingFilesChange = useCallback$9(
+  const handleSupportingFilesChange = useCallback$c(
     (attachments) => {
       if (supportingFilesField2) {
         setValue(
@@ -7367,13 +7367,13 @@ const useFileHandlers = /* @__PURE__ */ __name((options) => {
     handleSupportingFilesChange
   };
 }, "useFileHandlers");
-const { useCallback: useCallback$8, useRef: useRef$4 } = await importShared("react");
+const { useCallback: useCallback$b, useRef: useRef$6 } = await importShared("react");
 const DEFAULT_DEBOUNCE_MS = 500;
 const useAutoSave = /* @__PURE__ */ __name((options) => {
   const { draftId, isDrafting, onSaveDraft, getFormValues, debounceMs = DEFAULT_DEBOUNCE_MS } = options;
-  const onSaveDraftRef = useRef$4(onSaveDraft);
+  const onSaveDraftRef = useRef$6(onSaveDraft);
   onSaveDraftRef.current = onSaveDraft;
-  const performAutoSave = useCallback$8(() => {
+  const performAutoSave = useCallback$b(() => {
     if (!draftId && onSaveDraftRef.current && !isDrafting) {
       const currentData = getFormValues();
       onSaveDraftRef.current(currentData);
@@ -7382,7 +7382,7 @@ const useAutoSave = /* @__PURE__ */ __name((options) => {
   const triggerAutoSave = useDebouncedCallback(performAutoSave, debounceMs);
   return { triggerAutoSave };
 }, "useAutoSave");
-const { useEffect: useEffect$6 } = await importShared("react");
+const { useEffect: useEffect$8 } = await importShared("react");
 const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
   const {
     watch,
@@ -7393,7 +7393,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
   } = options;
   const isReceiptUnavailable = watch(isReceiptUnavailableField2);
   const receiptAttachment = watch(receiptAttachmentField2);
-  useEffect$6(() => {
+  useEffect$8(() => {
     if (isReceiptUnavailable) {
       setValue(
         receiptAttachmentField2,
@@ -7418,7 +7418,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
       );
     }
   }, [isReceiptUnavailable, setValue, receiptAttachmentField2, affidavitField2]);
-  useEffect$6(() => {
+  useEffect$8(() => {
     if (receiptAttachment && isReceiptUnavailable) {
       setValue(
         isReceiptUnavailableField2,
@@ -7435,7 +7435,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
     }
   }, [receiptAttachment, isReceiptUnavailable, setValue, isReceiptUnavailableField2, affidavitField2]);
 }, "useReceiptCheckboxEffects");
-const { useEffect: useEffect$5, useMemo: useMemo$7 } = await importShared("react");
+const { useEffect: useEffect$7, useMemo: useMemo$9 } = await importShared("react");
 const useReimbursableAmountSync = /* @__PURE__ */ __name(({
   totalDistance,
   ratePerUnit,
@@ -7443,7 +7443,7 @@ const useReimbursableAmountSync = /* @__PURE__ */ __name(({
   getValues,
   reimbursableAmountField: reimbursableAmountField2
 }) => {
-  const calculatedAmount = useMemo$7(() => {
+  const calculatedAmount = useMemo$9(() => {
     try {
       const distanceDecimal = new Decimal(totalDistance || 0);
       const rateDecimal = new Decimal(ratePerUnit || 0);
@@ -7456,7 +7456,7 @@ const useReimbursableAmountSync = /* @__PURE__ */ __name(({
       return "0.00";
     }
   }, [totalDistance, ratePerUnit]);
-  useEffect$5(() => {
+  useEffect$7(() => {
     const currentValue = getValues(reimbursableAmountField2);
     if (currentValue !== calculatedAmount) {
       setValue(
@@ -7557,7 +7557,7 @@ const mileageTripValidationStrategy = createValidationStrategy(mileageTripFormSc
   canSaveDraft: canSaveDraft$1,
   getValidationErrors: getFormValidationErrors$1
 });
-const { useCallback: useCallback$7, useMemo: useMemo$6 } = await importShared("react");
+const { useCallback: useCallback$a, useMemo: useMemo$8 } = await importShared("react");
 const mapMileageTripToDefaultValues = /* @__PURE__ */ __name((data) => {
   return {
     formType: MileageFormType.Trip,
@@ -7686,7 +7686,7 @@ const mileagePeriodValidationStrategy = createValidationStrategy(mileagePeriodFo
   canSaveDraft,
   getValidationErrors: getFormValidationErrors
 });
-const { useCallback: useCallback$6, useMemo: useMemo$5 } = await importShared("react");
+const { useCallback: useCallback$9, useMemo: useMemo$7 } = await importShared("react");
 const ensureDate = /* @__PURE__ */ __name((value) => {
   if (!value) return void 0;
   if (value instanceof Date) return value;
@@ -7730,9 +7730,9 @@ var FormSectionType = /* @__PURE__ */ ((FormSectionType2) => {
   FormSectionType2["MileageJustification"] = "mileage-justification";
   return FormSectionType2;
 })(FormSectionType || {});
-const { useCallback: useCallback$5, useMemo: useMemo$4 } = await importShared("react");
+const { useCallback: useCallback$8, useMemo: useMemo$6 } = await importShared("react");
 const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger, context) => {
-  const getBaseAmount = useCallback$5(
+  const getBaseAmount = useCallback$8(
     () => parseFloat(getValues(MileagePeriodFormField.ReimbursableAmount) || "0"),
     [getValues]
   );
@@ -7744,14 +7744,14 @@ const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues
     MileagePeriodFormField.IsEqualSplit,
     getBaseAmount
   );
-  const handleSaveDraftForUpload = useCallback$5(async () => {
+  const handleSaveDraftForUpload = useCallback$8(async () => {
     if (!(context == null ? void 0 : context.onSaveDraftForUpload)) {
       throw new Error("onSaveDraftForUpload is not defined");
     }
     const formData = getValues();
     return context.onSaveDraftForUpload(formData);
   }, [getValues, context == null ? void 0 : context.onSaveDraftForUpload]);
-  return useMemo$4(
+  return useMemo$6(
     () => ({
       [FormSectionType.CostAllocation]: costAllocationHandlers,
       [FormSectionType.SupportingFiles]: {
@@ -7773,7 +7773,7 @@ const findActiveSelectedMileageType = /* @__PURE__ */ __name((types, mileageType
   const found = types == null ? void 0 : types.find((et) => et.id === mileageTypeId);
   return (found == null ? void 0 : found.status) === "active" ? found : void 0;
 }, "findActiveSelectedMileageType");
-const { useEffect: useEffect$4, useMemo: useMemo$3 } = await importShared("react");
+const { useEffect: useEffect$6, useMemo: useMemo$5 } = await importShared("react");
 const DATE_FIELDS_TO_REVALIDATE = [
   MileageTripFormField.ExpenseDate,
   MileagePeriodFormField.ExpensePeriod
@@ -7790,7 +7790,7 @@ const useMileageRateSync = /* @__PURE__ */ __name(({
   const { data: expenseTypes } = useExpenseTypes(companyShortName, {
     formTypeIds: [FormTypeId.MILEAGE]
   });
-  const selectedType = useMemo$3(
+  const selectedType = useMemo$5(
     () => findActiveSelectedMileageType(expenseTypes, mileageType),
     [mileageType, expenseTypes]
   );
@@ -7802,7 +7802,7 @@ const useMileageRateSync = /* @__PURE__ */ __name(({
     enabled: canResolve
   });
   const hasNoRateForDate = canResolve && !isFetching && effectiveRate === null;
-  useEffect$4(() => {
+  useEffect$6(() => {
     if (!mileageType) return;
     if (!expenseTypes) return;
     const rateField = MileageTripFormField.RatePerUnit;
@@ -7870,7 +7870,11 @@ function clearRateFields({
   if (cleared) revalidateDateFields(trigger);
 }
 __name(clearRateFields, "clearRateFields");
-const { useEffect: useEffect$3, useRef: useRef$3 } = await importShared("react");
+function computeMileageEffectiveOn(expenseDate, periodFrom) {
+  return expenseDate || formatToISODate(periodFrom) || "";
+}
+__name(computeMileageEffectiveOn, "computeMileageEffectiveOn");
+const { useEffect: useEffect$5, useRef: useRef$5 } = await importShared("react");
 const useExpenseFormSync = /* @__PURE__ */ __name(({
   control,
   setValue,
@@ -7901,9 +7905,9 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
     ExpenseFormField.PaymentMethod
   ]);
   const formType = useFormTypeId(expenseType, companyShortName);
-  const prevNetAmountRef = useRef$3(netAmount);
-  const prevExpenseLocationRef = useRef$3(expenseLocation);
-  const prevPaymentMethodRef = useRef$3(paymentMethod);
+  const prevNetAmountRef = useRef$5(netAmount);
+  const prevExpenseLocationRef = useRef$5(expenseLocation);
+  const prevPaymentMethodRef = useRef$5(paymentMethod);
   const shouldRevalidateField = /* @__PURE__ */ __name((field) => {
     if (formState.touchedFields[field]) return true;
     const value = getValues(field);
@@ -7913,7 +7917,7 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
     const allocations = getValues(ExpenseFormField.CostAllocations);
     return Array.isArray(allocations) && allocations.length > 0;
   }, "hasCostAllocations");
-  useEffect$3(() => {
+  useEffect$5(() => {
     if (formType) {
       setValue("formType", formType);
       if (formType !== ExpenseFormType.ENTERTAINMENT) {
@@ -7921,7 +7925,7 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
       }
     }
   }, [formType, setValue, trigger]);
-  useEffect$3(() => {
+  useEffect$5(() => {
     if (prevNetAmountRef.current !== netAmount) {
       prevNetAmountRef.current = netAmount;
       const fields = [ExpenseFormField.TaxAmount, ExpenseFormField.TotalAmount].filter(shouldRevalidateField);
@@ -7929,7 +7933,7 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
       if (hasCostAllocations()) trigger(ExpenseFormField.CostAllocations);
     }
   }, [netAmount, trigger, formState.touchedFields]);
-  useEffect$3(() => {
+  useEffect$5(() => {
     if (prevPaymentMethodRef.current !== paymentMethod) {
       prevPaymentMethodRef.current = paymentMethod;
       const fields = [
@@ -7941,7 +7945,7 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
       if (hasCostAllocations()) trigger(ExpenseFormField.CostAllocations);
     }
   }, [paymentMethod, trigger, formState.touchedFields]);
-  useEffect$3(() => {
+  useEffect$5(() => {
     if (prevExpenseLocationRef.current !== expenseLocation) {
       prevExpenseLocationRef.current = expenseLocation;
       const fields = [ExpenseFormField.TaxType, ExpenseFormField.TaxAmount].filter(shouldRevalidateField);
@@ -7967,9 +7971,9 @@ const useExpenseFormSync = /* @__PURE__ */ __name(({
     affidavitField: ExpenseFormField.Affidavit
   });
 }, "useExpenseFormSync");
-const { useCallback: useCallback$4, useMemo: useMemo$2 } = await importShared("react");
+const { useCallback: useCallback$7, useMemo: useMemo$4 } = await importShared("react");
 const useExpenseFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger) => {
-  const getBaseAmount = useCallback$4(() => {
+  const getBaseAmount = useCallback$7(() => {
     const netCurrency = getValues(ExpenseFormField.NetCurrency);
     const totalCurrency = getValues(ExpenseFormField.TotalCurrency);
     return getExpenseBaseAmount(
@@ -7987,14 +7991,14 @@ const useExpenseFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trig
     ExpenseFormField.IsEqualSplit,
     getBaseAmount
   );
-  return useMemo$2(
+  return useMemo$4(
     () => ({
       [FormSectionType.CostAllocation]: costAllocationHandlers
     }),
     [costAllocationHandlers]
   );
 }, "useExpenseFormHandlers");
-const { useMemo: useMemo$1, useState: useState$3 } = await importShared("react");
+const { useMemo: useMemo$3, useState: useState$5 } = await importShared("react");
 const useExpenseFormLeftColumn = /* @__PURE__ */ __name(({
   control,
   setValue,
@@ -8003,7 +8007,7 @@ const useExpenseFormLeftColumn = /* @__PURE__ */ __name(({
   draftId,
   onSaveDraft
 }) => {
-  const [isReceiptUploading, setIsReceiptUploading] = useState$3(false);
+  const [isReceiptUploading, setIsReceiptUploading] = useState$5(false);
   const { receiptAttachment, supportingFiles } = useFormFieldValues(control, [
     ExpenseFormField.ReceiptAttachment,
     ExpenseFormField.SupportingFiles
@@ -8026,7 +8030,7 @@ const useExpenseFormLeftColumn = /* @__PURE__ */ __name(({
       }
     }, "onSupportingFilesChanged")
   });
-  const shouldShowReceiptCheckbox = useMemo$1(() => {
+  const shouldShowReceiptCheckbox = useMemo$3(() => {
     return !receiptAttachment && !isReceiptUploading;
   }, [receiptAttachment, isReceiptUploading]);
   return {
@@ -8039,9 +8043,9 @@ const useExpenseFormLeftColumn = /* @__PURE__ */ __name(({
     shouldShowReceiptCheckbox
   };
 }, "useExpenseFormLeftColumn");
-const { useCallback: useCallback$3, useMemo } = await importShared("react");
+const { useCallback: useCallback$6, useMemo: useMemo$2 } = await importShared("react");
 const useMileageTripFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger) => {
-  const getBaseAmount = useCallback$3(
+  const getBaseAmount = useCallback$6(
     () => parseFloat(getValues(MileageTripFormField.ReimbursableAmount) || "0"),
     [getValues]
   );
@@ -8053,13 +8057,897 @@ const useMileageTripFormHandlers = /* @__PURE__ */ __name((setValue, getValues, 
     MileageTripFormField.IsEqualSplit,
     getBaseAmount
   );
-  return useMemo(
+  return useMemo$2(
     () => ({
       [FormSectionType.CostAllocation]: costAllocationHandlers
     }),
     [costAllocationHandlers]
   );
 }, "useMileageTripFormHandlers");
+const { useCallback: useCallback$5, useEffect: useEffect$4, useRef: useRef$4, useState: useState$4 } = await importShared("react");
+function useDeleteDialog(options = {}) {
+  const { onDeleteSuccess } = options;
+  const [isOpen, setIsOpen] = useState$4(false);
+  const [isDeleteFlowActive, setIsDeleteFlowActive] = useState$4(false);
+  const shouldNavigateRef = useRef$4(false);
+  useEffect$4(() => {
+    return () => {
+      shouldNavigateRef.current = false;
+    };
+  }, []);
+  const open = useCallback$5(() => {
+    setIsOpen(true);
+  }, []);
+  const close = useCallback$5(() => {
+    setIsOpen(false);
+  }, []);
+  const handleOpenChange = useCallback$5((isOpen2) => {
+    setIsOpen(isOpen2);
+  }, []);
+  const markForNavigation = useCallback$5(() => {
+    shouldNavigateRef.current = true;
+    setIsDeleteFlowActive(true);
+    setIsOpen(false);
+  }, []);
+  const handleCloseComplete = useCallback$5(() => {
+    if (shouldNavigateRef.current) {
+      shouldNavigateRef.current = false;
+      onDeleteSuccess == null ? void 0 : onDeleteSuccess();
+    }
+  }, [onDeleteSuccess]);
+  return {
+    isOpen,
+    isDeleteFlowActive,
+    open,
+    close,
+    handleOpenChange,
+    handleCloseComplete,
+    markForNavigation
+  };
+}
+__name(useDeleteDialog, "useDeleteDialog");
+var ExpenseItemType = /* @__PURE__ */ ((ExpenseItemType2) => {
+  ExpenseItemType2["Expense"] = "expense";
+  ExpenseItemType2["MileageTrip"] = "mileage-trip";
+  ExpenseItemType2["MileagePeriod"] = "mileage-period";
+  return ExpenseItemType2;
+})(ExpenseItemType || {});
+const { useMemo: useMemo$1 } = await importShared("react");
+function getItemTitle(item, mode, isNewItem, effectiveItemType) {
+  if (!item) {
+    if (isNewItem) {
+      if (effectiveItemType === ExpenseItemType.MileageTrip || effectiveItemType === ExpenseItemType.MileagePeriod) {
+        return "New Mileage Claim";
+      }
+      return "New Expense";
+    }
+    if (effectiveItemType === ExpenseItemType.MileageTrip || effectiveItemType === ExpenseItemType.MileagePeriod) {
+      return "Mileage";
+    }
+    return "Expense";
+  }
+  if (isRegularExpense(item)) {
+    if (mode === "preview") return item.data.vendor || "Expense";
+    if (mode === "draft") return item.data.vendor || "Draft Expense";
+    return "New Expense";
+  }
+  if (isMileageExpense(item)) {
+    return mode === "preview" || mode === "draft" ? "Mileage" : "New Mileage Claim";
+  }
+  return effectiveItemType === ExpenseItemType.Expense ? "Expense" : "Mileage";
+}
+__name(getItemTitle, "getItemTitle");
+function getTitleSuffix(item) {
+  if (!item || !isMileageExpense(item)) return null;
+  if (isMileageTripData(item.data)) {
+    return item.data.toLocation || null;
+  }
+  if (isMileagePeriodData(item.data) && item.data.expensePeriod) {
+    return formatExpensePeriod(item.data.expensePeriod) || null;
+  }
+  return null;
+}
+__name(getTitleSuffix, "getTitleSuffix");
+function getItemAmount(item) {
+  if (!item) return void 0;
+  if (isRegularExpense(item)) return item.data.totalAmount;
+  return void 0;
+}
+__name(getItemAmount, "getItemAmount");
+function getHeaderSubtitle(item, mode) {
+  if (!item) return void 0;
+  if (mode === "preview" && isExpenseItemSubmitted(item)) {
+    return getExpenseActionSubtitle(item);
+  }
+  if (mode === "draft" && isExpenseItemDraft(item)) {
+    const parts = [item.businessId, `Created on ${formatDate(item.createdAt)}`].filter(Boolean);
+    return parts.join(" • ");
+  }
+  return void 0;
+}
+__name(getHeaderSubtitle, "getHeaderSubtitle");
+function useExpenseItemHeader(options) {
+  const { expenseItem, mode, isNewItem, itemType } = options;
+  const title = useMemo$1(
+    () => getItemTitle(expenseItem, mode, isNewItem, itemType),
+    [expenseItem, mode, isNewItem, itemType]
+  );
+  const titleSuffix = useMemo$1(
+    () => getTitleSuffix(expenseItem),
+    [expenseItem]
+  );
+  const amount = useMemo$1(
+    () => getItemAmount(expenseItem),
+    [expenseItem]
+  );
+  const subtitle = useMemo$1(
+    () => getHeaderSubtitle(expenseItem, mode),
+    [expenseItem, mode]
+  );
+  const status = expenseItem == null ? void 0 : expenseItem.status;
+  return {
+    title,
+    titleSuffix,
+    amount,
+    status,
+    subtitle
+  };
+}
+__name(useExpenseItemHeader, "useExpenseItemHeader");
+const mapToPaymentMethod = /* @__PURE__ */ __name((api) => ({
+  id: String(api.id),
+  name: api.name,
+  currencyCode: api.currencyCode
+}), "mapToPaymentMethod");
+function normalizeExpenseDraftResponse(response) {
+  return {
+    id: String(response.id),
+    businessId: response.businessId,
+    status: response.status,
+    vendor: response.vendor ?? "",
+    expenseDate: response.date ?? "",
+    totalAmount: Number(response.totalAmount ?? 0),
+    totalCurrencyCode: response.totalCurrencyCode ?? "",
+    createdAt: response.createdDate,
+    updatedAt: response.updatedDate
+  };
+}
+__name(normalizeExpenseDraftResponse, "normalizeExpenseDraftResponse");
+function buildExpenseItemForCache(response, formData) {
+  return {
+    id: String(response.id),
+    businessId: response.businessId,
+    itemType: ItemCategory.Expense,
+    status: "draft",
+    createdAt: response.createdDate,
+    updatedAt: response.updatedDate ?? response.createdDate,
+    userId: response.formOwner,
+    data: formData
+  };
+}
+__name(buildExpenseItemForCache, "buildExpenseItemForCache");
+const useSaveExpenseDraft = /* @__PURE__ */ __name(() => {
+  const queryClient2 = useQueryClient();
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ data, draftId, signal }) => {
+      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const company = userDefaultCompany.shortName;
+      const expenseTypes = queryClient2.getQueriesData({ queryKey: queryKeys.expenseTypes.list(company, false) }).flatMap(([, data2]) => data2 ?? []);
+      if (draftId) {
+        const payload = mapFormDataToUpdateRequest(data, expenseTypes);
+        devLog("📤 Update draft payload:", payload);
+        const response = await apiClient.put(
+          EXPENSE_ENDPOINTS.UPDATE_DRAFT.build({ tenant: company, id: draftId }),
+          payload,
+          { signal }
+        );
+        devLog("📥 Update draft response:", response.data);
+        return {
+          draft: normalizeExpenseDraftResponse(response.data),
+          response: response.data,
+          formData: data
+        };
+      } else {
+        const payload = mapFormDataToCreateRequest(data, expenseTypes);
+        devLog("📤 Create draft payload:", payload);
+        const response = await apiClient.post(
+          EXPENSE_ENDPOINTS.SAVE_DRAFT.build({ tenant: company }),
+          payload,
+          { signal }
+        );
+        devLog("📥 Create draft response:", response.data);
+        return {
+          draft: normalizeExpenseDraftResponse(response.data),
+          response: response.data,
+          formData: data
+        };
+      }
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name(({ draft, response, formData }, variables) => {
+      var _a2;
+      if ((_a2 = variables.signal) == null ? void 0 : _a2.aborted) return;
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
+      const expenseItem = buildExpenseItemForCache(response, formData);
+      if (variables.draftId) {
+        queryClient2.setQueryData(
+          queryKeys.expenseItem.detail(variables.draftId),
+          expenseItem
+        );
+      } else {
+        queryClient2.setQueryData(queryKeys.expenseItem.detail(draft.id), expenseItem);
+      }
+      Zs.success("All changes are saved", {
+        duration: 3e3
+      });
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error, variables) => {
+      var _a2;
+      if ((_a2 = variables.signal) == null ? void 0 : _a2.aborted) return;
+      devError("Failed to save expense draft:", error);
+      Zs.error("Failed to save. Please try again", {
+        duration: 3e3
+      });
+    }, "onError")
+  });
+}, "useSaveExpenseDraft");
+const useDeleteExpenseDraft = /* @__PURE__ */ __name((options) => {
+  const queryClient2 = useQueryClient();
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ draftId }) => {
+      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const company = userDefaultCompany.shortName;
+      await apiClient.delete(EXPENSE_ENDPOINTS.DELETE_DRAFT.build({ tenant: company, id: draftId }));
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name(async (_data, variables) => {
+      var _a2;
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
+      await queryClient2.cancelQueries({
+        queryKey: queryKeys.expenseItem.detail(variables.draftId)
+      });
+      queryClient2.removeQueries({
+        queryKey: queryKeys.expenseItem.detail(variables.draftId)
+      });
+      Zs.success("Draft deleted", {
+        duration: 3e3
+      });
+      (_a2 = options == null ? void 0 : options.onSuccess) == null ? void 0 : _a2.call(options);
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error) => {
+      devError("Failed to delete draft:", error);
+      Zs.error("Fail to delete. Please try again.", {
+        duration: 3e3
+      });
+    }, "onError")
+  });
+}, "useDeleteExpenseDraft");
+const useSubmitExpense = /* @__PURE__ */ __name(() => {
+  const queryClient2 = useQueryClient();
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ draftId }) => {
+      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const company = userDefaultCompany.shortName;
+      await apiClient.post(EXPENSE_ENDPOINTS.SUBMIT_DRAFT.build({ tenant: company, id: draftId }));
+      return { draftId };
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name((_data, { draftId }) => {
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expenses.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expenseDrafts.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
+      queryClient2.removeQueries({
+        queryKey: queryKeys.expenseItem.detail(draftId)
+      });
+      Zs.success("Expense submitted", {
+        duration: 3e3
+      });
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error) => {
+      devError("Failed to submit expense:", error);
+      Zs.error("Fail to submit", {
+        duration: 3e3
+      });
+    }, "onError")
+  });
+}, "useSubmitExpense");
+const usePaymentMethods = /* @__PURE__ */ __name(({
+  companyShortName,
+  enabled = true
+}) => {
+  return useQuery({
+    queryKey: companyShortName ? queryKeys.paymentMethods.list(companyShortName) : queryKeys.paymentMethods.all(),
+    queryFn: /* @__PURE__ */ __name(async () => {
+      if (!companyShortName) {
+        throw new Error("Company short name is required");
+      }
+      const response = await apiClient.get(
+        EXPENSE_ENDPOINTS.GET_PAYMENT_METHODS.build({ tenant: companyShortName })
+      );
+      return response.data.map(mapToPaymentMethod);
+    }, "queryFn"),
+    enabled: enabled && !!companyShortName,
+    staleTime: 10 * 60 * 1e3,
+    gcTime: 30 * 60 * 1e3
+  });
+}, "usePaymentMethods");
+function resolveMileageTypeFields(mileageType, expenseTypes) {
+  const typeId = parseOptionalInt(mileageType);
+  const selectedExpenseType = typeId !== null ? expenseTypes == null ? void 0 : expenseTypes.find((et) => parseInt(et.id, 10) === typeId) : void 0;
+  return {
+    typeId,
+    formTypeId: (selectedExpenseType == null ? void 0 : selectedExpenseType.formTypeId) ?? FormTypeId.MILEAGE
+  };
+}
+__name(resolveMileageTypeFields, "resolveMileageTypeFields");
+function mapCommonMileageFields(data, expenseTypes, effectiveMileageRateId) {
+  const { typeId, formTypeId } = resolveMileageTypeFields(data.mileageType, expenseTypes);
+  return {
+    typeId,
+    formTypeId,
+    effectiveMileageRateId,
+    vendor: DEFAULT_MILEAGE_VENDOR,
+    paymentMethodId: parseInt(DEFAULT_PAYMENT_METHOD.id, 10),
+    totalDistance: parseOptionalDecimal(data.totalDistance),
+    totalAmount: parseOptionalDecimal(data.reimbursableAmount),
+    totalCurrencyCode: DEFAULT_CURRENCY_CODE,
+    businessPurposeId: parseOptionalInt(data.businessPurpose),
+    description: data.expenseDescription || null,
+    additionalComments: data.additionalComments || null,
+    costAllocationDeferred: data.deferToApprover ?? null,
+    costAllocations: mapCostAllocations(data.costAllocations)
+  };
+}
+__name(mapCommonMileageFields, "mapCommonMileageFields");
+function mapMileageTripToCreateRequest(data, expenseTypes, effectiveMileageRateId) {
+  return {
+    ...mapCommonMileageFields(data, expenseTypes, effectiveMileageRateId),
+    date: formatToISODate(data.expenseDate),
+    fromLocation: data.fromLocation || null,
+    toLocation: data.toLocation || null,
+    roundTrip: data.isRoundTrip ?? null
+  };
+}
+__name(mapMileageTripToCreateRequest, "mapMileageTripToCreateRequest");
+function mapMileagePeriodToCreateRequest(data, expenseTypes, effectiveMileageRateId) {
+  var _a2, _b2;
+  return {
+    ...mapCommonMileageFields(data, expenseTypes, effectiveMileageRateId),
+    periodStart: formatToISODate((_a2 = data.expensePeriod) == null ? void 0 : _a2.from),
+    periodEnd: formatToISODate((_b2 = data.expensePeriod) == null ? void 0 : _b2.to)
+  };
+}
+__name(mapMileagePeriodToCreateRequest, "mapMileagePeriodToCreateRequest");
+const mapMileageTripToUpdateRequest = mapMileageTripToCreateRequest;
+const mapMileagePeriodToUpdateRequest = mapMileagePeriodToCreateRequest;
+async function resolveEffectiveMileageRateId(queryClient2, companyShortName, expenseTypes, mileageTypeId, effectiveOn) {
+  const selectedType = findActiveSelectedMileageType(expenseTypes, mileageTypeId);
+  if (!(selectedType == null ? void 0 : selectedType.mileageRateId)) return null;
+  if (!effectiveOn) return null;
+  const rate = await queryClient2.fetchQuery({
+    queryKey: queryKeys.mileageRates.effectiveByIdOnDate(
+      companyShortName,
+      selectedType.mileageRateId,
+      effectiveOn
+    ),
+    queryFn: /* @__PURE__ */ __name(() => fetchEffectiveMileageRate(companyShortName, selectedType.mileageRateId, effectiveOn), "queryFn"),
+    staleTime: MILEAGE_RATES_STALE_TIME
+  });
+  return (rate == null ? void 0 : rate.id) ?? null;
+}
+__name(resolveEffectiveMileageRateId, "resolveEffectiveMileageRateId");
+function resolveFormEffectiveDate(data) {
+  var _a2;
+  const expenseDate = isMileageTripData(data) ? data.expenseDate : void 0;
+  const periodFrom = isMileageTripData(data) ? void 0 : (_a2 = data.expensePeriod) == null ? void 0 : _a2.from;
+  return computeMileageEffectiveOn(expenseDate, periodFrom);
+}
+__name(resolveFormEffectiveDate, "resolveFormEffectiveDate");
+function normalizeMileageDraftResponse(response) {
+  return {
+    id: String(response.id),
+    businessId: response.businessId,
+    status: response.status,
+    createdAt: response.createdDate,
+    updatedAt: response.updatedDate
+  };
+}
+__name(normalizeMileageDraftResponse, "normalizeMileageDraftResponse");
+function buildMileageItemForCache(response, formData) {
+  return {
+    id: String(response.id),
+    businessId: response.businessId,
+    itemType: ItemCategory.Mileage,
+    status: "draft",
+    createdAt: response.createdDate,
+    updatedAt: response.updatedDate ?? response.createdDate,
+    userId: response.formOwner,
+    data: formData
+  };
+}
+__name(buildMileageItemForCache, "buildMileageItemForCache");
+const useSaveMileageDraft = /* @__PURE__ */ __name(() => {
+  const queryClient2 = useQueryClient();
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ data, draftId, signal }) => {
+      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const company = userDefaultCompany.shortName;
+      const expenseTypes = getMileageTypesFromCache(queryClient2, company);
+      const effectiveOn = resolveFormEffectiveDate(data);
+      const effectiveMileageRateId = await resolveEffectiveMileageRateId(
+        queryClient2,
+        company,
+        expenseTypes,
+        data.mileageType,
+        effectiveOn
+      );
+      if (draftId) {
+        const payload = isMileageTripData(data) ? mapMileageTripToUpdateRequest(data, expenseTypes, effectiveMileageRateId) : mapMileagePeriodToUpdateRequest(data, expenseTypes, effectiveMileageRateId);
+        devLog("📤 Update mileage draft payload:", payload);
+        const response = await apiClient.put(
+          EXPENSE_ENDPOINTS.UPDATE_DRAFT.build({ tenant: company, id: draftId }),
+          payload,
+          { signal }
+        );
+        devLog("📥 Update mileage draft response:", response.data);
+        return {
+          draft: normalizeMileageDraftResponse(response.data),
+          response: response.data,
+          formData: data
+        };
+      } else {
+        const payload = isMileageTripData(data) ? mapMileageTripToCreateRequest(data, expenseTypes, effectiveMileageRateId) : mapMileagePeriodToCreateRequest(data, expenseTypes, effectiveMileageRateId);
+        devLog("📤 Create mileage draft payload:", payload);
+        const response = await apiClient.post(
+          EXPENSE_ENDPOINTS.SAVE_DRAFT.build({ tenant: company }),
+          payload,
+          { signal }
+        );
+        devLog("📥 Create mileage draft response:", response.data);
+        return {
+          draft: normalizeMileageDraftResponse(response.data),
+          response: response.data,
+          formData: data
+        };
+      }
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name(({ draft, response, formData }, variables) => {
+      var _a2;
+      if ((_a2 = variables.signal) == null ? void 0 : _a2.aborted) return;
+      queryClient2.invalidateQueries({ queryKey: queryKeys.mileageDrafts.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
+      const mileageItem = buildMileageItemForCache(response, formData);
+      if (variables.draftId) {
+        queryClient2.setQueryData(
+          queryKeys.expenseItem.detail(variables.draftId),
+          mileageItem
+        );
+      } else {
+        queryClient2.setQueryData(queryKeys.expenseItem.detail(draft.id), mileageItem);
+      }
+      Zs.success("All changes are saved", {
+        duration: 3e3
+      });
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error, variables) => {
+      var _a2;
+      if ((_a2 = variables.signal) == null ? void 0 : _a2.aborted) return;
+      devError("Failed to save mileage draft:", error);
+      Zs.error("Failed to save. Please try again", {
+        duration: 3e3
+      });
+    }, "onError")
+  });
+}, "useSaveMileageDraft");
+const useSubmitMileage = /* @__PURE__ */ __name(() => {
+  const queryClient2 = useQueryClient();
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ draftId }) => {
+      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const company = userDefaultCompany.shortName;
+      await apiClient.post(EXPENSE_ENDPOINTS.SUBMIT_DRAFT.build({ tenant: company, id: draftId }));
+      return { draftId };
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name((_data, { draftId }) => {
+      queryClient2.invalidateQueries({ queryKey: queryKeys.mileageTrips.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.mileagePeriods.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.mileageDrafts.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
+      queryClient2.removeQueries({
+        queryKey: queryKeys.expenseItem.detail(draftId)
+      });
+      Zs.success("Mileage claim submitted", {
+        duration: 3e3
+      });
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error) => {
+      devError("Failed to submit mileage:", error);
+      Zs.error("Fail to submit", {
+        duration: 3e3
+      });
+    }, "onError")
+  });
+}, "useSubmitMileage");
+const useDeleteMileageDraft = /* @__PURE__ */ __name((options) => {
+  const queryClient2 = useQueryClient();
+  const userDefaultCompany = useCompanyStore((state) => state.userDefaultCompany);
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ draftId }) => {
+      if (!(userDefaultCompany == null ? void 0 : userDefaultCompany.shortName)) {
+        throw new Error("No company selected");
+      }
+      const company = userDefaultCompany.shortName;
+      await apiClient.delete(EXPENSE_ENDPOINTS.DELETE_DRAFT.build({ tenant: company, id: draftId }));
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name(async (_data, variables) => {
+      var _a2;
+      queryClient2.invalidateQueries({ queryKey: queryKeys.mileageDrafts.all() });
+      queryClient2.invalidateQueries({ queryKey: queryKeys.expensesList.all() });
+      await queryClient2.cancelQueries({
+        queryKey: queryKeys.expenseItem.detail(variables.draftId)
+      });
+      queryClient2.removeQueries({
+        queryKey: queryKeys.expenseItem.detail(variables.draftId)
+      });
+      Zs.success("Draft deleted", {
+        duration: 3e3
+      });
+      (_a2 = options == null ? void 0 : options.onSuccess) == null ? void 0 : _a2.call(options);
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error) => {
+      devError("Failed to delete draft:", error);
+      Zs.error("Fail to delete. Please try again.", {
+        duration: 3e3
+      });
+    }, "onError")
+  });
+}, "useDeleteMileageDraft");
+const { useCallback: useCallback$4 } = await importShared("react");
+function useExpenseItemMutations(options) {
+  const { currentDraftId, itemType, onDeleteSuccess, onExit, onDraftCreated } = options;
+  const saveExpenseDraftMutation = useSaveExpenseDraft();
+  const submitExpenseMutation = useSubmitExpense();
+  const deleteExpenseDraftMutation = useDeleteExpenseDraft({
+    onSuccess: onDeleteSuccess
+  });
+  const saveMileageDraftMutation = useSaveMileageDraft();
+  const submitMileageMutation = useSubmitMileage();
+  const deleteMileageDraftMutation = useDeleteMileageDraft({
+    onSuccess: onDeleteSuccess
+  });
+  const isSavingDraft = saveExpenseDraftMutation.isPending || saveMileageDraftMutation.isPending;
+  const isSubmitting = submitExpenseMutation.isPending || submitMileageMutation.isPending;
+  const isDeleting = deleteExpenseDraftMutation.isPending || deleteMileageDraftMutation.isPending;
+  const draftSaveError = saveExpenseDraftMutation.isError || saveMileageDraftMutation.isError;
+  const handleExpenseSubmit = useCallback$4(async (data, options2) => {
+    var _a2;
+    try {
+      let draftId = currentDraftId;
+      if (!draftId) {
+        const { draft } = await saveExpenseDraftMutation.mutateAsync({
+          data,
+          signal: options2 == null ? void 0 : options2.signal
+        });
+        draftId = draft.id;
+      } else {
+        await saveExpenseDraftMutation.mutateAsync({
+          data,
+          draftId,
+          signal: options2 == null ? void 0 : options2.signal
+        });
+      }
+      await submitExpenseMutation.mutateAsync({ draftId });
+      if ((_a2 = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a2.aborted) return;
+      onExit();
+    } catch {
+    }
+  }, [submitExpenseMutation, saveExpenseDraftMutation, currentDraftId, onExit]);
+  const handleExpenseSaveDraft = useCallback$4(async (data, options2) => {
+    var _a2;
+    try {
+      const { draft } = await saveExpenseDraftMutation.mutateAsync({
+        data,
+        draftId: currentDraftId,
+        signal: options2 == null ? void 0 : options2.signal
+      });
+      if ((_a2 = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a2.aborted) return;
+      if (draft.id && !currentDraftId) {
+        onDraftCreated == null ? void 0 : onDraftCreated(draft.id, ExpenseItemType.Expense);
+      }
+    } catch {
+    }
+  }, [saveExpenseDraftMutation, currentDraftId, onDraftCreated]);
+  const handleExpenseSaveDraftForUpload = useCallback$4(async (data) => {
+    const { draft } = await saveExpenseDraftMutation.mutateAsync({
+      data,
+      draftId: currentDraftId
+    });
+    if (draft.id && !currentDraftId) {
+      onDraftCreated == null ? void 0 : onDraftCreated(draft.id, ExpenseItemType.Expense);
+    }
+    return { draftId: draft.id };
+  }, [saveExpenseDraftMutation, currentDraftId, onDraftCreated]);
+  const handleMileageSubmit = useCallback$4(async (data, options2) => {
+    var _a2;
+    try {
+      let draftId = currentDraftId;
+      if (!draftId) {
+        const { draft } = await saveMileageDraftMutation.mutateAsync({
+          data,
+          signal: options2 == null ? void 0 : options2.signal
+        });
+        draftId = draft.id;
+      } else {
+        await saveMileageDraftMutation.mutateAsync({
+          data,
+          draftId,
+          signal: options2 == null ? void 0 : options2.signal
+        });
+      }
+      await submitMileageMutation.mutateAsync({ draftId });
+      if ((_a2 = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a2.aborted) return;
+      onExit();
+    } catch {
+    }
+  }, [submitMileageMutation, saveMileageDraftMutation, currentDraftId, onExit]);
+  const handleMileageSaveDraft = useCallback$4(async (data, options2) => {
+    var _a2;
+    try {
+      const { draft } = await saveMileageDraftMutation.mutateAsync({
+        data,
+        draftId: currentDraftId,
+        signal: options2 == null ? void 0 : options2.signal
+      });
+      if ((_a2 = options2 == null ? void 0 : options2.signal) == null ? void 0 : _a2.aborted) return;
+      if (draft.id && !currentDraftId) {
+        onDraftCreated == null ? void 0 : onDraftCreated(draft.id, mileageItemType(data));
+      }
+    } catch {
+    }
+  }, [saveMileageDraftMutation, currentDraftId, onDraftCreated]);
+  const handleMileageSaveDraftForUpload = useCallback$4(async (data) => {
+    const { draft } = await saveMileageDraftMutation.mutateAsync({
+      data,
+      draftId: currentDraftId
+    });
+    if (draft.id && !currentDraftId) {
+      onDraftCreated == null ? void 0 : onDraftCreated(draft.id, mileageItemType(data));
+    }
+    return { draftId: draft.id };
+  }, [saveMileageDraftMutation, currentDraftId, onDraftCreated]);
+  const handleDeleteConfirm = useCallback$4(() => {
+    if (!currentDraftId || !itemType) return;
+    if (itemType === ExpenseItemType.Expense) {
+      deleteExpenseDraftMutation.mutate({ draftId: currentDraftId });
+    } else if (itemType === ExpenseItemType.MileageTrip || itemType === ExpenseItemType.MileagePeriod) {
+      deleteMileageDraftMutation.mutate({ draftId: currentDraftId });
+    }
+  }, [currentDraftId, itemType, deleteExpenseDraftMutation, deleteMileageDraftMutation]);
+  return {
+    isSavingDraft,
+    isSubmitting,
+    isDeleting,
+    draftSaveError,
+    handleExpenseSubmit,
+    handleExpenseSaveDraft,
+    handleExpenseSaveDraftForUpload,
+    handleMileageSubmit,
+    handleMileageSaveDraft,
+    handleMileageSaveDraftForUpload,
+    handleDeleteConfirm
+  };
+}
+__name(useExpenseItemMutations, "useExpenseItemMutations");
+function mileageItemType(data) {
+  return data.formType === MileageFormType.Trip ? ExpenseItemType.MileageTrip : ExpenseItemType.MileagePeriod;
+}
+__name(mileageItemType, "mileageItemType");
+const { useCallback: useCallback$3, useEffect: useEffect$3, useMemo, useRef: useRef$3, useState: useState$3 } = await importShared("react");
+function determineItemType(item) {
+  if (!item) return null;
+  if (isRegularExpense(item)) return ExpenseItemType.Expense;
+  if (isMileageExpense(item)) {
+    if (isMileageTripData(item.data)) return ExpenseItemType.MileageTrip;
+    if (isMileagePeriodData(item.data)) return ExpenseItemType.MileagePeriod;
+  }
+  return null;
+}
+__name(determineItemType, "determineItemType");
+function useExpenseItemForm(options) {
+  const {
+    itemId,
+    defaultItemType = ExpenseItemType.Expense,
+    onExit,
+    onDraftCreated,
+    onLoadError
+  } = options;
+  const isNewItem = itemId === null;
+  const formRef = useRef$3(null);
+  const abortControllerRef = useRef$3(new AbortController());
+  const [submitButtonState, setSubmitButtonState] = useState$3({ disabled: true });
+  const [saveDraftButtonState, setSaveDraftButtonState] = useState$3({ disabled: true });
+  const [formKey, setFormKey] = useState$3(() => isNewItem ? "new" : `loading-${itemId}`);
+  const {
+    isOpen: isDeleteDialogOpen,
+    isDeleteFlowActive,
+    open: openDeleteDialog,
+    close: closeDeleteDialog,
+    handleOpenChange: handleDeleteDialogOpenChangeBase,
+    handleCloseComplete: handleDeleteDialogCloseComplete,
+    markForNavigation
+  } = useDeleteDialog({
+    onDeleteSuccess: onExit
+  });
+  const {
+    data: expenseItem,
+    error: itemError,
+    isLoading: isQueryLoading
+  } = useExpenseItem(itemId, { enabled: !isDeleteFlowActive });
+  const isLoading = !isNewItem && (isQueryLoading || !expenseItem && !itemError);
+  const dataItemType = useMemo(() => determineItemType(expenseItem), [expenseItem]);
+  const itemType = isNewItem ? defaultItemType : dataItemType ?? defaultItemType;
+  const mode = useMemo(() => {
+    if (isNewItem) return "new";
+    if (expenseItem && isExpenseItemDraft(expenseItem)) return "draft";
+    if (expenseItem && isExpenseItemSubmitted(expenseItem)) return "preview";
+    return "new";
+  }, [isNewItem, expenseItem]);
+  const currentDraftId = itemId ?? void 0;
+  const header = useExpenseItemHeader({
+    expenseItem,
+    mode,
+    isNewItem,
+    itemType
+  });
+  const mutations = useExpenseItemMutations({
+    currentDraftId,
+    itemType,
+    onDeleteSuccess: markForNavigation,
+    onExit,
+    onDraftCreated
+  });
+  const hasError = !isNewItem && !!itemError;
+  const { reset: resetUploadStore, updateDraftId } = usePendingUploadStore();
+  useEffect$3(() => {
+    if (hasError && !isDeleteFlowActive) {
+      onLoadError == null ? void 0 : onLoadError(itemError);
+    }
+  }, [hasError, isDeleteFlowActive, itemError, onLoadError]);
+  useEffect$3(() => {
+    return () => {
+      const { receipt, supportingFiles } = usePendingUploadStore.getState();
+      const receiptBusy = receipt.status === "saving-draft" || receipt.status === "uploading";
+      const supportingFilesBusy = supportingFiles.status === "saving-draft" || supportingFiles.status === "uploading";
+      if (receiptBusy || supportingFilesBusy) {
+        return;
+      }
+      resetUploadStore();
+    };
+  }, []);
+  useEffect$3(() => {
+    if (currentDraftId) {
+      updateDraftId(currentDraftId);
+    }
+  }, [currentDraftId, updateDraftId]);
+  useEffect$3(() => {
+    const { receipt, supportingFiles } = usePendingUploadStore.getState();
+    const isUploadBusy = receipt.status === "uploading" || receipt.status === "saving-draft" || supportingFiles.status === "uploading" || supportingFiles.status === "saving-draft";
+    if (isUploadBusy) return;
+    if (isNewItem) {
+      setFormKey("new");
+    } else if (expenseItem && isExpenseItemDraft(expenseItem)) {
+      setFormKey(`loaded-${itemId}`);
+    }
+  }, [isNewItem, expenseItem, itemId]);
+  const handleDeleteDraft = useCallback$3(() => {
+    if (!currentDraftId) return;
+    openDeleteDialog();
+  }, [currentDraftId, openDeleteDialog]);
+  const handleDeleteCancel = useCallback$3(() => {
+    closeDeleteDialog();
+  }, [closeDeleteDialog]);
+  const handleDeleteDialogOpenChange = useCallback$3((open) => {
+    if (!open && mutations.isDeleting) return;
+    handleDeleteDialogOpenChangeBase(open);
+  }, [mutations.isDeleting, handleDeleteDialogOpenChangeBase]);
+  const queryClient2 = useQueryClient();
+  const handleOpenChange = useCallback$3((open) => {
+    if (!open) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = new AbortController();
+      resetUploadStore();
+      if (currentDraftId) {
+        const detailKey = queryKeys.expenseItem.detail(currentDraftId);
+        setTimeout(() => queryClient2.removeQueries({ queryKey: detailKey }), 0);
+      }
+      onExit();
+    }
+  }, [onExit, resetUploadStore, currentDraftId, queryClient2]);
+  const handleSaveDraftClick = useCallback$3((e) => {
+    var _a2;
+    e.preventDefault();
+    e.stopPropagation();
+    (_a2 = formRef.current) == null ? void 0 : _a2.saveDraft();
+  }, []);
+  const handleSubmitClick = useCallback$3((e) => {
+    var _a2;
+    e.preventDefault();
+    e.stopPropagation();
+    (_a2 = formRef.current) == null ? void 0 : _a2.submitForm();
+  }, []);
+  const handleButtonStateChange = useCallback$3((submitState, draftState) => {
+    setSubmitButtonState(submitState);
+    setSaveDraftButtonState(draftState);
+  }, []);
+  const handleExpenseSubmit = useCallback$3(
+    (data) => mutations.handleExpenseSubmit(data, { signal: abortControllerRef.current.signal }),
+    [mutations]
+  );
+  const handleExpenseSaveDraft = useCallback$3(
+    (data) => mutations.handleExpenseSaveDraft(data, { signal: abortControllerRef.current.signal }),
+    [mutations]
+  );
+  const handleMileageSubmit = useCallback$3(
+    (data) => mutations.handleMileageSubmit(data, { signal: abortControllerRef.current.signal }),
+    [mutations]
+  );
+  const handleMileageSaveDraft = useCallback$3(
+    (data) => mutations.handleMileageSaveDraft(data, { signal: abortControllerRef.current.signal }),
+    [mutations]
+  );
+  return {
+    formRef,
+    formKey,
+    isDeleteDialogOpen,
+    submitButtonState,
+    saveDraftButtonState,
+    mode,
+    itemType,
+    isLoading,
+    isNewItem,
+    currentDraftId,
+    expenseItem,
+    title: header.title,
+    titleSuffix: header.titleSuffix,
+    amount: header.amount,
+    status: header.status,
+    headerSubtitle: header.subtitle,
+    isSavingDraft: mutations.isSavingDraft,
+    isSubmitting: mutations.isSubmitting,
+    isDeleting: mutations.isDeleting,
+    draftSaveError: mutations.draftSaveError,
+    handleExpenseSubmit,
+    handleExpenseSaveDraft,
+    handleExpenseSaveDraftForUpload: mutations.handleExpenseSaveDraftForUpload,
+    handleMileageSubmit,
+    handleMileageSaveDraft,
+    handleMileageSaveDraftForUpload: mutations.handleMileageSaveDraftForUpload,
+    handleDeleteDraft,
+    handleDeleteConfirm: mutations.handleDeleteConfirm,
+    handleDeleteCancel,
+    handleDeleteDialogOpenChange,
+    handleDeleteDialogCloseComplete,
+    handleOpenChange,
+    handleSaveDraftClick,
+    handleSubmitClick,
+    handleButtonStateChange
+  };
+}
+__name(useExpenseItemForm, "useExpenseItemForm");
 function CostAllocationField({
   control,
   setValue,
@@ -9458,57 +10346,51 @@ const MemoizedCostAllocationSection = memo(CostAllocationSectionComponent);
 const CostAllocationSection = MemoizedCostAllocationSection;
 MemoizedCostAllocationSection.displayName = "CostAllocationSection";
 export {
-  expenseJustificationSchema as $,
-  ExpenseFormField as A,
-  useFormFieldValues as B,
+  useBaseExpenseForm as $,
+  affidavitSchema as A,
+  basicDetailsSchema as B,
   CostAllocationHeaderActions as C,
-  DEFAULT_MILEAGE_VENDOR as D,
+  DEFAULT_PAYMENT_METHOD as D,
   ExpensePreview as E,
-  useMileageRateSync as F,
-  useReimbursableAmountSync as G,
-  useAmountAllocationSync as H,
-  mapFormDataToUpdateRequest as I,
-  mapFormDataToCreateRequest as J,
-  affidavitSchema as K,
-  basicDetailsSchema as L,
+  createValidationStrategy as F,
+  createDraftSaveChecker as G,
+  useTaxFieldVisibility as H,
+  isConvertedExpense as I,
+  usePaymentMethods as J,
+  useSetDefaultCurrency as K,
+  ExpenseTypeSelect as L,
   MileageTripPreview as M,
-  createValidationStrategy as N,
-  createDraftSaveChecker as O,
-  useTaxFieldVisibility as P,
-  isConvertedExpense as Q,
-  useSetDefaultCurrency as R,
-  ExpenseTypeSelect as S,
-  allowsNegativeAmounts as T,
-  MileagePeriodFormField as U,
-  SupportingFiles as V,
-  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as W,
-  isSameCalendarMonth as X,
-  NO_MILEAGE_RATE_FOR_DATE_MESSAGE as Y,
-  FormSectionType as Z,
-  expenseDetailsSchema as _,
+  allowsNegativeAmounts as N,
+  MileagePeriodFormField as O,
+  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as P,
+  isSameCalendarMonth as Q,
+  NO_MILEAGE_RATE_FOR_DATE_MESSAGE as R,
+  SupportingFiles as S,
+  FormSectionType as T,
+  expenseDetailsSchema as U,
+  expenseJustificationSchema as V,
+  costAllocationSchema as W,
+  additionalCommentsSchema as X,
+  MileageTripFormField as Y,
+  mileageDetailsSchema as Z,
+  mileageJustificationSchema as _,
   useCostAllocationHandlers as a,
-  costAllocationSchema as a0,
-  additionalCommentsSchema as a1,
-  MileageTripFormField as a2,
-  mileageDetailsSchema as a3,
-  mileageJustificationSchema as a4,
-  useBaseExpenseForm as a5,
-  useValidatePrefilledFields as a6,
-  useAutoSave as a7,
-  useFormButtonStateSync as a8,
-  useFormImperativeHandle as a9,
-  BaseExpenseFormRenderer as aa,
-  useExpenseFormHandlers as ab,
-  useExpenseFormSync as ac,
-  fullExpenseValidationStrategy as ad,
-  ExpenseFormLeftColumn as ae,
-  useMileageTripFormHandlers as af,
-  mapMileageTripToDefaultValues as ag,
-  mileageTripValidationStrategy as ah,
-  supportingFilesSchema as ai,
-  useMileagePeriodFormHandlers as aj,
-  mapMileagePeriodToDefaultValues as ak,
-  mileagePeriodValidationStrategy as al,
+  useValidatePrefilledFields as a0,
+  useAutoSave as a1,
+  useFormButtonStateSync as a2,
+  useFormImperativeHandle as a3,
+  BaseExpenseFormRenderer as a4,
+  useExpenseFormHandlers as a5,
+  useExpenseFormSync as a6,
+  fullExpenseValidationStrategy as a7,
+  ExpenseFormLeftColumn as a8,
+  useMileageTripFormHandlers as a9,
+  mapMileageTripToDefaultValues as aa,
+  mileageTripValidationStrategy as ab,
+  supportingFilesSchema as ac,
+  useMileagePeriodFormHandlers as ad,
+  mapMileagePeriodToDefaultValues as ae,
+  mileagePeriodValidationStrategy as af,
   CostAllocationSection as b,
   costAllocationItemSchema as c,
   getExpenseErrorMessage as d,
@@ -9518,20 +10400,20 @@ export {
   ExpenseFormHistoryLog as h,
   isMileageTripData as i,
   EtlErrorBanner as j,
-  mapCostAllocations as k,
-  parseOptionalDecimal as l,
+  ExpenseItemType as k,
+  useExpenseItemForm as l,
   mapCostAllocation as m,
-  DEFAULT_PAYMENT_METHOD as n,
-  getMileageTypesFromCache as o,
-  parseOptionalInt as p,
+  isHttpApiError as n,
+  getExpenseActionSubtitle as o,
+  useDefaultCompany as p,
   queryClient as q,
-  findActiveSelectedMileageType as r,
-  getExpenseActionSubtitle as s,
-  MileageFormType as t,
+  isValidFileAttachment as r,
+  ExpenseFormField as s,
+  useFormFieldValues as t,
   useCompanies as u,
   validateCostAllocation as v,
-  usePendingUploadStore as w,
-  isHttpApiError as x,
-  useDefaultCompany as y,
-  isValidFileAttachment as z
+  computeMileageEffectiveOn as w,
+  useMileageRateSync as x,
+  useReimbursableAmountSync as y,
+  useAmountAllocationSync as z
 };

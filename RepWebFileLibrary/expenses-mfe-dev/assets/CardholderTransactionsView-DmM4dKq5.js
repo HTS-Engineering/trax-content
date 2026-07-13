@@ -4,17 +4,17 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { c as createLucideIcon, b as apiClient, d as devError, Z as Zs, U as Ue, Y as Yn, B as Br, R as Rn, Q as Vo, _ as Ht, a0 as To, a1 as $o, a2 as Nn, o as oi, r as rs, G as si, l as os, m as ss, e as ei, $ as $a, n as ni, w as h, j as Mt, E as Et, P as Pt, a3 as wt, a4 as zt, a5 as yt, V as Vr, x as $r, y as Tr, A as zr, p as ls, T as Ta, z as za, F as Kr } from "./configuration-CXYlvGz8.js";
-import { e as useCompanyStore, n as useQuery, o as keepPreviousData, a3 as RECONCILIATION_ENDPOINTS, q as queryKeys, m as formatExpenseDate, H as formatExpensePeriod, Z as parseDateOnlyAsLocal, v as useMutation, t as useQueryClient, a5 as getCurrencySymbol, a6 as formatCurrency, j as formatAmountWithCurrency, p as useSearchParams, u as useLocation, a as RoutePaths, L as useNavigateWithReturn, B as useErrorToast, r as generatePath, a4 as EMPTY_CURRENCY_SYMBOL, z as useExpenseItem, s as isExpenseItemSubmitted, w as isRegularExpense, x as isMileageExpense, d as useNavigate } from "./use-scroll-into-view-ref-DRd2DuRO.js";
+import { e as useCompanyStore, n as useQuery, o as keepPreviousData, a0 as RECONCILIATION_ENDPOINTS, q as queryKeys, m as formatExpenseDate, a2 as formatExpensePeriod, W as parseDateOnlyAsLocal, v as useMutation, t as useQueryClient, a3 as getCurrencySymbol, a4 as formatCurrency, j as formatAmountWithCurrency, p as useSearchParams, u as useLocation, a as RoutePaths, H as useNavigateWithReturn, B as useErrorToast, r as generatePath, a1 as EMPTY_CURRENCY_SYMBOL, z as useExpenseItem, s as isExpenseItemSubmitted, w as isRegularExpense, x as isMileageExpense, d as useNavigate } from "./use-scroll-into-view-ref-ByGpyaZV.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
-import { x as isHttpApiError, d as getExpenseErrorMessage, h as ExpenseFormHistoryLog, j as EtlErrorBanner, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, e as isMileagePeriodData, f as MileagePeriodPreview } from "./CostAllocationSection-CC7EWCqn.js";
+import { n as isHttpApiError, d as getExpenseErrorMessage, h as ExpenseFormHistoryLog, j as EtlErrorBanner, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, e as isMileagePeriodData, f as MileagePeriodPreview } from "./CostAllocationSection-Dp8_xlpf.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { E as EmptyState } from "./EmptyState-BqWSrXZq.js";
-import { T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./useMileageRates-CjKYx2Sx.js";
-import { b as buildHeaderFromExpenseItem, E as ExpenseDialogHeader } from "./ExpenseDialogHeader-BAsGnMDd.js";
-import { u as useInfiniteQuery } from "./useInfiniteQuery-BBojbNkW.js";
-import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-DKcCF02m.js";
+import { T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./useMileageRates-Hq_87mv7.js";
+import { b as buildHeaderFromExpenseItem, E as ExpenseDialogHeader } from "./ExpenseDialogHeader-CxOnBJHQ.js";
+import { u as useInfiniteQuery } from "./useInfiniteQuery-B3IDNl7J.js";
+import { E as ExpenseStatusBadge } from "./ExpenseStatusBadge-CGAdDj0Y.js";
 import { C as CircleAlert } from "./circle-alert-B6Pzc9q4.js";
-import { E as ExpenseForm, M as MileageTripForm, d as MileagePeriodForm } from "./ExpenseFormDialog-BhjcdZ3L.js";
+import { E as ExpenseForm, M as MileageTripForm, a as MileagePeriodForm } from "./ExpenseFormDialog-aHVrBXa7.js";
 const __iconNode$3 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
 const ChevronRight = createLucideIcon("chevron-right", __iconNode$3);
 const __iconNode$2 = [
