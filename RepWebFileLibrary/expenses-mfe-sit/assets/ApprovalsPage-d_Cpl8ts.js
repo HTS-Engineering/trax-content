@@ -1,0 +1,1 @@
+var p=Object.defineProperty;var r=(o,t)=>p(o,"name",{value:t,configurable:!0});import{j as s}from"./jsx-runtime-BHIWlbBZ.js";import{c as a}from"./ApprovalsList-CvQ9epEr.js";import"./configuration-B1tuve4b.js";import"./use-scroll-into-view-ref-BsVFP7o5.js";const j=r(()=>s.jsx(a,{}),"ApprovalsPage");export{j as default};
