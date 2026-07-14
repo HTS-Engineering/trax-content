@@ -3,13 +3,13 @@ var __name = (target, value) => __defProp(target, "name", { value, configurable:
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { u as useJWTStore, b as apiClient, e as ei, $ as $a, B as Br, f as create, g as devtools, s as subscribeWithSelector, i as immer, S as SessionStorageKeys, d as devError, Z as Zs, h as as, H as Ha, U as Ue, Y as Yn, j as Mt, E as Et, P as Pt, k as gr, o as oi, r as rs, T as Ta, z as za, n as ni } from "./configuration-CXYlvGz8.js";
-import { j as formatAmountWithCurrency, k as formatDate, l as formatDateRange, m as formatExpenseDate, e as useCompanyStore, n as useQuery, q as queryKeys, o as keepPreviousData, E as EXPENSE_ENDPOINTS, p as useSearchParams, u as useLocation, a as RoutePaths, d as useNavigate, r as generatePath, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, C as useParams } from "./use-scroll-into-view-ref-ByGpyaZV.js";
-import { g as getExpenseTypeBadgeConfig, E as EtlErrorIndicator } from "./EtlErrorIndicator-Cfx1imgf.js";
+import { j as formatAmountWithCurrency, k as formatDate, l as formatDateRange, m as formatExpenseDate, e as useCompanyStore, n as useQuery, q as queryKeys, o as keepPreviousData, E as EXPENSE_ENDPOINTS, p as useSearchParams, u as useLocation, a as RoutePaths, d as useNavigate, r as generatePath, F as FormTypeId, s as isExpenseItemSubmitted, t as useQueryClient, v as useMutation, w as isRegularExpense, x as isMileageExpense, y as useScrollIntoViewRef, z as useExpenseItem, B as useErrorToast, C as useParams } from "./use-scroll-into-view-ref-Cu52scn4.js";
+import { g as getExpenseTypeBadgeConfig, E as EtlErrorIndicator } from "./EtlErrorIndicator-53xo80EH.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
 import "./hooks-BtYwdTmy.js";
-import { m as mapCostAllocation, v as validateCostAllocation, g as getExpenseBaseAmount, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema, d as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, e as isMileagePeriodData, f as MileagePeriodPreview, h as ExpenseFormHistoryLog, j as EtlErrorBanner } from "./CostAllocationSection-Dp8_xlpf.js";
-import { b as buildHeaderFromExpenseItem, E as ExpenseDialogHeader } from "./ExpenseDialogHeader-CxOnBJHQ.js";
-import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./useMileageRates-Hq_87mv7.js";
+import { m as mapCostAllocation, v as validateCostAllocation, g as getExpenseBaseAmount, a as useCostAllocationHandlers, C as CostAllocationHeaderActions, b as CostAllocationSection, c as costAllocationItemSchema, d as getExpenseErrorMessage, E as ExpensePreview, i as isMileageTripData, M as MileageTripPreview, e as isMileagePeriodData, f as MileagePeriodPreview, h as ExpenseFormHistoryLog, j as EtlErrorBanner } from "./CostAllocationSection-IiHB05YU.js";
+import { b as buildHeaderFromExpenseItem, E as ExpenseDialogHeader } from "./ExpenseDialogHeader-_XV8Joex.js";
+import { o as object, s as string, b as boolean, a as array, c as custom, u as useForm, d as u, C as ConfirmDialog } from "./schemas-D-iXGYUW.js";
 var Role = /* @__PURE__ */ ((Role2) => {
   Role2["Employee"] = "Expense.Employee";
   Role2["Manager"] = "Expense.Manager";
@@ -1123,7 +1123,7 @@ const ApproverExpenseDetail = /* @__PURE__ */ __name(({ expenseId, item, onClose
       onClose();
     }
   }, [isEmployee, onClose]);
-  const { data: expenseItem, isPending, isError, error: fetchError } = useExpenseItem(expenseId, { enabled: isEmployee });
+  const { data: expenseItem, isPending, isError, error: fetchError } = useExpenseItem(expenseId, { companyShortName: logicalCompanyShortName, enabled: isEmployee });
   const errorMessage = useMemo$1(
     () => isError ? getExpenseErrorMessage(fetchError) : "",
     [isError, fetchError]

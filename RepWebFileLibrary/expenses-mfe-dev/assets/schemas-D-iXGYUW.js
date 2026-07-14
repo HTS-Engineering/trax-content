@@ -1,306 +1,14 @@
 var __defProp = Object.defineProperty;
-var __typeError = (msg) => {
-  throw TypeError(msg);
-};
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
-var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
-var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _client, _result, _queries, _options, _observers, _combinedResult, _lastCombine, _lastResult, _lastQueryHashes, _observerMatches, __this_instances, trackResult_fn, combineResult_fn, shouldSkipCombine_fn, findMatchingObservers_fn, onUpdate_fn, notify_fn, _a2;
-import { c as createLucideIcon, al as Fs, am as Is, an as Ms, ao as Ps, ap as ks, aq as Es, U as Ue, Y as Yn, b as apiClient, C as CONFIGURATION_ENDPOINTS, d as devError } from "./configuration-CXYlvGz8.js";
+import { c as createLucideIcon, al as Fs, am as Is, an as Ms, ao as Ps, ap as ks, aq as Es, U as Ue, Y as Yn } from "./configuration-CXYlvGz8.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
-import { aa as Subscribable, ac as notifyManager, aG as shallowEqualObjects, aH as replaceEqualDeep, aC as QueryObserver, t as useQueryClient, aI as useIsRestoring, aJ as useQueryErrorResetBoundary, aK as ensureSuspenseTimers, aL as ensurePreventErrorBoundaryRetry, aM as useClearResetErrorBoundary, ae as noop, aN as shouldSuspend, aO as fetchOptimistic, aP as getHasError, n as useQuery, q as queryKeys, v as useMutation } from "./use-scroll-into-view-ref-ByGpyaZV.js";
 const __iconNode = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 16v-4", key: "1dtifu" }],
   ["path", { d: "M12 8h.01", key: "e9boi3" }]
 ];
 const Info = createLucideIcon("info", __iconNode);
-function difference(array1, array2) {
-  const excludeSet = new Set(array2);
-  return array1.filter((x) => !excludeSet.has(x));
-}
-__name(difference, "difference");
-function replaceAt(array2, index, value) {
-  const copy = array2.slice(0);
-  copy[index] = value;
-  return copy;
-}
-__name(replaceAt, "replaceAt");
-var QueriesObserver = (_a2 = class extends Subscribable {
-  constructor(client, queries, options) {
-    super();
-    __privateAdd(this, __this_instances);
-    __privateAdd(this, _client);
-    __privateAdd(this, _result);
-    __privateAdd(this, _queries);
-    __privateAdd(this, _options);
-    __privateAdd(this, _observers);
-    __privateAdd(this, _combinedResult);
-    __privateAdd(this, _lastCombine);
-    __privateAdd(this, _lastResult);
-    __privateAdd(this, _lastQueryHashes);
-    __privateAdd(this, _observerMatches, []);
-    __privateSet(this, _client, client);
-    __privateSet(this, _options, options);
-    __privateSet(this, _queries, []);
-    __privateSet(this, _observers, []);
-    __privateSet(this, _result, []);
-    this.setQueries(queries);
-  }
-  onSubscribe() {
-    if (this.listeners.size === 1) {
-      __privateGet(this, _observers).forEach((observer) => {
-        observer.subscribe((result) => {
-          __privateMethod(this, __this_instances, onUpdate_fn).call(this, observer, result);
-        });
-      });
-    }
-  }
-  onUnsubscribe() {
-    if (!this.listeners.size) {
-      this.destroy();
-    }
-  }
-  destroy() {
-    this.listeners = /* @__PURE__ */ new Set();
-    __privateGet(this, _observers).forEach((observer) => {
-      observer.destroy();
-    });
-  }
-  setQueries(queries, options) {
-    __privateSet(this, _queries, queries);
-    __privateSet(this, _options, options);
-    notifyManager.batch(() => {
-      const prevObservers = __privateGet(this, _observers);
-      const newObserverMatches = __privateMethod(this, __this_instances, findMatchingObservers_fn).call(this, __privateGet(this, _queries));
-      newObserverMatches.forEach(
-        (match) => match.observer.setOptions(match.defaultedQueryOptions)
-      );
-      const newObservers = newObserverMatches.map((match) => match.observer);
-      const newResult = newObservers.map(
-        (observer) => observer.getCurrentResult()
-      );
-      const hasLengthChange = prevObservers.length !== newObservers.length;
-      const hasIndexChange = newObservers.some(
-        (observer, index) => observer !== prevObservers[index]
-      );
-      const hasStructuralChange = hasLengthChange || hasIndexChange;
-      const hasResultChange = hasStructuralChange ? true : newResult.some((result, index) => {
-        const prev = __privateGet(this, _result)[index];
-        return !prev || !shallowEqualObjects(result, prev);
-      });
-      if (!hasStructuralChange && !hasResultChange) return;
-      if (hasStructuralChange) {
-        __privateSet(this, _observerMatches, newObserverMatches);
-        __privateSet(this, _observers, newObservers);
-      }
-      __privateSet(this, _result, newResult);
-      if (!this.hasListeners()) return;
-      if (hasStructuralChange) {
-        difference(prevObservers, newObservers).forEach((observer) => {
-          observer.destroy();
-        });
-        difference(newObservers, prevObservers).forEach((observer) => {
-          observer.subscribe((result) => {
-            __privateMethod(this, __this_instances, onUpdate_fn).call(this, observer, result);
-          });
-        });
-      }
-      __privateMethod(this, __this_instances, notify_fn).call(this);
-    });
-  }
-  getCurrentResult() {
-    return __privateGet(this, _result);
-  }
-  getQueries() {
-    return __privateGet(this, _observers).map((observer) => observer.getCurrentQuery());
-  }
-  getObservers() {
-    return __privateGet(this, _observers);
-  }
-  getOptimisticResult(queries, combine) {
-    const matches = __privateMethod(this, __this_instances, findMatchingObservers_fn).call(this, queries);
-    const result = matches.map(
-      (match) => match.observer.getOptimisticResult(match.defaultedQueryOptions)
-    );
-    const queryHashes = matches.map(
-      (match) => match.defaultedQueryOptions.queryHash
-    );
-    return [
-      result,
-      (r2) => {
-        return __privateMethod(this, __this_instances, combineResult_fn).call(this, r2 ?? result, combine, queryHashes);
-      },
-      () => {
-        return __privateMethod(this, __this_instances, trackResult_fn).call(this, result, matches);
-      }
-    ];
-  }
-}, _client = new WeakMap(), _result = new WeakMap(), _queries = new WeakMap(), _options = new WeakMap(), _observers = new WeakMap(), _combinedResult = new WeakMap(), _lastCombine = new WeakMap(), _lastResult = new WeakMap(), _lastQueryHashes = new WeakMap(), _observerMatches = new WeakMap(), __this_instances = new WeakSet(), trackResult_fn = /* @__PURE__ */ __name(function(result, matches) {
-  return matches.map((match, index) => {
-    const observerResult = result[index];
-    return !match.defaultedQueryOptions.notifyOnChangeProps ? match.observer.trackResult(observerResult, (accessedProp) => {
-      matches.forEach((m) => {
-        m.observer.trackProp(accessedProp);
-      });
-    }) : observerResult;
-  });
-}, "#trackResult"), combineResult_fn = /* @__PURE__ */ __name(function(input, combine, queryHashes) {
-  if (combine) {
-    const lastHashes = __privateGet(this, _lastQueryHashes);
-    const queryHashesChanged = queryHashes !== void 0 && lastHashes !== void 0 && (lastHashes.length !== queryHashes.length || queryHashes.some((hash, i2) => hash !== lastHashes[i2]));
-    if (!__privateGet(this, _combinedResult) || __privateGet(this, _result) !== __privateGet(this, _lastResult) || queryHashesChanged || combine !== __privateGet(this, _lastCombine)) {
-      __privateSet(this, _lastCombine, combine);
-      __privateSet(this, _lastResult, __privateGet(this, _result));
-      if (queryHashes !== void 0) {
-        __privateSet(this, _lastQueryHashes, queryHashes);
-      }
-      __privateSet(this, _combinedResult, replaceEqualDeep(
-        __privateGet(this, _combinedResult),
-        combine(input)
-      ));
-    }
-    return __privateGet(this, _combinedResult);
-  }
-  return input;
-}, "#combineResult"), shouldSkipCombine_fn = /* @__PURE__ */ __name(function() {
-  var _a3;
-  return ((_a3 = __privateGet(this, _options)) == null ? void 0 : _a3.combine) !== void 0 && __privateGet(this, _observers).some((observer, index) => {
-    var _a4;
-    return observer.options.suspense && ((_a4 = __privateGet(this, _result)[index]) == null ? void 0 : _a4.data) === void 0;
-  });
-}, "#shouldSkipCombine"), findMatchingObservers_fn = /* @__PURE__ */ __name(function(queries) {
-  const prevObserversMap = /* @__PURE__ */ new Map();
-  __privateGet(this, _observers).forEach((observer) => {
-    const key = observer.options.queryHash;
-    if (!key) return;
-    const previousObservers = prevObserversMap.get(key);
-    if (previousObservers) {
-      previousObservers.push(observer);
-    } else {
-      prevObserversMap.set(key, [observer]);
-    }
-  });
-  const observers = [];
-  queries.forEach((options) => {
-    var _a3;
-    const defaultedOptions = __privateGet(this, _client).defaultQueryOptions(options);
-    const match = (_a3 = prevObserversMap.get(defaultedOptions.queryHash)) == null ? void 0 : _a3.shift();
-    const observer = match ?? new QueryObserver(__privateGet(this, _client), defaultedOptions);
-    observers.push({
-      defaultedQueryOptions: defaultedOptions,
-      observer
-    });
-  });
-  return observers;
-}, "#findMatchingObservers"), onUpdate_fn = /* @__PURE__ */ __name(function(observer, result) {
-  const index = __privateGet(this, _observers).indexOf(observer);
-  if (index !== -1) {
-    __privateSet(this, _result, replaceAt(__privateGet(this, _result), index, result));
-    __privateMethod(this, __this_instances, notify_fn).call(this);
-  }
-}, "#onUpdate"), notify_fn = /* @__PURE__ */ __name(function() {
-  var _a3;
-  if (this.hasListeners()) {
-    const newTracked = __privateMethod(this, __this_instances, trackResult_fn).call(this, __privateGet(this, _result), __privateGet(this, _observerMatches));
-    const shouldSkipCombine = __privateMethod(this, __this_instances, shouldSkipCombine_fn).call(this);
-    const previousResult = __privateGet(this, _combinedResult);
-    const newResult = shouldSkipCombine ? previousResult : __privateMethod(this, __this_instances, combineResult_fn).call(this, newTracked, (_a3 = __privateGet(this, _options)) == null ? void 0 : _a3.combine);
-    if (shouldSkipCombine || previousResult !== newResult) {
-      notifyManager.batch(() => {
-        this.listeners.forEach((listener) => {
-          listener(__privateGet(this, _result));
-        });
-      });
-    }
-  }
-}, "#notify"), __name(_a2, "QueriesObserver"), _a2);
-const React$1 = await importShared("react");
-function useQueries({
-  queries,
-  ...options
-}, queryClient) {
-  const client = useQueryClient();
-  const isRestoring = useIsRestoring();
-  const errorResetBoundary = useQueryErrorResetBoundary();
-  const defaultedQueries = React$1.useMemo(
-    () => queries.map((opts) => {
-      const defaultedOptions = client.defaultQueryOptions(
-        opts
-      );
-      defaultedOptions._optimisticResults = isRestoring ? "isRestoring" : "optimistic";
-      return defaultedOptions;
-    }),
-    [queries, client, isRestoring]
-  );
-  defaultedQueries.forEach((queryOptions) => {
-    ensureSuspenseTimers(queryOptions);
-    const query = client.getQueryCache().get(queryOptions.queryHash);
-    ensurePreventErrorBoundaryRetry(queryOptions, errorResetBoundary, query);
-  });
-  useClearResetErrorBoundary(errorResetBoundary);
-  const [observer] = React$1.useState(
-    () => new QueriesObserver(
-      client,
-      defaultedQueries,
-      options
-    )
-  );
-  const [optimisticResult, getCombinedResult, trackResult] = observer.getOptimisticResult(
-    defaultedQueries,
-    options.combine
-  );
-  const shouldSubscribe = !isRestoring && options.subscribed !== false;
-  React$1.useSyncExternalStore(
-    React$1.useCallback(
-      (onStoreChange) => shouldSubscribe ? observer.subscribe(notifyManager.batchCalls(onStoreChange)) : noop,
-      [observer, shouldSubscribe]
-    ),
-    () => observer.getCurrentResult(),
-    () => observer.getCurrentResult()
-  );
-  React$1.useEffect(() => {
-    observer.setQueries(
-      defaultedQueries,
-      options
-    );
-  }, [defaultedQueries, options, observer]);
-  const shouldAtLeastOneSuspend = optimisticResult.some(
-    (result, index) => shouldSuspend(defaultedQueries[index], result)
-  );
-  const suspensePromises = shouldAtLeastOneSuspend ? optimisticResult.flatMap((result, index) => {
-    const opts = defaultedQueries[index];
-    if (opts && shouldSuspend(opts, result)) {
-      const queryObserver = new QueryObserver(client, opts);
-      return fetchOptimistic(opts, queryObserver, errorResetBoundary);
-    }
-    return [];
-  }) : [];
-  if (suspensePromises.length > 0) {
-    throw Promise.all(suspensePromises);
-  }
-  const firstSingleResultWhichShouldThrow = optimisticResult.find(
-    (result, index) => {
-      const query = defaultedQueries[index];
-      return query && getHasError({
-        result,
-        errorResetBoundary,
-        throwOnError: query.throwOnError,
-        query: client.getQueryCache().get(query.queryHash),
-        suspense: query.suspense
-      });
-    }
-  );
-  if (firstSingleResultWhichShouldThrow == null ? void 0 : firstSingleResultWhichShouldThrow.error) {
-    throw firstSingleResultWhichShouldThrow.error;
-  }
-  return getCombinedResult(trackResult());
-}
-__name(useQueries, "useQueries");
 const TOOLTIP_DELAY_QUICK = 120;
 const TOOLTIP_DELAY_TRUNCATED_TEXT = 500;
 const DECIMAL_FORMAT_REGEX = /^\d+(\.\d{1,2})?$/;
@@ -323,7 +31,7 @@ function createDecimalChangeHandler(onChange, allowNegative = false) {
   };
 }
 __name(createDecimalChangeHandler, "createDecimalChangeHandler");
-const { useCallback, useEffect, useRef: useRef$1, useState } = await importShared("react");
+const { useCallback, useEffect, useRef, useState } = await importShared("react");
 const ANIMATION_FALLBACK_MS = 300;
 const ConfirmDialog = /* @__PURE__ */ __name(({
   open,
@@ -341,8 +49,8 @@ const ConfirmDialog = /* @__PURE__ */ __name(({
   cancelButtonClassName = ""
 }) => {
   const [wasOpen, setWasOpen] = useState(open);
-  const onCloseCompleteRef = useRef$1(onCloseComplete);
-  const closeCompleteFiredRef = useRef$1(false);
+  const onCloseCompleteRef = useRef(onCloseComplete);
+  const closeCompleteFiredRef = useRef(false);
   useEffect(() => {
     onCloseCompleteRef.current = onCloseComplete;
   }, [onCloseComplete]);
@@ -353,22 +61,22 @@ const ConfirmDialog = /* @__PURE__ */ __name(({
       closeCompleteFiredRef.current = false;
     } else if (wasOpen && !closeCompleteFiredRef.current) {
       fallbackTimer = setTimeout(() => {
-        var _a3;
+        var _a2;
         if (!closeCompleteFiredRef.current) {
           closeCompleteFiredRef.current = true;
           setWasOpen(false);
-          (_a3 = onCloseCompleteRef.current) == null ? void 0 : _a3.call(onCloseCompleteRef);
+          (_a2 = onCloseCompleteRef.current) == null ? void 0 : _a2.call(onCloseCompleteRef);
         }
       }, ANIMATION_FALLBACK_MS);
     }
     return () => clearTimeout(fallbackTimer);
   }, [open, wasOpen]);
   const handleAnimationEnd = useCallback(() => {
-    var _a3;
+    var _a2;
     if (wasOpen && !open && !closeCompleteFiredRef.current) {
       closeCompleteFiredRef.current = true;
       setWasOpen(false);
-      (_a3 = onCloseCompleteRef.current) == null ? void 0 : _a3.call(onCloseCompleteRef);
+      (_a2 = onCloseCompleteRef.current) == null ? void 0 : _a2.call(onCloseCompleteRef);
     }
   }, [wasOpen, open]);
   const handleConfirm = /* @__PURE__ */ __name(async () => {
@@ -799,26 +507,26 @@ var appendErrors = /* @__PURE__ */ __name((name, validateAllFieldCriteria, error
 } : {}, "appendErrors");
 var convertToArrayPayload = /* @__PURE__ */ __name((value) => Array.isArray(value) ? value : [value], "convertToArrayPayload");
 var createSubject = /* @__PURE__ */ __name(() => {
-  let _observers2 = [];
+  let _observers = [];
   const next = /* @__PURE__ */ __name((value) => {
-    for (const observer of _observers2) {
+    for (const observer of _observers) {
       observer.next && observer.next(value);
     }
   }, "next");
   const subscribe = /* @__PURE__ */ __name((observer) => {
-    _observers2.push(observer);
+    _observers.push(observer);
     return {
       unsubscribe: /* @__PURE__ */ __name(() => {
-        _observers2 = _observers2.filter((o2) => o2 !== observer);
+        _observers = _observers.filter((o2) => o2 !== observer);
       }, "unsubscribe")
     };
   }, "subscribe");
   const unsubscribe = /* @__PURE__ */ __name(() => {
-    _observers2 = [];
+    _observers = [];
   }, "unsubscribe");
   return {
     get observers() {
-      return _observers2;
+      return _observers;
     },
     next,
     subscribe,
@@ -1258,7 +966,7 @@ const defaultOptions = {
   shouldFocusError: true
 };
 function createFormControl(props = {}) {
-  let _options2 = {
+  let _options = {
     ...defaultOptions,
     ...props
   };
@@ -1266,7 +974,7 @@ function createFormControl(props = {}) {
     submitCount: 0,
     isDirty: false,
     isReady: false,
-    isLoading: isFunction(_options2.defaultValues),
+    isLoading: isFunction(_options.defaultValues),
     isValidating: false,
     isSubmitted: false,
     isSubmitting: false,
@@ -1275,12 +983,12 @@ function createFormControl(props = {}) {
     touchedFields: {},
     dirtyFields: {},
     validatingFields: {},
-    errors: _options2.errors || {},
-    disabled: _options2.disabled || false
+    errors: _options.errors || {},
+    disabled: _options.disabled || false
   };
   let _fields = {};
-  let _defaultValues = isObject$1(_options2.defaultValues) || isObject$1(_options2.values) ? cloneObject(_options2.defaultValues || _options2.values) || {} : {};
-  let _formValues = _options2.shouldUnregister ? {} : cloneObject(_defaultValues);
+  let _defaultValues = isObject$1(_options.defaultValues) || isObject$1(_options.values) ? cloneObject(_options.defaultValues || _options.values) || {} : {};
+  let _formValues = _options.shouldUnregister ? {} : cloneObject(_defaultValues);
   let _state = {
     action: false,
     mount: false,
@@ -1315,7 +1023,7 @@ function createFormControl(props = {}) {
     array: createSubject(),
     state: createSubject()
   };
-  const shouldDisplayAllAssociatedErrors = _options2.criteriaMode === VALIDATION_MODE.all;
+  const shouldDisplayAllAssociatedErrors = _options.criteriaMode === VALIDATION_MODE.all;
   const debounce = /* @__PURE__ */ __name((callback) => (wait) => {
     clearTimeout(timer);
     timer = setTimeout(callback, wait);
@@ -1324,9 +1032,9 @@ function createFormControl(props = {}) {
     if (_state.keepIsValid) {
       return;
     }
-    if (!_options2.disabled && (_proxyFormState.isValid || _proxySubscribeFormState.isValid || shouldUpdateValid)) {
+    if (!_options.disabled && (_proxyFormState.isValid || _proxySubscribeFormState.isValid || shouldUpdateValid)) {
       let isValid;
-      if (_options2.resolver) {
+      if (_options.resolver) {
         isValid = isEmptyObject((await _runSchema()).errors);
         _updateIsValidating();
       } else {
@@ -1340,7 +1048,7 @@ function createFormControl(props = {}) {
     }
   }, "_setValid");
   const _updateIsValidating = /* @__PURE__ */ __name((names, isValidating) => {
-    if (!_options2.disabled && (_proxyFormState.isValidating || _proxyFormState.validatingFields || _proxySubscribeFormState.isValidating || _proxySubscribeFormState.validatingFields)) {
+    if (!_options.disabled && (_proxyFormState.isValidating || _proxyFormState.validatingFields || _proxySubscribeFormState.isValidating || _proxySubscribeFormState.validatingFields)) {
       (names || Array.from(_names.mount)).forEach((name) => {
         if (name) {
           isValidating ? set(_formState.validatingFields, name, isValidating) : unset(_formState.validatingFields, name);
@@ -1353,7 +1061,7 @@ function createFormControl(props = {}) {
     }
   }, "_updateIsValidating");
   const _setFieldArray = /* @__PURE__ */ __name((name, values = [], method, args, shouldSetValues = true, shouldUpdateFieldsAndState = true) => {
-    if (args && method && !_options2.disabled) {
+    if (args && method && !_options.disabled) {
       _state.action = true;
       if (shouldUpdateFieldsAndState && Array.isArray(get(_fields, name))) {
         const fieldValues = method(get(_fields, name), args.argA, args.argB);
@@ -1409,7 +1117,7 @@ function createFormControl(props = {}) {
     const output = {
       name
     };
-    if (!_options2.disabled) {
+    if (!_options.disabled) {
       if (!isBlurEvent || shouldDirty) {
         if (_proxyFormState.isDirty || _proxySubscribeFormState.isDirty) {
           isPreviousDirty = _formState.isDirty;
@@ -1437,9 +1145,9 @@ function createFormControl(props = {}) {
   const shouldRenderByError = /* @__PURE__ */ __name((name, isValid, error, fieldState) => {
     const previousFieldError = get(_formState.errors, name);
     const shouldUpdateValid = (_proxyFormState.isValid || _proxySubscribeFormState.isValid) && isBoolean(isValid) && _formState.isValid !== isValid;
-    if (_options2.delayError && error) {
+    if (_options.delayError && error) {
       delayErrorCallback = debounce(() => updateErrors(name, error));
-      delayErrorCallback(_options2.delayError);
+      delayErrorCallback(_options.delayError);
     } else {
       clearTimeout(timer);
       delayErrorCallback = null;
@@ -1461,7 +1169,7 @@ function createFormControl(props = {}) {
   }, "shouldRenderByError");
   const _runSchema = /* @__PURE__ */ __name(async (name) => {
     _updateIsValidating(name, true);
-    const result = await _options2.resolver(_formValues, _options2.context, getResolverOptions(name || _names.mount, _fields, _options2.criteriaMode, _options2.shouldUseNativeValidation));
+    const result = await _options.resolver(_formValues, _options.context, getResolverOptions(name || _names.mount, _fields, _options.criteriaMode, _options.shouldUseNativeValidation));
     return result;
   }, "_runSchema");
   const executeSchemaAndUpdateState = /* @__PURE__ */ __name(async (names) => {
@@ -1490,7 +1198,7 @@ function createFormControl(props = {}) {
           if (isPromiseFunction && _proxyFormState.validatingFields) {
             _updateIsValidating([_f.name], true);
           }
-          const fieldError = await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options2.shouldUseNativeValidation && !shouldOnlyCheckValid, isFieldArrayRoot);
+          const fieldError = await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation && !shouldOnlyCheckValid, isFieldArrayRoot);
           if (isPromiseFunction && _proxyFormState.validatingFields) {
             _updateIsValidating([_f.name]);
           }
@@ -1514,11 +1222,11 @@ function createFormControl(props = {}) {
     }
     _names.unMount = /* @__PURE__ */ new Set();
   }, "_removeUnmounted");
-  const _getDirty = /* @__PURE__ */ __name((name, data) => !_options2.disabled && (name && data && set(_formValues, name, data), !deepEqual(getValues(), _defaultValues)), "_getDirty");
+  const _getDirty = /* @__PURE__ */ __name((name, data) => !_options.disabled && (name && data && set(_formValues, name, data), !deepEqual(getValues(), _defaultValues)), "_getDirty");
   const _getWatch = /* @__PURE__ */ __name((names, defaultValue, isGlobal) => generateWatchOutput(names, _names, {
     ..._state.mount ? _formValues : isUndefined(defaultValue) ? _defaultValues : isString(names) ? { [names]: defaultValue } : defaultValue
   }, isGlobal, defaultValue), "_getWatch");
-  const _getFieldArray = /* @__PURE__ */ __name((name) => compact(get(_state.mount ? _formValues : _defaultValues, name, _options2.shouldUnregister ? get(_defaultValues, name, []) : [])), "_getFieldArray");
+  const _getFieldArray = /* @__PURE__ */ __name((name) => compact(get(_state.mount ? _formValues : _defaultValues, name, _options.shouldUnregister ? get(_defaultValues, name, []) : [])), "_getFieldArray");
   const setFieldValue = /* @__PURE__ */ __name((name, value, options = {}) => {
     const field = get(_fields, name);
     let fieldValue = value;
@@ -1612,14 +1320,14 @@ function createFormControl(props = {}) {
     const _updateIsFieldValueUpdated = /* @__PURE__ */ __name((fieldValue) => {
       isFieldValueUpdated = Number.isNaN(fieldValue) || isDateObject(fieldValue) && isNaN(fieldValue.getTime()) || deepEqual(fieldValue, get(_formValues, name, fieldValue));
     }, "_updateIsFieldValueUpdated");
-    const validationModeBeforeSubmit = getValidationModes(_options2.mode);
-    const validationModeAfterSubmit = getValidationModes(_options2.reValidateMode);
+    const validationModeBeforeSubmit = getValidationModes(_options.mode);
+    const validationModeAfterSubmit = getValidationModes(_options.reValidateMode);
     if (field) {
       let error;
       let isValid;
       const fieldValue = target.type ? getFieldValue(field._f) : getEventValue(event);
       const isBlurEvent = event.type === EVENTS.BLUR || event.type === EVENTS.FOCUS_OUT;
-      const shouldSkipValidation = !hasValidation(field._f) && !_options2.resolver && !get(_formState.errors, name) && !field._f.deps || skipValidation(isBlurEvent, get(_formState.touchedFields, name), _formState.isSubmitted, validationModeAfterSubmit, validationModeBeforeSubmit);
+      const shouldSkipValidation = !hasValidation(field._f) && !_options.resolver && !get(_formState.errors, name) && !field._f.deps || skipValidation(isBlurEvent, get(_formState.touchedFields, name), _formState.isSubmitted, validationModeAfterSubmit, validationModeBeforeSubmit);
       const watched = isWatched(name, _names, isBlurEvent);
       set(_formValues, name, fieldValue);
       if (isBlurEvent) {
@@ -1639,7 +1347,7 @@ function createFormControl(props = {}) {
       });
       if (shouldSkipValidation) {
         if (_proxyFormState.isValid || _proxySubscribeFormState.isValid) {
-          if (_options2.mode === "onBlur") {
+          if (_options.mode === "onBlur") {
             if (isBlurEvent) {
               _setValid();
             }
@@ -1650,7 +1358,7 @@ function createFormControl(props = {}) {
         return shouldRender && _subjects.state.next({ name, ...watched ? {} : fieldState });
       }
       !isBlurEvent && watched && _subjects.state.next({ ..._formState });
-      if (_options2.resolver) {
+      if (_options.resolver) {
         const { errors } = await _runSchema([name]);
         _updateIsValidating([name]);
         _updateIsFieldValueUpdated(fieldValue);
@@ -1663,7 +1371,7 @@ function createFormControl(props = {}) {
         }
       } else {
         _updateIsValidating([name], true);
-        error = (await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options2.shouldUseNativeValidation))[name];
+        error = (await validateField(field, _names.disabled, _formValues, shouldDisplayAllAssociatedErrors, _options.shouldUseNativeValidation))[name];
         _updateIsValidating([name]);
         _updateIsFieldValueUpdated(fieldValue);
         if (isFieldValueUpdated) {
@@ -1691,7 +1399,7 @@ function createFormControl(props = {}) {
     let isValid;
     let validationResult;
     const fieldNames = convertToArrayPayload(name);
-    if (_options2.resolver) {
+    if (_options.resolver) {
       const errors = await executeSchemaAndUpdateState(isUndefined(name) ? name : fieldNames);
       isValid = isEmptyObject(errors);
       validationResult = name ? !fieldNames.some((name2) => get(errors, name2)) : isValid;
@@ -1706,7 +1414,7 @@ function createFormControl(props = {}) {
     }
     _subjects.state.next({
       ...!isString(name) || (_proxyFormState.isValid || _proxySubscribeFormState.isValid) && isValid !== _formState.isValid ? {} : { name },
-      ..._options2.resolver || !name ? { isValid } : {},
+      ..._options.resolver || !name ? { isValid } : {},
       errors: _formState.errors
     });
     options.shouldFocus && !validationResult && iterateFieldsByAction(_fields, _focusInput, name ? fieldNames : _names.mount);
@@ -1801,7 +1509,7 @@ function createFormControl(props = {}) {
       !options.keepDirty && unset(_formState.dirtyFields, fieldName);
       !options.keepTouched && unset(_formState.touchedFields, fieldName);
       !options.keepIsValidating && unset(_formState.validatingFields, fieldName);
-      !_options2.shouldUnregister && !options.keepDefaultValue && unset(_defaultValues, fieldName);
+      !_options.shouldUnregister && !options.keepDefaultValue && unset(_defaultValues, fieldName);
     }
     _subjects.state.next({
       values: cloneObject(_formValues)
@@ -1823,7 +1531,7 @@ function createFormControl(props = {}) {
   }, "_setDisabledField");
   const register = /* @__PURE__ */ __name((name, options = {}) => {
     let field = get(_fields, name);
-    const disabledIsDefined = isBoolean(options.disabled) || isBoolean(_options2.disabled);
+    const disabledIsDefined = isBoolean(options.disabled) || isBoolean(_options.disabled);
     set(_fields, name, {
       ...field || {},
       _f: {
@@ -1836,15 +1544,15 @@ function createFormControl(props = {}) {
     _names.mount.add(name);
     if (field) {
       _setDisabledField({
-        disabled: isBoolean(options.disabled) ? options.disabled : _options2.disabled,
+        disabled: isBoolean(options.disabled) ? options.disabled : _options.disabled,
         name
       });
     } else {
       updateValidAndValue(name, true, options.value);
     }
     return {
-      ...disabledIsDefined ? { disabled: options.disabled || _options2.disabled } : {},
-      ..._options2.progressive ? {
+      ...disabledIsDefined ? { disabled: options.disabled || _options.disabled } : {},
+      ..._options.progressive ? {
         required: !!options.required,
         min: getRuleValue(options.min),
         max: getRuleValue(options.max),
@@ -1884,12 +1592,12 @@ function createFormControl(props = {}) {
           if (field._f) {
             field._f.mount = false;
           }
-          (_options2.shouldUnregister || options.shouldUnregister) && !(isNameInFieldArray(_names.array, name) && _state.action) && _names.unMount.add(name);
+          (_options.shouldUnregister || options.shouldUnregister) && !(isNameInFieldArray(_names.array, name) && _state.action) && _names.unMount.add(name);
         }
       }, "ref")
     };
   }, "register");
-  const _focusError = /* @__PURE__ */ __name(() => _options2.shouldFocusError && iterateFieldsByAction(_fields, _focusInput, _names.mount), "_focusError");
+  const _focusError = /* @__PURE__ */ __name(() => _options.shouldFocusError && iterateFieldsByAction(_fields, _focusInput, _names.mount), "_focusError");
   const _disableForm = /* @__PURE__ */ __name((disabled) => {
     if (isBoolean(disabled)) {
       _subjects.state.next({ disabled });
@@ -1916,7 +1624,7 @@ function createFormControl(props = {}) {
     _subjects.state.next({
       isSubmitting: true
     });
-    if (_options2.resolver) {
+    if (_options.resolver) {
       const { errors, values } = await _runSchema();
       _updateIsValidating();
       _formState.errors = errors;
@@ -2027,7 +1735,7 @@ function createFormControl(props = {}) {
           _fields = {};
         }
       }
-      _formValues = _options2.shouldUnregister ? keepStateOptions.keepDefaultValues ? cloneObject(_defaultValues) : {} : cloneObject(values);
+      _formValues = _options.shouldUnregister ? keepStateOptions.keepDefaultValues ? cloneObject(_defaultValues) : {} : cloneObject(values);
       _subjects.array.next({
         values: { ...values }
       });
@@ -2044,8 +1752,8 @@ function createFormControl(props = {}) {
       watchAll: false,
       focus: ""
     };
-    _state.mount = !_proxyFormState.isValid || !!keepStateOptions.keepIsValid || !!keepStateOptions.keepDirtyValues || !_options2.shouldUnregister && !isEmptyObject(values);
-    _state.watch = !!_options2.shouldUnregister;
+    _state.mount = !_proxyFormState.isValid || !!keepStateOptions.keepIsValid || !!keepStateOptions.keepDirtyValues || !_options.shouldUnregister && !isEmptyObject(values);
+    _state.watch = !!_options.shouldUnregister;
     _state.keepIsValid = !!keepStateOptions.keepIsValid;
     _state.action = false;
     if (!keepStateOptions.keepErrors) {
@@ -2063,7 +1771,7 @@ function createFormControl(props = {}) {
       defaultValues: _defaultValues
     });
   }, "_reset");
-  const reset = /* @__PURE__ */ __name((formValues, keepStateOptions) => _reset(isFunction(formValues) ? formValues(_formValues) : formValues, { ..._options2.resetOptions, ...keepStateOptions }), "reset");
+  const reset = /* @__PURE__ */ __name((formValues, keepStateOptions) => _reset(isFunction(formValues) ? formValues(_formValues) : formValues, { ..._options.resetOptions, ...keepStateOptions }), "reset");
   const setFocus = /* @__PURE__ */ __name((name, options = {}) => {
     const field = get(_fields, name);
     const fieldReference = field && field._f;
@@ -2083,8 +1791,8 @@ function createFormControl(props = {}) {
       ...updatedFormState
     };
   }, "_setFormState");
-  const _resetDefaultValues = /* @__PURE__ */ __name(() => isFunction(_options2.defaultValues) && _options2.defaultValues().then((values) => {
-    reset(values, _options2.resetOptions);
+  const _resetDefaultValues = /* @__PURE__ */ __name(() => isFunction(_options.defaultValues) && _options.defaultValues().then((values) => {
+    reset(values, _options.resetOptions);
     _subjects.state.next({
       isLoading: false
     });
@@ -2138,11 +1846,11 @@ function createFormControl(props = {}) {
         return _formState;
       },
       get _options() {
-        return _options2;
+        return _options;
       },
       set _options(value) {
-        _options2 = {
-          ..._options2,
+        _options = {
+          ..._options,
           ...value
         };
       }
@@ -2251,13 +1959,13 @@ function useForm(props = {}) {
     }
   }, [control, formState.isDirty]);
   React.useEffect(() => {
-    var _a3;
+    var _a2;
     if (props.values && !deepEqual(props.values, _values.current)) {
       control._reset(props.values, {
         keepFieldsRef: true,
         ...control._options.resetOptions
       });
-      if (!((_a3 = control._options.resetOptions) === null || _a3 === void 0 ? void 0 : _a3.keepIsValid)) {
+      if (!((_a2 = control._options.resetOptions) === null || _a2 === void 0 ? void 0 : _a2.keepIsValid)) {
         control._setValid();
       }
       _values.current = props.values;
@@ -2345,10 +2053,10 @@ function $constructor(name, initializer2, params) {
   let Definition = _Definition;
   Object.defineProperty(Definition, "name", { value: name });
   function _(def) {
-    var _a3;
+    var _a2;
     const inst = (params == null ? void 0 : params.Parent) ? new Definition() : this;
     init(inst, def);
-    (_a3 = inst._zod).deferred ?? (_a3.deferred = []);
+    (_a2 = inst._zod).deferred ?? (_a2.deferred = []);
     for (const fn of inst._zod.deferred) {
       fn();
     }
@@ -2358,10 +2066,10 @@ function $constructor(name, initializer2, params) {
   Object.defineProperty(_, "init", { value: init });
   Object.defineProperty(_, Symbol.hasInstance, {
     value: /* @__PURE__ */ __name((inst) => {
-      var _a3, _b;
+      var _a2, _b;
       if ((params == null ? void 0 : params.Parent) && inst instanceof params.Parent)
         return true;
-      return (_b = (_a3 = inst == null ? void 0 : inst._zod) == null ? void 0 : _a3.traits) == null ? void 0 : _b.has(name);
+      return (_b = (_a2 = inst == null ? void 0 : inst._zod) == null ? void 0 : _a2.traits) == null ? void 0 : _b.has(name);
     }, "value")
   });
   Object.defineProperty(_, "name", { value: name });
@@ -2489,11 +2197,11 @@ function isObject(data) {
 }
 __name(isObject, "isObject");
 const allowsEval = /* @__PURE__ */ cached(() => {
-  var _a3;
+  var _a2;
   if (globalConfig.jitless) {
     return false;
   }
-  if (typeof navigator !== "undefined" && ((_a3 = navigator == null ? void 0 : navigator.userAgent) == null ? void 0 : _a3.includes("Cloudflare"))) {
+  if (typeof navigator !== "undefined" && ((_a2 = navigator == null ? void 0 : navigator.userAgent) == null ? void 0 : _a2.includes("Cloudflare"))) {
     return false;
   }
   try {
@@ -2666,8 +2374,8 @@ function safeExtend(schema, shape) {
 }
 __name(safeExtend, "safeExtend");
 function merge(a2, b) {
-  var _a3;
-  if ((_a3 = a2._zod.def.checks) == null ? void 0 : _a3.length) {
+  var _a2;
+  if ((_a2 = a2._zod.def.checks) == null ? void 0 : _a2.length) {
     throw new Error(".merge() cannot be used on object schemas containing refinements. Use .safeExtend() instead.");
   }
   const def = mergeDefs(a2._zod.def, {
@@ -2756,11 +2464,11 @@ function required(Class, schema, mask) {
 }
 __name(required, "required");
 function aborted(x, startIndex = 0) {
-  var _a3;
+  var _a2;
   if (x.aborted === true)
     return true;
   for (let i2 = startIndex; i2 < x.issues.length; i2++) {
-    if (((_a3 = x.issues[i2]) == null ? void 0 : _a3.continue) !== true) {
+    if (((_a2 = x.issues[i2]) == null ? void 0 : _a2.continue) !== true) {
       return true;
     }
   }
@@ -2768,11 +2476,11 @@ function aborted(x, startIndex = 0) {
 }
 __name(aborted, "aborted");
 function explicitlyAborted(x, startIndex = 0) {
-  var _a3;
+  var _a2;
   if (x.aborted === true)
     return true;
   for (let i2 = startIndex; i2 < x.issues.length; i2++) {
-    if (((_a3 = x.issues[i2]) == null ? void 0 : _a3.continue) === false) {
+    if (((_a2 = x.issues[i2]) == null ? void 0 : _a2.continue) === false) {
       return true;
     }
   }
@@ -2781,8 +2489,8 @@ function explicitlyAborted(x, startIndex = 0) {
 __name(explicitlyAborted, "explicitlyAborted");
 function prefixIssues(path, issues) {
   return issues.map((iss) => {
-    var _a3;
-    (_a3 = iss).path ?? (_a3.path = []);
+    var _a2;
+    (_a2 = iss).path ?? (_a2.path = []);
     iss.path.unshift(path);
     return iss;
   });
@@ -2793,8 +2501,8 @@ function unwrapMessage(message) {
 }
 __name(unwrapMessage, "unwrapMessage");
 function finalizeIssue(iss, ctx, config2) {
-  var _a3, _b, _c, _d, _e, _f;
-  const message = iss.message ? iss.message : unwrapMessage((_c = (_b = (_a3 = iss.inst) == null ? void 0 : _a3._zod.def) == null ? void 0 : _b.error) == null ? void 0 : _c.call(_b, iss)) ?? unwrapMessage((_d = ctx == null ? void 0 : ctx.error) == null ? void 0 : _d.call(ctx, iss)) ?? unwrapMessage((_e = config2.customError) == null ? void 0 : _e.call(config2, iss)) ?? unwrapMessage((_f = config2.localeError) == null ? void 0 : _f.call(config2, iss)) ?? "Invalid input";
+  var _a2, _b, _c, _d, _e, _f;
+  const message = iss.message ? iss.message : unwrapMessage((_c = (_b = (_a2 = iss.inst) == null ? void 0 : _a2._zod.def) == null ? void 0 : _b.error) == null ? void 0 : _c.call(_b, iss)) ?? unwrapMessage((_d = ctx == null ? void 0 : ctx.error) == null ? void 0 : _d.call(ctx, iss)) ?? unwrapMessage((_e = config2.customError) == null ? void 0 : _e.call(config2, iss)) ?? unwrapMessage((_f = config2.localeError) == null ? void 0 : _f.call(config2, iss)) ?? "Invalid input";
   const { inst: _inst, continue: _continue, input: _input, ...rest } = iss;
   rest.path ?? (rest.path = []);
   rest.message = message;
@@ -3032,10 +2740,10 @@ const boolean$1 = /^(?:true|false)$/i;
 const lowercase = /^[^A-Z]*$/;
 const uppercase = /^[^a-z]*$/;
 const $ZodCheck = /* @__PURE__ */ $constructor("$ZodCheck", (inst, def) => {
-  var _a3;
+  var _a2;
   inst._zod ?? (inst._zod = {});
   inst._zod.def = def;
-  (_a3 = inst._zod).onattach ?? (_a3.onattach = []);
+  (_a2 = inst._zod).onattach ?? (_a2.onattach = []);
 });
 const numericOriginMap = {
   number: "number",
@@ -3101,8 +2809,8 @@ const $ZodCheckGreaterThan = /* @__PURE__ */ $constructor("$ZodCheckGreaterThan"
 const $ZodCheckMultipleOf = /* @__PURE__ */ $constructor("$ZodCheckMultipleOf", (inst, def) => {
   $ZodCheck.init(inst, def);
   inst._zod.onattach.push((inst2) => {
-    var _a3;
-    (_a3 = inst2._zod.bag).multipleOf ?? (_a3.multipleOf = def.value);
+    var _a2;
+    (_a2 = inst2._zod.bag).multipleOf ?? (_a2.multipleOf = def.value);
   });
   inst._zod.check = (payload) => {
     if (typeof payload.value !== typeof def.value)
@@ -3121,10 +2829,10 @@ const $ZodCheckMultipleOf = /* @__PURE__ */ $constructor("$ZodCheckMultipleOf", 
   };
 });
 const $ZodCheckNumberFormat = /* @__PURE__ */ $constructor("$ZodCheckNumberFormat", (inst, def) => {
-  var _a3;
+  var _a2;
   $ZodCheck.init(inst, def);
   def.format = def.format || "float64";
-  const isInt = (_a3 = def.format) == null ? void 0 : _a3.includes("int");
+  const isInt = (_a2 = def.format) == null ? void 0 : _a2.includes("int");
   const origin = isInt ? "int" : "number";
   const [minimum, maximum] = NUMBER_FORMAT_RANGES[def.format];
   inst._zod.onattach.push((inst2) => {
@@ -3201,9 +2909,9 @@ const $ZodCheckNumberFormat = /* @__PURE__ */ $constructor("$ZodCheckNumberForma
   };
 });
 const $ZodCheckMaxLength = /* @__PURE__ */ $constructor("$ZodCheckMaxLength", (inst, def) => {
-  var _a3;
+  var _a2;
   $ZodCheck.init(inst, def);
-  (_a3 = inst._zod.def).when ?? (_a3.when = (payload) => {
+  (_a2 = inst._zod.def).when ?? (_a2.when = (payload) => {
     const val = payload.value;
     return !nullish(val) && val.length !== void 0;
   });
@@ -3230,9 +2938,9 @@ const $ZodCheckMaxLength = /* @__PURE__ */ $constructor("$ZodCheckMaxLength", (i
   };
 });
 const $ZodCheckMinLength = /* @__PURE__ */ $constructor("$ZodCheckMinLength", (inst, def) => {
-  var _a3;
+  var _a2;
   $ZodCheck.init(inst, def);
-  (_a3 = inst._zod.def).when ?? (_a3.when = (payload) => {
+  (_a2 = inst._zod.def).when ?? (_a2.when = (payload) => {
     const val = payload.value;
     return !nullish(val) && val.length !== void 0;
   });
@@ -3259,9 +2967,9 @@ const $ZodCheckMinLength = /* @__PURE__ */ $constructor("$ZodCheckMinLength", (i
   };
 });
 const $ZodCheckLengthEquals = /* @__PURE__ */ $constructor("$ZodCheckLengthEquals", (inst, def) => {
-  var _a3;
+  var _a2;
   $ZodCheck.init(inst, def);
-  (_a3 = inst._zod.def).when ?? (_a3.when = (payload) => {
+  (_a2 = inst._zod.def).when ?? (_a2.when = (payload) => {
     const val = payload.value;
     return !nullish(val) && val.length !== void 0;
   });
@@ -3290,7 +2998,7 @@ const $ZodCheckLengthEquals = /* @__PURE__ */ $constructor("$ZodCheckLengthEqual
   };
 });
 const $ZodCheckStringFormat = /* @__PURE__ */ $constructor("$ZodCheckStringFormat", (inst, def) => {
-  var _a3, _b;
+  var _a2, _b;
   $ZodCheck.init(inst, def);
   inst._zod.onattach.push((inst2) => {
     const bag = inst2._zod.bag;
@@ -3301,7 +3009,7 @@ const $ZodCheckStringFormat = /* @__PURE__ */ $constructor("$ZodCheckStringForma
     }
   });
   if (def.pattern)
-    (_a3 = inst._zod).check ?? (_a3.check = (payload) => {
+    (_a2 = inst._zod).check ?? (_a2.check = (payload) => {
       def.pattern.lastIndex = 0;
       if (def.pattern.test(payload.value))
         return;
@@ -3462,8 +3170,8 @@ const version = {
   patch: 3
 };
 const $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
-  var _a4;
   var _a3;
+  var _a2;
   inst ?? (inst = {});
   inst._zod.def = def;
   inst._zod.bag = inst._zod.bag || {};
@@ -3478,8 +3186,8 @@ const $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
     }
   }
   if (checks.length === 0) {
-    (_a3 = inst._zod).deferred ?? (_a3.deferred = []);
-    (_a4 = inst._zod.deferred) == null ? void 0 : _a4.push(() => {
+    (_a2 = inst._zod).deferred ?? (_a2.deferred = []);
+    (_a3 = inst._zod.deferred) == null ? void 0 : _a3.push(() => {
       inst._zod.run = inst._zod.parse;
     });
   } else {
@@ -3562,14 +3270,14 @@ const $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
   }
   defineLazy(inst, "~standard", () => ({
     validate: /* @__PURE__ */ __name((value) => {
-      var _a5;
+      var _a4;
       try {
         const r2 = safeParse$1(inst, value);
-        return r2.success ? { value: r2.data } : { issues: (_a5 = r2.error) == null ? void 0 : _a5.issues };
+        return r2.success ? { value: r2.data } : { issues: (_a4 = r2.error) == null ? void 0 : _a4.issues };
       } catch (_) {
         return safeParseAsync$1(inst, value).then((r2) => {
-          var _a6;
-          return r2.success ? { value: r2.data } : { issues: (_a6 = r2.error) == null ? void 0 : _a6.issues };
+          var _a5;
+          return r2.success ? { value: r2.data } : { issues: (_a5 = r2.error) == null ? void 0 : _a5.issues };
         });
       }
     }, "validate"),
@@ -3578,9 +3286,9 @@ const $ZodType = /* @__PURE__ */ $constructor("$ZodType", (inst, def) => {
   }));
 });
 const $ZodString = /* @__PURE__ */ $constructor("$ZodString", (inst, def) => {
-  var _a3;
+  var _a2;
   $ZodType.init(inst, def);
-  inst._zod.pattern = [...((_a3 = inst == null ? void 0 : inst._zod.bag) == null ? void 0 : _a3.patterns) ?? []].pop() ?? string$1(inst._zod.bag);
+  inst._zod.pattern = [...((_a2 = inst == null ? void 0 : inst._zod.bag) == null ? void 0 : _a2.patterns) ?? []].pop() ?? string$1(inst._zod.bag);
   inst._zod.parse = (payload, _) => {
     if (def.coerce)
       try {
@@ -3633,10 +3341,10 @@ const $ZodEmail = /* @__PURE__ */ $constructor("$ZodEmail", (inst, def) => {
 const $ZodURL = /* @__PURE__ */ $constructor("$ZodURL", (inst, def) => {
   $ZodStringFormat.init(inst, def);
   inst._zod.check = (payload) => {
-    var _a3;
+    var _a2;
     try {
       const trimmed = payload.value.trim();
-      if (!def.normalize && ((_a3 = def.protocol) == null ? void 0 : _a3.source) === httpProtocol.source) {
+      if (!def.normalize && ((_a2 = def.protocol) == null ? void 0 : _a2.source) === httpProtocol.source) {
         if (!/^https?:\/\//i.test(trimmed)) {
           payload.issues.push({
             code: "invalid_format",
@@ -4046,10 +3754,10 @@ function handlePropertyResult(result, final, key, input, isOptionalIn, isOptiona
 }
 __name(handlePropertyResult, "handlePropertyResult");
 function normalizeDef(def) {
-  var _a3, _b, _c, _d;
+  var _a2, _b, _c, _d;
   const keys = Object.keys(def.shape);
   for (const k of keys) {
-    if (!((_d = (_c = (_b = (_a3 = def.shape) == null ? void 0 : _a3[k]) == null ? void 0 : _b._zod) == null ? void 0 : _c.traits) == null ? void 0 : _d.has("$ZodType"))) {
+    if (!((_d = (_c = (_b = (_a2 = def.shape) == null ? void 0 : _a2[k]) == null ? void 0 : _b._zod) == null ? void 0 : _c.traits) == null ? void 0 : _d.has("$ZodType"))) {
       throw new Error(`Invalid element at key "${k}": expected a Zod schema`);
     }
   }
@@ -4170,7 +3878,7 @@ const $ZodObjectJIT = /* @__PURE__ */ $constructor("$ZodObjectJIT", (inst, def) 
   const superParse = inst._zod.parse;
   const _normalized = cached(() => normalizeDef(def));
   const generateFastpass = /* @__PURE__ */ __name((shape) => {
-    var _a3, _b;
+    var _a2, _b;
     const doc = new Doc(["shape", "payload", "ctx"]);
     const normalized = _normalized.value;
     const parseStr = /* @__PURE__ */ __name((key) => {
@@ -4188,7 +3896,7 @@ const $ZodObjectJIT = /* @__PURE__ */ $constructor("$ZodObjectJIT", (inst, def) 
       const id = ids[key];
       const k = esc(key);
       const schema = shape[key];
-      const isOptionalIn = ((_a3 = schema == null ? void 0 : schema._zod) == null ? void 0 : _a3.optin) === "optional";
+      const isOptionalIn = ((_a2 = schema == null ? void 0 : schema._zod) == null ? void 0 : _a2.optin) === "optional";
       const isOptionalOut = ((_b = schema == null ? void 0 : schema._zod) == null ? void 0 : _b.optout) === "optional";
       doc.write(`const ${id} = ${parseStr(key)};`);
       if (isOptionalIn && isOptionalOut) {
@@ -4724,12 +4432,12 @@ const $ZodReadonly = /* @__PURE__ */ $constructor("$ZodReadonly", (inst, def) =>
   defineLazy(inst._zod, "propValues", () => def.innerType._zod.propValues);
   defineLazy(inst._zod, "values", () => def.innerType._zod.values);
   defineLazy(inst._zod, "optin", () => {
-    var _a3, _b;
-    return (_b = (_a3 = def.innerType) == null ? void 0 : _a3._zod) == null ? void 0 : _b.optin;
+    var _a2, _b;
+    return (_b = (_a2 = def.innerType) == null ? void 0 : _a2._zod) == null ? void 0 : _b.optin;
   });
   defineLazy(inst._zod, "optout", () => {
-    var _a3, _b;
-    return (_b = (_a3 = def.innerType) == null ? void 0 : _a3._zod) == null ? void 0 : _b.optout;
+    var _a2, _b;
+    return (_b = (_a2 = def.innerType) == null ? void 0 : _a2._zod) == null ? void 0 : _b.optout;
   });
   inst._zod.parse = (payload, ctx) => {
     if (ctx.direction === "backward") {
@@ -5437,8 +5145,8 @@ function initializeContext(params) {
 }
 __name(initializeContext, "initializeContext");
 function process(schema, ctx, _params = { path: [], schemaPath: [] }) {
-  var _a4, _b;
-  var _a3;
+  var _a3, _b;
+  var _a2;
   const def = schema._zod.def;
   const seen = ctx.seen.get(schema);
   if (seen) {
@@ -5451,7 +5159,7 @@ function process(schema, ctx, _params = { path: [], schemaPath: [] }) {
   }
   const result = { schema: {}, count: 1, cycle: void 0, path: _params.path };
   ctx.seen.set(schema, result);
-  const overrideSchema = (_b = (_a4 = schema._zod).toJSONSchema) == null ? void 0 : _b.call(_a4);
+  const overrideSchema = (_b = (_a3 = schema._zod).toJSONSchema) == null ? void 0 : _b.call(_a3);
   if (overrideSchema) {
     result.schema = overrideSchema;
   } else {
@@ -5486,20 +5194,20 @@ function process(schema, ctx, _params = { path: [], schemaPath: [] }) {
     delete result.schema.default;
   }
   if (ctx.io === "input" && "_prefault" in result.schema)
-    (_a3 = result.schema).default ?? (_a3.default = result.schema._prefault);
+    (_a2 = result.schema).default ?? (_a2.default = result.schema._prefault);
   delete result.schema._prefault;
-  const _result2 = ctx.seen.get(schema);
-  return _result2.schema;
+  const _result = ctx.seen.get(schema);
+  return _result.schema;
 }
 __name(process, "process");
 function extractDefs(ctx, schema) {
-  var _a3, _b, _c, _d;
+  var _a2, _b, _c, _d;
   const root = ctx.seen.get(schema);
   if (!root)
     throw new Error("Unprocessed schema. This is a bug in Zod.");
   const idToSchema = /* @__PURE__ */ new Map();
   for (const entry of ctx.seen.entries()) {
-    const id = (_a3 = ctx.metadataRegistry.get(entry[0])) == null ? void 0 : _a3.id;
+    const id = (_a2 = ctx.metadataRegistry.get(entry[0])) == null ? void 0 : _a2.id;
     if (id) {
       const existing = idToSchema.get(id);
       if (existing && existing !== entry[0]) {
@@ -5509,10 +5217,10 @@ function extractDefs(ctx, schema) {
     }
   }
   const makeURI = /* @__PURE__ */ __name((entry) => {
-    var _a4;
+    var _a3;
     const defsSegment = ctx.target === "draft-2020-12" ? "$defs" : "definitions";
     if (ctx.external) {
-      const externalId = (_a4 = ctx.external.registry.get(entry[0])) == null ? void 0 : _a4.id;
+      const externalId = (_a3 = ctx.external.registry.get(entry[0])) == null ? void 0 : _a3.id;
       const uriGenerator = ctx.external.uri ?? ((id2) => id2);
       if (externalId) {
         return { ref: uriGenerator(externalId) };
@@ -5586,7 +5294,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 }
 __name(extractDefs, "extractDefs");
 function finalize(ctx, schema) {
-  var _a3, _b, _c, _d;
+  var _a2, _b, _c, _d;
   const root = ctx.seen.get(schema);
   if (!root)
     throw new Error("Unprocessed schema. This is a bug in Zod.");
@@ -5664,7 +5372,7 @@ function finalize(ctx, schema) {
     result.$schema = "http://json-schema.org/draft-04/schema#";
   } else if (ctx.target === "openapi-3.0") ;
   else ;
-  if ((_a3 = ctx.external) == null ? void 0 : _a3.uri) {
+  if ((_a2 = ctx.external) == null ? void 0 : _a2.uri) {
     const id = (_b = ctx.external.registry.get(schema)) == null ? void 0 : _b.id;
     if (!id)
       throw new Error("Schema is missing an `id` property");
@@ -5938,7 +5646,7 @@ const arrayProcessor = /* @__PURE__ */ __name((schema, ctx, _json, params) => {
   });
 }, "arrayProcessor");
 const objectProcessor = /* @__PURE__ */ __name((schema, ctx, _json, params) => {
-  var _a3;
+  var _a2;
   const json = _json;
   const def = schema._zod.def;
   json.type = "object";
@@ -5962,7 +5670,7 @@ const objectProcessor = /* @__PURE__ */ __name((schema, ctx, _json, params) => {
   if (requiredKeys.size > 0) {
     json.required = Array.from(requiredKeys);
   }
-  if (((_a3 = def.catchall) == null ? void 0 : _a3._zod.def.type) === "never") {
+  if (((_a2 = def.catchall) == null ? void 0 : _a2._zod.def.type) === "never") {
     json.additionalProperties = false;
   } else if (!def.catchall) {
     if (ctx.io === "output")
@@ -6411,8 +6119,8 @@ const ZodType = /* @__PURE__ */ $constructor("ZodType", (inst, def) => {
   });
   Object.defineProperty(inst, "description", {
     get() {
-      var _a3;
-      return (_a3 = globalRegistry.get(inst)) == null ? void 0 : _a3.description;
+      var _a2;
+      return (_a2 = globalRegistry.get(inst)) == null ? void 0 : _a2.description;
     },
     configurable: true
   });
@@ -7069,162 +6777,10 @@ function superRefine(fn, params) {
   return /* @__PURE__ */ _superRefine(fn, params);
 }
 __name(superRefine, "superRefine");
-const { useRef } = await importShared("react");
-const MILEAGE_RATES_STALE_TIME = 15 * 60 * 1e3;
-const MILEAGE_RATES_GC_TIME = 30 * 60 * 1e3;
-const useMileageRates = /* @__PURE__ */ __name(({
-  companyShortName,
-  mileageRateId,
-  enabled = true
-}) => {
-  return useQuery({
-    queryKey: companyShortName && mileageRateId ? queryKeys.mileageRates.byMileageRateId(companyShortName, mileageRateId) : queryKeys.mileageRates.all(),
-    queryFn: /* @__PURE__ */ __name(async () => {
-      if (!companyShortName || !mileageRateId) {
-        throw new Error("Company short name and mileage rate ID are required");
-      }
-      const url = CONFIGURATION_ENDPOINTS.MILEAGE_RATES.build({ tenant: companyShortName });
-      const response = await apiClient.get(url, {
-        params: { mileage_rate_id: mileageRateId }
-      });
-      return response.data;
-    }, "queryFn"),
-    enabled: enabled && !!companyShortName && !!mileageRateId,
-    staleTime: MILEAGE_RATES_STALE_TIME,
-    gcTime: MILEAGE_RATES_GC_TIME
-  });
-}, "useMileageRates");
-const fetchEffectiveMileageRate = /* @__PURE__ */ __name(async (companyShortName, mileageRateId, date2) => {
-  var _a3;
-  try {
-    const response = await apiClient.get(
-      CONFIGURATION_ENDPOINTS.MILEAGE_EFFECTIVE_RATE.build({
-        tenant: companyShortName,
-        mileageRateId
-      }),
-      { params: { date: date2 } }
-    );
-    return response.data;
-  } catch (err) {
-    const status = (_a3 = err.response) == null ? void 0 : _a3.status;
-    if (status === 404) return null;
-    throw err;
-  }
-}, "fetchEffectiveMileageRate");
-const useEffectiveMileageRate = /* @__PURE__ */ __name(({
-  companyShortName,
-  mileageRateId,
-  date: date2,
-  enabled = true
-}) => {
-  const canRun = !!companyShortName && !!mileageRateId && !!date2;
-  return useQuery({
-    // Distinct key even when disabled — keeps multiple disabled observers from colliding on a
-    // shared fallback key (same discipline as useEffectiveMileageRatesByIds).
-    queryKey: queryKeys.mileageRates.effectiveByIdOnDate(
-      companyShortName ?? "",
-      mileageRateId ?? 0,
-      date2
-    ),
-    queryFn: /* @__PURE__ */ __name(() => fetchEffectiveMileageRate(companyShortName, mileageRateId, date2), "queryFn"),
-    enabled: enabled && canRun,
-    staleTime: MILEAGE_RATES_STALE_TIME,
-    gcTime: MILEAGE_RATES_GC_TIME
-  });
-}, "useEffectiveMileageRate");
-const useEffectiveMileageRatesByIds = /* @__PURE__ */ __name(({
-  companyShortName,
-  mileageRateIds,
-  date: date2,
-  enabled = true
-}) => {
-  const queries = useQueries({
-    queries: mileageRateIds.map((mileageRateId) => ({
-      // Distinct key even when company is null, otherwise disabled queries collide on
-      // `mileageRates.all()` and React Query logs "Duplicate Queries found".
-      queryKey: queryKeys.mileageRates.effectiveByIdOnDate(
-        companyShortName ?? "",
-        mileageRateId,
-        date2
-      ),
-      queryFn: /* @__PURE__ */ __name(() => fetchEffectiveMileageRate(companyShortName, mileageRateId, date2), "queryFn"),
-      enabled: enabled && !!companyShortName && !!date2 && mileageRateId > 0,
-      staleTime: MILEAGE_RATES_STALE_TIME,
-      gcTime: MILEAGE_RATES_GC_TIME
-    }))
-  });
-  const ratesByIdRef = useRef(/* @__PURE__ */ new Map());
-  const fetchingByIdRef = useRef(/* @__PURE__ */ new Map());
-  const nextRates = /* @__PURE__ */ new Map();
-  const nextFetching = /* @__PURE__ */ new Map();
-  mileageRateIds.forEach((id, index) => {
-    var _a3, _b;
-    nextRates.set(id, ((_a3 = queries[index]) == null ? void 0 : _a3.data) ?? null);
-    nextFetching.set(id, ((_b = queries[index]) == null ? void 0 : _b.isFetching) ?? false);
-  });
-  ratesByIdRef.current = mapsAreEqual(ratesByIdRef.current, nextRates) ? ratesByIdRef.current : nextRates;
-  fetchingByIdRef.current = mapsAreEqual(fetchingByIdRef.current, nextFetching) ? fetchingByIdRef.current : nextFetching;
-  return {
-    ratesById: ratesByIdRef.current,
-    fetchingById: fetchingByIdRef.current,
-    isLoading: queries.some((q) => q.isLoading),
-    isFetching: queries.some((q) => q.isFetching)
-  };
-}, "useEffectiveMileageRatesByIds");
-function mapsAreEqual(a2, b) {
-  if (a2.size !== b.size) return false;
-  for (const [k, v] of b) {
-    if (a2.get(k) !== v) return false;
-  }
-  return true;
-}
-__name(mapsAreEqual, "mapsAreEqual");
-const useCreateMileageRate = /* @__PURE__ */ __name(() => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: /* @__PURE__ */ __name(async ({ companyShortName, mileageRateId, data }) => {
-      const url = CONFIGURATION_ENDPOINTS.MILEAGE_RATE_CREATE.build({ tenant: companyShortName });
-      const response = await apiClient.post(url, {
-        mileageRateId,
-        rate: data.rate,
-        effectiveDate: data.effectiveDate
-      });
-      return response.data;
-    }, "mutationFn"),
-    onSuccess: /* @__PURE__ */ __name(() => {
-      queryClient.invalidateQueries({ queryKey: queryKeys.mileageRates.all() });
-      queryClient.invalidateQueries({ queryKey: queryKeys.expenseTypes.all() });
-    }, "onSuccess"),
-    onError: /* @__PURE__ */ __name((error) => {
-      devError("Failed to create mileage rate:", error);
-    }, "onError")
-  });
-}, "useCreateMileageRate");
-const useDeleteMileageRate = /* @__PURE__ */ __name(() => {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: /* @__PURE__ */ __name(async ({ companyShortName, effectiveRateId }) => {
-      const url = CONFIGURATION_ENDPOINTS.MILEAGE_RATE_DELETE.build({
-        tenant: companyShortName,
-        effectiveRateId
-      });
-      const response = await apiClient.delete(url);
-      return response.data;
-    }, "mutationFn"),
-    onSuccess: /* @__PURE__ */ __name(() => {
-      queryClient.invalidateQueries({ queryKey: queryKeys.mileageRates.all() });
-      queryClient.invalidateQueries({ queryKey: queryKeys.expenseTypes.all() });
-    }, "onSuccess"),
-    onError: /* @__PURE__ */ __name((error) => {
-      devError("Failed to delete mileage rate:", error);
-    }, "onError")
-  });
-}, "useDeleteMileageRate");
 export {
   ConfirmDialog as C,
   DECIMAL_FORMAT_REGEX as D,
   Info as I,
-  MILEAGE_RATES_STALE_TIME as M,
   SIGNED_DECIMAL_FORMAT_REGEX as S,
   TOOLTIP_DELAY_TRUNCATED_TEXT as T,
   _enum as _,
@@ -7237,19 +6793,13 @@ export {
   date as g,
   createDecimalChangeHandler as h,
   useFormState as i,
-  useMileageRates as j,
-  useCreateMileageRate as k,
+  filterDecimalInput as j,
+  useController as k,
   literal as l,
-  useDeleteMileageRate as m,
+  unknown as m,
   number as n,
   object as o,
-  filterDecimalInput as p,
-  useController as q,
-  useEffectiveMileageRatesByIds as r,
+  TOOLTIP_DELAY_QUICK as p,
   string as s,
-  useEffectiveMileageRate as t,
-  useForm as u,
-  unknown as v,
-  fetchEffectiveMileageRate as w,
-  TOOLTIP_DELAY_QUICK as x
+  useForm as u
 };

@@ -21,9 +21,9 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { I as Icon } from "./Icon-DBeU9qcx.js";
 import { E as ETL_ERROR_MESSAGE } from "./constants-D3EhCWcC.js";
 import { b as apiClient, C as CONFIGURATION_ENDPOINTS, a8 as ys, a9 as Ss, k as gr, aa as Ns, Y as Yn, J as ws, B as Br, p as ls, Z as Zs, w as h, a3 as wt, a4 as zt, U as Ue, a5 as yt, O as Oa, f as create, g as devtools, ab as devWarn, d as devError, a as devLog, ac as Qt, D as gn, I as es, j as Mt, E as Et, P as Pt, ad as Ys, ae as Ks, af as Ws, a7 as ja, H as Ha, ag as cr, ah as Ga, ai as ri, aj as Ye } from "./configuration-CXYlvGz8.js";
-import { aa as Subscribable, ab as Mutation, ac as notifyManager, ad as matchMutation, ae as noop, af as hashQueryKeyByOptions, ag as Query, ah as matchQuery, ai as focusManager, aj as onlineManager, ak as resolveStaleTime, al as functionalUpdate, am as hashKey, an as partialMatchKey, ao as skipToken, n as useQuery, q as queryKeys, e as useCompanyStore, k as formatDate, ap as FILE_ENDPOINTS, $ as useTaxTypesDisplay, m as formatExpenseDate, a4 as formatCurrency, J as ExpenseFormType, a1 as EMPTY_CURRENCY_SYMBOL, aq as ECostAllocation, a7 as useDefaultCurrency, ar as formatDistance, a9 as formatRate, a2 as formatExpensePeriod, E as EXPENSE_ENDPOINTS, as as formatHistoryTimestamp, at as DEFAULT_CURRENCY_CODE, V as formatToISODate, i as useExpenseTypes, F as FormTypeId, au as AllowedMimeType, av as FILE_SIZE_LIMITS, aw as MIME_TYPE_CONFIG, ax as FilePreviewType, a6 as useCountries, ay as useDefaultCountry, az as useDebouncedCallback, a8 as useFormTypeId, w as isRegularExpense, x as isMileageExpense, s as isExpenseItemSubmitted, G as isExpenseItemDraft, t as useQueryClient, v as useMutation, aA as ItemCategory, z as useExpenseItem, aB as useNumericDisplay, a3 as getCurrencySymbol, P as Plus } from "./use-scroll-into-view-ref-ByGpyaZV.js";
+import { af as Subscribable, ag as Mutation, ah as notifyManager, ai as matchMutation, aj as noop, ak as hashQueryKeyByOptions, al as Query, am as matchQuery, an as focusManager, ao as onlineManager, ap as resolveStaleTime, aq as functionalUpdate, ar as hashKey, as as partialMatchKey, at as skipToken, n as useQuery, q as queryKeys, e as useCompanyStore, k as formatDate, au as FILE_ENDPOINTS, a2 as useTaxTypesDisplay, m as formatExpenseDate, a8 as formatCurrency, J as ExpenseFormType, a5 as EMPTY_CURRENCY_SYMBOL, av as ECostAllocation, ab as useDefaultCurrency, aw as formatDistance, ae as formatRate, a6 as formatExpensePeriod, E as EXPENSE_ENDPOINTS, ax as formatHistoryTimestamp, ay as DEFAULT_CURRENCY_CODE, V as formatToISODate, i as useExpenseTypes, F as FormTypeId, az as AllowedMimeType, aA as FILE_SIZE_LIMITS, aB as MIME_TYPE_CONFIG, aC as FilePreviewType, aa as useCountries, aD as useDefaultCountry, aE as useDebouncedCallback, ad as useEffectiveMileageRate, ac as useFormTypeId, w as isRegularExpense, x as isMileageExpense, s as isExpenseItemSubmitted, G as isExpenseItemDraft, t as useQueryClient, v as useMutation, aF as ItemCategory, aG as MILEAGE_RATES_STALE_TIME, aH as fetchEffectiveMileageRate, z as useExpenseItem, aI as useNumericDisplay, a7 as getCurrencySymbol, P as Plus } from "./use-scroll-into-view-ref-Cu52scn4.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { I as Info, s as string, S as SIGNED_DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, D as DECIMAL_FORMAT_REGEX, g as date, v as unknown, n as number, _ as _enum, C as ConfirmDialog, f as useWatch, u as useForm, d as u, l as literal, t as useEffectiveMileageRate, M as MILEAGE_RATES_STALE_TIME, w as fetchEffectiveMileageRate, i as useFormState, x as TOOLTIP_DELAY_QUICK, e as Controller, h as createDecimalChangeHandler, T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./useMileageRates-Hq_87mv7.js";
+import { I as Info, s as string, S as SIGNED_DECIMAL_FORMAT_REGEX, o as object, c as custom, b as boolean, a as array, D as DECIMAL_FORMAT_REGEX, g as date, m as unknown, n as number, _ as _enum, C as ConfirmDialog, f as useWatch, u as useForm, d as u, l as literal, i as useFormState, p as TOOLTIP_DELAY_QUICK, e as Controller, h as createDecimalChangeHandler, T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./schemas-D-iXGYUW.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 import { R as RefreshCw } from "./refresh-cw-ClK2195v.js";
 var MutationCache = (_a = class extends Subscribable {
@@ -8792,11 +8792,15 @@ function useExpenseItemForm(options) {
   } = useDeleteDialog({
     onDeleteSuccess: onExit
   });
+  const companyShortName = useCompanyStore((s) => {
+    var _a2;
+    return ((_a2 = s.userDefaultCompany) == null ? void 0 : _a2.shortName) ?? null;
+  });
   const {
     data: expenseItem,
     error: itemError,
     isLoading: isQueryLoading
-  } = useExpenseItem(itemId, { enabled: !isDeleteFlowActive });
+  } = useExpenseItem(itemId, { companyShortName, enabled: !isDeleteFlowActive });
   const isLoading = !isNewItem && (isQueryLoading || !expenseItem && !itemError);
   const dataItemType = useMemo(() => determineItemType(expenseItem), [expenseItem]);
   const itemType = isNewItem ? defaultItemType : dataItemType ?? defaultItemType;

@@ -8,8 +8,8 @@ var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read fr
 var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _a, _b, _c, _d, _e, _f, _focused, _cleanup, _setup, _g, _provider, _providerCalled, _h, _online, _cleanup2, _setup2, _i, _j, _gcTimeout, _k, _queryType, _initialState, _revertState, _cache, _client, _retryer, _defaultOptions, _abortSignalConsumed, __this_instances, isInitialPausedFetch_fn, dispatch_fn, _l, _client2, _currentQuery, _currentQueryInitialState, _currentResult, _currentResultState, _currentResultOptions, _currentThenable, _selectError, _selectFn, _selectResult, _lastQueryWithDefinedData, _staleTimeoutId, _refetchIntervalId, _currentRefetchInterval, _trackedProps, __this_instances2, executeFetch_fn, updateStaleTimeout_fn, computeRefetchInterval_fn, updateRefetchInterval_fn, updateTimers_fn, clearStaleTimeout_fn, clearRefetchInterval_fn, updateQuery_fn, notify_fn, _m, _client3, _observers, _mutationCache, _retryer2, __this_instances3, dispatch_fn2, _n, _client4, _currentResult2, _currentMutation, _mutateOptions, _MutationObserver_instances, updateResult_fn, notify_fn2, _o;
-import { c as createLucideIcon, f as create, g as devtools, s as subscribeWithSelector, i as immer, ar as endpoint, as as collectEndpointTemplates, ak as BUSINESS_PURPOSE_ENDPOINTS, C as CONFIGURATION_ENDPOINTS, b as apiClient, ab as devWarn, D as gn, Z as Zs } from "./configuration-CXYlvGz8.js";
+var _a, _b, _c, _d, _e, _f, _focused, _cleanup, _setup, _g, _provider, _providerCalled, _h, _online, _cleanup2, _setup2, _i, _j, _gcTimeout, _k, _queryType, _initialState, _revertState, _cache, _client, _retryer, _defaultOptions, _abortSignalConsumed, __this_instances, isInitialPausedFetch_fn, dispatch_fn, _l, _client2, _currentQuery, _currentQueryInitialState, _currentResult, _currentResultState, _currentResultOptions, _currentThenable, _selectError, _selectFn, _selectResult, _lastQueryWithDefinedData, _staleTimeoutId, _refetchIntervalId, _currentRefetchInterval, _trackedProps, __this_instances2, executeFetch_fn, updateStaleTimeout_fn, computeRefetchInterval_fn, updateRefetchInterval_fn, updateTimers_fn, clearStaleTimeout_fn, clearRefetchInterval_fn, updateQuery_fn, notify_fn, _m, _client3, _observers, _mutationCache, _retryer2, __this_instances3, dispatch_fn2, _n, _client4, _currentResult2, _currentMutation, _mutateOptions, _MutationObserver_instances, updateResult_fn, notify_fn2, _o, _client5, _result, _queries, _options, _observers2, _combinedResult, _lastCombine, _lastResult, _lastQueryHashes, _observerMatches, __this_instances4, trackResult_fn, combineResult_fn, shouldSkipCombine_fn, findMatchingObservers_fn, onUpdate_fn, notify_fn3, _p;
+import { c as createLucideIcon, f as create, g as devtools, s as subscribeWithSelector, i as immer, ar as endpoint, as as collectEndpointTemplates, ak as BUSINESS_PURPOSE_ENDPOINTS, C as CONFIGURATION_ENDPOINTS, b as apiClient, ab as devWarn, d as devError, D as gn, Z as Zs } from "./configuration-CXYlvGz8.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 var __typeError2 = /* @__PURE__ */ __name((msg) => {
@@ -4998,41 +4998,41 @@ function createDeferred() {
   };
 }
 __name(createDeferred, "createDeferred");
-const React$7 = await importShared("react");
-var DataRouterContext = React$7.createContext(null);
+const React$8 = await importShared("react");
+var DataRouterContext = React$8.createContext(null);
 DataRouterContext.displayName = "DataRouter";
-var DataRouterStateContext = React$7.createContext(null);
+var DataRouterStateContext = React$8.createContext(null);
 DataRouterStateContext.displayName = "DataRouterState";
-var RSCRouterContext = React$7.createContext(false);
+var RSCRouterContext = React$8.createContext(false);
 function useIsRSCRouterContext() {
-  return React$7.useContext(RSCRouterContext);
+  return React$8.useContext(RSCRouterContext);
 }
 __name(useIsRSCRouterContext, "useIsRSCRouterContext");
-var ViewTransitionContext = React$7.createContext({
+var ViewTransitionContext = React$8.createContext({
   isTransitioning: false
 });
 ViewTransitionContext.displayName = "ViewTransition";
-var FetchersContext = React$7.createContext(
+var FetchersContext = React$8.createContext(
   /* @__PURE__ */ new Map()
 );
 FetchersContext.displayName = "Fetchers";
-var AwaitContext = React$7.createContext(null);
+var AwaitContext = React$8.createContext(null);
 AwaitContext.displayName = "Await";
-var NavigationContext = React$7.createContext(
+var NavigationContext = React$8.createContext(
   null
 );
 NavigationContext.displayName = "Navigation";
-var LocationContext = React$7.createContext(
+var LocationContext = React$8.createContext(
   null
 );
 LocationContext.displayName = "Location";
-var RouteContext = React$7.createContext({
+var RouteContext = React$8.createContext({
   outlet: null,
   matches: [],
   isDataRoute: false
 });
 RouteContext.displayName = "Route";
-var RouteErrorContext = React$7.createContext(null);
+var RouteErrorContext = React$8.createContext(null);
 RouteErrorContext.displayName = "RouteError";
 const React2 = await importShared("react");
 var ERROR_DIGEST_BASE = "REACT_ROUTER_ERROR";
@@ -9373,7 +9373,7 @@ var Mutation = (_n = class extends Removable {
     this.execute(this.state.variables);
   }
   async execute(variables) {
-    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k2, _l2, _m2, _n2, _o2, _p, _q, _r;
+    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k2, _l2, _m2, _n2, _o2, _p2, _q, _r;
     const onContinue = /* @__PURE__ */ __name(() => {
       __privateMethod(this, __this_instances3, dispatch_fn2).call(this, { type: "continue" });
     }, "onContinue");
@@ -9489,7 +9489,7 @@ var Mutation = (_n = class extends Removable {
         void Promise.reject(e);
       }
       try {
-        await ((_p = (_o2 = __privateGet(this, _mutationCache).config).onSettled) == null ? void 0 : _p.call(
+        await ((_p2 = (_o2 = __privateGet(this, _mutationCache).config).onSettled) == null ? void 0 : _p2.call(
           _o2,
           void 0,
           error,
@@ -9739,12 +9739,212 @@ var MutationObserver$1 = (_o = class extends Subscribable {
     });
   });
 }, "#notify"), __name(_o, "MutationObserver"), _o);
-const React$6 = await importShared("react");
-var QueryClientContext = React$6.createContext(
+function difference(array1, array2) {
+  const excludeSet = new Set(array2);
+  return array1.filter((x) => !excludeSet.has(x));
+}
+__name(difference, "difference");
+function replaceAt(array, index, value) {
+  const copy = array.slice(0);
+  copy[index] = value;
+  return copy;
+}
+__name(replaceAt, "replaceAt");
+var QueriesObserver = (_p = class extends Subscribable {
+  constructor(client, queries, options) {
+    super();
+    __privateAdd(this, __this_instances4);
+    __privateAdd(this, _client5);
+    __privateAdd(this, _result);
+    __privateAdd(this, _queries);
+    __privateAdd(this, _options);
+    __privateAdd(this, _observers2);
+    __privateAdd(this, _combinedResult);
+    __privateAdd(this, _lastCombine);
+    __privateAdd(this, _lastResult);
+    __privateAdd(this, _lastQueryHashes);
+    __privateAdd(this, _observerMatches, []);
+    __privateSet(this, _client5, client);
+    __privateSet(this, _options, options);
+    __privateSet(this, _queries, []);
+    __privateSet(this, _observers2, []);
+    __privateSet(this, _result, []);
+    this.setQueries(queries);
+  }
+  onSubscribe() {
+    if (this.listeners.size === 1) {
+      __privateGet(this, _observers2).forEach((observer) => {
+        observer.subscribe((result) => {
+          __privateMethod(this, __this_instances4, onUpdate_fn).call(this, observer, result);
+        });
+      });
+    }
+  }
+  onUnsubscribe() {
+    if (!this.listeners.size) {
+      this.destroy();
+    }
+  }
+  destroy() {
+    this.listeners = /* @__PURE__ */ new Set();
+    __privateGet(this, _observers2).forEach((observer) => {
+      observer.destroy();
+    });
+  }
+  setQueries(queries, options) {
+    __privateSet(this, _queries, queries);
+    __privateSet(this, _options, options);
+    notifyManager.batch(() => {
+      const prevObservers = __privateGet(this, _observers2);
+      const newObserverMatches = __privateMethod(this, __this_instances4, findMatchingObservers_fn).call(this, __privateGet(this, _queries));
+      newObserverMatches.forEach(
+        (match) => match.observer.setOptions(match.defaultedQueryOptions)
+      );
+      const newObservers = newObserverMatches.map((match) => match.observer);
+      const newResult = newObservers.map(
+        (observer) => observer.getCurrentResult()
+      );
+      const hasLengthChange = prevObservers.length !== newObservers.length;
+      const hasIndexChange = newObservers.some(
+        (observer, index) => observer !== prevObservers[index]
+      );
+      const hasStructuralChange = hasLengthChange || hasIndexChange;
+      const hasResultChange = hasStructuralChange ? true : newResult.some((result, index) => {
+        const prev = __privateGet(this, _result)[index];
+        return !prev || !shallowEqualObjects(result, prev);
+      });
+      if (!hasStructuralChange && !hasResultChange) return;
+      if (hasStructuralChange) {
+        __privateSet(this, _observerMatches, newObserverMatches);
+        __privateSet(this, _observers2, newObservers);
+      }
+      __privateSet(this, _result, newResult);
+      if (!this.hasListeners()) return;
+      if (hasStructuralChange) {
+        difference(prevObservers, newObservers).forEach((observer) => {
+          observer.destroy();
+        });
+        difference(newObservers, prevObservers).forEach((observer) => {
+          observer.subscribe((result) => {
+            __privateMethod(this, __this_instances4, onUpdate_fn).call(this, observer, result);
+          });
+        });
+      }
+      __privateMethod(this, __this_instances4, notify_fn3).call(this);
+    });
+  }
+  getCurrentResult() {
+    return __privateGet(this, _result);
+  }
+  getQueries() {
+    return __privateGet(this, _observers2).map((observer) => observer.getCurrentQuery());
+  }
+  getObservers() {
+    return __privateGet(this, _observers2);
+  }
+  getOptimisticResult(queries, combine) {
+    const matches = __privateMethod(this, __this_instances4, findMatchingObservers_fn).call(this, queries);
+    const result = matches.map(
+      (match) => match.observer.getOptimisticResult(match.defaultedQueryOptions)
+    );
+    const queryHashes = matches.map(
+      (match) => match.defaultedQueryOptions.queryHash
+    );
+    return [
+      result,
+      (r) => {
+        return __privateMethod(this, __this_instances4, combineResult_fn).call(this, r ?? result, combine, queryHashes);
+      },
+      () => {
+        return __privateMethod(this, __this_instances4, trackResult_fn).call(this, result, matches);
+      }
+    ];
+  }
+}, _client5 = new WeakMap(), _result = new WeakMap(), _queries = new WeakMap(), _options = new WeakMap(), _observers2 = new WeakMap(), _combinedResult = new WeakMap(), _lastCombine = new WeakMap(), _lastResult = new WeakMap(), _lastQueryHashes = new WeakMap(), _observerMatches = new WeakMap(), __this_instances4 = new WeakSet(), trackResult_fn = /* @__PURE__ */ __name(function(result, matches) {
+  return matches.map((match, index) => {
+    const observerResult = result[index];
+    return !match.defaultedQueryOptions.notifyOnChangeProps ? match.observer.trackResult(observerResult, (accessedProp) => {
+      matches.forEach((m) => {
+        m.observer.trackProp(accessedProp);
+      });
+    }) : observerResult;
+  });
+}, "#trackResult"), combineResult_fn = /* @__PURE__ */ __name(function(input, combine, queryHashes) {
+  if (combine) {
+    const lastHashes = __privateGet(this, _lastQueryHashes);
+    const queryHashesChanged = queryHashes !== void 0 && lastHashes !== void 0 && (lastHashes.length !== queryHashes.length || queryHashes.some((hash, i) => hash !== lastHashes[i]));
+    if (!__privateGet(this, _combinedResult) || __privateGet(this, _result) !== __privateGet(this, _lastResult) || queryHashesChanged || combine !== __privateGet(this, _lastCombine)) {
+      __privateSet(this, _lastCombine, combine);
+      __privateSet(this, _lastResult, __privateGet(this, _result));
+      if (queryHashes !== void 0) {
+        __privateSet(this, _lastQueryHashes, queryHashes);
+      }
+      __privateSet(this, _combinedResult, replaceEqualDeep(
+        __privateGet(this, _combinedResult),
+        combine(input)
+      ));
+    }
+    return __privateGet(this, _combinedResult);
+  }
+  return input;
+}, "#combineResult"), shouldSkipCombine_fn = /* @__PURE__ */ __name(function() {
+  var _a2;
+  return ((_a2 = __privateGet(this, _options)) == null ? void 0 : _a2.combine) !== void 0 && __privateGet(this, _observers2).some((observer, index) => {
+    var _a3;
+    return observer.options.suspense && ((_a3 = __privateGet(this, _result)[index]) == null ? void 0 : _a3.data) === void 0;
+  });
+}, "#shouldSkipCombine"), findMatchingObservers_fn = /* @__PURE__ */ __name(function(queries) {
+  const prevObserversMap = /* @__PURE__ */ new Map();
+  __privateGet(this, _observers2).forEach((observer) => {
+    const key = observer.options.queryHash;
+    if (!key) return;
+    const previousObservers = prevObserversMap.get(key);
+    if (previousObservers) {
+      previousObservers.push(observer);
+    } else {
+      prevObserversMap.set(key, [observer]);
+    }
+  });
+  const observers = [];
+  queries.forEach((options) => {
+    var _a2;
+    const defaultedOptions = __privateGet(this, _client5).defaultQueryOptions(options);
+    const match = (_a2 = prevObserversMap.get(defaultedOptions.queryHash)) == null ? void 0 : _a2.shift();
+    const observer = match ?? new QueryObserver(__privateGet(this, _client5), defaultedOptions);
+    observers.push({
+      defaultedQueryOptions: defaultedOptions,
+      observer
+    });
+  });
+  return observers;
+}, "#findMatchingObservers"), onUpdate_fn = /* @__PURE__ */ __name(function(observer, result) {
+  const index = __privateGet(this, _observers2).indexOf(observer);
+  if (index !== -1) {
+    __privateSet(this, _result, replaceAt(__privateGet(this, _result), index, result));
+    __privateMethod(this, __this_instances4, notify_fn3).call(this);
+  }
+}, "#onUpdate"), notify_fn3 = /* @__PURE__ */ __name(function() {
+  var _a2;
+  if (this.hasListeners()) {
+    const newTracked = __privateMethod(this, __this_instances4, trackResult_fn).call(this, __privateGet(this, _result), __privateGet(this, _observerMatches));
+    const shouldSkipCombine = __privateMethod(this, __this_instances4, shouldSkipCombine_fn).call(this);
+    const previousResult = __privateGet(this, _combinedResult);
+    const newResult = shouldSkipCombine ? previousResult : __privateMethod(this, __this_instances4, combineResult_fn).call(this, newTracked, (_a2 = __privateGet(this, _options)) == null ? void 0 : _a2.combine);
+    if (shouldSkipCombine || previousResult !== newResult) {
+      notifyManager.batch(() => {
+        this.listeners.forEach((listener) => {
+          listener(__privateGet(this, _result));
+        });
+      });
+    }
+  }
+}, "#notify"), __name(_p, "QueriesObserver"), _p);
+const React$7 = await importShared("react");
+var QueryClientContext = React$7.createContext(
   void 0
 );
 var useQueryClient = /* @__PURE__ */ __name((queryClient) => {
-  const client = React$6.useContext(QueryClientContext);
+  const client = React$7.useContext(QueryClientContext);
   if (!client) {
     throw new Error("No QueryClient set, use QueryClientProvider to set one");
   }
@@ -9754,7 +9954,7 @@ var QueryClientProvider = /* @__PURE__ */ __name(({
   client,
   children
 }) => {
-  React$6.useEffect(() => {
+  React$7.useEffect(() => {
     client.mount();
     return () => {
       client.unmount();
@@ -9762,11 +9962,11 @@ var QueryClientProvider = /* @__PURE__ */ __name(({
   }, [client]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientContext.Provider, { value: client, children });
 }, "QueryClientProvider");
-const React$5 = await importShared("react");
-var IsRestoringContext = React$5.createContext(false);
-var useIsRestoring = /* @__PURE__ */ __name(() => React$5.useContext(IsRestoringContext), "useIsRestoring");
+const React$6 = await importShared("react");
+var IsRestoringContext = React$6.createContext(false);
+var useIsRestoring = /* @__PURE__ */ __name(() => React$6.useContext(IsRestoringContext), "useIsRestoring");
 IsRestoringContext.Provider;
-const React$4 = await importShared("react");
+const React$5 = await importShared("react");
 function createValue() {
   let isReset = false;
   return {
@@ -9782,9 +9982,9 @@ function createValue() {
   };
 }
 __name(createValue, "createValue");
-var QueryErrorResetBoundaryContext = React$4.createContext(createValue());
-var useQueryErrorResetBoundary = /* @__PURE__ */ __name(() => React$4.useContext(QueryErrorResetBoundaryContext), "useQueryErrorResetBoundary");
-const React$3 = await importShared("react");
+var QueryErrorResetBoundaryContext = React$5.createContext(createValue());
+var useQueryErrorResetBoundary = /* @__PURE__ */ __name(() => React$5.useContext(QueryErrorResetBoundaryContext), "useQueryErrorResetBoundary");
+const React$4 = await importShared("react");
 var ensurePreventErrorBoundaryRetry = /* @__PURE__ */ __name((options, errorResetBoundary, query) => {
   const throwOnError = (query == null ? void 0 : query.state.error) && typeof options.throwOnError === "function" ? shouldThrowError(options.throwOnError, [query.state.error, query]) : options.throwOnError;
   if (options.suspense || options.experimental_prefetchInRender || throwOnError) {
@@ -9794,7 +9994,7 @@ var ensurePreventErrorBoundaryRetry = /* @__PURE__ */ __name((options, errorRese
   }
 }, "ensurePreventErrorBoundaryRetry");
 var useClearResetErrorBoundary = /* @__PURE__ */ __name((errorResetBoundary) => {
-  React$3.useEffect(() => {
+  React$4.useEffect(() => {
     errorResetBoundary.clearReset();
   }, [errorResetBoundary]);
 }, "useClearResetErrorBoundary");
@@ -9826,6 +10026,88 @@ var shouldSuspend = /* @__PURE__ */ __name((defaultedOptions, result) => (defaul
 var fetchOptimistic = /* @__PURE__ */ __name((defaultedOptions, observer, errorResetBoundary) => observer.fetchOptimistic(defaultedOptions).catch(() => {
   errorResetBoundary.clearReset();
 }), "fetchOptimistic");
+const React$3 = await importShared("react");
+function useQueries({
+  queries,
+  ...options
+}, queryClient) {
+  const client = useQueryClient();
+  const isRestoring = useIsRestoring();
+  const errorResetBoundary = useQueryErrorResetBoundary();
+  const defaultedQueries = React$3.useMemo(
+    () => queries.map((opts) => {
+      const defaultedOptions = client.defaultQueryOptions(
+        opts
+      );
+      defaultedOptions._optimisticResults = isRestoring ? "isRestoring" : "optimistic";
+      return defaultedOptions;
+    }),
+    [queries, client, isRestoring]
+  );
+  defaultedQueries.forEach((queryOptions) => {
+    ensureSuspenseTimers(queryOptions);
+    const query = client.getQueryCache().get(queryOptions.queryHash);
+    ensurePreventErrorBoundaryRetry(queryOptions, errorResetBoundary, query);
+  });
+  useClearResetErrorBoundary(errorResetBoundary);
+  const [observer] = React$3.useState(
+    () => new QueriesObserver(
+      client,
+      defaultedQueries,
+      options
+    )
+  );
+  const [optimisticResult, getCombinedResult, trackResult] = observer.getOptimisticResult(
+    defaultedQueries,
+    options.combine
+  );
+  const shouldSubscribe = !isRestoring && options.subscribed !== false;
+  React$3.useSyncExternalStore(
+    React$3.useCallback(
+      (onStoreChange) => shouldSubscribe ? observer.subscribe(notifyManager.batchCalls(onStoreChange)) : noop,
+      [observer, shouldSubscribe]
+    ),
+    () => observer.getCurrentResult(),
+    () => observer.getCurrentResult()
+  );
+  React$3.useEffect(() => {
+    observer.setQueries(
+      defaultedQueries,
+      options
+    );
+  }, [defaultedQueries, options, observer]);
+  const shouldAtLeastOneSuspend = optimisticResult.some(
+    (result, index) => shouldSuspend(defaultedQueries[index], result)
+  );
+  const suspensePromises = shouldAtLeastOneSuspend ? optimisticResult.flatMap((result, index) => {
+    const opts = defaultedQueries[index];
+    if (opts && shouldSuspend(opts, result)) {
+      const queryObserver = new QueryObserver(client, opts);
+      return fetchOptimistic(opts, queryObserver, errorResetBoundary);
+    }
+    return [];
+  }) : [];
+  if (suspensePromises.length > 0) {
+    throw Promise.all(suspensePromises);
+  }
+  const firstSingleResultWhichShouldThrow = optimisticResult.find(
+    (result, index) => {
+      const query = defaultedQueries[index];
+      return query && getHasError({
+        result,
+        errorResetBoundary,
+        throwOnError: query.throwOnError,
+        query: client.getQueryCache().get(query.queryHash),
+        suspense: query.suspense
+      });
+    }
+  );
+  if (firstSingleResultWhichShouldThrow == null ? void 0 : firstSingleResultWhichShouldThrow.error) {
+    throw firstSingleResultWhichShouldThrow.error;
+  }
+  return getCombinedResult(trackResult());
+}
+__name(useQueries, "useQueries");
 const React$2 = await importShared("react");
 function useBaseQuery(options, Observer, queryClient) {
   var _a2, _b2, _c2, _d2;
@@ -11281,24 +11563,20 @@ const findCachedActiveBusinessPurposes = /* @__PURE__ */ __name((queryClient) =>
   return (_a2 = queryClient.getQueriesData({ queryKey: queryKeys.businessPurposes.all() }).find(([, data]) => Array.isArray(data) && data.length > 0)) == null ? void 0 : _a2[1];
 }, "findCachedActiveBusinessPurposes");
 const findCachedActivePaymentMethods = /* @__PURE__ */ __name((queryClient, companyShortName) => queryClient.getQueryData(queryKeys.paymentMethods.list(companyShortName)), "findCachedActivePaymentMethods");
-const useExpenseItem = /* @__PURE__ */ __name((itemId, options = {}) => {
-  const { enabled = true } = options;
-  const company = useCompanyStore((s) => {
-    var _a2;
-    return ((_a2 = s.userDefaultCompany) == null ? void 0 : _a2.shortName) ?? null;
-  });
+const useExpenseItem = /* @__PURE__ */ __name((itemId, options) => {
+  const { enabled = true, companyShortName } = options;
   const queryClient = useQueryClient();
   return useQuery({
     queryKey: itemId ? queryKeys.expenseItem.detail(itemId) : queryKeys.expenseItem.details(),
     queryFn: /* @__PURE__ */ __name(async () => {
-      if (!itemId || !company) throw new Error("Item ID and company are required");
+      if (!itemId || !companyShortName) throw new Error("Item ID and company are required");
       const response = await apiClient.get(
-        EXPENSE_ENDPOINTS.GET_EXPENSE_FORM.build({ tenant: company, id: itemId })
+        EXPENSE_ENDPOINTS.GET_EXPENSE_FORM.build({ tenant: companyShortName, id: itemId })
       );
       const expenseTypes = findCachedExpenseTypes(queryClient);
       const currencies = queryClient.getQueryData(queryKeys.currencies.list()) ?? [];
       const businessPurposes = findCachedActiveBusinessPurposes(queryClient);
-      const paymentMethods = findCachedActivePaymentMethods(queryClient, company);
+      const paymentMethods = findCachedActivePaymentMethods(queryClient, companyShortName);
       return mapSingleExpenseFormToExpenseItem(response.data, {
         expenseTypes,
         currencies,
@@ -11306,11 +11584,162 @@ const useExpenseItem = /* @__PURE__ */ __name((itemId, options = {}) => {
         paymentMethods
       });
     }, "queryFn"),
-    enabled: enabled && !!itemId && !!company,
+    enabled: enabled && !!itemId && !!companyShortName,
     retry: false,
     staleTime: 30 * 1e3
   });
 }, "useExpenseItem");
+const { useRef: useRef$3 } = await importShared("react");
+const MILEAGE_RATES_STALE_TIME = 15 * 60 * 1e3;
+const MILEAGE_RATES_GC_TIME = 30 * 60 * 1e3;
+const useMileageRates = /* @__PURE__ */ __name(({
+  companyShortName,
+  mileageRateId,
+  enabled = true
+}) => {
+  return useQuery({
+    queryKey: companyShortName && mileageRateId ? queryKeys.mileageRates.byMileageRateId(companyShortName, mileageRateId) : queryKeys.mileageRates.all(),
+    queryFn: /* @__PURE__ */ __name(async () => {
+      if (!companyShortName || !mileageRateId) {
+        throw new Error("Company short name and mileage rate ID are required");
+      }
+      const url = CONFIGURATION_ENDPOINTS.MILEAGE_RATES.build({ tenant: companyShortName });
+      const response = await apiClient.get(url, {
+        params: { mileage_rate_id: mileageRateId }
+      });
+      return response.data;
+    }, "queryFn"),
+    enabled: enabled && !!companyShortName && !!mileageRateId,
+    staleTime: MILEAGE_RATES_STALE_TIME,
+    gcTime: MILEAGE_RATES_GC_TIME
+  });
+}, "useMileageRates");
+const fetchEffectiveMileageRate = /* @__PURE__ */ __name(async (companyShortName, mileageRateId, date) => {
+  var _a2;
+  try {
+    const response = await apiClient.get(
+      CONFIGURATION_ENDPOINTS.MILEAGE_EFFECTIVE_RATE.build({
+        tenant: companyShortName,
+        mileageRateId
+      }),
+      { params: { date } }
+    );
+    return response.data;
+  } catch (err) {
+    const status = (_a2 = err.response) == null ? void 0 : _a2.status;
+    if (status === 404) return null;
+    throw err;
+  }
+}, "fetchEffectiveMileageRate");
+const useEffectiveMileageRate = /* @__PURE__ */ __name(({
+  companyShortName,
+  mileageRateId,
+  date,
+  enabled = true
+}) => {
+  const canRun = !!companyShortName && !!mileageRateId && !!date;
+  return useQuery({
+    // Distinct key even when disabled - keeps multiple disabled observers from colliding on a
+    // shared fallback key (same discipline as useEffectiveMileageRatesByIds).
+    queryKey: queryKeys.mileageRates.effectiveByIdOnDate(
+      companyShortName ?? "",
+      mileageRateId ?? 0,
+      date
+    ),
+    queryFn: /* @__PURE__ */ __name(() => fetchEffectiveMileageRate(companyShortName, mileageRateId, date), "queryFn"),
+    enabled: enabled && canRun,
+    staleTime: MILEAGE_RATES_STALE_TIME,
+    gcTime: MILEAGE_RATES_GC_TIME
+  });
+}, "useEffectiveMileageRate");
+const useEffectiveMileageRatesByIds = /* @__PURE__ */ __name(({
+  companyShortName,
+  mileageRateIds,
+  date,
+  enabled = true
+}) => {
+  const queries = useQueries({
+    queries: mileageRateIds.map((mileageRateId) => ({
+      // Distinct key even when company is null, otherwise disabled queries collide on
+      // `mileageRates.all()` and React Query logs "Duplicate Queries found".
+      queryKey: queryKeys.mileageRates.effectiveByIdOnDate(
+        companyShortName ?? "",
+        mileageRateId,
+        date
+      ),
+      queryFn: /* @__PURE__ */ __name(() => fetchEffectiveMileageRate(companyShortName, mileageRateId, date), "queryFn"),
+      enabled: enabled && !!companyShortName && !!date && mileageRateId > 0,
+      staleTime: MILEAGE_RATES_STALE_TIME,
+      gcTime: MILEAGE_RATES_GC_TIME
+    }))
+  });
+  const ratesByIdRef = useRef$3(/* @__PURE__ */ new Map());
+  const fetchingByIdRef = useRef$3(/* @__PURE__ */ new Map());
+  const nextRates = /* @__PURE__ */ new Map();
+  const nextFetching = /* @__PURE__ */ new Map();
+  mileageRateIds.forEach((id, index) => {
+    var _a2, _b2;
+    nextRates.set(id, ((_a2 = queries[index]) == null ? void 0 : _a2.data) ?? null);
+    nextFetching.set(id, ((_b2 = queries[index]) == null ? void 0 : _b2.isFetching) ?? false);
+  });
+  ratesByIdRef.current = mapsAreEqual(ratesByIdRef.current, nextRates) ? ratesByIdRef.current : nextRates;
+  fetchingByIdRef.current = mapsAreEqual(fetchingByIdRef.current, nextFetching) ? fetchingByIdRef.current : nextFetching;
+  return {
+    ratesById: ratesByIdRef.current,
+    fetchingById: fetchingByIdRef.current,
+    isLoading: queries.some((q) => q.isLoading),
+    isFetching: queries.some((q) => q.isFetching)
+  };
+}, "useEffectiveMileageRatesByIds");
+function mapsAreEqual(a, b) {
+  if (a.size !== b.size) return false;
+  for (const [k, v] of b) {
+    if (a.get(k) !== v) return false;
+  }
+  return true;
+}
+__name(mapsAreEqual, "mapsAreEqual");
+const useCreateMileageRate = /* @__PURE__ */ __name(() => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ companyShortName, mileageRateId, data }) => {
+      const url = CONFIGURATION_ENDPOINTS.MILEAGE_RATE_CREATE.build({ tenant: companyShortName });
+      const response = await apiClient.post(url, {
+        mileageRateId,
+        rate: data.rate,
+        effectiveDate: data.effectiveDate
+      });
+      return response.data;
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name(() => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.mileageRates.all() });
+      queryClient.invalidateQueries({ queryKey: queryKeys.expenseTypes.all() });
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error) => {
+      devError("Failed to create mileage rate:", error);
+    }, "onError")
+  });
+}, "useCreateMileageRate");
+const useDeleteMileageRate = /* @__PURE__ */ __name(() => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: /* @__PURE__ */ __name(async ({ companyShortName, effectiveRateId }) => {
+      const url = CONFIGURATION_ENDPOINTS.MILEAGE_RATE_DELETE.build({
+        tenant: companyShortName,
+        effectiveRateId
+      });
+      const response = await apiClient.delete(url);
+      return response.data;
+    }, "mutationFn"),
+    onSuccess: /* @__PURE__ */ __name(() => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.mileageRates.all() });
+      queryClient.invalidateQueries({ queryKey: queryKeys.expenseTypes.all() });
+    }, "onSuccess"),
+    onError: /* @__PURE__ */ __name((error) => {
+      devError("Failed to delete mileage rate:", error);
+    }, "onError")
+  });
+}, "useDeleteMileageRate");
 const React = await importShared("react");
 const { useCallback: useCallback$5, useMemo, useState: useState$2 } = React;
 const DEFAULT_MAX_DROPDOWN_RESULTS = 50;
@@ -11605,7 +12034,7 @@ function useScrollIntoViewRef(options) {
 }
 __name(useScrollIntoViewRef, "useScrollIntoViewRef");
 export {
-  useTaxTypesDisplay as $,
+  useCreateMileageRate as $,
   ALL_ENDPOINT_TEMPLATES as A,
   useErrorToast as B,
   useParams as C,
@@ -11632,60 +12061,57 @@ export {
   DEFAULT_CURRENCY_SYMBOL as X,
   formatRateCompact as Y,
   MileageRateStatus as Z,
-  TaxTypeSearchSelect as _,
+  useMileageRates as _,
   RoutePaths as a,
-  RECONCILIATION_ENDPOINTS as a0,
-  EMPTY_CURRENCY_SYMBOL as a1,
-  formatExpensePeriod as a2,
-  getCurrencySymbol as a3,
-  formatCurrency as a4,
-  getExpenseItemAmount as a5,
-  useCountries as a6,
-  useDefaultCurrency as a7,
-  useFormTypeId as a8,
-  formatRate as a9,
-  ItemCategory as aA,
-  useNumericDisplay as aB,
-  QueryObserver as aC,
-  hasPreviousPage as aD,
-  hasNextPage as aE,
-  useBaseQuery as aF,
-  shallowEqualObjects as aG,
-  replaceEqualDeep as aH,
-  useIsRestoring as aI,
-  useQueryErrorResetBoundary as aJ,
-  ensureSuspenseTimers as aK,
-  ensurePreventErrorBoundaryRetry as aL,
-  useClearResetErrorBoundary as aM,
-  shouldSuspend as aN,
-  fetchOptimistic as aO,
-  getHasError as aP,
-  Subscribable as aa,
-  Mutation as ab,
-  notifyManager as ac,
-  matchMutation as ad,
-  noop as ae,
-  hashQueryKeyByOptions as af,
-  Query as ag,
-  matchQuery as ah,
-  focusManager as ai,
-  onlineManager as aj,
-  resolveStaleTime as ak,
-  functionalUpdate as al,
-  hashKey as am,
-  partialMatchKey as an,
-  skipToken as ao,
-  FILE_ENDPOINTS as ap,
-  ECostAllocation as aq,
-  formatDistance as ar,
-  formatHistoryTimestamp as as,
-  DEFAULT_CURRENCY_CODE as at,
-  AllowedMimeType as au,
-  FILE_SIZE_LIMITS as av,
-  MIME_TYPE_CONFIG as aw,
-  FilePreviewType as ax,
-  useDefaultCountry as ay,
-  useDebouncedCallback as az,
+  useDeleteMileageRate as a0,
+  TaxTypeSearchSelect as a1,
+  useTaxTypesDisplay as a2,
+  useEffectiveMileageRatesByIds as a3,
+  RECONCILIATION_ENDPOINTS as a4,
+  EMPTY_CURRENCY_SYMBOL as a5,
+  formatExpensePeriod as a6,
+  getCurrencySymbol as a7,
+  formatCurrency as a8,
+  getExpenseItemAmount as a9,
+  FILE_SIZE_LIMITS as aA,
+  MIME_TYPE_CONFIG as aB,
+  FilePreviewType as aC,
+  useDefaultCountry as aD,
+  useDebouncedCallback as aE,
+  ItemCategory as aF,
+  MILEAGE_RATES_STALE_TIME as aG,
+  fetchEffectiveMileageRate as aH,
+  useNumericDisplay as aI,
+  QueryObserver as aJ,
+  hasPreviousPage as aK,
+  hasNextPage as aL,
+  useBaseQuery as aM,
+  useCountries as aa,
+  useDefaultCurrency as ab,
+  useFormTypeId as ac,
+  useEffectiveMileageRate as ad,
+  formatRate as ae,
+  Subscribable as af,
+  Mutation as ag,
+  notifyManager as ah,
+  matchMutation as ai,
+  noop as aj,
+  hashQueryKeyByOptions as ak,
+  Query as al,
+  matchQuery as am,
+  focusManager as an,
+  onlineManager as ao,
+  resolveStaleTime as ap,
+  functionalUpdate as aq,
+  hashKey as ar,
+  partialMatchKey as as,
+  skipToken as at,
+  FILE_ENDPOINTS as au,
+  ECostAllocation as av,
+  formatDistance as aw,
+  formatHistoryTimestamp as ax,
+  DEFAULT_CURRENCY_CODE as ay,
+  AllowedMimeType as az,
   RouteNames as b,
   NavLink as c,
   useNavigate as d,

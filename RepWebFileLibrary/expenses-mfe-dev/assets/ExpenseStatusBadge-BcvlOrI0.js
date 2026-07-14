@@ -2,7 +2,7 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { B as Br } from "./configuration-CXYlvGz8.js";
-import "./use-scroll-into-view-ref-ByGpyaZV.js";
+import "./use-scroll-into-view-ref-Cu52scn4.js";
 const STATUS_BADGE_CONFIG = {
   draft: {
     bgColor: "bg-exp-yellow-200",
