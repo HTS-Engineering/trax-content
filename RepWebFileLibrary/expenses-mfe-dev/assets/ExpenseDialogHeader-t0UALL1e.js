@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { l as getExpenseActionSubtitle, i as isMileageTripData, d as isMileagePeriodData } from "./CostAllocationSection-BBoLgVHl.js";
+import { l as getExpenseActionSubtitle, i as isMileageTripData, d as isMileagePeriodData } from "./CostAllocationSection-lHuJoXBn.js";
 import { c as isMileageExpense, q as getExpenseItemAmount, i as isExpenseItemSubmitted, b as isRegularExpense } from "./TaxTypeSearchSelect-BOGrOto7.js";
 import { n as formatAmountWithCurrency, H as formatExpensePeriod } from "./use-scroll-into-view-ref-BwZ0vqtT.js";
 import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";

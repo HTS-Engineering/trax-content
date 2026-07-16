@@ -4266,8 +4266,8 @@ const expenseTypeField = string().min(1, "Expense type is required");
 string().optional();
 const paymentMethodField = string().min(1, "Payment method is required");
 string().optional();
-const netAmountField = string().min(1, "Receipt total is required").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
-string().min(1, "Converted total is required").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
+const netAmountField = string().min(1, "Total amount cannot be zero").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
+string().min(1, "Converted total cannot be zero").regex(SIGNED_DECIMAL_FORMAT_REGEX, "Invalid amount format");
 string().optional().refine(
   (val) => !val || SIGNED_DECIMAL_FORMAT_REGEX.test(val),
   "Invalid amount format"
@@ -4478,18 +4478,6 @@ const CostAllocationValidationRules = {
     return Math.abs(totalPercentage - 100) < COST_ALLOCATION_TOLERANCE;
   },
   /**
-   * Validates that individual allocation amount doesn't exceed total amount.
-   */
-  isAmountWithinLimit(amount, totalAmount) {
-    return amount <= totalAmount;
-  },
-  /**
-   * Validates that percentage is within valid range (0-100).
-   */
-  isPercentageWithinRange(percentage) {
-    return percentage >= 0 && percentage <= 100;
-  },
-  /**
    * Gets error message for sum validation failure.
    */
   getSumErrorMessage(allocationsSum, totalAmount) {
@@ -4506,6 +4494,12 @@ const CostAllocationValidationRules = {
    */
   getAmountExceedsErrorMessage(totalAmount) {
     return `Value cannot exceed expense total $${totalAmount.toFixed(2)}`;
+  },
+  /**
+   * Gets error message for amount that is zero.
+   */
+  getAmountIsZeroMessage() {
+    return "Allocation amount cannot be zero";
   },
   /**
    * Gets error message for invalid percentage range.
@@ -4581,6 +4575,13 @@ const validateCostAllocation = /* @__PURE__ */ __name((ctx, costAllocations, amo
       ctx.addIssue({
         code: "custom",
         message: CostAllocationValidationRules.getAmountExceedsErrorMessage(Math.abs(amountValue)),
+        path: ["costAllocations", index, "amount"]
+      });
+    }
+    if (allocation.amount === 0) {
+      ctx.addIssue({
+        code: "custom",
+        message: CostAllocationValidationRules.getAmountIsZeroMessage(),
         path: ["costAllocations", index, "amount"]
       });
     }
@@ -4683,8 +4684,8 @@ const useTaxFieldVisibility = /* @__PURE__ */ __name((expenseLocationId) => {
 }, "useTaxFieldVisibility");
 const MIXED_SIGN_MESSAGE = "Cannot mix positive and negative values";
 const NEGATIVE_NOT_ALLOWED_MESSAGE = "Negative amounts are not allowed for this payment method";
-const ZERO_RECEIPT_TOTAL_MESSAGE = "This field cannot be 0";
-const ZERO_CONVERTED_TOTAL_MESSAGE = "This field cannot be 0";
+const ZERO_RECEIPT_TOTAL_MESSAGE = "Total amount cannot be zero";
+const ZERO_CONVERTED_TOTAL_MESSAGE = "Converted total cannot be zero";
 const parseSigned = /* @__PURE__ */ __name((value) => {
   if (!value || !SIGNED_DECIMAL_FORMAT_REGEX.test(value)) return null;
   const parsed = parseFloat(value);
@@ -4742,7 +4743,7 @@ const fullExpenseFormSchema = receiptWithSupportingFilesSchema.safeExtend(expens
   }
   return true;
 }, {
-  message: "Converted total is required",
+  message: "Converted total cannot be zero",
   path: [ExpenseFormField.TotalAmount]
 }).refine((data) => {
   var _a, _b, _c, _d;

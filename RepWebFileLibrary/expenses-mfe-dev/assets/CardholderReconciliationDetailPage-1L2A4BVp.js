@@ -4,7 +4,7 @@ import { j as jsxRuntimeExports } from "./jsx-runtime-aCTp6CKK.js";
 import { m as useParams, u as useLocation, w as useNavigateBack, a as RoutePaths } from "./use-scroll-into-view-ref-BwZ0vqtT.js";
 import "./CardholderReconciliationList-BLhvCFWU.js";
 import "./configuration-BMQ0fbSl.js";
-import { a as CardholderTransactionsView } from "./TransactionsList-Bk1o2YzT.js";
+import { a as CardholderTransactionsView } from "./TransactionsList-B2Uegufe.js";
 const CardholderReconciliationDetailPage = /* @__PURE__ */ __name(() => {
   const { id } = useParams();
   const { state } = useLocation();

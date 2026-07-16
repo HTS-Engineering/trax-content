@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.121",
-  "commit": "17365e1",
+  "version": "0.1.0-dev.122",
+  "commit": "76fe121",
   "branch": "dev",
-  "timestamp": "2026-07-16T16:40:37.966Z",
+  "timestamp": "2026-07-16T19:54:24.689Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-D59B2wJk.js",
+  "bootstrap": "__federation_expose_Mount-D4qi5DzX.js",
   "css": "style-D9T_ULYD.css"
 }
