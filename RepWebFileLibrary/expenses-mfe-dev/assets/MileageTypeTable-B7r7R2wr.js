@@ -2242,7 +2242,7 @@ const CardholderNameField = /* @__PURE__ */ __name(({
         search: query.trim()
       });
       return employees.filter((e) => !e.accountExists).map((e) => ({
-        value: e.userGuid,
+        value: e.userId,
         label: e.name,
         data: e
       }));
@@ -2256,7 +2256,7 @@ const CardholderNameField = /* @__PURE__ */ __name(({
     if (item == null ? void 0 : item.data) {
       onEmployeeSelect == null ? void 0 : onEmployeeSelect(item.data);
     } else {
-      onEmployeeSelect == null ? void 0 : onEmployeeSelect({ name: "", email: "", accountExists: false, userGuid: "" });
+      onEmployeeSelect == null ? void 0 : onEmployeeSelect({ name: "", email: "", accountExists: false, userId: "" });
     }
   }, [onEmployeeSelect]);
   const errorMessage = getFieldError$2(errors, touchedFields, dirtyFields, "employeeName", employeeName);
@@ -2807,7 +2807,7 @@ const CardholderTable = /* @__PURE__ */ __name(({
   const formHook = useCardholderForm(formHookOptions);
   const { canSubmit, handleCancel, handleSubmit, isFormLoading, setValue } = formHook;
   const handleEmployeeSelect = useCallback$d((employee) => {
-    setValue("userId", employee.userGuid, { shouldValidate: true });
+    setValue("userId", employee.userId, { shouldValidate: true });
     setValue("employeeName", employee.name, { shouldValidate: true, shouldDirty: true });
   }, [setValue]);
   const knownAuthorizedUsersRef = useRef$3(/* @__PURE__ */ new Map());
