@@ -24,16 +24,19 @@
   const BUNDLE_DIR = "apAutomation-mfe-dev";
   const FILE_NAME = "apAutomationMfeDevLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.local-1785346518788",
-  "commit": "61b3c41",
+  "version": "0.1.0-dev.local-1785353216470",
+  "commit": "d324a4e",
   "branch": "fix/review-followups",
-  "timestamp": "2026-07-29T17:35:18.847Z",
+  "timestamp": "2026-07-29T19:26:56.517Z",
   "environment": "apAutomation-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-CrcwIEID.js",
+  "bootstrap": "__federation_expose_Mount-ZuZvrVXl.js",
   "css": "style-r3CrKg42.css"
 };
 
   const LOG_PREFIX = '[' + (BUNDLE_DIR || 'mfe') + ']';
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  /** Long enough that a warm cache never flashes the placeholder. */
+  const LOADING_DELAY_MS = 250;
 
   function getCurrentScript() {
     if (document.currentScript) {
@@ -118,6 +121,91 @@
     throw lastError || new Error(`manifest not found, tried: ${candidates.join(', ')}`);
   }
 
+  /**
+   * Placeholder shown while the manifest, the stylesheet and the bootstrap
+   * chunk are on the wire. Without it the host page has an empty region for as
+   * long as that takes, which on a cold cache reads as a broken panel.
+   *
+   * Deliberately self-contained: the MFE stylesheet has not loaded yet, so the
+   * markup carries inline styles only, and the spin is an SVG animation rather
+   * than a CSS keyframe - a keyframe would need a <style> element in the host's
+   * head and a name in the document-wide animation namespace. Nothing here
+   * outlives the mount.
+   */
+  function createLoadingPlaceholder() {
+    const panel = document.createElement('div');
+    panel.setAttribute('role', 'status');
+    panel.style.cssText =
+      'display:flex;align-items:center;justify-content:center;gap:10px;' +
+      'min-height:200px;padding:16px;font:14px/1.5 system-ui,sans-serif;color:#5b6470';
+
+    const reduceMotion =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('width', '20');
+    svg.setAttribute('height', '20');
+    svg.setAttribute('viewBox', '0 0 20 20');
+    svg.setAttribute('aria-hidden', 'true');
+
+    const track = document.createElementNS(SVG_NS, 'circle');
+    track.setAttribute('cx', '10');
+    track.setAttribute('cy', '10');
+    track.setAttribute('r', '8');
+    track.setAttribute('fill', 'none');
+    track.setAttribute('stroke', '#d5d9e0');
+    track.setAttribute('stroke-width', '2');
+
+    const arc = document.createElementNS(SVG_NS, 'path');
+    arc.setAttribute('d', 'M10 2 a8 8 0 0 1 8 8');
+    arc.setAttribute('fill', 'none');
+    arc.setAttribute('stroke', '#13528e');
+    arc.setAttribute('stroke-width', '2');
+    arc.setAttribute('stroke-linecap', 'round');
+
+    if (!reduceMotion) {
+      const spin = document.createElementNS(SVG_NS, 'animateTransform');
+      spin.setAttribute('attributeName', 'transform');
+      spin.setAttribute('type', 'rotate');
+      spin.setAttribute('from', '0 10 10');
+      spin.setAttribute('to', '360 10 10');
+      spin.setAttribute('dur', '0.9s');
+      spin.setAttribute('repeatCount', 'indefinite');
+      arc.appendChild(spin);
+    }
+
+    svg.appendChild(track);
+    svg.appendChild(arc);
+
+    const label = document.createElement('span');
+    label.textContent = 'Loading...';
+
+    panel.appendChild(svg);
+    panel.appendChild(label);
+    return panel;
+  }
+
+  /**
+   * Held back briefly so a warm cache does not flash a spinner for one frame.
+   * Returns a function that cancels the pending show and removes it if shown.
+   */
+  function showLoading(container) {
+    let placeholder = null;
+    const timer = setTimeout(function () {
+      placeholder = createLoadingPlaceholder();
+      container.appendChild(placeholder);
+    }, LOADING_DELAY_MS);
+
+    return function clearLoading() {
+      clearTimeout(timer);
+      if (placeholder && placeholder.parentNode === container) {
+        container.removeChild(placeholder);
+      }
+      placeholder = null;
+    };
+  }
+
   function renderFailure(message) {
     const container = document.getElementById(CONTAINER_ID);
     if (!container) return;
@@ -159,6 +247,8 @@
   }
 
   async function loadMFE() {
+    let clearLoading = function () {};
+
     try {
       const basePath = getBasePath() || window.location.origin;
 
@@ -168,6 +258,8 @@
       }
 
       container.classList.add(SCOPE_CLASS);
+
+      clearLoading = showLoading(container);
 
       const { manifest, assetBase } = await loadManifest(basePath);
       const assetUrl = (filename) => `${assetBase}/assets/${filename}`;
@@ -189,6 +281,10 @@
       if (!bootstrap?.mount) {
         throw new Error('bootstrap chunk exports no mount()');
       }
+
+      // Cleared before mount rather than left for React to overwrite, so the
+      // placeholder can never be a sibling of the app's own tree.
+      clearLoading();
 
       const root = await bootstrap.mount(container);
 
@@ -227,6 +323,7 @@
 
       return root;
     } catch (error) {
+      clearLoading();
       console.error(LOG_PREFIX, 'failed to load:', error);
 
       window.dispatchEvent(

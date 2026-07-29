@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/HomePage-BA_u0cEx.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-__qKT0Ru.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/HomePage-D1-sfcfE.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/axiosInstance-__qKT0Ru.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -19949,7 +19949,7 @@ function RouteError() {
 }
 __name(RouteError, "RouteError");
 const { Suspense } = await importShared("react");
-const HomePage = lazyRoute(() => __vitePreload(() => import("./HomePage-BA_u0cEx.js"), true ? __vite__mapDeps([0,1,2]) : void 0, import.meta.url));
+const HomePage = lazyRoute(() => __vitePreload(() => import("./HomePage-D1-sfcfE.js"), true ? __vite__mapDeps([0,1,2]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -22686,7 +22686,7 @@ function shallowEqual(a, b) {
   return true;
 }
 __name(shallowEqual, "shallowEqual");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1785346518788", commit: "61b3c41", branch: "fix/review-followups", timestamp: "2026-07-29T17:35:18.847Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1785353216470", commit: "d324a4e", branch: "fix/review-followups", timestamp: "2026-07-29T19:26:56.517Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {

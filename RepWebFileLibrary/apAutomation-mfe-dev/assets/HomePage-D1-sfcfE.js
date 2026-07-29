@@ -25,7 +25,7 @@ const useAuth = /* @__PURE__ */ __name(() => {
 const useUser = /* @__PURE__ */ __name(() => {
   return useJWTStore(jwtSelectors.user);
 }, "useUser");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1785346518788", commit: "61b3c41", branch: "fix/review-followups", timestamp: "2026-07-29T17:35:18.847Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1785353216470", commit: "d324a4e", branch: "fix/review-followups", timestamp: "2026-07-29T19:26:56.517Z", environment: "apAutomation-mfe-dev" };
 function HomePage() {
   const { isAuthenticated, isInitialized } = useAuth();
   const user = useUser();
