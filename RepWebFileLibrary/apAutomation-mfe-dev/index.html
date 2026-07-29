@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trax MFE</title>
+    <!--
+      The standalone page shell. It cannot live in the MFE stylesheet: every
+      rule there is rewritten under the scope class, which `html` and `body`
+      can never match, and that stylesheet is injected into the host's page,
+      where resetting the document is not ours to do.
+    -->
+    <style>
+      .apAutomation-mfe-scope html, .trax-ui-component html, .apAutomation-mfe-scope body, .trax-ui-component body, .apAutomation-mfe-scope #root, .trax-ui-component #root {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-DVEWquaT.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-Bsq79q8M.js">
+    <link rel="stylesheet" crossorigin href="./assets/style-r3CrKg42.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
