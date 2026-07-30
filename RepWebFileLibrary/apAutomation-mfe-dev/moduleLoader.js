@@ -24,13 +24,13 @@
   const BUNDLE_DIR = "apAutomation-mfe-dev";
   const FILE_NAME = "moduleLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.local-1785353216470",
-  "commit": "d324a4e",
+  "version": "0.1.0-dev.local-1785381498031",
+  "commit": "567fef4",
   "branch": "fix/review-followups",
-  "timestamp": "2026-07-29T19:26:56.517Z",
+  "timestamp": "2026-07-30T03:18:18.054Z",
   "environment": "apAutomation-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-ZuZvrVXl.js",
-  "css": "style-r3CrKg42.css"
+  "bootstrap": "__federation_expose_Mount-DiMC7LtY.js",
+  "css": "style-DsKlic_B.css"
 };
 
   const LOG_PREFIX = '[' + (BUNDLE_DIR || 'mfe') + ']';
