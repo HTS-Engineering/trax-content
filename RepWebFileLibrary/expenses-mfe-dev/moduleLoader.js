@@ -14,13 +14,13 @@
   // Replaced at build by mfe-post-build. Stays null under `npm run dev`,
   // where this loader is not used.
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.139",
-  "commit": "1d00eb3",
+  "version": "0.1.0-dev.141",
+  "commit": "00813e6",
   "branch": "dev",
-  "timestamp": "2026-07-28T01:34:55.579Z",
+  "timestamp": "2026-07-30T04:33:18.870Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-BPlMUG4v.js",
-  "css": "style-OTeTxuC1.css"
+  "bootstrap": "__federation_expose_Mount-BRJyZIxT.js",
+  "css": "style-DbOnAIGC.css"
 };
 
   function getCurrentScript() {
