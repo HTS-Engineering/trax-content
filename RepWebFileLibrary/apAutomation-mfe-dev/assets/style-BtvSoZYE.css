@@ -45,12 +45,6 @@
       --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-divide-y-reverse: 0;
-      --tw-ordinal: initial;
-      --tw-slashed-zero: initial;
-      --tw-numeric-figure: initial;
-      --tw-numeric-spacing: initial;
-      --tw-numeric-fraction: initial;
     }
   }
 
@@ -159,7 +153,7 @@
     --color-trax-primary-blue-200: #b6c9dc;
     --color-trax-primary-blue-700: #0d3a65;
     --color-trax-violet-100: #ede5ff;
-    --color-trax-green-50: #effaf7;
+    --color-trax-green-50: #f8fbf8;
     --color-trax-green-100: #edf6ee;
     --color-trax-green-400: #44c79e;
     --color-trax-green-500: #1ebc8a;
@@ -179,7 +173,7 @@
     --color-trax-neutral-400: #505f79;
     --color-trax-neutral-500: #42526d;
     --color-trax-neutral-600: #354764;
-    --color-trax-neutral-900: var(--color-trax-neutral-950);
+    --color-trax-neutral-900: #091e42;
     --color-trax-neutral-950: #041026;
     --color-trax-neutral-1000: #243757;
     --color-trax-teal-200: #deebf0;
@@ -192,7 +186,7 @@
     --color-trax-red-600: #a80013;
     --color-trax-red-700: #7e0a17;
     --color-trax-red-focus-shadow: #eb9da666;
-    --color-trax-grey-100: #f5f5f5;
+    --color-trax-grey-100: #ebedf0;
     --color-trax-grey-200: #a6aebb;
     --color-trax-grey-400: #8993a4;
     --color-trax-grey-500: #888;
@@ -202,6 +196,7 @@
     --color-trax-yellow-600: #cdbb32;
     --color-trax-yellow-800: #60560b;
     --color-trax-yellow-focus-shadow: #faf1af99;
+    --color-peachy-yellow: #ffeac7;
     --color-primary-200: hsl(var(--primary-200));
     --color-primary-500: #4174a4;
     --color-primary-600: #145490;
@@ -217,25 +212,12 @@
     --color-calendar-hover-bg: #f1f5f9;
     --color-calendar-focus-bg: #b7c9dc;
     --color-calendar-disabled: #41516c;
-    --color-peachy-yellow: #ffeac7;
     --shadow-trax-chip: 0px 0px 1px 0px #0410260d, 0px 1px 1px 0px #0410260a, 0px 2px 1px 0px #04102608, 0px 4px 2px 0px #04102603, 0px 6px 2px 0px #04102600;
     --color-blue-500: oklch(62.3% .214 259.815);
-    --container-xl: 36rem;
     --animate-spin: apAutomation-mfe-spin 1s linear infinite;
-    --color-trax-neutral-700: #243757;
-    --color-trax-yellow-200: #faf1af;
-    --color-trax-grey-700: #383838;
-    --color-trax-primary-blue-300: #92afcb;
     --color-trax-primary-blue-600: #13528e;
-    --color-trax-teal-100: #e8f4f7;
-    --color-trax-teal-300: #cee2e8;
-    --shadow-trax-menu: 0px 0px 1px 0px #0410260d, 0px 1px 1px 0px #0410260a, 0px 2px 1px 0px #04102608, 0px 4px 2px 0px #04102603, 0px 6px 2px 0px #04102600;
-    --text-xxs: 10px;
+    --color-trax-grey-700: #383838;
     --expSrollBarColor: var(--color-trax-neutral-50);
-  }
-
-.apAutomation-mfe-scope :-moz-focusring, .trax-ui-component :-moz-focusring {
-    outline: auto;
   }
 
 @supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size: 1px) {
@@ -562,20 +544,24 @@
     pointer-events: none !important;
   }
 
+.apAutomation-mfe-scope .sr-only, .trax-ui-component .sr-only {
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    overflow: hidden;
+  }
+
 .inset-x-0, .apAutomation-mfe-scope .inset-x-0, .trax-ui-component .inset-x-0, .apAutomation-mfe-scope.inset-x-0, .trax-ui-component.inset-x-0 {
-    inset-inline: calc(var(--spacing) * 0);
-  }
-
-.apAutomation-mfe-scope .start, .trax-ui-component .start {
-    inset-inline-start: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .end, .trax-ui-component .end {
-    inset-inline-end: var(--spacing);
+    inset-inline: 0;
   }
 
 .top-0, .apAutomation-mfe-scope .top-0, .trax-ui-component .top-0, .apAutomation-mfe-scope.top-0, .trax-ui-component.top-0 {
-    top: calc(var(--spacing) * 0);
+    top: 0;
   }
 
 .top-1\/2, .apAutomation-mfe-scope .top-1\/2, .trax-ui-component .top-1\/2, .apAutomation-mfe-scope.top-1\/2, .trax-ui-component.top-1\/2 {
@@ -595,7 +581,7 @@
   }
 
 .right-1, .apAutomation-mfe-scope .right-1, .trax-ui-component .right-1, .apAutomation-mfe-scope.right-1, .trax-ui-component.right-1 {
-    right: calc(var(--spacing) * 1);
+    right: var(--spacing);
   }
 
 .right-2, .apAutomation-mfe-scope .right-2, .trax-ui-component .right-2, .apAutomation-mfe-scope.right-2, .trax-ui-component.right-2 {
@@ -614,16 +600,20 @@
     right: calc(var(--spacing) * 6);
   }
 
+.bottom-0, .apAutomation-mfe-scope .bottom-0, .trax-ui-component .bottom-0, .apAutomation-mfe-scope.bottom-0, .trax-ui-component.bottom-0 {
+    bottom: 0;
+  }
+
 .bottom-2, .apAutomation-mfe-scope .bottom-2, .trax-ui-component .bottom-2, .apAutomation-mfe-scope.bottom-2, .trax-ui-component.bottom-2 {
     bottom: calc(var(--spacing) * 2);
   }
 
 .left-0, .apAutomation-mfe-scope .left-0, .trax-ui-component .left-0, .apAutomation-mfe-scope.left-0, .trax-ui-component.left-0 {
-    left: calc(var(--spacing) * 0);
+    left: 0;
   }
 
 .left-1, .apAutomation-mfe-scope .left-1, .trax-ui-component .left-1, .apAutomation-mfe-scope.left-1, .trax-ui-component.left-1 {
-    left: calc(var(--spacing) * 1);
+    left: var(--spacing);
   }
 
 .left-3, .apAutomation-mfe-scope .left-3, .trax-ui-component .left-3, .apAutomation-mfe-scope.left-3, .trax-ui-component.left-3 {
@@ -685,11 +675,15 @@
   }
 
 .apAutomation-mfe-scope .m-0, .trax-ui-component .m-0, .apAutomation-mfe-scope.m-0, .trax-ui-component.m-0 {
-    margin: calc(var(--spacing) * 0);
+    margin: 0;
+  }
+
+.apAutomation-mfe-scope .-mx-1, .trax-ui-component .-mx-1, .apAutomation-mfe-scope.-mx-1, .trax-ui-component.-mx-1 {
+    margin-inline: calc(var(--spacing) * -1);
   }
 
 .apAutomation-mfe-scope .mx-1, .trax-ui-component .mx-1, .apAutomation-mfe-scope.mx-1, .trax-ui-component.mx-1 {
-    margin-inline: calc(var(--spacing) * 1);
+    margin-inline: var(--spacing);
   }
 
 .apAutomation-mfe-scope .mx-auto, .trax-ui-component .mx-auto, .apAutomation-mfe-scope.mx-auto, .trax-ui-component.mx-auto {
@@ -697,7 +691,7 @@
   }
 
 .apAutomation-mfe-scope .my-1, .trax-ui-component .my-1, .apAutomation-mfe-scope.my-1, .trax-ui-component.my-1 {
-    margin-block: calc(var(--spacing) * 1);
+    margin-block: var(--spacing);
   }
 
 .apAutomation-mfe-scope .my-4, .trax-ui-component .my-4, .apAutomation-mfe-scope.my-4, .trax-ui-component.my-4 {
@@ -712,12 +706,8 @@
     margin-top: calc(var(--spacing) * 4);
   }
 
-.apAutomation-mfe-scope .mt-8, .trax-ui-component .mt-8, .apAutomation-mfe-scope.mt-8, .trax-ui-component.mt-8 {
-    margin-top: calc(var(--spacing) * 8);
-  }
-
 .apAutomation-mfe-scope .mr-1, .trax-ui-component .mr-1, .apAutomation-mfe-scope.mr-1, .trax-ui-component.mr-1 {
-    margin-right: calc(var(--spacing) * 1);
+    margin-right: var(--spacing);
   }
 
 .apAutomation-mfe-scope .mr-2, .trax-ui-component .mr-2, .apAutomation-mfe-scope.mr-2, .trax-ui-component.mr-2 {
@@ -725,7 +715,11 @@
   }
 
 .apAutomation-mfe-scope .mb-1, .trax-ui-component .mb-1, .apAutomation-mfe-scope.mb-1, .trax-ui-component.mb-1 {
-    margin-bottom: calc(var(--spacing) * 1);
+    margin-bottom: var(--spacing);
+  }
+
+.apAutomation-mfe-scope .mb-2, .trax-ui-component .mb-2, .apAutomation-mfe-scope.mb-2, .trax-ui-component.mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
   }
 
 .apAutomation-mfe-scope .mb-3, .trax-ui-component .mb-3, .apAutomation-mfe-scope.mb-3, .trax-ui-component.mb-3 {
@@ -746,6 +740,10 @@
 
 .apAutomation-mfe-scope .ml-3, .trax-ui-component .ml-3, .apAutomation-mfe-scope.ml-3, .trax-ui-component.ml-3 {
     margin-left: calc(var(--spacing) * 3);
+  }
+
+.apAutomation-mfe-scope .ml-auto, .trax-ui-component .ml-auto, .apAutomation-mfe-scope.ml-auto, .trax-ui-component.ml-auto {
+    margin-left: auto;
   }
 
 .apAutomation-mfe-scope .table-caption, .trax-ui-component .table-caption {
@@ -784,9 +782,19 @@
     height: calc(var(--spacing) * 3);
   }
 
+.apAutomation-mfe-scope .size-3\.5, .trax-ui-component .size-3\.5, .apAutomation-mfe-scope.size-3\.5, .trax-ui-component.size-3\.5 {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
+
 .apAutomation-mfe-scope .size-6, .trax-ui-component .size-6, .apAutomation-mfe-scope.size-6, .trax-ui-component.size-6 {
     width: calc(var(--spacing) * 6);
     height: calc(var(--spacing) * 6);
+  }
+
+.apAutomation-mfe-scope .size-8, .trax-ui-component .size-8, .apAutomation-mfe-scope.size-8, .trax-ui-component.size-8 {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
   }
 
 .apAutomation-mfe-scope .size-10, .trax-ui-component .size-10, .apAutomation-mfe-scope.size-10, .trax-ui-component.size-10 {
@@ -852,6 +860,10 @@
     height: calc(var(--spacing) * 7);
   }
 
+.apAutomation-mfe-scope .h-8, .trax-ui-component .h-8, .apAutomation-mfe-scope.h-8, .trax-ui-component.h-8 {
+    height: calc(var(--spacing) * 8);
+  }
+
 .apAutomation-mfe-scope .h-9, .trax-ui-component .h-9, .apAutomation-mfe-scope.h-9, .trax-ui-component.h-9 {
     height: calc(var(--spacing) * 9);
   }
@@ -901,7 +913,7 @@
   }
 
 .apAutomation-mfe-scope .max-h-0, .trax-ui-component .max-h-0, .apAutomation-mfe-scope.max-h-0, .trax-ui-component.max-h-0 {
-    max-height: calc(var(--spacing) * 0);
+    max-height: 0;
   }
 
 .apAutomation-mfe-scope .max-h-40, .trax-ui-component .max-h-40, .apAutomation-mfe-scope.max-h-40, .trax-ui-component.max-h-40 {
@@ -996,6 +1008,14 @@
     width: calc(var(--spacing) * 32);
   }
 
+.apAutomation-mfe-scope .w-64, .trax-ui-component .w-64, .apAutomation-mfe-scope.w-64, .trax-ui-component.w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+
+.apAutomation-mfe-scope .w-72, .trax-ui-component .w-72, .apAutomation-mfe-scope.w-72, .trax-ui-component.w-72 {
+    width: calc(var(--spacing) * 72);
+  }
+
 .apAutomation-mfe-scope .w-\[60px\], .trax-ui-component .w-\[60px\], .apAutomation-mfe-scope.w-\[60px\], .trax-ui-component.w-\[60px\] {
     width: 60px;
   }
@@ -1006,6 +1026,10 @@
 
 .apAutomation-mfe-scope .w-auto, .trax-ui-component .w-auto, .apAutomation-mfe-scope.w-auto, .trax-ui-component.w-auto {
     width: auto;
+  }
+
+.apAutomation-mfe-scope .w-fit, .trax-ui-component .w-fit, .apAutomation-mfe-scope.w-fit, .trax-ui-component.w-fit {
+    width: fit-content;
   }
 
 .apAutomation-mfe-scope .max-w-3xl, .trax-ui-component .max-w-3xl, .apAutomation-mfe-scope.max-w-3xl, .trax-ui-component.max-w-3xl {
@@ -1111,6 +1135,10 @@
     rotate: 45deg;
   }
 
+.rotate-180, .apAutomation-mfe-scope .rotate-180, .trax-ui-component .rotate-180, .apAutomation-mfe-scope.rotate-180, .trax-ui-component.rotate-180 {
+    rotate: 180deg;
+  }
+
 .apAutomation-mfe-scope .cursor-default, .trax-ui-component .cursor-default, .apAutomation-mfe-scope.cursor-default, .trax-ui-component.cursor-default {
     cursor: default;
   }
@@ -1147,6 +1175,10 @@
     grid-auto-rows: min-content;
   }
 
+.apAutomation-mfe-scope .grid-cols-1, .trax-ui-component .grid-cols-1, .apAutomation-mfe-scope.grid-cols-1, .trax-ui-component.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
 .apAutomation-mfe-scope .grid-cols-2, .trax-ui-component .grid-cols-2, .apAutomation-mfe-scope.grid-cols-2, .trax-ui-component.grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1167,8 +1199,16 @@
     flex-direction: row;
   }
 
+.apAutomation-mfe-scope .flex-row-reverse, .trax-ui-component .flex-row-reverse, .apAutomation-mfe-scope.flex-row-reverse, .trax-ui-component.flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
 .apAutomation-mfe-scope .flex-nowrap, .trax-ui-component .flex-nowrap, .apAutomation-mfe-scope.flex-nowrap, .trax-ui-component.flex-nowrap {
     flex-wrap: nowrap;
+  }
+
+.apAutomation-mfe-scope .flex-wrap, .trax-ui-component .flex-wrap, .apAutomation-mfe-scope.flex-wrap, .trax-ui-component.flex-wrap {
+    flex-wrap: wrap;
   }
 
 .apAutomation-mfe-scope .place-items-center, .trax-ui-component .place-items-center {
@@ -1183,8 +1223,28 @@
     justify-content: flex-start;
   }
 
+.apAutomation-mfe-scope .gap-0\.5, .trax-ui-component .gap-0\.5, .apAutomation-mfe-scope.gap-0\.5, .trax-ui-component.gap-0\.5 {
+    gap: calc(var(--spacing) * .5);
+  }
+
+.apAutomation-mfe-scope .gap-1, .trax-ui-component .gap-1, .apAutomation-mfe-scope.gap-1, .trax-ui-component.gap-1 {
+    gap: var(--spacing);
+  }
+
+.apAutomation-mfe-scope .gap-1\.5, .trax-ui-component .gap-1\.5, .apAutomation-mfe-scope.gap-1\.5, .trax-ui-component.gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+
+.apAutomation-mfe-scope .gap-2, .trax-ui-component .gap-2, .apAutomation-mfe-scope.gap-2, .trax-ui-component.gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+
 .apAutomation-mfe-scope .gap-5, .trax-ui-component .gap-5, .apAutomation-mfe-scope.gap-5, .trax-ui-component.gap-5 {
     gap: calc(var(--spacing) * 5);
+  }
+
+.apAutomation-mfe-scope .gap-6, .trax-ui-component .gap-6, .apAutomation-mfe-scope.gap-6, .trax-ui-component.gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
 
 .apAutomation-mfe-scope .gap-8, .trax-ui-component .gap-8, .apAutomation-mfe-scope.gap-8, .trax-ui-component.gap-8 {
@@ -1197,6 +1257,48 @@
 
 .apAutomation-mfe-scope .gap-\[8\%\], .trax-ui-component .gap-\[8\%\], .apAutomation-mfe-scope.gap-\[8\%\], .trax-ui-component.gap-\[8\%\] {
     gap: 8%;
+  }
+
+.apAutomation-mfe-scope :where(.space-y-1 > :not(:last-child)), .trax-ui-component :where(.space-y-1 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(var(--spacing) * var(--tw-space-y-reverse));
+    margin-block-end: calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.space-y-1\.5 > :not(:last-child)), .trax-ui-component :where(.space-y-1\.5 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.space-y-2 > :not(:last-child)), .trax-ui-component :where(.space-y-2 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.space-y-3 > :not(:last-child)), .trax-ui-component :where(.space-y-3 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.space-y-4 > :not(:last-child)), .trax-ui-component :where(.space-y-4 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.space-y-6 > :not(:last-child)), .trax-ui-component :where(.space-y-6 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.space-y-8 > :not(:last-child)), .trax-ui-component :where(.space-y-8 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));
+    margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
   }
 
 .apAutomation-mfe-scope :where(.space-y-10 > :not(:last-child)), .trax-ui-component :where(.space-y-10 > :not(:last-child)) {
@@ -1213,8 +1315,8 @@
 
 .apAutomation-mfe-scope :where(.space-x-1 > :not(:last-child)), .trax-ui-component :where(.space-x-1 > :not(:last-child)) {
     --tw-space-x-reverse: 0;
-    margin-inline-start: calc(calc(var(--spacing) * 1) * var(--tw-space-x-reverse));
-    margin-inline-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-x-reverse)));
+    margin-inline-start: calc(var(--spacing) * var(--tw-space-x-reverse));
+    margin-inline-end: calc(var(--spacing) * calc(1 - var(--tw-space-x-reverse)));
   }
 
 .apAutomation-mfe-scope :where(.space-x-2 > :not(:last-child)), .trax-ui-component :where(.space-x-2 > :not(:last-child)) {
@@ -1231,8 +1333,22 @@
     justify-self: flex-end;
   }
 
+.apAutomation-mfe-scope .truncate, .trax-ui-component .truncate {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+.apAutomation-mfe-scope .overflow-auto, .trax-ui-component .overflow-auto, .apAutomation-mfe-scope.overflow-auto, .trax-ui-component.overflow-auto {
+    overflow: auto;
+  }
+
 .apAutomation-mfe-scope .overflow-hidden, .trax-ui-component .overflow-hidden, .apAutomation-mfe-scope.overflow-hidden, .trax-ui-component.overflow-hidden {
     overflow: hidden;
+  }
+
+.apAutomation-mfe-scope .overflow-x-auto, .trax-ui-component .overflow-x-auto, .apAutomation-mfe-scope.overflow-x-auto, .trax-ui-component.overflow-x-auto {
+    overflow-x: auto;
   }
 
 .apAutomation-mfe-scope .overflow-x-hidden, .trax-ui-component .overflow-x-hidden, .apAutomation-mfe-scope.overflow-x-hidden, .trax-ui-component.overflow-x-hidden {
@@ -1251,12 +1367,24 @@
     border-radius: 16px;
   }
 
+.apAutomation-mfe-scope .rounded-lg, .trax-ui-component .rounded-lg, .apAutomation-mfe-scope.rounded-lg, .trax-ui-component.rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+
+.apAutomation-mfe-scope .rounded-md, .trax-ui-component .rounded-md, .apAutomation-mfe-scope.rounded-md, .trax-ui-component.rounded-md {
+    border-radius: var(--radius-md);
+  }
+
 .apAutomation-mfe-scope .rounded-none, .trax-ui-component .rounded-none, .apAutomation-mfe-scope.rounded-none, .trax-ui-component.rounded-none {
     border-radius: 0;
   }
 
 .apAutomation-mfe-scope .rounded-sm, .trax-ui-component .rounded-sm, .apAutomation-mfe-scope.rounded-sm, .trax-ui-component.rounded-sm {
     border-radius: var(--radius-sm);
+  }
+
+.apAutomation-mfe-scope .rounded-xl, .trax-ui-component .rounded-xl, .apAutomation-mfe-scope.rounded-xl, .trax-ui-component.rounded-xl {
+    border-radius: var(--radius-xl);
   }
 
 .apAutomation-mfe-scope .rounded-xs, .trax-ui-component .rounded-xs, .apAutomation-mfe-scope.rounded-xs, .trax-ui-component.rounded-xs {
@@ -1298,6 +1426,11 @@
     border-bottom-left-radius: 4px;
   }
 
+.apAutomation-mfe-scope .border, .trax-ui-component .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+
 .apAutomation-mfe-scope .border-0, .trax-ui-component .border-0, .apAutomation-mfe-scope.border-0, .trax-ui-component.border-0 {
     border-style: var(--tw-border-style);
     border-width: 0;
@@ -1311,6 +1444,16 @@
 .apAutomation-mfe-scope .border-r, .trax-ui-component .border-r, .apAutomation-mfe-scope.border-r, .trax-ui-component.border-r {
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
+  }
+
+.apAutomation-mfe-scope .border-b-2, .trax-ui-component .border-b-2, .apAutomation-mfe-scope.border-b-2, .trax-ui-component.border-b-2 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 2px;
+  }
+
+.apAutomation-mfe-scope .border-dashed, .trax-ui-component .border-dashed, .apAutomation-mfe-scope.border-dashed, .trax-ui-component.border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
   }
 
 .apAutomation-mfe-scope .border-none, .trax-ui-component .border-none, .apAutomation-mfe-scope.border-none, .trax-ui-component.border-none {
@@ -1358,6 +1501,10 @@
     border-color: var(--color-purple-200);
   }
 
+.apAutomation-mfe-scope .border-transparent, .trax-ui-component .border-transparent, .apAutomation-mfe-scope.border-transparent, .trax-ui-component.border-transparent {
+    border-color: #0000;
+  }
+
 .apAutomation-mfe-scope .border-trax-blue-600, .trax-ui-component .border-trax-blue-600, .apAutomation-mfe-scope.border-trax-blue-600, .trax-ui-component.border-trax-blue-600 {
     border-color: var(--color-trax-blue-600);
   }
@@ -1372,6 +1519,10 @@
 
 .apAutomation-mfe-scope .border-trax-neutral-20, .trax-ui-component .border-trax-neutral-20, .apAutomation-mfe-scope.border-trax-neutral-20, .trax-ui-component.border-trax-neutral-20 {
     border-color: var(--color-trax-neutral-20);
+  }
+
+.apAutomation-mfe-scope .border-trax-neutral-40, .trax-ui-component .border-trax-neutral-40, .apAutomation-mfe-scope.border-trax-neutral-40, .trax-ui-component.border-trax-neutral-40 {
+    border-color: var(--color-trax-neutral-40);
   }
 
 .apAutomation-mfe-scope .border-trax-neutral-100, .trax-ui-component .border-trax-neutral-100, .apAutomation-mfe-scope.border-trax-neutral-100, .trax-ui-component.border-trax-neutral-100 {
@@ -1396,6 +1547,10 @@
 
 .apAutomation-mfe-scope .border-trax-red-400, .trax-ui-component .border-trax-red-400, .apAutomation-mfe-scope.border-trax-red-400, .trax-ui-component.border-trax-red-400 {
     border-color: var(--color-trax-red-400);
+  }
+
+.apAutomation-mfe-scope .border-trax-red-500, .trax-ui-component .border-trax-red-500, .apAutomation-mfe-scope.border-trax-red-500, .trax-ui-component.border-trax-red-500 {
+    border-color: var(--color-trax-red-500);
   }
 
 .apAutomation-mfe-scope .border-trax-teal-200, .trax-ui-component .border-trax-teal-200, .apAutomation-mfe-scope.border-trax-teal-200, .trax-ui-component.border-trax-teal-200 {
@@ -1548,6 +1703,14 @@
     background-color: var(--color-trax-blue-700);
   }
 
+.apAutomation-mfe-scope .bg-trax-green-50, .trax-ui-component .bg-trax-green-50, .apAutomation-mfe-scope.bg-trax-green-50, .trax-ui-component.bg-trax-green-50 {
+    background-color: var(--color-trax-green-50);
+  }
+
+.apAutomation-mfe-scope .bg-trax-green-100, .trax-ui-component .bg-trax-green-100, .apAutomation-mfe-scope.bg-trax-green-100, .trax-ui-component.bg-trax-green-100 {
+    background-color: var(--color-trax-green-100);
+  }
+
 .apAutomation-mfe-scope .bg-trax-green-500, .trax-ui-component .bg-trax-green-500, .apAutomation-mfe-scope.bg-trax-green-500, .trax-ui-component.bg-trax-green-500 {
     background-color: var(--color-trax-green-500);
   }
@@ -1558,6 +1721,18 @@
 
 .apAutomation-mfe-scope .bg-trax-grey-200, .trax-ui-component .bg-trax-grey-200, .apAutomation-mfe-scope.bg-trax-grey-200, .trax-ui-component.bg-trax-grey-200 {
     background-color: var(--color-trax-grey-200);
+  }
+
+.apAutomation-mfe-scope .bg-trax-neutral-10, .trax-ui-component .bg-trax-neutral-10, .apAutomation-mfe-scope.bg-trax-neutral-10, .trax-ui-component.bg-trax-neutral-10 {
+    background-color: var(--color-trax-neutral-10);
+  }
+
+.apAutomation-mfe-scope .bg-trax-neutral-20, .trax-ui-component .bg-trax-neutral-20, .apAutomation-mfe-scope.bg-trax-neutral-20, .trax-ui-component.bg-trax-neutral-20 {
+    background-color: var(--color-trax-neutral-20);
+  }
+
+.apAutomation-mfe-scope .bg-trax-neutral-30, .trax-ui-component .bg-trax-neutral-30, .apAutomation-mfe-scope.bg-trax-neutral-30, .trax-ui-component.bg-trax-neutral-30 {
+    background-color: var(--color-trax-neutral-30);
   }
 
 .apAutomation-mfe-scope .bg-trax-neutral-40, .trax-ui-component .bg-trax-neutral-40, .apAutomation-mfe-scope.bg-trax-neutral-40, .trax-ui-component.bg-trax-neutral-40 {
@@ -1574,6 +1749,10 @@
 
 .apAutomation-mfe-scope .bg-trax-neutral-300, .trax-ui-component .bg-trax-neutral-300, .apAutomation-mfe-scope.bg-trax-neutral-300, .trax-ui-component.bg-trax-neutral-300 {
     background-color: var(--color-trax-neutral-300);
+  }
+
+.apAutomation-mfe-scope .bg-trax-neutral-900, .trax-ui-component .bg-trax-neutral-900, .apAutomation-mfe-scope.bg-trax-neutral-900, .trax-ui-component.bg-trax-neutral-900 {
+    background-color: var(--color-trax-neutral-900);
   }
 
 .apAutomation-mfe-scope .bg-trax-primary-blue-200, .trax-ui-component .bg-trax-primary-blue-200, .apAutomation-mfe-scope.bg-trax-primary-blue-200, .trax-ui-component.bg-trax-primary-blue-200 {
@@ -1602,6 +1781,10 @@
 
 .apAutomation-mfe-scope .bg-trax-violet-100, .trax-ui-component .bg-trax-violet-100, .apAutomation-mfe-scope.bg-trax-violet-100, .trax-ui-component.bg-trax-violet-100 {
     background-color: var(--color-trax-violet-100);
+  }
+
+.apAutomation-mfe-scope .bg-trax-yellow-100, .trax-ui-component .bg-trax-yellow-100, .apAutomation-mfe-scope.bg-trax-yellow-100, .trax-ui-component.bg-trax-yellow-100 {
+    background-color: var(--color-trax-yellow-100);
   }
 
 .apAutomation-mfe-scope .bg-trax-yellow-600, .trax-ui-component .bg-trax-yellow-600, .apAutomation-mfe-scope.bg-trax-yellow-600, .trax-ui-component.bg-trax-yellow-600 {
@@ -1637,11 +1820,23 @@
   }
 
 .apAutomation-mfe-scope .p-0, .trax-ui-component .p-0, .apAutomation-mfe-scope.p-0, .trax-ui-component.p-0 {
-    padding: calc(var(--spacing) * 0);
+    padding: 0;
   }
 
 .apAutomation-mfe-scope .p-1, .trax-ui-component .p-1, .apAutomation-mfe-scope.p-1, .trax-ui-component.p-1 {
-    padding: calc(var(--spacing) * 1);
+    padding: var(--spacing);
+  }
+
+.apAutomation-mfe-scope .p-1\.5, .trax-ui-component .p-1\.5, .apAutomation-mfe-scope.p-1\.5, .trax-ui-component.p-1\.5 {
+    padding: calc(var(--spacing) * 1.5);
+  }
+
+.apAutomation-mfe-scope .p-3, .trax-ui-component .p-3, .apAutomation-mfe-scope.p-3, .trax-ui-component.p-3 {
+    padding: calc(var(--spacing) * 3);
+  }
+
+.apAutomation-mfe-scope .p-4, .trax-ui-component .p-4, .apAutomation-mfe-scope.p-4, .trax-ui-component.p-4 {
+    padding: calc(var(--spacing) * 4);
   }
 
 .apAutomation-mfe-scope .p-6, .trax-ui-component .p-6, .apAutomation-mfe-scope.p-6, .trax-ui-component.p-6 {
@@ -1652,16 +1847,52 @@
     padding-inline: var(--cell-size);
   }
 
+.apAutomation-mfe-scope .px-1, .trax-ui-component .px-1, .apAutomation-mfe-scope.px-1, .trax-ui-component.px-1 {
+    padding-inline: var(--spacing);
+  }
+
 .apAutomation-mfe-scope .px-1\.5, .trax-ui-component .px-1\.5, .apAutomation-mfe-scope.px-1\.5, .trax-ui-component.px-1\.5 {
     padding-inline: calc(var(--spacing) * 1.5);
   }
 
+.apAutomation-mfe-scope .px-2, .trax-ui-component .px-2, .apAutomation-mfe-scope.px-2, .trax-ui-component.px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+
+.apAutomation-mfe-scope .px-2\.5, .trax-ui-component .px-2\.5, .apAutomation-mfe-scope.px-2\.5, .trax-ui-component.px-2\.5 {
+    padding-inline: calc(var(--spacing) * 2.5);
+  }
+
+.apAutomation-mfe-scope .px-3, .trax-ui-component .px-3, .apAutomation-mfe-scope.px-3, .trax-ui-component.px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+
+.apAutomation-mfe-scope .py-0\.5, .trax-ui-component .py-0\.5, .apAutomation-mfe-scope.py-0\.5, .trax-ui-component.py-0\.5 {
+    padding-block: calc(var(--spacing) * .5);
+  }
+
 .apAutomation-mfe-scope .py-1, .trax-ui-component .py-1, .apAutomation-mfe-scope.py-1, .trax-ui-component.py-1 {
-    padding-block: calc(var(--spacing) * 1);
+    padding-block: var(--spacing);
   }
 
 .apAutomation-mfe-scope .py-1\.5, .trax-ui-component .py-1\.5, .apAutomation-mfe-scope.py-1\.5, .trax-ui-component.py-1\.5 {
     padding-block: calc(var(--spacing) * 1.5);
+  }
+
+.apAutomation-mfe-scope .py-2, .trax-ui-component .py-2, .apAutomation-mfe-scope.py-2, .trax-ui-component.py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+
+.apAutomation-mfe-scope .py-2\.5, .trax-ui-component .py-2\.5, .apAutomation-mfe-scope.py-2\.5, .trax-ui-component.py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
+  }
+
+.apAutomation-mfe-scope .py-3, .trax-ui-component .py-3, .apAutomation-mfe-scope.py-3, .trax-ui-component.py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+
+.apAutomation-mfe-scope .py-6, .trax-ui-component .py-6, .apAutomation-mfe-scope.py-6, .trax-ui-component.py-6 {
+    padding-block: calc(var(--spacing) * 6);
   }
 
 .apAutomation-mfe-scope .py-8, .trax-ui-component .py-8, .apAutomation-mfe-scope.py-8, .trax-ui-component.py-8 {
@@ -1670,6 +1901,14 @@
 
 .apAutomation-mfe-scope .py-12, .trax-ui-component .py-12, .apAutomation-mfe-scope.py-12, .trax-ui-component.py-12 {
     padding-block: calc(var(--spacing) * 12);
+  }
+
+.apAutomation-mfe-scope .pt-1, .trax-ui-component .pt-1, .apAutomation-mfe-scope.pt-1, .trax-ui-component.pt-1 {
+    padding-top: var(--spacing);
+  }
+
+.apAutomation-mfe-scope .pt-3, .trax-ui-component .pt-3, .apAutomation-mfe-scope.pt-3, .trax-ui-component.pt-3 {
+    padding-top: calc(var(--spacing) * 3);
   }
 
 .apAutomation-mfe-scope .pt-4, .trax-ui-component .pt-4, .apAutomation-mfe-scope.pt-4, .trax-ui-component.pt-4 {
@@ -1685,7 +1924,7 @@
   }
 
 .apAutomation-mfe-scope .pr-1, .trax-ui-component .pr-1, .apAutomation-mfe-scope.pr-1, .trax-ui-component.pr-1 {
-    padding-right: calc(var(--spacing) * 1);
+    padding-right: var(--spacing);
   }
 
 .apAutomation-mfe-scope .pr-2, .trax-ui-component .pr-2, .apAutomation-mfe-scope.pr-2, .trax-ui-component.pr-2 {
@@ -1717,7 +1956,7 @@
   }
 
 .apAutomation-mfe-scope .pl-1, .trax-ui-component .pl-1, .apAutomation-mfe-scope.pl-1, .trax-ui-component.pl-1 {
-    padding-left: calc(var(--spacing) * 1);
+    padding-left: var(--spacing);
   }
 
 .apAutomation-mfe-scope .pl-2, .trax-ui-component .pl-2, .apAutomation-mfe-scope.pl-2, .trax-ui-component.pl-2 {
@@ -1736,12 +1975,25 @@
     padding-left: calc(var(--spacing) * 10);
   }
 
+.apAutomation-mfe-scope .text-left, .trax-ui-component .text-left, .apAutomation-mfe-scope.text-left, .trax-ui-component.text-left {
+    text-align: left !important;
+  }
+
+.apAutomation-mfe-scope .text-right, .trax-ui-component .text-right, .apAutomation-mfe-scope.text-right, .trax-ui-component.text-right {
+    text-align: right !important;
+  }
+
 .apAutomation-mfe-scope .align-bottom, .trax-ui-component .align-bottom {
     vertical-align: bottom;
   }
 
 .apAutomation-mfe-scope .align-middle, .trax-ui-component .align-middle {
     vertical-align: middle;
+  }
+
+.apAutomation-mfe-scope .text-2xl, .trax-ui-component .text-2xl, .apAutomation-mfe-scope.text-2xl, .trax-ui-component.text-2xl {
+    font-size: var(--text-2xl) !important;
+    line-height: var(--tw-leading, var(--text-2xl--line-height)) !important;
   }
 
 .apAutomation-mfe-scope .text-3xl, .trax-ui-component .text-3xl, .apAutomation-mfe-scope.text-3xl, .trax-ui-component.text-3xl {
@@ -1754,6 +2006,11 @@
     line-height: var(--tw-leading, var(--text-4xl--line-height)) !important;
   }
 
+.apAutomation-mfe-scope .text-xs, .trax-ui-component .text-xs, .apAutomation-mfe-scope.text-xs, .trax-ui-component.text-xs {
+    font-size: var(--text-xs) !important;
+    line-height: var(--tw-leading, var(--text-xs--line-height)) !important;
+  }
+
 .apAutomation-mfe-scope .text-\[0\.8rem\], .trax-ui-component .text-\[0\.8rem\], .apAutomation-mfe-scope.text-\[0\.8rem\], .trax-ui-component.text-\[0\.8rem\] {
     font-size: .8rem !important;
   }
@@ -1763,8 +2020,8 @@
   }
 
 .apAutomation-mfe-scope .leading-0, .trax-ui-component .leading-0, .apAutomation-mfe-scope.leading-0, .trax-ui-component.leading-0 {
-    --tw-leading: calc(var(--spacing) * 0) !important;
-    line-height: calc(var(--spacing) * 0) !important;
+    --tw-leading: 0px !important;
+    line-height: 0 !important;
   }
 
 .apAutomation-mfe-scope .leading-3, .trax-ui-component .leading-3, .apAutomation-mfe-scope.leading-3, .trax-ui-component.leading-3 {
@@ -1782,9 +2039,19 @@
     line-height: 1 !important;
   }
 
+.apAutomation-mfe-scope .font-bold, .trax-ui-component .font-bold, .apAutomation-mfe-scope.font-bold, .trax-ui-component.font-bold {
+    --tw-font-weight: var(--font-weight-bold) !important;
+    font-weight: var(--font-weight-bold) !important;
+  }
+
 .apAutomation-mfe-scope .tracking-tight, .trax-ui-component .tracking-tight, .apAutomation-mfe-scope.tracking-tight, .trax-ui-component.tracking-tight {
     --tw-tracking: var(--tracking-tight) !important;
     letter-spacing: var(--tracking-tight) !important;
+  }
+
+.apAutomation-mfe-scope .tracking-wide, .trax-ui-component .tracking-wide, .apAutomation-mfe-scope.tracking-wide, .trax-ui-component.tracking-wide {
+    --tw-tracking: var(--tracking-wide) !important;
+    letter-spacing: var(--tracking-wide) !important;
   }
 
 .apAutomation-mfe-scope .tracking-wider, .trax-ui-component .tracking-wider, .apAutomation-mfe-scope.tracking-wider, .trax-ui-component.tracking-wider {
@@ -1799,6 +2066,10 @@
 
 .apAutomation-mfe-scope .wrap-break-word, .trax-ui-component .wrap-break-word {
     overflow-wrap: break-word;
+  }
+
+.apAutomation-mfe-scope .whitespace-nowrap, .trax-ui-component .whitespace-nowrap, .apAutomation-mfe-scope.whitespace-nowrap, .trax-ui-component.whitespace-nowrap {
+    white-space: nowrap;
   }
 
 .apAutomation-mfe-scope .text-accent-foreground, .trax-ui-component .text-accent-foreground, .apAutomation-mfe-scope.text-accent-foreground, .trax-ui-component.text-accent-foreground {
@@ -1905,8 +2176,16 @@
     color: var(--color-trax-blue-900) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-green-500, .trax-ui-component .text-trax-green-500, .apAutomation-mfe-scope.text-trax-green-500, .trax-ui-component.text-trax-green-500 {
+    color: var(--color-trax-green-500) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-green-600, .trax-ui-component .text-trax-green-600, .apAutomation-mfe-scope.text-trax-green-600, .trax-ui-component.text-trax-green-600 {
     color: var(--color-trax-green-600) !important;
+  }
+
+.apAutomation-mfe-scope .text-trax-green-800, .trax-ui-component .text-trax-green-800, .apAutomation-mfe-scope.text-trax-green-800, .trax-ui-component.text-trax-green-800 {
+    color: var(--color-trax-green-800) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-grey-200, .trax-ui-component .text-trax-grey-200, .apAutomation-mfe-scope.text-trax-grey-200, .trax-ui-component.text-trax-grey-200 {
@@ -1921,8 +2200,8 @@
     color: var(--color-trax-grey-500) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-grey-900, .trax-ui-component .text-trax-grey-900, .apAutomation-mfe-scope.text-trax-grey-900, .trax-ui-component.text-trax-grey-900 {
-    color: var(--color-trax-grey-900) !important;
+.apAutomation-mfe-scope .text-trax-neutral-0, .trax-ui-component .text-trax-neutral-0, .apAutomation-mfe-scope.text-trax-neutral-0, .trax-ui-component.text-trax-neutral-0 {
+    color: var(--color-trax-neutral-0) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-80, .trax-ui-component .text-trax-neutral-80, .apAutomation-mfe-scope.text-trax-neutral-80, .trax-ui-component.text-trax-neutral-80 {
@@ -1937,6 +2216,10 @@
     color: var(--color-trax-neutral-300) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-neutral-400, .trax-ui-component .text-trax-neutral-400, .apAutomation-mfe-scope.text-trax-neutral-400, .trax-ui-component.text-trax-neutral-400 {
+    color: var(--color-trax-neutral-400) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-neutral-950, .trax-ui-component .text-trax-neutral-950, .apAutomation-mfe-scope.text-trax-neutral-950, .trax-ui-component.text-trax-neutral-950 {
     color: var(--color-trax-neutral-950) !important;
   }
@@ -1949,8 +2232,16 @@
     color: var(--color-trax-primary-blue-200) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-primary-blue-700, .trax-ui-component .text-trax-primary-blue-700, .apAutomation-mfe-scope.text-trax-primary-blue-700, .trax-ui-component.text-trax-primary-blue-700 {
+    color: var(--color-trax-primary-blue-700) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-red-400, .trax-ui-component .text-trax-red-400, .apAutomation-mfe-scope.text-trax-red-400, .trax-ui-component.text-trax-red-400 {
     color: var(--color-trax-red-400) !important;
+  }
+
+.apAutomation-mfe-scope .text-trax-red-600, .trax-ui-component .text-trax-red-600, .apAutomation-mfe-scope.text-trax-red-600, .trax-ui-component.text-trax-red-600 {
+    color: var(--color-trax-red-600) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-teal-600, .trax-ui-component .text-trax-teal-600, .apAutomation-mfe-scope.text-trax-teal-600, .trax-ui-component.text-trax-teal-600 {
@@ -1963,6 +2254,10 @@
 
 .apAutomation-mfe-scope .italic, .trax-ui-component .italic {
     font-style: italic;
+  }
+
+.apAutomation-mfe-scope .underline, .trax-ui-component .underline {
+    text-decoration-line: underline;
   }
 
 .apAutomation-mfe-scope .opacity-0, .trax-ui-component .opacity-0, .apAutomation-mfe-scope.opacity-0, .trax-ui-component.opacity-0 {
@@ -1998,6 +2293,11 @@
 
 .apAutomation-mfe-scope .shadow-md, .trax-ui-component .shadow-md, .apAutomation-mfe-scope.shadow-md, .trax-ui-component.shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, #0000001a), 0 2px 4px -2px var(--tw-shadow-color, #0000001a);
+    box-shadow: var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);
+  }
+
+.apAutomation-mfe-scope .shadow-none, .trax-ui-component .shadow-none, .apAutomation-mfe-scope.shadow-none, .trax-ui-component.shadow-none {
+    --tw-shadow: 0 0 #0000;
     box-shadow: var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);
   }
 
@@ -2051,6 +2351,11 @@
     }
   }
 
+.apAutomation-mfe-scope .outline, .trax-ui-component .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+
 .transition-\[color\,box-shadow\], .apAutomation-mfe-scope .transition-\[color\,box-shadow\], .trax-ui-component .transition-\[color\,box-shadow\], .apAutomation-mfe-scope.transition-\[color\,box-shadow\], .trax-ui-component.transition-\[color\,box-shadow\] {
     transition-property: color, box-shadow;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -2059,6 +2364,24 @@
 
 .transition-all, .apAutomation-mfe-scope .transition-all, .trax-ui-component .transition-all, .apAutomation-mfe-scope.transition-all, .trax-ui-component.transition-all {
     transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
+.transition-colors, .apAutomation-mfe-scope .transition-colors, .trax-ui-component .transition-colors, .apAutomation-mfe-scope.transition-colors, .trax-ui-component.transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
+.transition-opacity, .apAutomation-mfe-scope .transition-opacity, .trax-ui-component .transition-opacity, .apAutomation-mfe-scope.transition-opacity, .trax-ui-component.transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
+.transition-transform, .apAutomation-mfe-scope .transition-transform, .trax-ui-component .transition-transform, .apAutomation-mfe-scope.transition-transform, .trax-ui-component.transition-transform {
+    transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
@@ -2770,6 +3093,10 @@
     color: var(--color-trax-neutral-80) !important;
   }
 
+.apAutomation-mfe-scope .disabled\:opacity-50:disabled, .trax-ui-component .disabled\:opacity-50:disabled, .apAutomation-mfe-scope.disabled\:opacity-50:disabled, .trax-ui-component.disabled\:opacity-50:disabled {
+    opacity: .5;
+  }
+
 .apAutomation-mfe-scope .disabled\:opacity-100:disabled, .trax-ui-component .disabled\:opacity-100:disabled, .apAutomation-mfe-scope.disabled\:opacity-100:disabled, .trax-ui-component.disabled\:opacity-100:disabled {
     opacity: 1;
   }
@@ -3016,7 +3343,7 @@
   }
 
 .apAutomation-mfe-scope .data-\[side\=bottom\]\:translate-y-1[data-side="bottom"], .trax-ui-component .data-\[side\=bottom\]\:translate-y-1[data-side="bottom"] {
-    --tw-translate-y: calc(var(--spacing) * 1);
+    --tw-translate-y: var(--spacing);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
@@ -3026,7 +3353,7 @@
   }
 
 .apAutomation-mfe-scope .data-\[side\=right\]\:translate-x-1[data-side="right"], .trax-ui-component .data-\[side\=right\]\:translate-x-1[data-side="right"] {
-    --tw-translate-x: calc(var(--spacing) * 1);
+    --tw-translate-x: var(--spacing);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
@@ -3154,7 +3481,7 @@
   }
 
 .apAutomation-mfe-scope .data-\[state\=unchecked\]\:translate-x-0[data-state="unchecked"], .trax-ui-component .data-\[state\=unchecked\]\:translate-x-0[data-state="unchecked"] {
-    --tw-translate-x: calc(var(--spacing) * 0);
+    --tw-translate-x: 0px;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
@@ -3223,8 +3550,7 @@
 
     .apAutomation-mfe-scope :where(.sm\:space-y-0 > :not(:last-child)), .trax-ui-component :where(.sm\:space-y-0 > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block: 0;
     }
 
     .apAutomation-mfe-scope :where(.sm\:space-x-2 > :not(:last-child)), .trax-ui-component :where(.sm\:space-x-2 > :not(:last-child)) {
@@ -3413,7 +3739,7 @@
   }
 
 .apAutomation-mfe-scope .\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role="checkbox"]), .trax-ui-component .\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role="checkbox"]), .apAutomation-mfe-scope.\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role="checkbox"]), .trax-ui-component.\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0:has([role="checkbox"]) {
-    padding-right: calc(var(--spacing) * 0);
+    padding-right: 0;
   }
 
 .apAutomation-mfe-scope .\[\.border-b\]\:pb-6.border-b, .trax-ui-component .\[\.border-b\]\:pb-6.border-b, .apAutomation-mfe-scope.\[\.border-b\]\:pb-6.border-b, .trax-ui-component.\[\.border-b\]\:pb-6.border-b {
@@ -3461,6 +3787,11 @@
 .apAutomation-mfe-scope .\[\&\>svg\]\:size-3\.5 > svg, .trax-ui-component .\[\&\>svg\]\:size-3\.5 > svg, .apAutomation-mfe-scope.\[\&\>svg\]\:size-3\.5 > svg, .trax-ui-component.\[\&\>svg\]\:size-3\.5 > svg {
     width: calc(var(--spacing) * 3.5);
     height: calc(var(--spacing) * 3.5);
+  }
+
+.apAutomation-mfe-scope .\[\&\>svg\]\:size-4 > svg, .trax-ui-component .\[\&\>svg\]\:size-4 > svg, .apAutomation-mfe-scope.\[\&\>svg\]\:size-4 > svg, .trax-ui-component.\[\&\>svg\]\:size-4 > svg {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
   }
 
 .apAutomation-mfe-scope .\[\&\>svg\]\:shrink-0 > svg, .trax-ui-component .\[\&\>svg\]\:shrink-0 > svg {
@@ -3559,18 +3890,6 @@
     visibility: visible;
   }
 
-.apAutomation-mfe-scope .sr-only, .trax-ui-component .sr-only {
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border-width: 0;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    position: absolute;
-    overflow: hidden;
-  }
-
 .absolute, .apAutomation-mfe-scope .absolute, .trax-ui-component .absolute, .apAutomation-mfe-scope.absolute, .trax-ui-component.absolute {
     position: absolute;
   }
@@ -3595,10 +3914,6 @@
     inset: 0;
   }
 
-.inset-x-4, .apAutomation-mfe-scope .inset-x-4, .trax-ui-component .inset-x-4, .apAutomation-mfe-scope.inset-x-4, .trax-ui-component.inset-x-4 {
-    inset-inline: calc(var(--spacing) * 4);
-  }
-
 .inset-y-0, .apAutomation-mfe-scope .inset-y-0, .trax-ui-component .inset-y-0, .apAutomation-mfe-scope.inset-y-0, .trax-ui-component.inset-y-0 {
     inset-block: 0;
   }
@@ -3607,28 +3922,12 @@
     top: calc(var(--spacing) * 3);
   }
 
-.top-8, .apAutomation-mfe-scope .top-8, .trax-ui-component .top-8, .apAutomation-mfe-scope.top-8, .trax-ui-component.top-8 {
-    top: calc(var(--spacing) * 8);
-  }
-
 .right-0, .apAutomation-mfe-scope .right-0, .trax-ui-component .right-0, .apAutomation-mfe-scope.right-0, .trax-ui-component.right-0 {
     right: 0;
   }
 
-.bottom-0, .apAutomation-mfe-scope .bottom-0, .trax-ui-component .bottom-0, .apAutomation-mfe-scope.bottom-0, .trax-ui-component.bottom-0 {
-    bottom: 0;
-  }
-
-.bottom-4, .apAutomation-mfe-scope .bottom-4, .trax-ui-component .bottom-4, .apAutomation-mfe-scope.bottom-4, .trax-ui-component.bottom-4 {
-    bottom: calc(var(--spacing) * 4);
-  }
-
 .left-2, .apAutomation-mfe-scope .left-2, .trax-ui-component .left-2, .apAutomation-mfe-scope.left-2, .trax-ui-component.left-2 {
     left: calc(var(--spacing) * 2);
-  }
-
-.left-4, .apAutomation-mfe-scope .left-4, .trax-ui-component .left-4, .apAutomation-mfe-scope.left-4, .trax-ui-component.left-4 {
-    left: calc(var(--spacing) * 4);
   }
 
 .z-50, .apAutomation-mfe-scope .z-50, .trax-ui-component .z-50, .apAutomation-mfe-scope.z-50, .trax-ui-component.z-50 {
@@ -3669,10 +3968,6 @@
     }
   }
 
-.apAutomation-mfe-scope .-mx-1, .trax-ui-component .-mx-1, .apAutomation-mfe-scope.-mx-1, .trax-ui-component.-mx-1 {
-    margin-inline: calc(var(--spacing) * -1);
-  }
-
 .apAutomation-mfe-scope .mt-0\.5, .trax-ui-component .mt-0\.5, .apAutomation-mfe-scope.mt-0\.5, .trax-ui-component.mt-0\.5 {
     margin-top: calc(var(--spacing) * .5);
   }
@@ -3685,28 +3980,12 @@
     margin-top: calc(var(--spacing) * 2);
   }
 
-.apAutomation-mfe-scope .mt-2\.5, .trax-ui-component .mt-2\.5, .apAutomation-mfe-scope.mt-2\.5, .trax-ui-component.mt-2\.5 {
-    margin-top: calc(var(--spacing) * 2.5);
+.apAutomation-mfe-scope .mt-6, .trax-ui-component .mt-6, .apAutomation-mfe-scope.mt-6, .trax-ui-component.mt-6 {
+    margin-top: calc(var(--spacing) * 6);
   }
 
-.apAutomation-mfe-scope .mt-auto, .trax-ui-component .mt-auto, .apAutomation-mfe-scope.mt-auto, .trax-ui-component.mt-auto {
-    margin-top: auto;
-  }
-
-.apAutomation-mfe-scope .-mb-px, .trax-ui-component .-mb-px, .apAutomation-mfe-scope.-mb-px, .trax-ui-component.-mb-px {
-    margin-bottom: -1px;
-  }
-
-.apAutomation-mfe-scope .mb-2, .trax-ui-component .mb-2, .apAutomation-mfe-scope.mb-2, .trax-ui-component.mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .-ml-2, .trax-ui-component .-ml-2, .apAutomation-mfe-scope.-ml-2, .trax-ui-component.-ml-2 {
-    margin-left: calc(var(--spacing) * -2);
-  }
-
-.apAutomation-mfe-scope .ml-auto, .trax-ui-component .ml-auto, .apAutomation-mfe-scope.ml-auto, .trax-ui-component.ml-auto {
-    margin-left: auto;
+.apAutomation-mfe-scope .mt-8, .trax-ui-component .mt-8, .apAutomation-mfe-scope.mt-8, .trax-ui-component.mt-8 {
+    margin-top: calc(var(--spacing) * 8);
   }
 
 .apAutomation-mfe-scope .block, .trax-ui-component .block, .apAutomation-mfe-scope.block, .trax-ui-component.block {
@@ -3745,11 +4024,6 @@
     display: table;
   }
 
-.apAutomation-mfe-scope .size-3\.5, .trax-ui-component .size-3\.5, .apAutomation-mfe-scope.size-3\.5, .trax-ui-component.size-3\.5 {
-    width: calc(var(--spacing) * 3.5);
-    height: calc(var(--spacing) * 3.5);
-  }
-
 .apAutomation-mfe-scope .size-4, .trax-ui-component .size-4, .apAutomation-mfe-scope.size-4, .trax-ui-component.size-4 {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
@@ -3760,71 +4034,17 @@
     height: calc(var(--spacing) * 5);
   }
 
-.apAutomation-mfe-scope .size-7, .trax-ui-component .size-7, .apAutomation-mfe-scope.size-7, .trax-ui-component.size-7 {
-    width: calc(var(--spacing) * 7);
-    height: calc(var(--spacing) * 7);
-  }
-
-.apAutomation-mfe-scope .size-8, .trax-ui-component .size-8, .apAutomation-mfe-scope.size-8, .trax-ui-component.size-8 {
-    width: calc(var(--spacing) * 8);
-    height: calc(var(--spacing) * 8);
-  }
-
 .apAutomation-mfe-scope .size-9, .trax-ui-component .size-9, .apAutomation-mfe-scope.size-9, .trax-ui-component.size-9 {
     width: calc(var(--spacing) * 9);
     height: calc(var(--spacing) * 9);
-  }
-
-.apAutomation-mfe-scope .h-1\.5, .trax-ui-component .h-1\.5, .apAutomation-mfe-scope.h-1\.5, .trax-ui-component.h-1\.5 {
-    height: calc(var(--spacing) * 1.5);
-  }
-
-.apAutomation-mfe-scope .h-8, .trax-ui-component .h-8, .apAutomation-mfe-scope.h-8, .trax-ui-component.h-8 {
-    height: calc(var(--spacing) * 8);
-  }
-
-.apAutomation-mfe-scope .h-14, .trax-ui-component .h-14, .apAutomation-mfe-scope.h-14, .trax-ui-component.h-14 {
-    height: calc(var(--spacing) * 14);
   }
 
 .apAutomation-mfe-scope .h-full, .trax-ui-component .h-full, .apAutomation-mfe-scope.h-full, .trax-ui-component.h-full {
     height: 100%;
   }
 
-.apAutomation-mfe-scope .max-h-64, .trax-ui-component .max-h-64, .apAutomation-mfe-scope.max-h-64, .trax-ui-component.max-h-64 {
-    max-height: calc(var(--spacing) * 64);
-  }
-
-.apAutomation-mfe-scope .max-h-\[55vh\], .trax-ui-component .max-h-\[55vh\], .apAutomation-mfe-scope.max-h-\[55vh\], .trax-ui-component.max-h-\[55vh\] {
-    max-height: 55vh;
-  }
-
-.apAutomation-mfe-scope .max-h-\[58vh\], .trax-ui-component .max-h-\[58vh\], .apAutomation-mfe-scope.max-h-\[58vh\], .trax-ui-component.max-h-\[58vh\] {
-    max-height: 58vh;
-  }
-
-.apAutomation-mfe-scope .max-h-\[85vh\], .trax-ui-component .max-h-\[85vh\], .apAutomation-mfe-scope.max-h-\[85vh\], .trax-ui-component.max-h-\[85vh\] {
-    max-height: 85vh;
-  }
-
-.apAutomation-mfe-scope .max-h-\[88vh\], .trax-ui-component .max-h-\[88vh\], .apAutomation-mfe-scope.max-h-\[88vh\], .trax-ui-component.max-h-\[88vh\] {
-    max-height: 88vh;
-  }
-
-.apAutomation-mfe-scope .min-h-24, .trax-ui-component .min-h-24, .apAutomation-mfe-scope.min-h-24, .trax-ui-component.min-h-24 {
-    min-height: calc(var(--spacing) * 24);
-  }
-
 .apAutomation-mfe-scope .min-h-40, .trax-ui-component .min-h-40, .apAutomation-mfe-scope.min-h-40, .trax-ui-component.min-h-40 {
     min-height: calc(var(--spacing) * 40);
-  }
-
-.apAutomation-mfe-scope .min-h-48, .trax-ui-component .min-h-48, .apAutomation-mfe-scope.min-h-48, .trax-ui-component.min-h-48 {
-    min-height: calc(var(--spacing) * 48);
-  }
-
-.apAutomation-mfe-scope .min-h-64, .trax-ui-component .min-h-64, .apAutomation-mfe-scope.min-h-64, .trax-ui-component.min-h-64 {
-    min-height: calc(var(--spacing) * 64);
   }
 
 .apAutomation-mfe-scope .min-h-\[24rem\], .trax-ui-component .min-h-\[24rem\], .apAutomation-mfe-scope.min-h-\[24rem\], .trax-ui-component.min-h-\[24rem\] {
@@ -3835,92 +4055,24 @@
     min-height: 100vh;
   }
 
-.apAutomation-mfe-scope .w-20, .trax-ui-component .w-20, .apAutomation-mfe-scope.w-20, .trax-ui-component.w-20 {
-    width: calc(var(--spacing) * 20);
-  }
-
-.apAutomation-mfe-scope .w-52, .trax-ui-component .w-52, .apAutomation-mfe-scope.w-52, .trax-ui-component.w-52 {
-    width: calc(var(--spacing) * 52);
-  }
-
-.apAutomation-mfe-scope .w-56, .trax-ui-component .w-56, .apAutomation-mfe-scope.w-56, .trax-ui-component.w-56 {
-    width: calc(var(--spacing) * 56);
-  }
-
-.apAutomation-mfe-scope .w-64, .trax-ui-component .w-64, .apAutomation-mfe-scope.w-64, .trax-ui-component.w-64 {
-    width: calc(var(--spacing) * 64);
-  }
-
-.apAutomation-mfe-scope .w-72, .trax-ui-component .w-72, .apAutomation-mfe-scope.w-72, .trax-ui-component.w-72 {
-    width: calc(var(--spacing) * 72);
-  }
-
-.apAutomation-mfe-scope .w-80, .trax-ui-component .w-80, .apAutomation-mfe-scope.w-80, .trax-ui-component.w-80 {
-    width: calc(var(--spacing) * 80);
-  }
-
-.apAutomation-mfe-scope .w-fit, .trax-ui-component .w-fit, .apAutomation-mfe-scope.w-fit, .trax-ui-component.w-fit {
-    width: fit-content;
-  }
-
 .apAutomation-mfe-scope .w-full, .trax-ui-component .w-full, .apAutomation-mfe-scope.w-full, .trax-ui-component.w-full {
     width: 100%;
-  }
-
-.apAutomation-mfe-scope .w-px, .trax-ui-component .w-px, .apAutomation-mfe-scope.w-px, .trax-ui-component.w-px {
-    width: 1px;
   }
 
 .apAutomation-mfe-scope .max-w-2xl, .trax-ui-component .max-w-2xl, .apAutomation-mfe-scope.max-w-2xl, .trax-ui-component.max-w-2xl {
     max-width: var(--container-2xl);
   }
 
-.apAutomation-mfe-scope .max-w-40, .trax-ui-component .max-w-40, .apAutomation-mfe-scope.max-w-40, .trax-ui-component.max-w-40 {
-    max-width: calc(var(--spacing) * 40);
-  }
-
-.apAutomation-mfe-scope .max-w-56, .trax-ui-component .max-w-56, .apAutomation-mfe-scope.max-w-56, .trax-ui-component.max-w-56 {
-    max-width: calc(var(--spacing) * 56);
-  }
-
-.apAutomation-mfe-scope .max-w-64, .trax-ui-component .max-w-64, .apAutomation-mfe-scope.max-w-64, .trax-ui-component.max-w-64 {
-    max-width: calc(var(--spacing) * 64);
-  }
-
-.apAutomation-mfe-scope .max-w-lg, .trax-ui-component .max-w-lg, .apAutomation-mfe-scope.max-w-lg, .trax-ui-component.max-w-lg {
-    max-width: var(--container-lg);
-  }
-
 .apAutomation-mfe-scope .max-w-md, .trax-ui-component .max-w-md, .apAutomation-mfe-scope.max-w-md, .trax-ui-component.max-w-md {
     max-width: var(--container-md);
-  }
-
-.apAutomation-mfe-scope .max-w-xl, .trax-ui-component .max-w-xl, .apAutomation-mfe-scope.max-w-xl, .trax-ui-component.max-w-xl {
-    max-width: var(--container-xl);
   }
 
 .apAutomation-mfe-scope .min-w-0, .trax-ui-component .min-w-0, .apAutomation-mfe-scope.min-w-0, .trax-ui-component.min-w-0 {
     min-width: 0;
   }
 
-.apAutomation-mfe-scope .min-w-2xl, .trax-ui-component .min-w-2xl, .apAutomation-mfe-scope.min-w-2xl, .trax-ui-component.min-w-2xl {
-    min-width: var(--container-2xl);
-  }
-
-.apAutomation-mfe-scope .min-w-3xl, .trax-ui-component .min-w-3xl, .apAutomation-mfe-scope.min-w-3xl, .trax-ui-component.min-w-3xl {
-    min-width: var(--container-3xl);
-  }
-
 .apAutomation-mfe-scope .min-w-20, .trax-ui-component .min-w-20, .apAutomation-mfe-scope.min-w-20, .trax-ui-component.min-w-20 {
     min-width: calc(var(--spacing) * 20);
-  }
-
-.apAutomation-mfe-scope .min-w-28, .trax-ui-component .min-w-28, .apAutomation-mfe-scope.min-w-28, .trax-ui-component.min-w-28 {
-    min-width: calc(var(--spacing) * 28);
-  }
-
-.apAutomation-mfe-scope .min-w-36, .trax-ui-component .min-w-36, .apAutomation-mfe-scope.min-w-36, .trax-ui-component.min-w-36 {
-    min-width: calc(var(--spacing) * 36);
   }
 
 .apAutomation-mfe-scope .min-w-screen, .trax-ui-component .min-w-screen, .apAutomation-mfe-scope.min-w-screen, .trax-ui-component.min-w-screen {
@@ -3939,10 +4091,6 @@
     flex-grow: 1;
   }
 
-.rotate-180, .apAutomation-mfe-scope .rotate-180, .trax-ui-component .rotate-180, .apAutomation-mfe-scope.rotate-180, .trax-ui-component.rotate-180 {
-    rotate: 180deg;
-  }
-
 .transform, .apAutomation-mfe-scope .transform, .trax-ui-component .transform, .apAutomation-mfe-scope.transform, .trax-ui-component.transform {
     transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
   }
@@ -3955,28 +4103,16 @@
     animation: var(--animate-spin);
   }
 
-.apAutomation-mfe-scope .grid-cols-1, .trax-ui-component .grid-cols-1, .apAutomation-mfe-scope.grid-cols-1, .trax-ui-component.grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+.apAutomation-mfe-scope .grid-cols-\[10rem_1fr\], .trax-ui-component .grid-cols-\[10rem_1fr\], .apAutomation-mfe-scope.grid-cols-\[10rem_1fr\], .trax-ui-component.grid-cols-\[10rem_1fr\] {
+    grid-template-columns: 10rem 1fr;
   }
 
 .apAutomation-mfe-scope .flex-col, .trax-ui-component .flex-col, .apAutomation-mfe-scope.flex-col, .trax-ui-component.flex-col {
     flex-direction: column;
   }
 
-.apAutomation-mfe-scope .flex-row-reverse, .trax-ui-component .flex-row-reverse, .apAutomation-mfe-scope.flex-row-reverse, .trax-ui-component.flex-row-reverse {
-    flex-direction: row-reverse;
-  }
-
-.apAutomation-mfe-scope .flex-wrap, .trax-ui-component .flex-wrap, .apAutomation-mfe-scope.flex-wrap, .trax-ui-component.flex-wrap {
-    flex-wrap: wrap;
-  }
-
 .apAutomation-mfe-scope .items-center, .trax-ui-component .items-center, .apAutomation-mfe-scope.items-center, .trax-ui-component.items-center {
     align-items: center;
-  }
-
-.apAutomation-mfe-scope .items-end, .trax-ui-component .items-end, .apAutomation-mfe-scope.items-end, .trax-ui-component.items-end {
-    align-items: flex-end;
   }
 
 .apAutomation-mfe-scope .items-start, .trax-ui-component .items-start, .apAutomation-mfe-scope.items-start, .trax-ui-component.items-start {
@@ -3995,22 +4131,6 @@
     justify-content: flex-end;
   }
 
-.apAutomation-mfe-scope .gap-0\.5, .trax-ui-component .gap-0\.5, .apAutomation-mfe-scope.gap-0\.5, .trax-ui-component.gap-0\.5 {
-    gap: calc(var(--spacing) * .5);
-  }
-
-.apAutomation-mfe-scope .gap-1, .trax-ui-component .gap-1, .apAutomation-mfe-scope.gap-1, .trax-ui-component.gap-1 {
-    gap: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .gap-1\.5, .trax-ui-component .gap-1\.5, .apAutomation-mfe-scope.gap-1\.5, .trax-ui-component.gap-1\.5 {
-    gap: calc(var(--spacing) * 1.5);
-  }
-
-.apAutomation-mfe-scope .gap-2, .trax-ui-component .gap-2, .apAutomation-mfe-scope.gap-2, .trax-ui-component.gap-2 {
-    gap: calc(var(--spacing) * 2);
-  }
-
 .apAutomation-mfe-scope .gap-2\.5, .trax-ui-component .gap-2\.5, .apAutomation-mfe-scope.gap-2\.5, .trax-ui-component.gap-2\.5 {
     gap: calc(var(--spacing) * 2.5);
   }
@@ -4019,112 +4139,16 @@
     gap: calc(var(--spacing) * 3);
   }
 
-.apAutomation-mfe-scope .gap-3\.5, .trax-ui-component .gap-3\.5, .apAutomation-mfe-scope.gap-3\.5, .trax-ui-component.gap-3\.5 {
-    gap: calc(var(--spacing) * 3.5);
-  }
-
 .apAutomation-mfe-scope .gap-4, .trax-ui-component .gap-4, .apAutomation-mfe-scope.gap-4, .trax-ui-component.gap-4 {
     gap: calc(var(--spacing) * 4);
   }
 
-.apAutomation-mfe-scope .gap-6, .trax-ui-component .gap-6, .apAutomation-mfe-scope.gap-6, .trax-ui-component.gap-6 {
-    gap: calc(var(--spacing) * 6);
+.apAutomation-mfe-scope .gap-x-4, .trax-ui-component .gap-x-4, .apAutomation-mfe-scope.gap-x-4, .trax-ui-component.gap-x-4 {
+    column-gap: calc(var(--spacing) * 4);
   }
 
-.apAutomation-mfe-scope :where(.space-y-1 > :not(:last-child)), .trax-ui-component :where(.space-y-1 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(var(--spacing) * var(--tw-space-y-reverse));
-    margin-block-end: calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-1\.5 > :not(:last-child)), .trax-ui-component :where(.space-y-1\.5 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 1.5) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 1.5) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-2 > :not(:last-child)), .trax-ui-component :where(.space-y-2 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-2\.5 > :not(:last-child)), .trax-ui-component :where(.space-y-2\.5 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 2.5) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 2.5) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-3 > :not(:last-child)), .trax-ui-component :where(.space-y-3 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-4 > :not(:last-child)), .trax-ui-component :where(.space-y-4 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-5 > :not(:last-child)), .trax-ui-component :where(.space-y-5 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 5) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 5) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-6 > :not(:last-child)), .trax-ui-component :where(.space-y-6 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.space-y-8 > :not(:last-child)), .trax-ui-component :where(.space-y-8 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * 8) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-.apAutomation-mfe-scope .gap-x-3, .trax-ui-component .gap-x-3, .apAutomation-mfe-scope.gap-x-3, .trax-ui-component.gap-x-3 {
-    column-gap: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .gap-x-6, .trax-ui-component .gap-x-6, .apAutomation-mfe-scope.gap-x-6, .trax-ui-component.gap-x-6 {
-    column-gap: calc(var(--spacing) * 6);
-  }
-
-.apAutomation-mfe-scope .gap-y-1, .trax-ui-component .gap-y-1, .apAutomation-mfe-scope.gap-y-1, .trax-ui-component.gap-y-1 {
-    row-gap: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .gap-y-3, .trax-ui-component .gap-y-3, .apAutomation-mfe-scope.gap-y-3, .trax-ui-component.gap-y-3 {
-    row-gap: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope :where(.divide-y > :not(:last-child)), .trax-ui-component :where(.divide-y > :not(:last-child)) {
-    --tw-divide-y-reverse: 0;
-    border-bottom-style: var(--tw-border-style);
-    border-top-style: var(--tw-border-style);
-    border-top-width: calc(1px * var(--tw-divide-y-reverse));
-    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.divide-trax-neutral-30 > :not(:last-child)), .trax-ui-component :where(.divide-trax-neutral-30 > :not(:last-child)) {
-    border-color: var(--color-trax-neutral-30);
-  }
-
-.apAutomation-mfe-scope .truncate, .trax-ui-component .truncate {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-
-.apAutomation-mfe-scope .overflow-auto, .trax-ui-component .overflow-auto, .apAutomation-mfe-scope.overflow-auto, .trax-ui-component.overflow-auto {
-    overflow: auto;
-  }
-
-.apAutomation-mfe-scope .overflow-x-auto, .trax-ui-component .overflow-x-auto, .apAutomation-mfe-scope.overflow-x-auto, .trax-ui-component.overflow-x-auto {
-    overflow-x: auto;
+.apAutomation-mfe-scope .gap-y-2, .trax-ui-component .gap-y-2, .apAutomation-mfe-scope.gap-y-2, .trax-ui-component.gap-y-2 {
+    row-gap: calc(var(--spacing) * 2);
   }
 
 .apAutomation-mfe-scope .rounded, .trax-ui-component .rounded {
@@ -4135,31 +4159,9 @@
     border-radius: 3.40282e38px;
   }
 
-.apAutomation-mfe-scope .rounded-lg, .trax-ui-component .rounded-lg, .apAutomation-mfe-scope.rounded-lg, .trax-ui-component.rounded-lg {
-    border-radius: var(--radius-lg);
-  }
-
-.apAutomation-mfe-scope .rounded-md, .trax-ui-component .rounded-md, .apAutomation-mfe-scope.rounded-md, .trax-ui-component.rounded-md {
-    border-radius: var(--radius-md);
-  }
-
-.apAutomation-mfe-scope .rounded-xl, .trax-ui-component .rounded-xl, .apAutomation-mfe-scope.rounded-xl, .trax-ui-component.rounded-xl {
-    border-radius: var(--radius-xl);
-  }
-
-.apAutomation-mfe-scope .border, .trax-ui-component .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-
 .apAutomation-mfe-scope .border-t, .trax-ui-component .border-t, .apAutomation-mfe-scope.border-t, .trax-ui-component.border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
-  }
-
-.apAutomation-mfe-scope .border-t-2, .trax-ui-component .border-t-2, .apAutomation-mfe-scope.border-t-2, .trax-ui-component.border-t-2 {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 2px;
   }
 
 .apAutomation-mfe-scope .border-b, .trax-ui-component .border-b, .apAutomation-mfe-scope.border-b, .trax-ui-component.border-b {
@@ -4167,58 +4169,12 @@
     border-bottom-width: 1px;
   }
 
-.apAutomation-mfe-scope .border-b-2, .trax-ui-component .border-b-2, .apAutomation-mfe-scope.border-b-2, .trax-ui-component.border-b-2 {
-    border-bottom-style: var(--tw-border-style);
-    border-bottom-width: 2px;
-  }
-
-.apAutomation-mfe-scope .border-dashed, .trax-ui-component .border-dashed, .apAutomation-mfe-scope.border-dashed, .trax-ui-component.border-dashed {
-    --tw-border-style: dashed;
-    border-style: dashed;
-  }
-
-.apAutomation-mfe-scope .border-transparent, .trax-ui-component .border-transparent, .apAutomation-mfe-scope.border-transparent, .trax-ui-component.border-transparent {
-    border-color: #0000;
-  }
-
-.apAutomation-mfe-scope .border-trax-green-100, .trax-ui-component .border-trax-green-100, .apAutomation-mfe-scope.border-trax-green-100, .trax-ui-component.border-trax-green-100 {
-    border-color: var(--color-trax-green-100);
-  }
-
 .apAutomation-mfe-scope .border-trax-neutral-30, .trax-ui-component .border-trax-neutral-30, .apAutomation-mfe-scope.border-trax-neutral-30, .trax-ui-component.border-trax-neutral-30 {
     border-color: var(--color-trax-neutral-30);
   }
 
-.apAutomation-mfe-scope .border-trax-neutral-40, .trax-ui-component .border-trax-neutral-40, .apAutomation-mfe-scope.border-trax-neutral-40, .trax-ui-component.border-trax-neutral-40 {
-    border-color: var(--color-trax-neutral-40);
-  }
-
-.apAutomation-mfe-scope .border-trax-primary-blue-100, .trax-ui-component .border-trax-primary-blue-100, .apAutomation-mfe-scope.border-trax-primary-blue-100, .trax-ui-component.border-trax-primary-blue-100 {
-    border-color: var(--color-trax-primary-blue-100);
-  }
-
-.apAutomation-mfe-scope .border-trax-primary-blue-300, .trax-ui-component .border-trax-primary-blue-300, .apAutomation-mfe-scope.border-trax-primary-blue-300, .trax-ui-component.border-trax-primary-blue-300 {
-    border-color: var(--color-trax-primary-blue-300);
-  }
-
 .apAutomation-mfe-scope .border-trax-primary-blue-600, .trax-ui-component .border-trax-primary-blue-600, .apAutomation-mfe-scope.border-trax-primary-blue-600, .trax-ui-component.border-trax-primary-blue-600 {
     border-color: var(--color-trax-primary-blue-600);
-  }
-
-.apAutomation-mfe-scope .border-trax-red-100, .trax-ui-component .border-trax-red-100, .apAutomation-mfe-scope.border-trax-red-100, .trax-ui-component.border-trax-red-100 {
-    border-color: var(--color-trax-red-100);
-  }
-
-.apAutomation-mfe-scope .border-trax-red-500, .trax-ui-component .border-trax-red-500, .apAutomation-mfe-scope.border-trax-red-500, .trax-ui-component.border-trax-red-500 {
-    border-color: var(--color-trax-red-500);
-  }
-
-.apAutomation-mfe-scope .border-trax-teal-300, .trax-ui-component .border-trax-teal-300, .apAutomation-mfe-scope.border-trax-teal-300, .trax-ui-component.border-trax-teal-300 {
-    border-color: var(--color-trax-teal-300);
-  }
-
-.apAutomation-mfe-scope .border-trax-yellow-200, .trax-ui-component .border-trax-yellow-200, .apAutomation-mfe-scope.border-trax-yellow-200, .trax-ui-component.border-trax-yellow-200 {
-    border-color: var(--color-trax-yellow-200);
   }
 
 .apAutomation-mfe-scope .bg-black\/50, .trax-ui-component .bg-black\/50, .apAutomation-mfe-scope.bg-black\/50, .trax-ui-component.bg-black\/50 {
@@ -4235,36 +4191,12 @@
     background-color: var(--color-blue-500);
   }
 
-.apAutomation-mfe-scope .bg-trax-green-50, .trax-ui-component .bg-trax-green-50, .apAutomation-mfe-scope.bg-trax-green-50, .trax-ui-component.bg-trax-green-50 {
-    background-color: var(--color-trax-green-50);
-  }
-
-.apAutomation-mfe-scope .bg-trax-green-100, .trax-ui-component .bg-trax-green-100, .apAutomation-mfe-scope.bg-trax-green-100, .trax-ui-component.bg-trax-green-100 {
-    background-color: var(--color-trax-green-100);
-  }
-
 .apAutomation-mfe-scope .bg-trax-grey-100, .trax-ui-component .bg-trax-grey-100, .apAutomation-mfe-scope.bg-trax-grey-100, .trax-ui-component.bg-trax-grey-100 {
     background-color: var(--color-trax-grey-100);
   }
 
 .apAutomation-mfe-scope .bg-trax-neutral-0, .trax-ui-component .bg-trax-neutral-0, .apAutomation-mfe-scope.bg-trax-neutral-0, .trax-ui-component.bg-trax-neutral-0 {
     background-color: var(--color-trax-neutral-0);
-  }
-
-.apAutomation-mfe-scope .bg-trax-neutral-10, .trax-ui-component .bg-trax-neutral-10, .apAutomation-mfe-scope.bg-trax-neutral-10, .trax-ui-component.bg-trax-neutral-10 {
-    background-color: var(--color-trax-neutral-10);
-  }
-
-.apAutomation-mfe-scope .bg-trax-neutral-20, .trax-ui-component .bg-trax-neutral-20, .apAutomation-mfe-scope.bg-trax-neutral-20, .trax-ui-component.bg-trax-neutral-20 {
-    background-color: var(--color-trax-neutral-20);
-  }
-
-.apAutomation-mfe-scope .bg-trax-neutral-30, .trax-ui-component .bg-trax-neutral-30, .apAutomation-mfe-scope.bg-trax-neutral-30, .trax-ui-component.bg-trax-neutral-30 {
-    background-color: var(--color-trax-neutral-30);
-  }
-
-.apAutomation-mfe-scope .bg-trax-neutral-900, .trax-ui-component .bg-trax-neutral-900, .apAutomation-mfe-scope.bg-trax-neutral-900, .trax-ui-component.bg-trax-neutral-900 {
-    background-color: var(--color-trax-neutral-900);
   }
 
 .apAutomation-mfe-scope .bg-trax-primary-blue-50, .trax-ui-component .bg-trax-primary-blue-50, .apAutomation-mfe-scope.bg-trax-primary-blue-50, .trax-ui-component.bg-trax-primary-blue-50 {
@@ -4279,74 +4211,16 @@
     background-color: var(--color-trax-red-100);
   }
 
-.apAutomation-mfe-scope .bg-trax-red-100\/40, .trax-ui-component .bg-trax-red-100\/40, .apAutomation-mfe-scope.bg-trax-red-100\/40, .trax-ui-component.bg-trax-red-100\/40 {
-    background-color: #fae7e966;
-  }
-
-@supports (color: color-mix(in lab, red, red)) {
-    .apAutomation-mfe-scope .bg-trax-red-100\/40, .trax-ui-component .bg-trax-red-100\/40, .apAutomation-mfe-scope.bg-trax-red-100\/40, .trax-ui-component.bg-trax-red-100\/40 {
-      background-color: color-mix(in oklab, var(--color-trax-red-100) 40%, transparent);
-    }
-  }
-
-.apAutomation-mfe-scope .bg-trax-teal-100, .trax-ui-component .bg-trax-teal-100, .apAutomation-mfe-scope.bg-trax-teal-100, .trax-ui-component.bg-trax-teal-100 {
-    background-color: var(--color-trax-teal-100);
-  }
-
-.apAutomation-mfe-scope .bg-trax-yellow-100, .trax-ui-component .bg-trax-yellow-100, .apAutomation-mfe-scope.bg-trax-yellow-100, .trax-ui-component.bg-trax-yellow-100 {
-    background-color: var(--color-trax-yellow-100);
-  }
-
-.apAutomation-mfe-scope .p-1\.5, .trax-ui-component .p-1\.5, .apAutomation-mfe-scope.p-1\.5, .trax-ui-component.p-1\.5 {
-    padding: calc(var(--spacing) * 1.5);
-  }
-
 .apAutomation-mfe-scope .p-2, .trax-ui-component .p-2, .apAutomation-mfe-scope.p-2, .trax-ui-component.p-2 {
     padding: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .p-3, .trax-ui-component .p-3, .apAutomation-mfe-scope.p-3, .trax-ui-component.p-3 {
-    padding: calc(var(--spacing) * 3);
   }
 
 .apAutomation-mfe-scope .p-3\.5, .trax-ui-component .p-3\.5, .apAutomation-mfe-scope.p-3\.5, .trax-ui-component.p-3\.5 {
     padding: calc(var(--spacing) * 3.5);
   }
 
-.apAutomation-mfe-scope .p-4, .trax-ui-component .p-4, .apAutomation-mfe-scope.p-4, .trax-ui-component.p-4 {
-    padding: calc(var(--spacing) * 4);
-  }
-
-.apAutomation-mfe-scope .p-4\.5, .trax-ui-component .p-4\.5, .apAutomation-mfe-scope.p-4\.5, .trax-ui-component.p-4\.5 {
-    padding: calc(var(--spacing) * 4.5);
-  }
-
-.apAutomation-mfe-scope .p-5, .trax-ui-component .p-5, .apAutomation-mfe-scope.p-5, .trax-ui-component.p-5 {
-    padding: calc(var(--spacing) * 5);
-  }
-
 .apAutomation-mfe-scope .p-8, .trax-ui-component .p-8, .apAutomation-mfe-scope.p-8, .trax-ui-component.p-8 {
     padding: calc(var(--spacing) * 8);
-  }
-
-.apAutomation-mfe-scope .px-1, .trax-ui-component .px-1, .apAutomation-mfe-scope.px-1, .trax-ui-component.px-1 {
-    padding-inline: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .px-2, .trax-ui-component .px-2, .apAutomation-mfe-scope.px-2, .trax-ui-component.px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .px-2\.5, .trax-ui-component .px-2\.5, .apAutomation-mfe-scope.px-2\.5, .trax-ui-component.px-2\.5 {
-    padding-inline: calc(var(--spacing) * 2.5);
-  }
-
-.apAutomation-mfe-scope .px-3, .trax-ui-component .px-3, .apAutomation-mfe-scope.px-3, .trax-ui-component.px-3 {
-    padding-inline: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .px-3\.5, .trax-ui-component .px-3\.5, .apAutomation-mfe-scope.px-3\.5, .trax-ui-component.px-3\.5 {
-    padding-inline: calc(var(--spacing) * 3.5);
   }
 
 .apAutomation-mfe-scope .px-4, .trax-ui-component .px-4, .apAutomation-mfe-scope.px-4, .trax-ui-component.px-4 {
@@ -4357,81 +4231,20 @@
     padding-inline: calc(var(--spacing) * 5);
   }
 
-.apAutomation-mfe-scope .py-0\.5, .trax-ui-component .py-0\.5, .apAutomation-mfe-scope.py-0\.5, .trax-ui-component.py-0\.5 {
-    padding-block: calc(var(--spacing) * .5);
-  }
-
-.apAutomation-mfe-scope .py-2, .trax-ui-component .py-2, .apAutomation-mfe-scope.py-2, .trax-ui-component.py-2 {
-    padding-block: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .py-2\.5, .trax-ui-component .py-2\.5, .apAutomation-mfe-scope.py-2\.5, .trax-ui-component.py-2\.5 {
-    padding-block: calc(var(--spacing) * 2.5);
-  }
-
-.apAutomation-mfe-scope .py-3, .trax-ui-component .py-3, .apAutomation-mfe-scope.py-3, .trax-ui-component.py-3 {
-    padding-block: calc(var(--spacing) * 3);
-  }
-
 .apAutomation-mfe-scope .py-4, .trax-ui-component .py-4, .apAutomation-mfe-scope.py-4, .trax-ui-component.py-4 {
     padding-block: calc(var(--spacing) * 4);
-  }
-
-.apAutomation-mfe-scope .py-6, .trax-ui-component .py-6, .apAutomation-mfe-scope.py-6, .trax-ui-component.py-6 {
-    padding-block: calc(var(--spacing) * 6);
   }
 
 .apAutomation-mfe-scope .py-16, .trax-ui-component .py-16, .apAutomation-mfe-scope.py-16, .trax-ui-component.py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
 
-.apAutomation-mfe-scope .pt-1, .trax-ui-component .pt-1, .apAutomation-mfe-scope.pt-1, .trax-ui-component.pt-1 {
-    padding-top: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .pt-3, .trax-ui-component .pt-3, .apAutomation-mfe-scope.pt-3, .trax-ui-component.pt-3 {
-    padding-top: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .pt-3\.5, .trax-ui-component .pt-3\.5, .apAutomation-mfe-scope.pt-3\.5, .trax-ui-component.pt-3\.5 {
-    padding-top: calc(var(--spacing) * 3.5);
-  }
-
-.apAutomation-mfe-scope .pb-2, .trax-ui-component .pb-2, .apAutomation-mfe-scope.pb-2, .trax-ui-component.pb-2 {
-    padding-bottom: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .pb-3, .trax-ui-component .pb-3, .apAutomation-mfe-scope.pb-3, .trax-ui-component.pb-3 {
-    padding-bottom: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .pb-5, .trax-ui-component .pb-5, .apAutomation-mfe-scope.pb-5, .trax-ui-component.pb-5 {
-    padding-bottom: calc(var(--spacing) * 5);
-  }
-
-.apAutomation-mfe-scope .pl-1\.5, .trax-ui-component .pl-1\.5, .apAutomation-mfe-scope.pl-1\.5, .trax-ui-component.pl-1\.5 {
-    padding-left: calc(var(--spacing) * 1.5);
-  }
-
 .apAutomation-mfe-scope .text-center, .trax-ui-component .text-center, .apAutomation-mfe-scope.text-center, .trax-ui-component.text-center {
     text-align: center !important;
   }
 
-.apAutomation-mfe-scope .text-left, .trax-ui-component .text-left, .apAutomation-mfe-scope.text-left, .trax-ui-component.text-left {
-    text-align: left !important;
-  }
-
-.apAutomation-mfe-scope .text-right, .trax-ui-component .text-right, .apAutomation-mfe-scope.text-right, .trax-ui-component.text-right {
-    text-align: right !important;
-  }
-
 .apAutomation-mfe-scope .font-mono, .trax-ui-component .font-mono, .apAutomation-mfe-scope.font-mono, .trax-ui-component.font-mono {
     font-family: var(--font-mono) !important;
-  }
-
-.apAutomation-mfe-scope .text-2xl, .trax-ui-component .text-2xl, .apAutomation-mfe-scope.text-2xl, .trax-ui-component.text-2xl {
-    font-size: var(--text-2xl) !important;
-    line-height: var(--tw-leading, var(--text-2xl--line-height)) !important;
   }
 
 .apAutomation-mfe-scope .text-base, .trax-ui-component .text-base, .apAutomation-mfe-scope.text-base, .trax-ui-component.text-base {
@@ -4454,23 +4267,9 @@
     line-height: var(--tw-leading, var(--text-xl--line-height)) !important;
   }
 
-.apAutomation-mfe-scope .text-xs, .trax-ui-component .text-xs, .apAutomation-mfe-scope.text-xs, .trax-ui-component.text-xs {
-    font-size: var(--text-xs) !important;
-    line-height: var(--tw-leading, var(--text-xs--line-height)) !important;
-  }
-
-.apAutomation-mfe-scope .text-xxs, .trax-ui-component .text-xxs, .apAutomation-mfe-scope.text-xxs, .trax-ui-component.text-xxs {
-    font-size: var(--text-xxs) !important;
-  }
-
 .apAutomation-mfe-scope .leading-\[1\.4\], .trax-ui-component .leading-\[1\.4\], .apAutomation-mfe-scope.leading-\[1\.4\], .trax-ui-component.leading-\[1\.4\] {
     --tw-leading: 1.4 !important;
     line-height: 1.4 !important;
-  }
-
-.apAutomation-mfe-scope .font-bold, .trax-ui-component .font-bold, .apAutomation-mfe-scope.font-bold, .trax-ui-component.font-bold {
-    --tw-font-weight: var(--font-weight-bold) !important;
-    font-weight: var(--font-weight-bold) !important;
   }
 
 .apAutomation-mfe-scope .font-medium, .trax-ui-component .font-medium, .apAutomation-mfe-scope.font-medium, .trax-ui-component.font-medium {
@@ -4488,17 +4287,8 @@
     font-weight: var(--font-weight-semibold) !important;
   }
 
-.apAutomation-mfe-scope .tracking-wide, .trax-ui-component .tracking-wide, .apAutomation-mfe-scope.tracking-wide, .trax-ui-component.tracking-wide {
-    --tw-tracking: var(--tracking-wide) !important;
-    letter-spacing: var(--tracking-wide) !important;
-  }
-
 .apAutomation-mfe-scope .break-all, .trax-ui-component .break-all, .apAutomation-mfe-scope.break-all, .trax-ui-component.break-all {
     word-break: break-all;
-  }
-
-.apAutomation-mfe-scope .whitespace-nowrap, .trax-ui-component .whitespace-nowrap, .apAutomation-mfe-scope.whitespace-nowrap, .trax-ui-component.whitespace-nowrap {
-    white-space: nowrap;
   }
 
 .apAutomation-mfe-scope .whitespace-pre-line, .trax-ui-component .whitespace-pre-line, .apAutomation-mfe-scope.whitespace-pre-line, .trax-ui-component.whitespace-pre-line {
@@ -4509,14 +4299,6 @@
     color: var(--color-red-500) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-green-500, .trax-ui-component .text-trax-green-500, .apAutomation-mfe-scope.text-trax-green-500, .trax-ui-component.text-trax-green-500 {
-    color: var(--color-trax-green-500) !important;
-  }
-
-.apAutomation-mfe-scope .text-trax-green-800, .trax-ui-component .text-trax-green-800, .apAutomation-mfe-scope.text-trax-green-800, .trax-ui-component.text-trax-green-800 {
-    color: var(--color-trax-green-800) !important;
-  }
-
 .apAutomation-mfe-scope .text-trax-grey-600, .trax-ui-component .text-trax-grey-600, .apAutomation-mfe-scope.text-trax-grey-600, .trax-ui-component.text-trax-grey-600 {
     color: var(--color-trax-grey-600) !important;
   }
@@ -4525,24 +4307,12 @@
     color: var(--color-trax-grey-700) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-neutral-0, .trax-ui-component .text-trax-neutral-0, .apAutomation-mfe-scope.text-trax-neutral-0, .trax-ui-component.text-trax-neutral-0 {
-    color: var(--color-trax-neutral-0) !important;
-  }
-
-.apAutomation-mfe-scope .text-trax-neutral-20, .trax-ui-component .text-trax-neutral-20, .apAutomation-mfe-scope.text-trax-neutral-20, .trax-ui-component.text-trax-neutral-20 {
-    color: var(--color-trax-neutral-20) !important;
-  }
-
-.apAutomation-mfe-scope .text-trax-neutral-70, .trax-ui-component .text-trax-neutral-70, .apAutomation-mfe-scope.text-trax-neutral-70, .trax-ui-component.text-trax-neutral-70 {
-    color: var(--color-trax-neutral-70) !important;
+.apAutomation-mfe-scope .text-trax-grey-900, .trax-ui-component .text-trax-grey-900, .apAutomation-mfe-scope.text-trax-grey-900, .trax-ui-component.text-trax-grey-900 {
+    color: var(--color-trax-grey-900) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-100, .trax-ui-component .text-trax-neutral-100, .apAutomation-mfe-scope.text-trax-neutral-100, .trax-ui-component.text-trax-neutral-100 {
     color: var(--color-trax-neutral-100) !important;
-  }
-
-.apAutomation-mfe-scope .text-trax-neutral-400, .trax-ui-component .text-trax-neutral-400, .apAutomation-mfe-scope.text-trax-neutral-400, .trax-ui-component.text-trax-neutral-400 {
-    color: var(--color-trax-neutral-400) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-500, .trax-ui-component .text-trax-neutral-500, .apAutomation-mfe-scope.text-trax-neutral-500, .trax-ui-component.text-trax-neutral-500 {
@@ -4553,10 +4323,6 @@
     color: var(--color-trax-neutral-600) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-neutral-700, .trax-ui-component .text-trax-neutral-700, .apAutomation-mfe-scope.text-trax-neutral-700, .trax-ui-component.text-trax-neutral-700 {
-    color: var(--color-trax-neutral-700) !important;
-  }
-
 .apAutomation-mfe-scope .text-trax-neutral-900, .trax-ui-component .text-trax-neutral-900, .apAutomation-mfe-scope.text-trax-neutral-900, .trax-ui-component.text-trax-neutral-900 {
     color: var(--color-trax-neutral-900) !important;
   }
@@ -4565,16 +4331,12 @@
     color: var(--color-trax-primary-blue-600) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-primary-blue-700, .trax-ui-component .text-trax-primary-blue-700, .apAutomation-mfe-scope.text-trax-primary-blue-700, .trax-ui-component.text-trax-primary-blue-700 {
-    color: var(--color-trax-primary-blue-700) !important;
-  }
-
 .apAutomation-mfe-scope .text-trax-red-500, .trax-ui-component .text-trax-red-500, .apAutomation-mfe-scope.text-trax-red-500, .trax-ui-component.text-trax-red-500 {
     color: var(--color-trax-red-500) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-red-600, .trax-ui-component .text-trax-red-600, .apAutomation-mfe-scope.text-trax-red-600, .trax-ui-component.text-trax-red-600 {
-    color: var(--color-trax-red-600) !important;
+.apAutomation-mfe-scope .text-trax-violet-100, .trax-ui-component .text-trax-violet-100, .apAutomation-mfe-scope.text-trax-violet-100, .trax-ui-component.text-trax-violet-100 {
+    color: var(--color-trax-violet-100) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-yellow-800, .trax-ui-component .text-trax-yellow-800, .apAutomation-mfe-scope.text-trax-yellow-800, .trax-ui-component.text-trax-yellow-800 {
@@ -4589,45 +4351,13 @@
     text-transform: uppercase;
   }
 
-.apAutomation-mfe-scope .tabular-nums, .trax-ui-component .tabular-nums {
-    --tw-numeric-spacing: tabular-nums;
-    font-variant-numeric: var(--tw-ordinal, ) var(--tw-slashed-zero, ) var(--tw-numeric-figure, ) var(--tw-numeric-spacing, ) var(--tw-numeric-fraction, );
-  }
-
-.apAutomation-mfe-scope .underline, .trax-ui-component .underline {
-    text-decoration-line: underline;
-  }
-
-.apAutomation-mfe-scope .underline-offset-2, .trax-ui-component .underline-offset-2 {
-    text-underline-offset: 2px;
-  }
-
-.apAutomation-mfe-scope .opacity-30, .trax-ui-component .opacity-30, .apAutomation-mfe-scope.opacity-30, .trax-ui-component.opacity-30 {
-    opacity: .3;
-  }
-
 .apAutomation-mfe-scope .opacity-60, .trax-ui-component .opacity-60, .apAutomation-mfe-scope.opacity-60, .trax-ui-component.opacity-60 {
     opacity: .6;
-  }
-
-.apAutomation-mfe-scope .shadow, .trax-ui-component .shadow {
-    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, #0000001a), 0 1px 2px -1px var(--tw-shadow-color, #0000001a);
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-
-.apAutomation-mfe-scope .shadow-none, .trax-ui-component .shadow-none, .apAutomation-mfe-scope.shadow-none, .trax-ui-component.shadow-none {
-    --tw-shadow: 0 0 #0000;
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
 .apAutomation-mfe-scope .shadow-trax-menu, .trax-ui-component .shadow-trax-menu, .apAutomation-mfe-scope.shadow-trax-menu, .trax-ui-component.shadow-trax-menu {
     --tw-shadow: 0px 0px 1px 0px var(--tw-shadow-color, #0410260d), 0px 1px 1px 0px var(--tw-shadow-color, #0410260a), 0px 2px 1px 0px var(--tw-shadow-color, #04102608), 0px 4px 2px 0px var(--tw-shadow-color, #04102603), 0px 6px 2px 0px var(--tw-shadow-color, #04102600);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-
-.apAutomation-mfe-scope .outline, .trax-ui-component .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
 
 .apAutomation-mfe-scope .blur, .trax-ui-component .blur {
@@ -4645,101 +4375,14 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
 
-.transition-colors, .apAutomation-mfe-scope .transition-colors, .trax-ui-component .transition-colors, .apAutomation-mfe-scope.transition-colors, .trax-ui-component.transition-colors {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-.transition-opacity, .apAutomation-mfe-scope .transition-opacity, .trax-ui-component .transition-opacity, .apAutomation-mfe-scope.transition-opacity, .trax-ui-component.transition-opacity {
-    transition-property: opacity;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-.transition-shadow, .apAutomation-mfe-scope .transition-shadow, .trax-ui-component .transition-shadow, .apAutomation-mfe-scope.transition-shadow, .trax-ui-component.transition-shadow {
-    transition-property: box-shadow;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-.transition-transform, .apAutomation-mfe-scope .transition-transform, .trax-ui-component .transition-transform, .apAutomation-mfe-scope.transition-transform, .trax-ui-component.transition-transform {
-    transition-property: transform, translate, scale, rotate;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
 .apAutomation-mfe-scope .outline-none, .trax-ui-component .outline-none, .apAutomation-mfe-scope.outline-none, .trax-ui-component.outline-none {
     --tw-outline-style: none;
     outline-style: none;
   }
 
-.apAutomation-mfe-scope .last\:pb-0:last-child, .trax-ui-component .last\:pb-0:last-child, .apAutomation-mfe-scope.last\:pb-0:last-child, .trax-ui-component.last\:pb-0:last-child {
-    padding-bottom: 0;
-  }
-
-@media (hover: hover) {
-    .apAutomation-mfe-scope .hover\:border-trax-neutral-40:hover, .trax-ui-component .hover\:border-trax-neutral-40:hover, .apAutomation-mfe-scope.hover\:border-trax-neutral-40:hover, .trax-ui-component.hover\:border-trax-neutral-40:hover {
-      border-color: var(--color-trax-neutral-40);
-    }
-
-    .apAutomation-mfe-scope .hover\:bg-trax-neutral-10:hover, .trax-ui-component .hover\:bg-trax-neutral-10:hover, .apAutomation-mfe-scope.hover\:bg-trax-neutral-10:hover, .trax-ui-component.hover\:bg-trax-neutral-10:hover {
-      background-color: var(--color-trax-neutral-10);
-    }
-
-    .apAutomation-mfe-scope .hover\:bg-trax-neutral-20:hover, .trax-ui-component .hover\:bg-trax-neutral-20:hover, .apAutomation-mfe-scope.hover\:bg-trax-neutral-20:hover, .trax-ui-component.hover\:bg-trax-neutral-20:hover {
-      background-color: var(--color-trax-neutral-20);
-    }
-
-    .apAutomation-mfe-scope .hover\:text-trax-neutral-700:hover, .trax-ui-component .hover\:text-trax-neutral-700:hover, .apAutomation-mfe-scope.hover\:text-trax-neutral-700:hover, .trax-ui-component.hover\:text-trax-neutral-700:hover {
-      color: var(--color-trax-neutral-700) !important;
-    }
-
-    .apAutomation-mfe-scope .hover\:text-trax-primary-blue-600:hover, .trax-ui-component .hover\:text-trax-primary-blue-600:hover, .apAutomation-mfe-scope.hover\:text-trax-primary-blue-600:hover, .trax-ui-component.hover\:text-trax-primary-blue-600:hover {
-      color: var(--color-trax-primary-blue-600) !important;
-    }
-
-    .apAutomation-mfe-scope .hover\:underline:hover, .trax-ui-component .hover\:underline:hover {
-      text-decoration-line: underline;
-    }
-
-    .apAutomation-mfe-scope .hover\:shadow-trax-menu:hover, .trax-ui-component .hover\:shadow-trax-menu:hover, .apAutomation-mfe-scope.hover\:shadow-trax-menu:hover, .trax-ui-component.hover\:shadow-trax-menu:hover {
-      --tw-shadow: 0px 0px 1px 0px var(--tw-shadow-color, #0410260d), 0px 1px 1px 0px var(--tw-shadow-color, #0410260a), 0px 2px 1px 0px var(--tw-shadow-color, #04102608), 0px 4px 2px 0px var(--tw-shadow-color, #04102603), 0px 6px 2px 0px var(--tw-shadow-color, #04102600);
-      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    }
-  }
-
-.apAutomation-mfe-scope .disabled\:opacity-50:disabled, .trax-ui-component .disabled\:opacity-50:disabled, .apAutomation-mfe-scope.disabled\:opacity-50:disabled, .trax-ui-component.disabled\:opacity-50:disabled {
-    opacity: .5;
-  }
-
 @media (min-width: 40rem) {
-    .apAutomation-mfe-scope .sm\:col-span-2, .trax-ui-component .sm\:col-span-2 {
-      grid-column: span 2 / span 2;
-    }
-
-    .apAutomation-mfe-scope .sm\:inline, .trax-ui-component .sm\:inline, .apAutomation-mfe-scope.sm\:inline, .trax-ui-component.sm\:inline {
-      display: inline;
-    }
-
-    .apAutomation-mfe-scope .sm\:w-72, .trax-ui-component .sm\:w-72, .apAutomation-mfe-scope.sm\:w-72, .trax-ui-component.sm\:w-72 {
-      width: calc(var(--spacing) * 72);
-    }
-
     .apAutomation-mfe-scope .sm\:w-80, .trax-ui-component .sm\:w-80, .apAutomation-mfe-scope.sm\:w-80, .trax-ui-component.sm\:w-80 {
       width: calc(var(--spacing) * 80);
-    }
-
-    .apAutomation-mfe-scope .sm\:w-96, .trax-ui-component .sm\:w-96, .apAutomation-mfe-scope.sm\:w-96, .trax-ui-component.sm\:w-96 {
-      width: calc(var(--spacing) * 96);
-    }
-
-    .apAutomation-mfe-scope .sm\:grid-cols-2, .trax-ui-component .sm\:grid-cols-2, .apAutomation-mfe-scope.sm\:grid-cols-2, .trax-ui-component.sm\:grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .apAutomation-mfe-scope .sm\:grid-cols-3, .trax-ui-component .sm\:grid-cols-3, .apAutomation-mfe-scope.sm\:grid-cols-3, .trax-ui-component.sm\:grid-cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .apAutomation-mfe-scope .sm\:gap-3, .trax-ui-component .sm\:gap-3, .apAutomation-mfe-scope.sm\:gap-3, .trax-ui-component.sm\:gap-3 {
@@ -4751,193 +4394,6 @@
     .apAutomation-mfe-scope .lg\:table-cell, .trax-ui-component .lg\:table-cell {
       display: table-cell;
     }
-
-    .apAutomation-mfe-scope .lg\:grid-cols-2, .trax-ui-component .lg\:grid-cols-2, .apAutomation-mfe-scope.lg\:grid-cols-2, .trax-ui-component.lg\:grid-cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-@media (min-width: 80rem) {
-    .apAutomation-mfe-scope .xl\:grid-cols-3, .trax-ui-component .xl\:grid-cols-3, .apAutomation-mfe-scope.xl\:grid-cols-3, .trax-ui-component.xl\:grid-cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .apAutomation-mfe-scope .xl\:grid-cols-4, .trax-ui-component .xl\:grid-cols-4, .apAutomation-mfe-scope.xl\:grid-cols-4, .trax-ui-component.xl\:grid-cols-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-.apAutomation-mfe-scope .\[\&_a\]\:text-trax-primary-blue-600 a, .trax-ui-component .\[\&_a\]\:text-trax-primary-blue-600 a, .apAutomation-mfe-scope.\[\&_a\]\:text-trax-primary-blue-600 a, .trax-ui-component.\[\&_a\]\:text-trax-primary-blue-600 a {
-    color: var(--color-trax-primary-blue-600);
-  }
-
-.apAutomation-mfe-scope .\[\&_a\]\:underline a, .trax-ui-component .\[\&_a\]\:underline a {
-    text-decoration-line: underline;
-  }
-
-.apAutomation-mfe-scope .\[\&_blockquote\]\:border-l-2 blockquote, .trax-ui-component .\[\&_blockquote\]\:border-l-2 blockquote, .apAutomation-mfe-scope.\[\&_blockquote\]\:border-l-2 blockquote, .trax-ui-component.\[\&_blockquote\]\:border-l-2 blockquote {
-    border-left-style: var(--tw-border-style);
-    border-left-width: 2px;
-  }
-
-.apAutomation-mfe-scope .\[\&_blockquote\]\:border-trax-neutral-40 blockquote, .trax-ui-component .\[\&_blockquote\]\:border-trax-neutral-40 blockquote, .apAutomation-mfe-scope.\[\&_blockquote\]\:border-trax-neutral-40 blockquote, .trax-ui-component.\[\&_blockquote\]\:border-trax-neutral-40 blockquote {
-    border-color: var(--color-trax-neutral-40);
-  }
-
-.apAutomation-mfe-scope .\[\&_blockquote\]\:pl-3 blockquote, .trax-ui-component .\[\&_blockquote\]\:pl-3 blockquote, .apAutomation-mfe-scope.\[\&_blockquote\]\:pl-3 blockquote, .trax-ui-component.\[\&_blockquote\]\:pl-3 blockquote {
-    padding-left: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .\[\&_blockquote\]\:text-trax-grey-600 blockquote, .trax-ui-component .\[\&_blockquote\]\:text-trax-grey-600 blockquote, .apAutomation-mfe-scope.\[\&_blockquote\]\:text-trax-grey-600 blockquote, .trax-ui-component.\[\&_blockquote\]\:text-trax-grey-600 blockquote {
-    color: var(--color-trax-grey-600);
-  }
-
-.apAutomation-mfe-scope .\[\&_h1\]\:text-xl h1, .trax-ui-component .\[\&_h1\]\:text-xl h1, .apAutomation-mfe-scope.\[\&_h1\]\:text-xl h1, .trax-ui-component.\[\&_h1\]\:text-xl h1 {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
-  }
-
-.apAutomation-mfe-scope .\[\&_h1\]\:font-semibold h1, .trax-ui-component .\[\&_h1\]\:font-semibold h1, .apAutomation-mfe-scope.\[\&_h1\]\:font-semibold h1, .trax-ui-component.\[\&_h1\]\:font-semibold h1 {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-  }
-
-.apAutomation-mfe-scope .\[\&_h3\]\:mt-2 h3, .trax-ui-component .\[\&_h3\]\:mt-2 h3, .apAutomation-mfe-scope.\[\&_h3\]\:mt-2 h3, .trax-ui-component.\[\&_h3\]\:mt-2 h3 {
-    margin-top: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&_h3\]\:text-base h3, .trax-ui-component .\[\&_h3\]\:text-base h3, .apAutomation-mfe-scope.\[\&_h3\]\:text-base h3, .trax-ui-component.\[\&_h3\]\:text-base h3 {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-  }
-
-.apAutomation-mfe-scope .\[\&_h3\]\:font-semibold h3, .trax-ui-component .\[\&_h3\]\:font-semibold h3, .apAutomation-mfe-scope.\[\&_h3\]\:font-semibold h3, .trax-ui-component.\[\&_h3\]\:font-semibold h3 {
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-  }
-
-.apAutomation-mfe-scope .\[\&_li\]\:mb-0\.5 li, .trax-ui-component .\[\&_li\]\:mb-0\.5 li, .apAutomation-mfe-scope.\[\&_li\]\:mb-0\.5 li, .trax-ui-component.\[\&_li\]\:mb-0\.5 li {
-    margin-bottom: calc(var(--spacing) * .5);
-  }
-
-.apAutomation-mfe-scope .\[\&_ol\]\:list-decimal ol, .trax-ui-component .\[\&_ol\]\:list-decimal ol {
-    list-style-type: decimal;
-  }
-
-.apAutomation-mfe-scope .\[\&_ol\]\:pl-5 ol, .trax-ui-component .\[\&_ol\]\:pl-5 ol, .apAutomation-mfe-scope.\[\&_ol\]\:pl-5 ol, .trax-ui-component.\[\&_ol\]\:pl-5 ol {
-    padding-left: calc(var(--spacing) * 5);
-  }
-
-.apAutomation-mfe-scope .\[\&_p\]\:my-2 p, .trax-ui-component .\[\&_p\]\:my-2 p, .apAutomation-mfe-scope.\[\&_p\]\:my-2 p, .trax-ui-component.\[\&_p\]\:my-2 p {
-    margin-block: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&_pre\]\:rounded pre, .trax-ui-component .\[\&_pre\]\:rounded pre {
-    border-radius: .25rem;
-  }
-
-.apAutomation-mfe-scope .\[\&_pre\]\:bg-trax-neutral-20 pre, .trax-ui-component .\[\&_pre\]\:bg-trax-neutral-20 pre, .apAutomation-mfe-scope.\[\&_pre\]\:bg-trax-neutral-20 pre, .trax-ui-component.\[\&_pre\]\:bg-trax-neutral-20 pre {
-    background-color: var(--color-trax-neutral-20);
-  }
-
-.apAutomation-mfe-scope .\[\&_pre\]\:p-2 pre, .trax-ui-component .\[\&_pre\]\:p-2 pre, .apAutomation-mfe-scope.\[\&_pre\]\:p-2 pre, .trax-ui-component.\[\&_pre\]\:p-2 pre {
-    padding: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&_pre\]\:font-mono pre, .trax-ui-component .\[\&_pre\]\:font-mono pre, .apAutomation-mfe-scope.\[\&_pre\]\:font-mono pre, .trax-ui-component.\[\&_pre\]\:font-mono pre {
-    font-family: var(--font-mono);
-  }
-
-.apAutomation-mfe-scope .\[\&_pre\]\:text-xs pre, .trax-ui-component .\[\&_pre\]\:text-xs pre, .apAutomation-mfe-scope.\[\&_pre\]\:text-xs pre, .trax-ui-component.\[\&_pre\]\:text-xs pre {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-
-.apAutomation-mfe-scope .\[\&_table\]\:my-2 table, .trax-ui-component .\[\&_table\]\:my-2 table, .apAutomation-mfe-scope.\[\&_table\]\:my-2 table, .trax-ui-component.\[\&_table\]\:my-2 table {
-    margin-block: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&_table\]\:w-full table, .trax-ui-component .\[\&_table\]\:w-full table, .apAutomation-mfe-scope.\[\&_table\]\:w-full table, .trax-ui-component.\[\&_table\]\:w-full table {
-    width: 100%;
-  }
-
-.apAutomation-mfe-scope .\[\&_td\]\:border td, .trax-ui-component .\[\&_td\]\:border td {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-
-.apAutomation-mfe-scope .\[\&_td\]\:border-trax-neutral-30 td, .trax-ui-component .\[\&_td\]\:border-trax-neutral-30 td, .apAutomation-mfe-scope.\[\&_td\]\:border-trax-neutral-30 td, .trax-ui-component.\[\&_td\]\:border-trax-neutral-30 td {
-    border-color: var(--color-trax-neutral-30);
-  }
-
-.apAutomation-mfe-scope .\[\&_td\]\:px-2 td, .trax-ui-component .\[\&_td\]\:px-2 td, .apAutomation-mfe-scope.\[\&_td\]\:px-2 td, .trax-ui-component.\[\&_td\]\:px-2 td {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&_td\]\:py-1 td, .trax-ui-component .\[\&_td\]\:py-1 td, .apAutomation-mfe-scope.\[\&_td\]\:py-1 td, .trax-ui-component.\[\&_td\]\:py-1 td {
-    padding-block: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .\[\&_th\]\:border th, .trax-ui-component .\[\&_th\]\:border th {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-
-.apAutomation-mfe-scope .\[\&_th\]\:border-trax-neutral-30 th, .trax-ui-component .\[\&_th\]\:border-trax-neutral-30 th, .apAutomation-mfe-scope.\[\&_th\]\:border-trax-neutral-30 th, .trax-ui-component.\[\&_th\]\:border-trax-neutral-30 th {
-    border-color: var(--color-trax-neutral-30);
-  }
-
-.apAutomation-mfe-scope .\[\&_th\]\:bg-trax-neutral-10 th, .trax-ui-component .\[\&_th\]\:bg-trax-neutral-10 th, .apAutomation-mfe-scope.\[\&_th\]\:bg-trax-neutral-10 th, .trax-ui-component.\[\&_th\]\:bg-trax-neutral-10 th {
-    background-color: var(--color-trax-neutral-10);
-  }
-
-.apAutomation-mfe-scope .\[\&_th\]\:px-2 th, .trax-ui-component .\[\&_th\]\:px-2 th, .apAutomation-mfe-scope.\[\&_th\]\:px-2 th, .trax-ui-component.\[\&_th\]\:px-2 th {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&_th\]\:py-1 th, .trax-ui-component .\[\&_th\]\:py-1 th, .apAutomation-mfe-scope.\[\&_th\]\:py-1 th, .trax-ui-component.\[\&_th\]\:py-1 th {
-    padding-block: var(--spacing);
-  }
-
-.apAutomation-mfe-scope .\[\&_th\]\:text-left th, .trax-ui-component .\[\&_th\]\:text-left th, .apAutomation-mfe-scope.\[\&_th\]\:text-left th, .trax-ui-component.\[\&_th\]\:text-left th {
-    text-align: left;
-  }
-
-.apAutomation-mfe-scope .\[\&_ul\]\:list-disc ul, .trax-ui-component .\[\&_ul\]\:list-disc ul {
-    list-style-type: disc;
-  }
-
-.apAutomation-mfe-scope .\[\&_ul\]\:pl-5 ul, .trax-ui-component .\[\&_ul\]\:pl-5 ul, .apAutomation-mfe-scope.\[\&_ul\]\:pl-5 ul, .trax-ui-component.\[\&_ul\]\:pl-5 ul {
-    padding-left: calc(var(--spacing) * 5);
-  }
-
-.apAutomation-mfe-scope .\[\&\>button\]\:mt-2 > button, .trax-ui-component .\[\&\>button\]\:mt-2 > button, .apAutomation-mfe-scope.\[\&\>button\]\:mt-2 > button, .trax-ui-component.\[\&\>button\]\:mt-2 > button {
-    margin-top: calc(var(--spacing) * 2);
-  }
-
-.apAutomation-mfe-scope .\[\&\>button\]\:rounded-lg > button, .trax-ui-component .\[\&\>button\]\:rounded-lg > button, .apAutomation-mfe-scope.\[\&\>button\]\:rounded-lg > button, .trax-ui-component.\[\&\>button\]\:rounded-lg > button {
-    border-radius: var(--radius-lg);
-  }
-
-.apAutomation-mfe-scope .\[\&\>button\]\:bg-trax-primary-blue-600 > button, .trax-ui-component .\[\&\>button\]\:bg-trax-primary-blue-600 > button, .apAutomation-mfe-scope.\[\&\>button\]\:bg-trax-primary-blue-600 > button, .trax-ui-component.\[\&\>button\]\:bg-trax-primary-blue-600 > button {
-    background-color: var(--color-trax-primary-blue-600);
-  }
-
-.apAutomation-mfe-scope .\[\&\>button\]\:px-3 > button, .trax-ui-component .\[\&\>button\]\:px-3 > button, .apAutomation-mfe-scope.\[\&\>button\]\:px-3 > button, .trax-ui-component.\[\&\>button\]\:px-3 > button {
-    padding-inline: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .\[\&\>button\]\:py-1\.5 > button, .trax-ui-component .\[\&\>button\]\:py-1\.5 > button, .apAutomation-mfe-scope.\[\&\>button\]\:py-1\.5 > button, .trax-ui-component.\[\&\>button\]\:py-1\.5 > button {
-    padding-block: calc(var(--spacing) * 1.5);
-  }
-
-.apAutomation-mfe-scope .\[\&\>button\]\:text-trax-neutral-0 > button, .trax-ui-component .\[\&\>button\]\:text-trax-neutral-0 > button, .apAutomation-mfe-scope.\[\&\>button\]\:text-trax-neutral-0 > button, .trax-ui-component.\[\&\>button\]\:text-trax-neutral-0 > button {
-    color: var(--color-trax-neutral-0);
-  }
-
-.apAutomation-mfe-scope .\[\&\>svg\]\:size-4 > svg, .trax-ui-component .\[\&\>svg\]\:size-4 > svg, .apAutomation-mfe-scope.\[\&\>svg\]\:size-4 > svg, .trax-ui-component.\[\&\>svg\]\:size-4 > svg {
-    width: calc(var(--spacing) * 4);
-    height: calc(var(--spacing) * 4);
   }
 
 .apAutomation-mfe-scope body, .trax-ui-component body {
@@ -5526,37 +4982,6 @@
 
 .apAutomation-mfe-scope.data-\[side\=right\]\:slide-in-from-left-2[data-side="right"], .apAutomation-mfe-scope .data-\[side\=right\]\:slide-in-from-left-2[data-side="right"] {
   --tw-enter-translate-x: -.5rem;
-}
-
-@property --tw-divide-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
-
-@property --tw-ordinal {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-slashed-zero {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-numeric-figure {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-numeric-spacing {
-  syntax: "*";
-  inherits: false
-}
-
-@property --tw-numeric-fraction {
-  syntax: "*";
-  inherits: false
 }
 
 @keyframes apAutomation-mfe-spin {
