@@ -45,6 +45,7 @@
       --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-ease: initial;
+      --tw-divide-y-reverse: 0;
     }
   }
 
@@ -1235,10 +1236,6 @@
     gap: calc(var(--spacing) * 1.5);
   }
 
-.apAutomation-mfe-scope .gap-2, .trax-ui-component .gap-2, .apAutomation-mfe-scope.gap-2, .trax-ui-component.gap-2 {
-    gap: calc(var(--spacing) * 2);
-  }
-
 .apAutomation-mfe-scope .gap-5, .trax-ui-component .gap-5, .apAutomation-mfe-scope.gap-5, .trax-ui-component.gap-5 {
     gap: calc(var(--spacing) * 5);
   }
@@ -1839,10 +1836,6 @@
     padding: calc(var(--spacing) * 4);
   }
 
-.apAutomation-mfe-scope .p-6, .trax-ui-component .p-6, .apAutomation-mfe-scope.p-6, .trax-ui-component.p-6 {
-    padding: calc(var(--spacing) * 6);
-  }
-
 .apAutomation-mfe-scope .px-\(--cell-size\), .trax-ui-component .px-\(--cell-size\), .apAutomation-mfe-scope.px-\(--cell-size\), .trax-ui-component.px-\(--cell-size\) {
     padding-inline: var(--cell-size);
   }
@@ -1885,10 +1878,6 @@
 
 .apAutomation-mfe-scope .py-2\.5, .trax-ui-component .py-2\.5, .apAutomation-mfe-scope.py-2\.5, .trax-ui-component.py-2\.5 {
     padding-block: calc(var(--spacing) * 2.5);
-  }
-
-.apAutomation-mfe-scope .py-3, .trax-ui-component .py-3, .apAutomation-mfe-scope.py-3, .trax-ui-component.py-3 {
-    padding-block: calc(var(--spacing) * 3);
   }
 
 .apAutomation-mfe-scope .py-6, .trax-ui-component .py-6, .apAutomation-mfe-scope.py-6, .trax-ui-component.py-6 {
@@ -4107,6 +4096,10 @@
     grid-template-columns: 10rem 1fr;
   }
 
+.apAutomation-mfe-scope .grid-cols-\[14rem_1fr_1fr\], .trax-ui-component .grid-cols-\[14rem_1fr_1fr\], .apAutomation-mfe-scope.grid-cols-\[14rem_1fr_1fr\], .trax-ui-component.grid-cols-\[14rem_1fr_1fr\] {
+    grid-template-columns: 14rem 1fr 1fr;
+  }
+
 .apAutomation-mfe-scope .flex-col, .trax-ui-component .flex-col, .apAutomation-mfe-scope.flex-col, .trax-ui-component.flex-col {
     flex-direction: column;
   }
@@ -4131,6 +4124,10 @@
     justify-content: flex-end;
   }
 
+.apAutomation-mfe-scope .gap-2, .trax-ui-component .gap-2, .apAutomation-mfe-scope.gap-2, .trax-ui-component.gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+
 .apAutomation-mfe-scope .gap-2\.5, .trax-ui-component .gap-2\.5, .apAutomation-mfe-scope.gap-2\.5, .trax-ui-component.gap-2\.5 {
     gap: calc(var(--spacing) * 2.5);
   }
@@ -4149,6 +4146,18 @@
 
 .apAutomation-mfe-scope .gap-y-2, .trax-ui-component .gap-y-2, .apAutomation-mfe-scope.gap-y-2, .trax-ui-component.gap-y-2 {
     row-gap: calc(var(--spacing) * 2);
+  }
+
+.apAutomation-mfe-scope :where(.divide-y > :not(:last-child)), .trax-ui-component :where(.divide-y > :not(:last-child)) {
+    --tw-divide-y-reverse: 0;
+    border-bottom-style: var(--tw-border-style);
+    border-top-style: var(--tw-border-style);
+    border-top-width: calc(1px * var(--tw-divide-y-reverse));
+    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+  }
+
+.apAutomation-mfe-scope :where(.divide-trax-grey-200 > :not(:last-child)), .trax-ui-component :where(.divide-trax-grey-200 > :not(:last-child)) {
+    border-color: var(--color-trax-grey-200);
   }
 
 .apAutomation-mfe-scope .rounded, .trax-ui-component .rounded {
@@ -4219,6 +4228,10 @@
     padding: calc(var(--spacing) * 3.5);
   }
 
+.apAutomation-mfe-scope .p-6, .trax-ui-component .p-6, .apAutomation-mfe-scope.p-6, .trax-ui-component.p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+
 .apAutomation-mfe-scope .p-8, .trax-ui-component .p-8, .apAutomation-mfe-scope.p-8, .trax-ui-component.p-8 {
     padding: calc(var(--spacing) * 8);
   }
@@ -4229,6 +4242,10 @@
 
 .apAutomation-mfe-scope .px-5, .trax-ui-component .px-5, .apAutomation-mfe-scope.px-5, .trax-ui-component.px-5 {
     padding-inline: calc(var(--spacing) * 5);
+  }
+
+.apAutomation-mfe-scope .py-3, .trax-ui-component .py-3, .apAutomation-mfe-scope.py-3, .trax-ui-component.py-3 {
+    padding-block: calc(var(--spacing) * 3);
   }
 
 .apAutomation-mfe-scope .py-4, .trax-ui-component .py-4, .apAutomation-mfe-scope.py-4, .trax-ui-component.py-4 {
@@ -4982,6 +4999,12 @@
 
 .apAutomation-mfe-scope.data-\[side\=right\]\:slide-in-from-left-2[data-side="right"], .apAutomation-mfe-scope .data-\[side\=right\]\:slide-in-from-left-2[data-side="right"] {
   --tw-enter-translate-x: -.5rem;
+}
+
+@property --tw-divide-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
 }
 
 @keyframes apAutomation-mfe-spin {
