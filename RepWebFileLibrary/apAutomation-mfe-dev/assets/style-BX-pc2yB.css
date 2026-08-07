@@ -45,7 +45,6 @@
       --tw-drop-shadow-size: initial;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-divide-y-reverse: 0;
     }
   }
 
@@ -216,8 +215,14 @@
     --shadow-trax-chip: 0px 0px 1px 0px #0410260d, 0px 1px 1px 0px #0410260a, 0px 2px 1px 0px #04102608, 0px 4px 2px 0px #04102603, 0px 6px 2px 0px #04102600;
     --color-blue-500: oklch(62.3% .214 259.815);
     --animate-spin: apAutomation-mfe-spin 1s linear infinite;
+    --color-trax-primary-blue-300: #92afcb;
     --color-trax-primary-blue-600: #13528e;
+    --color-trax-primary-blue-800: #0a2d4e;
+    --color-trax-neutral-grey: #d3d3d3;
     --color-trax-grey-700: #383838;
+    --color-trax-grey-800: #262626;
+    --color-trax-yellow-200: #faf1af;
+    --color-trax-green-200: #ddf4ed;
     --expSrollBarColor: var(--color-trax-neutral-50);
   }
 
@@ -492,6 +497,7 @@
 
 .apAutomation-mfe-scope *, .apAutomation-mfe-scope :before, .apAutomation-mfe-scope :after {
     box-sizing: border-box;
+    border-color: var(--color-border);
   }
 
 .apAutomation-mfe-scope h1, .apAutomation-mfe-scope h2, .apAutomation-mfe-scope h3, .apAutomation-mfe-scope h4, .apAutomation-mfe-scope h5, .apAutomation-mfe-scope h6 {
@@ -786,11 +792,6 @@
 .apAutomation-mfe-scope .size-3\.5, .trax-ui-component .size-3\.5, .apAutomation-mfe-scope.size-3\.5, .trax-ui-component.size-3\.5 {
     width: calc(var(--spacing) * 3.5);
     height: calc(var(--spacing) * 3.5);
-  }
-
-.apAutomation-mfe-scope .size-6, .trax-ui-component .size-6, .apAutomation-mfe-scope.size-6, .trax-ui-component.size-6 {
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
   }
 
 .apAutomation-mfe-scope .size-8, .trax-ui-component .size-8, .apAutomation-mfe-scope.size-8, .trax-ui-component.size-8 {
@@ -1140,10 +1141,6 @@
     rotate: 180deg;
   }
 
-.apAutomation-mfe-scope .cursor-default, .trax-ui-component .cursor-default, .apAutomation-mfe-scope.cursor-default, .trax-ui-component.cursor-default {
-    cursor: default;
-  }
-
 .apAutomation-mfe-scope .cursor-not-allowed, .trax-ui-component .cursor-not-allowed, .apAutomation-mfe-scope.cursor-not-allowed, .trax-ui-component.cursor-not-allowed {
     cursor: not-allowed;
   }
@@ -1166,10 +1163,6 @@
 
 .apAutomation-mfe-scope .list-decimal, .trax-ui-component .list-decimal {
     list-style-type: decimal;
-  }
-
-.apAutomation-mfe-scope .list-disc, .trax-ui-component .list-disc {
-    list-style-type: disc;
   }
 
 .apAutomation-mfe-scope .auto-rows-min, .trax-ui-component .auto-rows-min {
@@ -1202,10 +1195,6 @@
 
 .apAutomation-mfe-scope .flex-row-reverse, .trax-ui-component .flex-row-reverse, .apAutomation-mfe-scope.flex-row-reverse, .trax-ui-component.flex-row-reverse {
     flex-direction: row-reverse;
-  }
-
-.apAutomation-mfe-scope .flex-nowrap, .trax-ui-component .flex-nowrap, .apAutomation-mfe-scope.flex-nowrap, .trax-ui-component.flex-nowrap {
-    flex-wrap: nowrap;
   }
 
 .apAutomation-mfe-scope .flex-wrap, .trax-ui-component .flex-wrap, .apAutomation-mfe-scope.flex-wrap, .trax-ui-component.flex-wrap {
@@ -1254,12 +1243,6 @@
 
 .apAutomation-mfe-scope .gap-\[8\%\], .trax-ui-component .gap-\[8\%\], .apAutomation-mfe-scope.gap-\[8\%\], .trax-ui-component.gap-\[8\%\] {
     gap: 8%;
-  }
-
-.apAutomation-mfe-scope :where(.space-y-1 > :not(:last-child)), .trax-ui-component :where(.space-y-1 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(var(--spacing) * var(--tw-space-y-reverse));
-    margin-block-end: calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)));
   }
 
 .apAutomation-mfe-scope :where(.space-y-1\.5 > :not(:last-child)), .trax-ui-component :where(.space-y-1\.5 > :not(:last-child)) {
@@ -1344,10 +1327,6 @@
     overflow: hidden;
   }
 
-.apAutomation-mfe-scope .overflow-x-auto, .trax-ui-component .overflow-x-auto, .apAutomation-mfe-scope.overflow-x-auto, .trax-ui-component.overflow-x-auto {
-    overflow-x: auto;
-  }
-
 .apAutomation-mfe-scope .overflow-x-hidden, .trax-ui-component .overflow-x-hidden, .apAutomation-mfe-scope.overflow-x-hidden, .trax-ui-component.overflow-x-hidden {
     overflow-x: hidden;
   }
@@ -1362,10 +1341,6 @@
 
 .apAutomation-mfe-scope .rounded-\[16px\], .trax-ui-component .rounded-\[16px\], .apAutomation-mfe-scope.rounded-\[16px\], .trax-ui-component.rounded-\[16px\] {
     border-radius: 16px;
-  }
-
-.apAutomation-mfe-scope .rounded-lg, .trax-ui-component .rounded-lg, .apAutomation-mfe-scope.rounded-lg, .trax-ui-component.rounded-lg {
-    border-radius: var(--radius-lg);
   }
 
 .apAutomation-mfe-scope .rounded-md, .trax-ui-component .rounded-md, .apAutomation-mfe-scope.rounded-md, .trax-ui-component.rounded-md {
@@ -1421,11 +1396,6 @@
 .apAutomation-mfe-scope .rounded-b-\[4px\], .trax-ui-component .rounded-b-\[4px\], .apAutomation-mfe-scope.rounded-b-\[4px\], .trax-ui-component.rounded-b-\[4px\] {
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-  }
-
-.apAutomation-mfe-scope .border, .trax-ui-component .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
 
 .apAutomation-mfe-scope .border-0, .trax-ui-component .border-0, .apAutomation-mfe-scope.border-0, .trax-ui-component.border-0 {
@@ -1508,10 +1478,6 @@
 
 .apAutomation-mfe-scope .border-trax-green-400, .trax-ui-component .border-trax-green-400, .apAutomation-mfe-scope.border-trax-green-400, .trax-ui-component.border-trax-green-400 {
     border-color: var(--color-trax-green-400);
-  }
-
-.apAutomation-mfe-scope .border-trax-grey-200, .trax-ui-component .border-trax-grey-200, .apAutomation-mfe-scope.border-trax-grey-200, .trax-ui-component.border-trax-grey-200 {
-    border-color: var(--color-trax-grey-200);
   }
 
 .apAutomation-mfe-scope .border-trax-neutral-20, .trax-ui-component .border-trax-neutral-20, .apAutomation-mfe-scope.border-trax-neutral-20, .trax-ui-component.border-trax-neutral-20 {
@@ -1720,10 +1686,6 @@
     background-color: var(--color-trax-grey-200);
   }
 
-.apAutomation-mfe-scope .bg-trax-neutral-10, .trax-ui-component .bg-trax-neutral-10, .apAutomation-mfe-scope.bg-trax-neutral-10, .trax-ui-component.bg-trax-neutral-10 {
-    background-color: var(--color-trax-neutral-10);
-  }
-
 .apAutomation-mfe-scope .bg-trax-neutral-20, .trax-ui-component .bg-trax-neutral-20, .apAutomation-mfe-scope.bg-trax-neutral-20, .trax-ui-component.bg-trax-neutral-20 {
     background-color: var(--color-trax-neutral-20);
   }
@@ -1828,10 +1790,6 @@
     padding: calc(var(--spacing) * 1.5);
   }
 
-.apAutomation-mfe-scope .p-3, .trax-ui-component .p-3, .apAutomation-mfe-scope.p-3, .trax-ui-component.p-3 {
-    padding: calc(var(--spacing) * 3);
-  }
-
 .apAutomation-mfe-scope .p-4, .trax-ui-component .p-4, .apAutomation-mfe-scope.p-4, .trax-ui-component.p-4 {
     padding: calc(var(--spacing) * 4);
   }
@@ -1848,24 +1806,8 @@
     padding-inline: calc(var(--spacing) * 1.5);
   }
 
-.apAutomation-mfe-scope .px-2, .trax-ui-component .px-2, .apAutomation-mfe-scope.px-2, .trax-ui-component.px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
-
 .apAutomation-mfe-scope .px-2\.5, .trax-ui-component .px-2\.5, .apAutomation-mfe-scope.px-2\.5, .trax-ui-component.px-2\.5 {
     padding-inline: calc(var(--spacing) * 2.5);
-  }
-
-.apAutomation-mfe-scope .px-3, .trax-ui-component .px-3, .apAutomation-mfe-scope.px-3, .trax-ui-component.px-3 {
-    padding-inline: calc(var(--spacing) * 3);
-  }
-
-.apAutomation-mfe-scope .py-0\.5, .trax-ui-component .py-0\.5, .apAutomation-mfe-scope.py-0\.5, .trax-ui-component.py-0\.5 {
-    padding-block: calc(var(--spacing) * .5);
-  }
-
-.apAutomation-mfe-scope .py-1, .trax-ui-component .py-1, .apAutomation-mfe-scope.py-1, .trax-ui-component.py-1 {
-    padding-block: var(--spacing);
   }
 
 .apAutomation-mfe-scope .py-1\.5, .trax-ui-component .py-1\.5, .apAutomation-mfe-scope.py-1\.5, .trax-ui-component.py-1\.5 {
@@ -1993,11 +1935,6 @@
 .apAutomation-mfe-scope .text-4xl, .trax-ui-component .text-4xl, .apAutomation-mfe-scope.text-4xl, .trax-ui-component.text-4xl {
     font-size: var(--text-4xl) !important;
     line-height: var(--tw-leading, var(--text-4xl--line-height)) !important;
-  }
-
-.apAutomation-mfe-scope .text-xs, .trax-ui-component .text-xs, .apAutomation-mfe-scope.text-xs, .trax-ui-component.text-xs {
-    font-size: var(--text-xs) !important;
-    line-height: var(--tw-leading, var(--text-xs--line-height)) !important;
   }
 
 .apAutomation-mfe-scope .text-\[0\.8rem\], .trax-ui-component .text-\[0\.8rem\], .apAutomation-mfe-scope.text-\[0\.8rem\], .trax-ui-component.text-\[0\.8rem\] {
@@ -2173,10 +2110,6 @@
     color: var(--color-trax-green-600) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-green-800, .trax-ui-component .text-trax-green-800, .apAutomation-mfe-scope.text-trax-green-800, .trax-ui-component.text-trax-green-800 {
-    color: var(--color-trax-green-800) !important;
-  }
-
 .apAutomation-mfe-scope .text-trax-grey-200, .trax-ui-component .text-trax-grey-200, .apAutomation-mfe-scope.text-trax-grey-200, .trax-ui-component.text-trax-grey-200 {
     color: var(--color-trax-grey-200) !important;
   }
@@ -2205,10 +2138,6 @@
     color: var(--color-trax-neutral-300) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-neutral-400, .trax-ui-component .text-trax-neutral-400, .apAutomation-mfe-scope.text-trax-neutral-400, .trax-ui-component.text-trax-neutral-400 {
-    color: var(--color-trax-neutral-400) !important;
-  }
-
 .apAutomation-mfe-scope .text-trax-neutral-950, .trax-ui-component .text-trax-neutral-950, .apAutomation-mfe-scope.text-trax-neutral-950, .trax-ui-component.text-trax-neutral-950 {
     color: var(--color-trax-neutral-950) !important;
   }
@@ -2235,10 +2164,6 @@
 
 .apAutomation-mfe-scope .text-trax-teal-600, .trax-ui-component .text-trax-teal-600, .apAutomation-mfe-scope.text-trax-teal-600, .trax-ui-component.text-trax-teal-600 {
     color: var(--color-trax-teal-600) !important;
-  }
-
-.apAutomation-mfe-scope .text-white, .trax-ui-component .text-white, .apAutomation-mfe-scope.text-white, .trax-ui-component.text-white {
-    color: var(--color-white) !important;
   }
 
 .apAutomation-mfe-scope .italic, .trax-ui-component .italic {
@@ -2340,11 +2265,6 @@
     }
   }
 
-.apAutomation-mfe-scope .outline, .trax-ui-component .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
-
 .transition-\[color\,box-shadow\], .apAutomation-mfe-scope .transition-\[color\,box-shadow\], .trax-ui-component .transition-\[color\,box-shadow\], .apAutomation-mfe-scope.transition-\[color\,box-shadow\], .trax-ui-component.transition-\[color\,box-shadow\] {
     transition-property: color, box-shadow;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -2353,12 +2273,6 @@
 
 .transition-all, .apAutomation-mfe-scope .transition-all, .trax-ui-component .transition-all, .apAutomation-mfe-scope.transition-all, .trax-ui-component.transition-all {
     transition-property: all;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-
-.transition-colors, .apAutomation-mfe-scope .transition-colors, .trax-ui-component .transition-colors, .apAutomation-mfe-scope.transition-colors, .trax-ui-component.transition-colors {
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
@@ -2995,11 +2909,6 @@
 .apAutomation-mfe-scope .focus-visible\:ring-offset-0:focus-visible, .trax-ui-component .focus-visible\:ring-offset-0:focus-visible, .apAutomation-mfe-scope.focus-visible\:ring-offset-0:focus-visible, .trax-ui-component.focus-visible\:ring-offset-0:focus-visible {
     --tw-ring-offset-width: 0px;
     --tw-ring-offset-shadow: var(--tw-ring-inset, ) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  }
-
-.apAutomation-mfe-scope .focus-visible\:outline-none:focus-visible, .trax-ui-component .focus-visible\:outline-none:focus-visible, .apAutomation-mfe-scope.focus-visible\:outline-none:focus-visible, .trax-ui-component.focus-visible\:outline-none:focus-visible {
-    --tw-outline-style: none;
-    outline-style: none;
   }
 
 .apAutomation-mfe-scope .active\:bg-trax-blue-900:active, .trax-ui-component .active\:bg-trax-blue-900:active, .apAutomation-mfe-scope.active\:bg-trax-blue-900:active, .trax-ui-component.active\:bg-trax-blue-900:active {
@@ -4023,9 +3932,19 @@
     height: calc(var(--spacing) * 5);
   }
 
+.apAutomation-mfe-scope .size-6, .trax-ui-component .size-6, .apAutomation-mfe-scope.size-6, .trax-ui-component.size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
+
 .apAutomation-mfe-scope .size-9, .trax-ui-component .size-9, .apAutomation-mfe-scope.size-9, .trax-ui-component.size-9 {
     width: calc(var(--spacing) * 9);
     height: calc(var(--spacing) * 9);
+  }
+
+.apAutomation-mfe-scope .size-11\.5, .trax-ui-component .size-11\.5, .apAutomation-mfe-scope.size-11\.5, .trax-ui-component.size-11\.5 {
+    width: calc(var(--spacing) * 11.5);
+    height: calc(var(--spacing) * 11.5);
   }
 
 .apAutomation-mfe-scope .h-full, .trax-ui-component .h-full, .apAutomation-mfe-scope.h-full, .trax-ui-component.h-full {
@@ -4060,6 +3979,10 @@
     min-width: 0;
   }
 
+.apAutomation-mfe-scope .min-w-6, .trax-ui-component .min-w-6, .apAutomation-mfe-scope.min-w-6, .trax-ui-component.min-w-6 {
+    min-width: calc(var(--spacing) * 6);
+  }
+
 .apAutomation-mfe-scope .min-w-20, .trax-ui-component .min-w-20, .apAutomation-mfe-scope.min-w-20, .trax-ui-component.min-w-20 {
     min-width: calc(var(--spacing) * 20);
   }
@@ -4092,16 +4015,24 @@
     animation: var(--animate-spin);
   }
 
+.apAutomation-mfe-scope .cursor-default, .trax-ui-component .cursor-default, .apAutomation-mfe-scope.cursor-default, .trax-ui-component.cursor-default {
+    cursor: default;
+  }
+
+.apAutomation-mfe-scope .list-disc, .trax-ui-component .list-disc {
+    list-style-type: disc;
+  }
+
 .apAutomation-mfe-scope .grid-cols-\[10rem_1fr\], .trax-ui-component .grid-cols-\[10rem_1fr\], .apAutomation-mfe-scope.grid-cols-\[10rem_1fr\], .trax-ui-component.grid-cols-\[10rem_1fr\] {
     grid-template-columns: 10rem 1fr;
   }
 
-.apAutomation-mfe-scope .grid-cols-\[14rem_1fr_1fr\], .trax-ui-component .grid-cols-\[14rem_1fr_1fr\], .apAutomation-mfe-scope.grid-cols-\[14rem_1fr_1fr\], .trax-ui-component.grid-cols-\[14rem_1fr_1fr\] {
-    grid-template-columns: 14rem 1fr 1fr;
-  }
-
 .apAutomation-mfe-scope .flex-col, .trax-ui-component .flex-col, .apAutomation-mfe-scope.flex-col, .trax-ui-component.flex-col {
     flex-direction: column;
+  }
+
+.apAutomation-mfe-scope .flex-nowrap, .trax-ui-component .flex-nowrap, .apAutomation-mfe-scope.flex-nowrap, .trax-ui-component.flex-nowrap {
+    flex-wrap: nowrap;
   }
 
 .apAutomation-mfe-scope .items-center, .trax-ui-component .items-center, .apAutomation-mfe-scope.items-center, .trax-ui-component.items-center {
@@ -4140,6 +4071,12 @@
     gap: calc(var(--spacing) * 4);
   }
 
+.apAutomation-mfe-scope :where(.space-y-1 > :not(:last-child)), .trax-ui-component :where(.space-y-1 > :not(:last-child)) {
+    --tw-space-y-reverse: 0;
+    margin-block-start: calc(var(--spacing) * var(--tw-space-y-reverse));
+    margin-block-end: calc(var(--spacing) * calc(1 - var(--tw-space-y-reverse)));
+  }
+
 .apAutomation-mfe-scope .gap-x-4, .trax-ui-component .gap-x-4, .apAutomation-mfe-scope.gap-x-4, .trax-ui-component.gap-x-4 {
     column-gap: calc(var(--spacing) * 4);
   }
@@ -4148,24 +4085,29 @@
     row-gap: calc(var(--spacing) * 2);
   }
 
-.apAutomation-mfe-scope :where(.divide-y > :not(:last-child)), .trax-ui-component :where(.divide-y > :not(:last-child)) {
-    --tw-divide-y-reverse: 0;
-    border-bottom-style: var(--tw-border-style);
-    border-top-style: var(--tw-border-style);
-    border-top-width: calc(1px * var(--tw-divide-y-reverse));
-    border-bottom-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
-  }
-
-.apAutomation-mfe-scope :where(.divide-trax-grey-200 > :not(:last-child)), .trax-ui-component :where(.divide-trax-grey-200 > :not(:last-child)) {
-    border-color: var(--color-trax-grey-200);
+.apAutomation-mfe-scope .overflow-x-auto, .trax-ui-component .overflow-x-auto, .apAutomation-mfe-scope.overflow-x-auto, .trax-ui-component.overflow-x-auto {
+    overflow-x: auto;
   }
 
 .apAutomation-mfe-scope .rounded, .trax-ui-component .rounded {
     border-radius: .25rem;
   }
 
+.apAutomation-mfe-scope .rounded-\[20px\], .trax-ui-component .rounded-\[20px\], .apAutomation-mfe-scope.rounded-\[20px\], .trax-ui-component.rounded-\[20px\] {
+    border-radius: 20px;
+  }
+
 .apAutomation-mfe-scope .rounded-full, .trax-ui-component .rounded-full, .apAutomation-mfe-scope.rounded-full, .trax-ui-component.rounded-full {
     border-radius: 3.40282e38px;
+  }
+
+.apAutomation-mfe-scope .rounded-lg, .trax-ui-component .rounded-lg, .apAutomation-mfe-scope.rounded-lg, .trax-ui-component.rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+
+.apAutomation-mfe-scope .border, .trax-ui-component .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
 
 .apAutomation-mfe-scope .border-t, .trax-ui-component .border-t, .apAutomation-mfe-scope.border-t, .trax-ui-component.border-t {
@@ -4176,6 +4118,10 @@
 .apAutomation-mfe-scope .border-b, .trax-ui-component .border-b, .apAutomation-mfe-scope.border-b, .trax-ui-component.border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
+  }
+
+.apAutomation-mfe-scope .border-trax-grey-200, .trax-ui-component .border-trax-grey-200, .apAutomation-mfe-scope.border-trax-grey-200, .trax-ui-component.border-trax-grey-200 {
+    border-color: var(--color-trax-grey-200);
   }
 
 .apAutomation-mfe-scope .border-trax-neutral-30, .trax-ui-component .border-trax-neutral-30, .apAutomation-mfe-scope.border-trax-neutral-30, .trax-ui-component.border-trax-neutral-30 {
@@ -4200,6 +4146,10 @@
     background-color: var(--color-blue-500);
   }
 
+.apAutomation-mfe-scope .bg-trax-green-200, .trax-ui-component .bg-trax-green-200, .apAutomation-mfe-scope.bg-trax-green-200, .trax-ui-component.bg-trax-green-200 {
+    background-color: var(--color-trax-green-200);
+  }
+
 .apAutomation-mfe-scope .bg-trax-grey-100, .trax-ui-component .bg-trax-grey-100, .apAutomation-mfe-scope.bg-trax-grey-100, .trax-ui-component.bg-trax-grey-100 {
     background-color: var(--color-trax-grey-100);
   }
@@ -4208,8 +4158,16 @@
     background-color: var(--color-trax-neutral-0);
   }
 
+.apAutomation-mfe-scope .bg-trax-neutral-10, .trax-ui-component .bg-trax-neutral-10, .apAutomation-mfe-scope.bg-trax-neutral-10, .trax-ui-component.bg-trax-neutral-10 {
+    background-color: var(--color-trax-neutral-10);
+  }
+
 .apAutomation-mfe-scope .bg-trax-primary-blue-50, .trax-ui-component .bg-trax-primary-blue-50, .apAutomation-mfe-scope.bg-trax-primary-blue-50, .trax-ui-component.bg-trax-primary-blue-50 {
     background-color: var(--color-trax-primary-blue-50);
+  }
+
+.apAutomation-mfe-scope .bg-trax-primary-blue-100, .trax-ui-component .bg-trax-primary-blue-100, .apAutomation-mfe-scope.bg-trax-primary-blue-100, .trax-ui-component.bg-trax-primary-blue-100 {
+    background-color: var(--color-trax-primary-blue-100);
   }
 
 .apAutomation-mfe-scope .bg-trax-primary-blue-600, .trax-ui-component .bg-trax-primary-blue-600, .apAutomation-mfe-scope.bg-trax-primary-blue-600, .trax-ui-component.bg-trax-primary-blue-600 {
@@ -4220,8 +4178,16 @@
     background-color: var(--color-trax-red-100);
   }
 
+.apAutomation-mfe-scope .bg-trax-yellow-200, .trax-ui-component .bg-trax-yellow-200, .apAutomation-mfe-scope.bg-trax-yellow-200, .trax-ui-component.bg-trax-yellow-200 {
+    background-color: var(--color-trax-yellow-200);
+  }
+
 .apAutomation-mfe-scope .p-2, .trax-ui-component .p-2, .apAutomation-mfe-scope.p-2, .trax-ui-component.p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+
+.apAutomation-mfe-scope .p-3, .trax-ui-component .p-3, .apAutomation-mfe-scope.p-3, .trax-ui-component.p-3 {
+    padding: calc(var(--spacing) * 3);
   }
 
 .apAutomation-mfe-scope .p-3\.5, .trax-ui-component .p-3\.5, .apAutomation-mfe-scope.p-3\.5, .trax-ui-component.p-3\.5 {
@@ -4236,12 +4202,28 @@
     padding: calc(var(--spacing) * 8);
   }
 
+.apAutomation-mfe-scope .px-2, .trax-ui-component .px-2, .apAutomation-mfe-scope.px-2, .trax-ui-component.px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+
+.apAutomation-mfe-scope .px-3, .trax-ui-component .px-3, .apAutomation-mfe-scope.px-3, .trax-ui-component.px-3 {
+    padding-inline: calc(var(--spacing) * 3);
+  }
+
 .apAutomation-mfe-scope .px-4, .trax-ui-component .px-4, .apAutomation-mfe-scope.px-4, .trax-ui-component.px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
 
 .apAutomation-mfe-scope .px-5, .trax-ui-component .px-5, .apAutomation-mfe-scope.px-5, .trax-ui-component.px-5 {
     padding-inline: calc(var(--spacing) * 5);
+  }
+
+.apAutomation-mfe-scope .py-0\.5, .trax-ui-component .py-0\.5, .apAutomation-mfe-scope.py-0\.5, .trax-ui-component.py-0\.5 {
+    padding-block: calc(var(--spacing) * .5);
+  }
+
+.apAutomation-mfe-scope .py-1, .trax-ui-component .py-1, .apAutomation-mfe-scope.py-1, .trax-ui-component.py-1 {
+    padding-block: var(--spacing);
   }
 
 .apAutomation-mfe-scope .py-3, .trax-ui-component .py-3, .apAutomation-mfe-scope.py-3, .trax-ui-component.py-3 {
@@ -4254,6 +4236,10 @@
 
 .apAutomation-mfe-scope .py-16, .trax-ui-component .py-16, .apAutomation-mfe-scope.py-16, .trax-ui-component.py-16 {
     padding-block: calc(var(--spacing) * 16);
+  }
+
+.apAutomation-mfe-scope .pl-4, .trax-ui-component .pl-4, .apAutomation-mfe-scope.pl-4, .trax-ui-component.pl-4 {
+    padding-left: calc(var(--spacing) * 4);
   }
 
 .apAutomation-mfe-scope .text-center, .trax-ui-component .text-center, .apAutomation-mfe-scope.text-center, .trax-ui-component.text-center {
@@ -4282,6 +4268,11 @@
 .apAutomation-mfe-scope .text-xl, .trax-ui-component .text-xl, .apAutomation-mfe-scope.text-xl, .trax-ui-component.text-xl {
     font-size: var(--text-xl) !important;
     line-height: var(--tw-leading, var(--text-xl--line-height)) !important;
+  }
+
+.apAutomation-mfe-scope .text-xs, .trax-ui-component .text-xs, .apAutomation-mfe-scope.text-xs, .trax-ui-component.text-xs {
+    font-size: var(--text-xs) !important;
+    line-height: var(--tw-leading, var(--text-xs--line-height)) !important;
   }
 
 .apAutomation-mfe-scope .leading-\[1\.4\], .trax-ui-component .leading-\[1\.4\], .apAutomation-mfe-scope.leading-\[1\.4\], .trax-ui-component.leading-\[1\.4\] {
@@ -4316,6 +4307,10 @@
     color: var(--color-red-500) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-green-800, .trax-ui-component .text-trax-green-800, .apAutomation-mfe-scope.text-trax-green-800, .trax-ui-component.text-trax-green-800 {
+    color: var(--color-trax-green-800) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-grey-600, .trax-ui-component .text-trax-grey-600, .apAutomation-mfe-scope.text-trax-grey-600, .trax-ui-component.text-trax-grey-600 {
     color: var(--color-trax-grey-600) !important;
   }
@@ -4324,12 +4319,20 @@
     color: var(--color-trax-grey-700) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-grey-800, .trax-ui-component .text-trax-grey-800, .apAutomation-mfe-scope.text-trax-grey-800, .trax-ui-component.text-trax-grey-800 {
+    color: var(--color-trax-grey-800) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-grey-900, .trax-ui-component .text-trax-grey-900, .apAutomation-mfe-scope.text-trax-grey-900, .trax-ui-component.text-trax-grey-900 {
     color: var(--color-trax-grey-900) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-100, .trax-ui-component .text-trax-neutral-100, .apAutomation-mfe-scope.text-trax-neutral-100, .trax-ui-component.text-trax-neutral-100 {
     color: var(--color-trax-neutral-100) !important;
+  }
+
+.apAutomation-mfe-scope .text-trax-neutral-400, .trax-ui-component .text-trax-neutral-400, .apAutomation-mfe-scope.text-trax-neutral-400, .trax-ui-component.text-trax-neutral-400 {
+    color: var(--color-trax-neutral-400) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-500, .trax-ui-component .text-trax-neutral-500, .apAutomation-mfe-scope.text-trax-neutral-500, .trax-ui-component.text-trax-neutral-500 {
@@ -4344,8 +4347,16 @@
     color: var(--color-trax-neutral-900) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-neutral-grey, .trax-ui-component .text-trax-neutral-grey, .apAutomation-mfe-scope.text-trax-neutral-grey, .trax-ui-component.text-trax-neutral-grey {
+    color: var(--color-trax-neutral-grey) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-primary-blue-600, .trax-ui-component .text-trax-primary-blue-600, .apAutomation-mfe-scope.text-trax-primary-blue-600, .trax-ui-component.text-trax-primary-blue-600 {
     color: var(--color-trax-primary-blue-600) !important;
+  }
+
+.apAutomation-mfe-scope .text-trax-primary-blue-800, .trax-ui-component .text-trax-primary-blue-800, .apAutomation-mfe-scope.text-trax-primary-blue-800, .trax-ui-component.text-trax-primary-blue-800 {
+    color: var(--color-trax-primary-blue-800) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-red-500, .trax-ui-component .text-trax-red-500, .apAutomation-mfe-scope.text-trax-red-500, .trax-ui-component.text-trax-red-500 {
@@ -4358,6 +4369,10 @@
 
 .apAutomation-mfe-scope .text-trax-yellow-800, .trax-ui-component .text-trax-yellow-800, .apAutomation-mfe-scope.text-trax-yellow-800, .trax-ui-component.text-trax-yellow-800 {
     color: var(--color-trax-yellow-800) !important;
+  }
+
+.apAutomation-mfe-scope .text-white, .trax-ui-component .text-white, .apAutomation-mfe-scope.text-white, .trax-ui-component.text-white {
+    color: var(--color-white) !important;
   }
 
 .apAutomation-mfe-scope .capitalize, .trax-ui-component .capitalize {
@@ -4377,6 +4392,11 @@
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
+.apAutomation-mfe-scope .outline, .trax-ui-component .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+
 .apAutomation-mfe-scope .blur, .trax-ui-component .blur {
     --tw-blur: blur(8px);
     filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
@@ -4392,7 +4412,37 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
 
+.transition-colors, .apAutomation-mfe-scope .transition-colors, .trax-ui-component .transition-colors, .apAutomation-mfe-scope.transition-colors, .trax-ui-component.transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+
 .apAutomation-mfe-scope .outline-none, .trax-ui-component .outline-none, .apAutomation-mfe-scope.outline-none, .trax-ui-component.outline-none {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
+
+@media (hover: hover) {
+    .apAutomation-mfe-scope .hover\:bg-trax-primary-blue-50:hover, .trax-ui-component .hover\:bg-trax-primary-blue-50:hover, .apAutomation-mfe-scope.hover\:bg-trax-primary-blue-50:hover, .trax-ui-component.hover\:bg-trax-primary-blue-50:hover {
+      background-color: var(--color-trax-primary-blue-50);
+    }
+
+    .apAutomation-mfe-scope .hover\:text-trax-primary-blue-600:hover, .trax-ui-component .hover\:text-trax-primary-blue-600:hover, .apAutomation-mfe-scope.hover\:text-trax-primary-blue-600:hover, .trax-ui-component.hover\:text-trax-primary-blue-600:hover {
+      color: var(--color-trax-primary-blue-600) !important;
+    }
+  }
+
+.apAutomation-mfe-scope .focus-visible\:ring-2:focus-visible, .trax-ui-component .focus-visible\:ring-2:focus-visible, .apAutomation-mfe-scope.focus-visible\:ring-2:focus-visible, .trax-ui-component.focus-visible\:ring-2:focus-visible {
+    --tw-ring-shadow: var(--tw-ring-inset, ) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+
+.apAutomation-mfe-scope .focus-visible\:ring-trax-primary-blue-300:focus-visible, .trax-ui-component .focus-visible\:ring-trax-primary-blue-300:focus-visible, .apAutomation-mfe-scope.focus-visible\:ring-trax-primary-blue-300:focus-visible, .trax-ui-component.focus-visible\:ring-trax-primary-blue-300:focus-visible {
+    --tw-ring-color: var(--color-trax-primary-blue-300);
+  }
+
+.apAutomation-mfe-scope .focus-visible\:outline-none:focus-visible, .trax-ui-component .focus-visible\:outline-none:focus-visible, .apAutomation-mfe-scope.focus-visible\:outline-none:focus-visible, .trax-ui-component.focus-visible\:outline-none:focus-visible {
     --tw-outline-style: none;
     outline-style: none;
   }
@@ -4790,9 +4840,12 @@
 
 .apAutomation-mfe-scope .trax-custom-scrollbar, .trax-ui-component .trax-custom-scrollbar {
   scrollbar-gutter: stable;
+  overflow: auto;
+}
+
+.apAutomation-mfe-scope .trax-custom-scrollbar, .trax-ui-component .trax-custom-scrollbar, .apAutomation-mfe-scope [data-slot="table-container"], .trax-ui-component [data-slot="table-container"], .apAutomation-mfe-scope[data-slot="table-container"], .trax-ui-component[data-slot="table-container"] {
   scrollbar-width: thin;
   scrollbar-color: var(--expSrollBarColor) transparent;
-  overflow: auto;
 }
 
 .apAutomation-mfe-scope .trax-custom-scrollbar::-webkit-scrollbar, .trax-ui-component .trax-custom-scrollbar::-webkit-scrollbar {
@@ -4800,7 +4853,16 @@
   height: 1rem;
 }
 
+.apAutomation-mfe-scope [data-slot="table-container"]::-webkit-scrollbar, .trax-ui-component [data-slot="table-container"]::-webkit-scrollbar, .apAutomation-mfe-scope[data-slot="table-container"]::-webkit-scrollbar, .trax-ui-component[data-slot="table-container"]::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+
 .apAutomation-mfe-scope .trax-custom-scrollbar::-webkit-scrollbar-track, .trax-ui-component .trax-custom-scrollbar::-webkit-scrollbar-track {
+  background: none;
+}
+
+.apAutomation-mfe-scope [data-slot="table-container"]::-webkit-scrollbar-track, .trax-ui-component [data-slot="table-container"]::-webkit-scrollbar-track, .apAutomation-mfe-scope[data-slot="table-container"]::-webkit-scrollbar-track, .trax-ui-component[data-slot="table-container"]::-webkit-scrollbar-track {
   background: none;
 }
 
@@ -4812,7 +4874,19 @@
   transition: opacity .3s;
 }
 
+.apAutomation-mfe-scope [data-slot="table-container"]::-webkit-scrollbar-thumb, .trax-ui-component [data-slot="table-container"]::-webkit-scrollbar-thumb, .apAutomation-mfe-scope[data-slot="table-container"]::-webkit-scrollbar-thumb, .trax-ui-component[data-slot="table-container"]::-webkit-scrollbar-thumb {
+  background-color: var(--expSrollBarColor);
+  background-clip: padding-box;
+  border: .3125rem solid #0000;
+  border-radius: .5rem;
+  transition: opacity .3s;
+}
+
 .apAutomation-mfe-scope .trax-custom-scrollbar:hover::-webkit-scrollbar-thumb, .trax-ui-component .trax-custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  opacity: .8;
+}
+
+.apAutomation-mfe-scope [data-slot="table-container"]:hover::-webkit-scrollbar-thumb, .trax-ui-component [data-slot="table-container"]:hover::-webkit-scrollbar-thumb, .apAutomation-mfe-scope[data-slot="table-container"]:hover::-webkit-scrollbar-thumb, .trax-ui-component[data-slot="table-container"]:hover::-webkit-scrollbar-thumb {
   opacity: .8;
 }
 
@@ -4999,12 +5073,6 @@
 
 .apAutomation-mfe-scope.data-\[side\=right\]\:slide-in-from-left-2[data-side="right"], .apAutomation-mfe-scope .data-\[side\=right\]\:slide-in-from-left-2[data-side="right"] {
   --tw-enter-translate-x: -.5rem;
-}
-
-@property --tw-divide-y-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
 }
 
 @keyframes apAutomation-mfe-spin {

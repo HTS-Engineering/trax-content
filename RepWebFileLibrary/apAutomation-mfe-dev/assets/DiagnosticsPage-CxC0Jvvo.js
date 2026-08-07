@@ -1,10 +1,10 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { K as useJWTStore, L as jwtSelectors, H as ensureJWTInitialized, j as jsxRuntimeExports, F as CONTAINER_ID, C as SCOPE_CLASS, M as JWT_STORAGE_KEY, U as Ue, N as API_BASE_URL, y as useApEvents, z as useErrorSurface, Y as Yn, D as DataLoadError } from "./DataLoadError-BB3sapOm.js";
+import { _ as useJWTStore, $ as jwtSelectors, V as ensureJWTInitialized, j as jsxRuntimeExports, N as CONTAINER_ID, L as SCOPE_CLASS, a0 as JWT_STORAGE_KEY, U as Ue, a1 as API_BASE_URL, C as useApEvents, D as useErrorSurface, Y as Yn, G as DataLoadError } from "./DataLoadError-7xAhoVQt.js";
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-const { useEffect, useMemo } = await importShared("react");
+const { useEffect } = await importShared("react");
 const useAuth = /* @__PURE__ */ __name(() => {
-  const isAuthenticated = useJWTStore(jwtSelectors.isAuthenticated);
+  const hasToken = useJWTStore(jwtSelectors.hasToken);
   const isLoading = useJWTStore(jwtSelectors.isLoading);
   const error = useJWTStore(jwtSelectors.error);
   const token = useJWTStore(jwtSelectors.realToken);
@@ -15,20 +15,31 @@ const useAuth = /* @__PURE__ */ __name(() => {
     }
   }, [isInitialized]);
   return {
-    isAuthenticated,
+    hasToken,
     isLoading,
     error,
     token,
     isInitialized
   };
 }, "useAuth");
-const useUser = /* @__PURE__ */ __name(() => {
-  return useJWTStore(jwtSelectors.user);
-}, "useUser");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1785908570849", commit: "a1fd73d", branch: "feat/AI-282-connect-backend-and-scaffold-screen", timestamp: "2026-08-05T05:42:50.873Z", environment: "apAutomation-mfe-dev" };
+function decodeJwtPayload(token) {
+  const parts = token.split(".");
+  if (parts.length !== 3) return null;
+  try {
+    const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
+    const binary = atob(base64);
+    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+    const parsed = JSON.parse(new TextDecoder().decode(bytes));
+    if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+__name(decodeJwtPayload, "decodeJwtPayload");
+var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1786106898580", commit: "8ac87e6", branch: "feat/AI-278-ap-exceptions-dashboard", timestamp: "2026-08-07T12:48:18.601Z", environment: "apAutomation-mfe-dev" };
 function DiagnosticsPage() {
-  const { isAuthenticated, isInitialized } = useAuth();
-  const user = useUser();
+  const { hasToken, isInitialized, token } = useAuth();
   const identity = [
     ["Container ID", CONTAINER_ID],
     ["Scope class", SCOPE_CLASS],
@@ -51,10 +62,11 @@ function DiagnosticsPage() {
       Section,
       {
         title: "Base System token",
-        rows: tokenRows({ isInitialized, isAuthenticated, user }),
-        tone: isInitialized && !isAuthenticated ? "warning" : "normal"
+        rows: tokenRows({ isInitialized, hasToken, token }),
+        tone: isInitialized && !hasToken ? "warning" : "normal"
       }
     ),
+    token ? /* @__PURE__ */ jsxRuntimeExports.jsx(TokenClaims, { token }) : null,
     /* @__PURE__ */ jsxRuntimeExports.jsx(ApEventsProbe, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { className: "mt-8", onClick: /* @__PURE__ */ __name(() => window.location.reload(), "onClick"), children: "Reload" })
   ] });
@@ -83,21 +95,35 @@ function ApEventsProbe() {
   ] });
 }
 __name(ApEventsProbe, "ApEventsProbe");
-function tokenRows({ isInitialized, isAuthenticated, user }) {
+function tokenRows({ isInitialized, hasToken, token }) {
   if (!isInitialized) return [["Status", "reading the token store..."]];
-  if (!isAuthenticated) {
+  if (!hasToken || !token) {
     return [
-      ["Status", `no valid token under "${JWT_STORAGE_KEY}"`],
+      ["Status", `no token under "${JWT_STORAGE_KEY}"`],
       ["Expected", "the host writes the token before loading this bundle, and fires trax-jwt-token-updated on refresh"]
     ];
   }
   return [
-    ["Status", "token received and valid"],
-    ["User", (user == null ? void 0 : user.name) ?? (user == null ? void 0 : user.email) ?? (user == null ? void 0 : user.id) ?? "no name claim in token"],
-    ["Roles", (user == null ? void 0 : user.roles.length) ? user.roles.join(", ") : "none in token"]
+    ["Status", "token received"],
+    ["Length", `${token.length} characters`]
   ];
 }
 __name(tokenRows, "tokenRows");
+function TokenClaims({ token }) {
+  const payload = decodeJwtPayload(token);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mt-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-sm font-semibold text-trax-grey-900", children: "Token claims" }),
+    payload ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "pre",
+      {
+        className: "mt-2 max-w-2xl overflow-x-auto rounded border border-trax-grey-200 bg-trax-grey-100 p-3 text-xs text-trax-grey-900",
+        "data-testid": "token-claims",
+        children: JSON.stringify(payload, null, 2)
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-trax-yellow-800", "data-testid": "token-claims-undecodable", children: "Present but not a readable JWT payload. The host may be storing something else under this key." })
+  ] });
+}
+__name(TokenClaims, "TokenClaims");
 function Section({ title, rows, tone = "normal" }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mt-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-sm font-semibold text-trax-grey-900", children: title }),

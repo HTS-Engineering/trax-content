@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-BSBBL3Gc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-BB3sapOm.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-CxC0Jvvo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-7xAhoVQt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -19,7 +19,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
 });
 var _a, _b, _c, _d, _e, _client, _observers, _mutationCache, _retryer, __this_instances, dispatch_fn, _f, _mutations, _scopes, _mutationId, _g, _queries, _h, _queryCache, _mutationCache2, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _i;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, U as Ue, a as devError, t as toErrorText, Q as Qs, i as interpretError, g as getQueryClaimState, b as getDisplacedClaimFallback, f as forgetQueryClaims, c as classifyError, R as Removable, e as createRetryer, n as notifyManager, h as Subscribable, m as matchMutation, k as noop, l as hashQueryKeyByOptions, o as Query, p as matchQuery, q as focusManager, r as onlineManager, s as resolveStaleTime, u as functionalUpdate, v as hashKey, w as partialMatchKey, x as skipToken, y as useApEvents, z as useErrorSurface, Y as Yn, D as DataLoadError, E as EmptyState, A as QueryClientProvider, Z as Zs, B as Er, C as SCOPE_CLASS, F as CONTAINER_ID, G as apiClient, H as ensureJWTInitialized, I as SERVICE_NAME, J as devLog } from "./DataLoadError-BB3sapOm.js";
+import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, U as Ue, a as devError, t as toErrorText, Q as Qs, i as interpretError, g as getQueryClaimState, b as getDisplacedClaimFallback, f as forgetQueryClaims, c as classifyError, R as Removable, e as createRetryer, n as notifyManager, h as Subscribable, m as matchMutation, k as noop, l as hashQueryKeyByOptions, o as Query, p as matchQuery, q as focusManager, r as onlineManager, s as resolveStaleTime, u as functionalUpdate, v as hashKey, w as partialMatchKey, x as skipToken, A as ApReviewStatus, y as ApDocumentType, M as Mt, E as Et, I as Icon, P as Pt, z as jr, B as h, T as Ta, C as useApEvents, D as useErrorSurface, F as ri, G as DataLoadError, H as EmptyState, Y as Yn, J as QueryClientProvider, Z as Zs, K as Er, L as SCOPE_CLASS, N as CONTAINER_ID, O as apiClient, V as ensureJWTInitialized, W as SERVICE_NAME, X as devLog } from "./DataLoadError-7xAhoVQt.js";
 import { r as requireReact } from "./index-BB5LXT6C.js";
 import { r as requireReactDom } from "./index-BH4teOuT.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -18535,6 +18535,31 @@ function shouldProcessLinkClick(event, target) {
   !isModifiedEvent(event);
 }
 __name(shouldProcessLinkClick, "shouldProcessLinkClick");
+function createSearchParams(init = "") {
+  return new URLSearchParams(
+    typeof init === "string" || Array.isArray(init) || init instanceof URLSearchParams ? init : Object.keys(init).reduce((memo2, key) => {
+      let value = init[key];
+      return memo2.concat(
+        Array.isArray(value) ? value.map((v) => [key, v]) : [[key, value]]
+      );
+    }, [])
+  );
+}
+__name(createSearchParams, "createSearchParams");
+function getSearchParamsForLocation(locationSearch, defaultSearchParams) {
+  let searchParams = createSearchParams(locationSearch);
+  if (defaultSearchParams) {
+    defaultSearchParams.forEach((_, key) => {
+      if (!searchParams.has(key)) {
+        defaultSearchParams.getAll(key).forEach((value) => {
+          searchParams.append(key, value);
+        });
+      }
+    });
+  }
+  return searchParams;
+}
+__name(getSearchParamsForLocation, "getSearchParamsForLocation");
 var _formDataSupportsSubmitter = null;
 function isFormDataSubmitterSupported() {
   if (_formDataSupportsSubmitter === null) {
@@ -19753,6 +19778,40 @@ function useLinkClickHandler(to, {
   );
 }
 __name(useLinkClickHandler, "useLinkClickHandler");
+function useSearchParams(defaultInit) {
+  warning(
+    typeof URLSearchParams !== "undefined",
+    `You cannot use the \`useSearchParams\` hook in a browser that does not support the URLSearchParams API. If you need to support Internet Explorer 11, we recommend you load a polyfill such as https://github.com/ungap/url-search-params.`
+  );
+  let defaultSearchParamsRef = React10.useRef(createSearchParams(defaultInit));
+  let hasSetSearchParamsRef = React10.useRef(false);
+  let location = useLocation();
+  let searchParams = React10.useMemo(
+    () => (
+      // Only merge in the defaults if we haven't yet called setSearchParams.
+      // Once we call that we want those to take precedence, otherwise you can't
+      // remove a param with setSearchParams({}) if it has an initial value
+      getSearchParamsForLocation(
+        location.search,
+        hasSetSearchParamsRef.current ? null : defaultSearchParamsRef.current
+      )
+    ),
+    [location.search]
+  );
+  let navigate = useNavigate();
+  let setSearchParams = React10.useCallback(
+    (nextInit, navigateOptions) => {
+      const newSearchParams = createSearchParams(
+        typeof nextInit === "function" ? nextInit(new URLSearchParams(searchParams)) : nextInit
+      );
+      hasSetSearchParamsRef.current = true;
+      navigate("?" + newSearchParams, navigateOptions);
+    },
+    [navigate, searchParams]
+  );
+  return [searchParams, setSearchParams];
+}
+__name(useSearchParams, "useSearchParams");
 var fetcherId = 0;
 var getUniqueFetcherId = /* @__PURE__ */ __name(() => `__${String(++fetcherId)}__`, "getUniqueFetcherId");
 function useSubmit() {
@@ -19865,6 +19924,7 @@ var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
   return RoutePaths2;
 })(RoutePaths || {});
 const toRelativePath = /* @__PURE__ */ __name((path) => path.startsWith("/") ? path.slice(1) : path, "toRelativePath");
+const TOOLTIP_DELAY_QUICK = 120;
 const MFE_PORTAL_ATTRIBUTE = "data-mfe-portal";
 const { lazy } = await importShared("react");
 const RELOAD_KEY = `${STORAGE_PREFIX}.chunk-reload-attempt`;
@@ -19924,14 +19984,14 @@ function lazyRoute(loader) {
   });
 }
 __name(lazyRoute, "lazyRoute");
-const { useCallback: useCallback$4, useEffect: useEffect$4, useRef: useRef$2 } = await importShared("react");
-const { useEffect: useEffect$3 } = await importShared("react");
-const { useCallback: useCallback$3, useState: useState$1 } = await importShared("react");
-const { useCallback: useCallback$2 } = await importShared("react");
-const { useCallback: useCallback$1, useEffect: useEffect$2, useRef: useRef$1, useState } = await importShared("react");
-const { useEffect: useEffect$1 } = await importShared("react");
+const { useCallback: useCallback$7, useEffect: useEffect$5, useRef: useRef$3 } = await importShared("react");
+const { useEffect: useEffect$4 } = await importShared("react");
+const { useCallback: useCallback$6, useState: useState$1 } = await importShared("react");
+const { useCallback: useCallback$5 } = await importShared("react");
+const { useCallback: useCallback$4, useEffect: useEffect$3, useRef: useRef$2, useState } = await importShared("react");
+const { useEffect: useEffect$2 } = await importShared("react");
 const usePreventPageReload = /* @__PURE__ */ __name(() => {
-  useEffect$1(() => {
+  useEffect$2(() => {
     const handleSubmit = /* @__PURE__ */ __name((e) => {
       e.preventDefault();
       devWarn("Form submission prevented to avoid page reload");
@@ -19961,7 +20021,7 @@ const usePreventPageReload = /* @__PURE__ */ __name(() => {
     };
   }, []);
 }, "usePreventPageReload");
-const { useCallback, useRef } = await importShared("react");
+const { useCallback: useCallback$3, useRef: useRef$1 } = await importShared("react");
 const AppErrorFallback = /* @__PURE__ */ __name(({ reset }) => {
   const onClick = reset ?? (() => window.location.reload());
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -20034,10 +20094,10 @@ const FullscreenLayout = /* @__PURE__ */ __name(() => {
     }
   ) });
 }, "FullscreenLayout");
-const { useEffect } = await importShared("react");
+const { useEffect: useEffect$1 } = await importShared("react");
 function RouteError() {
   const error = useRouteError();
-  useEffect(() => {
+  useEffect$1(() => {
     devError("Route render error", error);
   }, [error]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, {});
@@ -20903,60 +20963,421 @@ var QueryClient = (_i = class {
   }
 }, _queryCache = new WeakMap(), _mutationCache2 = new WeakMap(), _defaultOptions = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), __name(_i, "QueryClient"), _i);
 const isValidDate = /* @__PURE__ */ __name((date) => !isNaN(date.getTime()), "isValidDate");
-const formatHistoryTimestamp = /* @__PURE__ */ __name((timestamp) => {
+const formatTimestampDate = /* @__PURE__ */ __name((timestamp) => {
   if (!timestamp) return "";
-  try {
-    const date = typeof timestamp === "string" ? new Date(timestamp) : timestamp;
-    if (!isValidDate(date)) return "";
-    const month = date.toLocaleDateString("en-US", { month: "short" });
-    const day = date.getDate();
-    const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const ampm = hours >= 12 ? "PM" : "AM";
-    const displayHours = hours % 12 || 12;
-    const displayMinutes = minutes.toString().padStart(2, "0");
-    return `${month} ${day}, ${year} at ${displayHours}:${displayMinutes} ${ampm}`;
-  } catch {
-    return "";
+  const date = typeof timestamp === "string" ? new Date(timestamp) : timestamp;
+  if (!isValidDate(date)) return "";
+  const month = date.toLocaleDateString("en-US", { month: "short" });
+  return `${month} ${date.getDate()}, ${date.getFullYear()}`;
+}, "formatTimestampDate");
+function resolveUpdater(updater, current) {
+  return typeof updater === "function" ? updater(current) : updater;
+}
+__name(resolveUpdater, "resolveUpdater");
+const DEFAULT_PAGE_SIZE = 20;
+var ApExceptionColumn = /* @__PURE__ */ ((ApExceptionColumn2) => {
+  ApExceptionColumn2["ReceivedDate"] = "receivedDate";
+  ApExceptionColumn2["BillTo"] = "billTo";
+  ApExceptionColumn2["DocumentType"] = "documentType";
+  ApExceptionColumn2["Issues"] = "issues";
+  ApExceptionColumn2["SenderEmail"] = "senderEmail";
+  ApExceptionColumn2["Document"] = "document";
+  ApExceptionColumn2["ReviewStatus"] = "reviewStatus";
+  return ApExceptionColumn2;
+})(ApExceptionColumn || {});
+const DOCUMENT_TYPE_LABEL = {
+  [ApDocumentType.Invoice]: "Invoice",
+  [ApDocumentType.CreditNote]: "Credit Note",
+  [ApDocumentType.Unknown]: "Unknown"
+};
+const UNREADABLE_VALUE = "Unknown";
+const EMPTY_STATE_COPY = {
+  [ApReviewStatus.ToReview]: {
+    title: "No exceptions to review",
+    description: "AP exceptions will appear here when invoices and credit notes require review."
+  },
+  [ApReviewStatus.InReview]: {
+    title: "No exceptions in progress",
+    description: "AP exceptions will appear here when invoice and credit note reviews are in progress."
+  },
+  [ApReviewStatus.CompletedReview]: {
+    title: "No completed exceptions",
+    description: "AP exceptions will appear here when invoice and credit note reviews are completed."
   }
-}, "formatHistoryTimestamp");
+};
+const MISSING_DOCUMENT_MESSAGE = "Document is missing for this entry.";
+function isOpenableDocument(reference) {
+  if (!reference) return false;
+  try {
+    const { protocol } = new URL(reference);
+    return protocol === "http:" || protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+__name(isOpenableDocument, "isOpenableDocument");
+const DocumentLinkCell = /* @__PURE__ */ __name(({ documentId }) => {
+  if (!isOpenableDocument(documentId)) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { delayDuration: TOOLTIP_DELAY_QUICK, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Et,
+        {
+          type: "button",
+          "aria-label": MISSING_DOCUMENT_MESSAGE,
+          className: "cursor-default rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "open-in-new", className: "size-5 text-trax-neutral-grey" })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Pt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: MISSING_DOCUMENT_MESSAGE })
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "a",
+    {
+      href: documentId,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      "aria-label": "Open the document in a new tab",
+      className: "inline-flex rounded text-trax-neutral-100 transition-colors hover:text-trax-primary-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "open-in-new", className: "size-5" })
+    }
+  );
+}, "DocumentLinkCell");
+const BADGE_CLASS = "min-w-6 justify-center rounded-full bg-trax-red-100 px-2 py-0.5 text-xs font-medium text-trax-red-500";
+const IssuesCell = /* @__PURE__ */ __name(({ issues }) => {
+  const count = issues.length;
+  if (count === 0) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(jr, { variant: "outline", className: BADGE_CLASS, children: "0" });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { delayDuration: TOOLTIP_DELAY_QUICK, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Et,
+      {
+        type: "button",
+        "aria-label": `${count} ${count === 1 ? "issue" : "issues"}`,
+        className: "cursor-default rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(jr, { variant: "outline", className: BADGE_CLASS, children: count })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Pt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc space-y-1 pl-4 text-xs text-trax-grey-900", children: issues.map((issue, index) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: issue.description ?? issue.name }, `${issue.name}-${index}`)) }) })
+  ] });
+}, "IssuesCell");
+const TAB_ORDER = [
+  ApReviewStatus.ToReview,
+  ApReviewStatus.InReview,
+  ApReviewStatus.CompletedReview
+];
+const DEFAULT_TAB = ApReviewStatus.ToReview;
+const TAB_BY_SLUG = {
+  "pending-review": ApReviewStatus.ToReview,
+  "in-progress": ApReviewStatus.InReview,
+  completed: ApReviewStatus.CompletedReview
+};
+const REVIEW_STATUS_LABEL = {
+  [ApReviewStatus.ToReview]: "Pending Review",
+  [ApReviewStatus.InReview]: "In Progress",
+  [ApReviewStatus.CompletedReview]: "Completed"
+};
+const REVIEW_STATUS_CHIP_CLASS = {
+  [ApReviewStatus.ToReview]: "bg-trax-yellow-200 text-trax-yellow-800",
+  [ApReviewStatus.InReview]: "bg-trax-primary-blue-100 text-trax-primary-blue-600",
+  [ApReviewStatus.CompletedReview]: "bg-trax-green-200 text-trax-green-800"
+};
+const ReviewStatusChip = /* @__PURE__ */ __name(({ status }) => /* @__PURE__ */ jsxRuntimeExports.jsx(jr, { variant: "outline", className: h("rounded-[20px]", REVIEW_STATUS_CHIP_CLASS[status]), children: REVIEW_STATUS_LABEL[status] }), "ReviewStatusChip");
+const { useMemo: useMemo$3 } = await importShared("react");
+const HEADER_STYLES = { title: "text-trax-neutral-400", icon: "text-trax-neutral-400" };
+const TextCell = /* @__PURE__ */ __name(({ value, className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: h("text-sm", className), children: value || UNREADABLE_VALUE }), "TextCell");
+const useApExceptionColumns = /* @__PURE__ */ __name(() => useMemo$3(
+  () => [
+    {
+      id: ApExceptionColumn.ReceivedDate,
+      accessorKey: "receivedDate",
+      // The header still offers the sort; the order itself is applied to the
+      // whole list before a page is cut from it, in `sortRows`.
+      enableSorting: true,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Received Date", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: formatTimestampDate(row.original.receivedDate), className: "text-trax-grey-800" }), "cell")
+    },
+    {
+      id: ApExceptionColumn.BillTo,
+      accessorKey: "billTo",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Bill To", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: row.original.billTo }), "cell")
+    },
+    {
+      id: ApExceptionColumn.DocumentType,
+      accessorKey: "documentType",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Type", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: DOCUMENT_TYPE_LABEL[row.original.documentType] }), "cell")
+    },
+    {
+      id: ApExceptionColumn.Issues,
+      accessorKey: "issues",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Issues", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(IssuesCell, { issues: row.original.issues }), "cell")
+    },
+    {
+      id: ApExceptionColumn.SenderEmail,
+      accessorKey: "senderEmail",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Supplier Email Address", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: row.original.senderEmail }), "cell")
+    },
+    {
+      id: ApExceptionColumn.Document,
+      accessorKey: "documentId",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Documents", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(DocumentLinkCell, { documentId: row.original.documentId }), "cell")
+    },
+    {
+      id: ApExceptionColumn.ReviewStatus,
+      accessorKey: "reviewStatus",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Status", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(ReviewStatusChip, { status: row.original.reviewStatus }), "cell")
+    }
+  ],
+  []
+), "useApExceptionColumns");
+function mappedParam(bySlug, fallback) {
+  const valueBySlug = new Map(Object.entries(bySlug));
+  const slugByValue = new Map([...valueBySlug].map(([slug, value]) => [value, slug]));
+  return {
+    fallback,
+    parse: /* @__PURE__ */ __name((raw) => raw === null ? fallback : valueBySlug.get(raw) ?? fallback, "parse"),
+    // No slug for it -> leave it out, rather than write something unreadable.
+    serialize: /* @__PURE__ */ __name((value) => value === fallback ? null : slugByValue.get(value) ?? null, "serialize")
+  };
+}
+__name(mappedParam, "mappedParam");
+function pageParam() {
+  return {
+    fallback: 1,
+    parse: /* @__PURE__ */ __name((raw) => {
+      const page = Number(raw);
+      return raw !== null && Number.isInteger(page) && page > 0 ? page : 1;
+    }, "parse"),
+    serialize: /* @__PURE__ */ __name((value) => value > 1 ? String(value) : null, "serialize")
+  };
+}
+__name(pageParam, "pageParam");
+const { useCallback: useCallback$2, useEffect, useMemo: useMemo$2, useRef } = await importShared("react");
+function useUrlState(spec) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { state } = useLocation();
+  const latest = useRef({ spec, setSearchParams, state });
+  latest.current = { spec, setSearchParams, state };
+  const values = useMemo$2(() => {
+    const read = {};
+    for (const key of Object.keys(spec)) {
+      read[key] = spec[key].parse(searchParams.get(key));
+    }
+    return read;
+  }, [spec, searchParams]);
+  const pending = useRef(null);
+  useEffect(() => {
+    pending.current = null;
+  }, [searchParams]);
+  const setValues = useCallback$2((next) => {
+    const { spec: current, setSearchParams: write, state: preserved } = latest.current;
+    write(
+      (previous) => {
+        const params = new URLSearchParams(pending.current ?? previous);
+        for (const [key, value] of Object.entries(next)) {
+          const serialized = current[key].serialize(value);
+          if (serialized === null) {
+            params.delete(key);
+          } else {
+            params.set(key, serialized);
+          }
+        }
+        pending.current = params;
+        return params;
+      },
+      { replace: true, state: preserved }
+    );
+  }, []);
+  return { values, setValues };
+}
+__name(useUrlState, "useUrlState");
+var SortOrder = /* @__PURE__ */ ((SortOrder2) => {
+  SortOrder2["Oldest"] = "oldest";
+  SortOrder2["Newest"] = "newest";
+  return SortOrder2;
+})(SortOrder || {});
+const SORT_ORDER_BY_SLUG = {
+  oldest: "oldest",
+  newest: "newest"
+  /* Newest */
+};
+const { useCallback: useCallback$1, useMemo: useMemo$1 } = await importShared("react");
+const AP_EXCEPTIONS_PARAMS = {
+  tab: mappedParam(TAB_BY_SLUG, DEFAULT_TAB),
+  page: pageParam(),
+  sort: mappedParam(SORT_ORDER_BY_SLUG, SortOrder.Oldest)
+};
+const useApExceptionsUrlState = /* @__PURE__ */ __name(() => {
+  const { values, setValues } = useUrlState(AP_EXCEPTIONS_PARAMS);
+  const sorting = useMemo$1(
+    () => [{ id: ApExceptionColumn.ReceivedDate, desc: values.sort === SortOrder.Newest }],
+    [values.sort]
+  );
+  const setTab = useCallback$1(
+    (tab) => setValues({ tab, page: 1 }),
+    [setValues]
+  );
+  const setPage = useCallback$1((page) => setValues({ page }), [setValues]);
+  const handleSortingChange = useCallback$1(
+    (updater) => {
+      var _a2;
+      const next = resolveUpdater(updater, sorting);
+      const sort = ((_a2 = next[0]) == null ? void 0 : _a2.desc) ? SortOrder.Newest : SortOrder.Oldest;
+      setValues({ sort, page: 1 });
+    },
+    [sorting, setValues]
+  );
+  return useMemo$1(
+    () => ({ tab: values.tab, page: values.page, sorting, setTab, setPage, handleSortingChange }),
+    [values.tab, values.page, sorting, setTab, setPage, handleSortingChange]
+  );
+}, "useApExceptionsUrlState");
+function receivedAt(document2) {
+  if (!document2.receivedDate) return Number.POSITIVE_INFINITY;
+  const time = new Date(document2.receivedDate).getTime();
+  return Number.isNaN(time) ? Number.POSITIVE_INFINITY : time;
+}
+__name(receivedAt, "receivedAt");
+function sortRows(rows, sorting) {
+  const order = sorting[0];
+  if (!order || order.id !== ApExceptionColumn.ReceivedDate) return rows;
+  const direction = order.desc ? -1 : 1;
+  return [...rows].sort((left, right) => {
+    const difference = receivedAt(left) - receivedAt(right);
+    return Number.isNaN(difference) ? 0 : difference * direction;
+  });
+}
+__name(sortRows, "sortRows");
+const ApExceptionTabs = /* @__PURE__ */ __name(({ currentTab, onChange }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "div",
+  {
+    role: "group",
+    "aria-label": "Review status filter",
+    className: "flex items-center gap-2 border-b border-trax-neutral-30 bg-trax-neutral-10 px-4 py-3",
+    children: TAB_ORDER.map((tab) => {
+      const isActive = tab === currentTab;
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          "aria-pressed": isActive,
+          onClick: /* @__PURE__ */ __name(() => onChange(tab), "onClick"),
+          className: h(
+            "rounded-full px-3 py-1 text-sm font-medium transition-colors",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
+            isActive ? "bg-trax-primary-blue-600 text-white" : "border border-trax-neutral-30 bg-trax-neutral-10 text-trax-neutral-600 hover:bg-trax-primary-blue-50"
+          ),
+          children: REVIEW_STATUS_LABEL[tab]
+        },
+        tab
+      );
+    })
+  }
+), "ApExceptionTabs");
+const { useCallback, useMemo } = await importShared("react");
+const NO_DATA_ACCESS = "You don't have access to AP exception data. Ask your administrator to grant access.";
+const LOAD_FAILED = "Unable to load AP documents. Try again or contact support if the issue persists.";
+const ApExceptionsDashboard = /* @__PURE__ */ __name(() => {
+  var _a2;
+  const query = useApEvents();
+  const documents = useMemo(() => query.data ?? [], [query.data]);
+  const { tab, page, sorting, setTab, setPage, handleSortingChange } = useApExceptionsUrlState();
+  const columns = useApExceptionColumns();
+  const rows = useMemo(
+    () => documents.filter((document2) => document2.reviewStatus === tab),
+    [documents, tab]
+  );
+  const ordered = useMemo(() => sortRows(rows, sorting), [rows, sorting]);
+  const pageCount = Math.max(1, Math.ceil(ordered.length / DEFAULT_PAGE_SIZE));
+  const pageIndex = Math.min(page, pageCount) - 1;
+  const pageRows = useMemo(
+    () => ordered.slice(pageIndex * DEFAULT_PAGE_SIZE, (pageIndex + 1) * DEFAULT_PAGE_SIZE),
+    [ordered, pageIndex]
+  );
+  const pagination = useMemo(
+    () => ({ pageIndex, pageSize: DEFAULT_PAGE_SIZE }),
+    [pageIndex]
+  );
+  const handlePaginationChange = useCallback(
+    (updater) => {
+      setPage(resolveUpdater(updater, pagination).pageIndex + 1);
+    },
+    [pagination, setPage]
+  );
+  const failure = useErrorSurface(query, {
+    fallback: LOAD_FAILED,
+    canRenderInPlace: documents.length === 0
+  });
+  const hasNoDocuments = documents.length === 0;
+  const showTabs = query.isPending || !hasNoDocuments;
+  const emptyCopy = EMPTY_STATE_COPY[hasNoDocuments ? DEFAULT_TAB : tab];
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ri,
+    {
+      columns,
+      data: pageRows,
+      getRowId: /* @__PURE__ */ __name((document2) => document2.id, "getRowId"),
+      enableSorting: true,
+      manualSorting: true,
+      sorting,
+      onSortingChange: handleSortingChange,
+      enablePagination: !query.isPending,
+      manualPagination: true,
+      pageSize: DEFAULT_PAGE_SIZE,
+      pageCount,
+      rowCount: ordered.length,
+      pagination,
+      onPaginationChange: handlePaginationChange,
+      isLoading: query.isPending,
+      loadingState: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-40 items-center justify-center", "data-testid": "ap-exceptions-loading", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, {}) }),
+      toolbar: showTabs ? /* @__PURE__ */ jsxRuntimeExports.jsx(ApExceptionTabs, { currentTab: tab, onChange: setTab }) : void 0,
+      styles: { headerCell: "text-trax-neutral-400" },
+      emptyState: failure.shouldRenderInPlace ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        DataLoadError,
+        {
+          surface: failure,
+          description: ((_a2 = failure.presentation) == null ? void 0 : _a2.kind) === "forbidden" ? NO_DATA_ACCESS : void 0
+        }
+      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+        EmptyState,
+        {
+          iconName: "featured-play-list",
+          title: emptyCopy.title,
+          description: emptyCopy.description,
+          "data-testid": "ap-exceptions-empty"
+        }
+      )
+    }
+  );
+}, "ApExceptionsDashboard");
 function ApExceptionsPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "flex h-full flex-col gap-4 p-6", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-xl font-semibold text-trax-grey-900", children: "AP Exceptions" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Documents, {})
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-11.5 items-center justify-center rounded-lg bg-trax-primary-blue-50", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "file-dollar", className: "size-6 shrink-0 text-trax-primary-blue-800" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-base font-semibold text-trax-primary-blue-800", children: "AP Exceptions Dashboard" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-normal text-trax-grey-700", children: "Review AP documents with missing or uncertain data to identify required corrections" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(ApExceptionsDashboard, {})
   ] });
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
-function Documents() {
-  const query = useApEvents();
-  const documents = query.data ?? [];
-  const surface = useErrorSurface(query, { canRenderInPlace: documents.length === 0 });
-  if (query.isPending) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-40 items-center justify-center", "data-testid": "ap-exceptions-loading", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, {}) });
-  }
-  if (surface.shouldRenderInPlace) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(DataLoadError, { surface });
-  }
-  if (documents.length === 0) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      EmptyState,
-      {
-        title: "Nothing to review",
-        description: "Documents appear here once AP automation has processed them.",
-        "data-testid": "ap-exceptions-empty"
-      }
-    );
-  }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "divide-y divide-trax-grey-200", "data-testid": "ap-exceptions-list", children: documents.map((document2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "grid grid-cols-[14rem_1fr_1fr] gap-4 py-3 text-sm", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-trax-grey-600", children: document2.receivedDate ? formatHistoryTimestamp(document2.receivedDate) : "No date" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-trax-grey-900", children: document2.billTo ?? "No bill-to read" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-trax-grey-600", children: document2.issues.length > 0 ? document2.issues.map((issue) => issue.name).join(", ") : "No exceptions" })
-  ] }, document2.id)) });
-}
-__name(Documents, "Documents");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-BSBBL3Gc.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-CxC0Jvvo.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21235,7 +21656,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1785908570849", commit: "a1fd73d", branch: "feat/AI-282-connect-backend-and-scaffold-screen", timestamp: "2026-08-05T05:42:50.873Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1786106898580", commit: "8ac87e6", branch: "feat/AI-278-ap-exceptions-dashboard", timestamp: "2026-08-07T12:48:18.601Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {

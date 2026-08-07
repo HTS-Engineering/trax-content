@@ -8,7 +8,7 @@ var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read fr
 var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _keys, _a, _b, _focused, _cleanup, _setup, _c, _provider, _providerCalled, _d, _online, _cleanup2, _setup2, _e, _f, _gcTimeout, _g, _queryType, _initialState, _revertState, _cache, _client, _retryer, _defaultOptions, _abortSignalConsumed, __this_instances, isInitialPausedFetch_fn, dispatch_fn, _h, _client2, _currentQuery, _currentQueryInitialState, _currentResult, _currentResultState, _currentResultOptions, _currentThenable, _selectError, _selectFn, _selectResult, _lastQueryWithDefinedData, _staleTimeoutId, _refetchIntervalId, _currentRefetchInterval, _trackedProps, __this_instances2, executeFetch_fn, updateStaleTimeout_fn, computeRefetchInterval_fn, updateRefetchInterval_fn, updateTimers_fn, clearStaleTimeout_fn, clearRefetchInterval_fn, updateQuery_fn, notify_fn, _i, _j, _k, _l, _m, _n, _o2;
+var _keys, _a, _b, _focused, _cleanup, _setup, _c, _provider, _providerCalled, _d, _online, _cleanup2, _setup2, _e, _f, _gcTimeout, _g, _queryType, _initialState, _revertState, _cache, _client, _retryer, _defaultOptions, _abortSignalConsumed, __this_instances, isInitialPausedFetch_fn, dispatch_fn, _h, _client2, _currentQuery, _currentQueryInitialState, _currentResult, _currentResultState, _currentResultOptions, _currentThenable, _selectError, _selectFn, _selectResult, _lastQueryWithDefinedData, _staleTimeoutId, _refetchIntervalId, _currentRefetchInterval, _trackedProps, __this_instances2, executeFetch_fn, updateStaleTimeout_fn, computeRefetchInterval_fn, updateRefetchInterval_fn, updateTimers_fn, clearStaleTimeout_fn, clearRefetchInterval_fn, updateQuery_fn, notify_fn, _i, _j, _k, _l, _m, _n2, _o2;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
 var jsxRuntime = { exports: {} };
@@ -111,7 +111,7 @@ function createSlot(ownerName) {
       children = use(children._payload);
     }
     React$17.Children.forEach(children, (maybeSlottable) => {
-      var _a2;
+      var _a3;
       if (isSlottable(maybeSlottable)) {
         hasSlottable = true;
         const slottable = maybeSlottable;
@@ -120,7 +120,7 @@ function createSlot(ownerName) {
           child = use(child._payload);
         }
         slottableElement = getSlottableElementFromSlottable(slottable, child);
-        newChildren.push((_a2 = slottableElement == null ? void 0 : slottableElement.props) == null ? void 0 : _a2.children);
+        newChildren.push((_a3 = slottableElement == null ? void 0 : slottableElement.props) == null ? void 0 : _a3.children);
       } else {
         newChildren.push(maybeSlottable);
       }
@@ -203,8 +203,8 @@ function mergeProps(slotProps, childProps) {
 __name(mergeProps, "mergeProps");
 __name$v(mergeProps, "mergeProps");
 function getElementRef$1(element) {
-  var _a2, _b2;
-  let getter = (_a2 = Object.getOwnPropertyDescriptor(element.props, "ref")) == null ? void 0 : _a2.get;
+  var _a3, _b2;
+  let getter = (_a3 = Object.getOwnPropertyDescriptor(element.props, "ref")) == null ? void 0 : _a3.get;
   let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
   if (mayWarn) {
     return element.ref;
@@ -323,7 +323,7 @@ const createClassGroupUtils = /* @__PURE__ */ __name((config) => {
   };
 }, "createClassGroupUtils");
 const getGroupRecursive = /* @__PURE__ */ __name((classParts, classPartObject) => {
-  var _a2;
+  var _a3;
   if (classParts.length === 0) {
     return classPartObject.classGroupId;
   }
@@ -337,9 +337,9 @@ const getGroupRecursive = /* @__PURE__ */ __name((classParts, classPartObject) =
     return void 0;
   }
   const classRest = classParts.join(CLASS_PART_SEPARATOR);
-  return (_a2 = classPartObject.validators.find(({
+  return (_a3 = classPartObject.validators.find(({
     validator: validator2
-  }) => validator2(classRest))) == null ? void 0 : _a2.classGroupId;
+  }) => validator2(classRest))) == null ? void 0 : _a3.classGroupId;
 }, "getGroupRecursive");
 const arbitraryPropertyRegex = /^\[(.+)\]$/;
 const getGroupIdForArbitraryProperty = /* @__PURE__ */ __name((className) => {
@@ -2811,10 +2811,10 @@ var Label = /* @__PURE__ */ React$15.forwardRef(
         ...props,
         ref: forwardedRef,
         onMouseDown: /* @__PURE__ */ __name((event) => {
-          var _a2;
+          var _a3;
           const target = event.target;
           if (target.closest("button, input, select, textarea")) return;
-          (_a2 = props.onMouseDown) == null ? void 0 : _a2.call(props, event);
+          (_a3 = props.onMouseDown) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
         }, "onMouseDown")
       }
@@ -2858,17 +2858,17 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
     const index2 = defaultContexts.length;
     defaultContexts = [...defaultContexts, defaultContext];
     const Provider2 = /* @__PURE__ */ __name$s((props) => {
-      var _a2;
+      var _a3;
       const { scope, children, ...context } = props;
-      const Context = ((_a2 = scope == null ? void 0 : scope[scopeName]) == null ? void 0 : _a2[index2]) || BaseContext;
+      const Context = ((_a3 = scope == null ? void 0 : scope[scopeName]) == null ? void 0 : _a3[index2]) || BaseContext;
       const value = React$14.useMemo(() => context, Object.values(context));
       return /* @__PURE__ */ jsxRuntimeExports.jsx(Context.Provider, { value, children });
     }, "Provider");
     Provider2.displayName = rootComponentName + "Provider";
     function useContext2(consumerName, scope, options2 = {}) {
-      var _a2;
+      var _a3;
       const { optional = false } = options2;
-      const Context = ((_a2 = scope == null ? void 0 : scope[scopeName]) == null ? void 0 : _a2[index2]) || BaseContext;
+      const Context = ((_a3 = scope == null ? void 0 : scope[scopeName]) == null ? void 0 : _a3[index2]) || BaseContext;
       const context = React$14.useContext(Context);
       if (context) return context;
       if (defaultContext !== void 0) return defaultContext;
@@ -2934,11 +2934,11 @@ function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForD
 __name(composeEventHandlers, "composeEventHandlers");
 __name$r(composeEventHandlers, "composeEventHandlers");
 function getOwnerWindow(element) {
-  var _a2;
+  var _a3;
   if (!canUseDOM) {
     throw new Error("Cannot access window outside of the DOM");
   }
-  return ((_a2 = element == null ? void 0 : element.ownerDocument) == null ? void 0 : _a2.defaultView) ?? window;
+  return ((_a3 = element == null ? void 0 : element.ownerDocument) == null ? void 0 : _a3.defaultView) ?? window;
 }
 __name(getOwnerWindow, "getOwnerWindow");
 __name$r(getOwnerWindow, "getOwnerWindow");
@@ -3001,8 +3001,8 @@ function useEffectEvent(callback) {
     });
   }
   return React$12.useMemo(() => ((...args) => {
-    var _a2;
-    return (_a2 = ref.current) == null ? void 0 : _a2.call(ref, ...args);
+    var _a3;
+    return (_a3 = ref.current) == null ? void 0 : _a3.call(ref, ...args);
   }), []);
 }
 __name(useEffectEvent, "useEffectEvent");
@@ -3026,11 +3026,11 @@ function useControllableState({
   const value = isControlled ? prop : uncontrolledProp;
   const setValue = React$11.useCallback(
     (nextValue) => {
-      var _a2;
+      var _a3;
       if (isControlled) {
         const value2 = isFunction$3(nextValue) ? nextValue(prop) : nextValue;
         if (value2 !== prop) {
-          (_a2 = onChangeRef.current) == null ? void 0 : _a2.call(onChangeRef, value2);
+          (_a3 = onChangeRef.current) == null ? void 0 : _a3.call(onChangeRef, value2);
         }
       } else {
         setUncontrolledProp(nextValue);
@@ -3053,9 +3053,9 @@ function useUncontrolledState({
     onChangeRef.current = onChange;
   }, [onChange]);
   React$11.useEffect(() => {
-    var _a2;
+    var _a3;
     if (prevValueRef.current !== value) {
-      (_a2 = onChangeRef.current) == null ? void 0 : _a2.call(onChangeRef, value);
+      (_a3 = onChangeRef.current) == null ? void 0 : _a3.call(onChangeRef, value);
       prevValueRef.current = value;
     }
   }, [value, prevValueRef]);
@@ -3325,8 +3325,8 @@ function getAnimationName(styles) {
 __name(getAnimationName, "getAnimationName");
 __name$n(getAnimationName, "getAnimationName");
 function getElementRef(element) {
-  var _a2, _b2;
-  let getter = (_a2 = Object.getOwnPropertyDescriptor(element.props, "ref")) == null ? void 0 : _a2.get;
+  var _a3, _b2;
+  let getter = (_a3 = Object.getOwnPropertyDescriptor(element.props, "ref")) == null ? void 0 : _a3.get;
   let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
   if (mayWarn) {
     return element.ref;
@@ -3417,23 +3417,38 @@ const createLucideIcon = /* @__PURE__ */ __name((iconName, iconNode) => {
   Component.displayName = toPascalCase(iconName);
   return Component;
 }, "createLucideIcon");
-const __iconNode$a = [
+const __iconNode$d = [
+  ["path", { d: "M12 5v14", key: "s699le" }],
+  ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
+];
+const ArrowDown = createLucideIcon("arrow-down", __iconNode$d);
+const __iconNode$c = [
+  ["path", { d: "m5 12 7-7 7 7", key: "hav0vg" }],
+  ["path", { d: "M12 19V5", key: "x0mq9r" }]
+];
+const ArrowUp = createLucideIcon("arrow-up", __iconNode$c);
+const __iconNode$b = [
   ["path", { d: "M8 2v4", key: "1cmpym" }],
   ["path", { d: "M16 2v4", key: "4m81vk" }],
   ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
   ["path", { d: "M3 10h18", key: "8toen8" }]
 ];
-const Calendar = createLucideIcon("calendar", __iconNode$a);
-const __iconNode$9 = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$9);
-const __iconNode$8 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$8);
-const __iconNode$7 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
-const ChevronLeft = createLucideIcon("chevron-left", __iconNode$7);
-const __iconNode$6 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$6);
-const __iconNode$5 = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$5);
+const Calendar = createLucideIcon("calendar", __iconNode$b);
+const __iconNode$a = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$a);
+const __iconNode$9 = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$9);
+const __iconNode$8 = [["path", { d: "m15 18-6-6 6-6", key: "1wnfg3" }]];
+const ChevronLeft = createLucideIcon("chevron-left", __iconNode$8);
+const __iconNode$7 = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$7);
+const __iconNode$6 = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$6);
+const __iconNode$5 = [
+  ["path", { d: "m7 15 5 5 5-5", key: "1hf1tw" }],
+  ["path", { d: "m7 9 5-5 5 5", key: "sgt6xg" }]
+];
+const ChevronsUpDown = createLucideIcon("chevrons-up-down", __iconNode$5);
 const __iconNode$4 = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
@@ -3491,8 +3506,8 @@ function useCallbackRef$1(callback) {
     callbackRef.current = callback;
   });
   return React$Z.useMemo(() => ((...args) => {
-    var _a2;
-    return (_a2 = callbackRef.current) == null ? void 0 : _a2.call(callbackRef, ...args);
+    var _a3;
+    return (_a3 = callbackRef.current) == null ? void 0 : _a3.call(callbackRef, ...args);
   }), []);
 }
 __name(useCallbackRef$1, "useCallbackRef$1");
@@ -4043,9 +4058,9 @@ function createFocusScopesStack() {
       stack.unshift(focusScope);
     },
     remove(focusScope) {
-      var _a2;
+      var _a3;
       stack = arrayRemove(stack, focusScope);
-      (_a2 = stack[0]) == null ? void 0 : _a2.resume();
+      (_a3 = stack[0]) == null ? void 0 : _a3.resume();
     }
   };
 }
@@ -4072,11 +4087,11 @@ const React$W = await importShared("react");
 const ReactDOM$2 = await importShared("react-dom");
 var Portal$3 = /* @__PURE__ */ React$W.forwardRef(
   /* @__PURE__ */ __name$i(/* @__PURE__ */ __name(function Portal2(props, forwardedRef) {
-    var _a2;
+    var _a3;
     const { container: containerProp, ...portalProps } = props;
     const [mounted, setMounted] = React$W.useState(false);
     useLayoutEffect2(() => setMounted(true), []);
-    const container = containerProp || mounted && ((_a2 = globalThis == null ? void 0 : globalThis.document) == null ? void 0 : _a2.body);
+    const container = containerProp || mounted && ((_a3 = globalThis == null ? void 0 : globalThis.document) == null ? void 0 : _a3.body);
     return container ? ReactDOM$2.createPortal(/* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
   }, "Portal2"), "Portal")
 );
@@ -4151,13 +4166,13 @@ function __rest(s, e) {
 }
 __name(__rest, "__rest");
 function __spreadArray(to2, from, pack) {
-  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-    if (ar || !(i in from)) {
-      if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-      ar[i] = from[i];
+  if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar2; i < l; i++) {
+    if (ar2 || !(i in from)) {
+      if (!ar2) ar2 = Array.prototype.slice.call(from, 0, i);
+      ar2[i] = from[i];
     }
   }
-  return to2.concat(ar || Array.prototype.slice.call(from));
+  return to2.concat(ar2 || Array.prototype.slice.call(from));
 }
 __name(__spreadArray, "__spreadArray");
 typeof SuppressedError === "function" ? SuppressedError : function(error, suppressed, message2) {
@@ -4323,8 +4338,8 @@ function createSidecarMedium(options2) {
 }
 __name(createSidecarMedium, "createSidecarMedium");
 const React$T = await importShared("react");
-var SideCar$1 = /* @__PURE__ */ __name(function(_a2) {
-  var sideCar = _a2.sideCar, rest = __rest(_a2, ["sideCar"]);
+var SideCar$1 = /* @__PURE__ */ __name(function(_a3) {
+  var sideCar = _a3.sideCar, rest = __rest(_a3, ["sideCar"]);
   if (!sideCar) {
     throw new Error("Sidecar: please provide `sideCar` property to import the right car");
   }
@@ -4347,11 +4362,11 @@ var nothing = /* @__PURE__ */ __name(function() {
 }, "nothing");
 var RemoveScroll = React$S.forwardRef(function(props, parentRef) {
   var ref = React$S.useRef(null);
-  var _a2 = React$S.useState({
+  var _a3 = React$S.useState({
     onScrollCapture: nothing,
     onWheelCapture: nothing,
     onTouchMoveCapture: nothing
-  }), callbacks = _a2[0], setCallbacks = _a2[1];
+  }), callbacks = _a3[0], setCallbacks = _a3[1];
   var forwardProps = props.forwardProps, children = props.children, className = props.className, removeScrollBar = props.removeScrollBar, enabled = props.enabled, shards = props.shards, sideCar = props.sideCar, noRelative = props.noRelative, noIsolation = props.noIsolation, inert = props.inert, allowPinchZoom = props.allowPinchZoom, _b2 = props.as, Container = _b2 === void 0 ? "div" : _b2, gapMode = props.gapMode, rest = __rest(props, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noRelative", "noIsolation", "inert", "allowPinchZoom", "as", "gapMode"]);
   var SideCar2 = sideCar;
   var containerRef = useMergeRefs([ref, parentRef]);
@@ -4439,8 +4454,8 @@ var styleHookSingleton = /* @__PURE__ */ __name(function() {
 }, "styleHookSingleton");
 var styleSingleton = /* @__PURE__ */ __name(function() {
   var useStyle = styleHookSingleton();
-  var Sheet = /* @__PURE__ */ __name(function(_a2) {
-    var styles = _a2.styles, dynamic = _a2.dynamic;
+  var Sheet = /* @__PURE__ */ __name(function(_a3) {
+    var styles = _a3.styles, dynamic = _a3.dynamic;
     useStyle(styles, dynamic);
     return null;
   }, "Sheet");
@@ -4482,8 +4497,8 @@ var getGapWidth = /* @__PURE__ */ __name(function(gapMode) {
 const React$Q = await importShared("react");
 var Style = styleSingleton();
 var lockAttribute = "data-scroll-locked";
-var getStyles = /* @__PURE__ */ __name(function(_a2, allowRelative, gapMode, important) {
-  var left = _a2.left, top = _a2.top, right = _a2.right, gap = _a2.gap;
+var getStyles = /* @__PURE__ */ __name(function(_a3, allowRelative, gapMode, important) {
+  var left = _a3.left, top = _a3.top, right = _a3.right, gap = _a3.gap;
   if (gapMode === void 0) {
     gapMode = "margin";
   }
@@ -4510,8 +4525,8 @@ var useLockAttribute = /* @__PURE__ */ __name(function() {
     };
   }, []);
 }, "useLockAttribute");
-var RemoveScrollBar = /* @__PURE__ */ __name(function(_a2) {
-  var noRelative = _a2.noRelative, noImportant = _a2.noImportant, _b2 = _a2.gapMode, gapMode = _b2 === void 0 ? "margin" : _b2;
+var RemoveScrollBar = /* @__PURE__ */ __name(function(_a3) {
+  var noRelative = _a3.noRelative, noImportant = _a3.noImportant, _b2 = _a3.gapMode, gapMode = _b2 === void 0 ? "margin" : _b2;
   useLockAttribute();
   var gap = React$Q.useMemo(function() {
     return getGapWidth(gapMode);
@@ -4563,7 +4578,7 @@ var locationCouldBeScrolled = /* @__PURE__ */ __name(function(axis, node) {
     }
     var isScrollable = elementCouldBeScrolled(axis, current2);
     if (isScrollable) {
-      var _a2 = getScrollVariables(axis, current2), scrollHeight = _a2[1], clientHeight = _a2[2];
+      var _a3 = getScrollVariables(axis, current2), scrollHeight = _a3[1], clientHeight = _a3[2];
       if (scrollHeight > clientHeight) {
         return true;
       }
@@ -4572,16 +4587,16 @@ var locationCouldBeScrolled = /* @__PURE__ */ __name(function(axis, node) {
   } while (current2 && current2 !== ownerDocument.body);
   return false;
 }, "locationCouldBeScrolled");
-var getVScrollVariables = /* @__PURE__ */ __name(function(_a2) {
-  var scrollTop = _a2.scrollTop, scrollHeight = _a2.scrollHeight, clientHeight = _a2.clientHeight;
+var getVScrollVariables = /* @__PURE__ */ __name(function(_a3) {
+  var scrollTop = _a3.scrollTop, scrollHeight = _a3.scrollHeight, clientHeight = _a3.clientHeight;
   return [
     scrollTop,
     scrollHeight,
     clientHeight
   ];
 }, "getVScrollVariables");
-var getHScrollVariables = /* @__PURE__ */ __name(function(_a2) {
-  var scrollLeft = _a2.scrollLeft, scrollWidth = _a2.scrollWidth, clientWidth = _a2.clientWidth;
+var getHScrollVariables = /* @__PURE__ */ __name(function(_a3) {
+  var scrollLeft = _a3.scrollLeft, scrollWidth = _a3.scrollWidth, clientWidth = _a3.clientWidth;
   return [
     scrollLeft,
     scrollWidth,
@@ -4610,7 +4625,7 @@ var handleScroll = /* @__PURE__ */ __name(function(axis, endTarget, event, sourc
     if (!target) {
       break;
     }
-    var _a2 = getScrollVariables(axis, target), position = _a2[0], scroll_1 = _a2[1], capacity = _a2[2];
+    var _a3 = getScrollVariables(axis, target), position = _a3[0], scroll_1 = _a3[1], capacity = _a3[2];
     var elementScroll = scroll_1 - capacity - directionFactor * position;
     if (position || elementScroll) {
       if (elementCouldBeScrolled(axis, target)) {
@@ -5003,9 +5018,9 @@ var DialogContentModal = /* @__PURE__ */ React$N.forwardRef(
         trapFocus: context.open,
         disableOutsidePointerEvents: context.open,
         onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
-          var _a2;
+          var _a3;
           event.preventDefault();
-          (_a2 = context.triggerRef.current) == null ? void 0 : _a2.focus();
+          (_a3 = context.triggerRef.current) == null ? void 0 : _a3.focus();
         }),
         onPointerDownOutside: composeEventHandlers(props.onPointerDownOutside, (event) => {
           const originalEvent = event.detail.originalEvent;
@@ -5035,8 +5050,8 @@ var DialogContentNonModal = /* @__PURE__ */ React$N.forwardRef(
         trapFocus: false,
         disableOutsidePointerEvents: false,
         onCloseAutoFocus: /* @__PURE__ */ __name((event) => {
-          var _a2, _b2;
-          (_a2 = props.onCloseAutoFocus) == null ? void 0 : _a2.call(props, event);
+          var _a3, _b2;
+          (_a3 = props.onCloseAutoFocus) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented) {
             if (!hasInteractedOutsideRef.current) (_b2 = context.triggerRef.current) == null ? void 0 : _b2.focus();
             event.preventDefault();
@@ -5045,8 +5060,8 @@ var DialogContentNonModal = /* @__PURE__ */ React$N.forwardRef(
           hasPointerDownOutsideRef.current = false;
         }, "onCloseAutoFocus"),
         onInteractOutside: /* @__PURE__ */ __name((event) => {
-          var _a2, _b2;
-          (_a2 = props.onInteractOutside) == null ? void 0 : _a2.call(props, event);
+          var _a3, _b2;
+          (_a3 = props.onInteractOutside) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented) {
             hasInteractedOutsideRef.current = true;
             if (event.detail.originalEvent.type === "pointerdown") {
@@ -5987,14 +6002,14 @@ const computePosition$1 = /* @__PURE__ */ __name(async (reference, floating, con
     }
     const {
       name,
-      fn
+      fn: fn2
     } = currentMiddleware;
     const {
       x: nextX,
       y: nextY,
       data,
       reset
-    } = await fn({
+    } = await fn2({
       x,
       y,
       initialPlacement: placement,
@@ -7765,7 +7780,7 @@ var CONTENT_NAME$5 = "PopperContent";
 var [PopperContentProvider, useContentContext] = createPopperContext(CONTENT_NAME$5);
 var PopperContent = /* @__PURE__ */ React$I.forwardRef(
   /* @__PURE__ */ __name$c(/* @__PURE__ */ __name(function PopperContent2(props, forwardedRef) {
-    var _a2, _b2, _c2, _d2, _e2, _f2, _g2;
+    var _a3, _b2, _c2, _d2, _e2, _f2, _g2;
     const {
       __scopePopper,
       side = "bottom",
@@ -7862,7 +7877,7 @@ var PopperContent = /* @__PURE__ */ React$I.forwardRef(
         handlePlaced == null ? void 0 : handlePlaced();
       }
     }, [isPositioned, handlePlaced]);
-    const arrowX = (_a2 = middlewareData.arrow) == null ? void 0 : _a2.x;
+    const arrowX = (_a3 = middlewareData.arrow) == null ? void 0 : _a3.x;
     const arrowY = (_b2 = middlewareData.arrow) == null ? void 0 : _b2.y;
     const cannotCenterArrow = ((_c2 = middlewareData.arrow) == null ? void 0 : _c2.centerOffset) !== 0;
     const [contentZIndex, setContentZIndex] = React$I.useState();
@@ -7990,9 +8005,9 @@ var transformOrigin = /* @__PURE__ */ __name$c((options2) => ({
   name: "transformOrigin",
   options: options2,
   fn(data) {
-    var _a2, _b2, _c2;
+    var _a3, _b2, _c2;
     const { placement, rects, middlewareData } = data;
-    const cannotCenterArrow = ((_a2 = middlewareData.arrow) == null ? void 0 : _a2.centerOffset) !== 0;
+    const cannotCenterArrow = ((_a3 = middlewareData.arrow) == null ? void 0 : _a3.centerOffset) !== 0;
     const isArrowHidden = cannotCenterArrow;
     const arrowWidth = isArrowHidden ? 0 : options2.arrowWidth;
     const arrowHeight = isArrowHidden ? 0 : options2.arrowHeight;
@@ -8466,11 +8481,11 @@ var MenuContentImpl = /* @__PURE__ */ React$F.forwardRef(
     const ScrollLockWrapper = disableOutsideScroll ? ReactRemoveScroll : React$F.Fragment;
     const scrollLockWrapperProps = disableOutsideScroll ? { as: Slot$2, allowPinchZoom: true } : void 0;
     const handleTypeaheadSearch = /* @__PURE__ */ __name$9((key) => {
-      var _a2, _b2;
+      var _a3, _b2;
       const search = searchRef.current + key;
       const items = getItems().filter((item) => !item.disabled);
       const currentItem = document.activeElement;
-      const currentMatch = (_a2 = items.find((item) => item.ref.current === currentItem)) == null ? void 0 : _a2.textValue;
+      const currentMatch = (_a3 = items.find((item) => item.ref.current === currentItem)) == null ? void 0 : _a3.textValue;
       const values = items.map((item) => item.textValue);
       const nextMatch = getNextMatch(values, search, currentMatch);
       const newItem = (_b2 = items.find((item) => item.textValue === nextMatch)) == null ? void 0 : _b2.ref.current;
@@ -8488,8 +8503,8 @@ var MenuContentImpl = /* @__PURE__ */ React$F.forwardRef(
     }, []);
     useFocusGuards();
     const isPointerMovingToSubmenu = React$F.useCallback((event) => {
-      var _a2, _b2;
-      const isMovingTowards = pointerDirRef.current === ((_a2 = pointerGraceIntentRef.current) == null ? void 0 : _a2.side);
+      var _a3, _b2;
+      const isMovingTowards = pointerDirRef.current === ((_a3 = pointerGraceIntentRef.current) == null ? void 0 : _a3.side);
       return isMovingTowards && isPointerInGraceArea(event, (_b2 = pointerGraceIntentRef.current) == null ? void 0 : _b2.area);
     }, []);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -8505,9 +8520,9 @@ var MenuContentImpl = /* @__PURE__ */ React$F.forwardRef(
         ),
         onItemLeave: React$F.useCallback(
           (event) => {
-            var _a2;
+            var _a3;
             if (isPointerMovingToSubmenu(event)) return;
-            (_a2 = contentRef.current) == null ? void 0 : _a2.focus();
+            (_a3 = contentRef.current) == null ? void 0 : _a3.focus();
             setCurrentItemId(null);
           },
           [isPointerMovingToSubmenu]
@@ -8528,9 +8543,9 @@ var MenuContentImpl = /* @__PURE__ */ React$F.forwardRef(
             asChild: true,
             trapped: trapFocus,
             onMountAutoFocus: composeEventHandlers(onOpenAutoFocus, (event) => {
-              var _a2;
+              var _a3;
               event.preventDefault();
-              (_a2 = contentRef.current) == null ? void 0 : _a2.focus({ preventScroll: true });
+              (_a3 = contentRef.current) == null ? void 0 : _a3.focus({ preventScroll: true });
             }),
             onUnmountAutoFocus: onCloseAutoFocus,
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -8649,13 +8664,13 @@ var MenuItem = /* @__PURE__ */ React$F.forwardRef(
         disabled,
         onClick: composeEventHandlers(props.onClick, handleSelect),
         onPointerDown: /* @__PURE__ */ __name((event) => {
-          var _a2;
-          (_a2 = props.onPointerDown) == null ? void 0 : _a2.call(props, event);
+          var _a3;
+          (_a3 = props.onPointerDown) == null ? void 0 : _a3.call(props, event);
           isPointerDownRef.current = true;
         }, "onPointerDown"),
         onPointerUp: composeEventHandlers(props.onPointerUp, (event) => {
-          var _a2;
-          if (!isPointerDownRef.current) (_a2 = event.currentTarget) == null ? void 0 : _a2.click();
+          var _a3;
+          if (!isPointerDownRef.current) (_a3 = event.currentTarget) == null ? void 0 : _a3.click();
         }),
         onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
           if (disabled || event.target !== event.currentTarget) {
@@ -8923,8 +8938,8 @@ var DropdownMenuContent = /* @__PURE__ */ React$E.forwardRef(
         ...contentProps,
         ref: forwardedRef,
         onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
-          var _a2;
-          if (!hasInteractedOutsideRef.current) (_a2 = context.triggerRef.current) == null ? void 0 : _a2.focus();
+          var _a3;
+          if (!hasInteractedOutsideRef.current) (_a3 = context.triggerRef.current) == null ? void 0 : _a3.focus();
           hasInteractedOutsideRef.current = false;
           event.preventDefault();
         }),
@@ -9350,9 +9365,9 @@ var SelectContentImpl = /* @__PURE__ */ React$B.forwardRef(
       if (content) {
         let pointerMoveDelta = { x: 0, y: 0 };
         const handlePointerMove = /* @__PURE__ */ __name$4((event) => {
-          var _a2, _b2;
+          var _a3, _b2;
           pointerMoveDelta = {
-            x: Math.abs(Math.round(event.pageX) - (((_a2 = triggerPointerDownPosRef.current) == null ? void 0 : _a2.x) ?? 0)),
+            x: Math.abs(Math.round(event.pageX) - (((_a3 = triggerPointerDownPosRef.current) == null ? void 0 : _a3.x) ?? 0)),
             y: Math.abs(Math.round(event.pageY) - (((_b2 = triggerPointerDownPosRef.current) == null ? void 0 : _b2.y) ?? 0))
           };
         }, "handlePointerMove");
@@ -9392,8 +9407,8 @@ var SelectContentImpl = /* @__PURE__ */ React$B.forwardRef(
       const nextItem = findNextItem(enabledItems, search, currentItem);
       if (nextItem) {
         setTimeout(() => {
-          var _a2;
-          return (_a2 = nextItem.ref.current) == null ? void 0 : _a2.focus();
+          var _a3;
+          return (_a3 = nextItem.ref.current) == null ? void 0 : _a3.focus();
         });
       }
     });
@@ -9457,8 +9472,8 @@ var SelectContentImpl = /* @__PURE__ */ React$B.forwardRef(
               event.preventDefault();
             }, "onMountAutoFocus"),
             onUnmountAutoFocus: composeEventHandlers(onCloseAutoFocus, (event) => {
-              var _a2;
-              (_a2 = context.trigger) == null ? void 0 : _a2.focus({ preventScroll: true });
+              var _a3;
+              (_a3 = context.trigger) == null ? void 0 : _a3.focus({ preventScroll: true });
               event.preventDefault();
             }),
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -9809,8 +9824,8 @@ var SelectItem = /* @__PURE__ */ React$B.forwardRef(
     const [isFocused, setIsFocused] = React$B.useState(false);
     const handleItemRefCallback = useCallbackRef$1(
       (node) => {
-        var _a2;
-        return (_a2 = contentContext.itemRefCallback) == null ? void 0 : _a2.call(contentContext, node, value, disabled);
+        var _a3;
+        return (_a3 = contentContext.itemRefCallback) == null ? void 0 : _a3.call(contentContext, node, value, disabled);
       }
     );
     const composedRefs = useComposedRefs(forwardedRef, handleItemRefCallback);
@@ -9865,26 +9880,26 @@ var SelectItem = /* @__PURE__ */ React$B.forwardRef(
                   pointerTypeRef.current = event.pointerType;
                 }),
                 onPointerMove: composeEventHandlers(itemProps.onPointerMove, (event) => {
-                  var _a2;
+                  var _a3;
                   pointerTypeRef.current = event.pointerType;
                   if (disabled) {
-                    (_a2 = contentContext.onItemLeave) == null ? void 0 : _a2.call(contentContext);
+                    (_a3 = contentContext.onItemLeave) == null ? void 0 : _a3.call(contentContext);
                   } else if (pointerTypeRef.current === "mouse") {
                     event.currentTarget.focus({ preventScroll: true });
                   }
                 }),
                 onPointerLeave: composeEventHandlers(itemProps.onPointerLeave, (event) => {
-                  var _a2;
+                  var _a3;
                   if (event.currentTarget === document.activeElement) {
-                    (_a2 = contentContext.onItemLeave) == null ? void 0 : _a2.call(contentContext);
+                    (_a3 = contentContext.onItemLeave) == null ? void 0 : _a3.call(contentContext);
                   }
                 }),
                 onKeyDown: composeEventHandlers(itemProps.onKeyDown, (event) => {
-                  var _a2;
+                  var _a3;
                   if (disabled || event.target !== event.currentTarget) {
                     return;
                   }
-                  const isTypingAhead = ((_a2 = contentContext.searchRef) == null ? void 0 : _a2.current) !== "";
+                  const isTypingAhead = ((_a3 = contentContext.searchRef) == null ? void 0 : _a3.current) !== "";
                   if (isTypingAhead && event.key === " ") {
                     return;
                   }
@@ -9914,8 +9929,8 @@ var SelectItemText = /* @__PURE__ */ React$B.forwardRef(
     const [itemTextNode, setItemTextNode] = React$B.useState(null);
     const handleItemTextRefCallback = useCallbackRef$1(
       (node) => {
-        var _a2;
-        return (_a2 = contentContext.itemTextRefCallback) == null ? void 0 : _a2.call(contentContext, node, itemContext.value, itemContext.disabled);
+        var _a3;
+        return (_a3 = contentContext.itemTextRefCallback) == null ? void 0 : _a3.call(contentContext, node, itemContext.value, itemContext.disabled);
       }
     );
     const composedRefs = useComposedRefs(
@@ -10031,9 +10046,9 @@ var SelectScrollButtonImpl = /* @__PURE__ */ React$B.forwardRef(/* @__PURE__ */ 
     return () => clearAutoScrollTimer();
   }, [clearAutoScrollTimer]);
   useLayoutEffect2(() => {
-    var _a2;
+    var _a3;
     const activeItem = getItems().find((item) => item.ref.current === document.activeElement);
-    (_a2 = activeItem == null ? void 0 : activeItem.ref.current) == null ? void 0 : _a2.scrollIntoView({ block: "nearest" });
+    (_a3 = activeItem == null ? void 0 : activeItem.ref.current) == null ? void 0 : _a3.scrollIntoView({ block: "nearest" });
   }, [getItems]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     Primitive.div,
@@ -10048,8 +10063,8 @@ var SelectScrollButtonImpl = /* @__PURE__ */ React$B.forwardRef(/* @__PURE__ */ 
         }
       }),
       onPointerMove: composeEventHandlers(scrollIndicatorProps.onPointerMove, () => {
-        var _a2;
-        (_a2 = contentContext.onItemLeave) == null ? void 0 : _a2.call(contentContext);
+        var _a3;
+        (_a3 = contentContext.onItemLeave) == null ? void 0 : _a3.call(contentContext);
         if (autoScrollTimerRef.current === null) {
           autoScrollTimerRef.current = window.setInterval(onAutoScroll, 50);
         }
@@ -10296,9 +10311,9 @@ var PopoverContentModal = /* @__PURE__ */ React$A.forwardRef(
         trapFocus: context.open,
         disableOutsidePointerEvents: true,
         onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
-          var _a2;
+          var _a3;
           event.preventDefault();
-          if (!isRightClickOutsideRef.current) (_a2 = context.triggerRef.current) == null ? void 0 : _a2.focus();
+          if (!isRightClickOutsideRef.current) (_a3 = context.triggerRef.current) == null ? void 0 : _a3.focus();
         }),
         onPointerDownOutside: composeEventHandlers(
           props.onPointerDownOutside,
@@ -10333,8 +10348,8 @@ var PopoverContentNonModal = /* @__PURE__ */ React$A.forwardRef(
         trapFocus: false,
         disableOutsidePointerEvents: false,
         onCloseAutoFocus: /* @__PURE__ */ __name((event) => {
-          var _a2, _b2;
-          (_a2 = props.onCloseAutoFocus) == null ? void 0 : _a2.call(props, event);
+          var _a3, _b2;
+          (_a3 = props.onCloseAutoFocus) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented) {
             if (!hasInteractedOutsideRef.current) (_b2 = context.triggerRef.current) == null ? void 0 : _b2.focus();
             event.preventDefault();
@@ -10343,8 +10358,8 @@ var PopoverContentNonModal = /* @__PURE__ */ React$A.forwardRef(
           hasPointerDownOutsideRef.current = false;
         }, "onCloseAutoFocus"),
         onInteractOutside: /* @__PURE__ */ __name((event) => {
-          var _a2, _b2;
-          (_a2 = props.onInteractOutside) == null ? void 0 : _a2.call(props, event);
+          var _a3, _b2;
+          (_a3 = props.onInteractOutside) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented) {
             hasInteractedOutsideRef.current = true;
             if (event.detail.originalEvent.type === "pointerdown") {
@@ -10743,9 +10758,9 @@ function getDefaultOptions() {
 }
 __name(getDefaultOptions, "getDefaultOptions");
 function startOfWeek(date, options2) {
-  var _a2, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const defaultOptions2 = getDefaultOptions();
-  const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_b2 = (_a2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a2.options) == null ? void 0 : _b2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.weekStartsOn) ?? 0;
+  const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_b2 = (_a3 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a3.options) == null ? void 0 : _b2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.weekStartsOn) ?? 0;
   const _date = toDate(date, options2 == null ? void 0 : options2.in);
   const day = _date.getDay();
   const diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
@@ -10958,9 +10973,9 @@ function eachYearOfInterval(interval, options2) {
 }
 __name(eachYearOfInterval, "eachYearOfInterval");
 function endOfWeek(date, options2) {
-  var _a2, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const defaultOptions2 = getDefaultOptions();
-  const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_b2 = (_a2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a2.options) == null ? void 0 : _b2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.weekStartsOn) ?? 0;
+  const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_b2 = (_a3 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a3.options) == null ? void 0 : _b2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.weekStartsOn) ?? 0;
   const _date = toDate(date, options2 == null ? void 0 : options2.in);
   const day = _date.getDay();
   const diff = (day < weekStartsOn ? -7 : 0) + 6 - (day - weekStartsOn);
@@ -11482,11 +11497,11 @@ function getISOWeek(date, options2) {
 }
 __name(getISOWeek, "getISOWeek");
 function getWeekYear(date, options2) {
-  var _a2, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const _date = toDate(date, options2 == null ? void 0 : options2.in);
   const year = _date.getFullYear();
   const defaultOptions2 = getDefaultOptions();
-  const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b2 = (_a2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a2.options) == null ? void 0 : _b2.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.firstWeekContainsDate) ?? 1;
+  const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b2 = (_a3 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a3.options) == null ? void 0 : _b2.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.firstWeekContainsDate) ?? 1;
   const firstWeekOfNextYear = constructFrom((options2 == null ? void 0 : options2.in) || date, 0);
   firstWeekOfNextYear.setFullYear(year + 1, 0, firstWeekContainsDate);
   firstWeekOfNextYear.setHours(0, 0, 0, 0);
@@ -11505,9 +11520,9 @@ function getWeekYear(date, options2) {
 }
 __name(getWeekYear, "getWeekYear");
 function startOfWeekYear(date, options2) {
-  var _a2, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const defaultOptions2 = getDefaultOptions();
-  const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b2 = (_a2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a2.options) == null ? void 0 : _b2.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.firstWeekContainsDate) ?? 1;
+  const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b2 = (_a3 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a3.options) == null ? void 0 : _b2.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.firstWeekContainsDate) ?? 1;
   const year = getWeekYear(date, options2);
   const firstWeek = constructFrom((options2 == null ? void 0 : options2.in) || date, 0);
   firstWeek.setFullYear(year, 0, firstWeekContainsDate);
@@ -12314,10 +12329,10 @@ const escapedStringRegExp = /^'([^]*?)'?$/;
 const doubleQuoteRegExp = /''/g;
 const unescapedLatinCharacterRegExp = /[a-zA-Z]/;
 function format(date, formatStr, options2) {
-  var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2;
+  var _a3, _b2, _c2, _d2, _e2, _f2, _g2, _h2;
   const defaultOptions2 = getDefaultOptions();
   const locale = (options2 == null ? void 0 : options2.locale) ?? defaultOptions2.locale ?? enUS$1;
-  const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b2 = (_a2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a2.options) == null ? void 0 : _b2.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.firstWeekContainsDate) ?? 1;
+  const firstWeekContainsDate = (options2 == null ? void 0 : options2.firstWeekContainsDate) ?? ((_b2 = (_a3 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _a3.options) == null ? void 0 : _b2.firstWeekContainsDate) ?? defaultOptions2.firstWeekContainsDate ?? ((_d2 = (_c2 = defaultOptions2.locale) == null ? void 0 : _c2.options) == null ? void 0 : _d2.firstWeekContainsDate) ?? 1;
   const weekStartsOn = (options2 == null ? void 0 : options2.weekStartsOn) ?? ((_f2 = (_e2 = options2 == null ? void 0 : options2.locale) == null ? void 0 : _e2.options) == null ? void 0 : _f2.weekStartsOn) ?? defaultOptions2.weekStartsOn ?? ((_h2 = (_g2 = defaultOptions2.locale) == null ? void 0 : _g2.options) == null ? void 0 : _h2.weekStartsOn) ?? 0;
   const originalDate = toDate(date, options2 == null ? void 0 : options2.in);
   if (!isValid(originalDate)) {
@@ -12535,8 +12550,8 @@ const _DateLib = class _DateLib {
   constructor(options2, overrides) {
     this.Date = Date;
     this.today = () => {
-      var _a2;
-      if ((_a2 = this.overrides) == null ? void 0 : _a2.today) {
+      var _a3;
+      if ((_a3 = this.overrides) == null ? void 0 : _a3.today) {
         return this.overrides.today();
       }
       if (this.options.timeZone) {
@@ -12545,8 +12560,8 @@ const _DateLib = class _DateLib {
       return new this.Date();
     };
     this.newDate = (year, monthIndex, date) => {
-      var _a2;
-      if ((_a2 = this.overrides) == null ? void 0 : _a2.newDate) {
+      var _a3;
+      if ((_a3 = this.overrides) == null ? void 0 : _a3.newDate) {
         return this.overrides.newDate(year, monthIndex, date);
       }
       if (this.options.timeZone) {
@@ -12555,36 +12570,36 @@ const _DateLib = class _DateLib {
       return new Date(year, monthIndex, date);
     };
     this.addDays = (date, amount) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.addDays) ? this.overrides.addDays(date, amount) : addDays(date, amount);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.addDays) ? this.overrides.addDays(date, amount) : addDays(date, amount);
     };
     this.addMonths = (date, amount) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.addMonths) ? this.overrides.addMonths(date, amount) : addMonths(date, amount);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.addMonths) ? this.overrides.addMonths(date, amount) : addMonths(date, amount);
     };
     this.addWeeks = (date, amount) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.addWeeks) ? this.overrides.addWeeks(date, amount) : addWeeks(date, amount);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.addWeeks) ? this.overrides.addWeeks(date, amount) : addWeeks(date, amount);
     };
     this.addYears = (date, amount) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.addYears) ? this.overrides.addYears(date, amount) : addYears(date, amount);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.addYears) ? this.overrides.addYears(date, amount) : addYears(date, amount);
     };
     this.differenceInCalendarDays = (dateLeft, dateRight) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.differenceInCalendarDays) ? this.overrides.differenceInCalendarDays(dateLeft, dateRight) : differenceInCalendarDays(dateLeft, dateRight);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.differenceInCalendarDays) ? this.overrides.differenceInCalendarDays(dateLeft, dateRight) : differenceInCalendarDays(dateLeft, dateRight);
     };
     this.differenceInCalendarMonths = (dateLeft, dateRight) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.differenceInCalendarMonths) ? this.overrides.differenceInCalendarMonths(dateLeft, dateRight) : differenceInCalendarMonths(dateLeft, dateRight);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.differenceInCalendarMonths) ? this.overrides.differenceInCalendarMonths(dateLeft, dateRight) : differenceInCalendarMonths(dateLeft, dateRight);
     };
     this.eachMonthOfInterval = (interval) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.eachMonthOfInterval) ? this.overrides.eachMonthOfInterval(interval) : eachMonthOfInterval(interval);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.eachMonthOfInterval) ? this.overrides.eachMonthOfInterval(interval) : eachMonthOfInterval(interval);
     };
     this.eachYearOfInterval = (interval) => {
-      var _a2;
-      const years = ((_a2 = this.overrides) == null ? void 0 : _a2.eachYearOfInterval) ? this.overrides.eachYearOfInterval(interval) : eachYearOfInterval(interval);
+      var _a3;
+      const years = ((_a3 = this.overrides) == null ? void 0 : _a3.eachYearOfInterval) ? this.overrides.eachYearOfInterval(interval) : eachYearOfInterval(interval);
       const uniqueYears = new Set(years.map((d) => this.getYear(d)));
       if (uniqueYears.size === years.length) {
         return years;
@@ -12596,112 +12611,112 @@ const _DateLib = class _DateLib {
       return yearsArray;
     };
     this.endOfBroadcastWeek = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.endOfBroadcastWeek) ? this.overrides.endOfBroadcastWeek(date) : endOfBroadcastWeek(date, this);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.endOfBroadcastWeek) ? this.overrides.endOfBroadcastWeek(date) : endOfBroadcastWeek(date, this);
     };
     this.endOfISOWeek = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.endOfISOWeek) ? this.overrides.endOfISOWeek(date) : endOfISOWeek(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.endOfISOWeek) ? this.overrides.endOfISOWeek(date) : endOfISOWeek(date);
     };
     this.endOfMonth = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.endOfMonth) ? this.overrides.endOfMonth(date) : endOfMonth(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.endOfMonth) ? this.overrides.endOfMonth(date) : endOfMonth(date);
     };
     this.endOfWeek = (date, options3) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.endOfWeek) ? this.overrides.endOfWeek(date, options3) : endOfWeek(date, this.options);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.endOfWeek) ? this.overrides.endOfWeek(date, options3) : endOfWeek(date, this.options);
     };
     this.endOfYear = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.endOfYear) ? this.overrides.endOfYear(date) : endOfYear(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.endOfYear) ? this.overrides.endOfYear(date) : endOfYear(date);
     };
     this.format = (date, formatStr, _options) => {
-      var _a2;
-      const formatted = ((_a2 = this.overrides) == null ? void 0 : _a2.format) ? this.overrides.format(date, formatStr, this.options) : format(date, formatStr, this.options);
+      var _a3;
+      const formatted = ((_a3 = this.overrides) == null ? void 0 : _a3.format) ? this.overrides.format(date, formatStr, this.options) : format(date, formatStr, this.options);
       if (this.options.numerals && this.options.numerals !== "latn") {
         return this.replaceDigits(formatted);
       }
       return formatted;
     };
     this.getISOWeek = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.getISOWeek) ? this.overrides.getISOWeek(date) : getISOWeek(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.getISOWeek) ? this.overrides.getISOWeek(date) : getISOWeek(date);
     };
     this.getMonth = (date, _options) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.getMonth) ? this.overrides.getMonth(date, this.options) : getMonth(date, this.options);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.getMonth) ? this.overrides.getMonth(date, this.options) : getMonth(date, this.options);
     };
     this.getYear = (date, _options) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.getYear) ? this.overrides.getYear(date, this.options) : getYear(date, this.options);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.getYear) ? this.overrides.getYear(date, this.options) : getYear(date, this.options);
     };
     this.getWeek = (date, _options) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.getWeek) ? this.overrides.getWeek(date, this.options) : getWeek(date, this.options);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.getWeek) ? this.overrides.getWeek(date, this.options) : getWeek(date, this.options);
     };
     this.isAfter = (date, dateToCompare) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.isAfter) ? this.overrides.isAfter(date, dateToCompare) : isAfter(date, dateToCompare);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.isAfter) ? this.overrides.isAfter(date, dateToCompare) : isAfter(date, dateToCompare);
     };
     this.isBefore = (date, dateToCompare) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.isBefore) ? this.overrides.isBefore(date, dateToCompare) : isBefore(date, dateToCompare);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.isBefore) ? this.overrides.isBefore(date, dateToCompare) : isBefore(date, dateToCompare);
     };
     this.isDate = (value) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.isDate) ? this.overrides.isDate(value) : isDate$1(value);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.isDate) ? this.overrides.isDate(value) : isDate$1(value);
     };
     this.isSameDay = (dateLeft, dateRight) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.isSameDay) ? this.overrides.isSameDay(dateLeft, dateRight) : isSameDay(dateLeft, dateRight);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.isSameDay) ? this.overrides.isSameDay(dateLeft, dateRight) : isSameDay(dateLeft, dateRight);
     };
     this.isSameMonth = (dateLeft, dateRight) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.isSameMonth) ? this.overrides.isSameMonth(dateLeft, dateRight) : isSameMonth(dateLeft, dateRight);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.isSameMonth) ? this.overrides.isSameMonth(dateLeft, dateRight) : isSameMonth(dateLeft, dateRight);
     };
     this.isSameYear = (dateLeft, dateRight) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.isSameYear) ? this.overrides.isSameYear(dateLeft, dateRight) : isSameYear(dateLeft, dateRight);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.isSameYear) ? this.overrides.isSameYear(dateLeft, dateRight) : isSameYear(dateLeft, dateRight);
     };
     this.max = (dates) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.max) ? this.overrides.max(dates) : max(dates);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.max) ? this.overrides.max(dates) : max(dates);
     };
     this.min = (dates) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.min) ? this.overrides.min(dates) : min(dates);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.min) ? this.overrides.min(dates) : min(dates);
     };
     this.setMonth = (date, month) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.setMonth) ? this.overrides.setMonth(date, month) : setMonth(date, month);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.setMonth) ? this.overrides.setMonth(date, month) : setMonth(date, month);
     };
     this.setYear = (date, year) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.setYear) ? this.overrides.setYear(date, year) : setYear(date, year);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.setYear) ? this.overrides.setYear(date, year) : setYear(date, year);
     };
     this.startOfBroadcastWeek = (date, _dateLib) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.startOfBroadcastWeek) ? this.overrides.startOfBroadcastWeek(date, this) : startOfBroadcastWeek(date, this);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.startOfBroadcastWeek) ? this.overrides.startOfBroadcastWeek(date, this) : startOfBroadcastWeek(date, this);
     };
     this.startOfDay = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.startOfDay) ? this.overrides.startOfDay(date) : startOfDay(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.startOfDay) ? this.overrides.startOfDay(date) : startOfDay(date);
     };
     this.startOfISOWeek = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.startOfISOWeek) ? this.overrides.startOfISOWeek(date) : startOfISOWeek(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.startOfISOWeek) ? this.overrides.startOfISOWeek(date) : startOfISOWeek(date);
     };
     this.startOfMonth = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.startOfMonth) ? this.overrides.startOfMonth(date) : startOfMonth(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.startOfMonth) ? this.overrides.startOfMonth(date) : startOfMonth(date);
     };
     this.startOfWeek = (date, _options) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.startOfWeek) ? this.overrides.startOfWeek(date, this.options) : startOfWeek(date, this.options);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.startOfWeek) ? this.overrides.startOfWeek(date, this.options) : startOfWeek(date, this.options);
     };
     this.startOfYear = (date) => {
-      var _a2;
-      return ((_a2 = this.overrides) == null ? void 0 : _a2.startOfYear) ? this.overrides.startOfYear(date) : startOfYear(date);
+      var _a3;
+      return ((_a3 = this.overrides) == null ? void 0 : _a3.startOfYear) ? this.overrides.startOfYear(date) : startOfYear(date);
     };
     this.options = { locale: enUS, ...options2 };
     this.overrides = overrides;
@@ -12750,8 +12765,8 @@ const _DateLib = class _DateLib {
    * locale.
    */
   getMonthYearOrder() {
-    var _a2;
-    const code = (_a2 = this.options.locale) == null ? void 0 : _a2.code;
+    var _a3;
+    const code = (_a3 = this.options.locale) == null ? void 0 : _a3.code;
     if (!code) {
       return "month-first";
     }
@@ -12880,9 +12895,9 @@ function DayButton(props) {
   const { day, modifiers, ...buttonProps } = props;
   const ref = React$v.useRef(null);
   React$v.useEffect(() => {
-    var _a2;
+    var _a3;
     if (modifiers.focused)
-      (_a2 = ref.current) == null ? void 0 : _a2.focus();
+      (_a3 = ref.current) == null ? void 0 : _a3.focus();
   }, [modifiers.focused]);
   return React$v.createElement("button", { ref, ...buttonProps });
 }
@@ -13491,8 +13506,8 @@ const resolveLabel = /* @__PURE__ */ __name((defaultLabel2, customLabel, localeL
   return defaultLabel2;
 }, "resolveLabel");
 function getLabels(customLabels, options2) {
-  var _a2;
-  const localeLabels = ((_a2 = options2.locale) == null ? void 0 : _a2.labels) ?? {};
+  var _a3;
+  const localeLabels = ((_a3 = options2.locale) == null ? void 0 : _a3.labels) ?? {};
   return {
     ...defaultLabels,
     ...customLabels ?? {},
@@ -13569,9 +13584,9 @@ function getYearOptions(navStart, navEnd, formatters2, dateLib, reverse = false)
 }
 __name(getYearOptions, "getYearOptions");
 function createNoonOverrides(timeZone, options2 = {}) {
-  var _a2;
+  var _a3;
   const { weekStartsOn, locale } = options2;
-  const fallbackWeekStartsOn = weekStartsOn ?? ((_a2 = locale == null ? void 0 : locale.options) == null ? void 0 : _a2.weekStartsOn) ?? 0;
+  const fallbackWeekStartsOn = weekStartsOn ?? ((_a3 = locale == null ? void 0 : locale.options) == null ? void 0 : _a3.weekStartsOn) ?? 0;
   const toNoonTZDate = /* @__PURE__ */ __name((date) => {
     const normalizedDate = typeof date === "number" || typeof date === "string" ? new Date(date) : date;
     return new TZDate(normalizedDate.getFullYear(), normalizedDate.getMonth(), normalizedDate.getDate(), 12, 0, 0, timeZone);
@@ -13683,11 +13698,11 @@ function createNoonOverrides(timeZone, options2 = {}) {
       return years;
     }, "eachYearOfInterval"),
     getWeek: /* @__PURE__ */ __name((date, options3) => {
-      var _a3;
+      var _a4;
       const base = toCalendarDate(date);
       return getWeek(base, {
         weekStartsOn: (options3 == null ? void 0 : options3.weekStartsOn) ?? fallbackWeekStartsOn,
-        firstWeekContainsDate: (options3 == null ? void 0 : options3.firstWeekContainsDate) ?? ((_a3 = locale == null ? void 0 : locale.options) == null ? void 0 : _a3.firstWeekContainsDate) ?? 1
+        firstWeekContainsDate: (options3 == null ? void 0 : options3.firstWeekContainsDate) ?? ((_a4 = locale == null ? void 0 : locale.options) == null ? void 0 : _a4.firstWeekContainsDate) ?? 1
       });
     }, "getWeek"),
     getISOWeek: /* @__PURE__ */ __name((date) => {
@@ -14024,7 +14039,7 @@ function useControlledValue(defaultValue, controlledValue) {
 __name(useControlledValue, "useControlledValue");
 const { useEffect: useEffect$2, useMemo: useMemo$2 } = await importShared("react");
 function useCalendar(props, dateLib) {
-  var _a2;
+  var _a3;
   const [navStart, navEnd] = getNavMonths(props, dateLib);
   const { startOfMonth: startOfMonth2, endOfMonth: endOfMonth2 } = dateLib;
   const initialMonth = getInitialMonth(props, navStart, navEnd, dateLib);
@@ -14068,7 +14083,7 @@ function useCalendar(props, dateLib) {
     navStart == null ? void 0 : navStart.getTime(),
     props.disableNavigation,
     props.broadcastCalendar,
-    (_a2 = props.endMonth) == null ? void 0 : _a2.getTime(),
+    (_a3 = props.endMonth) == null ? void 0 : _a3.getTime(),
     props.fixedWeeks,
     props.ISOWeek,
     props.numberOfMonths,
@@ -14532,7 +14547,7 @@ __name(convertMatchersToTimeZone, "convertMatchersToTimeZone");
 const React$9 = await importShared("react");
 const { useCallback, useMemo: useMemo$1, useRef } = React$9;
 function DayPicker(initialProps) {
-  var _a2;
+  var _a3;
   let props = initialProps;
   const timeZone = props.timeZone;
   if (timeZone) {
@@ -14558,7 +14573,7 @@ function DayPicker(initialProps) {
     if (props.mode === "single" && props.selected) {
       props.selected = toTimeZone(props.selected, timeZone);
     } else if (props.mode === "multiple" && props.selected) {
-      props.selected = (_a2 = props.selected) == null ? void 0 : _a2.map((date) => toTimeZone(date, timeZone));
+      props.selected = (_a3 = props.selected) == null ? void 0 : _a3.map((date) => toTimeZone(date, timeZone));
     } else if (props.mode === "range" && props.selected) {
       props.selected = {
         from: props.selected.from ? toTimeZone(props.selected.from, timeZone) : props.selected.from,
@@ -14574,8 +14589,8 @@ function DayPicker(initialProps) {
     if (props.modifiers) {
       const nextModifiers = {};
       Object.keys(props.modifiers).forEach((key) => {
-        var _a3;
-        nextModifiers[key] = convertMatchersToTimeZone((_a3 = props.modifiers) == null ? void 0 : _a3[key], timeZone);
+        var _a4;
+        nextModifiers[key] = convertMatchersToTimeZone((_a4 = props.modifiers) == null ? void 0 : _a4[key], timeZone);
       });
       props.modifiers = nextModifiers;
     }
@@ -16008,8 +16023,8 @@ function Un({
 }) {
   const o = getDefaultClassNames(), a = p.useRef(null);
   return p.useEffect(() => {
-    var _a2;
-    t.focused && ((_a2 = a.current) == null ? void 0 : _a2.focus());
+    var _a3;
+    t.focused && ((_a3 = a.current) == null ? void 0 : _a3.focus());
   }, [t.focused]), /* @__PURE__ */ jsxRuntimeExports.jsx(
     Ue,
     {
@@ -17276,6 +17291,2310 @@ const Zs = /* @__PURE__ */ __name(({ ...e }) => /* @__PURE__ */ jsxRuntimeExport
     });
   }, "error")
 };
+function Rn({ className: e, ...n }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "table-container",
+      className: "relative w-full overflow-x-auto text-trax-grey-900 font-normal",
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "table",
+        {
+          "data-slot": "table",
+          className: h("w-full caption-bottom text-sm", e),
+          ...n
+        }
+      )
+    }
+  );
+}
+__name(Rn, "Rn");
+function $o({ className: e, ...n }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "thead",
+    {
+      "data-slot": "table-header",
+      className: h("[&_tr]:border-b", e),
+      ...n
+    }
+  );
+}
+__name($o, "$o");
+function To({ className: e, ...n }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "tbody",
+    {
+      "data-slot": "table-body",
+      className: h("[&_tr:last-child]:border-0", e),
+      ...n
+    }
+  );
+}
+__name(To, "To");
+function Ht({ className: e, ...n }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "tr",
+    {
+      "data-slot": "table-row",
+      className: h(
+        "hover:bg-muted/50 data-[state=selected]:bg-muted data-[editing=true]:hover:bg-blue-50 border-b transition-colors",
+        e
+      ),
+      ...n
+    }
+  );
+}
+__name(Ht, "Ht");
+function zo({ className: e, ...n }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "th",
+    {
+      "data-slot": "table-head",
+      className: h(
+        "text-trax-neutral-600 uppercase text-xs tracking-wider h-9 px-4 py-2 text-left align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        e
+      ),
+      ...n
+    }
+  );
+}
+__name(zo, "zo");
+function Nn({ className: e, ...n }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "td",
+    {
+      "data-slot": "table-cell",
+      className: h(
+        "px-4 py-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        e
+      ),
+      ...n
+    }
+  );
+}
+__name(Nn, "Nn");
+function tt(e, n) {
+  return typeof e == "function" ? e(n) : e;
+}
+__name(tt, "tt");
+function ze(e, n) {
+  return (t) => {
+    n.setState((r2) => ({
+      ...r2,
+      [e]: tt(t, r2[e])
+    }));
+  };
+}
+__name(ze, "ze");
+function At(e) {
+  return e instanceof Function;
+}
+__name(At, "At");
+function Ao(e) {
+  return Array.isArray(e) && e.every((n) => typeof n == "number");
+}
+__name(Ao, "Ao");
+function Lo(e, n) {
+  const t = [], r2 = /* @__PURE__ */ __name((o) => {
+    o.forEach((a) => {
+      t.push(a);
+      const i = n(a);
+      i != null && i.length && r2(i);
+    });
+  }, "r");
+  return r2(e), t;
+}
+__name(Lo, "Lo");
+function T(e, n, t) {
+  let r2 = [], o;
+  return (a) => {
+    let i;
+    t.key && t.debug && (i = Date.now());
+    const d = e(a);
+    if (!(d.length !== r2.length || d.some((g, l) => r2[l] !== g)))
+      return o;
+    r2 = d;
+    let c;
+    if (t.key && t.debug && (c = Date.now()), o = n(...d), t == null || t.onChange == null || t.onChange(o), t.key && t.debug && t != null && t.debug()) {
+      const g = Math.round((Date.now() - i) * 100) / 100, l = Math.round((Date.now() - c) * 100) / 100, m = l / 16, f = /* @__PURE__ */ __name((x, v) => {
+        for (x = String(x); x.length < v; )
+          x = " " + x;
+        return x;
+      }, "f");
+      console.info(`%c⏱ ${f(l, 5)} /${f(g, 5)} ms`, `
+            font-size: .6rem;
+            font-weight: bold;
+            color: hsl(${Math.max(0, Math.min(120 - 120 * m, 120))}deg 100% 31%);`, t == null ? void 0 : t.key);
+    }
+    return o;
+  };
+}
+__name(T, "T");
+function z(e, n, t, r2) {
+  return {
+    debug: /* @__PURE__ */ __name(() => {
+      var o;
+      return (o = e == null ? void 0 : e.debugAll) != null ? o : e[n];
+    }, "debug"),
+    key: false,
+    onChange: r2
+  };
+}
+__name(z, "z");
+function Ho(e, n, t, r2) {
+  const o = /* @__PURE__ */ __name(() => {
+    var i;
+    return (i = a.getValue()) != null ? i : e.options.renderFallbackValue;
+  }, "o"), a = {
+    id: `${n.id}_${t.id}`,
+    row: n,
+    column: t,
+    getValue: /* @__PURE__ */ __name(() => n.getValue(r2), "getValue"),
+    renderValue: o,
+    getContext: T(() => [e, t, n, a], (i, d, u, c) => ({
+      table: i,
+      column: d,
+      row: u,
+      cell: c,
+      getValue: c.getValue,
+      renderValue: c.renderValue
+    }), z(e.options, "debugCells"))
+  };
+  return e._features.forEach((i) => {
+    i.createCell == null || i.createCell(a, t, n, e);
+  }, {}), a;
+}
+__name(Ho, "Ho");
+function Oo(e, n, t, r2) {
+  var o, a;
+  const d = {
+    ...e._getDefaultColumnDef(),
+    ...n
+  }, u = d.accessorKey;
+  let c = (o = (a = d.id) != null ? a : u ? typeof String.prototype.replaceAll == "function" ? u.replaceAll(".", "_") : u.replace(/\./g, "_") : void 0) != null ? o : typeof d.header == "string" ? d.header : void 0, g;
+  if (d.accessorFn ? g = d.accessorFn : u && (u.includes(".") ? g = /* @__PURE__ */ __name((m) => {
+    let f = m;
+    for (const v of u.split(".")) {
+      var x;
+      f = (x = f) == null ? void 0 : x[v];
+    }
+    return f;
+  }, "g") : g = /* @__PURE__ */ __name((m) => m[d.accessorKey], "g")), !c)
+    throw new Error();
+  let l = {
+    id: `${String(c)}`,
+    accessorFn: g,
+    parent: r2,
+    depth: t,
+    columnDef: d,
+    columns: [],
+    getFlatColumns: T(() => [true], () => {
+      var m;
+      return [l, ...(m = l.columns) == null ? void 0 : m.flatMap((f) => f.getFlatColumns())];
+    }, z(e.options, "debugColumns")),
+    getLeafColumns: T(() => [e._getOrderColumnsFn()], (m) => {
+      var f;
+      if ((f = l.columns) != null && f.length) {
+        let x = l.columns.flatMap((v) => v.getLeafColumns());
+        return m(x);
+      }
+      return [l];
+    }, z(e.options, "debugColumns"))
+  };
+  for (const m of e._features)
+    m.createColumn == null || m.createColumn(l, e);
+  return l;
+}
+__name(Oo, "Oo");
+const Ne = "debugHeaders";
+function _n(e, n, t) {
+  var r2;
+  let a = {
+    id: (r2 = t.id) != null ? r2 : n.id,
+    column: n,
+    index: t.index,
+    isPlaceholder: !!t.isPlaceholder,
+    placeholderId: t.placeholderId,
+    depth: t.depth,
+    subHeaders: [],
+    colSpan: 0,
+    rowSpan: 0,
+    headerGroup: null,
+    getLeafHeaders: /* @__PURE__ */ __name(() => {
+      const i = [], d = /* @__PURE__ */ __name((u) => {
+        u.subHeaders && u.subHeaders.length && u.subHeaders.map(d), i.push(u);
+      }, "d");
+      return d(a), i;
+    }, "getLeafHeaders"),
+    getContext: /* @__PURE__ */ __name(() => ({
+      table: e,
+      header: a,
+      column: n
+    }), "getContext")
+  };
+  return e._features.forEach((i) => {
+    i.createHeader == null || i.createHeader(a, e);
+  }), a;
+}
+__name(_n, "_n");
+const Bo = {
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.getHeaderGroups = T(() => [e.getAllColumns(), e.getVisibleLeafColumns(), e.getState().columnPinning.left, e.getState().columnPinning.right], (n, t, r2, o) => {
+      var a, i;
+      const d = (a = r2 == null ? void 0 : r2.map((l) => t.find((m) => m.id === l)).filter(Boolean)) != null ? a : [], u = (i = o == null ? void 0 : o.map((l) => t.find((m) => m.id === l)).filter(Boolean)) != null ? i : [], c = t.filter((l) => !(r2 != null && r2.includes(l.id)) && !(o != null && o.includes(l.id)));
+      return Nt(n, [...d, ...c, ...u], e);
+    }, z(e.options, Ne)), e.getCenterHeaderGroups = T(() => [e.getAllColumns(), e.getVisibleLeafColumns(), e.getState().columnPinning.left, e.getState().columnPinning.right], (n, t, r2, o) => (t = t.filter((a) => !(r2 != null && r2.includes(a.id)) && !(o != null && o.includes(a.id))), Nt(n, t, e, "center")), z(e.options, Ne)), e.getLeftHeaderGroups = T(() => [e.getAllColumns(), e.getVisibleLeafColumns(), e.getState().columnPinning.left], (n, t, r2) => {
+      var o;
+      const a = (o = r2 == null ? void 0 : r2.map((i) => t.find((d) => d.id === i)).filter(Boolean)) != null ? o : [];
+      return Nt(n, a, e, "left");
+    }, z(e.options, Ne)), e.getRightHeaderGroups = T(() => [e.getAllColumns(), e.getVisibleLeafColumns(), e.getState().columnPinning.right], (n, t, r2) => {
+      var o;
+      const a = (o = r2 == null ? void 0 : r2.map((i) => t.find((d) => d.id === i)).filter(Boolean)) != null ? o : [];
+      return Nt(n, a, e, "right");
+    }, z(e.options, Ne)), e.getFooterGroups = T(() => [e.getHeaderGroups()], (n) => [...n].reverse(), z(e.options, Ne)), e.getLeftFooterGroups = T(() => [e.getLeftHeaderGroups()], (n) => [...n].reverse(), z(e.options, Ne)), e.getCenterFooterGroups = T(() => [e.getCenterHeaderGroups()], (n) => [...n].reverse(), z(e.options, Ne)), e.getRightFooterGroups = T(() => [e.getRightHeaderGroups()], (n) => [...n].reverse(), z(e.options, Ne)), e.getFlatHeaders = T(() => [e.getHeaderGroups()], (n) => n.map((t) => t.headers).flat(), z(e.options, Ne)), e.getLeftFlatHeaders = T(() => [e.getLeftHeaderGroups()], (n) => n.map((t) => t.headers).flat(), z(e.options, Ne)), e.getCenterFlatHeaders = T(() => [e.getCenterHeaderGroups()], (n) => n.map((t) => t.headers).flat(), z(e.options, Ne)), e.getRightFlatHeaders = T(() => [e.getRightHeaderGroups()], (n) => n.map((t) => t.headers).flat(), z(e.options, Ne)), e.getCenterLeafHeaders = T(() => [e.getCenterFlatHeaders()], (n) => n.filter((t) => {
+      var r2;
+      return !((r2 = t.subHeaders) != null && r2.length);
+    }), z(e.options, Ne)), e.getLeftLeafHeaders = T(() => [e.getLeftFlatHeaders()], (n) => n.filter((t) => {
+      var r2;
+      return !((r2 = t.subHeaders) != null && r2.length);
+    }), z(e.options, Ne)), e.getRightLeafHeaders = T(() => [e.getRightFlatHeaders()], (n) => n.filter((t) => {
+      var r2;
+      return !((r2 = t.subHeaders) != null && r2.length);
+    }), z(e.options, Ne)), e.getLeafHeaders = T(() => [e.getLeftHeaderGroups(), e.getCenterHeaderGroups(), e.getRightHeaderGroups()], (n, t, r2) => {
+      var o, a, i, d, u, c;
+      return [...(o = (a = n[0]) == null ? void 0 : a.headers) != null ? o : [], ...(i = (d = t[0]) == null ? void 0 : d.headers) != null ? i : [], ...(u = (c = r2[0]) == null ? void 0 : c.headers) != null ? u : []].map((g) => g.getLeafHeaders()).flat();
+    }, z(e.options, Ne));
+  }, "createTable")
+};
+function Nt(e, n, t, r2) {
+  var o, a;
+  let i = 0;
+  const d = /* @__PURE__ */ __name(function(m, f) {
+    f === void 0 && (f = 1), i = Math.max(i, f), m.filter((x) => x.getIsVisible()).forEach((x) => {
+      var v;
+      (v = x.columns) != null && v.length && d(x.columns, f + 1);
+    }, 0);
+  }, "d");
+  d(e);
+  let u = [];
+  const c = /* @__PURE__ */ __name((m, f) => {
+    const x = {
+      depth: f,
+      id: [r2, `${f}`].filter(Boolean).join("_"),
+      headers: []
+    }, v = [];
+    m.forEach((C) => {
+      const w = [...v].reverse()[0], D = C.column.depth === x.depth;
+      let _, A = false;
+      if (D && C.column.parent ? _ = C.column.parent : (_ = C.column, A = true), w && (w == null ? void 0 : w.column) === _)
+        w.subHeaders.push(C);
+      else {
+        const M = _n(t, _, {
+          id: [r2, f, _.id, C == null ? void 0 : C.id].filter(Boolean).join("_"),
+          isPlaceholder: A,
+          placeholderId: A ? `${v.filter((E) => E.column === _).length}` : void 0,
+          depth: f,
+          index: v.length
+        });
+        M.subHeaders.push(C), v.push(M);
+      }
+      x.headers.push(C), C.headerGroup = x;
+    }), u.push(x), f > 0 && c(v, f - 1);
+  }, "c"), g = n.map((m, f) => _n(t, m, {
+    depth: i,
+    index: f
+  }));
+  c(g, i - 1), u.reverse();
+  const l = /* @__PURE__ */ __name((m) => m.filter((x) => x.column.getIsVisible()).map((x) => {
+    let v = 0, C = 0, w = [0];
+    x.subHeaders && x.subHeaders.length ? (w = [], l(x.subHeaders).forEach((_) => {
+      let {
+        colSpan: A,
+        rowSpan: M
+      } = _;
+      v += A, w.push(M);
+    })) : v = 1;
+    const D = Math.min(...w);
+    return C = C + D, x.colSpan = v, x.rowSpan = C, {
+      colSpan: v,
+      rowSpan: C
+    };
+  }), "l");
+  return l((o = (a = u[0]) == null ? void 0 : a.headers) != null ? o : []), u;
+}
+__name(Nt, "Nt");
+const un = /* @__PURE__ */ __name((e, n, t, r2, o, a, i) => {
+  let d = {
+    id: n,
+    index: r2,
+    original: t,
+    depth: o,
+    parentId: i,
+    _valuesCache: {},
+    _uniqueValuesCache: {},
+    getValue: /* @__PURE__ */ __name((u) => {
+      if (d._valuesCache.hasOwnProperty(u))
+        return d._valuesCache[u];
+      const c = e.getColumn(u);
+      if (c != null && c.accessorFn)
+        return d._valuesCache[u] = c.accessorFn(d.original, r2), d._valuesCache[u];
+    }, "getValue"),
+    getUniqueValues: /* @__PURE__ */ __name((u) => {
+      if (d._uniqueValuesCache.hasOwnProperty(u))
+        return d._uniqueValuesCache[u];
+      const c = e.getColumn(u);
+      if (c != null && c.accessorFn)
+        return c.columnDef.getUniqueValues ? (d._uniqueValuesCache[u] = c.columnDef.getUniqueValues(d.original, r2), d._uniqueValuesCache[u]) : (d._uniqueValuesCache[u] = [d.getValue(u)], d._uniqueValuesCache[u]);
+    }, "getUniqueValues"),
+    renderValue: /* @__PURE__ */ __name((u) => {
+      var c;
+      return (c = d.getValue(u)) != null ? c : e.options.renderFallbackValue;
+    }, "renderValue"),
+    subRows: [],
+    getLeafRows: /* @__PURE__ */ __name(() => Lo(d.subRows, (u) => u.subRows), "getLeafRows"),
+    getParentRow: /* @__PURE__ */ __name(() => d.parentId ? e.getRow(d.parentId, true) : void 0, "getParentRow"),
+    getParentRows: /* @__PURE__ */ __name(() => {
+      let u = [], c = d;
+      for (; ; ) {
+        const g = c.getParentRow();
+        if (!g) break;
+        u.push(g), c = g;
+      }
+      return u.reverse();
+    }, "getParentRows"),
+    getAllCells: T(() => [e.getAllLeafColumns()], (u) => u.map((c) => Ho(e, d, c, c.id)), z(e.options, "debugRows")),
+    _getAllCellsByColumnId: T(() => [d.getAllCells()], (u) => u.reduce((c, g) => (c[g.column.id] = g, c), {}), z(e.options, "debugRows"))
+  };
+  for (let u = 0; u < e._features.length; u++) {
+    const c = e._features[u];
+    c == null || c.createRow == null || c.createRow(d, e);
+  }
+  return d;
+}, "un"), jo = {
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e._getFacetedRowModel = n.options.getFacetedRowModel && n.options.getFacetedRowModel(n, e.id), e.getFacetedRowModel = () => e._getFacetedRowModel ? e._getFacetedRowModel() : n.getPreFilteredRowModel(), e._getFacetedUniqueValues = n.options.getFacetedUniqueValues && n.options.getFacetedUniqueValues(n, e.id), e.getFacetedUniqueValues = () => e._getFacetedUniqueValues ? e._getFacetedUniqueValues() : /* @__PURE__ */ new Map(), e._getFacetedMinMaxValues = n.options.getFacetedMinMaxValues && n.options.getFacetedMinMaxValues(n, e.id), e.getFacetedMinMaxValues = () => {
+      if (e._getFacetedMinMaxValues)
+        return e._getFacetedMinMaxValues();
+    };
+  }, "createColumn")
+}, Xn = /* @__PURE__ */ __name((e, n, t) => {
+  var r2, o;
+  const a = t == null || (r2 = t.toString()) == null ? void 0 : r2.toLowerCase();
+  return !!(!((o = e.getValue(n)) == null || (o = o.toString()) == null || (o = o.toLowerCase()) == null) && o.includes(a));
+}, "Xn");
+Xn.autoRemove = (e) => Be(e);
+const Zn = /* @__PURE__ */ __name((e, n, t) => {
+  var r2;
+  return !!(!((r2 = e.getValue(n)) == null || (r2 = r2.toString()) == null) && r2.includes(t));
+}, "Zn");
+Zn.autoRemove = (e) => Be(e);
+const Qn = /* @__PURE__ */ __name((e, n, t) => {
+  var r2;
+  return ((r2 = e.getValue(n)) == null || (r2 = r2.toString()) == null ? void 0 : r2.toLowerCase()) === (t == null ? void 0 : t.toLowerCase());
+}, "Qn");
+Qn.autoRemove = (e) => Be(e);
+const Jn = /* @__PURE__ */ __name((e, n, t) => {
+  var r2;
+  return (r2 = e.getValue(n)) == null ? void 0 : r2.includes(t);
+}, "Jn");
+Jn.autoRemove = (e) => Be(e);
+const er = /* @__PURE__ */ __name((e, n, t) => !t.some((r2) => {
+  var o;
+  return !((o = e.getValue(n)) != null && o.includes(r2));
+}), "er");
+er.autoRemove = (e) => Be(e) || !(e != null && e.length);
+const tr = /* @__PURE__ */ __name((e, n, t) => t.some((r2) => {
+  var o;
+  return (o = e.getValue(n)) == null ? void 0 : o.includes(r2);
+}), "tr");
+tr.autoRemove = (e) => Be(e) || !(e != null && e.length);
+const nr = /* @__PURE__ */ __name((e, n, t) => e.getValue(n) === t, "nr");
+nr.autoRemove = (e) => Be(e);
+const rr = /* @__PURE__ */ __name((e, n, t) => e.getValue(n) == t, "rr");
+rr.autoRemove = (e) => Be(e);
+const dn = /* @__PURE__ */ __name((e, n, t) => {
+  let [r2, o] = t;
+  const a = e.getValue(n);
+  return a >= r2 && a <= o;
+}, "dn");
+dn.resolveFilterValue = (e) => {
+  let [n, t] = e, r2 = typeof n != "number" ? parseFloat(n) : n, o = typeof t != "number" ? parseFloat(t) : t, a = n === null || Number.isNaN(r2) ? -1 / 0 : r2, i = t === null || Number.isNaN(o) ? 1 / 0 : o;
+  if (a > i) {
+    const d = a;
+    a = i, i = d;
+  }
+  return [a, i];
+};
+dn.autoRemove = (e) => Be(e) || Be(e[0]) && Be(e[1]);
+const Xe = {
+  includesString: Xn,
+  includesStringSensitive: Zn,
+  equalsString: Qn,
+  arrIncludes: Jn,
+  arrIncludesAll: er,
+  arrIncludesSome: tr,
+  equals: nr,
+  weakEquals: rr,
+  inNumberRange: dn
+};
+function Be(e) {
+  return e == null || e === "";
+}
+__name(Be, "Be");
+const Go = {
+  getDefaultColumnDef: /* @__PURE__ */ __name(() => ({
+    filterFn: "auto"
+  }), "getDefaultColumnDef"),
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    columnFilters: [],
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onColumnFiltersChange: ze("columnFilters", e),
+    filterFromLeafRows: false,
+    maxLeafRowFilterDepth: 100
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.getAutoFilterFn = () => {
+      const t = n.getCoreRowModel().flatRows[0], r2 = t == null ? void 0 : t.getValue(e.id);
+      return typeof r2 == "string" ? Xe.includesString : typeof r2 == "number" ? Xe.inNumberRange : typeof r2 == "boolean" || r2 !== null && typeof r2 == "object" ? Xe.equals : Array.isArray(r2) ? Xe.arrIncludes : Xe.weakEquals;
+    }, e.getFilterFn = () => {
+      var t, r2;
+      return At(e.columnDef.filterFn) ? e.columnDef.filterFn : e.columnDef.filterFn === "auto" ? e.getAutoFilterFn() : (
+        // @ts-ignore
+        (t = (r2 = n.options.filterFns) == null ? void 0 : r2[e.columnDef.filterFn]) != null ? t : Xe[e.columnDef.filterFn]
+      );
+    }, e.getCanFilter = () => {
+      var t, r2, o;
+      return ((t = e.columnDef.enableColumnFilter) != null ? t : true) && ((r2 = n.options.enableColumnFilters) != null ? r2 : true) && ((o = n.options.enableFilters) != null ? o : true) && !!e.accessorFn;
+    }, e.getIsFiltered = () => e.getFilterIndex() > -1, e.getFilterValue = () => {
+      var t;
+      return (t = n.getState().columnFilters) == null || (t = t.find((r2) => r2.id === e.id)) == null ? void 0 : t.value;
+    }, e.getFilterIndex = () => {
+      var t, r2;
+      return (t = (r2 = n.getState().columnFilters) == null ? void 0 : r2.findIndex((o) => o.id === e.id)) != null ? t : -1;
+    }, e.setFilterValue = (t) => {
+      n.setColumnFilters((r2) => {
+        const o = e.getFilterFn(), a = r2 == null ? void 0 : r2.find((g) => g.id === e.id), i = tt(t, a ? a.value : void 0);
+        if (Fn(o, i, e)) {
+          var d;
+          return (d = r2 == null ? void 0 : r2.filter((g) => g.id !== e.id)) != null ? d : [];
+        }
+        const u = {
+          id: e.id,
+          value: i
+        };
+        if (a) {
+          var c;
+          return (c = r2 == null ? void 0 : r2.map((g) => g.id === e.id ? u : g)) != null ? c : [];
+        }
+        return r2 != null && r2.length ? [...r2, u] : [u];
+      });
+    };
+  }, "createColumn"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e.columnFilters = {}, e.columnFiltersMeta = {};
+  }, "createRow"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setColumnFilters = (n) => {
+      const t = e.getAllLeafColumns(), r2 = /* @__PURE__ */ __name((o) => {
+        var a;
+        return (a = tt(n, o)) == null ? void 0 : a.filter((i) => {
+          const d = t.find((u) => u.id === i.id);
+          if (d) {
+            const u = d.getFilterFn();
+            if (Fn(u, i.value, d))
+              return false;
+          }
+          return true;
+        });
+      }, "r");
+      e.options.onColumnFiltersChange == null || e.options.onColumnFiltersChange(r2);
+    }, e.resetColumnFilters = (n) => {
+      var t, r2;
+      e.setColumnFilters(n ? [] : (t = (r2 = e.initialState) == null ? void 0 : r2.columnFilters) != null ? t : []);
+    }, e.getPreFilteredRowModel = () => e.getCoreRowModel(), e.getFilteredRowModel = () => (!e._getFilteredRowModel && e.options.getFilteredRowModel && (e._getFilteredRowModel = e.options.getFilteredRowModel(e)), e.options.manualFiltering || !e._getFilteredRowModel ? e.getPreFilteredRowModel() : e._getFilteredRowModel());
+  }, "createTable")
+};
+function Fn(e, n, t) {
+  return (e && e.autoRemove ? e.autoRemove(n, t) : false) || typeof n > "u" || typeof n == "string" && !n;
+}
+__name(Fn, "Fn");
+const qo = /* @__PURE__ */ __name((e, n, t) => t.reduce((r2, o) => {
+  const a = o.getValue(e);
+  return r2 + (typeof a == "number" ? a : 0);
+}, 0), "qo"), Uo = /* @__PURE__ */ __name((e, n, t) => {
+  let r2;
+  return t.forEach((o) => {
+    const a = o.getValue(e);
+    a != null && (r2 > a || r2 === void 0 && a >= a) && (r2 = a);
+  }), r2;
+}, "Uo"), Yo = /* @__PURE__ */ __name((e, n, t) => {
+  let r2;
+  return t.forEach((o) => {
+    const a = o.getValue(e);
+    a != null && (r2 < a || r2 === void 0 && a >= a) && (r2 = a);
+  }), r2;
+}, "Yo"), Wo = /* @__PURE__ */ __name((e, n, t) => {
+  let r2, o;
+  return t.forEach((a) => {
+    const i = a.getValue(e);
+    i != null && (r2 === void 0 ? i >= i && (r2 = o = i) : (r2 > i && (r2 = i), o < i && (o = i)));
+  }), [r2, o];
+}, "Wo"), Ko = /* @__PURE__ */ __name((e, n) => {
+  let t = 0, r2 = 0;
+  if (n.forEach((o) => {
+    let a = o.getValue(e);
+    a != null && (a = +a) >= a && (++t, r2 += a);
+  }), t) return r2 / t;
+}, "Ko"), Xo = /* @__PURE__ */ __name((e, n) => {
+  if (!n.length)
+    return;
+  const t = n.map((a) => a.getValue(e));
+  if (!Ao(t))
+    return;
+  if (t.length === 1)
+    return t[0];
+  const r2 = Math.floor(t.length / 2), o = t.sort((a, i) => a - i);
+  return t.length % 2 !== 0 ? o[r2] : (o[r2 - 1] + o[r2]) / 2;
+}, "Xo"), Zo = /* @__PURE__ */ __name((e, n) => Array.from(new Set(n.map((t) => t.getValue(e))).values()), "Zo"), Qo = /* @__PURE__ */ __name((e, n) => new Set(n.map((t) => t.getValue(e))).size, "Qo"), Jo = /* @__PURE__ */ __name((e, n) => n.length, "Jo"), Ot = {
+  sum: qo,
+  min: Uo,
+  max: Yo,
+  extent: Wo,
+  mean: Ko,
+  median: Xo,
+  unique: Zo,
+  uniqueCount: Qo,
+  count: Jo
+}, ea = {
+  getDefaultColumnDef: /* @__PURE__ */ __name(() => ({
+    aggregatedCell: /* @__PURE__ */ __name((e) => {
+      var n, t;
+      return (n = (t = e.getValue()) == null || t.toString == null ? void 0 : t.toString()) != null ? n : null;
+    }, "aggregatedCell"),
+    aggregationFn: "auto"
+  }), "getDefaultColumnDef"),
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    grouping: [],
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onGroupingChange: ze("grouping", e),
+    groupedColumnMode: "reorder"
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.toggleGrouping = () => {
+      n.setGrouping((t) => t != null && t.includes(e.id) ? t.filter((r2) => r2 !== e.id) : [...t ?? [], e.id]);
+    }, e.getCanGroup = () => {
+      var t, r2;
+      return ((t = e.columnDef.enableGrouping) != null ? t : true) && ((r2 = n.options.enableGrouping) != null ? r2 : true) && (!!e.accessorFn || !!e.columnDef.getGroupingValue);
+    }, e.getIsGrouped = () => {
+      var t;
+      return (t = n.getState().grouping) == null ? void 0 : t.includes(e.id);
+    }, e.getGroupedIndex = () => {
+      var t;
+      return (t = n.getState().grouping) == null ? void 0 : t.indexOf(e.id);
+    }, e.getToggleGroupingHandler = () => {
+      const t = e.getCanGroup();
+      return () => {
+        t && e.toggleGrouping();
+      };
+    }, e.getAutoAggregationFn = () => {
+      const t = n.getCoreRowModel().flatRows[0], r2 = t == null ? void 0 : t.getValue(e.id);
+      if (typeof r2 == "number")
+        return Ot.sum;
+      if (Object.prototype.toString.call(r2) === "[object Date]")
+        return Ot.extent;
+    }, e.getAggregationFn = () => {
+      var t, r2;
+      if (!e)
+        throw new Error();
+      return At(e.columnDef.aggregationFn) ? e.columnDef.aggregationFn : e.columnDef.aggregationFn === "auto" ? e.getAutoAggregationFn() : (t = (r2 = n.options.aggregationFns) == null ? void 0 : r2[e.columnDef.aggregationFn]) != null ? t : Ot[e.columnDef.aggregationFn];
+    };
+  }, "createColumn"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setGrouping = (n) => e.options.onGroupingChange == null ? void 0 : e.options.onGroupingChange(n), e.resetGrouping = (n) => {
+      var t, r2;
+      e.setGrouping(n ? [] : (t = (r2 = e.initialState) == null ? void 0 : r2.grouping) != null ? t : []);
+    }, e.getPreGroupedRowModel = () => e.getFilteredRowModel(), e.getGroupedRowModel = () => (!e._getGroupedRowModel && e.options.getGroupedRowModel && (e._getGroupedRowModel = e.options.getGroupedRowModel(e)), e.options.manualGrouping || !e._getGroupedRowModel ? e.getPreGroupedRowModel() : e._getGroupedRowModel());
+  }, "createTable"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e.getIsGrouped = () => !!e.groupingColumnId, e.getGroupingValue = (t) => {
+      if (e._groupingValuesCache.hasOwnProperty(t))
+        return e._groupingValuesCache[t];
+      const r2 = n.getColumn(t);
+      return r2 != null && r2.columnDef.getGroupingValue ? (e._groupingValuesCache[t] = r2.columnDef.getGroupingValue(e.original), e._groupingValuesCache[t]) : e.getValue(t);
+    }, e._groupingValuesCache = {};
+  }, "createRow"),
+  createCell: /* @__PURE__ */ __name((e, n, t, r2) => {
+    e.getIsGrouped = () => n.getIsGrouped() && n.id === t.groupingColumnId, e.getIsPlaceholder = () => !e.getIsGrouped() && n.getIsGrouped(), e.getIsAggregated = () => {
+      var o;
+      return !e.getIsGrouped() && !e.getIsPlaceholder() && !!((o = t.subRows) != null && o.length);
+    };
+  }, "createCell")
+};
+function ta(e, n, t) {
+  if (!(n != null && n.length) || !t)
+    return e;
+  const r2 = e.filter((a) => !n.includes(a.id));
+  return t === "remove" ? r2 : [...n.map((a) => e.find((i) => i.id === a)).filter(Boolean), ...r2];
+}
+__name(ta, "ta");
+const na = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    columnOrder: [],
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onColumnOrderChange: ze("columnOrder", e)
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.getIndex = T((t) => [pt(n, t)], (t) => t.findIndex((r2) => r2.id === e.id), z(n.options, "debugColumns")), e.getIsFirstColumn = (t) => {
+      var r2;
+      return ((r2 = pt(n, t)[0]) == null ? void 0 : r2.id) === e.id;
+    }, e.getIsLastColumn = (t) => {
+      var r2;
+      const o = pt(n, t);
+      return ((r2 = o[o.length - 1]) == null ? void 0 : r2.id) === e.id;
+    };
+  }, "createColumn"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setColumnOrder = (n) => e.options.onColumnOrderChange == null ? void 0 : e.options.onColumnOrderChange(n), e.resetColumnOrder = (n) => {
+      var t;
+      e.setColumnOrder(n ? [] : (t = e.initialState.columnOrder) != null ? t : []);
+    }, e._getOrderColumnsFn = T(() => [e.getState().columnOrder, e.getState().grouping, e.options.groupedColumnMode], (n, t, r2) => (o) => {
+      let a = [];
+      if (!(n != null && n.length))
+        a = o;
+      else {
+        const i = [...n], d = [...o];
+        for (; d.length && i.length; ) {
+          const u = i.shift(), c = d.findIndex((g) => g.id === u);
+          c > -1 && a.push(d.splice(c, 1)[0]);
+        }
+        a = [...a, ...d];
+      }
+      return ta(a, t, r2);
+    }, z(e.options, "debugTable"));
+  }, "createTable")
+}, Bt = /* @__PURE__ */ __name(() => ({
+  left: [],
+  right: []
+}), "Bt"), ra = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    columnPinning: Bt(),
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onColumnPinningChange: ze("columnPinning", e)
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.pin = (t) => {
+      const r2 = e.getLeafColumns().map((o) => o.id).filter(Boolean);
+      n.setColumnPinning((o) => {
+        var a, i;
+        if (t === "right") {
+          var d, u;
+          return {
+            left: ((d = o == null ? void 0 : o.left) != null ? d : []).filter((l) => !(r2 != null && r2.includes(l))),
+            right: [...((u = o == null ? void 0 : o.right) != null ? u : []).filter((l) => !(r2 != null && r2.includes(l))), ...r2]
+          };
+        }
+        if (t === "left") {
+          var c, g;
+          return {
+            left: [...((c = o == null ? void 0 : o.left) != null ? c : []).filter((l) => !(r2 != null && r2.includes(l))), ...r2],
+            right: ((g = o == null ? void 0 : o.right) != null ? g : []).filter((l) => !(r2 != null && r2.includes(l)))
+          };
+        }
+        return {
+          left: ((a = o == null ? void 0 : o.left) != null ? a : []).filter((l) => !(r2 != null && r2.includes(l))),
+          right: ((i = o == null ? void 0 : o.right) != null ? i : []).filter((l) => !(r2 != null && r2.includes(l)))
+        };
+      });
+    }, e.getCanPin = () => e.getLeafColumns().some((r2) => {
+      var o, a, i;
+      return ((o = r2.columnDef.enablePinning) != null ? o : true) && ((a = (i = n.options.enableColumnPinning) != null ? i : n.options.enablePinning) != null ? a : true);
+    }), e.getIsPinned = () => {
+      const t = e.getLeafColumns().map((d) => d.id), {
+        left: r2,
+        right: o
+      } = n.getState().columnPinning, a = t.some((d) => r2 == null ? void 0 : r2.includes(d)), i = t.some((d) => o == null ? void 0 : o.includes(d));
+      return a ? "left" : i ? "right" : false;
+    }, e.getPinnedIndex = () => {
+      var t, r2;
+      const o = e.getIsPinned();
+      return o ? (t = (r2 = n.getState().columnPinning) == null || (r2 = r2[o]) == null ? void 0 : r2.indexOf(e.id)) != null ? t : -1 : 0;
+    };
+  }, "createColumn"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e.getCenterVisibleCells = T(() => [e._getAllVisibleCells(), n.getState().columnPinning.left, n.getState().columnPinning.right], (t, r2, o) => {
+      const a = [...r2 ?? [], ...o ?? []];
+      return t.filter((i) => !a.includes(i.column.id));
+    }, z(n.options, "debugRows")), e.getLeftVisibleCells = T(() => [e._getAllVisibleCells(), n.getState().columnPinning.left], (t, r2) => (r2 ?? []).map((a) => t.find((i) => i.column.id === a)).filter(Boolean).map((a) => ({
+      ...a,
+      position: "left"
+    })), z(n.options, "debugRows")), e.getRightVisibleCells = T(() => [e._getAllVisibleCells(), n.getState().columnPinning.right], (t, r2) => (r2 ?? []).map((a) => t.find((i) => i.column.id === a)).filter(Boolean).map((a) => ({
+      ...a,
+      position: "right"
+    })), z(n.options, "debugRows"));
+  }, "createRow"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setColumnPinning = (n) => e.options.onColumnPinningChange == null ? void 0 : e.options.onColumnPinningChange(n), e.resetColumnPinning = (n) => {
+      var t, r2;
+      return e.setColumnPinning(n ? Bt() : (t = (r2 = e.initialState) == null ? void 0 : r2.columnPinning) != null ? t : Bt());
+    }, e.getIsSomeColumnsPinned = (n) => {
+      var t;
+      const r2 = e.getState().columnPinning;
+      if (!n) {
+        var o, a;
+        return !!((o = r2.left) != null && o.length || (a = r2.right) != null && a.length);
+      }
+      return !!((t = r2[n]) != null && t.length);
+    }, e.getLeftLeafColumns = T(() => [e.getAllLeafColumns(), e.getState().columnPinning.left], (n, t) => (t ?? []).map((r2) => n.find((o) => o.id === r2)).filter(Boolean), z(e.options, "debugColumns")), e.getRightLeafColumns = T(() => [e.getAllLeafColumns(), e.getState().columnPinning.right], (n, t) => (t ?? []).map((r2) => n.find((o) => o.id === r2)).filter(Boolean), z(e.options, "debugColumns")), e.getCenterLeafColumns = T(() => [e.getAllLeafColumns(), e.getState().columnPinning.left, e.getState().columnPinning.right], (n, t, r2) => {
+      const o = [...t ?? [], ...r2 ?? []];
+      return n.filter((a) => !o.includes(a.id));
+    }, z(e.options, "debugColumns"));
+  }, "createTable")
+};
+function oa(e) {
+  return e || (typeof document < "u" ? document : null);
+}
+__name(oa, "oa");
+const _t = {
+  size: 150,
+  minSize: 20,
+  maxSize: Number.MAX_SAFE_INTEGER
+}, jt = /* @__PURE__ */ __name(() => ({
+  startOffset: null,
+  startSize: null,
+  deltaOffset: null,
+  deltaPercentage: null,
+  isResizingColumn: false,
+  columnSizingStart: []
+}), "jt"), aa = {
+  getDefaultColumnDef: /* @__PURE__ */ __name(() => _t, "getDefaultColumnDef"),
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    columnSizing: {},
+    columnSizingInfo: jt(),
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    columnResizeMode: "onEnd",
+    columnResizeDirection: "ltr",
+    onColumnSizingChange: ze("columnSizing", e),
+    onColumnSizingInfoChange: ze("columnSizingInfo", e)
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.getSize = () => {
+      var t, r2, o;
+      const a = n.getState().columnSizing[e.id];
+      return Math.min(Math.max((t = e.columnDef.minSize) != null ? t : _t.minSize, (r2 = a ?? e.columnDef.size) != null ? r2 : _t.size), (o = e.columnDef.maxSize) != null ? o : _t.maxSize);
+    }, e.getStart = T((t) => [t, pt(n, t), n.getState().columnSizing], (t, r2) => r2.slice(0, e.getIndex(t)).reduce((o, a) => o + a.getSize(), 0), z(n.options, "debugColumns")), e.getAfter = T((t) => [t, pt(n, t), n.getState().columnSizing], (t, r2) => r2.slice(e.getIndex(t) + 1).reduce((o, a) => o + a.getSize(), 0), z(n.options, "debugColumns")), e.resetSize = () => {
+      n.setColumnSizing((t) => {
+        let {
+          [e.id]: r2,
+          ...o
+        } = t;
+        return o;
+      });
+    }, e.getCanResize = () => {
+      var t, r2;
+      return ((t = e.columnDef.enableResizing) != null ? t : true) && ((r2 = n.options.enableColumnResizing) != null ? r2 : true);
+    }, e.getIsResizing = () => n.getState().columnSizingInfo.isResizingColumn === e.id;
+  }, "createColumn"),
+  createHeader: /* @__PURE__ */ __name((e, n) => {
+    e.getSize = () => {
+      let t = 0;
+      const r2 = /* @__PURE__ */ __name((o) => {
+        if (o.subHeaders.length)
+          o.subHeaders.forEach(r2);
+        else {
+          var a;
+          t += (a = o.column.getSize()) != null ? a : 0;
+        }
+      }, "r");
+      return r2(e), t;
+    }, e.getStart = () => {
+      if (e.index > 0) {
+        const t = e.headerGroup.headers[e.index - 1];
+        return t.getStart() + t.getSize();
+      }
+      return 0;
+    }, e.getResizeHandler = (t) => {
+      const r2 = n.getColumn(e.column.id), o = r2 == null ? void 0 : r2.getCanResize();
+      return (a) => {
+        if (!r2 || !o || (a.persist == null || a.persist(), Gt(a) && a.touches && a.touches.length > 1))
+          return;
+        const i = e.getSize(), d = e ? e.getLeafHeaders().map((w) => [w.column.id, w.column.getSize()]) : [[r2.id, r2.getSize()]], u = Gt(a) ? Math.round(a.touches[0].clientX) : a.clientX, c = {}, g = /* @__PURE__ */ __name((w, D) => {
+          typeof D == "number" && (n.setColumnSizingInfo((_) => {
+            var A, M;
+            const E = n.options.columnResizeDirection === "rtl" ? -1 : 1, U = (D - ((A = _ == null ? void 0 : _.startOffset) != null ? A : 0)) * E, I = Math.max(U / ((M = _ == null ? void 0 : _.startSize) != null ? M : 0), -0.999999);
+            return _.columnSizingStart.forEach((H) => {
+              let [P, L] = H;
+              c[P] = Math.round(Math.max(L + L * I, 0) * 100) / 100;
+            }), {
+              ..._,
+              deltaOffset: U,
+              deltaPercentage: I
+            };
+          }), (n.options.columnResizeMode === "onChange" || w === "end") && n.setColumnSizing((_) => ({
+            ..._,
+            ...c
+          })));
+        }, "g"), l = /* @__PURE__ */ __name((w) => g("move", w), "l"), m = /* @__PURE__ */ __name((w) => {
+          g("end", w), n.setColumnSizingInfo((D) => ({
+            ...D,
+            isResizingColumn: false,
+            startOffset: null,
+            startSize: null,
+            deltaOffset: null,
+            deltaPercentage: null,
+            columnSizingStart: []
+          }));
+        }, "m"), f = oa(t), x = {
+          moveHandler: /* @__PURE__ */ __name((w) => l(w.clientX), "moveHandler"),
+          upHandler: /* @__PURE__ */ __name((w) => {
+            f == null ? void 0 : f.removeEventListener("mousemove", x.moveHandler), f == null ? void 0 : f.removeEventListener("mouseup", x.upHandler), m(w.clientX);
+          }, "upHandler")
+        }, v = {
+          moveHandler: /* @__PURE__ */ __name((w) => (w.cancelable && (w.preventDefault(), w.stopPropagation()), l(w.touches[0].clientX), false), "moveHandler"),
+          upHandler: /* @__PURE__ */ __name((w) => {
+            var D;
+            f == null ? void 0 : f.removeEventListener("touchmove", v.moveHandler), f == null ? void 0 : f.removeEventListener("touchend", v.upHandler), w.cancelable && (w.preventDefault(), w.stopPropagation()), m((D = w.touches[0]) == null ? void 0 : D.clientX);
+          }, "upHandler")
+        }, C = sa() ? {
+          passive: false
+        } : false;
+        Gt(a) ? (f == null ? void 0 : f.addEventListener("touchmove", v.moveHandler, C), f == null ? void 0 : f.addEventListener("touchend", v.upHandler, C)) : (f == null ? void 0 : f.addEventListener("mousemove", x.moveHandler, C), f == null ? void 0 : f.addEventListener("mouseup", x.upHandler, C)), n.setColumnSizingInfo((w) => ({
+          ...w,
+          startOffset: u,
+          startSize: i,
+          deltaOffset: 0,
+          deltaPercentage: 0,
+          columnSizingStart: d,
+          isResizingColumn: r2.id
+        }));
+      };
+    };
+  }, "createHeader"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setColumnSizing = (n) => e.options.onColumnSizingChange == null ? void 0 : e.options.onColumnSizingChange(n), e.setColumnSizingInfo = (n) => e.options.onColumnSizingInfoChange == null ? void 0 : e.options.onColumnSizingInfoChange(n), e.resetColumnSizing = (n) => {
+      var t;
+      e.setColumnSizing(n ? {} : (t = e.initialState.columnSizing) != null ? t : {});
+    }, e.resetHeaderSizeInfo = (n) => {
+      var t;
+      e.setColumnSizingInfo(n ? jt() : (t = e.initialState.columnSizingInfo) != null ? t : jt());
+    }, e.getTotalSize = () => {
+      var n, t;
+      return (n = (t = e.getHeaderGroups()[0]) == null ? void 0 : t.headers.reduce((r2, o) => r2 + o.getSize(), 0)) != null ? n : 0;
+    }, e.getLeftTotalSize = () => {
+      var n, t;
+      return (n = (t = e.getLeftHeaderGroups()[0]) == null ? void 0 : t.headers.reduce((r2, o) => r2 + o.getSize(), 0)) != null ? n : 0;
+    }, e.getCenterTotalSize = () => {
+      var n, t;
+      return (n = (t = e.getCenterHeaderGroups()[0]) == null ? void 0 : t.headers.reduce((r2, o) => r2 + o.getSize(), 0)) != null ? n : 0;
+    }, e.getRightTotalSize = () => {
+      var n, t;
+      return (n = (t = e.getRightHeaderGroups()[0]) == null ? void 0 : t.headers.reduce((r2, o) => r2 + o.getSize(), 0)) != null ? n : 0;
+    };
+  }, "createTable")
+};
+let Ft = null;
+function sa() {
+  if (typeof Ft == "boolean") return Ft;
+  let e = false;
+  try {
+    const n = {
+      get passive() {
+        return e = true, false;
+      }
+    }, t = /* @__PURE__ */ __name(() => {
+    }, "t");
+    window.addEventListener("test", t, n), window.removeEventListener("test", t);
+  } catch {
+    e = false;
+  }
+  return Ft = e, Ft;
+}
+__name(sa, "sa");
+function Gt(e) {
+  return e.type === "touchstart";
+}
+__name(Gt, "Gt");
+const ia = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    columnVisibility: {},
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onColumnVisibilityChange: ze("columnVisibility", e)
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.toggleVisibility = (t) => {
+      e.getCanHide() && n.setColumnVisibility((r2) => ({
+        ...r2,
+        [e.id]: t ?? !e.getIsVisible()
+      }));
+    }, e.getIsVisible = () => {
+      var t, r2;
+      const o = e.columns;
+      return (t = o.length ? o.some((a) => a.getIsVisible()) : (r2 = n.getState().columnVisibility) == null ? void 0 : r2[e.id]) != null ? t : true;
+    }, e.getCanHide = () => {
+      var t, r2;
+      return ((t = e.columnDef.enableHiding) != null ? t : true) && ((r2 = n.options.enableHiding) != null ? r2 : true);
+    }, e.getToggleVisibilityHandler = () => (t) => {
+      e.toggleVisibility == null || e.toggleVisibility(t.target.checked);
+    };
+  }, "createColumn"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e._getAllVisibleCells = T(() => [e.getAllCells(), n.getState().columnVisibility], (t) => t.filter((r2) => r2.column.getIsVisible()), z(n.options, "debugRows")), e.getVisibleCells = T(() => [e.getLeftVisibleCells(), e.getCenterVisibleCells(), e.getRightVisibleCells()], (t, r2, o) => [...t, ...r2, ...o], z(n.options, "debugRows"));
+  }, "createRow"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    const n = /* @__PURE__ */ __name((t, r2) => T(() => [r2(), r2().filter((o) => o.getIsVisible()).map((o) => o.id).join("_")], (o) => o.filter((a) => a.getIsVisible == null ? void 0 : a.getIsVisible()), z(e.options, "debugColumns")), "n");
+    e.getVisibleFlatColumns = n("getVisibleFlatColumns", () => e.getAllFlatColumns()), e.getVisibleLeafColumns = n("getVisibleLeafColumns", () => e.getAllLeafColumns()), e.getLeftVisibleLeafColumns = n("getLeftVisibleLeafColumns", () => e.getLeftLeafColumns()), e.getRightVisibleLeafColumns = n("getRightVisibleLeafColumns", () => e.getRightLeafColumns()), e.getCenterVisibleLeafColumns = n("getCenterVisibleLeafColumns", () => e.getCenterLeafColumns()), e.setColumnVisibility = (t) => e.options.onColumnVisibilityChange == null ? void 0 : e.options.onColumnVisibilityChange(t), e.resetColumnVisibility = (t) => {
+      var r2;
+      e.setColumnVisibility(t ? {} : (r2 = e.initialState.columnVisibility) != null ? r2 : {});
+    }, e.toggleAllColumnsVisible = (t) => {
+      var r2;
+      t = (r2 = t) != null ? r2 : !e.getIsAllColumnsVisible(), e.setColumnVisibility(e.getAllLeafColumns().reduce((o, a) => ({
+        ...o,
+        [a.id]: t || !(a.getCanHide != null && a.getCanHide())
+      }), {}));
+    }, e.getIsAllColumnsVisible = () => !e.getAllLeafColumns().some((t) => !(t.getIsVisible != null && t.getIsVisible())), e.getIsSomeColumnsVisible = () => e.getAllLeafColumns().some((t) => t.getIsVisible == null ? void 0 : t.getIsVisible()), e.getToggleAllColumnsVisibilityHandler = () => (t) => {
+      var r2;
+      e.toggleAllColumnsVisible((r2 = t.target) == null ? void 0 : r2.checked);
+    };
+  }, "createTable")
+};
+function pt(e, n) {
+  return n ? n === "center" ? e.getCenterVisibleLeafColumns() : n === "left" ? e.getLeftVisibleLeafColumns() : e.getRightVisibleLeafColumns() : e.getVisibleLeafColumns();
+}
+__name(pt, "pt");
+const la = {
+  createTable: /* @__PURE__ */ __name((e) => {
+    e._getGlobalFacetedRowModel = e.options.getFacetedRowModel && e.options.getFacetedRowModel(e, "__global__"), e.getGlobalFacetedRowModel = () => e.options.manualFiltering || !e._getGlobalFacetedRowModel ? e.getPreFilteredRowModel() : e._getGlobalFacetedRowModel(), e._getGlobalFacetedUniqueValues = e.options.getFacetedUniqueValues && e.options.getFacetedUniqueValues(e, "__global__"), e.getGlobalFacetedUniqueValues = () => e._getGlobalFacetedUniqueValues ? e._getGlobalFacetedUniqueValues() : /* @__PURE__ */ new Map(), e._getGlobalFacetedMinMaxValues = e.options.getFacetedMinMaxValues && e.options.getFacetedMinMaxValues(e, "__global__"), e.getGlobalFacetedMinMaxValues = () => {
+      if (e._getGlobalFacetedMinMaxValues)
+        return e._getGlobalFacetedMinMaxValues();
+    };
+  }, "createTable")
+}, ua = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    globalFilter: void 0,
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onGlobalFilterChange: ze("globalFilter", e),
+    globalFilterFn: "auto",
+    getColumnCanGlobalFilter: /* @__PURE__ */ __name((n) => {
+      var t;
+      const r2 = (t = e.getCoreRowModel().flatRows[0]) == null || (t = t._getAllCellsByColumnId()[n.id]) == null ? void 0 : t.getValue();
+      return typeof r2 == "string" || typeof r2 == "number";
+    }, "getColumnCanGlobalFilter")
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.getCanGlobalFilter = () => {
+      var t, r2, o, a;
+      return ((t = e.columnDef.enableGlobalFilter) != null ? t : true) && ((r2 = n.options.enableGlobalFilter) != null ? r2 : true) && ((o = n.options.enableFilters) != null ? o : true) && ((a = n.options.getColumnCanGlobalFilter == null ? void 0 : n.options.getColumnCanGlobalFilter(e)) != null ? a : true) && !!e.accessorFn;
+    };
+  }, "createColumn"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.getGlobalAutoFilterFn = () => Xe.includesString, e.getGlobalFilterFn = () => {
+      var n, t;
+      const {
+        globalFilterFn: r2
+      } = e.options;
+      return At(r2) ? r2 : r2 === "auto" ? e.getGlobalAutoFilterFn() : (n = (t = e.options.filterFns) == null ? void 0 : t[r2]) != null ? n : Xe[r2];
+    }, e.setGlobalFilter = (n) => {
+      e.options.onGlobalFilterChange == null || e.options.onGlobalFilterChange(n);
+    }, e.resetGlobalFilter = (n) => {
+      e.setGlobalFilter(n ? void 0 : e.initialState.globalFilter);
+    };
+  }, "createTable")
+}, da = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    expanded: {},
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onExpandedChange: ze("expanded", e),
+    paginateExpandedRows: true
+  }), "getDefaultOptions"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    let n = false, t = false;
+    e._autoResetExpanded = () => {
+      var r2, o;
+      if (!n) {
+        e._queue(() => {
+          n = true;
+        });
+        return;
+      }
+      if ((r2 = (o = e.options.autoResetAll) != null ? o : e.options.autoResetExpanded) != null ? r2 : !e.options.manualExpanding) {
+        if (t) return;
+        t = true, e._queue(() => {
+          e.resetExpanded(), t = false;
+        });
+      }
+    }, e.setExpanded = (r2) => e.options.onExpandedChange == null ? void 0 : e.options.onExpandedChange(r2), e.toggleAllRowsExpanded = (r2) => {
+      r2 ?? !e.getIsAllRowsExpanded() ? e.setExpanded(true) : e.setExpanded({});
+    }, e.resetExpanded = (r2) => {
+      var o, a;
+      e.setExpanded(r2 ? {} : (o = (a = e.initialState) == null ? void 0 : a.expanded) != null ? o : {});
+    }, e.getCanSomeRowsExpand = () => e.getPrePaginationRowModel().flatRows.some((r2) => r2.getCanExpand()), e.getToggleAllRowsExpandedHandler = () => (r2) => {
+      r2.persist == null || r2.persist(), e.toggleAllRowsExpanded();
+    }, e.getIsSomeRowsExpanded = () => {
+      const r2 = e.getState().expanded;
+      return r2 === true || Object.values(r2).some(Boolean);
+    }, e.getIsAllRowsExpanded = () => {
+      const r2 = e.getState().expanded;
+      return typeof r2 == "boolean" ? r2 === true : !(!Object.keys(r2).length || e.getRowModel().flatRows.some((o) => !o.getIsExpanded()));
+    }, e.getExpandedDepth = () => {
+      let r2 = 0;
+      return (e.getState().expanded === true ? Object.keys(e.getRowModel().rowsById) : Object.keys(e.getState().expanded)).forEach((a) => {
+        const i = a.split(".");
+        r2 = Math.max(r2, i.length);
+      }), r2;
+    }, e.getPreExpandedRowModel = () => e.getSortedRowModel(), e.getExpandedRowModel = () => (!e._getExpandedRowModel && e.options.getExpandedRowModel && (e._getExpandedRowModel = e.options.getExpandedRowModel(e)), e.options.manualExpanding || !e._getExpandedRowModel ? e.getPreExpandedRowModel() : e._getExpandedRowModel());
+  }, "createTable"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e.toggleExpanded = (t) => {
+      n.setExpanded((r2) => {
+        var o;
+        const a = r2 === true ? true : !!(r2 != null && r2[e.id]);
+        let i = {};
+        if (r2 === true ? Object.keys(n.getRowModel().rowsById).forEach((d) => {
+          i[d] = true;
+        }) : i = r2, t = (o = t) != null ? o : !a, !a && t)
+          return {
+            ...i,
+            [e.id]: true
+          };
+        if (a && !t) {
+          const {
+            [e.id]: d,
+            ...u
+          } = i;
+          return u;
+        }
+        return r2;
+      });
+    }, e.getIsExpanded = () => {
+      var t;
+      const r2 = n.getState().expanded;
+      return !!((t = n.options.getIsRowExpanded == null ? void 0 : n.options.getIsRowExpanded(e)) != null ? t : r2 === true || (r2 == null ? void 0 : r2[e.id]));
+    }, e.getCanExpand = () => {
+      var t, r2, o;
+      return (t = n.options.getRowCanExpand == null ? void 0 : n.options.getRowCanExpand(e)) != null ? t : ((r2 = n.options.enableExpanding) != null ? r2 : true) && !!((o = e.subRows) != null && o.length);
+    }, e.getIsAllParentsExpanded = () => {
+      let t = true, r2 = e;
+      for (; t && r2.parentId; )
+        r2 = n.getRow(r2.parentId, true), t = r2.getIsExpanded();
+      return t;
+    }, e.getToggleExpandedHandler = () => {
+      const t = e.getCanExpand();
+      return () => {
+        t && e.toggleExpanded();
+      };
+    };
+  }, "createRow")
+}, en = 0, tn = 10, qt = /* @__PURE__ */ __name(() => ({
+  pageIndex: en,
+  pageSize: tn
+}), "qt"), ca = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    ...e,
+    pagination: {
+      ...qt(),
+      ...e == null ? void 0 : e.pagination
+    }
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onPaginationChange: ze("pagination", e)
+  }), "getDefaultOptions"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    let n = false, t = false;
+    e._autoResetPageIndex = () => {
+      var r2, o;
+      if (!n) {
+        e._queue(() => {
+          n = true;
+        });
+        return;
+      }
+      if ((r2 = (o = e.options.autoResetAll) != null ? o : e.options.autoResetPageIndex) != null ? r2 : !e.options.manualPagination) {
+        if (t) return;
+        t = true, e._queue(() => {
+          e.resetPageIndex(), t = false;
+        });
+      }
+    }, e.setPagination = (r2) => {
+      const o = /* @__PURE__ */ __name((a) => tt(r2, a), "o");
+      return e.options.onPaginationChange == null ? void 0 : e.options.onPaginationChange(o);
+    }, e.resetPagination = (r2) => {
+      var o;
+      e.setPagination(r2 ? qt() : (o = e.initialState.pagination) != null ? o : qt());
+    }, e.setPageIndex = (r2) => {
+      e.setPagination((o) => {
+        let a = tt(r2, o.pageIndex);
+        const i = typeof e.options.pageCount > "u" || e.options.pageCount === -1 ? Number.MAX_SAFE_INTEGER : e.options.pageCount - 1;
+        return a = Math.max(0, Math.min(a, i)), {
+          ...o,
+          pageIndex: a
+        };
+      });
+    }, e.resetPageIndex = (r2) => {
+      var o, a;
+      e.setPageIndex(r2 ? en : (o = (a = e.initialState) == null || (a = a.pagination) == null ? void 0 : a.pageIndex) != null ? o : en);
+    }, e.resetPageSize = (r2) => {
+      var o, a;
+      e.setPageSize(r2 ? tn : (o = (a = e.initialState) == null || (a = a.pagination) == null ? void 0 : a.pageSize) != null ? o : tn);
+    }, e.setPageSize = (r2) => {
+      e.setPagination((o) => {
+        const a = Math.max(1, tt(r2, o.pageSize)), i = o.pageSize * o.pageIndex, d = Math.floor(i / a);
+        return {
+          ...o,
+          pageIndex: d,
+          pageSize: a
+        };
+      });
+    }, e.setPageCount = (r2) => e.setPagination((o) => {
+      var a;
+      let i = tt(r2, (a = e.options.pageCount) != null ? a : -1);
+      return typeof i == "number" && (i = Math.max(-1, i)), {
+        ...o,
+        pageCount: i
+      };
+    }), e.getPageOptions = T(() => [e.getPageCount()], (r2) => {
+      let o = [];
+      return r2 && r2 > 0 && (o = [...new Array(r2)].fill(null).map((a, i) => i)), o;
+    }, z(e.options, "debugTable")), e.getCanPreviousPage = () => e.getState().pagination.pageIndex > 0, e.getCanNextPage = () => {
+      const {
+        pageIndex: r2
+      } = e.getState().pagination, o = e.getPageCount();
+      return o === -1 ? true : o === 0 ? false : r2 < o - 1;
+    }, e.previousPage = () => e.setPageIndex((r2) => r2 - 1), e.nextPage = () => e.setPageIndex((r2) => r2 + 1), e.firstPage = () => e.setPageIndex(0), e.lastPage = () => e.setPageIndex(e.getPageCount() - 1), e.getPrePaginationRowModel = () => e.getExpandedRowModel(), e.getPaginationRowModel = () => (!e._getPaginationRowModel && e.options.getPaginationRowModel && (e._getPaginationRowModel = e.options.getPaginationRowModel(e)), e.options.manualPagination || !e._getPaginationRowModel ? e.getPrePaginationRowModel() : e._getPaginationRowModel()), e.getPageCount = () => {
+      var r2;
+      return (r2 = e.options.pageCount) != null ? r2 : Math.ceil(e.getRowCount() / e.getState().pagination.pageSize);
+    }, e.getRowCount = () => {
+      var r2;
+      return (r2 = e.options.rowCount) != null ? r2 : e.getPrePaginationRowModel().rows.length;
+    };
+  }, "createTable")
+}, Ut = /* @__PURE__ */ __name(() => ({
+  top: [],
+  bottom: []
+}), "Ut"), fa = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    rowPinning: Ut(),
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onRowPinningChange: ze("rowPinning", e)
+  }), "getDefaultOptions"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e.pin = (t, r2, o) => {
+      const a = r2 ? e.getLeafRows().map((u) => {
+        let {
+          id: c
+        } = u;
+        return c;
+      }) : [], i = o ? e.getParentRows().map((u) => {
+        let {
+          id: c
+        } = u;
+        return c;
+      }) : [], d = /* @__PURE__ */ new Set([...i, e.id, ...a]);
+      n.setRowPinning((u) => {
+        var c, g;
+        if (t === "bottom") {
+          var l, m;
+          return {
+            top: ((l = u == null ? void 0 : u.top) != null ? l : []).filter((v) => !(d != null && d.has(v))),
+            bottom: [...((m = u == null ? void 0 : u.bottom) != null ? m : []).filter((v) => !(d != null && d.has(v))), ...Array.from(d)]
+          };
+        }
+        if (t === "top") {
+          var f, x;
+          return {
+            top: [...((f = u == null ? void 0 : u.top) != null ? f : []).filter((v) => !(d != null && d.has(v))), ...Array.from(d)],
+            bottom: ((x = u == null ? void 0 : u.bottom) != null ? x : []).filter((v) => !(d != null && d.has(v)))
+          };
+        }
+        return {
+          top: ((c = u == null ? void 0 : u.top) != null ? c : []).filter((v) => !(d != null && d.has(v))),
+          bottom: ((g = u == null ? void 0 : u.bottom) != null ? g : []).filter((v) => !(d != null && d.has(v)))
+        };
+      });
+    }, e.getCanPin = () => {
+      var t;
+      const {
+        enableRowPinning: r2,
+        enablePinning: o
+      } = n.options;
+      return typeof r2 == "function" ? r2(e) : (t = r2 ?? o) != null ? t : true;
+    }, e.getIsPinned = () => {
+      const t = [e.id], {
+        top: r2,
+        bottom: o
+      } = n.getState().rowPinning, a = t.some((d) => r2 == null ? void 0 : r2.includes(d)), i = t.some((d) => o == null ? void 0 : o.includes(d));
+      return a ? "top" : i ? "bottom" : false;
+    }, e.getPinnedIndex = () => {
+      var t, r2;
+      const o = e.getIsPinned();
+      if (!o) return -1;
+      const a = (t = o === "top" ? n.getTopRows() : n.getBottomRows()) == null ? void 0 : t.map((i) => {
+        let {
+          id: d
+        } = i;
+        return d;
+      });
+      return (r2 = a == null ? void 0 : a.indexOf(e.id)) != null ? r2 : -1;
+    };
+  }, "createRow"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setRowPinning = (n) => e.options.onRowPinningChange == null ? void 0 : e.options.onRowPinningChange(n), e.resetRowPinning = (n) => {
+      var t, r2;
+      return e.setRowPinning(n ? Ut() : (t = (r2 = e.initialState) == null ? void 0 : r2.rowPinning) != null ? t : Ut());
+    }, e.getIsSomeRowsPinned = (n) => {
+      var t;
+      const r2 = e.getState().rowPinning;
+      if (!n) {
+        var o, a;
+        return !!((o = r2.top) != null && o.length || (a = r2.bottom) != null && a.length);
+      }
+      return !!((t = r2[n]) != null && t.length);
+    }, e._getPinnedRows = (n, t, r2) => {
+      var o;
+      return ((o = e.options.keepPinnedRows) == null || o ? (
+        //get all rows that are pinned even if they would not be otherwise visible
+        //account for expanded parent rows, but not pagination or filtering
+        (t ?? []).map((i) => {
+          const d = e.getRow(i, true);
+          return d.getIsAllParentsExpanded() ? d : null;
+        })
+      ) : (
+        //else get only visible rows that are pinned
+        (t ?? []).map((i) => n.find((d) => d.id === i))
+      )).filter(Boolean).map((i) => ({
+        ...i,
+        position: r2
+      }));
+    }, e.getTopRows = T(() => [e.getRowModel().rows, e.getState().rowPinning.top], (n, t) => e._getPinnedRows(n, t, "top"), z(e.options, "debugRows")), e.getBottomRows = T(() => [e.getRowModel().rows, e.getState().rowPinning.bottom], (n, t) => e._getPinnedRows(n, t, "bottom"), z(e.options, "debugRows")), e.getCenterRows = T(() => [e.getRowModel().rows, e.getState().rowPinning.top, e.getState().rowPinning.bottom], (n, t, r2) => {
+      const o = /* @__PURE__ */ new Set([...t ?? [], ...r2 ?? []]);
+      return n.filter((a) => !o.has(a.id));
+    }, z(e.options, "debugRows"));
+  }, "createTable")
+}, ga = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    rowSelection: {},
+    ...e
+  }), "getInitialState"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onRowSelectionChange: ze("rowSelection", e),
+    enableRowSelection: true,
+    enableMultiRowSelection: true,
+    enableSubRowSelection: true
+    // enableGroupingRowSelection: false,
+    // isAdditiveSelectEvent: (e: unknown) => !!e.metaKey,
+    // isInclusiveSelectEvent: (e: unknown) => !!e.shiftKey,
+  }), "getDefaultOptions"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setRowSelection = (n) => e.options.onRowSelectionChange == null ? void 0 : e.options.onRowSelectionChange(n), e.resetRowSelection = (n) => {
+      var t;
+      return e.setRowSelection(n ? {} : (t = e.initialState.rowSelection) != null ? t : {});
+    }, e.toggleAllRowsSelected = (n) => {
+      e.setRowSelection((t) => {
+        n = typeof n < "u" ? n : !e.getIsAllRowsSelected();
+        const r2 = {
+          ...t
+        }, o = e.getPreGroupedRowModel().flatRows;
+        return n ? o.forEach((a) => {
+          a.getCanSelect() && (r2[a.id] = true);
+        }) : o.forEach((a) => {
+          delete r2[a.id];
+        }), r2;
+      });
+    }, e.toggleAllPageRowsSelected = (n) => e.setRowSelection((t) => {
+      const r2 = typeof n < "u" ? n : !e.getIsAllPageRowsSelected(), o = {
+        ...t
+      };
+      return e.getRowModel().rows.forEach((a) => {
+        nn(o, a.id, r2, true, e);
+      }), o;
+    }), e.getPreSelectedRowModel = () => e.getCoreRowModel(), e.getSelectedRowModel = T(() => [e.getState().rowSelection, e.getCoreRowModel()], (n, t) => Object.keys(n).length ? Yt(e, t) : {
+      rows: [],
+      flatRows: [],
+      rowsById: {}
+    }, z(e.options, "debugTable")), e.getFilteredSelectedRowModel = T(() => [e.getState().rowSelection, e.getFilteredRowModel()], (n, t) => Object.keys(n).length ? Yt(e, t) : {
+      rows: [],
+      flatRows: [],
+      rowsById: {}
+    }, z(e.options, "debugTable")), e.getGroupedSelectedRowModel = T(() => [e.getState().rowSelection, e.getSortedRowModel()], (n, t) => Object.keys(n).length ? Yt(e, t) : {
+      rows: [],
+      flatRows: [],
+      rowsById: {}
+    }, z(e.options, "debugTable")), e.getIsAllRowsSelected = () => {
+      const n = e.getFilteredRowModel().flatRows, {
+        rowSelection: t
+      } = e.getState();
+      let r2 = !!(n.length && Object.keys(t).length);
+      return r2 && n.some((o) => o.getCanSelect() && !t[o.id]) && (r2 = false), r2;
+    }, e.getIsAllPageRowsSelected = () => {
+      const n = e.getPaginationRowModel().flatRows.filter((o) => o.getCanSelect()), {
+        rowSelection: t
+      } = e.getState();
+      let r2 = !!n.length;
+      return r2 && n.some((o) => !t[o.id]) && (r2 = false), r2;
+    }, e.getIsSomeRowsSelected = () => {
+      var n;
+      const t = Object.keys((n = e.getState().rowSelection) != null ? n : {}).length;
+      return t > 0 && t < e.getFilteredRowModel().flatRows.length;
+    }, e.getIsSomePageRowsSelected = () => {
+      const n = e.getPaginationRowModel().flatRows;
+      return e.getIsAllPageRowsSelected() ? false : n.filter((t) => t.getCanSelect()).some((t) => t.getIsSelected() || t.getIsSomeSelected());
+    }, e.getToggleAllRowsSelectedHandler = () => (n) => {
+      e.toggleAllRowsSelected(n.target.checked);
+    }, e.getToggleAllPageRowsSelectedHandler = () => (n) => {
+      e.toggleAllPageRowsSelected(n.target.checked);
+    };
+  }, "createTable"),
+  createRow: /* @__PURE__ */ __name((e, n) => {
+    e.toggleSelected = (t, r2) => {
+      const o = e.getIsSelected();
+      n.setRowSelection((a) => {
+        var i;
+        if (t = typeof t < "u" ? t : !o, e.getCanSelect() && o === t)
+          return a;
+        const d = {
+          ...a
+        };
+        return nn(d, e.id, t, (i = r2 == null ? void 0 : r2.selectChildren) != null ? i : true, n), d;
+      });
+    }, e.getIsSelected = () => {
+      const {
+        rowSelection: t
+      } = n.getState();
+      return cn(e, t);
+    }, e.getIsSomeSelected = () => {
+      const {
+        rowSelection: t
+      } = n.getState();
+      return rn(e, t) === "some";
+    }, e.getIsAllSubRowsSelected = () => {
+      const {
+        rowSelection: t
+      } = n.getState();
+      return rn(e, t) === "all";
+    }, e.getCanSelect = () => {
+      var t;
+      return typeof n.options.enableRowSelection == "function" ? n.options.enableRowSelection(e) : (t = n.options.enableRowSelection) != null ? t : true;
+    }, e.getCanSelectSubRows = () => {
+      var t;
+      return typeof n.options.enableSubRowSelection == "function" ? n.options.enableSubRowSelection(e) : (t = n.options.enableSubRowSelection) != null ? t : true;
+    }, e.getCanMultiSelect = () => {
+      var t;
+      return typeof n.options.enableMultiRowSelection == "function" ? n.options.enableMultiRowSelection(e) : (t = n.options.enableMultiRowSelection) != null ? t : true;
+    }, e.getToggleSelectedHandler = () => {
+      const t = e.getCanSelect();
+      return (r2) => {
+        var o;
+        t && e.toggleSelected((o = r2.target) == null ? void 0 : o.checked);
+      };
+    };
+  }, "createRow")
+}, nn = /* @__PURE__ */ __name((e, n, t, r2, o) => {
+  var a;
+  const i = o.getRow(n, true);
+  t ? (i.getCanMultiSelect() || Object.keys(e).forEach((d) => delete e[d]), i.getCanSelect() && (e[n] = true)) : delete e[n], r2 && (a = i.subRows) != null && a.length && i.getCanSelectSubRows() && i.subRows.forEach((d) => nn(e, d.id, t, r2, o));
+}, "nn");
+function Yt(e, n) {
+  const t = e.getState().rowSelection, r2 = [], o = {}, a = /* @__PURE__ */ __name(function(i, d) {
+    return i.map((u) => {
+      var c;
+      const g = cn(u, t);
+      if (g && (r2.push(u), o[u.id] = u), (c = u.subRows) != null && c.length && (u = {
+        ...u,
+        subRows: a(u.subRows)
+      }), g)
+        return u;
+    }).filter(Boolean);
+  }, "a");
+  return {
+    rows: a(n.rows),
+    flatRows: r2,
+    rowsById: o
+  };
+}
+__name(Yt, "Yt");
+function cn(e, n) {
+  var t;
+  return (t = n[e.id]) != null ? t : false;
+}
+__name(cn, "cn");
+function rn(e, n, t) {
+  var r2;
+  if (!((r2 = e.subRows) != null && r2.length)) return false;
+  let o = true, a = false;
+  return e.subRows.forEach((i) => {
+    if (!(a && !o) && (i.getCanSelect() && (cn(i, n) ? a = true : o = false), i.subRows && i.subRows.length)) {
+      const d = rn(i, n);
+      d === "all" ? a = true : (d === "some" && (a = true), o = false);
+    }
+  }), o ? "all" : a ? "some" : false;
+}
+__name(rn, "rn");
+const on = /([0-9]+)/gm, pa = /* @__PURE__ */ __name((e, n, t) => or(nt(e.getValue(t)).toLowerCase(), nt(n.getValue(t)).toLowerCase()), "pa"), ma = /* @__PURE__ */ __name((e, n, t) => or(nt(e.getValue(t)), nt(n.getValue(t))), "ma"), ha = /* @__PURE__ */ __name((e, n, t) => fn(nt(e.getValue(t)).toLowerCase(), nt(n.getValue(t)).toLowerCase()), "ha"), xa = /* @__PURE__ */ __name((e, n, t) => fn(nt(e.getValue(t)), nt(n.getValue(t))), "xa"), va = /* @__PURE__ */ __name((e, n, t) => {
+  const r2 = e.getValue(t), o = n.getValue(t);
+  return r2 > o ? 1 : r2 < o ? -1 : 0;
+}, "va"), ba = /* @__PURE__ */ __name((e, n, t) => fn(e.getValue(t), n.getValue(t)), "ba");
+function fn(e, n) {
+  return e === n ? 0 : e > n ? 1 : -1;
+}
+__name(fn, "fn");
+function nt(e) {
+  return typeof e == "number" ? isNaN(e) || e === 1 / 0 || e === -1 / 0 ? "" : String(e) : typeof e == "string" ? e : "";
+}
+__name(nt, "nt");
+function or(e, n) {
+  const t = e.split(on).filter(Boolean), r2 = n.split(on).filter(Boolean);
+  for (; t.length && r2.length; ) {
+    const o = t.shift(), a = r2.shift(), i = parseInt(o, 10), d = parseInt(a, 10), u = [i, d].sort();
+    if (isNaN(u[0])) {
+      if (o > a)
+        return 1;
+      if (a > o)
+        return -1;
+      continue;
+    }
+    if (isNaN(u[1]))
+      return isNaN(i) ? -1 : 1;
+    if (i > d)
+      return 1;
+    if (d > i)
+      return -1;
+  }
+  return t.length - r2.length;
+}
+__name(or, "or");
+const gt = {
+  alphanumeric: pa,
+  alphanumericCaseSensitive: ma,
+  text: ha,
+  textCaseSensitive: xa,
+  datetime: va,
+  basic: ba
+}, wa = {
+  getInitialState: /* @__PURE__ */ __name((e) => ({
+    sorting: [],
+    ...e
+  }), "getInitialState"),
+  getDefaultColumnDef: /* @__PURE__ */ __name(() => ({
+    sortingFn: "auto",
+    sortUndefined: 1
+  }), "getDefaultColumnDef"),
+  getDefaultOptions: /* @__PURE__ */ __name((e) => ({
+    onSortingChange: ze("sorting", e),
+    isMultiSortEvent: /* @__PURE__ */ __name((n) => n.shiftKey, "isMultiSortEvent")
+  }), "getDefaultOptions"),
+  createColumn: /* @__PURE__ */ __name((e, n) => {
+    e.getAutoSortingFn = () => {
+      const t = n.getFilteredRowModel().flatRows.slice(10);
+      let r2 = false;
+      for (const o of t) {
+        const a = o == null ? void 0 : o.getValue(e.id);
+        if (Object.prototype.toString.call(a) === "[object Date]")
+          return gt.datetime;
+        if (typeof a == "string" && (r2 = true, a.split(on).length > 1))
+          return gt.alphanumeric;
+      }
+      return r2 ? gt.text : gt.basic;
+    }, e.getAutoSortDir = () => {
+      const t = n.getFilteredRowModel().flatRows[0];
+      return typeof (t == null ? void 0 : t.getValue(e.id)) == "string" ? "asc" : "desc";
+    }, e.getSortingFn = () => {
+      var t, r2;
+      if (!e)
+        throw new Error();
+      return At(e.columnDef.sortingFn) ? e.columnDef.sortingFn : e.columnDef.sortingFn === "auto" ? e.getAutoSortingFn() : (t = (r2 = n.options.sortingFns) == null ? void 0 : r2[e.columnDef.sortingFn]) != null ? t : gt[e.columnDef.sortingFn];
+    }, e.toggleSorting = (t, r2) => {
+      const o = e.getNextSortingOrder(), a = typeof t < "u" && t !== null;
+      n.setSorting((i) => {
+        const d = i == null ? void 0 : i.find((f) => f.id === e.id), u = i == null ? void 0 : i.findIndex((f) => f.id === e.id);
+        let c = [], g, l = a ? t : o === "desc";
+        if (i != null && i.length && e.getCanMultiSort() && r2 ? d ? g = "toggle" : g = "add" : i != null && i.length && u !== i.length - 1 ? g = "replace" : d ? g = "toggle" : g = "replace", g === "toggle" && (a || o || (g = "remove")), g === "add") {
+          var m;
+          c = [...i, {
+            id: e.id,
+            desc: l
+          }], c.splice(0, c.length - ((m = n.options.maxMultiSortColCount) != null ? m : Number.MAX_SAFE_INTEGER));
+        } else g === "toggle" ? c = i.map((f) => f.id === e.id ? {
+          ...f,
+          desc: l
+        } : f) : g === "remove" ? c = i.filter((f) => f.id !== e.id) : c = [{
+          id: e.id,
+          desc: l
+        }];
+        return c;
+      });
+    }, e.getFirstSortDir = () => {
+      var t, r2;
+      return ((t = (r2 = e.columnDef.sortDescFirst) != null ? r2 : n.options.sortDescFirst) != null ? t : e.getAutoSortDir() === "desc") ? "desc" : "asc";
+    }, e.getNextSortingOrder = (t) => {
+      var r2, o;
+      const a = e.getFirstSortDir(), i = e.getIsSorted();
+      return i ? i !== a && ((r2 = n.options.enableSortingRemoval) == null || r2) && // If enableSortRemove, enable in general
+      (!(t && (o = n.options.enableMultiRemove) != null) || o) ? false : i === "desc" ? "asc" : "desc" : a;
+    }, e.getCanSort = () => {
+      var t, r2;
+      return ((t = e.columnDef.enableSorting) != null ? t : true) && ((r2 = n.options.enableSorting) != null ? r2 : true) && !!e.accessorFn;
+    }, e.getCanMultiSort = () => {
+      var t, r2;
+      return (t = (r2 = e.columnDef.enableMultiSort) != null ? r2 : n.options.enableMultiSort) != null ? t : !!e.accessorFn;
+    }, e.getIsSorted = () => {
+      var t;
+      const r2 = (t = n.getState().sorting) == null ? void 0 : t.find((o) => o.id === e.id);
+      return r2 ? r2.desc ? "desc" : "asc" : false;
+    }, e.getSortIndex = () => {
+      var t, r2;
+      return (t = (r2 = n.getState().sorting) == null ? void 0 : r2.findIndex((o) => o.id === e.id)) != null ? t : -1;
+    }, e.clearSorting = () => {
+      n.setSorting((t) => t != null && t.length ? t.filter((r2) => r2.id !== e.id) : []);
+    }, e.getToggleSortingHandler = () => {
+      const t = e.getCanSort();
+      return (r2) => {
+        t && (r2.persist == null || r2.persist(), e.toggleSorting == null || e.toggleSorting(void 0, e.getCanMultiSort() ? n.options.isMultiSortEvent == null ? void 0 : n.options.isMultiSortEvent(r2) : false));
+      };
+    };
+  }, "createColumn"),
+  createTable: /* @__PURE__ */ __name((e) => {
+    e.setSorting = (n) => e.options.onSortingChange == null ? void 0 : e.options.onSortingChange(n), e.resetSorting = (n) => {
+      var t, r2;
+      e.setSorting(n ? [] : (t = (r2 = e.initialState) == null ? void 0 : r2.sorting) != null ? t : []);
+    }, e.getPreSortedRowModel = () => e.getGroupedRowModel(), e.getSortedRowModel = () => (!e._getSortedRowModel && e.options.getSortedRowModel && (e._getSortedRowModel = e.options.getSortedRowModel(e)), e.options.manualSorting || !e._getSortedRowModel ? e.getPreSortedRowModel() : e._getSortedRowModel());
+  }, "createTable")
+}, ya = [
+  Bo,
+  ia,
+  na,
+  ra,
+  jo,
+  Go,
+  la,
+  //depends on ColumnFaceting
+  ua,
+  //depends on ColumnFiltering
+  wa,
+  ea,
+  //depends on RowSorting
+  da,
+  ca,
+  fa,
+  ga,
+  aa
+];
+function Sa(e) {
+  var n, t;
+  const r2 = [...ya, ...(n = e._features) != null ? n : []];
+  let o = {
+    _features: r2
+  };
+  const a = o._features.reduce((m, f) => Object.assign(m, f.getDefaultOptions == null ? void 0 : f.getDefaultOptions(o)), {}), i = /* @__PURE__ */ __name((m) => o.options.mergeOptions ? o.options.mergeOptions(a, m) : {
+    ...a,
+    ...m
+  }, "i");
+  let u = {
+    ...{},
+    ...(t = e.initialState) != null ? t : {}
+  };
+  o._features.forEach((m) => {
+    var f;
+    u = (f = m.getInitialState == null ? void 0 : m.getInitialState(u)) != null ? f : u;
+  });
+  const c = [];
+  let g = false;
+  const l = {
+    _features: r2,
+    options: {
+      ...a,
+      ...e
+    },
+    initialState: u,
+    _queue: /* @__PURE__ */ __name((m) => {
+      c.push(m), g || (g = true, Promise.resolve().then(() => {
+        for (; c.length; )
+          c.shift()();
+        g = false;
+      }).catch((f) => setTimeout(() => {
+        throw f;
+      })));
+    }, "_queue"),
+    reset: /* @__PURE__ */ __name(() => {
+      o.setState(o.initialState);
+    }, "reset"),
+    setOptions: /* @__PURE__ */ __name((m) => {
+      const f = tt(m, o.options);
+      o.options = i(f);
+    }, "setOptions"),
+    getState: /* @__PURE__ */ __name(() => o.options.state, "getState"),
+    setState: /* @__PURE__ */ __name((m) => {
+      o.options.onStateChange == null || o.options.onStateChange(m);
+    }, "setState"),
+    _getRowId: /* @__PURE__ */ __name((m, f, x) => {
+      var v;
+      return (v = o.options.getRowId == null ? void 0 : o.options.getRowId(m, f, x)) != null ? v : `${x ? [x.id, f].join(".") : f}`;
+    }, "_getRowId"),
+    getCoreRowModel: /* @__PURE__ */ __name(() => (o._getCoreRowModel || (o._getCoreRowModel = o.options.getCoreRowModel(o)), o._getCoreRowModel()), "getCoreRowModel"),
+    // The final calls start at the bottom of the model,
+    // expanded rows, which then work their way up
+    getRowModel: /* @__PURE__ */ __name(() => o.getPaginationRowModel(), "getRowModel"),
+    //in next version, we should just pass in the row model as the optional 2nd arg
+    getRow: /* @__PURE__ */ __name((m, f) => {
+      let x = (f ? o.getPrePaginationRowModel() : o.getRowModel()).rowsById[m];
+      if (!x && (x = o.getCoreRowModel().rowsById[m], !x))
+        throw new Error();
+      return x;
+    }, "getRow"),
+    _getDefaultColumnDef: T(() => [o.options.defaultColumn], (m) => {
+      var f;
+      return m = (f = m) != null ? f : {}, {
+        header: /* @__PURE__ */ __name((x) => {
+          const v = x.header.column.columnDef;
+          return v.accessorKey ? v.accessorKey : v.accessorFn ? v.id : null;
+        }, "header"),
+        // footer: props => props.header.column.id,
+        cell: /* @__PURE__ */ __name((x) => {
+          var v, C;
+          return (v = (C = x.renderValue()) == null || C.toString == null ? void 0 : C.toString()) != null ? v : null;
+        }, "cell"),
+        ...o._features.reduce((x, v) => Object.assign(x, v.getDefaultColumnDef == null ? void 0 : v.getDefaultColumnDef()), {}),
+        ...m
+      };
+    }, z(e, "debugColumns")),
+    _getColumnDefs: /* @__PURE__ */ __name(() => o.options.columns, "_getColumnDefs"),
+    getAllColumns: T(() => [o._getColumnDefs()], (m) => {
+      const f = /* @__PURE__ */ __name(function(x, v, C) {
+        return C === void 0 && (C = 0), x.map((w) => {
+          const D = Oo(o, w, C, v), _ = w;
+          return D.columns = _.columns ? f(_.columns, D, C + 1) : [], D;
+        });
+      }, "f");
+      return f(m);
+    }, z(e, "debugColumns")),
+    getAllFlatColumns: T(() => [o.getAllColumns()], (m) => m.flatMap((f) => f.getFlatColumns()), z(e, "debugColumns")),
+    _getAllFlatColumnsById: T(() => [o.getAllFlatColumns()], (m) => m.reduce((f, x) => (f[x.id] = x, f), {}), z(e, "debugColumns")),
+    getAllLeafColumns: T(() => [o.getAllColumns(), o._getOrderColumnsFn()], (m, f) => {
+      let x = m.flatMap((v) => v.getLeafColumns());
+      return f(x);
+    }, z(e, "debugColumns")),
+    getColumn: /* @__PURE__ */ __name((m) => {
+      const f = o._getAllFlatColumnsById()[m];
+      return f;
+    }, "getColumn")
+  };
+  Object.assign(o, l);
+  for (let m = 0; m < o._features.length; m++) {
+    const f = o._features[m];
+    f == null || f.createTable == null || f.createTable(o);
+  }
+  return o;
+}
+__name(Sa, "Sa");
+function Ca() {
+  return (e) => T(() => [e.options.data], (n) => {
+    const t = {
+      rows: [],
+      flatRows: [],
+      rowsById: {}
+    }, r2 = /* @__PURE__ */ __name(function(o, a, i) {
+      a === void 0 && (a = 0);
+      const d = [];
+      for (let c = 0; c < o.length; c++) {
+        const g = un(e, e._getRowId(o[c], c, i), o[c], c, a, void 0, i == null ? void 0 : i.id);
+        if (t.flatRows.push(g), t.rowsById[g.id] = g, d.push(g), e.options.getSubRows) {
+          var u;
+          g.originalSubRows = e.options.getSubRows(o[c], c), (u = g.originalSubRows) != null && u.length && (g.subRows = r2(g.originalSubRows, a + 1, g));
+        }
+      }
+      return d;
+    }, "r");
+    return t.rows = r2(n), t;
+  }, z(e.options, "debugTable", "getRowModel", () => e._autoResetPageIndex()));
+}
+__name(Ca, "Ca");
+function Ra(e) {
+  const n = [], t = /* @__PURE__ */ __name((r2) => {
+    var o;
+    n.push(r2), (o = r2.subRows) != null && o.length && r2.getIsExpanded() && r2.subRows.forEach(t);
+  }, "t");
+  return e.rows.forEach(t), {
+    rows: n,
+    flatRows: e.flatRows,
+    rowsById: e.rowsById
+  };
+}
+__name(Ra, "Ra");
+function ar(e, n, t) {
+  return t.options.filterFromLeafRows ? Na(e, n, t) : _a2(e, n, t);
+}
+__name(ar, "ar");
+function Na(e, n, t) {
+  var r2;
+  const o = [], a = {}, i = (r2 = t.options.maxLeafRowFilterDepth) != null ? r2 : 100, d = /* @__PURE__ */ __name(function(u, c) {
+    c === void 0 && (c = 0);
+    const g = [];
+    for (let m = 0; m < u.length; m++) {
+      var l;
+      let f = u[m];
+      const x = un(t, f.id, f.original, f.index, f.depth, void 0, f.parentId);
+      if (x.columnFilters = f.columnFilters, (l = f.subRows) != null && l.length && c < i) {
+        if (x.subRows = d(f.subRows, c + 1), f = x, n(f) && !x.subRows.length) {
+          g.push(f), a[f.id] = f, o.push(f);
+          continue;
+        }
+        if (n(f) || x.subRows.length) {
+          g.push(f), a[f.id] = f, o.push(f);
+          continue;
+        }
+      } else
+        f = x, n(f) && (g.push(f), a[f.id] = f, o.push(f));
+    }
+    return g;
+  }, "d");
+  return {
+    rows: d(e),
+    flatRows: o,
+    rowsById: a
+  };
+}
+__name(Na, "Na");
+function _a2(e, n, t) {
+  var r2;
+  const o = [], a = {}, i = (r2 = t.options.maxLeafRowFilterDepth) != null ? r2 : 100, d = /* @__PURE__ */ __name(function(u, c) {
+    c === void 0 && (c = 0);
+    const g = [];
+    for (let m = 0; m < u.length; m++) {
+      let f = u[m];
+      if (n(f)) {
+        var l;
+        if ((l = f.subRows) != null && l.length && c < i) {
+          const v = un(t, f.id, f.original, f.index, f.depth, void 0, f.parentId);
+          v.subRows = d(f.subRows, c + 1), f = v;
+        }
+        g.push(f), o.push(f), a[f.id] = f;
+      }
+    }
+    return g;
+  }, "d");
+  return {
+    rows: d(e),
+    flatRows: o,
+    rowsById: a
+  };
+}
+__name(_a2, "_a");
+function Fa() {
+  return (e, n) => T(() => [e.getPreFilteredRowModel(), e.getState().columnFilters, e.getState().globalFilter, e.getFilteredRowModel()], (t, r2, o) => {
+    if (!t.rows.length || !(r2 != null && r2.length) && !o)
+      return t;
+    const a = [...r2.map((d) => d.id).filter((d) => d !== n), o ? "__global__" : void 0].filter(Boolean), i = /* @__PURE__ */ __name((d) => {
+      for (let u = 0; u < a.length; u++)
+        if (d.columnFilters[a[u]] === false)
+          return false;
+      return true;
+    }, "i");
+    return ar(t.rows, i, e);
+  }, z(e.options, "debugTable"));
+}
+__name(Fa, "Fa");
+function Da() {
+  return (e, n) => T(() => {
+    var t;
+    return [(t = e.getColumn(n)) == null ? void 0 : t.getFacetedRowModel()];
+  }, (t) => {
+    if (!t) return /* @__PURE__ */ new Map();
+    let r2 = /* @__PURE__ */ new Map();
+    for (let a = 0; a < t.flatRows.length; a++) {
+      const i = t.flatRows[a].getUniqueValues(n);
+      for (let d = 0; d < i.length; d++) {
+        const u = i[d];
+        if (r2.has(u)) {
+          var o;
+          r2.set(u, ((o = r2.get(u)) != null ? o : 0) + 1);
+        } else
+          r2.set(u, 1);
+      }
+    }
+    return r2;
+  }, z(e.options, "debugTable"));
+}
+__name(Da, "Da");
+function Ia() {
+  return (e) => T(() => [e.getPreFilteredRowModel(), e.getState().columnFilters, e.getState().globalFilter], (n, t, r2) => {
+    if (!n.rows.length || !(t != null && t.length) && !r2) {
+      for (let m = 0; m < n.flatRows.length; m++)
+        n.flatRows[m].columnFilters = {}, n.flatRows[m].columnFiltersMeta = {};
+      return n;
+    }
+    const o = [], a = [];
+    (t ?? []).forEach((m) => {
+      var f;
+      const x = e.getColumn(m.id);
+      if (!x)
+        return;
+      const v = x.getFilterFn();
+      if (!v) {
+        return;
+      }
+      o.push({
+        id: m.id,
+        filterFn: v,
+        resolvedValue: (f = v.resolveFilterValue == null ? void 0 : v.resolveFilterValue(m.value)) != null ? f : m.value
+      });
+    });
+    const i = (t ?? []).map((m) => m.id), d = e.getGlobalFilterFn(), u = e.getAllLeafColumns().filter((m) => m.getCanGlobalFilter());
+    r2 && d && u.length && (i.push("__global__"), u.forEach((m) => {
+      var f;
+      a.push({
+        id: m.id,
+        filterFn: d,
+        resolvedValue: (f = d.resolveFilterValue == null ? void 0 : d.resolveFilterValue(r2)) != null ? f : r2
+      });
+    }));
+    let c, g;
+    for (let m = 0; m < n.flatRows.length; m++) {
+      const f = n.flatRows[m];
+      if (f.columnFilters = {}, o.length)
+        for (let x = 0; x < o.length; x++) {
+          c = o[x];
+          const v = c.id;
+          f.columnFilters[v] = c.filterFn(f, v, c.resolvedValue, (C) => {
+            f.columnFiltersMeta[v] = C;
+          });
+        }
+      if (a.length) {
+        for (let x = 0; x < a.length; x++) {
+          g = a[x];
+          const v = g.id;
+          if (g.filterFn(f, v, g.resolvedValue, (C) => {
+            f.columnFiltersMeta[v] = C;
+          })) {
+            f.columnFilters.__global__ = true;
+            break;
+          }
+        }
+        f.columnFilters.__global__ !== true && (f.columnFilters.__global__ = false);
+      }
+    }
+    const l = /* @__PURE__ */ __name((m) => {
+      for (let f = 0; f < i.length; f++)
+        if (m.columnFilters[i[f]] === false)
+          return false;
+      return true;
+    }, "l");
+    return ar(n.rows, l, e);
+  }, z(e.options, "debugTable", "getFilteredRowModel", () => e._autoResetPageIndex()));
+}
+__name(Ia, "Ia");
+function Ma(e) {
+  return (n) => T(() => [n.getState().pagination, n.getPrePaginationRowModel(), n.options.paginateExpandedRows ? void 0 : n.getState().expanded], (t, r2) => {
+    if (!r2.rows.length)
+      return r2;
+    const {
+      pageSize: o,
+      pageIndex: a
+    } = t;
+    let {
+      rows: i,
+      flatRows: d,
+      rowsById: u
+    } = r2;
+    const c = o * a, g = c + o;
+    i = i.slice(c, g);
+    let l;
+    n.options.paginateExpandedRows ? l = {
+      rows: i,
+      flatRows: d,
+      rowsById: u
+    } : l = Ra({
+      rows: i,
+      flatRows: d,
+      rowsById: u
+    }), l.flatRows = [];
+    const m = /* @__PURE__ */ __name((f) => {
+      l.flatRows.push(f), f.subRows.length && f.subRows.forEach(m);
+    }, "m");
+    return l.rows.forEach(m), l;
+  }, z(n.options, "debugTable"));
+}
+__name(Ma, "Ma");
+function Ea() {
+  return (e) => T(() => [e.getState().sorting, e.getPreSortedRowModel()], (n, t) => {
+    if (!t.rows.length || !(n != null && n.length))
+      return t;
+    const r2 = e.getState().sorting, o = [], a = r2.filter((u) => {
+      var c;
+      return (c = e.getColumn(u.id)) == null ? void 0 : c.getCanSort();
+    }), i = {};
+    a.forEach((u) => {
+      const c = e.getColumn(u.id);
+      c && (i[u.id] = {
+        sortUndefined: c.columnDef.sortUndefined,
+        invertSorting: c.columnDef.invertSorting,
+        sortingFn: c.getSortingFn()
+      });
+    });
+    const d = /* @__PURE__ */ __name((u) => {
+      const c = u.map((g) => ({
+        ...g
+      }));
+      return c.sort((g, l) => {
+        for (let f = 0; f < a.length; f += 1) {
+          var m;
+          const x = a[f], v = i[x.id], C = v.sortUndefined, w = (m = x == null ? void 0 : x.desc) != null ? m : false;
+          let D = 0;
+          if (C) {
+            const _ = g.getValue(x.id), A = l.getValue(x.id), M = _ === void 0, E = A === void 0;
+            if (M || E) {
+              if (C === "first") return M ? -1 : 1;
+              if (C === "last") return M ? 1 : -1;
+              D = M && E ? 0 : M ? C : -C;
+            }
+          }
+          if (D === 0 && (D = v.sortingFn(g, l, x.id)), D !== 0)
+            return w && (D *= -1), v.invertSorting && (D *= -1), D;
+        }
+        return g.index - l.index;
+      }), c.forEach((g) => {
+        var l;
+        o.push(g), (l = g.subRows) != null && l.length && (g.subRows = d(g.subRows));
+      }), c;
+    }, "d");
+    return {
+      rows: d(t.rows),
+      flatRows: o,
+      rowsById: t.rowsById
+    };
+  }, z(e.options, "debugTable", "getSortedRowModel", () => e._autoResetPageIndex()));
+}
+__name(Ea, "Ea");
+function Dn(e, n) {
+  return e ? Pa(e) ? /* @__PURE__ */ p.createElement(e, n) : e : null;
+}
+__name(Dn, "Dn");
+function Pa(e) {
+  return ka(e) || typeof e == "function" || Va(e);
+}
+__name(Pa, "Pa");
+function ka(e) {
+  return typeof e == "function" && (() => {
+    const n = Object.getPrototypeOf(e);
+    return n.prototype && n.prototype.isReactComponent;
+  })();
+}
+__name(ka, "ka");
+function Va(e) {
+  return typeof e == "object" && typeof e.$$typeof == "symbol" && ["react.memo", "react.forward_ref"].includes(e.$$typeof.description);
+}
+__name(Va, "Va");
+function $a(e) {
+  const n = {
+    state: {},
+    // Dummy state
+    onStateChange: /* @__PURE__ */ __name(() => {
+    }, "onStateChange"),
+    // noop
+    renderFallbackValue: null,
+    ...e
+  }, [t] = p.useState(() => ({
+    current: Sa(n)
+  })), [r2, o] = p.useState(() => t.current.initialState);
+  return t.current.setOptions((a) => ({
+    ...a,
+    ...e,
+    state: {
+      ...r2,
+      ...e.state
+    },
+    // Similarly, we'll maintain both our internal state and any user-provided
+    // state.
+    onStateChange: /* @__PURE__ */ __name((i) => {
+      o(i), e.onStateChange == null || e.onStateChange(i);
+    }, "onStateChange")
+  })), t.current;
+}
+__name($a, "$a");
+function sr({
+  table: e,
+  styles: n
+}) {
+  const t = e.getState().pagination.pageIndex + 1, r2 = e.getPageCount(), o = r2 <= 1, a = p.useMemo(() => Array.from({ length: r2 }, (l, m) => m + 1), [r2]), { pageIndex: i, pageSize: d } = e.getState().pagination, u = e.getRowCount(), c = u === 0 ? 0 : i * d + 1, g = Math.min((i + 1) * d, u);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: h("flex items-center justify-between gap-2 px-4 py-4 border-t border-trax-neutral-40", n == null ? void 0 : n.container), children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: h("text-sm font-normal text-trax-grey-600", n == null ? void 0 : n.itemsInfo), children: [
+      c,
+      "-",
+      g,
+      " of ",
+      u,
+      " ",
+      u === 1 ? "item" : "items"
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: h("text-sm font-medium text-trax-neutral-300", o && "opacity-50", n == null ? void 0 : n.label), children: "Page" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        $t,
+        {
+          value: t.toString(),
+          onValueChange: /* @__PURE__ */ __name((l) => {
+            e.setPageIndex(Number(l) - 1);
+          }, "onValueChange"),
+          disabled: o,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              xt,
+              {
+                className: h("w-16 rounded-lg text-trax-grey-600", n == null ? void 0 : n.selectTrigger),
+                iconClassName: h("text-trax-neutral-200 opacity-100", n == null ? void 0 : n.selectTriggerIcon),
+                disabled: o,
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Tt, { placeholder: t.toString() })
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              vt,
+              {
+                className: h("text-trax-grey-900", n == null ? void 0 : n.selectContent),
+                viewportClassName: n == null ? void 0 : n.selectContentViewport,
+                widthMode: (n == null ? void 0 : n.selectContentWidthMode) ?? "trigger",
+                children: a.map((l) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  bt,
+                  {
+                    value: l.toString(),
+                    className: n == null ? void 0 : n.selectItem,
+                    showCheckIcon: (n == null ? void 0 : n.selectItemShowCheckIcon) ?? false,
+                    children: l
+                  },
+                  l
+                ))
+              }
+            )
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: h("text-sm font-medium text-trax-neutral-300", o && "opacity-50", n == null ? void 0 : n.label), children: [
+        "of ",
+        r2
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1 ml-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Ue,
+          {
+            variant: "subtle",
+            size: "icon",
+            onClick: /* @__PURE__ */ __name(() => e.previousPage(), "onClick"),
+            disabled: !e.getCanPreviousPage(),
+            className: n == null ? void 0 : n.button,
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronLeft, { className: "h-4 w-4" })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Ue,
+          {
+            variant: "subtle",
+            size: "icon",
+            onClick: /* @__PURE__ */ __name(() => e.nextPage(), "onClick"),
+            disabled: !e.getCanNextPage(),
+            className: n == null ? void 0 : n.button,
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-4 w-4" })
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+__name(sr, "sr");
+sr.displayName = "DataTablePagination";
+function Ta({
+  column: e,
+  title: n,
+  className: t,
+  styles: r2
+}) {
+  if (!e.getCanSort())
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: h(r2 == null ? void 0 : r2.title), children: n });
+  const o = e.getIsSorted(), a = /* @__PURE__ */ __name(() => o === "asc" ? `Sort ${n} descending` : o === "desc" ? `Clear ${n} sorting` : `Sort ${n} ascending`, "a"), i = /* @__PURE__ */ __name(() => {
+    const d = e.getIsSorted();
+    d === false ? e.toggleSorting(false) : d === "asc" ? e.toggleSorting(true) : e.clearSorting();
+  }, "i");
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      role: "button",
+      tabIndex: 0,
+      "aria-label": a(),
+      className: h(
+        "flex items-center gap-1 cursor-pointer select-none group",
+        r2 == null ? void 0 : r2.container,
+        t
+      ),
+      onClick: i,
+      onKeyDown: /* @__PURE__ */ __name((d) => {
+        (d.key === "Enter" || d.key === " ") && (d.preventDefault(), i());
+      }, "onKeyDown"),
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "span",
+          {
+            className: h(
+              "text-trax-neutral-600 group-hover:text-trax-neutral-200 group-focus:text-trax-neutral-200 transition-colors",
+              r2 == null ? void 0 : r2.title
+            ),
+            children: n
+          }
+        ),
+        o === false && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ChevronsUpDown,
+          {
+            className: h(
+              "size-3 text-trax-neutral-600 group-hover:text-trax-neutral-200 group-focus:text-trax-neutral-200 transition-colors",
+              r2 == null ? void 0 : r2.icon
+            )
+          }
+        ),
+        o === "asc" && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ArrowUp,
+          {
+            className: h(
+              "h-4 w-4 text-trax-neutral-600 group-hover:text-trax-neutral-200 group-focus:text-trax-neutral-200 transition-colors",
+              r2 == null ? void 0 : r2.icon
+            )
+          }
+        ),
+        o === "desc" && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ArrowDown,
+          {
+            className: h(
+              "h-4 w-4 text-trax-neutral-600 group-hover:text-trax-neutral-200 group-focus:text-trax-neutral-200 transition-colors",
+              r2 == null ? void 0 : r2.icon
+            )
+          }
+        )
+      ]
+    }
+  );
+}
+__name(Ta, "Ta");
+Ta.displayName = "DataTableColumnHeader";
+function ri({
+  columns: e,
+  data: n,
+  emptyState: t,
+  className: r2,
+  tableClassName: o,
+  editingRowId: a,
+  onRowEdit: i,
+  onRowSave: d,
+  onRowCancel: u,
+  onRowClick: c,
+  getRowId: g,
+  styles: l,
+  enablePagination: m = false,
+  pageSize: f = 10,
+  onPaginationChange: x,
+  pagination: v,
+  manualPagination: C = false,
+  pageCount: w,
+  rowCount: D,
+  enableSorting: _ = false,
+  sorting: A,
+  onSortingChange: M,
+  manualSorting: E = false,
+  enableFiltering: U = false,
+  columnFilters: I,
+  onColumnFiltersChange: H,
+  manualFiltering: P = false,
+  toolbar: L,
+  isLoading: K = false,
+  loadingState: B
+}) {
+  var _a3;
+  const [O, X2] = p.useState({
+    pageIndex: 0,
+    pageSize: f
+  }), [$, Z] = p.useState([]), [ne, k] = p.useState([]), te = v ?? O, oe = x ?? X2, ie = A ?? $, y = M ?? Z, V = I ?? ne, J = H ?? k, Y = $a({
+    data: n,
+    columns: e,
+    getCoreRowModel: Ca(),
+    getPaginationRowModel: m && !C ? Ma() : void 0,
+    getSortedRowModel: _ && !E ? Ea() : void 0,
+    getFilteredRowModel: U && !P ? Ia() : void 0,
+    getFacetedRowModel: U ? Fa() : void 0,
+    getFacetedUniqueValues: U ? Da() : void 0,
+    onPaginationChange: m ? oe : void 0,
+    onSortingChange: _ ? y : void 0,
+    onColumnFiltersChange: U ? J : void 0,
+    manualPagination: C,
+    manualSorting: E,
+    manualFiltering: P,
+    pageCount: w,
+    rowCount: D,
+    getRowId: g,
+    state: {
+      ...m && { pagination: te },
+      ..._ && { sorting: ie },
+      ...U && { columnFilters: V }
+    }
+  }), W = /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col items-center justify-center py-12 px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-lg font-medium text-trax-grey-900 mb-2", children: "No data" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-trax-grey-500", children: "Start adding data to see it here" })
+  ] }) }), G2 = typeof L == "function" ? L(Y) : L, ce = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx($o, { className: "bg-trax-neutral-10", children: Y.getHeaderGroups().map((re2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ht, { className: l == null ? void 0 : l.headerRow, children: re2.headers.map((ee) => /* @__PURE__ */ jsxRuntimeExports.jsx(zo, { className: l == null ? void 0 : l.headerCell, children: ee.isPlaceholder ? null : Dn(
+    ee.column.columnDef.header,
+    ee.getContext()
+  ) }, ee.id)) }, re2.id)) }), "ce"), pe = /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, { className: "size-5" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-normal italic text-trax-neutral-300", children: "Searching" })
+  ] }), Se = /* @__PURE__ */ __name(() => /* @__PURE__ */ jsxRuntimeExports.jsx(Ht, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Nn, { colSpan: e.length, className: "h-32 text-center", children: B || pe }) }), "Se");
+  return !((_a3 = Y.getRowModel().rows) == null ? void 0 : _a3.length) && !K ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: h("overflow-hidden rounded-md border", r2), children: [
+    G2,
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Rn, { className: o, children: ce() }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t", children: t || W })
+  ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: h("overflow-hidden rounded-md border", r2), children: [
+    G2,
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Rn, { className: o, children: [
+      ce(),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(To, { children: K ? Se() : Y.getRowModel().rows.map((re2) => {
+        const ee = a === re2.id, ae = !!c && !ee, Ee = /* @__PURE__ */ __name((fe) => {
+          !c || ee || fe.target.closest(
+            'button, a, input, select, textarea, [role="button"], [data-interactive]'
+          ) || c(re2, fe);
+        }, "Ee");
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Ht,
+          {
+            "data-state": re2.getIsSelected() && "selected",
+            "data-editing": ee ? "true" : void 0,
+            onClick: Ee,
+            className: h(
+              ee && "bg-blue-50 border-blue-200",
+              ae && "cursor-pointer hover:bg-trax-neutral-10",
+              l == null ? void 0 : l.bodyRow
+            ),
+            children: re2.getVisibleCells().map((fe) => /* @__PURE__ */ jsxRuntimeExports.jsx(Nn, { className: l == null ? void 0 : l.bodyCell, children: Dn(fe.column.columnDef.cell, {
+              ...fe.getContext(),
+              isEditing: ee,
+              onEdit: /* @__PURE__ */ __name(() => i == null ? void 0 : i(re2), "onEdit"),
+              onSave: /* @__PURE__ */ __name(() => d == null ? void 0 : d(re2), "onSave"),
+              onCancel: u
+            }) }, fe.id))
+          },
+          re2.id
+        );
+      }) })
+    ] }),
+    m && /* @__PURE__ */ jsxRuntimeExports.jsx(sr, { table: Y, styles: l == null ? void 0 : l.pagination })
+  ] });
+}
+__name(ri, "ri");
 p.createContext(null);
 function ur(e) {
   return ln({ attr: { viewBox: "0 0 24 24" }, child: [{ tag: "path", attr: { fill: "none", d: "M0 0h24v24H0z" }, child: [] }, { tag: "path", attr: { d: "M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2m5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12z" }, child: [] }] })(e);
@@ -17316,30 +19635,30 @@ const dr = p.forwardRef(
     p.useImperativeHandle(C, () => _.current);
     const L = p.useRef(o);
     L.current = o, p.useEffect(() => {
-      var _a2;
-      (_a2 = L.current) == null ? void 0 : _a2.call(L, String(P));
+      var _a3;
+      (_a3 = L.current) == null ? void 0 : _a3.call(L, String(P));
     }, [P]);
     const K = /* @__PURE__ */ __name((k) => {
       A || E(k.target.value), f == null ? void 0 : f(k);
     }, "K"), B = /* @__PURE__ */ __name(() => {
-      var _a2, _b2;
+      var _a3, _b2;
       A || E(""), f == null ? void 0 : f({
         target: { value: "" }
-      }), (_a2 = L.current) == null ? void 0 : _a2.call(L, ""), (_b2 = _.current) == null ? void 0 : _b2.focus();
+      }), (_a3 = L.current) == null ? void 0 : _a3.call(L, ""), (_b2 = _.current) == null ? void 0 : _b2.focus();
     }, "B"), O = /* @__PURE__ */ __name((k) => {
       k.stopPropagation(), B();
     }, "O"), X2 = /* @__PURE__ */ __name((k) => {
-      var _a2;
-      I(true), (_a2 = v.onFocus) == null ? void 0 : _a2.call(v, k);
+      var _a3;
+      I(true), (_a3 = v.onFocus) == null ? void 0 : _a3.call(v, k);
     }, "X"), $ = /* @__PURE__ */ __name((k) => {
       I(false), x == null ? void 0 : x(k);
     }, "$"), Z = /* @__PURE__ */ __name((k) => {
-      var _a2;
+      var _a3;
       if ((k.key === "Backspace" || k.key === "Delete") && (k.metaKey || k.ctrlKey || k.altKey) && H) {
         k.preventDefault(), B();
         return;
       }
-      (_a2 = v.onKeyDown) == null ? void 0 : _a2.call(v, k);
+      (_a3 = v.onKeyDown) == null ? void 0 : _a3.call(v, k);
     }, "Z"), ne = U && H && !c;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: h("flex flex-col gap-1 w-full", u), children: [
       e && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1", children: [
@@ -17968,8 +20287,8 @@ const qa = p.forwardRef(({ className: e, indicatorClassName: n, value: t = 0, di
 qa.displayName = "FormProgress";
 function cr(e = {}) {
   const { enabled: n = true, externalRef: t, deps: r2 = [] } = e, o = pn(null), a = pn(null), [i, d] = Pn(false), u = mn((g) => {
-    var _a2;
-    if ((_a2 = o.current) == null ? void 0 : _a2.disconnect(), o.current = null, a.current = g, !g || !n) {
+    var _a3;
+    if ((_a3 = o.current) == null ? void 0 : _a3.disconnect(), o.current = null, a.current = g, !g || !n) {
       d(false);
       return;
     }
@@ -17989,8 +20308,8 @@ function cr(e = {}) {
     const g = a.current;
     !g || !n || d(g.scrollWidth > g.offsetWidth);
   }, [n, ...r2]), Dt(() => () => {
-    var _a2;
-    (_a2 = o.current) == null ? void 0 : _a2.disconnect(), o.current = null;
+    var _a3;
+    (_a3 = o.current) == null ? void 0 : _a3.disconnect(), o.current = null;
   }, []), { ref: c, isTruncated: i };
 }
 __name(cr, "cr");
@@ -18125,18 +20444,18 @@ function gn({
   dropdownClassName: B,
   portal: O = false
 }) {
-  var _a2;
+  var _a3;
   const X2 = p.useId(), $ = A || `search-select-${X2}`, Z = p.useRef(null), ne = p.useRef(null), k = p.useRef(null), te = p.useRef(null), oe = p.useRef([]), ie = M && I ? M(I, E) : null, y = p.useRef(ie);
   y.current = ie;
   const V = p.useRef(e);
   V.current = e;
   const J = p.useCallback(
     (R) => {
-      var _a3;
+      var _a4;
       k.current = R;
       const q = V.current;
       q && (typeof q == "function" ? q(R) : q.current = R);
-      const Ve = (_a3 = y.current) == null ? void 0 : _a3.ref;
+      const Ve = (_a4 = y.current) == null ? void 0 : _a4.ref;
       Ve && (typeof Ve == "function" ? Ve(R) : Ve.current = R);
     },
     []
@@ -18208,25 +20527,25 @@ function gn({
       ot.current = false;
     }, 0);
   }, "Q"), F = /* @__PURE__ */ __name(() => {
-    var _a3;
-    ce(null), Se(null), W(""), ue(false), ie && ie.onChange({ target: { name: I, value: null } }), d == null ? void 0 : d(null), _e2 && c ? et("") : (ee(false), Ie()), (_a3 = k.current) == null ? void 0 : _a3.focus();
+    var _a4;
+    ce(null), Se(null), W(""), ue(false), ie && ie.onChange({ target: { name: I, value: null } }), d == null ? void 0 : d(null), _e2 && c ? et("") : (ee(false), Ie()), (_a4 = k.current) == null ? void 0 : _a4.focus();
   }, "F"), se = /* @__PURE__ */ __name((R) => {
-    var _a3;
+    var _a4;
     if (R.stopPropagation(), !L && fe && pe) {
-      ce(pe), Me.current = true, W(""), ue(false), _e2 && c ? et("") : (ee(false), Ie()), (_a3 = k.current) == null ? void 0 : _a3.focus();
+      ce(pe), Me.current = true, W(""), ue(false), _e2 && c ? et("") : (ee(false), Ie()), (_a4 = k.current) == null ? void 0 : _a4.focus();
       return;
     }
     F();
   }, "se"), ve = /* @__PURE__ */ __name(() => {
     Je.current = false, Fe(true), He.current && clearTimeout(He.current), G2 && !fe && W("");
   }, "ve"), we = p.useCallback(() => {
-    var _a3, _b2;
+    var _a4, _b2;
     const R = Ke.current, q = at2.current, Ve = Ae.current, Ge = y.current;
-    ee(false), Ie(), H ? !R && Ve && (W(""), ue(false), Ge && Ge.onChange({ target: { name: I, value: null } }), (_a3 = Pe.current) == null ? void 0 : _a3.call(Pe, null)) : Ve && q && !R ? (ce(q), Me.current = true, W(q.label), ue(false), Ge && Ge.onChange({ target: { name: I, value: q } }), (_b2 = Pe.current) == null ? void 0 : _b2.call(Pe, q)) : !R && !q && (W(""), ue(false));
+    ee(false), Ie(), H ? !R && Ve && (W(""), ue(false), Ge && Ge.onChange({ target: { name: I, value: null } }), (_a4 = Pe.current) == null ? void 0 : _a4.call(Pe, null)) : Ve && q && !R ? (ce(q), Me.current = true, W(q.label), ue(false), Ge && Ge.onChange({ target: { name: I, value: q } }), (_b2 = Pe.current) == null ? void 0 : _b2.call(Pe, q)) : !R && !q && (W(""), ue(false));
   }, [H, I, Ie]), lt = /* @__PURE__ */ __name((R) => {
     Je.current = true, Fe(false), he.current && clearTimeout(he.current), He.current = setTimeout(() => {
-      var _a3;
-      ((_a3 = ne.current) == null ? void 0 : _a3.contains(document.activeElement)) || we(), setTimeout(() => {
+      var _a4;
+      ((_a4 = ne.current) == null ? void 0 : _a4.contains(document.activeElement)) || we(), setTimeout(() => {
         Je.current = false;
       }, 100);
     }, 200), ie && ie.onBlur(R), U == null ? void 0 : U(R);
@@ -18254,17 +20573,17 @@ function gn({
       }
   }, "xe");
   p.useEffect(() => {
-    var _a3;
-    ae >= 0 && oe.current[ae] && ((_a3 = oe.current[ae]) == null ? void 0 : _a3.scrollIntoView({
+    var _a4;
+    ae >= 0 && oe.current[ae] && ((_a4 = oe.current[ae]) == null ? void 0 : _a4.scrollIntoView({
       block: "nearest",
       behavior: "smooth"
     }));
   }, [ae]);
   const Ce = p.useCallback((R) => {
-    var _a3;
+    var _a4;
     if (!Z.current) return;
     const q = R.target;
-    Z.current.contains(q) || O && ((_a3 = ne.current) == null ? void 0 : _a3.contains(q)) || (he.current && clearTimeout(he.current), Fe(false), we());
+    Z.current.contains(q) || O && ((_a4 = ne.current) == null ? void 0 : _a4.contains(q)) || (he.current && clearTimeout(he.current), Fe(false), we());
   }, [we, O]);
   p.useEffect(() => {
     if (re2)
@@ -18358,7 +20677,7 @@ function gn({
                 "data-[state=open]:animate-none data-[state=closed]:animate-none",
                 B
               ),
-              style: { width: (_a2 = te.current) == null ? void 0 : _a2.offsetWidth },
+              style: { width: (_a3 = te.current) == null ? void 0 : _a3.offsetWidth },
               children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "div",
                 {
@@ -18527,10 +20846,10 @@ function Wa({
 }, M) {
   const E = p.useRef(null), U = p.useRef(null), I = p.useRef(null), H = p.useRef(null), [P, L] = p.useState(false);
   p.useImperativeHandle(M, () => E.current, [E.current]), p.useLayoutEffect(() => {
-    var _a2;
+    var _a3;
     if (!P) {
       H.current && (clearTimeout(H.current), H.current = null);
-      const B = (_a2 = I.current) == null ? void 0 : _a2.querySelector("input");
+      const B = (_a3 = I.current) == null ? void 0 : _a3.querySelector("input");
       B && (B.style.color = "transparent");
     }
   }, [P]);
@@ -18581,8 +20900,8 @@ function Wa({
           ),
           onOpenAutoFocus: /* @__PURE__ */ __name((B) => {
             B.preventDefault(), H.current = setTimeout(() => {
-              var _a2, _b2;
-              (_a2 = U.current) == null ? void 0 : _a2.focus();
+              var _a3, _b2;
+              (_a3 = U.current) == null ? void 0 : _a3.focus();
               const O = (_b2 = I.current) == null ? void 0 : _b2.querySelector("input");
               O && (O.style.color = ""), H.current = null;
             }, 0);
@@ -18823,14 +21142,14 @@ const Ja = p.forwardRef(
 );
 Ja.displayName = "CostAllocation";
 function In(e, n, t = "narrow") {
-  var _a2;
-  return ((_a2 = new Intl.NumberFormat(n, {
+  var _a3;
+  return ((_a3 = new Intl.NumberFormat(n, {
     style: "currency",
     currency: e,
     currencyDisplay: t === "narrow" ? "narrowSymbol" : "symbol",
     minimumFractionDigits: 0,
     maximumFractionDigits: 0
-  }).formatToParts(1).find((a) => a.type === "currency")) == null ? void 0 : _a2.value) ?? e;
+  }).formatToParts(1).find((a) => a.type === "currency")) == null ? void 0 : _a3.value) ?? e;
 }
 __name(In, "In");
 const es = p.forwardRef(
@@ -18959,10 +21278,10 @@ const ts = p.forwardRef(
     p.useEffect(() => {
       I || U(false);
     }, [I]), p.useLayoutEffect(() => {
-      var _a2;
+      var _a3;
       if (!E) {
         M.current && (clearTimeout(M.current), M.current = null);
-        const O = (_a2 = A.current) == null ? void 0 : _a2.querySelector("input");
+        const O = (_a3 = A.current) == null ? void 0 : _a3.querySelector("input");
         O && (O.style.color = "transparent");
       }
     }, [E]);
@@ -19053,8 +21372,8 @@ const ts = p.forwardRef(
               ),
               onOpenAutoFocus: /* @__PURE__ */ __name((X2) => {
                 X2.preventDefault(), M.current = setTimeout(() => {
-                  var _a2, _b2;
-                  (_a2 = _.current) == null ? void 0 : _a2.focus();
+                  var _a3, _b2;
+                  (_a3 = _.current) == null ? void 0 : _a3.focus();
                   const $ = (_b2 = A.current) == null ? void 0 : _b2.querySelector("input");
                   $ && ($.style.color = ""), M.current = null;
                 }, 0);
@@ -19065,8 +21384,8 @@ const ts = p.forwardRef(
                   className: "[&_input::placeholder]:text-xs px-2 py-2",
                   value: t.value,
                   onValueChange: /* @__PURE__ */ __name((X2) => {
-                    var _a2;
-                    (_a2 = t.onValueChange) == null ? void 0 : _a2.call(t, X2), X2 && U(false);
+                    var _a3;
+                    (_a3 = t.onValueChange) == null ? void 0 : _a3.call(t, X2), X2 && U(false);
                   }, "onValueChange"),
                   placeholder: t.placeholder,
                   onSearch: t.onSearch,
@@ -19495,9 +21814,9 @@ __name(isHttpApiError, "isHttpApiError");
 const TIMEOUT_CODES = /* @__PURE__ */ new Set(["ECONNABORTED", "ETIMEDOUT"]);
 const RETRYABLE_KINDS = /* @__PURE__ */ new Set(["offline", "timeout", "server"]);
 function getResponseStatus$1(error) {
-  var _a2;
+  var _a3;
   if (!isHttpApiError(error)) return void 0;
-  const status = (_a2 = error.response) == null ? void 0 : _a2.status;
+  const status = (_a3 = error.response) == null ? void 0 : _a3.status;
   return typeof status === "number" ? status : void 0;
 }
 __name(getResponseStatus$1, "getResponseStatus$1");
@@ -19541,16 +21860,16 @@ function isRetryableError(error) {
 __name(isRetryableError, "isRetryableError");
 const EMPTY = { messages: [], fieldErrors: [], source: null };
 function getResponseBody(error) {
-  var _a2;
+  var _a3;
   if (!isHttpApiError(error)) return void 0;
-  const data = (_a2 = error.response) == null ? void 0 : _a2.data;
+  const data = (_a3 = error.response) == null ? void 0 : _a3.data;
   return data && typeof data === "object" ? data : void 0;
 }
 __name(getResponseBody, "getResponseBody");
 function getResponseStatus(error) {
-  var _a2;
+  var _a3;
   if (!isHttpApiError(error)) return void 0;
-  const status = (_a2 = error.response) == null ? void 0 : _a2.status;
+  const status = (_a3 = error.response) == null ? void 0 : _a3.status;
   return typeof status === "number" ? status : void 0;
 }
 __name(getResponseStatus, "getResponseStatus");
@@ -19681,8 +22000,8 @@ function mayShowBackendMessage(kind) {
 }
 __name(mayShowBackendMessage, "mayShowBackendMessage");
 function getCopyOverride(kind, context) {
-  var _a2;
-  return (_a2 = RULES[kind].override) == null ? void 0 : _a2[context];
+  var _a3;
+  return (_a3 = RULES[kind].override) == null ? void 0 : _a3[context];
 }
 __name(getCopyOverride, "getCopyOverride");
 function getContextFallback(context) {
@@ -19696,12 +22015,12 @@ function buildDedupeKey(kind, message2, isSessionEvent, isConnectivity) {
 }
 __name(buildDedupeKey, "buildDedupeKey");
 function interpretError(error, options2 = {}) {
-  var _a2, _b2, _c2;
+  var _a3, _b2, _c2;
   const context = options2.context ?? "load";
   const { kind, status } = classifyError(error);
   const extracted = extractError(error);
   if (isAppError(error)) {
-    const message22 = ((_a2 = options2.copy) == null ? void 0 : _a2.override) ?? error.message;
+    const message22 = ((_a3 = options2.copy) == null ? void 0 : _a3.override) ?? error.message;
     return {
       kind,
       status,
@@ -19775,10 +22094,10 @@ function getQueryClaimState(queryHash) {
 }
 __name(getQueryClaimState, "getQueryClaimState");
 function getDisplacedClaimFallback(queryHash) {
-  var _a2;
+  var _a3;
   const entry = claims.get(queryHash);
   if (!entry) return void 0;
-  return ((_a2 = entry.live.find((c) => c.fallback)) == null ? void 0 : _a2.fallback) ?? entry.lastFallback;
+  return ((_a3 = entry.live.find((c) => c.fallback)) == null ? void 0 : _a3.fallback) ?? entry.lastFallback;
 }
 __name(getDisplacedClaimFallback, "getDisplacedClaimFallback");
 function forgetQueryClaims(queryHash) {
@@ -19830,16 +22149,16 @@ var FocusManager = (_c = class extends Subscribable {
     }
   }
   onUnsubscribe() {
-    var _a2;
+    var _a3;
     if (!this.hasListeners()) {
-      (_a2 = __privateGet(this, _cleanup)) == null ? void 0 : _a2.call(this);
+      (_a3 = __privateGet(this, _cleanup)) == null ? void 0 : _a3.call(this);
       __privateSet(this, _cleanup, void 0);
     }
   }
   setEventListener(setup) {
-    var _a2;
+    var _a3;
     __privateSet(this, _setup, setup);
-    (_a2 = __privateGet(this, _cleanup)) == null ? void 0 : _a2.call(this);
+    (_a3 = __privateGet(this, _cleanup)) == null ? void 0 : _a3.call(this);
     __privateSet(this, _cleanup, setup((focused) => {
       if (typeof focused === "boolean") {
         this.setFocused(focused);
@@ -19862,11 +22181,11 @@ var FocusManager = (_c = class extends Subscribable {
     });
   }
   isFocused() {
-    var _a2;
+    var _a3;
     if (typeof __privateGet(this, _focused) === "boolean") {
       return __privateGet(this, _focused);
     }
-    return ((_a2 = globalThis.document) == null ? void 0 : _a2.visibilityState) !== "hidden";
+    return ((_a3 = globalThis.document) == null ? void 0 : _a3.visibilityState) !== "hidden";
   }
 }, _focused = new WeakMap(), _cleanup = new WeakMap(), _setup = new WeakMap(), __name(_c, "FocusManager"), _c);
 var focusManager = new FocusManager();
@@ -20299,18 +22618,18 @@ function createNotifyManager() {
      * Use this method to set a custom notify function.
      * This can be used to for example wrap notifications with `React.act` while running tests.
      */
-    setNotifyFunction: /* @__PURE__ */ __name((fn) => {
-      notifyFn = fn;
+    setNotifyFunction: /* @__PURE__ */ __name((fn2) => {
+      notifyFn = fn2;
     }, "setNotifyFunction"),
     /**
      * Use this method to set a custom function to batch notifications together into a single tick.
      * By default React Query will use the batch function provided by ReactDOM or React Native.
      */
-    setBatchNotifyFunction: /* @__PURE__ */ __name((fn) => {
-      batchNotifyFn = fn;
+    setBatchNotifyFunction: /* @__PURE__ */ __name((fn2) => {
+      batchNotifyFn = fn2;
     }, "setBatchNotifyFunction"),
-    setScheduler: /* @__PURE__ */ __name((fn) => {
-      scheduleFn = fn;
+    setScheduler: /* @__PURE__ */ __name((fn2) => {
+      scheduleFn = fn2;
     }, "setScheduler")
   };
 }
@@ -20342,16 +22661,16 @@ var OnlineManager = (_e = class extends Subscribable {
     }
   }
   onUnsubscribe() {
-    var _a2;
+    var _a3;
     if (!this.hasListeners()) {
-      (_a2 = __privateGet(this, _cleanup2)) == null ? void 0 : _a2.call(this);
+      (_a3 = __privateGet(this, _cleanup2)) == null ? void 0 : _a3.call(this);
       __privateSet(this, _cleanup2, void 0);
     }
   }
   setEventListener(setup) {
-    var _a2;
+    var _a3;
     __privateSet(this, _setup2, setup);
-    (_a2 = __privateGet(this, _cleanup2)) == null ? void 0 : _a2.call(this);
+    (_a3 = __privateGet(this, _cleanup2)) == null ? void 0 : _a3.call(this);
     __privateSet(this, _cleanup2, setup(this.setOnline.bind(this)));
   }
   setOnline(online) {
@@ -20390,11 +22709,11 @@ function createRetryer(config) {
   const thenable = pendingThenable();
   const isResolved = /* @__PURE__ */ __name(() => thenable.status !== "pending", "isResolved");
   const cancel = /* @__PURE__ */ __name((cancelOptions) => {
-    var _a2;
+    var _a3;
     if (!isResolved()) {
       const error = new CancelledError(cancelOptions);
       reject(error);
-      (_a2 = config.onCancel) == null ? void 0 : _a2.call(config, error);
+      (_a3 = config.onCancel) == null ? void 0 : _a3.call(config, error);
     }
   }, "cancel");
   const cancelRetry = /* @__PURE__ */ __name(() => {
@@ -20419,18 +22738,18 @@ function createRetryer(config) {
   }, "reject");
   const pause = /* @__PURE__ */ __name(() => {
     return new Promise((continueResolve) => {
-      var _a2;
+      var _a3;
       continueFn = /* @__PURE__ */ __name((value) => {
         if (isResolved() || canContinue()) {
           continueResolve(value);
         }
       }, "continueFn");
-      (_a2 = config.onPause) == null ? void 0 : _a2.call(config);
+      (_a3 = config.onPause) == null ? void 0 : _a3.call(config);
     }).then(() => {
-      var _a2;
+      var _a3;
       continueFn = void 0;
       if (!isResolved()) {
-        (_a2 = config.onContinue) == null ? void 0 : _a2.call(config);
+        (_a3 = config.onContinue) == null ? void 0 : _a3.call(config);
       }
     });
   }, "pause");
@@ -20446,7 +22765,7 @@ function createRetryer(config) {
       promiseOrValue = Promise.reject(error);
     }
     Promise.resolve(promiseOrValue).then(resolve).catch((error) => {
-      var _a2;
+      var _a3;
       if (isResolved()) {
         return;
       }
@@ -20459,7 +22778,7 @@ function createRetryer(config) {
         return;
       }
       failureCount++;
-      (_a2 = config.onFail) == null ? void 0 : _a2.call(config, failureCount, error);
+      (_a3 = config.onFail) == null ? void 0 : _a3.call(config, failureCount, error);
       sleep(delay).then(() => {
         return canContinue() ? void 0 : pause();
       }).then(() => {
@@ -20524,9 +22843,9 @@ var Removable = (_g = class {
 function infiniteQueryBehavior(pages) {
   return {
     onFetch: /* @__PURE__ */ __name((context, query) => {
-      var _a2, _b2, _c2, _d2, _e2;
+      var _a3, _b2, _c2, _d2, _e2;
       const options2 = context.options;
-      const direction = (_c2 = (_b2 = (_a2 = context.fetchOptions) == null ? void 0 : _a2.meta) == null ? void 0 : _b2.fetchMore) == null ? void 0 : _c2.direction;
+      const direction = (_c2 = (_b2 = (_a3 = context.fetchOptions) == null ? void 0 : _a3.meta) == null ? void 0 : _b2.fetchMore) == null ? void 0 : _c2.direction;
       const oldPages = ((_d2 = context.state.data) == null ? void 0 : _d2.pages) || [];
       const oldPageParams = ((_e2 = context.state.data) == null ? void 0 : _e2.pageParams) || [];
       let result = { pages: [], pageParams: [] };
@@ -20592,9 +22911,9 @@ function infiniteQueryBehavior(pages) {
       }, "fetchFn");
       if (context.options.persister) {
         context.fetchFn = () => {
-          var _a3, _b3;
-          return (_b3 = (_a3 = context.options).persister) == null ? void 0 : _b3.call(
-            _a3,
+          var _a4, _b3;
+          return (_b3 = (_a4 = context.options).persister) == null ? void 0 : _b3.call(
+            _a4,
             fetchFn,
             {
               client: context.client,
@@ -20623,8 +22942,8 @@ function getNextPageParam(options2, { pages, pageParams }) {
 }
 __name(getNextPageParam, "getNextPageParam");
 function getPreviousPageParam(options2, { pages, pageParams }) {
-  var _a2;
-  return pages.length > 0 ? (_a2 = options2.getPreviousPageParam) == null ? void 0 : _a2.call(options2, pages[0], pages, pageParams[0], pageParams) : void 0;
+  var _a3;
+  return pages.length > 0 ? (_a3 = options2.getPreviousPageParam) == null ? void 0 : _a3.call(options2, pages[0], pages, pageParams[0], pageParams) : void 0;
 }
 __name(getPreviousPageParam, "getPreviousPageParam");
 var Query = (_h = class extends Removable {
@@ -20658,8 +22977,8 @@ var Query = (_h = class extends Removable {
     return __privateGet(this, _queryType);
   }
   get promise() {
-    var _a2;
-    return (_a2 = __privateGet(this, _retryer)) == null ? void 0 : _a2.promise;
+    var _a3;
+    return (_a3 = __privateGet(this, _retryer)) == null ? void 0 : _a3.promise;
   }
   setOptions(options2) {
     this.options = { ...__privateGet(this, _defaultOptions), ...options2 };
@@ -20696,8 +23015,8 @@ var Query = (_h = class extends Removable {
     __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "setState", state });
   }
   cancel(options2) {
-    var _a2, _b2;
-    const promise = (_a2 = __privateGet(this, _retryer)) == null ? void 0 : _a2.promise;
+    var _a3, _b2;
+    const promise = (_a3 = __privateGet(this, _retryer)) == null ? void 0 : _a3.promise;
     (_b2 = __privateGet(this, _retryer)) == null ? void 0 : _b2.cancel(options2);
     return promise ? promise.then(noop$1).catch(noop$1) : Promise.resolve();
   }
@@ -20755,16 +23074,16 @@ var Query = (_h = class extends Removable {
     return !timeUntilStale(this.state.dataUpdatedAt, staleTime);
   }
   onFocus() {
-    var _a2;
+    var _a3;
     const observer = this.observers.find((x) => x.shouldFetchOnWindowFocus());
     observer == null ? void 0 : observer.refetch({ cancelRefetch: false });
-    (_a2 = __privateGet(this, _retryer)) == null ? void 0 : _a2.continue();
+    (_a3 = __privateGet(this, _retryer)) == null ? void 0 : _a3.continue();
   }
   onOnline() {
-    var _a2;
+    var _a3;
     const observer = this.observers.find((x) => x.shouldFetchOnReconnect());
     observer == null ? void 0 : observer.refetch({ cancelRefetch: false });
-    (_a2 = __privateGet(this, _retryer)) == null ? void 0 : _a2.continue();
+    (_a3 = __privateGet(this, _retryer)) == null ? void 0 : _a3.continue();
   }
   addObserver(observer) {
     if (!this.observers.includes(observer)) {
@@ -20798,11 +23117,11 @@ var Query = (_h = class extends Removable {
     }
   }
   async fetch(options2, fetchOptions) {
-    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k2;
+    var _a3, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j2, _k2;
     if (this.state.fetchStatus !== "idle" && // If the promise in the retryer is already rejected, we have to definitely
     // re-start the fetch; there is a chance that the query is still in a
     // pending state when that happens
-    ((_a2 = __privateGet(this, _retryer)) == null ? void 0 : _a2.status()) !== "rejected") {
+    ((_a3 = __privateGet(this, _retryer)) == null ? void 0 : _a3.status()) !== "rejected") {
       if (this.state.data !== void 0 && (fetchOptions == null ? void 0 : fetchOptions.cancelRefetch)) {
         this.cancel({ silent: true });
       } else if (__privateGet(this, _retryer)) {
@@ -21222,7 +23541,7 @@ var QueryObserver = (_i = class extends Subscribable {
     });
   }
   createResult(query, options2) {
-    var _a2;
+    var _a3;
     const prevQuery = __privateGet(this, _currentQuery);
     const prevOptions = this.options;
     const prevResult = __privateGet(this, _currentResult);
@@ -21258,7 +23577,7 @@ var QueryObserver = (_i = class extends Subscribable {
         skipSelect = true;
       } else {
         placeholderData = typeof options2.placeholderData === "function" ? options2.placeholderData(
-          (_a2 = __privateGet(this, _lastQueryWithDefinedData)) == null ? void 0 : _a2.state.data,
+          (_a3 = __privateGet(this, _lastQueryWithDefinedData)) == null ? void 0 : _a3.state.data,
           __privateGet(this, _lastQueryWithDefinedData)
         ) : options2.placeholderData;
       }
@@ -21600,13 +23919,13 @@ var fetchOptimistic = /* @__PURE__ */ __name((defaultedOptions, observer, errorR
 }), "fetchOptimistic");
 const React$1 = await importShared("react");
 function useBaseQuery(options2, Observer, queryClient) {
-  var _a2, _b2, _c2, _d2;
+  var _a3, _b2, _c2, _d2;
   const isRestoring = useIsRestoring();
   const errorResetBoundary = useQueryErrorResetBoundary();
   const client = useQueryClient();
   const defaultedOptions = client.defaultQueryOptions(options2);
-  (_b2 = (_a2 = client.getDefaultOptions().queries) == null ? void 0 : _a2._experimental_beforeQuery) == null ? void 0 : _b2.call(
-    _a2,
+  (_b2 = (_a3 = client.getDefaultOptions().queries) == null ? void 0 : _a3._experimental_beforeQuery) == null ? void 0 : _b2.call(
+    _a3,
     defaultedOptions
   );
   const query = client.getQueryCache().get(defaultedOptions.queryHash);
@@ -21706,9 +24025,9 @@ function useErrorSurface(query, options2 = {}) {
   };
 }
 __name(useErrorSurface, "useErrorSurface");
-function bind(fn, thisArg) {
+function bind(fn2, thisArg) {
   return /* @__PURE__ */ __name(function wrap() {
-    return fn.apply(thisArg, arguments);
+    return fn2.apply(thisArg, arguments);
   }, "wrap");
 }
 __name(bind, "bind");
@@ -21822,7 +24141,7 @@ const [isReadableStream, isRequest, isResponse, isHeaders] = [
 const trim = /* @__PURE__ */ __name((str) => {
   return str.trim ? str.trim() : str.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
 }, "trim");
-function forEach(obj, fn, { allOwnKeys = false } = {}) {
+function forEach(obj, fn2, { allOwnKeys = false } = {}) {
   if (obj === null || typeof obj === "undefined") {
     return;
   }
@@ -21833,7 +24152,7 @@ function forEach(obj, fn, { allOwnKeys = false } = {}) {
   }
   if (isArray(obj)) {
     for (i = 0, l = obj.length; i < l; i++) {
-      fn.call(null, obj[i], i, obj);
+      fn2.call(null, obj[i], i, obj);
     }
   } else {
     if (isBuffer(obj)) {
@@ -21844,7 +24163,7 @@ function forEach(obj, fn, { allOwnKeys = false } = {}) {
     let key;
     for (i = 0; i < len; i++) {
       key = keys[i];
-      fn.call(null, obj[key], key, obj);
+      fn2.call(null, obj[key], key, obj);
     }
   }
 }
@@ -22005,13 +24324,13 @@ const isTypedArray = /* @__PURE__ */ ((TypedArray) => {
     return TypedArray && thing instanceof TypedArray;
   };
 })(typeof Uint8Array !== "undefined" && getPrototypeOf$1(Uint8Array));
-const forEachEntry = /* @__PURE__ */ __name((obj, fn) => {
+const forEachEntry = /* @__PURE__ */ __name((obj, fn2) => {
   const generator = obj && obj[iterator];
   const _iterator = generator.call(obj);
   let result;
   while ((result = _iterator.next()) && !result.done) {
     const pair = result.value;
-    fn.call(obj, pair[0], pair[1]);
+    fn2.call(obj, pair[0], pair[1]);
   }
 }, "forEachEntry");
 const matchAll = /* @__PURE__ */ __name((regExp, str) => {
@@ -22940,10 +25259,10 @@ const _InterceptorManager = class _InterceptorManager {
    *
    * @returns {void}
    */
-  forEach(fn) {
+  forEach(fn2) {
     utils$1.forEach(this.handlers, /* @__PURE__ */ __name(function forEachHandler(h2) {
       if (h2 !== null) {
-        fn(h2);
+        fn2(h2);
       }
     }, "forEachHandler"));
   }
@@ -23193,8 +25512,8 @@ function transformData(fns, response) {
   const context = response || config;
   const headers = AxiosHeaders$1.from(context.headers);
   let data = context.data;
-  utils$1.forEach(fns, /* @__PURE__ */ __name(function transform(fn) {
-    data = fn.call(config, data, headers.normalize(), response ? response.status : void 0);
+  utils$1.forEach(fns, /* @__PURE__ */ __name(function transform(fn2) {
+    data = fn2.call(config, data, headers.normalize(), response ? response.status : void 0);
   }, "transform"));
   headers.normalize();
   return data;
@@ -23274,7 +25593,7 @@ function speedometer(samplesCount, min2) {
   }, "push");
 }
 __name(speedometer, "speedometer");
-function throttle(fn, freq) {
+function throttle(fn2, freq) {
   let timestamp = 0;
   let threshold = 1e3 / freq;
   let lastArgs;
@@ -23286,7 +25605,7 @@ function throttle(fn, freq) {
       clearTimeout(timer);
       timer = null;
     }
-    fn(...args);
+    fn2(...args);
   }, "invoke");
   const throttled = /* @__PURE__ */ __name((...args) => {
     const now = Date.now();
@@ -23345,7 +25664,7 @@ const progressEventDecorator = /* @__PURE__ */ __name((total, throttled) => {
     throttled[1]
   ];
 }, "progressEventDecorator");
-const asyncDecorator = /* @__PURE__ */ __name((fn) => (...args) => utils$1.asap(() => fn(...args)), "asyncDecorator");
+const asyncDecorator = /* @__PURE__ */ __name((fn2) => (...args) => utils$1.asap(() => fn2(...args)), "asyncDecorator");
 const isURLSameOrigin = platform.hasStandardBrowserEnv ? /* @__PURE__ */ ((origin2, isMSIE) => (url) => {
   url = new URL(url, platform.origin);
   return origin2.protocol === url.protocol && origin2.host === url.host && (isMSIE || origin2.port === url.port);
@@ -23998,9 +26317,9 @@ const decodeURIComponentSafe = /* @__PURE__ */ __name((value) => {
     return value;
   }
 }, "decodeURIComponentSafe");
-const test = /* @__PURE__ */ __name((fn, ...args) => {
+const test = /* @__PURE__ */ __name((fn2, ...args) => {
   try {
-    return !!fn(...args);
+    return !!fn2(...args);
   } catch (e) {
     return false;
   }
@@ -24404,13 +26723,13 @@ const knownAdapters = {
     get: getFetch
   }
 };
-utils$1.forEach(knownAdapters, (fn, value) => {
-  if (fn) {
+utils$1.forEach(knownAdapters, (fn2, value) => {
+  if (fn2) {
     try {
-      Object.defineProperty(fn, "name", { __proto__: null, value });
+      Object.defineProperty(fn2, "name", { __proto__: null, value });
     } catch (e) {
     }
-    Object.defineProperty(fn, "adapterName", { __proto__: null, value });
+    Object.defineProperty(fn2, "adapterName", { __proto__: null, value });
   }
 });
 const renderReason = /* @__PURE__ */ __name((reason) => `- ${reason}`, "renderReason");
@@ -24781,7 +27100,7 @@ utils$1.forEach(["post", "put", "patch", "query"], /* @__PURE__ */ __name(functi
     Axios$1.prototype[method + "Form"] = generateHTTPMethod(true);
   }
 }, "forEachMethodWithData"));
-let CancelToken$1 = (_n = class {
+let CancelToken$1 = (_n2 = class {
   constructor(executor) {
     if (typeof executor !== "function") {
       throw new TypeError("executor must be a function.");
@@ -24867,7 +27186,7 @@ let CancelToken$1 = (_n = class {
    */
   static source() {
     let cancel;
-    const token = new _n(/* @__PURE__ */ __name(function executor(c) {
+    const token = new _n2(/* @__PURE__ */ __name(function executor(c) {
       cancel = c;
     }, "executor"));
     return {
@@ -24875,7 +27194,7 @@ let CancelToken$1 = (_n = class {
       cancel
     };
   }
-}, __name(_n, "CancelToken"), _n);
+}, __name(_n2, "CancelToken"), _n2);
 function spread$1(callback) {
   return /* @__PURE__ */ __name(function wrap(arr) {
     return callback.apply(null, arr);
@@ -25051,7 +27370,7 @@ const createImpl = /* @__PURE__ */ __name((createState) => {
   return useBoundStore;
 }, "createImpl");
 const create = /* @__PURE__ */ __name(((createState) => createState ? createImpl(createState) : createImpl), "create");
-const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8009", "VITE_APP_ENV": "development", "VITE_AP_LOGICAL_COMPANY": "6", "VITE_AP_TENANT_ID": "b6e23382-0ff7-45c9-88c7-662fdeaff4f4" };
+const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8009", "VITE_APP_ENV": "development", "VITE_AP_LOGICAL_COMPANY": "6", "VITE_AP_TENANT_ID": "b6e23382-0ff7-45c9-88c7-662fdeaff4f4", "VITE_DEV_AUTH_CLIENT_ID": "182c65d4-1c6c-462a-96b4-8fdf5f7850eb", "VITE_DEV_AUTH_ENABLED": "true", "VITE_DEV_AUTH_SCOPES": "182c65d4-1c6c-462a-96b4-8fdf5f7850eb/.default", "VITE_DEV_AUTH_TENANT_ID": "b6e23382-0ff7-45c9-88c7-662fdeaff4f4" };
 const shouldDispatchFromDevtools = /* @__PURE__ */ __name((api) => !!api.dispatchFromDevtools && typeof api.dispatch === "function", "shouldDispatchFromDevtools");
 const trackedConnections = /* @__PURE__ */ new Map();
 const getTrackedConnectionState = /* @__PURE__ */ __name((name) => {
@@ -25091,18 +27410,18 @@ const removeStoreFromTrackedConnections = /* @__PURE__ */ __name((name, store) =
 const v8StackLineRe = /.+ (.+) .+/;
 const geckoStackLineRe = /^([^@]+)@/;
 function findCallerName(stack) {
-  var _a2, _b2, _c2;
+  var _a3, _b2, _c2;
   if (!stack) return void 0;
   const traceLines = stack.split("\n");
   const apiSetStateLineIndex = traceLines.findIndex(
     (traceLine) => traceLine.includes("api.setState")
   );
   if (apiSetStateLineIndex < 0) return void 0;
-  const callerLine = ((_a2 = traceLines[apiSetStateLineIndex + 1]) == null ? void 0 : _a2.trim()) || "";
+  const callerLine = ((_a3 = traceLines[apiSetStateLineIndex + 1]) == null ? void 0 : _a3.trim()) || "";
   return ((_b2 = v8StackLineRe.exec(callerLine)) == null ? void 0 : _b2[1]) || ((_c2 = geckoStackLineRe.exec(callerLine)) == null ? void 0 : _c2[1]);
 }
 __name(findCallerName, "findCallerName");
-const devtoolsImpl = /* @__PURE__ */ __name((fn, devtoolsOptions = {}) => (set2, get, api) => {
+const devtoolsImpl = /* @__PURE__ */ __name((fn2, devtoolsOptions = {}) => (set2, get, api) => {
   const { enabled, anonymousActionType, store, ...options2 } = devtoolsOptions;
   let extensionConnector;
   try {
@@ -25110,7 +27429,7 @@ const devtoolsImpl = /* @__PURE__ */ __name((fn, devtoolsOptions = {}) => (set2,
   } catch (e) {
   }
   if (!extensionConnector) {
-    return fn(set2, get, api);
+    return fn2(set2, get, api);
   }
   const { connection, ...connectionInformation } = extractConnectionInformation(store, extensionConnector, options2);
   let isRecording = true;
@@ -25150,7 +27469,7 @@ const devtoolsImpl = /* @__PURE__ */ __name((fn, devtoolsOptions = {}) => (set2,
     set2(...a);
     isRecording = originalIsRecording;
   }, "setStateFromDevtools");
-  const initialState = fn(api.setState, get, api);
+  const initialState = fn2(api.setState, get, api);
   if (connectionInformation.type === "untracked") {
     connection == null ? void 0 : connection.init(initialState);
   } else {
@@ -25178,7 +27497,7 @@ const devtoolsImpl = /* @__PURE__ */ __name((fn, devtoolsOptions = {}) => (set2,
     };
   }
   connection.subscribe((message2) => {
-    var _a2;
+    var _a3;
     switch (message2.type) {
       case "ACTION":
         if (typeof message2.payload !== "string") {
@@ -25255,7 +27574,7 @@ const devtoolsImpl = /* @__PURE__ */ __name((fn, devtoolsOptions = {}) => (set2,
             });
           case "IMPORT_STATE": {
             const { nextLiftedState } = message2.payload;
-            const lastComputedState = (_a2 = nextLiftedState.computedStates.slice(-1)[0]) == null ? void 0 : _a2.state;
+            const lastComputedState = (_a3 = nextLiftedState.computedStates.slice(-1)[0]) == null ? void 0 : _a3.state;
             if (!lastComputedState) return;
             if (store === void 0) {
               setStateFromDevtools(lastComputedState);
@@ -25278,7 +27597,7 @@ const devtoolsImpl = /* @__PURE__ */ __name((fn, devtoolsOptions = {}) => (set2,
   return initialState;
 }, "devtoolsImpl");
 const devtools = devtoolsImpl;
-const parseJsonThen = /* @__PURE__ */ __name((stringified, fn) => {
+const parseJsonThen = /* @__PURE__ */ __name((stringified, fn2) => {
   let parsed;
   try {
     parsed = JSON.parse(stringified);
@@ -25288,9 +27607,9 @@ const parseJsonThen = /* @__PURE__ */ __name((stringified, fn) => {
       e
     );
   }
-  if (parsed !== void 0) fn(parsed);
+  if (parsed !== void 0) fn2(parsed);
 }, "parseJsonThen");
-const subscribeWithSelectorImpl = /* @__PURE__ */ __name((fn) => (set2, get, api) => {
+const subscribeWithSelectorImpl = /* @__PURE__ */ __name((fn2) => (set2, get, api) => {
   const origSubscribe = api.subscribe;
   api.subscribe = ((selector, optListener, options2) => {
     let listener = selector;
@@ -25310,7 +27629,7 @@ const subscribeWithSelectorImpl = /* @__PURE__ */ __name((fn) => (set2, get, api
     }
     return origSubscribe(listener);
   });
-  const initialState = fn(set2, get, api);
+  const initialState = fn2(set2, get, api);
   return initialState;
 }, "subscribeWithSelectorImpl");
 const subscribeWithSelector = subscribeWithSelectorImpl;
@@ -25329,10 +27648,10 @@ function isDraft(value) {
 }
 __name(isDraft, "isDraft");
 function isDraftable(value) {
-  var _a2;
+  var _a3;
   if (!value)
     return false;
-  return isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!((_a2 = value.constructor) == null ? void 0 : _a2[DRAFTABLE]) || isMap(value) || isSet(value);
+  return isPlainObject(value) || Array.isArray(value) || !!value[DRAFTABLE] || !!((_a3 = value.constructor) == null ? void 0 : _a3[DRAFTABLE]) || isMap(value) || isSet(value);
 }
 __name(isDraftable, "isDraftable");
 var objectCtorString = Object.prototype.constructor.toString();
@@ -25792,10 +28111,10 @@ var objectTraps = {
   }
 };
 var arrayTraps = {};
-each(objectTraps, (key, fn) => {
+each(objectTraps, (key, fn2) => {
   arrayTraps[key] = function() {
     arguments[0] = arguments[0][0];
-    return fn.apply(this, arguments);
+    return fn2.apply(this, arguments);
   };
 });
 arrayTraps.deleteProperty = function(state, prop) {
@@ -25811,12 +28130,12 @@ function peek(draft, prop) {
 }
 __name(peek, "peek");
 function readPropFromProto(state, source, prop) {
-  var _a2;
+  var _a3;
   const desc = getDescriptorFromProto(source, prop);
   return desc ? `value` in desc ? desc.value : (
     // This is a very special case, if the prop is a getter defined by the
     // prototype, we should invoke it with the draft as context!
-    (_a2 = desc.get) == null ? void 0 : _a2.call(state.draft_)
+    (_a3 = desc.get) == null ? void 0 : _a3.call(state.draft_)
   ) : void 0;
 }
 __name(readPropFromProto, "readPropFromProto");
@@ -26041,25 +28360,6 @@ const immerImpl = /* @__PURE__ */ __name((initializer) => (set2, get, store) => 
   return initializer(store.setState, get, store);
 }, "immerImpl");
 const immer = immerImpl;
-function decodeJwtPayload(token) {
-  const parts = token.split(".");
-  if (parts.length !== 3) return null;
-  try {
-    const base64 = parts[1].replace(/-/g, "+").replace(/_/g, "/");
-    const binary = atob(base64);
-    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-    return JSON.parse(new TextDecoder().decode(bytes));
-  } catch {
-    return null;
-  }
-}
-__name(decodeJwtPayload, "decodeJwtPayload");
-function isJwtExpired(token) {
-  const payload = decodeJwtPayload(token);
-  if (!(payload == null ? void 0 : payload.exp)) return true;
-  return payload.exp < Math.floor(Date.now() / 1e3);
-}
-__name(isJwtExpired, "isJwtExpired");
 const SessionStorageKeys = {
   JWT_TOKEN: JWT_STORAGE_KEY
 };
@@ -26070,58 +28370,23 @@ var DOMEventNames = /* @__PURE__ */ ((DOMEventNames2) => {
 })(DOMEventNames || {});
 var TokenPlaceholders = /* @__PURE__ */ ((TokenPlaceholders2) => {
   TokenPlaceholders2["NO_TOKEN_AVAILABLE"] = "NO_TOKEN_AVAILABLE";
-  TokenPlaceholders2["TOKEN_EXPIRED"] = "TOKEN_EXPIRED";
-  TokenPlaceholders2["TOKEN_INVALID"] = "TOKEN_INVALID";
   return TokenPlaceholders2;
 })(TokenPlaceholders || {});
 const JWT_LOG_PREFIX = "[JWT Auth]";
-const decodeJWTPayload = /* @__PURE__ */ __name((token) => !token || token === TokenPlaceholders.NO_TOKEN_AVAILABLE ? null : decodeJwtPayload(token), "decodeJWTPayload");
-const isTokenExpired = /* @__PURE__ */ __name((token) => !token || token === TokenPlaceholders.NO_TOKEN_AVAILABLE ? true : isJwtExpired(token), "isTokenExpired");
-const extractUserFromPayload = /* @__PURE__ */ __name((payload) => {
-  if (!payload) {
-    return null;
-  }
-  const permissions = payload.permissions || (payload.scp ? payload.scp.split(" ") : null) || (payload.scope ? typeof payload.scope === "string" ? payload.scope.split(" ") : payload.scope : []);
-  const roles = payload.roles || payload.wids || [];
-  const email = payload.email || payload.unique_name || payload.preferred_username || payload.upn || null;
-  const name = payload.name || (payload.given_name && payload.family_name ? `${payload.given_name} ${payload.family_name}` : null) || payload.nickname || null;
-  return {
-    id: payload.sub,
-    email,
-    name,
-    roles,
-    permissions
-  };
-}, "extractUserFromPayload");
 const createInitialState = /* @__PURE__ */ __name(() => ({
   token: TokenPlaceholders.NO_TOKEN_AVAILABLE,
-  isValid: false,
+  hasToken: false,
   isLoading: false,
   isInitialized: false,
   error: null,
-  lastUpdated: null,
-  payload: null,
-  user: null,
-  isAuthenticated: false,
-  isExpired: true,
-  expiresAt: null
+  lastUpdated: null
 }), "createInitialState");
 let eventListener = null;
 const useJWTStore = create()(
   devtools(
     subscribeWithSelector(
       immer((set2, get) => ({
-        token: TokenPlaceholders.NO_TOKEN_AVAILABLE,
-        isValid: false,
-        isLoading: false,
-        isInitialized: false,
-        error: null,
-        lastUpdated: null,
-        payload: null,
-        user: null,
-        isAuthenticated: false,
-        isExpired: true,
-        expiresAt: null,
+        ...createInitialState(),
         initialize: /* @__PURE__ */ __name(async () => {
           devGroup(`${JWT_LOG_PREFIX} Initializing JWT service`);
           set2((state) => {
@@ -26137,13 +28402,7 @@ const useJWTStore = create()(
               state.isInitialized = true;
               state.isLoading = false;
             });
-            const { isAuthenticated, isExpired, expiresAt, user } = get();
-            devLog(`${JWT_LOG_PREFIX} Initialization complete`, {
-              isAuthenticated,
-              isExpired,
-              expiresAt: (expiresAt == null ? void 0 : expiresAt.toISOString()) ?? null,
-              user: (user == null ? void 0 : user.email) ?? "unknown"
-            });
+            devLog(`${JWT_LOG_PREFIX} Initialization complete`, { hasToken: get().hasToken });
             devGroupEnd();
           } catch (error) {
             const errorMessage = error instanceof Error ? error.message : "Initialization failed";
@@ -26156,59 +28415,6 @@ const useJWTStore = create()(
             throw error;
           }
         }, "initialize"),
-        setToken: /* @__PURE__ */ __name((token) => {
-          devLog(`${JWT_LOG_PREFIX} setToken called (manual update)`);
-          if (!token || typeof token !== "string") {
-            devWarn(`${JWT_LOG_PREFIX} setToken rejected - invalid token provided`);
-            get().setError("Invalid token provided");
-            return;
-          }
-          get()._updateTokenData(token);
-          get()._saveToStorage(token);
-        }, "setToken"),
-        clearToken: /* @__PURE__ */ __name(() => {
-          devWarn(`${JWT_LOG_PREFIX} clearToken called - removing authentication`);
-          try {
-            sessionStorage.removeItem(SessionStorageKeys.JWT_TOKEN);
-          } catch (error) {
-            devError(`${JWT_LOG_PREFIX} Failed to clear token from storage:`, error);
-          }
-          set2((state) => {
-            state.token = TokenPlaceholders.NO_TOKEN_AVAILABLE;
-            state.isValid = false;
-            state.isAuthenticated = false;
-            state.isExpired = true;
-            state.payload = null;
-            state.user = null;
-            state.expiresAt = null;
-            state.lastUpdated = /* @__PURE__ */ new Date();
-            state.error = null;
-          });
-        }, "clearToken"),
-        validateToken: /* @__PURE__ */ __name((token) => {
-          const targetToken = token || get().token;
-          if (targetToken === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
-            return false;
-          }
-          return !isTokenExpired(targetToken);
-        }, "validateToken"),
-        decodeToken: /* @__PURE__ */ __name((token) => {
-          const targetToken = token || get().token;
-          if (targetToken === TokenPlaceholders.NO_TOKEN_AVAILABLE) {
-            return null;
-          }
-          return decodeJWTPayload(targetToken);
-        }, "decodeToken"),
-        setLoading: /* @__PURE__ */ __name((isLoading) => {
-          set2((state) => {
-            state.isLoading = isLoading;
-          });
-        }, "setLoading"),
-        setError: /* @__PURE__ */ __name((error) => {
-          set2((state) => {
-            state.error = error;
-          });
-        }, "setError"),
         reset: /* @__PURE__ */ __name(() => {
           devWarn(`${JWT_LOG_PREFIX} Full store reset - cleaning up event listener and clearing state`);
           get()._cleanupEventListener();
@@ -26219,46 +28425,25 @@ const useJWTStore = create()(
             const storedToken = sessionStorage.getItem(SessionStorageKeys.JWT_TOKEN);
             if (storedToken && storedToken !== TokenPlaceholders.NO_TOKEN_AVAILABLE) {
               devLog(`${JWT_LOG_PREFIX} Token found in sessionStorage (${storedToken.length} chars)`);
-              get()._updateTokenData(storedToken);
+              get()._applyToken(storedToken);
             } else {
               devWarn(`${JWT_LOG_PREFIX} No token in sessionStorage (value: ${storedToken ?? "null"})`);
-              set2((state) => {
-                state.token = TokenPlaceholders.NO_TOKEN_AVAILABLE;
-                state.isValid = false;
-                state.payload = null;
-                state.user = null;
-                state.isAuthenticated = false;
-                state.isExpired = true;
-                state.expiresAt = null;
-                state.lastUpdated = /* @__PURE__ */ new Date();
-              });
+              get()._clearToken();
             }
           } catch (error) {
             devError(`${JWT_LOG_PREFIX} Failed to load token from storage:`, error);
-            get().setError("Failed to load authentication data");
+            set2((state) => {
+              state.error = "Failed to load authentication data";
+            });
           }
         }, "_loadFromStorage"),
-        _saveToStorage: /* @__PURE__ */ __name((token) => {
-          try {
-            sessionStorage.setItem(SessionStorageKeys.JWT_TOKEN, token);
-            devLog(`${JWT_LOG_PREFIX} Token saved to sessionStorage`);
-          } catch (error) {
-            devError(`${JWT_LOG_PREFIX} Failed to save token to storage:`, error);
-          }
-        }, "_saveToStorage"),
         _setupEventListener: /* @__PURE__ */ __name(() => {
           if (typeof window === "undefined") return;
           get()._cleanupEventListener();
           eventListener = /* @__PURE__ */ __name(() => {
-            devGroup(`${JWT_LOG_PREFIX} Shell App dispatched "${DOMEventNames.JWT_TOKEN_UPDATED}" - token refresh`);
+            devGroup(`${JWT_LOG_PREFIX} Trax Base System dispatched "${DOMEventNames.JWT_TOKEN_UPDATED}" - token refresh`);
             get()._loadFromStorage();
-            const { isAuthenticated, isExpired, expiresAt, user } = get();
-            devLog(`${JWT_LOG_PREFIX} Token refresh result`, {
-              isAuthenticated,
-              isExpired,
-              expiresAt: (expiresAt == null ? void 0 : expiresAt.toISOString()) ?? null,
-              user: (user == null ? void 0 : user.email) ?? "unknown"
-            });
+            devLog(`${JWT_LOG_PREFIX} Token refresh result`, { hasToken: get().hasToken });
             devGroupEnd();
           }, "eventListener");
           window.addEventListener(DOMEventNames.JWT_TOKEN_UPDATED, eventListener);
@@ -26270,47 +28455,30 @@ const useJWTStore = create()(
             eventListener = null;
           }
         }, "_cleanupEventListener"),
-        _updateTokenData: /* @__PURE__ */ __name((token) => {
-          const payload = decodeJWTPayload(token);
-          const isValid2 = get().validateToken(token);
-          const isExpired = token === TokenPlaceholders.NO_TOKEN_AVAILABLE ? true : isTokenExpired(token);
-          const user = extractUserFromPayload(payload);
-          const expiresAt = (payload == null ? void 0 : payload.exp) ? new Date(payload.exp * 1e3) : null;
-          if (!isValid2) {
-            devWarn(`${JWT_LOG_PREFIX} Token is invalid or expired`, {
-              isExpired,
-              expiresAt: (expiresAt == null ? void 0 : expiresAt.toISOString()) ?? null
-            });
-          } else {
-            devLog(`${JWT_LOG_PREFIX} Token decoded successfully`, {
-              sub: (payload == null ? void 0 : payload.sub) ?? null,
-              email: (user == null ? void 0 : user.email) ?? null,
-              isExpired,
-              expiresAt: (expiresAt == null ? void 0 : expiresAt.toISOString()) ?? null
-            });
-          }
+        _applyToken: /* @__PURE__ */ __name((token) => {
           set2((state) => {
             state.token = token;
-            state.payload = payload;
-            state.isValid = isValid2;
-            state.isAuthenticated = isValid2 && !isExpired;
-            state.isExpired = isExpired;
-            state.user = user;
-            state.expiresAt = expiresAt;
+            state.hasToken = true;
             state.lastUpdated = /* @__PURE__ */ new Date();
-            state.error = isValid2 ? null : "Invalid or expired token";
+            state.error = null;
           });
-        }, "_updateTokenData")
+        }, "_applyToken"),
+        _clearToken: /* @__PURE__ */ __name(() => {
+          set2((state) => {
+            state.token = TokenPlaceholders.NO_TOKEN_AVAILABLE;
+            state.hasToken = false;
+            state.lastUpdated = /* @__PURE__ */ new Date();
+          });
+        }, "_clearToken")
       }))
     ),
     { name: "jwt-auth-storage" }
   )
 );
 const jwtSelectors = {
-  isAuthenticated: /* @__PURE__ */ __name((state) => state.isAuthenticated, "isAuthenticated"),
-  // null when there is no token, for callers that must tell that from an expired one.
+  hasToken: /* @__PURE__ */ __name((state) => state.hasToken, "hasToken"),
+  // null when there is no token, for callers that must tell that from a present one.
   realToken: /* @__PURE__ */ __name((state) => state.token !== TokenPlaceholders.NO_TOKEN_AVAILABLE ? state.token : null, "realToken"),
-  user: /* @__PURE__ */ __name((state) => state.user, "user"),
   error: /* @__PURE__ */ __name((state) => state.error, "error"),
   isLoading: /* @__PURE__ */ __name((state) => state.isLoading, "isLoading")
 };
@@ -26437,9 +28605,9 @@ const _ApiClient = class _ApiClient {
         return response;
       },
       async (error) => {
-        var _a2, _b2, _c2, _d2, _e2;
+        var _a3, _b2, _c2, _d2, _e2;
         devError("API request failed:", {
-          url: (_a2 = error.config) == null ? void 0 : _a2.url,
+          url: (_a3 = error.config) == null ? void 0 : _a3.url,
           status: (_b2 = error.response) == null ? void 0 : _b2.status,
           message: error.message,
           data: (_c2 = error.response) == null ? void 0 : _c2.data
@@ -26498,14 +28666,14 @@ const _ApiClient = class _ApiClient {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
   transformError(error) {
-    var _a2;
+    var _a3;
     const apiError = new Error(error.message || "An unexpected error occurred");
     apiError.code = error.code || "UNKNOWN_ERROR";
     apiError.timestamp = (/* @__PURE__ */ new Date()).toISOString();
     if (error.response) {
       apiError.response = { data: error.response.data, status: error.response.status };
     }
-    if ((_a2 = error.response) == null ? void 0 : _a2.data) {
+    if ((_a3 = error.response) == null ? void 0 : _a3.data) {
       const responseData = error.response.data;
       if (typeof responseData.message === "string" && responseData.message) {
         apiError.message = responseData.message;
@@ -26683,10 +28851,19 @@ function readList(value, field) {
   return value;
 }
 __name(readList, "readList");
-function toDocumentType(isCreditNote) {
-  if (isCreditNote === true) return ApDocumentType.CreditNote;
-  if (isCreditNote === false) return ApDocumentType.Invoice;
-  return ApDocumentType.Unknown;
+function isUnreadable(value) {
+  if (typeof value === "number") return !Number.isFinite(value);
+  const read = text(value);
+  return read === null || read.toLowerCase() === "unknown";
+}
+__name(isUnreadable, "isUnreadable");
+function toDocumentType(data) {
+  var _a3, _b2, _c2;
+  if (((_a3 = data == null ? void 0 : data.is_credit_note) == null ? void 0 : _a3.value) === true) return ApDocumentType.CreditNote;
+  if (isUnreadable((_b2 = data == null ? void 0 : data.number) == null ? void 0 : _b2.value) && isUnreadable((_c2 = data == null ? void 0 : data.total) == null ? void 0 : _c2.value)) {
+    return ApDocumentType.Unknown;
+  }
+  return ApDocumentType.Invoice;
 }
 __name(toDocumentType, "toDocumentType");
 const REQUEST_STATUSES = /* @__PURE__ */ new Map([
@@ -26724,14 +28901,14 @@ function toCompanyId(value) {
 }
 __name(toCompanyId, "toCompanyId");
 function toApEvent(dto) {
-  var _a2, _b2, _c2, _d2;
+  var _a3, _b2;
   const id = text(dto.id);
   if (!id) throw new Error("AP event arrived without an id");
   return {
     id,
     receivedDate: text(dto.received_date),
-    billTo: text((_b2 = (_a2 = dto.data) == null ? void 0 : _a2.bill_to) == null ? void 0 : _b2.value),
-    documentType: toDocumentType((_d2 = (_c2 = dto.data) == null ? void 0 : _c2.is_credit_note) == null ? void 0 : _d2.value),
+    billTo: text((_b2 = (_a3 = dto.data) == null ? void 0 : _a3.bill_to) == null ? void 0 : _b2.value),
+    documentType: toDocumentType(dto.data),
     issues: readList(dto.issues, "issues").map(toIssue),
     senderEmail: text(dto.sender_email),
     documentId: text(dto.document_id),
@@ -26773,7 +28950,7 @@ async function loadIcon(name) {
   if (existing) return existing;
   const request = (async () => {
     try {
-      const module = await __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "../../assets/icons/chevron-down.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./chevron-down-DYa3lAct.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/chevron-down.svg"), "../../assets/icons/close.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./close-CVf2sBdc.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/close.svg"), "../../assets/icons/error-outline.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./error-outline-CCVQecVj.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/error-outline.svg"), "../../assets/icons/refresh.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./refresh-CQ_aGPP2.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/refresh.svg") }), `../../assets/icons/${name}.svg`, 5);
+      const module = await __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "../../assets/icons/chevron-down.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./chevron-down-DYa3lAct.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/chevron-down.svg"), "../../assets/icons/close.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./close-CVf2sBdc.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/close.svg"), "../../assets/icons/error-outline.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./error-outline-CCVQecVj.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/error-outline.svg"), "../../assets/icons/featured-play-list.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./featured-play-list-y6q3W8PD.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/featured-play-list.svg"), "../../assets/icons/file-dollar.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./file-dollar-DmfXFes-.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/file-dollar.svg"), "../../assets/icons/open-in-new.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./open-in-new-tlr79Hkw.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/open-in-new.svg"), "../../assets/icons/refresh.svg": /* @__PURE__ */ __name(() => __vitePreload(() => import("./refresh-CQ_aGPP2.js"), true ? [] : void 0, import.meta.url), "../../assets/icons/refresh.svg") }), `../../assets/icons/${name}.svg`, 5);
       const content = module.default ?? module;
       iconCache.set(name, content);
       return content;
@@ -26942,9 +29119,10 @@ const RetryButton = /* @__PURE__ */ __name(({
   }
 ), "RetryButton");
 const DataLoadError = /* @__PURE__ */ __name(({
-  surface
+  surface,
+  description
 }) => {
-  var _a2;
+  var _a3;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     EmptyState,
     {
@@ -26952,7 +29130,7 @@ const DataLoadError = /* @__PURE__ */ __name(({
       iconClassName: "text-trax-red-500",
       iconWrapperClassName: "bg-trax-red-100",
       title: "Couldn't load data",
-      description: ((_a2 = surface.presentation) == null ? void 0 : _a2.message) ?? "",
+      description: description ?? ((_a3 = surface.presentation) == null ? void 0 : _a3.message) ?? "",
       "data-testid": "data-load-error",
       role: "alert",
       action: /* @__PURE__ */ jsxRuntimeExports.jsx(RetryButton, { onRetry: surface.retry, isRetrying: surface.isRetrying })
@@ -26960,27 +29138,37 @@ const DataLoadError = /* @__PURE__ */ __name(({
   );
 }, "DataLoadError");
 export {
-  QueryClientProvider as A,
-  Er as B,
-  SCOPE_CLASS as C,
-  DataLoadError as D,
-  EmptyState as E,
-  CONTAINER_ID as F,
-  apiClient as G,
-  ensureJWTInitialized as H,
-  SERVICE_NAME as I,
-  devLog as J,
-  useJWTStore as K,
-  jwtSelectors as L,
-  JWT_STORAGE_KEY as M,
-  API_BASE_URL as N,
+  jwtSelectors as $,
+  ApReviewStatus as A,
+  h as B,
+  useApEvents as C,
+  useErrorSurface as D,
+  Et as E,
+  ri as F,
+  DataLoadError as G,
+  EmptyState as H,
+  Icon as I,
+  QueryClientProvider as J,
+  Er as K,
+  SCOPE_CLASS as L,
+  Mt as M,
+  CONTAINER_ID as N,
+  apiClient as O,
+  Pt as P,
   Qs as Q,
   Removable as R,
   STORAGE_PREFIX as S,
+  Ta as T,
   Ue as U,
+  ensureJWTInitialized as V,
+  SERVICE_NAME as W,
+  devLog as X,
   Yn as Y,
   Zs as Z,
+  useJWTStore as _,
   devError as a,
+  JWT_STORAGE_KEY as a0,
+  API_BASE_URL as a1,
   getDisplacedClaimFallback as b,
   classifyError as c,
   devWarn as d,
@@ -27004,6 +29192,6 @@ export {
   hashKey as v,
   partialMatchKey as w,
   skipToken as x,
-  useApEvents as y,
-  useErrorSurface as z
+  ApDocumentType as y,
+  jr as z
 };
