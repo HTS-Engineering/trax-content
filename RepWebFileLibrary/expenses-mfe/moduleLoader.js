@@ -15,11 +15,11 @@
   // where this loader is not used.
   const INLINED_MANIFEST = {
   "version": "0.1.0",
-  "commit": "2c42032",
+  "commit": "e97bcd1",
   "branch": "HEAD",
-  "timestamp": "2026-08-10T14:42:23.939Z",
+  "timestamp": "2026-08-10T16:09:10.935Z",
   "environment": "expenses-mfe",
-  "bootstrap": "__federation_expose_Mount-biiBI0XZ.js",
+  "bootstrap": "__federation_expose_Mount-C9YK0bvf.js",
   "css": "style-W2W9aax5.css"
 };
 
