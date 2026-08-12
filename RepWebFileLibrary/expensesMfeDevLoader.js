@@ -14,12 +14,12 @@
   // Replaced at build by mfe-post-build. Stays null under `npm run dev`,
   // where this loader is not used.
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.152",
-  "commit": "26587e0",
-  "branch": "dev",
-  "timestamp": "2026-08-10T16:32:57.991Z",
+  "version": "0.1.0-dev.156",
+  "commit": "4c53127",
+  "branch": "fix/TRX-595-blackduck-scan-target",
+  "timestamp": "2026-08-12T13:54:15.580Z",
   "environment": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-DnCwllOD.js",
+  "bootstrap": "__federation_expose_Mount-CiTKy2Fg.js",
   "css": "style-DbOnAIGC.css"
 };
 
