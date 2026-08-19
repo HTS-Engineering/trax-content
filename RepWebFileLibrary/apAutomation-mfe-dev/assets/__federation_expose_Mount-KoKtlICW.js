@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-CxC0Jvvo.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-7xAhoVQt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-D79PdDXQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-BFXY3szA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -8,7 +8,6 @@ var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
 var __privateWrapper = (obj, member, setter, getter) => ({
   set _(value) {
     __privateSet(obj, member, value, setter);
@@ -17,9 +16,9 @@ var __privateWrapper = (obj, member, setter, getter) => ({
     return __privateGet(obj, member, getter);
   }
 });
-var _a, _b, _c, _d, _e, _client, _observers, _mutationCache, _retryer, __this_instances, dispatch_fn, _f, _mutations, _scopes, _mutationId, _g, _queries, _h, _queryCache, _mutationCache2, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _i;
+var _a, _b, _c, _d, _e, _mutations, _scopes, _mutationId, _f, _queries, _g, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _h;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, U as Ue, a as devError, t as toErrorText, Q as Qs, i as interpretError, g as getQueryClaimState, b as getDisplacedClaimFallback, f as forgetQueryClaims, c as classifyError, R as Removable, e as createRetryer, n as notifyManager, h as Subscribable, m as matchMutation, k as noop, l as hashQueryKeyByOptions, o as Query, p as matchQuery, q as focusManager, r as onlineManager, s as resolveStaleTime, u as functionalUpdate, v as hashKey, w as partialMatchKey, x as skipToken, A as ApReviewStatus, y as ApDocumentType, M as Mt, E as Et, I as Icon, P as Pt, z as jr, B as h, T as Ta, C as useApEvents, D as useErrorSurface, F as ri, G as DataLoadError, H as EmptyState, Y as Yn, J as QueryClientProvider, Z as Zs, K as Er, L as SCOPE_CLASS, N as CONTAINER_ID, O as apiClient, V as ensureJWTInitialized, W as SERVICE_NAME, X as devLog } from "./DataLoadError-7xAhoVQt.js";
+import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, a as devError, b as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, c as noop, h as hashQueryKeyByOptions, Q as Query, e as matchQuery, f as focusManager, o as onlineManager, r as resolveStaleTime, g as functionalUpdate, i as hashKey, p as partialMatchKey, s as skipToken, t as toErrorText, k as di, l as interpretError, q as getQueryClaimState, u as getDisplacedClaimFallback, v as forgetQueryClaims, w as classifyError, A as ApDocumentType, x as ApReviewStatus, y as Mt, E as Et, I as Icon, z as kt, W as Wr, B as ys, C as h, U as Ur, D as useUpdateApEventReviewStatus, V as Vt, F as bt, Z as Zn, H as wt, J as yt, O as Oa, K as hn, L as ls, N as useApEvents, P as useErrorSurface, R as mi, T as DataLoadError, X as EmptyState, Y as QueryClientProvider, _ as ui, $ as Tr, a0 as SCOPE_CLASS, a1 as CONTAINER_ID, a2 as apiClient, a3 as ensureJWTInitialized, a4 as SERVICE_NAME, a5 as devLog } from "./DataLoadError-BFXY3szA.js";
 import { r as requireReact } from "./index-BB5LXT6C.js";
 import { r as requireReactDom } from "./index-BH4teOuT.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -19925,6 +19924,7 @@ var RoutePaths = /* @__PURE__ */ ((RoutePaths2) => {
 })(RoutePaths || {});
 const toRelativePath = /* @__PURE__ */ __name((path) => path.startsWith("/") ? path.slice(1) : path, "toRelativePath");
 const TOOLTIP_DELAY_QUICK = 120;
+const TOOLTIP_DELAY_TRUNCATED_TEXT = 500;
 const MFE_PORTAL_ATTRIBUTE = "data-mfe-portal";
 const { lazy } = await importShared("react");
 const RELOAD_KEY = `${STORAGE_PREFIX}.chunk-reload-attempt`;
@@ -19984,11 +19984,11 @@ function lazyRoute(loader) {
   });
 }
 __name(lazyRoute, "lazyRoute");
-const { useCallback: useCallback$7, useEffect: useEffect$5, useRef: useRef$3 } = await importShared("react");
+const { useCallback: useCallback$9, useEffect: useEffect$5, useRef: useRef$3 } = await importShared("react");
 const { useEffect: useEffect$4 } = await importShared("react");
-const { useCallback: useCallback$6, useState: useState$1 } = await importShared("react");
-const { useCallback: useCallback$5 } = await importShared("react");
-const { useCallback: useCallback$4, useEffect: useEffect$3, useRef: useRef$2, useState } = await importShared("react");
+const { useCallback: useCallback$8, useState: useState$2 } = await importShared("react");
+const { useCallback: useCallback$7 } = await importShared("react");
+const { useCallback: useCallback$6, useEffect: useEffect$3, useRef: useRef$2, useState: useState$1 } = await importShared("react");
 const { useEffect: useEffect$2 } = await importShared("react");
 const usePreventPageReload = /* @__PURE__ */ __name(() => {
   useEffect$2(() => {
@@ -20021,7 +20021,7 @@ const usePreventPageReload = /* @__PURE__ */ __name(() => {
     };
   }, []);
 }, "usePreventPageReload");
-const { useCallback: useCallback$3, useRef: useRef$1 } = await importShared("react");
+const { useCallback: useCallback$5, useRef: useRef$1 } = await importShared("react");
 const AppErrorFallback = /* @__PURE__ */ __name(({ reset }) => {
   const onClick = reset ?? (() => window.location.reload());
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -20032,7 +20032,7 @@ const AppErrorFallback = /* @__PURE__ */ __name(({ reset }) => {
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold text-trax-neutral-900", children: "Something went wrong." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-trax-grey-700", children: "An unexpected error occurred. You can retry or reload the page." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { onClick, children: reset ? "Try again" : "Reload page" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Ge, { onClick, children: reset ? "Try again" : "Reload page" })
       ]
     }
   );
@@ -20103,372 +20103,7 @@ function RouteError() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, {});
 }
 __name(RouteError, "RouteError");
-const TOAST_DURATION_MS = 5e3;
-const DEDUPE_WINDOW_MS = 6e3;
-const TOAST_CLASS_NAME = "max-w-md whitespace-pre-line";
-const BURST_WINDOW_MS = 500;
-const lastShownAt = /* @__PURE__ */ new Map();
-function claimSlot(key, windowMs) {
-  const now = Date.now();
-  const previous = lastShownAt.get(key);
-  if (previous !== void 0 && now - previous < windowMs) return false;
-  for (const [seen, at] of lastShownAt) {
-    if (now - at >= DEDUPE_WINDOW_MS) lastShownAt.delete(seen);
-  }
-  lastShownAt.set(key, now);
-  return true;
-}
-__name(claimSlot, "claimSlot");
-function show(text) {
-  Qs.error(text, { duration: TOAST_DURATION_MS, className: TOAST_CLASS_NAME });
-}
-__name(show, "show");
-function notifyPresentation(presentation, dedupe = true, windowMs = DEDUPE_WINDOW_MS) {
-  if (presentation.isSilent) return null;
-  if (dedupe && !claimSlot(presentation.dedupeKey, windowMs)) return null;
-  show(toErrorText(presentation));
-  return presentation;
-}
-__name(notifyPresentation, "notifyPresentation");
-function reportQueryError(error, query) {
-  var _a2, _b2, _c2;
-  devError(`Query error for ${String(query.queryKey)}:`, error);
-  const claimState = getQueryClaimState(query.queryHash);
-  const copy = ((_a2 = query.meta) == null ? void 0 : _a2.errorCopy) ?? { fallback: getDisplacedClaimFallback(query.queryHash) };
-  const presentation = interpretError(error, { context: "load", copy });
-  if (presentation.isSilent) return;
-  if (presentation.isSessionEvent) {
-    notifyPresentation(presentation);
-    return;
-  }
-  if (((_b2 = query.meta) == null ? void 0 : _b2.errorSurface) === "silent") return;
-  if (claimState === "claimed") return;
-  if (claimState === "abandoned" && (((_c2 = query.getObserversCount) == null ? void 0 : _c2.call(query)) ?? 0) === 0) return;
-  notifyPresentation(presentation);
-}
-__name(reportQueryError, "reportQueryError");
-function reportMutationError(error, mutation) {
-  var _a2, _b2;
-  devError(`Mutation error for ${String(mutation.options.mutationKey)}:`, error);
-  const presentation = interpretError(error, { context: "action", copy: (_a2 = mutation.meta) == null ? void 0 : _a2.errorCopy });
-  if (presentation.isSilent) return;
-  if (presentation.isSessionEvent) {
-    notifyPresentation(presentation);
-    return;
-  }
-  if ((_b2 = mutation.meta) == null ? void 0 : _b2.errorSurface) return;
-  notifyPresentation(presentation, presentation.isConnectivity, BURST_WINDOW_MS);
-}
-__name(reportMutationError, "reportMutationError");
-function forgetClaimsOnEviction(cache) {
-  cache.subscribe((event) => {
-    if (event.type === "removed") forgetQueryClaims(event.query.queryHash);
-  });
-}
-__name(forgetClaimsOnEviction, "forgetClaimsOnEviction");
-const QUERY_RETRIES = {
-  // Fails immediately and often means a momentary blip, so repeats cost the user almost nothing.
-  offline: 2,
-  server: 2,
-  // Each attempt already cost the full 30s client timeout.
-  timeout: 1
-};
-const MUTATION_RETRIES = {
-  offline: 1
-};
-function getQueryRetryLimit(error) {
-  return QUERY_RETRIES[classifyError(error).kind] ?? 0;
-}
-__name(getQueryRetryLimit, "getQueryRetryLimit");
-function getMutationRetryLimit(error) {
-  return MUTATION_RETRIES[classifyError(error).kind] ?? 0;
-}
-__name(getMutationRetryLimit, "getMutationRetryLimit");
-var Mutation = (_f = class extends Removable {
-  constructor(config) {
-    super();
-    __privateAdd(this, __this_instances);
-    __privateAdd(this, _client);
-    __privateAdd(this, _observers);
-    __privateAdd(this, _mutationCache);
-    __privateAdd(this, _retryer);
-    __privateSet(this, _client, config.client);
-    this.mutationId = config.mutationId;
-    __privateSet(this, _mutationCache, config.mutationCache);
-    __privateSet(this, _observers, []);
-    this.state = config.state || getDefaultState();
-    this.setOptions(config.options);
-    this.scheduleGc();
-  }
-  setOptions(options) {
-    this.options = options;
-    this.updateGcTime(this.options.gcTime);
-  }
-  get meta() {
-    return this.options.meta;
-  }
-  addObserver(observer) {
-    if (!__privateGet(this, _observers).includes(observer)) {
-      __privateGet(this, _observers).push(observer);
-      this.clearGcTimeout();
-      __privateGet(this, _mutationCache).notify({
-        type: "observerAdded",
-        mutation: this,
-        observer
-      });
-    }
-  }
-  removeObserver(observer) {
-    __privateSet(this, _observers, __privateGet(this, _observers).filter((x) => x !== observer));
-    this.scheduleGc();
-    __privateGet(this, _mutationCache).notify({
-      type: "observerRemoved",
-      mutation: this,
-      observer
-    });
-  }
-  optionalRemove() {
-    if (!__privateGet(this, _observers).length) {
-      if (this.state.status === "pending") {
-        this.scheduleGc();
-      } else {
-        __privateGet(this, _mutationCache).remove(this);
-      }
-    }
-  }
-  continue() {
-    var _a2;
-    return ((_a2 = __privateGet(this, _retryer)) == null ? void 0 : _a2.continue()) ?? // continuing a mutation assumes that variables are set, mutation must have been dehydrated before
-    this.execute(this.state.variables);
-  }
-  async execute(variables) {
-    var _a2, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j, _k, _l, _m, _n, _o, _p, _q, _r;
-    const onContinue = /* @__PURE__ */ __name(() => {
-      __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "continue" });
-    }, "onContinue");
-    const mutationFnContext = {
-      client: __privateGet(this, _client),
-      meta: this.options.meta,
-      mutationKey: this.options.mutationKey
-    };
-    __privateSet(this, _retryer, createRetryer({
-      fn: /* @__PURE__ */ __name(() => {
-        if (!this.options.mutationFn) {
-          return Promise.reject(new Error("No mutationFn found"));
-        }
-        return this.options.mutationFn(variables, mutationFnContext);
-      }, "fn"),
-      onFail: /* @__PURE__ */ __name((failureCount, error) => {
-        __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "failed", failureCount, error });
-      }, "onFail"),
-      onPause: /* @__PURE__ */ __name(() => {
-        __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "pause" });
-      }, "onPause"),
-      onContinue,
-      retry: this.options.retry ?? 0,
-      retryDelay: this.options.retryDelay,
-      networkMode: this.options.networkMode,
-      canRun: /* @__PURE__ */ __name(() => __privateGet(this, _mutationCache).canRun(this), "canRun")
-    }));
-    const restored = this.state.status === "pending";
-    const isPaused = !__privateGet(this, _retryer).canStart();
-    try {
-      if (restored) {
-        onContinue();
-      } else {
-        __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "pending", variables, isPaused });
-        if (__privateGet(this, _mutationCache).config.onMutate) {
-          await __privateGet(this, _mutationCache).config.onMutate(
-            variables,
-            this,
-            mutationFnContext
-          );
-        }
-        const context = await ((_b2 = (_a2 = this.options).onMutate) == null ? void 0 : _b2.call(
-          _a2,
-          variables,
-          mutationFnContext
-        ));
-        if (context !== this.state.context) {
-          __privateMethod(this, __this_instances, dispatch_fn).call(this, {
-            type: "pending",
-            context,
-            variables,
-            isPaused
-          });
-        }
-      }
-      const data = await __privateGet(this, _retryer).start();
-      await ((_d2 = (_c2 = __privateGet(this, _mutationCache).config).onSuccess) == null ? void 0 : _d2.call(
-        _c2,
-        data,
-        variables,
-        this.state.context,
-        this,
-        mutationFnContext
-      ));
-      await ((_f2 = (_e2 = this.options).onSuccess) == null ? void 0 : _f2.call(
-        _e2,
-        data,
-        variables,
-        this.state.context,
-        mutationFnContext
-      ));
-      await ((_h2 = (_g2 = __privateGet(this, _mutationCache).config).onSettled) == null ? void 0 : _h2.call(
-        _g2,
-        data,
-        null,
-        this.state.variables,
-        this.state.context,
-        this,
-        mutationFnContext
-      ));
-      await ((_j = (_i2 = this.options).onSettled) == null ? void 0 : _j.call(
-        _i2,
-        data,
-        null,
-        variables,
-        this.state.context,
-        mutationFnContext
-      ));
-      __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "success", data });
-      return data;
-    } catch (error) {
-      try {
-        await ((_l = (_k = __privateGet(this, _mutationCache).config).onError) == null ? void 0 : _l.call(
-          _k,
-          error,
-          variables,
-          this.state.context,
-          this,
-          mutationFnContext
-        ));
-      } catch (e) {
-        void Promise.reject(e);
-      }
-      try {
-        await ((_n = (_m = this.options).onError) == null ? void 0 : _n.call(
-          _m,
-          error,
-          variables,
-          this.state.context,
-          mutationFnContext
-        ));
-      } catch (e) {
-        void Promise.reject(e);
-      }
-      try {
-        await ((_p = (_o = __privateGet(this, _mutationCache).config).onSettled) == null ? void 0 : _p.call(
-          _o,
-          void 0,
-          error,
-          this.state.variables,
-          this.state.context,
-          this,
-          mutationFnContext
-        ));
-      } catch (e) {
-        void Promise.reject(e);
-      }
-      try {
-        await ((_r = (_q = this.options).onSettled) == null ? void 0 : _r.call(
-          _q,
-          void 0,
-          error,
-          variables,
-          this.state.context,
-          mutationFnContext
-        ));
-      } catch (e) {
-        void Promise.reject(e);
-      }
-      __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "error", error });
-      throw error;
-    } finally {
-      __privateGet(this, _mutationCache).runNext(this);
-    }
-  }
-}, _client = new WeakMap(), _observers = new WeakMap(), _mutationCache = new WeakMap(), _retryer = new WeakMap(), __this_instances = new WeakSet(), dispatch_fn = /* @__PURE__ */ __name(function(action) {
-  const reducer = /* @__PURE__ */ __name((state) => {
-    switch (action.type) {
-      case "failed":
-        return {
-          ...state,
-          failureCount: action.failureCount,
-          failureReason: action.error
-        };
-      case "pause":
-        return {
-          ...state,
-          isPaused: true
-        };
-      case "continue":
-        return {
-          ...state,
-          isPaused: false
-        };
-      case "pending":
-        return {
-          ...state,
-          context: action.context,
-          data: void 0,
-          failureCount: 0,
-          failureReason: null,
-          error: null,
-          isPaused: action.isPaused,
-          status: "pending",
-          variables: action.variables,
-          submittedAt: Date.now()
-        };
-      case "success":
-        return {
-          ...state,
-          data: action.data,
-          failureCount: 0,
-          failureReason: null,
-          error: null,
-          status: "success",
-          isPaused: false
-        };
-      case "error":
-        return {
-          ...state,
-          data: void 0,
-          error: action.error,
-          failureCount: state.failureCount + 1,
-          failureReason: action.error,
-          isPaused: false,
-          status: "error"
-        };
-    }
-  }, "reducer");
-  this.state = reducer(this.state);
-  notifyManager.batch(() => {
-    __privateGet(this, _observers).forEach((observer) => {
-      observer.onMutationUpdate(action);
-    });
-    __privateGet(this, _mutationCache).notify({
-      mutation: this,
-      type: "updated",
-      action
-    });
-  });
-}, "#dispatch"), __name(_f, "Mutation"), _f);
-function getDefaultState() {
-  return {
-    context: void 0,
-    data: void 0,
-    error: null,
-    failureCount: 0,
-    failureReason: null,
-    isPaused: false,
-    status: "idle",
-    variables: void 0,
-    submittedAt: 0
-  };
-}
-__name(getDefaultState, "getDefaultState");
-var MutationCache = (_g = class extends Subscribable {
+var MutationCache = (_f = class extends Subscribable {
   constructor(config = {}) {
     super();
     __privateAdd(this, _mutations);
@@ -20580,13 +20215,13 @@ var MutationCache = (_g = class extends Subscribable {
       )
     );
   }
-}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), __name(_g, "MutationCache"), _g);
+}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), __name(_f, "MutationCache"), _f);
 function scopeFor(mutation) {
   var _a2;
   return (_a2 = mutation.options.scope) == null ? void 0 : _a2.id;
 }
 __name(scopeFor, "scopeFor");
-var QueryCache = (_h = class extends Subscribable {
+var QueryCache = (_g = class extends Subscribable {
   constructor(config = {}) {
     super();
     __privateAdd(this, _queries);
@@ -20673,11 +20308,11 @@ var QueryCache = (_h = class extends Subscribable {
       });
     });
   }
-}, _queries = new WeakMap(), __name(_h, "QueryCache"), _h);
-var QueryClient = (_i = class {
+}, _queries = new WeakMap(), __name(_g, "QueryCache"), _g);
+var QueryClient = (_h = class {
   constructor(config = {}) {
     __privateAdd(this, _queryCache);
-    __privateAdd(this, _mutationCache2);
+    __privateAdd(this, _mutationCache);
     __privateAdd(this, _defaultOptions);
     __privateAdd(this, _queryDefaults);
     __privateAdd(this, _mutationDefaults);
@@ -20685,7 +20320,7 @@ var QueryClient = (_i = class {
     __privateAdd(this, _unsubscribeFocus);
     __privateAdd(this, _unsubscribeOnline);
     __privateSet(this, _queryCache, config.queryCache || new QueryCache());
-    __privateSet(this, _mutationCache2, config.mutationCache || new MutationCache());
+    __privateSet(this, _mutationCache, config.mutationCache || new MutationCache());
     __privateSet(this, _defaultOptions, config.defaultOptions || {});
     __privateSet(this, _queryDefaults, /* @__PURE__ */ new Map());
     __privateSet(this, _mutationDefaults, /* @__PURE__ */ new Map());
@@ -20720,7 +20355,7 @@ var QueryClient = (_i = class {
     return __privateGet(this, _queryCache).findAll({ ...filters, fetchStatus: "fetching" }).length;
   }
   isMutating(filters) {
-    return __privateGet(this, _mutationCache2).findAll({ ...filters, status: "pending" }).length;
+    return __privateGet(this, _mutationCache).findAll({ ...filters, status: "pending" }).length;
   }
   /**
    * Imperative (non-reactive) way to retrieve data for a QueryKey.
@@ -20868,7 +20503,7 @@ var QueryClient = (_i = class {
   }
   resumePausedMutations() {
     if (onlineManager.isOnline()) {
-      return __privateGet(this, _mutationCache2).resumePausedMutations();
+      return __privateGet(this, _mutationCache).resumePausedMutations();
     }
     return Promise.resolve();
   }
@@ -20876,7 +20511,7 @@ var QueryClient = (_i = class {
     return __privateGet(this, _queryCache);
   }
   getMutationCache() {
-    return __privateGet(this, _mutationCache2);
+    return __privateGet(this, _mutationCache);
   }
   getDefaultOptions() {
     return __privateGet(this, _defaultOptions);
@@ -20959,9 +20594,90 @@ var QueryClient = (_i = class {
   }
   clear() {
     __privateGet(this, _queryCache).clear();
-    __privateGet(this, _mutationCache2).clear();
+    __privateGet(this, _mutationCache).clear();
   }
-}, _queryCache = new WeakMap(), _mutationCache2 = new WeakMap(), _defaultOptions = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), __name(_i, "QueryClient"), _i);
+}, _queryCache = new WeakMap(), _mutationCache = new WeakMap(), _defaultOptions = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), __name(_h, "QueryClient"), _h);
+const TOAST_DURATION_MS = 5e3;
+const DEDUPE_WINDOW_MS = 6e3;
+const TOAST_CLASS_NAME = "max-w-md whitespace-pre-line";
+const BURST_WINDOW_MS = 500;
+const lastShownAt = /* @__PURE__ */ new Map();
+function claimSlot(key, windowMs) {
+  const now = Date.now();
+  const previous = lastShownAt.get(key);
+  if (previous !== void 0 && now - previous < windowMs) return false;
+  for (const [seen, at] of lastShownAt) {
+    if (now - at >= DEDUPE_WINDOW_MS) lastShownAt.delete(seen);
+  }
+  lastShownAt.set(key, now);
+  return true;
+}
+__name(claimSlot, "claimSlot");
+function show(text) {
+  di.error(text, { duration: TOAST_DURATION_MS, className: TOAST_CLASS_NAME });
+}
+__name(show, "show");
+function notifyPresentation(presentation, dedupe = true, windowMs = DEDUPE_WINDOW_MS) {
+  if (presentation.isSilent) return null;
+  if (dedupe && !claimSlot(presentation.dedupeKey, windowMs)) return null;
+  show(toErrorText(presentation));
+  return presentation;
+}
+__name(notifyPresentation, "notifyPresentation");
+function reportQueryError(error, query) {
+  var _a2, _b2, _c2;
+  devError(`Query error for ${String(query.queryKey)}:`, error);
+  const claimState = getQueryClaimState(query.queryHash);
+  const copy = ((_a2 = query.meta) == null ? void 0 : _a2.errorCopy) ?? { fallback: getDisplacedClaimFallback(query.queryHash) };
+  const presentation = interpretError(error, { context: "load", copy });
+  if (presentation.isSilent) return;
+  if (presentation.isSessionEvent) {
+    notifyPresentation(presentation);
+    return;
+  }
+  if (((_b2 = query.meta) == null ? void 0 : _b2.errorSurface) === "silent") return;
+  if (claimState === "claimed") return;
+  if (claimState === "abandoned" && (((_c2 = query.getObserversCount) == null ? void 0 : _c2.call(query)) ?? 0) === 0) return;
+  notifyPresentation(presentation);
+}
+__name(reportQueryError, "reportQueryError");
+function reportMutationError(error, mutation) {
+  var _a2, _b2;
+  devError(`Mutation error for ${String(mutation.options.mutationKey)}:`, error);
+  const presentation = interpretError(error, { context: "action", copy: (_a2 = mutation.meta) == null ? void 0 : _a2.errorCopy });
+  if (presentation.isSilent) return;
+  if (presentation.isSessionEvent) {
+    notifyPresentation(presentation);
+    return;
+  }
+  if ((_b2 = mutation.meta) == null ? void 0 : _b2.errorSurface) return;
+  notifyPresentation(presentation, presentation.isConnectivity, BURST_WINDOW_MS);
+}
+__name(reportMutationError, "reportMutationError");
+function forgetClaimsOnEviction(cache) {
+  cache.subscribe((event) => {
+    if (event.type === "removed") forgetQueryClaims(event.query.queryHash);
+  });
+}
+__name(forgetClaimsOnEviction, "forgetClaimsOnEviction");
+const QUERY_RETRIES = {
+  // Fails immediately and often means a momentary blip, so repeats cost the user almost nothing.
+  offline: 2,
+  server: 2,
+  // Each attempt already cost the full 30s client timeout.
+  timeout: 1
+};
+const MUTATION_RETRIES = {
+  offline: 1
+};
+function getQueryRetryLimit(error) {
+  return QUERY_RETRIES[classifyError(error).kind] ?? 0;
+}
+__name(getQueryRetryLimit, "getQueryRetryLimit");
+function getMutationRetryLimit(error) {
+  return MUTATION_RETRIES[classifyError(error).kind] ?? 0;
+}
+__name(getMutationRetryLimit, "getMutationRetryLimit");
 const isValidDate = /* @__PURE__ */ __name((date) => !isNaN(date.getTime()), "isValidDate");
 const formatTimestampDate = /* @__PURE__ */ __name((timestamp) => {
   if (!timestamp) return "";
@@ -20978,6 +20694,7 @@ const DEFAULT_PAGE_SIZE = 20;
 var ApExceptionColumn = /* @__PURE__ */ ((ApExceptionColumn2) => {
   ApExceptionColumn2["ReceivedDate"] = "receivedDate";
   ApExceptionColumn2["BillTo"] = "billTo";
+  ApExceptionColumn2["LogicalCompany"] = "logicalCompany";
   ApExceptionColumn2["DocumentType"] = "documentType";
   ApExceptionColumn2["Issues"] = "issues";
   ApExceptionColumn2["SenderEmail"] = "senderEmail";
@@ -21005,6 +20722,10 @@ const EMPTY_STATE_COPY = {
     description: "AP exceptions will appear here when invoice and credit note reviews are completed."
   }
 };
+const NO_MATCHES_COPY = {
+  title: "No results match your filters",
+  description: "Please try adjusting your filters or search keywords."
+};
 const MISSING_DOCUMENT_MESSAGE = "Document is missing for this entry.";
 function isOpenableDocument(reference) {
   if (!reference) return false;
@@ -21028,7 +20749,7 @@ const DocumentLinkCell = /* @__PURE__ */ __name(({ documentId }) => {
           children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "open-in-new", className: "size-5 text-trax-neutral-grey" })
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Pt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: MISSING_DOCUMENT_MESSAGE })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(kt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: MISSING_DOCUMENT_MESSAGE })
     ] });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -21043,11 +20764,11 @@ const DocumentLinkCell = /* @__PURE__ */ __name(({ documentId }) => {
     }
   );
 }, "DocumentLinkCell");
-const BADGE_CLASS = "min-w-6 justify-center rounded-full bg-trax-red-100 px-2 py-0.5 text-xs font-medium text-trax-red-500";
+const BADGE_CLASS$1 = "min-w-6 justify-center rounded-full bg-trax-red-100 px-2 py-0.5 text-xs font-medium text-trax-red-500";
 const IssuesCell = /* @__PURE__ */ __name(({ issues }) => {
   const count = issues.length;
   if (count === 0) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(jr, { variant: "outline", className: BADGE_CLASS, children: "0" });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Wr, { variant: "outline", className: BADGE_CLASS$1, children: "0" });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { delayDuration: TOOLTIP_DELAY_QUICK, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -21056,12 +20777,67 @@ const IssuesCell = /* @__PURE__ */ __name(({ issues }) => {
         type: "button",
         "aria-label": `${count} ${count === 1 ? "issue" : "issues"}`,
         className: "cursor-default rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(jr, { variant: "outline", className: BADGE_CLASS, children: count })
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Wr, { variant: "outline", className: BADGE_CLASS$1, children: count })
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Pt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc space-y-1 pl-4 text-xs text-trax-grey-900", children: issues.map((issue, index) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: issue.description ?? issue.name }, `${issue.name}-${index}`)) }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(kt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc space-y-1 pl-4 text-xs text-trax-grey-900", children: issues.map((issue, index) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: issue.description ?? issue.name }, `${issue.name}-${index}`)) }) })
   ] });
 }, "IssuesCell");
+const CELL_WIDTH = "max-w-48";
+const LIST_CLASS = "w-48 max-h-64 overflow-y-auto trax-scrollbar-skin";
+const BADGE_CLASS = "shrink-0 rounded-full bg-trax-yellow-200 px-2 py-0.5 text-xs font-medium text-trax-yellow-800";
+const CandidateList = /* @__PURE__ */ __name(({ companies }) => /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc space-y-1 pl-4 text-xs text-trax-grey-900", children: companies.map((company) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: company }, company)) }), "CandidateList");
+const LogicalCompanyCell = /* @__PURE__ */ __name(({ companies }) => {
+  if (companies.length === 0) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm", children: UNREADABLE_VALUE });
+  }
+  if (companies.length === 1) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ys,
+      {
+        className: h("text-sm", CELL_WIDTH),
+        variant: "light",
+        size: "sm",
+        tooltipSide: "bottom",
+        tooltipAlign: "start",
+        showArrow: false,
+        delayDuration: TOOLTIP_DELAY_TRUNCATED_TEXT,
+        children: companies[0]
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { delayDuration: TOOLTIP_DELAY_QUICK, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Et,
+      {
+        type: "button",
+        className: h(
+          "flex cursor-default items-center gap-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
+          CELL_WIDTH
+        ),
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "min-w-0 truncate text-sm", children: companies[0] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(Wr, { variant: "outline", className: BADGE_CLASS, children: [
+            "+",
+            companies.length - 1
+          ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      kt,
+      {
+        variant: "light",
+        size: "sm",
+        side: "bottom",
+        align: "start",
+        showArrow: false,
+        className: LIST_CLASS,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(CandidateList, { companies })
+      }
+    )
+  ] });
+}, "LogicalCompanyCell");
 const TAB_ORDER = [
   ApReviewStatus.ToReview,
   ApReviewStatus.InReview,
@@ -21078,16 +20854,83 @@ const REVIEW_STATUS_LABEL = {
   [ApReviewStatus.InReview]: "In Progress",
   [ApReviewStatus.CompletedReview]: "Completed"
 };
+const REVIEW_STATUS_CHIP_LABEL = {
+  ...REVIEW_STATUS_LABEL,
+  [ApReviewStatus.ToReview]: "Review Required"
+};
+const REVIEW_STATUS_SAVED_MESSAGE = {
+  [ApReviewStatus.ToReview]: "AP exception review pending",
+  [ApReviewStatus.InReview]: "AP exception review in progress",
+  [ApReviewStatus.CompletedReview]: "AP exception review completed"
+};
 const REVIEW_STATUS_CHIP_CLASS = {
   [ApReviewStatus.ToReview]: "bg-trax-yellow-200 text-trax-yellow-800",
   [ApReviewStatus.InReview]: "bg-trax-primary-blue-100 text-trax-primary-blue-600",
   [ApReviewStatus.CompletedReview]: "bg-trax-green-200 text-trax-green-800"
 };
-const ReviewStatusChip = /* @__PURE__ */ __name(({ status }) => /* @__PURE__ */ jsxRuntimeExports.jsx(jr, { variant: "outline", className: h("rounded-[20px]", REVIEW_STATUS_CHIP_CLASS[status]), children: REVIEW_STATUS_LABEL[status] }), "ReviewStatusChip");
+const ReviewStatusChip = /* @__PURE__ */ __name(({ status }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "span",
+  {
+    className: h(
+      Ur({ variant: "outline" }),
+      "rounded-[20px]",
+      REVIEW_STATUS_CHIP_CLASS[status]
+    ),
+    children: REVIEW_STATUS_CHIP_LABEL[status]
+  }
+), "ReviewStatusChip");
+const STATUS_BY_VALUE = new Map(TAB_ORDER.map((status) => [status, status]));
+const TRIGGER_CLASS = h(
+  "group/status h-auto w-auto justify-start gap-1 rounded border-0 bg-transparent p-0 shadow-none",
+  "hover:border-0 focus:border-0 focus:ring-0 aria-disabled:cursor-progress",
+  "focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300"
+);
+const CHEVRON_CLASS = h(
+  "size-4 opacity-0 transition-opacity",
+  "group-hover/row:opacity-100 pointer-coarse:opacity-100",
+  "group-data-[state=open]/status:opacity-100 group-focus-visible/status:opacity-100"
+);
+const ITEM_CLASS = h(
+  "cursor-pointer",
+  "focus:bg-trax-primary-blue-50",
+  "data-[state=checked]:bg-trax-primary-blue-600 data-[state=checked]:text-white",
+  "data-[state=checked]:focus:bg-trax-primary-blue-600"
+);
+const ReviewStatusCell = /* @__PURE__ */ __name(({ document: document2, pinRow }) => {
+  const { mutate, isPending } = useUpdateApEventReviewStatus();
+  const handleValueChange = /* @__PURE__ */ __name((value) => {
+    const status = STATUS_BY_VALUE.get(value);
+    if (!status || status === document2.reviewStatus) return;
+    if (isPending) return;
+    pinRow(document2.id);
+    mutate(
+      { id: document2.id, status },
+      { onSuccess: /* @__PURE__ */ __name(() => di.success(REVIEW_STATUS_SAVED_MESSAGE[status]), "onSuccess") }
+    );
+  }, "handleValueChange");
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Vt, { value: document2.reviewStatus, onValueChange: handleValueChange, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      bt,
+      {
+        className: TRIGGER_CLASS,
+        "aria-label": `Status: ${REVIEW_STATUS_CHIP_LABEL[document2.reviewStatus]}`,
+        "aria-disabled": isPending,
+        iconClassName: h(CHEVRON_CLASS, isPending && "hidden"),
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ReviewStatusChip, { status: document2.reviewStatus }),
+          isPending && /* @__PURE__ */ jsxRuntimeExports.jsx(Zn, { className: "size-4 text-trax-primary-blue-600" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(wt, { widthMode: "auto", align: "start", children: TAB_ORDER.map((status) => /* @__PURE__ */ jsxRuntimeExports.jsx(yt, { value: status, showCheckIcon: false, className: ITEM_CLASS, children: REVIEW_STATUS_LABEL[status] }, status)) })
+  ] });
+}, "ReviewStatusCell");
 const { useMemo: useMemo$3 } = await importShared("react");
 const HEADER_STYLES = { title: "text-trax-neutral-400", icon: "text-trax-neutral-400" };
 const TextCell = /* @__PURE__ */ __name(({ value, className }) => /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: h("text-sm", className), children: value || UNREADABLE_VALUE }), "TextCell");
-const useApExceptionColumns = /* @__PURE__ */ __name(() => useMemo$3(
+const useApExceptionColumns = /* @__PURE__ */ __name(({
+  pinRow
+}) => useMemo$3(
   () => [
     {
       id: ApExceptionColumn.ReceivedDate,
@@ -21095,53 +20938,60 @@ const useApExceptionColumns = /* @__PURE__ */ __name(() => useMemo$3(
       // The header still offers the sort; the order itself is applied to the
       // whole list before a page is cut from it, in `sortRows`.
       enableSorting: true,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Received Date", styles: HEADER_STYLES }), "header"),
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Received Date", styles: HEADER_STYLES }), "header"),
       cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: formatTimestampDate(row.original.receivedDate), className: "text-trax-grey-800" }), "cell")
     },
     {
       id: ApExceptionColumn.BillTo,
       accessorKey: "billTo",
       enableSorting: false,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Bill To", styles: HEADER_STYLES }), "header"),
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Bill To", styles: HEADER_STYLES }), "header"),
       cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: row.original.billTo }), "cell")
+    },
+    {
+      id: ApExceptionColumn.LogicalCompany,
+      accessorKey: "logicalCompanies",
+      enableSorting: false,
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Logical Company", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(LogicalCompanyCell, { companies: row.original.logicalCompanies }), "cell")
     },
     {
       id: ApExceptionColumn.DocumentType,
       accessorKey: "documentType",
       enableSorting: false,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Type", styles: HEADER_STYLES }), "header"),
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Type", styles: HEADER_STYLES }), "header"),
       cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: DOCUMENT_TYPE_LABEL[row.original.documentType] }), "cell")
     },
     {
       id: ApExceptionColumn.Issues,
       accessorKey: "issues",
       enableSorting: false,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Issues", styles: HEADER_STYLES }), "header"),
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Issues", styles: HEADER_STYLES }), "header"),
       cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(IssuesCell, { issues: row.original.issues }), "cell")
     },
     {
       id: ApExceptionColumn.SenderEmail,
       accessorKey: "senderEmail",
       enableSorting: false,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Supplier Email Address", styles: HEADER_STYLES }), "header"),
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Supplier Email Address", styles: HEADER_STYLES }), "header"),
       cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(TextCell, { value: row.original.senderEmail }), "cell")
     },
     {
       id: ApExceptionColumn.Document,
       accessorKey: "documentId",
       enableSorting: false,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Documents", styles: HEADER_STYLES }), "header"),
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Documents", styles: HEADER_STYLES }), "header"),
       cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(DocumentLinkCell, { documentId: row.original.documentId }), "cell")
     },
     {
       id: ApExceptionColumn.ReviewStatus,
       accessorKey: "reviewStatus",
       enableSorting: false,
-      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ta, { column, title: "Status", styles: HEADER_STYLES }), "header"),
-      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(ReviewStatusChip, { status: row.original.reviewStatus }), "cell")
+      header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Status", styles: HEADER_STYLES }), "header"),
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(ReviewStatusCell, { document: row.original, pinRow }), "cell")
     }
   ],
-  []
+  [pinRow]
 ), "useApExceptionColumns");
 function mappedParam(bySlug, fallback) {
   const valueBySlug = new Map(Object.entries(bySlug));
@@ -21154,6 +21004,14 @@ function mappedParam(bySlug, fallback) {
   };
 }
 __name(mappedParam, "mappedParam");
+function textParam() {
+  return {
+    fallback: "",
+    parse: /* @__PURE__ */ __name((raw) => (raw == null ? void 0 : raw.trim()) ?? "", "parse"),
+    serialize: /* @__PURE__ */ __name((value) => value.trim() || null, "serialize")
+  };
+}
+__name(textParam, "textParam");
 function pageParam() {
   return {
     fallback: 1,
@@ -21165,7 +21023,7 @@ function pageParam() {
   };
 }
 __name(pageParam, "pageParam");
-const { useCallback: useCallback$2, useEffect, useMemo: useMemo$2, useRef } = await importShared("react");
+const { useCallback: useCallback$4, useEffect, useMemo: useMemo$2, useRef } = await importShared("react");
 function useUrlState(spec) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { state } = useLocation();
@@ -21182,7 +21040,7 @@ function useUrlState(spec) {
   useEffect(() => {
     pending.current = null;
   }, [searchParams]);
-  const setValues = useCallback$2((next) => {
+  const setValues = useCallback$4((next) => {
     const { spec: current, setSearchParams: write, state: preserved } = latest.current;
     write(
       (previous) => {
@@ -21204,6 +21062,30 @@ function useUrlState(spec) {
   return { values, setValues };
 }
 __name(useUrlState, "useUrlState");
+var ApExceptionSearchField = /* @__PURE__ */ ((ApExceptionSearchField2) => {
+  ApExceptionSearchField2["BillTo"] = "billTo";
+  ApExceptionSearchField2["LogicalCompany"] = "logicalCompany";
+  ApExceptionSearchField2["SupplierEmail"] = "supplierEmail";
+  return ApExceptionSearchField2;
+})(ApExceptionSearchField || {});
+const single = /* @__PURE__ */ __name((value) => value ? [value] : [], "single");
+const AP_EXCEPTION_SEARCH_FIELDS = [
+  {
+    id: "billTo",
+    label: "Bill To",
+    read: /* @__PURE__ */ __name((document2) => single(document2.billTo), "read")
+  },
+  {
+    id: "logicalCompany",
+    label: "Logical Company",
+    read: /* @__PURE__ */ __name((document2) => document2.logicalCompanies, "read")
+  },
+  {
+    id: "supplierEmail",
+    label: "Supplier Email",
+    read: /* @__PURE__ */ __name((document2) => single(document2.senderEmail), "read")
+  }
+];
 var SortOrder = /* @__PURE__ */ ((SortOrder2) => {
   SortOrder2["Oldest"] = "oldest";
   SortOrder2["Newest"] = "newest";
@@ -21214,11 +21096,14 @@ const SORT_ORDER_BY_SLUG = {
   newest: "newest"
   /* Newest */
 };
-const { useCallback: useCallback$1, useMemo: useMemo$1 } = await importShared("react");
+const { useCallback: useCallback$3, useMemo: useMemo$1 } = await importShared("react");
 const AP_EXCEPTIONS_PARAMS = {
   tab: mappedParam(TAB_BY_SLUG, DEFAULT_TAB),
   page: pageParam(),
-  sort: mappedParam(SORT_ORDER_BY_SLUG, SortOrder.Oldest)
+  sort: mappedParam(SORT_ORDER_BY_SLUG, SortOrder.Oldest),
+  [ApExceptionSearchField.BillTo]: textParam(),
+  [ApExceptionSearchField.LogicalCompany]: textParam(),
+  [ApExceptionSearchField.SupplierEmail]: textParam()
 };
 const useApExceptionsUrlState = /* @__PURE__ */ __name(() => {
   const { values, setValues } = useUrlState(AP_EXCEPTIONS_PARAMS);
@@ -21226,12 +21111,17 @@ const useApExceptionsUrlState = /* @__PURE__ */ __name(() => {
     () => [{ id: ApExceptionColumn.ReceivedDate, desc: values.sort === SortOrder.Newest }],
     [values.sort]
   );
-  const setTab = useCallback$1(
+  const terms = useMemo$1(() => {
+    const read = {};
+    for (const { id } of AP_EXCEPTION_SEARCH_FIELDS) read[id] = values[id];
+    return read;
+  }, [values]);
+  const setTab = useCallback$3(
     (tab) => setValues({ tab, page: 1 }),
     [setValues]
   );
-  const setPage = useCallback$1((page) => setValues({ page }), [setValues]);
-  const handleSortingChange = useCallback$1(
+  const setPage = useCallback$3((page) => setValues({ page }), [setValues]);
+  const handleSortingChange = useCallback$3(
     (updater) => {
       var _a2;
       const next = resolveUpdater(updater, sorting);
@@ -21240,11 +21130,41 @@ const useApExceptionsUrlState = /* @__PURE__ */ __name(() => {
     },
     [sorting, setValues]
   );
+  const setSearchTerm = useCallback$3(
+    (field, value) => {
+      if (terms[field] === value) return;
+      setValues({ [field]: value, page: 1 });
+    },
+    [terms, setValues]
+  );
   return useMemo$1(
-    () => ({ tab: values.tab, page: values.page, sorting, setTab, setPage, handleSortingChange }),
-    [values.tab, values.page, sorting, setTab, setPage, handleSortingChange]
+    () => ({
+      tab: values.tab,
+      page: values.page,
+      sorting,
+      terms,
+      setTab,
+      setPage,
+      handleSortingChange,
+      setSearchTerm
+    }),
+    [values.tab, values.page, sorting, terms, setTab, setPage, handleSortingChange, setSearchTerm]
   );
 }, "useApExceptionsUrlState");
+const { useCallback: useCallback$2, useState } = await importShared("react");
+const NONE = /* @__PURE__ */ new Set();
+const usePinnedRows = /* @__PURE__ */ __name((tab) => {
+  const [pinned, setPinned] = useState(NONE);
+  const [pinnedTab, setPinnedTab] = useState(tab);
+  if (pinnedTab !== tab) {
+    setPinnedTab(tab);
+    setPinned(NONE);
+  }
+  const pinRow = useCallback$2((id) => {
+    setPinned((current) => new Set(current).add(id));
+  }, []);
+  return { pinnedIds: pinnedTab === tab ? pinned : NONE, pinRow };
+}, "usePinnedRows");
 function receivedAt(document2) {
   if (!document2.receivedDate) return Number.POSITIVE_INFINITY;
   const time = new Date(document2.receivedDate).getTime();
@@ -21255,38 +21175,131 @@ function sortRows(rows, sorting) {
   const order = sorting[0];
   if (!order || order.id !== ApExceptionColumn.ReceivedDate) return rows;
   const direction = order.desc ? -1 : 1;
-  return [...rows].sort((left, right) => {
-    const difference = receivedAt(left) - receivedAt(right);
-    return Number.isNaN(difference) ? 0 : difference * direction;
+  const keyed = rows.map((row) => ({ row, at: receivedAt(row) }));
+  keyed.sort((left, right) => {
+    if (left.at === right.at) return 0;
+    return left.at < right.at ? -direction : direction;
   });
+  return keyed.map(({ row }) => row);
 }
 __name(sortRows, "sortRows");
-const ApExceptionTabs = /* @__PURE__ */ __name(({ currentTab, onChange }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-  "div",
-  {
-    role: "group",
-    "aria-label": "Review status filter",
-    className: "flex items-center gap-2 border-b border-trax-neutral-30 bg-trax-neutral-10 px-4 py-3",
-    children: TAB_ORDER.map((tab) => {
-      const isActive = tab === currentTab;
-      return /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          type: "button",
-          "aria-pressed": isActive,
-          onClick: /* @__PURE__ */ __name(() => onChange(tab), "onClick"),
-          className: h(
-            "rounded-full px-3 py-1 text-sm font-medium transition-colors",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
-            isActive ? "bg-trax-primary-blue-600 text-white" : "border border-trax-neutral-30 bg-trax-neutral-10 text-trax-neutral-600 hover:bg-trax-primary-blue-50"
-          ),
-          children: REVIEW_STATUS_LABEL[tab]
-        },
-        tab
-      );
-    })
+const BY_NAME = new Intl.Collator("en");
+const UNREADABLE_KEY = hn(UNREADABLE_VALUE);
+const isUnreadable = /* @__PURE__ */ __name((values) => values.length === 0, "isUnreadable");
+function buildSearchIndex(rows) {
+  const folded = {};
+  const distinct = {};
+  const anyUnreadable = {};
+  for (const { id } of AP_EXCEPTION_SEARCH_FIELDS) {
+    folded[id] = new Array(rows.length);
+    distinct[id] = /* @__PURE__ */ new Map();
+    anyUnreadable[id] = false;
   }
-), "ApExceptionTabs");
+  rows.forEach((document2, position) => {
+    for (const { id, read } of AP_EXCEPTION_SEARCH_FIELDS) {
+      const values = read(document2);
+      const keys = values.map(hn);
+      folded[id][position] = keys;
+      if (isUnreadable(keys)) anyUnreadable[id] = true;
+      keys.forEach((key, at) => {
+        if (!distinct[id].has(key)) distinct[id].set(key, values[at]);
+      });
+    }
+  });
+  const suggestions = {};
+  for (const { id } of AP_EXCEPTION_SEARCH_FIELDS) {
+    const offerUnreadable = anyUnreadable[id] || distinct[id].has(UNREADABLE_KEY);
+    const named = [...distinct[id].entries()].filter(([key]) => key !== UNREADABLE_KEY).map(([, value]) => value).sort(BY_NAME.compare);
+    suggestions[id] = offerUnreadable ? [UNREADABLE_VALUE, ...named] : named;
+  }
+  return { rows, folded, suggestions };
+}
+__name(buildSearchIndex, "buildSearchIndex");
+const hasSearchTerm = /* @__PURE__ */ __name((terms) => AP_EXCEPTION_SEARCH_FIELDS.some(({ id }) => terms[id] !== ""), "hasSearchTerm");
+function searchRows(index, terms) {
+  const active = AP_EXCEPTION_SEARCH_FIELDS.filter(({ id }) => terms[id] !== "").map(({ id }) => {
+    const needle = hn(terms[id]);
+    return { column: index.folded[id], needle, wantsUnreadable: needle === UNREADABLE_KEY };
+  });
+  if (active.length === 0) return index.rows;
+  return index.rows.filter(
+    (_, position) => active.every(({ column, needle, wantsUnreadable }) => {
+      const values = column[position];
+      if (wantsUnreadable && isUnreadable(values)) return true;
+      return values.some((value) => value.includes(needle));
+    })
+  );
+}
+__name(searchRows, "searchRows");
+function emptyTableCopy({
+  total,
+  onTab,
+  matched,
+  searching,
+  tab
+}) {
+  if (total === 0) return EMPTY_STATE_COPY[DEFAULT_TAB];
+  if (searching && onTab > 0 && matched === 0) return NO_MATCHES_COPY;
+  return EMPTY_STATE_COPY[tab];
+}
+__name(emptyTableCopy, "emptyTableCopy");
+const { useCallback: useCallback$1 } = await importShared("react");
+const Field = /* @__PURE__ */ __name(({ field, index, term, onSearch }) => {
+  const commit = useCallback$1((next) => onSearch(field.id, next), [field.id, onSearch]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ls,
+    {
+      className: "w-56",
+      listClassName: "trax-scrollbar-skin",
+      label: field.label,
+      value: term,
+      suggestions: index.suggestions[field.id],
+      onCommit: commit
+    }
+  );
+}, "Field");
+const ApExceptionSearchFields = /* @__PURE__ */ __name(({
+  index,
+  terms,
+  onSearch
+}) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap items-center gap-2", children: AP_EXCEPTION_SEARCH_FIELDS.map((field) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Field,
+  {
+    field,
+    index,
+    term: terms[field.id],
+    onSearch
+  },
+  field.id
+)) }), "ApExceptionSearchFields");
+const ApExceptionTabs = /* @__PURE__ */ __name(({ currentTab, onChange }) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { role: "group", "aria-label": "Review status filter", className: "flex items-center gap-2", children: TAB_ORDER.map((tab) => {
+  const isActive = tab === currentTab;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "button",
+    {
+      type: "button",
+      "aria-pressed": isActive,
+      onClick: /* @__PURE__ */ __name(() => onChange(tab), "onClick"),
+      className: h(
+        "rounded-full px-3 py-1 text-sm font-medium transition-colors",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
+        isActive ? "bg-trax-primary-blue-600 text-white" : "border border-trax-neutral-30 bg-trax-neutral-10 text-trax-neutral-600 hover:bg-trax-primary-blue-50"
+      ),
+      children: REVIEW_STATUS_LABEL[tab]
+    },
+    tab
+  );
+}) }), "ApExceptionTabs");
+const ApExceptionsToolbar = /* @__PURE__ */ __name(({
+  tab,
+  onTabChange,
+  index,
+  terms,
+  onSearch
+}) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center justify-between gap-3 border-b border-trax-neutral-30 bg-trax-neutral-10 px-4 py-3", children: [
+  /* @__PURE__ */ jsxRuntimeExports.jsx(ApExceptionTabs, { currentTab: tab, onChange: onTabChange }),
+  /* @__PURE__ */ jsxRuntimeExports.jsx(ApExceptionSearchFields, { index, terms, onSearch })
+] }), "ApExceptionsToolbar");
 const { useCallback, useMemo } = await importShared("react");
 const NO_DATA_ACCESS = "You don't have access to AP exception data. Ask your administrator to grant access.";
 const LOAD_FAILED = "Unable to load AP documents. Try again or contact support if the issue persists.";
@@ -21294,12 +21307,17 @@ const ApExceptionsDashboard = /* @__PURE__ */ __name(() => {
   var _a2;
   const query = useApEvents();
   const documents = useMemo(() => query.data ?? [], [query.data]);
-  const { tab, page, sorting, setTab, setPage, handleSortingChange } = useApExceptionsUrlState();
-  const columns = useApExceptionColumns();
-  const rows = useMemo(
-    () => documents.filter((document2) => document2.reviewStatus === tab),
-    [documents, tab]
+  const { tab, page, sorting, terms, setTab, setPage, handleSortingChange, setSearchTerm } = useApExceptionsUrlState();
+  const { pinnedIds, pinRow } = usePinnedRows(tab);
+  const columns = useApExceptionColumns({ pinRow });
+  const tabRows = useMemo(
+    () => documents.filter(
+      (document2) => document2.reviewStatus === tab || pinnedIds.has(document2.id)
+    ),
+    [documents, tab, pinnedIds]
   );
+  const index = useMemo(() => buildSearchIndex(tabRows), [tabRows]);
+  const rows = useMemo(() => searchRows(index, terms), [index, terms]);
   const ordered = useMemo(() => sortRows(rows, sorting), [rows, sorting]);
   const pageCount = Math.max(1, Math.ceil(ordered.length / DEFAULT_PAGE_SIZE));
   const pageIndex = Math.min(page, pageCount) - 1;
@@ -21321,11 +21339,16 @@ const ApExceptionsDashboard = /* @__PURE__ */ __name(() => {
     fallback: LOAD_FAILED,
     canRenderInPlace: documents.length === 0
   });
-  const hasNoDocuments = documents.length === 0;
-  const showTabs = query.isPending || !hasNoDocuments;
-  const emptyCopy = EMPTY_STATE_COPY[hasNoDocuments ? DEFAULT_TAB : tab];
+  const showToolbar = query.isPending || documents.length > 0;
+  const emptyCopy = emptyTableCopy({
+    total: documents.length,
+    onTab: tabRows.length,
+    matched: rows.length,
+    searching: hasSearchTerm(terms),
+    tab
+  });
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    ri,
+    mi,
     {
       columns,
       data: pageRows,
@@ -21342,9 +21365,18 @@ const ApExceptionsDashboard = /* @__PURE__ */ __name(() => {
       pagination,
       onPaginationChange: handlePaginationChange,
       isLoading: query.isPending,
-      loadingState: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-40 items-center justify-center", "data-testid": "ap-exceptions-loading", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, {}) }),
-      toolbar: showTabs ? /* @__PURE__ */ jsxRuntimeExports.jsx(ApExceptionTabs, { currentTab: tab, onChange: setTab }) : void 0,
-      styles: { headerCell: "text-trax-neutral-400" },
+      loadingState: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-40 items-center justify-center", "data-testid": "ap-exceptions-loading", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zn, {}) }),
+      toolbar: showToolbar ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ApExceptionsToolbar,
+        {
+          tab,
+          onTabChange: setTab,
+          index,
+          terms,
+          onSearch: setSearchTerm
+        }
+      ) : void 0,
+      styles: { headerCell: "text-trax-neutral-400", bodyRow: "group/row" },
       emptyState: failure.shouldRenderInPlace ? /* @__PURE__ */ jsxRuntimeExports.jsx(
         DataLoadError,
         {
@@ -21377,7 +21409,7 @@ function ApExceptionsPage() {
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-CxC0Jvvo.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-D79PdDXQ.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21408,7 +21440,7 @@ function RouterProvider() {
           {
             className: "flex min-h-40 w-full items-center justify-center",
             "data-testid": "route-fallback",
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Yn, {})
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zn, {})
           }
         )
       ),
@@ -21489,7 +21521,7 @@ function ClickIsolator({
 }
 __name(ClickIsolator, "ClickIsolator");
 function ToasterProvider(props) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(ClickIsolator, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zs, { ...props }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ClickIsolator, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(ui, { ...props }) });
 }
 __name(ToasterProvider, "ToasterProvider");
 const React = await importShared("react");
@@ -21512,7 +21544,7 @@ const AUXILIARY_OBSERVED_ATTRIBUTES = ["data-slot", "data-state"];
 const PORTAL_SELECTORS = [
   ...PORTAL_DATA_ATTRIBUTES.map((attr) => `[${attr}]`),
   ...VALUE_SPECIFIC_SELECTORS,
-  `.${Er}`
+  `.${Tr}`
 ];
 const OBSERVED_ATTRIBUTES = [...PORTAL_DATA_ATTRIBUTES, ...AUXILIARY_OBSERVED_ATTRIBUTES];
 const COMBINED_SELECTOR = PORTAL_SELECTORS.join(",");
@@ -21656,7 +21688,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1786106898580", commit: "8ac87e6", branch: "feat/AI-278-ap-exceptions-dashboard", timestamp: "2026-08-07T12:48:18.601Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1787162135009", commit: "dfd3cbe", branch: "feat/AI-191-document-status-management", timestamp: "2026-08-19T17:55:35.030Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {

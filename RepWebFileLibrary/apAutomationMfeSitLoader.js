@@ -21,16 +21,16 @@
   // unsubstituted file is still valid JS, which is what `npm run dev` serves.
   const CONTAINER_ID = "apAutomation-mfe";
   const SCOPE_CLASS = "apAutomation-mfe-scope";
-  const BUNDLE_DIR = "apAutomation-mfe-dev";
-  const FILE_NAME = "moduleLoader.js";
+  const BUNDLE_DIR = "apAutomation-mfe-sit";
+  const FILE_NAME = "apAutomationMfeSitLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.local-1787162135009",
+  "version": "0.1.0-dev.local-1787162142088",
   "commit": "dfd3cbe",
   "branch": "feat/AI-191-document-status-management",
-  "timestamp": "2026-08-19T17:55:35.030Z",
-  "environment": "apAutomation-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-KoKtlICW.js",
-  "css": "style-DAezIp3N.css"
+  "timestamp": "2026-08-19T17:55:42.109Z",
+  "environment": "apAutomation-mfe-sit",
+  "bootstrap": "__federation_expose_Mount-BCuzk_Xi.js",
+  "css": "style-BdPZMGMt.css"
 };
 
   const LOG_PREFIX = '[' + (BUNDLE_DIR || 'mfe') + ']';
