@@ -1,1 +1,0 @@
-var r=Object.defineProperty;var s=(e,t)=>r(e,"name",{value:t,configurable:!0});import{j as o}from"./queryClient-V0RLF5ok.js";import{E as p}from"./ExpensesList-waPIKJS9.js";const n=s(()=>o.jsx(p,{}),"ExpensesPage");export{n as default};
