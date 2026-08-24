@@ -1,0 +1,23 @@
+var __defProp = Object.defineProperty;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+import { ae as useParams, x as useLocation, af as useNavigateBack, a as RoutePaths, j as jsxRuntimeExports } from "./queryClient-3qLEUwRX.js";
+import { a as CardholderTransactionsView } from "./TransactionsList-BQoICJA_.js";
+const CardholderReconciliationDetailPage = /* @__PURE__ */ __name(() => {
+  const { id } = useParams();
+  const { state } = useLocation();
+  const { navigateBack } = useNavigateBack({
+    fallback: RoutePaths.CardholderReconciliation,
+    basePath: RoutePaths.CardholderReconciliation
+  });
+  const snapshot = state == null ? void 0 : state.item;
+  const header = snapshot ? {
+    masterAccountName: snapshot.name,
+    currencyCode: snapshot.currencyCode,
+    statementPeriod: snapshot.statementPeriod,
+    reconciliationDueDate: snapshot.reconciliationDueDate
+  } : void 0;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(CardholderTransactionsView, { statementId: id, header, onBack: navigateBack });
+}, "CardholderReconciliationDetailPage");
+export {
+  CardholderReconciliationDetailPage as default
+};
