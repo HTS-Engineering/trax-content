@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { j as jsxRuntimeExports, I as Icon } from "./queryClient-haQ_5IC4.js";
+import { j as jsxRuntimeExports, I as Icon } from "./queryClient-B-8ibG67.js";
 const ICON_NAMES = [
   "action",
   "add",
@@ -50,7 +50,7 @@ const ICON_NAMES = [
   "textsms"
 ];
 const ICON_METADATA = {
-  generatedAt: "2026-08-24T15:40:16.010Z"
+  generatedAt: "2026-08-24T16:13:47.324Z"
 };
 const React = await importShared("react");
 const { useMemo, useState } = React;

@@ -1,10 +1,10 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
-import { c as createLucideIcon, c9 as DOMEventNames, S as SessionStorageKeys, j as jsxRuntimeExports, bv as Ss, v as jr, ca as ht, cb as TokenPlaceholders, V as Ue, cc as jn, a5 as RefreshCw, cd as sn, p as apiClient, aK as CONFIGURATION_ENDPOINTS, ce as axios } from "./queryClient-haQ_5IC4.js";
-import { l as useAuth, m as useJWT, n as useUser, o as usePermissions, q as useTokenExpiration, s as useJWTStatus, v as useJWTPayload, w as Shield } from "./__federation_expose_Mount-CDvOkJGT.js";
-import { C as CircleAlert } from "./circle-alert-DZ67z5n_.js";
-import { T as Trash2, S as Send } from "./trash-2-DTGabjXl.js";
+import { c as createLucideIcon, cb as DOMEventNames, S as SessionStorageKeys, j as jsxRuntimeExports, bx as Ss, v as jr, cc as ht, cd as TokenPlaceholders, V as Ue, ce as jn, a8 as RefreshCw, cf as sn, p as apiClient, aN as CONFIGURATION_ENDPOINTS, cg as axios } from "./queryClient-B-8ibG67.js";
+import { B as useAuth, C as useJWT, F as useUser, G as usePermissions, H as useTokenExpiration, J as useJWTStatus, K as useJWTPayload, L as Shield } from "./__federation_expose_Mount-BE3mv2JS.js";
+import { C as CircleAlert } from "./circle-alert-GvqpP_KL.js";
+import { T as Trash2, S as Send } from "./trash-2-CsRav71b.js";
 const __iconNode$5 = [
   ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
   ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]

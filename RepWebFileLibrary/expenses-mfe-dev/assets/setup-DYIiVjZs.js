@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-var _a, _b;
-import { D as DiagAPI, r as registerGlobal, g as getGlobal, u as unregisterGlobal, c as createContextKey, b as baggageEntryMetadataFromString, p as propagation, t as trace, i as isSpanContextValid, T as TraceFlags, a as context, S as SpanStatusCode, I as INVALID_SPAN_CONTEXT, d as isValidTraceId, R as ROOT_CONTEXT } from "./__federation_expose_Mount-CDvOkJGT.js";
+var _a, _b, _c, _d;
+import { D as DiagAPI, r as registerGlobal, g as getGlobal, u as unregisterGlobal, c as createContextKey, b as baggageEntryMetadataFromString, p as propagation, t as trace, i as isSpanContextValid, T as TraceFlags, a as context, S as SeverityNumber, d as createNoopLogger, e as SpanStatusCode, I as INVALID_SPAN_CONTEXT, f as isValidTraceId, R as ROOT_CONTEXT, l as logs, h as getState, j as installErrorCapture, k as activateErrorCapture, m as releaseOtelGlobals, n as DEFAULT_SANITIZER_CONFIG, o as extractPathname, q as toText, s as templatePath } from "./__federation_expose_Mount-BE3mv2JS.js";
 const _NoopMeter = class _NoopMeter {
   constructor() {
   }
@@ -403,7 +403,7 @@ const _W3CBaggagePropagator = class _W3CBaggagePropagator {
 };
 __name(_W3CBaggagePropagator, "W3CBaggagePropagator");
 let W3CBaggagePropagator = _W3CBaggagePropagator;
-function sanitizeAttributes$1(attributes) {
+function sanitizeAttributes(attributes) {
   const out = {};
   if (typeof attributes !== "object" || attributes == null) {
     return out;
@@ -429,7 +429,7 @@ function sanitizeAttributes$1(attributes) {
   }
   return out;
 }
-__name(sanitizeAttributes$1, "sanitizeAttributes$1");
+__name(sanitizeAttributes, "sanitizeAttributes");
 function isAttributeKey(key) {
   return typeof key === "string" && key !== "";
 }
@@ -518,7 +518,7 @@ function getNumberFromEnv(_) {
   return void 0;
 }
 __name(getNumberFromEnv, "getNumberFromEnv");
-const VERSION$4 = "2.9.0";
+const VERSION$5 = "2.9.0";
 const ATTR_ERROR_TYPE = "error.type";
 const ATTR_EXCEPTION_MESSAGE = "exception.message";
 const ATTR_EXCEPTION_STACKTRACE = "exception.stacktrace";
@@ -540,7 +540,7 @@ const SDK_INFO = {
   [ATTR_TELEMETRY_SDK_NAME]: "opentelemetry",
   [ATTR_PROCESS_RUNTIME_NAME]: "browser",
   [ATTR_TELEMETRY_SDK_LANGUAGE]: TELEMETRY_SDK_LANGUAGE_VALUE_WEBJS,
-  [ATTR_TELEMETRY_SDK_VERSION]: VERSION$4
+  [ATTR_TELEMETRY_SDK_VERSION]: VERSION$5
 };
 const otperformance = performance;
 const NANOSECOND_DIGITS = 9;
@@ -793,7 +793,7 @@ __name(_TraceState, "TraceState");
 let TraceState = _TraceState;
 const TRACE_PARENT_HEADER = "traceparent";
 const TRACE_STATE_HEADER = "tracestate";
-const VERSION$3 = "00";
+const VERSION$4 = "00";
 const VERSION_PART = "(?!ff)[\\da-f]{2}";
 const TRACE_ID_PART = "(?![0]{32})[\\da-f]{32}";
 const PARENT_ID_PART = "(?![0]{16})[\\da-f]{16}";
@@ -817,7 +817,7 @@ const _W3CTraceContextPropagator = class _W3CTraceContextPropagator {
     const spanContext = trace.getSpanContext(context2);
     if (!spanContext || isTracingSuppressed(context2) || !isSpanContextValid(spanContext))
       return;
-    const traceParent = `${VERSION$3}-${spanContext.traceId}-${spanContext.spanId}-0${Number(spanContext.traceFlags || TraceFlags.NONE).toString(16)}`;
+    const traceParent = `${VERSION$4}-${spanContext.traceId}-${spanContext.spanId}-0${Number(spanContext.traceFlags || TraceFlags.NONE).toString(16)}`;
     setter.set(carrier, TRACE_PARENT_HEADER, traceParent);
     if (spanContext.traceState) {
       setter.set(carrier, TRACE_STATE_HEADER, spanContext.traceState.serialize());
@@ -927,7 +927,7 @@ function mergeTwoObjects(one, two, level = 0, objects) {
     return void 0;
   }
   level++;
-  if (isPrimitive(one) || isPrimitive(two) || isFunction(two)) {
+  if (isPrimitive$1(one) || isPrimitive$1(two) || isFunction(two)) {
     result = takeValue(two);
   } else if (isArray(one)) {
     result = one.slice();
@@ -958,7 +958,7 @@ function mergeTwoObjects(one, two, level = 0, objects) {
           continue;
         }
         const twoValue = two[key];
-        if (isPrimitive(twoValue)) {
+        if (isPrimitive$1(twoValue)) {
           if (typeof twoValue === "undefined") {
             delete result[key];
           } else {
@@ -1009,13 +1009,13 @@ function isFunction(value) {
 }
 __name(isFunction, "isFunction");
 function isObject(value) {
-  return !isPrimitive(value) && !isArray(value) && !isFunction(value) && typeof value === "object";
+  return !isPrimitive$1(value) && !isArray(value) && !isFunction(value) && typeof value === "object";
 }
 __name(isObject, "isObject");
-function isPrimitive(value) {
+function isPrimitive$1(value) {
   return typeof value === "string" || typeof value === "number" || typeof value === "boolean" || typeof value === "undefined" || value instanceof Date || value instanceof RegExp || value === null;
 }
-__name(isPrimitive, "isPrimitive");
+__name(isPrimitive$1, "isPrimitive$1");
 function shouldMerge(one, two) {
   if (!isPlainObject(one) || !isPlainObject(two)) {
     return false;
@@ -1023,6 +1023,30 @@ function shouldMerge(one, two) {
   return true;
 }
 __name(shouldMerge, "shouldMerge");
+const _TimeoutError = class _TimeoutError extends Error {
+  constructor(message) {
+    super(message);
+    Object.setPrototypeOf(this, _TimeoutError.prototype);
+  }
+};
+__name(_TimeoutError, "TimeoutError");
+let TimeoutError = _TimeoutError;
+function callWithTimeout(promise, timeout) {
+  let timeoutHandle;
+  const timeoutPromise = new Promise(/* @__PURE__ */ __name(function timeoutFunction(_resolve, reject) {
+    timeoutHandle = setTimeout(/* @__PURE__ */ __name(function timeoutHandler() {
+      reject(new TimeoutError("Operation timed out."));
+    }, "timeoutHandler"), timeout);
+  }, "timeoutFunction"));
+  return Promise.race([promise, timeoutPromise]).then((result) => {
+    clearTimeout(timeoutHandle);
+    return result;
+  }, (reason) => {
+    clearTimeout(timeoutHandle);
+    throw reason;
+  });
+}
+__name(callWithTimeout, "callWithTimeout");
 function urlMatches(url, urlToMatch) {
   if (typeof urlToMatch === "string") {
     return url === urlToMatch;
@@ -1212,150 +1236,6 @@ function createOtlpNetworkExportDelegate(options, serializer, transport) {
   }, { timeout: options.timeoutMillis });
 }
 __name(createOtlpNetworkExportDelegate, "createOtlpNetworkExportDelegate");
-const _NoopLogger = class _NoopLogger {
-  emit(_logRecord) {
-  }
-  enabled() {
-    return false;
-  }
-};
-__name(_NoopLogger, "NoopLogger");
-let NoopLogger = _NoopLogger;
-const NOOP_LOGGER = new NoopLogger();
-const GLOBAL_LOGS_API_KEY = /* @__PURE__ */ Symbol.for("io.opentelemetry.js.api.logs");
-const _global = globalThis;
-function makeGetter(requiredVersion, instance, fallback) {
-  return (version) => version === requiredVersion ? instance : fallback;
-}
-__name(makeGetter, "makeGetter");
-const API_BACKWARDS_COMPATIBILITY_VERSION = 1;
-const _NoopLoggerProvider = class _NoopLoggerProvider {
-  getLogger(_name, _version, _options) {
-    return new NoopLogger();
-  }
-};
-__name(_NoopLoggerProvider, "NoopLoggerProvider");
-let NoopLoggerProvider = _NoopLoggerProvider;
-const NOOP_LOGGER_PROVIDER = new NoopLoggerProvider();
-const _ProxyLogger = class _ProxyLogger {
-  constructor(provider, name, version, options) {
-    this._provider = provider;
-    this.name = name;
-    this.version = version;
-    this.options = options;
-  }
-  /**
-   * Emit a log record. This method should only be used by log appenders.
-   *
-   * @param logRecord
-   */
-  emit(logRecord) {
-    this._getLogger().emit(logRecord);
-  }
-  enabled(options) {
-    return this._getLogger().enabled(options);
-  }
-  /**
-   * Try to get a logger from the proxy logger provider.
-   * If the proxy logger provider has no delegate, return a noop logger.
-   */
-  _getLogger() {
-    if (this._delegate) {
-      return this._delegate;
-    }
-    const logger2 = this._provider._getDelegateLogger(this.name, this.version, this.options);
-    if (!logger2) {
-      return NOOP_LOGGER;
-    }
-    this._delegate = logger2;
-    return this._delegate;
-  }
-};
-__name(_ProxyLogger, "ProxyLogger");
-let ProxyLogger = _ProxyLogger;
-const _ProxyLoggerProvider = class _ProxyLoggerProvider {
-  getLogger(name, version, options) {
-    var _a2;
-    return (_a2 = this._getDelegateLogger(name, version, options)) !== null && _a2 !== void 0 ? _a2 : new ProxyLogger(this, name, version, options);
-  }
-  /**
-   * Get the delegate logger provider.
-   * Used by tests only.
-   * @internal
-   */
-  _getDelegate() {
-    var _a2;
-    return (_a2 = this._delegate) !== null && _a2 !== void 0 ? _a2 : NOOP_LOGGER_PROVIDER;
-  }
-  /**
-   * Set the delegate logger provider
-   * @internal
-   */
-  _setDelegate(delegate) {
-    this._delegate = delegate;
-  }
-  /**
-   * @internal
-   */
-  _getDelegateLogger(name, version, options) {
-    var _a2;
-    return (_a2 = this._delegate) === null || _a2 === void 0 ? void 0 : _a2.getLogger(name, version, options);
-  }
-};
-__name(_ProxyLoggerProvider, "ProxyLoggerProvider");
-let ProxyLoggerProvider = _ProxyLoggerProvider;
-const _LogsAPI = class _LogsAPI {
-  constructor() {
-    this._proxyLoggerProvider = new ProxyLoggerProvider();
-  }
-  static getInstance() {
-    if (!this._instance) {
-      this._instance = new _LogsAPI();
-    }
-    return this._instance;
-  }
-  setGlobalLoggerProvider(provider) {
-    if (_global[GLOBAL_LOGS_API_KEY]) {
-      return this.getLoggerProvider();
-    }
-    _global[GLOBAL_LOGS_API_KEY] = makeGetter(API_BACKWARDS_COMPATIBILITY_VERSION, provider, NOOP_LOGGER_PROVIDER);
-    this._proxyLoggerProvider._setDelegate(provider);
-    return provider;
-  }
-  /**
-   * Returns the global logger provider.
-   *
-   * @returns LoggerProvider
-   */
-  getLoggerProvider() {
-    var _a2, _b2;
-    return (_b2 = (_a2 = _global[GLOBAL_LOGS_API_KEY]) === null || _a2 === void 0 ? void 0 : _a2.call(_global, API_BACKWARDS_COMPATIBILITY_VERSION)) !== null && _b2 !== void 0 ? _b2 : this._proxyLoggerProvider;
-  }
-  /**
-   * Returns a Logger, creating one if one with the given name, version,
-   * schemaUrl, and attributes is not already created.
-   *
-   * Getting a Logger may be expensive, especially when `attributes` are
-   * provided. Reuse Logger instances where possible instead of calling
-   * `getLogger()` on hot paths.
-   *
-   * @param name The name of the logger or instrumentation library.
-   * @param version The version of the logger or instrumentation library.
-   * @param options The options of the logger or instrumentation library.
-   * @returns {@link Logger}
-   */
-  getLogger(name, version, options) {
-    return this.getLoggerProvider().getLogger(name, version, options);
-  }
-  /** Remove the global logger provider */
-  disable() {
-    delete _global[GLOBAL_LOGS_API_KEY];
-    this._proxyLoggerProvider = new ProxyLoggerProvider();
-  }
-};
-__name(_LogsAPI, "LogsAPI");
-let LogsAPI = _LogsAPI;
-const logs = LogsAPI.getInstance();
 let serviceName;
 function defaultServiceName() {
   if (serviceName === void 0) {
@@ -1567,6 +1447,70 @@ function toAnyValue(value, encoder) {
   return {};
 }
 __name(toAnyValue, "toAnyValue");
+function createExportLogsServiceRequest(logRecords, encoder) {
+  return {
+    resourceLogs: logRecordsToResourceLogs(logRecords, encoder)
+  };
+}
+__name(createExportLogsServiceRequest, "createExportLogsServiceRequest");
+function createResourceMap$1(logRecords) {
+  const resourceMap = /* @__PURE__ */ new Map();
+  for (const record of logRecords) {
+    const { resource, instrumentationScope } = record;
+    let ismMap = resourceMap.get(resource);
+    if (!ismMap) {
+      ismMap = /* @__PURE__ */ new Map();
+      resourceMap.set(resource, ismMap);
+    }
+    let records = ismMap.get(instrumentationScope);
+    if (!records) {
+      records = [];
+      ismMap.set(instrumentationScope, records);
+    }
+    records.push(record);
+  }
+  return resourceMap;
+}
+__name(createResourceMap$1, "createResourceMap$1");
+function logRecordsToResourceLogs(logRecords, encoder) {
+  const resourceMap = createResourceMap$1(logRecords);
+  return Array.from(resourceMap, ([resource, ismMap]) => {
+    const processedResource = createResource(resource, encoder);
+    return {
+      resource: processedResource,
+      scopeLogs: Array.from(ismMap, ([, scopeLogs]) => {
+        return {
+          scope: createInstrumentationScope(scopeLogs[0].instrumentationScope, encoder),
+          logRecords: scopeLogs.map((log) => toLogRecord(log, encoder)),
+          schemaUrl: scopeLogs[0].instrumentationScope.schemaUrl
+        };
+      }),
+      schemaUrl: processedResource.schemaUrl
+    };
+  });
+}
+__name(logRecordsToResourceLogs, "logRecordsToResourceLogs");
+function toLogRecord(log, encoder) {
+  var _a2, _b2, _c2;
+  return {
+    timeUnixNano: encoder.encodeHrTime(log.hrTime),
+    observedTimeUnixNano: encoder.encodeHrTime(log.hrTimeObserved),
+    severityNumber: toSeverityNumber(log.severityNumber),
+    severityText: log.severityText,
+    body: toAnyValue(log.body, encoder),
+    eventName: log.eventName,
+    attributes: toAttributes(log.attributes, encoder),
+    droppedAttributesCount: log.droppedAttributesCount,
+    flags: (_a2 = log.spanContext) == null ? void 0 : _a2.traceFlags,
+    traceId: encoder.encodeOptionalSpanContext((_b2 = log.spanContext) == null ? void 0 : _b2.traceId),
+    spanId: encoder.encodeOptionalSpanContext((_c2 = log.spanContext) == null ? void 0 : _c2.spanId)
+  };
+}
+__name(toLogRecord, "toLogRecord");
+function toSeverityNumber(severityNumber) {
+  return severityNumber;
+}
+__name(toSeverityNumber, "toSeverityNumber");
 function hrTimeToNanos(hrTime2) {
   const NANOSECONDS = BigInt(1e9);
   return BigInt(Math.trunc(hrTime2[0])) * NANOSECONDS + BigInt(Math.trunc(hrTime2[1]));
@@ -1597,6 +1541,25 @@ const JSON_ENCODER = {
     return btoa(chars.join(""));
   }, "encodeUint8Array")
 };
+const JsonLogsSerializer = {
+  serializeRequest: /* @__PURE__ */ __name((arg) => {
+    const request = createExportLogsServiceRequest(arg, JSON_ENCODER);
+    const encoder = new TextEncoder();
+    return encoder.encode(JSON.stringify(request));
+  }, "serializeRequest"),
+  deserializeResponse: /* @__PURE__ */ __name((arg) => {
+    if (arg.length === 0) {
+      return {};
+    }
+    const decoder = new TextDecoder();
+    try {
+      return JSON.parse(decoder.decode(arg));
+    } catch (err) {
+      diag.warn(`Failed to parse logs export response: ${err.message}. Returning empty response`);
+      return {};
+    }
+  }, "deserializeResponse")
+};
 const SPAN_FLAGS_CONTEXT_HAS_IS_REMOTE_MASK = 256;
 const SPAN_FLAGS_CONTEXT_IS_REMOTE_MASK = 512;
 function buildSpanFlagsFrom(traceFlags, isRemote) {
@@ -1608,7 +1571,7 @@ function buildSpanFlagsFrom(traceFlags, isRemote) {
 }
 __name(buildSpanFlagsFrom, "buildSpanFlagsFrom");
 function sdkSpanToOtlpSpan(span, encoder) {
-  var _a2, _b2, _c, _d;
+  var _a2, _b2, _c2, _d2;
   const ctx = span.spanContext();
   const status = span.status;
   const parentSpanId = ((_a2 = span.parentSpanContext) == null ? void 0 : _a2.spanId) ? encoder.encodeSpanContext((_b2 = span.parentSpanContext) == null ? void 0 : _b2.spanId) : void 0;
@@ -1616,7 +1579,7 @@ function sdkSpanToOtlpSpan(span, encoder) {
     traceId: encoder.encodeSpanContext(ctx.traceId),
     spanId: encoder.encodeSpanContext(ctx.spanId),
     parentSpanId,
-    traceState: (_c = ctx.traceState) == null ? void 0 : _c.serialize(),
+    traceState: (_c2 = ctx.traceState) == null ? void 0 : _c2.serialize(),
     name: span.name,
     // Span kind is offset by 1 because the API does not define a value for unset
     kind: span.kind == null ? 0 : span.kind + 1,
@@ -1633,7 +1596,7 @@ function sdkSpanToOtlpSpan(span, encoder) {
     },
     links: span.links.map((link) => toOtlpLink(link, encoder)),
     droppedLinksCount: span.droppedLinksCount,
-    flags: buildSpanFlagsFrom(ctx.traceFlags, (_d = span.parentSpanContext) == null ? void 0 : _d.isRemote)
+    flags: buildSpanFlagsFrom(ctx.traceFlags, (_d2 = span.parentSpanContext) == null ? void 0 : _d2.isRemote)
   };
 }
 __name(sdkSpanToOtlpSpan, "sdkSpanToOtlpSpan");
@@ -1989,6 +1952,13 @@ function createLegacyOtlpBrowserExportDelegate(config, serializer, signalResourc
   return createOtlpFetchExportDelegate(options, serializer);
 }
 __name(createLegacyOtlpBrowserExportDelegate, "createLegacyOtlpBrowserExportDelegate");
+const _OTLPLogExporter = class _OTLPLogExporter extends OTLPExporterBase {
+  constructor(config = {}) {
+    super(createLegacyOtlpBrowserExportDelegate(config, JsonLogsSerializer, "v1/logs", { "Content-Type": "application/json" }));
+  }
+};
+__name(_OTLPLogExporter, "OTLPLogExporter");
+let OTLPLogExporter = _OTLPLogExporter;
 const _OTLPTraceExporter = class _OTLPTraceExporter extends OTLPExporterBase {
   constructor(config = {}) {
     super(createLegacyOtlpBrowserExportDelegate(config, JsonTraceSerializer, "v1/traces", { "Content-Type": "application/json" }));
@@ -1996,288 +1966,898 @@ const _OTLPTraceExporter = class _OTLPTraceExporter extends OTLPExporterBase {
 };
 __name(_OTLPTraceExporter, "OTLPTraceExporter");
 let OTLPTraceExporter = _OTLPTraceExporter;
-function enableInstrumentations(instrumentations, tracerProvider, meterProvider, loggerProvider) {
-  for (let i = 0, j = instrumentations.length; i < j; i++) {
-    const instrumentation = instrumentations[i];
-    if (tracerProvider) {
-      instrumentation.setTracerProvider(tracerProvider);
-    }
-    if (meterProvider) {
-      instrumentation.setMeterProvider(meterProvider);
-    }
-    if (loggerProvider && instrumentation.setLoggerProvider) {
-      instrumentation.setLoggerProvider(loggerProvider);
-    }
-    if (!instrumentation.getConfig().enabled) {
-      instrumentation.enable();
-    }
+function isLogAttributeValue(val) {
+  return isLogAttributeValueInternal(val, /* @__PURE__ */ new WeakSet());
+}
+__name(isLogAttributeValue, "isLogAttributeValue");
+function isLogAttributeValueInternal(val, visited) {
+  if (val == null) {
+    return true;
   }
+  if (typeof val === "string" || typeof val === "number" || typeof val === "boolean") {
+    return true;
+  }
+  if (val instanceof Uint8Array) {
+    return true;
+  }
+  if (typeof val === "object") {
+    if (visited.has(val)) {
+      return false;
+    }
+    visited.add(val);
+    if (Array.isArray(val)) {
+      for (const item of val) {
+        if (!isLogAttributeValueInternal(item, visited)) {
+          return false;
+        }
+      }
+      return true;
+    }
+    const obj = val;
+    if (obj.constructor !== Object && obj.constructor !== void 0) {
+      return false;
+    }
+    for (const key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key) && !isLogAttributeValueInternal(obj[key], visited)) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return false;
 }
-__name(enableInstrumentations, "enableInstrumentations");
-function disableInstrumentations(instrumentations) {
-  instrumentations.forEach((instrumentation) => instrumentation.disable());
+__name(isLogAttributeValueInternal, "isLogAttributeValueInternal");
+var AddAttributeDecision;
+(function(AddAttributeDecision2) {
+  AddAttributeDecision2[AddAttributeDecision2["DROP_INVALID"] = 0] = "DROP_INVALID";
+  AddAttributeDecision2[AddAttributeDecision2["DROP_LIMIT_REACHED"] = 1] = "DROP_LIMIT_REACHED";
+  AddAttributeDecision2[AddAttributeDecision2["ADD_NEW"] = 2] = "ADD_NEW";
+  AddAttributeDecision2[AddAttributeDecision2["ADD_OVERWRITE_EXISTING"] = 3] = "ADD_OVERWRITE_EXISTING";
+})(AddAttributeDecision || (AddAttributeDecision = {}));
+function addAttribute(attributes, limits, currentAttributesCount, key, value) {
+  if (key.length === 0) {
+    diag.warn(`Invalid attribute key: ${key}`);
+    return AddAttributeDecision.DROP_INVALID;
+  }
+  if (!isLogAttributeValue(value)) {
+    diag.warn(`Invalid attribute value set for key: ${key}`);
+    return AddAttributeDecision.DROP_INVALID;
+  }
+  const isNewKey = !Object.prototype.hasOwnProperty.call(attributes, key);
+  if (isNewKey && currentAttributesCount >= limits.attributeCountLimit) {
+    return AddAttributeDecision.DROP_LIMIT_REACHED;
+  }
+  attributes[key] = truncateToSize(value, limits.attributeValueLengthLimit);
+  if (isNewKey) {
+    return AddAttributeDecision.ADD_NEW;
+  }
+  return AddAttributeDecision.ADD_OVERWRITE_EXISTING;
 }
-__name(disableInstrumentations, "disableInstrumentations");
-function registerInstrumentations(options) {
-  var _a2;
-  const tracerProvider = options.tracerProvider || trace.getTracerProvider();
-  const meterProvider = options.meterProvider || metrics.getMeterProvider();
-  const loggerProvider = options.loggerProvider || logs.getLoggerProvider();
-  const instrumentations = ((_a2 = options.instrumentations) == null ? void 0 : _a2.flat()) ?? [];
-  enableInstrumentations(instrumentations, tracerProvider, meterProvider, loggerProvider);
-  return () => {
-    disableInstrumentations(instrumentations);
+__name(addAttribute, "addAttribute");
+function truncateToSize(value, limit) {
+  if (limit <= 0) {
+    diag.warn(`Attribute value limit must be positive, got ${limit}`);
+    return value;
+  }
+  if (value == null) {
+    return value;
+  }
+  if (typeof value === "string") {
+    if (value.length <= limit) {
+      return value;
+    }
+    return value.substring(0, limit);
+  }
+  if (value instanceof Uint8Array) {
+    return value;
+  }
+  if (Array.isArray(value)) {
+    return value.map((val) => truncateToSize(val, limit));
+  }
+  if (typeof value === "object") {
+    const truncatedObj = {};
+    for (const [k, v] of Object.entries(value)) {
+      truncatedObj[k] = truncateToSize(v, limit);
+    }
+    return truncatedObj;
+  }
+  return value;
+}
+__name(truncateToSize, "truncateToSize");
+function normalizeScopeAttributes(limits, attributes) {
+  if (attributes == null) {
+    return {};
+  }
+  const normalizedAttributes = {};
+  let currentAttributesCount = 0;
+  let droppedAttributesCount = 0;
+  for (const [key, value] of Object.entries(attributes)) {
+    const decision = addAttribute(normalizedAttributes, limits, currentAttributesCount, key, value);
+    if (decision === AddAttributeDecision.ADD_NEW) {
+      currentAttributesCount += 1;
+    } else if (decision === AddAttributeDecision.DROP_INVALID) {
+      droppedAttributesCount += 1;
+    } else if (decision === AddAttributeDecision.DROP_LIMIT_REACHED) {
+      droppedAttributesCount += 1;
+    } else ;
+  }
+  return {
+    attributes: currentAttributesCount > 0 ? normalizedAttributes : void 0,
+    droppedAttributesCount
   };
 }
-__name(registerInstrumentations, "registerInstrumentations");
-let logger = console.error.bind(console);
-function defineProperty(obj, name, value) {
-  const enumerable = !!obj[name] && Object.prototype.propertyIsEnumerable.call(obj, name);
-  Object.defineProperty(obj, name, {
-    configurable: true,
-    enumerable,
-    writable: true,
-    value
-  });
-}
-__name(defineProperty, "defineProperty");
-const wrap = /* @__PURE__ */ __name((nodule, name, wrapper) => {
-  if (!nodule || !nodule[name]) {
-    logger("no original function " + String(name) + " to wrap");
-    return;
-  }
-  if (!wrapper) {
-    logger("no wrapper function");
-    logger(new Error().stack);
-    return;
-  }
-  const original = nodule[name];
-  if (typeof original !== "function" || typeof wrapper !== "function") {
-    logger("original object and wrapper must be functions");
-    return;
-  }
-  const wrapped = wrapper(original, name);
-  defineProperty(wrapped, "__original", original);
-  defineProperty(wrapped, "__unwrap", () => {
-    if (nodule[name] === wrapped) {
-      defineProperty(nodule, name, original);
-    }
-  });
-  defineProperty(wrapped, "__wrapped", true);
-  defineProperty(nodule, name, wrapped);
-  return wrapped;
-}, "wrap");
-const massWrap = /* @__PURE__ */ __name((nodules, names, wrapper) => {
-  if (!nodules) {
-    logger("must provide one or more modules to patch");
-    logger(new Error().stack);
-    return;
-  } else if (!Array.isArray(nodules)) {
-    nodules = [nodules];
-  }
-  if (!(names && Array.isArray(names))) {
-    logger("must provide one or more functions to wrap on modules");
-    return;
-  }
-  nodules.forEach((nodule) => {
-    names.forEach((name) => {
-      wrap(nodule, name, wrapper);
-    });
-  });
-}, "massWrap");
-const unwrap = /* @__PURE__ */ __name((nodule, name) => {
-  if (!nodule || !nodule[name]) {
-    logger("no function to unwrap.");
-    logger(new Error().stack);
-    return;
-  }
-  const wrapped = nodule[name];
-  if (!wrapped.__unwrap) {
-    logger("no original to unwrap to -- has " + String(name) + " already been unwrapped?");
-  } else {
-    wrapped.__unwrap();
-    return;
-  }
-}, "unwrap");
-const massUnwrap = /* @__PURE__ */ __name((nodules, names) => {
-  if (!nodules) {
-    logger("must provide one or more modules to patch");
-    logger(new Error().stack);
-    return;
-  } else if (!Array.isArray(nodules)) {
-    nodules = [nodules];
-  }
-  if (!(names && Array.isArray(names))) {
-    logger("must provide one or more functions to unwrap on modules");
-    return;
-  }
-  nodules.forEach((nodule) => {
-    names.forEach((name) => {
-      unwrap(nodule, name);
-    });
-  });
-}, "massUnwrap");
-const _InstrumentationAbstract = class _InstrumentationAbstract {
-  _config = {};
-  _tracer;
-  _meter;
-  _logger;
-  _diag;
-  instrumentationName;
-  instrumentationVersion;
-  constructor(instrumentationName, instrumentationVersion, config) {
-    this.instrumentationName = instrumentationName;
-    this.instrumentationVersion = instrumentationVersion;
-    this.setConfig(config);
-    this._diag = diag.createComponentLogger({
-      namespace: instrumentationName
-    });
-    this._tracer = trace.getTracer(instrumentationName, instrumentationVersion);
-    this._meter = metrics.getMeter(instrumentationName, instrumentationVersion);
-    this._logger = logs.getLogger(instrumentationName, instrumentationVersion);
-    this._updateMetricInstruments();
-  }
-  /* Api to wrap instrumented method */
-  _wrap = wrap;
-  /* Api to unwrap instrumented methods */
-  _unwrap = unwrap;
-  /* Api to mass wrap instrumented method */
-  _massWrap = massWrap;
-  /* Api to mass unwrap instrumented methods */
-  _massUnwrap = massUnwrap;
-  /* Returns meter */
-  get meter() {
-    return this._meter;
-  }
-  /**
-   * Sets MeterProvider to this plugin
-   * @param meterProvider
-   */
-  setMeterProvider(meterProvider) {
-    this._meter = meterProvider.getMeter(this.instrumentationName, this.instrumentationVersion);
-    this._updateMetricInstruments();
-  }
-  /* Returns logger */
-  get logger() {
-    return this._logger;
-  }
-  /**
-   * Sets LoggerProvider to this plugin
-   * @param loggerProvider
-   */
-  setLoggerProvider(loggerProvider) {
-    this._logger = loggerProvider.getLogger(this.instrumentationName, this.instrumentationVersion);
-  }
-  /**
-   * @experimental
-   *
-   * Get module definitions defined by {@link init}.
-   * This can be used for experimental compile-time instrumentation.
-   *
-   * @returns an array of {@link InstrumentationModuleDefinition}
-   */
-  getModuleDefinitions() {
-    const initResult = this.init() ?? [];
-    if (!Array.isArray(initResult)) {
-      return [initResult];
-    }
-    return initResult;
-  }
-  /**
-   * Sets the new metric instruments with the current Meter.
-   */
-  _updateMetricInstruments() {
-    return;
-  }
-  /* Returns InstrumentationConfig */
-  getConfig() {
-    return this._config;
-  }
-  /**
-   * Sets InstrumentationConfig to this plugin
-   * @param config
-   */
-  setConfig(config) {
-    this._config = {
-      enabled: true,
-      ...config
-    };
-  }
-  /**
-   * Sets TracerProvider to this plugin
-   * @param tracerProvider
-   */
-  setTracerProvider(tracerProvider) {
-    this._tracer = tracerProvider.getTracer(this.instrumentationName, this.instrumentationVersion);
-  }
-  /* Returns tracer */
-  get tracer() {
-    return this._tracer;
-  }
-  /**
-   * Execute span customization hook, if configured, and log any errors.
-   * Any semantics of the trigger and info are defined by the specific instrumentation.
-   * @param hookHandler The optional hook handler which the user has configured via instrumentation config
-   * @param triggerName The name of the trigger for executing the hook for logging purposes
-   * @param span The span to which the hook should be applied
-   * @param info The info object to be passed to the hook, with useful data the hook may use
-   */
-  _runSpanCustomizationHook(hookHandler, triggerName, span, info) {
-    if (!hookHandler) {
+__name(normalizeScopeAttributes, "normalizeScopeAttributes");
+const _LogRecordImpl = class _LogRecordImpl {
+  hrTime;
+  hrTimeObserved;
+  spanContext;
+  resource;
+  instrumentationScope;
+  attributes = {};
+  _severityText;
+  _severityNumber;
+  _body;
+  _eventName;
+  _attributesCount = 0;
+  _droppedAttributesCount = 0;
+  _isReadonly = false;
+  _logRecordLimits;
+  set severityText(severityText) {
+    if (this._isLogRecordReadonly()) {
       return;
     }
+    this._severityText = severityText;
+  }
+  get severityText() {
+    return this._severityText;
+  }
+  set severityNumber(severityNumber) {
+    if (this._isLogRecordReadonly()) {
+      return;
+    }
+    this._severityNumber = severityNumber;
+  }
+  get severityNumber() {
+    return this._severityNumber;
+  }
+  set body(body) {
+    if (this._isLogRecordReadonly()) {
+      return;
+    }
+    this._body = body;
+  }
+  get body() {
+    return this._body;
+  }
+  get eventName() {
+    return this._eventName;
+  }
+  set eventName(eventName) {
+    if (this._isLogRecordReadonly()) {
+      return;
+    }
+    this._eventName = eventName;
+  }
+  get droppedAttributesCount() {
+    return this._droppedAttributesCount;
+  }
+  constructor(_sharedState, instrumentationScope, logRecord) {
+    const { timestamp, observedTimestamp, eventName, severityNumber, severityText, body, attributes = {}, exception, context: context2 } = logRecord;
+    const now = Date.now();
+    this.hrTime = timeInputToHrTime(timestamp ?? now);
+    this.hrTimeObserved = timeInputToHrTime(observedTimestamp ?? now);
+    if (context2) {
+      const spanContext = trace.getSpanContext(context2);
+      if (spanContext && isSpanContextValid(spanContext)) {
+        this.spanContext = spanContext;
+      }
+    }
+    this.severityNumber = severityNumber;
+    this.severityText = severityText;
+    this.body = body;
+    this.resource = _sharedState.resource;
+    this.instrumentationScope = instrumentationScope;
+    this._logRecordLimits = _sharedState.logRecordLimits;
+    this._eventName = eventName;
+    this.setAttributes(attributes);
+    if (exception != null) {
+      this._setException(exception);
+    }
+  }
+  setAttribute(key, value) {
+    if (this._isLogRecordReadonly()) {
+      return this;
+    }
+    const decision = addAttribute(this.attributes, this._logRecordLimits, this._attributesCount, key, value);
+    if (decision === AddAttributeDecision.DROP_LIMIT_REACHED) {
+      this._droppedAttributesCount++;
+      if (this._droppedAttributesCount === 1) {
+        diag.warn("Dropping extra attributes.");
+      }
+    } else if (decision === AddAttributeDecision.ADD_NEW) {
+      this._attributesCount++;
+    }
+    return this;
+  }
+  setAttributes(attributes) {
+    for (const [k, v] of Object.entries(attributes)) {
+      this.setAttribute(k, v);
+    }
+    return this;
+  }
+  setBody(body) {
+    this.body = body;
+    return this;
+  }
+  setEventName(eventName) {
+    this.eventName = eventName;
+    return this;
+  }
+  setSeverityNumber(severityNumber) {
+    this.severityNumber = severityNumber;
+    return this;
+  }
+  setSeverityText(severityText) {
+    this.severityText = severityText;
+    return this;
+  }
+  /**
+   * @internal
+   * A LogRecordProcessor may freely modify logRecord for the duration of the OnEmit call.
+   * If logRecord is needed after OnEmit returns (i.e. for asynchronous processing) only reads are permitted.
+   */
+  _makeReadonly() {
+    this._isReadonly = true;
+  }
+  _setException(exception) {
+    let hasMinimumAttributes = false;
+    if (typeof exception === "string" || typeof exception === "number") {
+      if (!Object.hasOwn(this.attributes, ATTR_EXCEPTION_MESSAGE)) {
+        this.setAttribute(ATTR_EXCEPTION_MESSAGE, String(exception));
+      }
+      hasMinimumAttributes = true;
+    } else if (exception && typeof exception === "object") {
+      const exceptionObj = exception;
+      if (exceptionObj.code) {
+        if (!Object.hasOwn(this.attributes, ATTR_EXCEPTION_TYPE)) {
+          this.setAttribute(ATTR_EXCEPTION_TYPE, exceptionObj.code.toString());
+        }
+        hasMinimumAttributes = true;
+      } else if (exceptionObj.name) {
+        if (!Object.hasOwn(this.attributes, ATTR_EXCEPTION_TYPE)) {
+          this.setAttribute(ATTR_EXCEPTION_TYPE, exceptionObj.name);
+        }
+        hasMinimumAttributes = true;
+      }
+      if (exceptionObj.message) {
+        if (!Object.hasOwn(this.attributes, ATTR_EXCEPTION_MESSAGE)) {
+          this.setAttribute(ATTR_EXCEPTION_MESSAGE, exceptionObj.message);
+        }
+        hasMinimumAttributes = true;
+      }
+      if (exceptionObj.stack) {
+        if (!Object.hasOwn(this.attributes, ATTR_EXCEPTION_STACKTRACE)) {
+          this.setAttribute(ATTR_EXCEPTION_STACKTRACE, exceptionObj.stack);
+        }
+        hasMinimumAttributes = true;
+      }
+    }
+    if (!hasMinimumAttributes) {
+      diag.warn(`Failed to record an exception ${exception}`);
+    }
+  }
+  _isLogRecordReadonly() {
+    if (this._isReadonly) {
+      diag.warn("Can not execute the operation on emitted log record");
+    }
+    return this._isReadonly;
+  }
+};
+__name(_LogRecordImpl, "LogRecordImpl");
+let LogRecordImpl = _LogRecordImpl;
+const _Logger = class _Logger {
+  _instrumentationScope;
+  _sharedState;
+  _loggerConfig;
+  constructor(instrumentationScope, sharedState) {
+    this._instrumentationScope = instrumentationScope;
+    this._sharedState = sharedState;
+    this._loggerConfig = this._sharedState.getLoggerConfig(this._instrumentationScope);
+  }
+  emit(logRecord) {
+    const currentContext = logRecord.context || context.active();
+    if (!this.enabled(logRecord)) {
+      return;
+    }
+    const logRecordInstance = new LogRecordImpl(this._sharedState, this._instrumentationScope, {
+      context: currentContext,
+      ...logRecord
+    });
+    this._sharedState.loggerMetrics.emitLog();
+    this._sharedState.activeProcessor.onEmit(logRecordInstance, currentContext);
+    logRecordInstance._makeReadonly();
+  }
+  enabled(options) {
+    if (this._sharedState.hasShutdown) {
+      return false;
+    }
+    const loggerConfig = this._loggerConfig;
+    if (loggerConfig.disabled) {
+      return false;
+    }
+    const severityNumber = options == null ? void 0 : options.severityNumber;
+    if (typeof severityNumber === "number" && severityNumber !== SeverityNumber.UNSPECIFIED && severityNumber < loggerConfig.minimumSeverity) {
+      return false;
+    }
+    const currentContext = (options == null ? void 0 : options.context) || context.active();
+    if (loggerConfig.traceBased) {
+      const spanContext = trace.getSpanContext(currentContext);
+      if (spanContext && isSpanContextValid(spanContext)) {
+        const isSampled = (spanContext.traceFlags & TraceFlags.SAMPLED) === TraceFlags.SAMPLED;
+        if (!isSampled) {
+          return false;
+        }
+      }
+    }
+    const enabledOpts = {
+      context: currentContext,
+      instrumentationScope: this._instrumentationScope,
+      severityNumber: options == null ? void 0 : options.severityNumber,
+      eventName: options == null ? void 0 : options.eventName
+    };
+    for (const processor of this._sharedState.processors) {
+      if (!processor.enabled || processor.enabled(enabledOpts)) {
+        return true;
+      }
+    }
+    return false;
+  }
+};
+__name(_Logger, "Logger");
+let Logger = _Logger;
+const _NoopLogRecordProcessor = class _NoopLogRecordProcessor {
+  forceFlush() {
+    return Promise.resolve();
+  }
+  onEmit(_logRecord, _context) {
+  }
+  shutdown() {
+    return Promise.resolve();
+  }
+  enabled(_options) {
+    return false;
+  }
+};
+__name(_NoopLogRecordProcessor, "NoopLogRecordProcessor");
+let NoopLogRecordProcessor = _NoopLogRecordProcessor;
+const _MultiLogRecordProcessor = class _MultiLogRecordProcessor {
+  processors;
+  forceFlushTimeoutMillis;
+  constructor(processors, forceFlushTimeoutMillis) {
+    this.processors = processors;
+    this.forceFlushTimeoutMillis = forceFlushTimeoutMillis;
+  }
+  async forceFlush() {
+    const timeout = this.forceFlushTimeoutMillis;
+    await Promise.all(this.processors.map((processor) => callWithTimeout(processor.forceFlush(), timeout)));
+  }
+  onEmit(logRecord, context2) {
+    this.processors.forEach((processors) => processors.onEmit(logRecord, context2));
+  }
+  async shutdown() {
+    await Promise.all(this.processors.map((processor) => processor.shutdown()));
+  }
+  enabled(options) {
+    for (const processor of this.processors) {
+      if (!processor.enabled || processor.enabled(options)) {
+        return true;
+      }
+    }
+    return false;
+  }
+};
+__name(_MultiLogRecordProcessor, "MultiLogRecordProcessor");
+let MultiLogRecordProcessor = _MultiLogRecordProcessor;
+function normalizeAnyValue(value) {
+  if (value === void 0) {
+    return ["u", null];
+  }
+  if (value === null) {
+    return ["n", null];
+  }
+  const valueType = typeof value;
+  if (valueType === "string") {
+    return ["s", value];
+  }
+  if (valueType === "boolean") {
+    return ["b", value];
+  }
+  if (valueType === "number") {
+    if (Number.isNaN(value))
+      return ["nan", null];
+    if (value === Infinity)
+      return ["inf", null];
+    if (value === -Infinity)
+      return ["-inf", null];
+    if (Object.is(value, -0))
+      return ["n0", null];
+    return ["d", value];
+  }
+  if (value instanceof Uint8Array) {
+    return ["bytes", Array.from(value)];
+  }
+  if (Array.isArray(value)) {
+    return ["arr", value.map(normalizeAnyValue)];
+  }
+  return [
+    "map",
+    Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => [k, normalizeAnyValue(v)])
+  ];
+}
+__name(normalizeAnyValue, "normalizeAnyValue");
+function getInstrumentationScopeKey(scope) {
+  return JSON.stringify([
+    scope.name,
+    scope.version || "",
+    scope.schemaUrl || "",
+    normalizeAnyValue(scope.attributes),
+    // we include the dropped attributes count to avoid collisions between scopes with the same identifying
+    // characteristics, but different dropped counts. While there still can be collisions this is the best we can do if
+    // we want to resolve the same logger without relying on object identity.
+    scope.droppedAttributesCount ?? 0
+  ]);
+}
+__name(getInstrumentationScopeKey, "getInstrumentationScopeKey");
+const METRIC_OTEL_SDK_LOG_CREATED = "otel.sdk.log.created";
+const _LoggerMetrics = class _LoggerMetrics {
+  createdLogs;
+  constructor(meter) {
+    this.createdLogs = meter.createCounter(METRIC_OTEL_SDK_LOG_CREATED, {
+      unit: "{log_record}",
+      description: "The number of logs submitted to enabled SDK Loggers."
+    });
+  }
+  emitLog() {
+    this.createdLogs.add(1);
+  }
+};
+__name(_LoggerMetrics, "LoggerMetrics");
+let LoggerMetrics = _LoggerMetrics;
+const VERSION$3 = "0.220.0";
+const DEFAULT_LOGGER_CONFIG = {
+  disabled: false,
+  minimumSeverity: SeverityNumber.UNSPECIFIED,
+  traceBased: false
+};
+const DEFAULT_LOGGER_CONFIGURATOR = /* @__PURE__ */ __name(() => ({
+  ...DEFAULT_LOGGER_CONFIG
+}), "DEFAULT_LOGGER_CONFIGURATOR");
+const _LoggerProviderSharedState = class _LoggerProviderSharedState {
+  loggers = /* @__PURE__ */ new Map();
+  activeProcessor;
+  registeredLogRecordProcessors = [];
+  resource;
+  forceFlushTimeoutMillis;
+  logRecordLimits;
+  processors;
+  loggerMetrics;
+  hasShutdown = false;
+  _loggerConfigurator;
+  _loggerConfigs = /* @__PURE__ */ new Map();
+  constructor(resource, forceFlushTimeoutMillis, logRecordLimits, processors, loggerConfigurator, meterProvider) {
+    this.resource = resource;
+    this.forceFlushTimeoutMillis = forceFlushTimeoutMillis;
+    this.logRecordLimits = logRecordLimits;
+    this.processors = processors;
+    if (processors.length > 0) {
+      this.registeredLogRecordProcessors = processors;
+      this.activeProcessor = new MultiLogRecordProcessor(this.registeredLogRecordProcessors, this.forceFlushTimeoutMillis);
+    } else {
+      this.activeProcessor = new NoopLogRecordProcessor();
+    }
+    this._loggerConfigurator = loggerConfigurator ?? DEFAULT_LOGGER_CONFIGURATOR;
+    const meter = meterProvider ? meterProvider.getMeter("@opentelemetry/sdk-logs", VERSION$3) : createNoopMeter();
+    this.loggerMetrics = new LoggerMetrics(meter);
+  }
+  /**
+   * Get the LoggerConfig for a given instrumentation scope.
+   * Uses the LoggerConfigurator function to compute the config on first access
+   * and caches the result.
+   *
+   * @experimental This feature is in development as per the OpenTelemetry specification.
+   */
+  getLoggerConfig(instrumentationScope) {
+    const key = getInstrumentationScopeKey(instrumentationScope);
+    let config = this._loggerConfigs.get(key);
+    if (config) {
+      return config;
+    }
+    config = this._loggerConfigurator(instrumentationScope);
+    this._loggerConfigs.set(key, config);
+    return config;
+  }
+};
+__name(_LoggerProviderSharedState, "LoggerProviderSharedState");
+let LoggerProviderSharedState = _LoggerProviderSharedState;
+const DEFAULT_LOGGER_NAME = "unknown";
+const _LoggerProvider = class _LoggerProvider {
+  _shutdownOnce;
+  _sharedState;
+  constructor(config = {}) {
+    var _a2, _b2;
+    const mergedConfig = {
+      resource: config.resource ?? defaultResource(),
+      forceFlushTimeoutMillis: config.forceFlushTimeoutMillis ?? 3e4,
+      logRecordLimits: {
+        attributeCountLimit: ((_a2 = config.logRecordLimits) == null ? void 0 : _a2.attributeCountLimit) ?? 128,
+        attributeValueLengthLimit: ((_b2 = config.logRecordLimits) == null ? void 0 : _b2.attributeValueLengthLimit) ?? Infinity
+      },
+      loggerConfigurator: config.loggerConfigurator ?? DEFAULT_LOGGER_CONFIGURATOR,
+      processors: config.processors ?? [],
+      meterProvider: config.meterProvider
+    };
+    this._sharedState = new LoggerProviderSharedState(mergedConfig.resource, mergedConfig.forceFlushTimeoutMillis, mergedConfig.logRecordLimits, mergedConfig.processors, mergedConfig.loggerConfigurator, mergedConfig.meterProvider);
+    this._shutdownOnce = new BindOnceFuture(this._shutdown, this);
+  }
+  /**
+   * Get a logger with the configuration of the LoggerProvider.
+   */
+  getLogger(name, version, options) {
+    if (this._shutdownOnce.isCalled) {
+      diag.warn("A shutdown LoggerProvider cannot provide a Logger");
+      return createNoopLogger();
+    }
+    if (!name) {
+      diag.warn("Logger requested without instrumentation scope name.");
+    }
+    const loggerName = name || DEFAULT_LOGGER_NAME;
+    const instrumentationScope = {
+      name: loggerName,
+      version,
+      schemaUrl: options == null ? void 0 : options.schemaUrl,
+      ...normalizeScopeAttributes(this._sharedState.logRecordLimits, options == null ? void 0 : options.attributes)
+    };
+    const key = getInstrumentationScopeKey(instrumentationScope);
+    if (!this._sharedState.loggers.has(key)) {
+      this._sharedState.loggers.set(key, new Logger(instrumentationScope, this._sharedState));
+    }
+    return this._sharedState.loggers.get(key);
+  }
+  /**
+   * Notifies all registered LogRecordProcessor to flush any buffered data.
+   *
+   * Returns a promise which is resolved when all flushes are complete.
+   */
+  forceFlush() {
+    if (this._shutdownOnce.isCalled) {
+      diag.warn("invalid attempt to force flush after LoggerProvider shutdown");
+      return this._shutdownOnce.promise;
+    }
+    return this._sharedState.activeProcessor.forceFlush();
+  }
+  /**
+   * Flush all buffered data and shut down the LoggerProvider and all registered
+   * LogRecordProcessor.
+   *
+   * Returns a promise which is resolved when all flushes are complete.
+   */
+  shutdown() {
+    if (this._shutdownOnce.isCalled) {
+      diag.warn("shutdown may only be called once per LoggerProvider");
+      return this._shutdownOnce.promise;
+    }
+    return this._shutdownOnce.call();
+  }
+  _shutdown() {
+    this._sharedState.hasShutdown = true;
+    return this._sharedState.activeProcessor.shutdown();
+  }
+};
+__name(_LoggerProvider, "LoggerProvider");
+let LoggerProvider = _LoggerProvider;
+const _SimpleLogRecordProcessor = class _SimpleLogRecordProcessor {
+  _exporter;
+  _shutdownOnce;
+  _unresolvedExports;
+  constructor(options) {
+    this._exporter = options.exporter;
+    this._shutdownOnce = new BindOnceFuture(this._shutdown, this);
+    this._unresolvedExports = /* @__PURE__ */ new Set();
+  }
+  onEmit(logRecord, _context) {
+    var _a2, _b2;
+    if (this._shutdownOnce.isCalled) {
+      return;
+    }
+    const doExport = /* @__PURE__ */ __name(() => internal._export(this._exporter, [logRecord]).then((result) => {
+      if (result.code !== ExportResultCode.SUCCESS) {
+        globalErrorHandler(result.error ?? new Error(`SimpleLogRecordProcessor: log record export failed (status ${result})`));
+      }
+    }).catch(globalErrorHandler), "doExport");
+    if (logRecord.resource.asyncAttributesPending) {
+      const exportPromise = (_b2 = (_a2 = logRecord.resource).waitForAsyncAttributes) == null ? void 0 : _b2.call(_a2).then(() => {
+        this._unresolvedExports.delete(exportPromise);
+        return doExport();
+      }, globalErrorHandler);
+      if (exportPromise != null) {
+        this._unresolvedExports.add(exportPromise);
+      }
+    } else {
+      void doExport();
+    }
+  }
+  async forceFlush() {
+    await Promise.all(Array.from(this._unresolvedExports));
+  }
+  shutdown() {
+    return this._shutdownOnce.call();
+  }
+  _shutdown() {
+    return this._exporter.shutdown();
+  }
+};
+__name(_SimpleLogRecordProcessor, "SimpleLogRecordProcessor");
+let SimpleLogRecordProcessor = _SimpleLogRecordProcessor;
+async function waitForResources(logRecords) {
+  const pendingResources = [];
+  for (let i = 0, len = logRecords.length; i < len; i++) {
+    const logRecord = logRecords[i];
+    if (logRecord.resource.asyncAttributesPending && logRecord.resource.waitForAsyncAttributes) {
+      pendingResources.push(logRecord.resource.waitForAsyncAttributes());
+    }
+  }
+  if (pendingResources != null && pendingResources.length > 0) {
+    await Promise.all(pendingResources);
+  }
+}
+__name(waitForResources, "waitForResources");
+const _ExportOperation = class _ExportOperation {
+  _exportCompleted;
+  _exportScheduledPromise;
+  _exportScheduledResolve;
+  constructor(exporter, logRecords, exportTimeoutMillis) {
+    this._exportScheduledPromise = new Promise((resolve) => {
+      this._exportScheduledResolve = resolve;
+    });
+    this._exportCompleted = this._executeExport(exporter, logRecords, exportTimeoutMillis);
+  }
+  /** Get the promise that resolves when the export completes */
+  get exportCompleted() {
+    return this._exportCompleted;
+  }
+  /** Get the promise that resolves when exporter.export() has been called */
+  get exportScheduled() {
+    return this._exportScheduledPromise;
+  }
+  async _executeExport(exporter, logRecords, exportTimeoutMillis) {
     try {
-      hookHandler(span, info);
+      await waitForResources(logRecords);
+      await context.with(suppressTracing(context.active()), async () => {
+        return this._exportWithTimeout(exporter, logRecords, exportTimeoutMillis);
+      });
     } catch (e) {
-      this._diag.error("Error running span customization hook due to exception in handler", { triggerName }, e);
+      globalErrorHandler(e);
+      this._exportScheduledResolve();
+    }
+  }
+  async _exportWithTimeout(exporter, logRecords, exportTimeoutMillis) {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        reject(new Error("Timeout"));
+      }, exportTimeoutMillis);
+      exporter.export(logRecords, (result) => {
+        clearTimeout(timer);
+        if (result.code === ExportResultCode.SUCCESS) {
+          resolve();
+        } else {
+          reject(result.error ?? new Error("BatchLogRecordProcessor: log record export failed"));
+        }
+      });
+      this._exportScheduledResolve();
+    });
+  }
+};
+__name(_ExportOperation, "ExportOperation");
+let ExportOperation = _ExportOperation;
+const _BatchLogRecordProcessorBase = class _BatchLogRecordProcessorBase {
+  _maxExportBatchSize;
+  _maxQueueSize;
+  _scheduledDelayMillis;
+  _exportTimeoutMillis;
+  _exporter;
+  _currentExport = null;
+  _finishedLogRecords = [];
+  _timer;
+  _shutdownOnce;
+  _flushing = false;
+  constructor(options) {
+    this._exporter = options.exporter;
+    this._maxExportBatchSize = options.maxExportBatchSize ?? 512;
+    this._maxQueueSize = options.maxQueueSize ?? 2048;
+    this._scheduledDelayMillis = options.scheduledDelayMillis ?? 1e3;
+    this._exportTimeoutMillis = options.exportTimeoutMillis ?? 3e4;
+    this._shutdownOnce = new BindOnceFuture(this._shutdown, this);
+    if (this._maxExportBatchSize > this._maxQueueSize) {
+      diag.warn("BatchLogRecordProcessor: maxExportBatchSize must be smaller or equal to maxQueueSize, setting maxExportBatchSize to match maxQueueSize");
+      this._maxExportBatchSize = this._maxQueueSize;
+    }
+  }
+  onEmit(logRecord) {
+    if (this._shutdownOnce.isCalled) {
+      return;
+    }
+    this._addToBuffer(logRecord);
+  }
+  forceFlush() {
+    if (this._shutdownOnce.isCalled) {
+      return this._shutdownOnce.promise;
+    }
+    return this._flushAll();
+  }
+  /** Add a LogRecord in the buffer. */
+  _addToBuffer(logRecord) {
+    if (this._finishedLogRecords.length >= this._maxQueueSize) {
+      return;
+    }
+    this._finishedLogRecords.push(logRecord);
+    this._maybeStartTimer();
+  }
+  shutdown() {
+    return this._shutdownOnce.call();
+  }
+  async _shutdown() {
+    this.onShutdown();
+    await this._flushAll();
+    await this._exporter.shutdown();
+  }
+  /**
+   * Send all LogRecords to the exporter respecting the batch size limit
+   * This function is used only on forceFlush or shutdown,
+   * for all other cases _exportOneBatch should be used
+   * */
+  async _flushAll() {
+    if (this._flushing) {
+      return;
+    }
+    this._flushing = true;
+    let toFlush = this._finishedLogRecords;
+    this._finishedLogRecords = [];
+    this._clearTimer();
+    const inFlight = this._currentExport;
+    if (inFlight !== null) {
+      await this._exporter.forceFlush();
+      await inFlight.exportCompleted;
+      this._currentExport = null;
+    }
+    while (toFlush.length > 0) {
+      let batch;
+      if (toFlush.length <= this._maxExportBatchSize) {
+        batch = toFlush;
+        toFlush = [];
+      } else {
+        batch = toFlush.splice(0, this._maxExportBatchSize);
+      }
+      const exportOp = new ExportOperation(this._exporter, batch, this._exportTimeoutMillis);
+      this._currentExport = exportOp;
+      try {
+        await exportOp.exportScheduled;
+        await this._exporter.forceFlush();
+        await exportOp.exportCompleted;
+      } catch (e) {
+        globalErrorHandler(e);
+      } finally {
+        this._currentExport = null;
+      }
+    }
+    this._flushing = false;
+    this._maybeStartTimer();
+  }
+  /**
+   * Extracts one batch from the buffer.
+   * Returns null if buffer is empty.
+   */
+  _extractBatch() {
+    if (this._finishedLogRecords.length === 0) {
+      return null;
+    }
+    if (this._finishedLogRecords.length <= this._maxExportBatchSize) {
+      const batch = this._finishedLogRecords;
+      this._finishedLogRecords = [];
+      return batch;
+    } else {
+      return this._finishedLogRecords.splice(0, this._maxExportBatchSize);
+    }
+  }
+  _exportOneBatch() {
+    this._clearTimer();
+    const logRecords = this._extractBatch();
+    if (logRecords === null) {
+      return;
+    }
+    const exportOp = new ExportOperation(this._exporter, logRecords, this._exportTimeoutMillis);
+    this._currentExport = exportOp;
+    exportOp.exportCompleted.then(() => {
+      this._currentExport = null;
+      this._maybeStartTimer();
+    }).catch((error) => {
+      this._currentExport = null;
+      globalErrorHandler(error);
+      this._maybeStartTimer();
+    });
+  }
+  _maybeStartTimer() {
+    if (this._shutdownOnce.isCalled) {
+      return;
+    }
+    if (this._flushing) {
+      return;
+    }
+    if (this._finishedLogRecords.length === 0) {
+      return;
+    }
+    if (this._currentExport !== null) {
+      return;
+    }
+    if (this._finishedLogRecords.length >= this._maxExportBatchSize) {
+      this._exportOneBatch();
+      return;
+    }
+    if (this._timer !== void 0) {
+      return;
+    }
+    this._timer = setTimeout(() => {
+      this._timer = void 0;
+      this._exportOneBatch();
+    }, this._scheduledDelayMillis);
+    if (typeof this._timer !== "number") {
+      this._timer.unref();
+    }
+  }
+  _clearTimer() {
+    if (this._timer !== void 0) {
+      clearTimeout(this._timer);
+      this._timer = void 0;
     }
   }
 };
-__name(_InstrumentationAbstract, "InstrumentationAbstract");
-let InstrumentationAbstract = _InstrumentationAbstract;
-const _InstrumentationBase = class _InstrumentationBase extends InstrumentationAbstract {
-  constructor(instrumentationName, instrumentationVersion, config) {
-    super(instrumentationName, instrumentationVersion, config);
-    if (this._config.enabled) {
-      this.enable();
+__name(_BatchLogRecordProcessorBase, "BatchLogRecordProcessorBase");
+let BatchLogRecordProcessorBase = _BatchLogRecordProcessorBase;
+const _BatchLogRecordProcessor = class _BatchLogRecordProcessor extends BatchLogRecordProcessorBase {
+  _visibilityChangeListener;
+  _pageHideListener;
+  constructor(options) {
+    super(options);
+    this._onInit(options);
+  }
+  onShutdown() {
+    if (typeof document === "undefined") {
+      return;
     }
+    if (this._visibilityChangeListener) {
+      document.removeEventListener("visibilitychange", this._visibilityChangeListener);
+    }
+    if (this._pageHideListener) {
+      document.removeEventListener("pagehide", this._pageHideListener);
+    }
+  }
+  _onInit(options) {
+    if (options.disableAutoFlushOnDocumentHide === true || typeof document === "undefined") {
+      return;
+    }
+    this._visibilityChangeListener = () => {
+      if (document.visibilityState === "hidden") {
+        void this.forceFlush();
+      }
+    };
+    this._pageHideListener = () => {
+      void this.forceFlush();
+    };
+    document.addEventListener("visibilitychange", this._visibilityChangeListener);
+    document.addEventListener("pagehide", this._pageHideListener);
   }
 };
-__name(_InstrumentationBase, "InstrumentationBase");
-let InstrumentationBase = _InstrumentationBase;
-function safeExecuteInTheMiddle(execute, onFinish, preventThrowingError) {
-  let error;
-  let result;
-  try {
-    result = execute();
-  } catch (e) {
-    error = e;
-  } finally {
-    onFinish(error, result);
-    return result;
-  }
-}
-__name(safeExecuteInTheMiddle, "safeExecuteInTheMiddle");
-var SemconvStability;
-(function(SemconvStability2) {
-  SemconvStability2[SemconvStability2["STABLE"] = 1] = "STABLE";
-  SemconvStability2[SemconvStability2["OLD"] = 2] = "OLD";
-  SemconvStability2[SemconvStability2["DUPLICATE"] = 3] = "DUPLICATE";
-})(SemconvStability || (SemconvStability = {}));
-function semconvStabilityFromStr(namespace, str) {
-  let semconvStability = SemconvStability.OLD;
-  const entries = str == null ? void 0 : str.split(",").map((v) => v.trim()).filter((s) => s !== "");
-  for (const entry of entries ?? []) {
-    if (entry.toLowerCase() === namespace + "/dup") {
-      semconvStability = SemconvStability.DUPLICATE;
-      break;
-    } else if (entry.toLowerCase() === namespace) {
-      semconvStability = SemconvStability.STABLE;
-    }
-  }
-  return semconvStability;
-}
-__name(semconvStabilityFromStr, "semconvStabilityFromStr");
+__name(_BatchLogRecordProcessor, "BatchLogRecordProcessor");
+let BatchLogRecordProcessor = _BatchLogRecordProcessor;
 const ExceptionEventName = "exception";
 const inspectCustom = /* @__PURE__ */ Symbol.for("nodejs.util.inspect.custom");
 function settledResourceAttributes(resource) {
@@ -2430,7 +3010,7 @@ const _SpanImpl = class _SpanImpl {
       }
       attributesOrStartTime = void 0;
     }
-    const sanitized = sanitizeAttributes$1(attributesOrStartTime);
+    const sanitized = sanitizeAttributes(attributesOrStartTime);
     const { attributePerEventCountLimit } = this._spanLimits;
     const attributes = {};
     let droppedAttributesCount = 0;
@@ -2471,7 +3051,7 @@ const _SpanImpl = class _SpanImpl {
       this._droppedLinksCount++;
     }
     const { attributePerLinkCountLimit } = this._spanLimits;
-    const sanitized = sanitizeAttributes$1(link.attributes);
+    const sanitized = sanitizeAttributes(link.attributes);
     const attributes = {};
     let droppedAttributesCount = 0;
     let linkAttributesCount = 0;
@@ -2804,10 +3384,10 @@ const _Tracer = class _Tracer {
     const links = (options.links ?? []).map((link) => {
       return {
         context: link.context,
-        attributes: sanitizeAttributes$1(link.attributes)
+        attributes: sanitizeAttributes(link.attributes)
       };
     });
-    const attributes = sanitizeAttributes$1(options.attributes);
+    const attributes = sanitizeAttributes(options.attributes);
     const samplingResult = this._sampler.shouldSample(context$1, traceId, name, spanKind, attributes, links);
     const recordEndMetrics = this._tracerMetrics.startSpan(parentSpanContext, samplingResult.decision);
     traceState = samplingResult.traceState ?? traceState;
@@ -2818,7 +3398,7 @@ const _Tracer = class _Tracer {
       const nonRecordingSpan = trace.wrapSpanContext(spanContext);
       return nonRecordingSpan;
     }
-    const initAttributes = sanitizeAttributes$1(Object.assign(attributes, samplingResult.attributes));
+    const initAttributes = sanitizeAttributes(Object.assign(attributes, samplingResult.attributes));
     const span = new SpanImpl({
       resource: this._resource,
       scope: this.instrumentationScope,
@@ -3308,7 +3888,7 @@ const _TracerProvider = class _TracerProvider {
   _tracerOptions;
   _tracers = /* @__PURE__ */ new Map();
   constructor(options = {}) {
-    var _a2, _b2, _c, _d, _e, _f;
+    var _a2, _b2, _c2, _d2, _e, _f;
     this._forceFlushTimeoutMillis = options.forceFlushTimeoutMillis ?? 3e4;
     this._resource = options.resource ?? defaultResource();
     const spanProcessors = options.spanProcessors ?? [];
@@ -3321,8 +3901,8 @@ const _TracerProvider = class _TracerProvider {
       spanLimits: {
         attributeCountLimit: ((_a2 = options.spanLimits) == null ? void 0 : _a2.attributeCountLimit) ?? 128,
         attributeValueLengthLimit: ((_b2 = options.spanLimits) == null ? void 0 : _b2.attributeValueLengthLimit) ?? Infinity,
-        eventCountLimit: ((_c = options.spanLimits) == null ? void 0 : _c.eventCountLimit) ?? 128,
-        linkCountLimit: ((_d = options.spanLimits) == null ? void 0 : _d.linkCountLimit) ?? 128,
+        eventCountLimit: ((_c2 = options.spanLimits) == null ? void 0 : _c2.eventCountLimit) ?? 128,
+        linkCountLimit: ((_d2 = options.spanLimits) == null ? void 0 : _d2.linkCountLimit) ?? 128,
         attributePerEventCountLimit: ((_e = options.spanLimits) == null ? void 0 : _e.attributePerEventCountLimit) ?? 128,
         attributePerLinkCountLimit: ((_f = options.spanLimits) == null ? void 0 : _f.attributePerLinkCountLimit) ?? 128
       },
@@ -3547,10 +4127,10 @@ __name(getSamplerProbabilityFromEnv, "getSamplerProbabilityFromEnv");
 const DEFAULT_ATTRIBUTE_COUNT_LIMIT = 128;
 const DEFAULT_ATTRIBUTE_VALUE_LENGTH_LIMIT = Infinity;
 function reconfigureLimits(userConfig) {
-  var _a2, _b2, _c, _d;
+  var _a2, _b2, _c2, _d2;
   const spanLimits = Object.assign({}, userConfig.spanLimits);
   spanLimits.attributeCountLimit = ((_a2 = userConfig.spanLimits) == null ? void 0 : _a2.attributeCountLimit) ?? ((_b2 = userConfig.generalLimits) == null ? void 0 : _b2.attributeCountLimit) ?? getNumberFromEnv() ?? getNumberFromEnv() ?? DEFAULT_ATTRIBUTE_COUNT_LIMIT;
-  spanLimits.attributeValueLengthLimit = ((_c = userConfig.spanLimits) == null ? void 0 : _c.attributeValueLengthLimit) ?? ((_d = userConfig.generalLimits) == null ? void 0 : _d.attributeValueLengthLimit) ?? getNumberFromEnv() ?? getNumberFromEnv() ?? DEFAULT_ATTRIBUTE_VALUE_LENGTH_LIMIT;
+  spanLimits.attributeValueLengthLimit = ((_c2 = userConfig.spanLimits) == null ? void 0 : _c2.attributeValueLengthLimit) ?? ((_d2 = userConfig.generalLimits) == null ? void 0 : _d2.attributeValueLengthLimit) ?? getNumberFromEnv() ?? getNumberFromEnv() ?? DEFAULT_ATTRIBUTE_VALUE_LENGTH_LIMIT;
   return Object.assign({}, userConfig, { spanLimits });
 }
 __name(reconfigureLimits, "reconfigureLimits");
@@ -3913,6 +4493,288 @@ function shouldPropagateTraceHeaders(spanUrl, propagateTraceHeaderCorsUrls) {
   }
 }
 __name(shouldPropagateTraceHeaders, "shouldPropagateTraceHeaders");
+function enableInstrumentations(instrumentations, tracerProvider, meterProvider, loggerProvider) {
+  for (let i = 0, j = instrumentations.length; i < j; i++) {
+    const instrumentation = instrumentations[i];
+    if (tracerProvider) {
+      instrumentation.setTracerProvider(tracerProvider);
+    }
+    if (meterProvider) {
+      instrumentation.setMeterProvider(meterProvider);
+    }
+    if (loggerProvider && instrumentation.setLoggerProvider) {
+      instrumentation.setLoggerProvider(loggerProvider);
+    }
+    if (!instrumentation.getConfig().enabled) {
+      instrumentation.enable();
+    }
+  }
+}
+__name(enableInstrumentations, "enableInstrumentations");
+function disableInstrumentations(instrumentations) {
+  instrumentations.forEach((instrumentation) => instrumentation.disable());
+}
+__name(disableInstrumentations, "disableInstrumentations");
+function registerInstrumentations(options) {
+  var _a2;
+  const tracerProvider = options.tracerProvider || trace.getTracerProvider();
+  const meterProvider = options.meterProvider || metrics.getMeterProvider();
+  const loggerProvider = options.loggerProvider || logs.getLoggerProvider();
+  const instrumentations = ((_a2 = options.instrumentations) == null ? void 0 : _a2.flat()) ?? [];
+  enableInstrumentations(instrumentations, tracerProvider, meterProvider, loggerProvider);
+  return () => {
+    disableInstrumentations(instrumentations);
+  };
+}
+__name(registerInstrumentations, "registerInstrumentations");
+let logger = console.error.bind(console);
+function defineProperty(obj, name, value) {
+  const enumerable = !!obj[name] && Object.prototype.propertyIsEnumerable.call(obj, name);
+  Object.defineProperty(obj, name, {
+    configurable: true,
+    enumerable,
+    writable: true,
+    value
+  });
+}
+__name(defineProperty, "defineProperty");
+const wrap = /* @__PURE__ */ __name((nodule, name, wrapper) => {
+  if (!nodule || !nodule[name]) {
+    logger("no original function " + String(name) + " to wrap");
+    return;
+  }
+  if (!wrapper) {
+    logger("no wrapper function");
+    logger(new Error().stack);
+    return;
+  }
+  const original = nodule[name];
+  if (typeof original !== "function" || typeof wrapper !== "function") {
+    logger("original object and wrapper must be functions");
+    return;
+  }
+  const wrapped = wrapper(original, name);
+  defineProperty(wrapped, "__original", original);
+  defineProperty(wrapped, "__unwrap", () => {
+    if (nodule[name] === wrapped) {
+      defineProperty(nodule, name, original);
+    }
+  });
+  defineProperty(wrapped, "__wrapped", true);
+  defineProperty(nodule, name, wrapped);
+  return wrapped;
+}, "wrap");
+const massWrap = /* @__PURE__ */ __name((nodules, names, wrapper) => {
+  if (!nodules) {
+    logger("must provide one or more modules to patch");
+    logger(new Error().stack);
+    return;
+  } else if (!Array.isArray(nodules)) {
+    nodules = [nodules];
+  }
+  if (!(names && Array.isArray(names))) {
+    logger("must provide one or more functions to wrap on modules");
+    return;
+  }
+  nodules.forEach((nodule) => {
+    names.forEach((name) => {
+      wrap(nodule, name, wrapper);
+    });
+  });
+}, "massWrap");
+const unwrap = /* @__PURE__ */ __name((nodule, name) => {
+  if (!nodule || !nodule[name]) {
+    logger("no function to unwrap.");
+    logger(new Error().stack);
+    return;
+  }
+  const wrapped = nodule[name];
+  if (!wrapped.__unwrap) {
+    logger("no original to unwrap to -- has " + String(name) + " already been unwrapped?");
+  } else {
+    wrapped.__unwrap();
+    return;
+  }
+}, "unwrap");
+const massUnwrap = /* @__PURE__ */ __name((nodules, names) => {
+  if (!nodules) {
+    logger("must provide one or more modules to patch");
+    logger(new Error().stack);
+    return;
+  } else if (!Array.isArray(nodules)) {
+    nodules = [nodules];
+  }
+  if (!(names && Array.isArray(names))) {
+    logger("must provide one or more functions to unwrap on modules");
+    return;
+  }
+  nodules.forEach((nodule) => {
+    names.forEach((name) => {
+      unwrap(nodule, name);
+    });
+  });
+}, "massUnwrap");
+const _InstrumentationAbstract = class _InstrumentationAbstract {
+  _config = {};
+  _tracer;
+  _meter;
+  _logger;
+  _diag;
+  instrumentationName;
+  instrumentationVersion;
+  constructor(instrumentationName, instrumentationVersion, config) {
+    this.instrumentationName = instrumentationName;
+    this.instrumentationVersion = instrumentationVersion;
+    this.setConfig(config);
+    this._diag = diag.createComponentLogger({
+      namespace: instrumentationName
+    });
+    this._tracer = trace.getTracer(instrumentationName, instrumentationVersion);
+    this._meter = metrics.getMeter(instrumentationName, instrumentationVersion);
+    this._logger = logs.getLogger(instrumentationName, instrumentationVersion);
+    this._updateMetricInstruments();
+  }
+  /* Api to wrap instrumented method */
+  _wrap = wrap;
+  /* Api to unwrap instrumented methods */
+  _unwrap = unwrap;
+  /* Api to mass wrap instrumented method */
+  _massWrap = massWrap;
+  /* Api to mass unwrap instrumented methods */
+  _massUnwrap = massUnwrap;
+  /* Returns meter */
+  get meter() {
+    return this._meter;
+  }
+  /**
+   * Sets MeterProvider to this plugin
+   * @param meterProvider
+   */
+  setMeterProvider(meterProvider) {
+    this._meter = meterProvider.getMeter(this.instrumentationName, this.instrumentationVersion);
+    this._updateMetricInstruments();
+  }
+  /* Returns logger */
+  get logger() {
+    return this._logger;
+  }
+  /**
+   * Sets LoggerProvider to this plugin
+   * @param loggerProvider
+   */
+  setLoggerProvider(loggerProvider) {
+    this._logger = loggerProvider.getLogger(this.instrumentationName, this.instrumentationVersion);
+  }
+  /**
+   * @experimental
+   *
+   * Get module definitions defined by {@link init}.
+   * This can be used for experimental compile-time instrumentation.
+   *
+   * @returns an array of {@link InstrumentationModuleDefinition}
+   */
+  getModuleDefinitions() {
+    const initResult = this.init() ?? [];
+    if (!Array.isArray(initResult)) {
+      return [initResult];
+    }
+    return initResult;
+  }
+  /**
+   * Sets the new metric instruments with the current Meter.
+   */
+  _updateMetricInstruments() {
+    return;
+  }
+  /* Returns InstrumentationConfig */
+  getConfig() {
+    return this._config;
+  }
+  /**
+   * Sets InstrumentationConfig to this plugin
+   * @param config
+   */
+  setConfig(config) {
+    this._config = {
+      enabled: true,
+      ...config
+    };
+  }
+  /**
+   * Sets TracerProvider to this plugin
+   * @param tracerProvider
+   */
+  setTracerProvider(tracerProvider) {
+    this._tracer = tracerProvider.getTracer(this.instrumentationName, this.instrumentationVersion);
+  }
+  /* Returns tracer */
+  get tracer() {
+    return this._tracer;
+  }
+  /**
+   * Execute span customization hook, if configured, and log any errors.
+   * Any semantics of the trigger and info are defined by the specific instrumentation.
+   * @param hookHandler The optional hook handler which the user has configured via instrumentation config
+   * @param triggerName The name of the trigger for executing the hook for logging purposes
+   * @param span The span to which the hook should be applied
+   * @param info The info object to be passed to the hook, with useful data the hook may use
+   */
+  _runSpanCustomizationHook(hookHandler, triggerName, span, info) {
+    if (!hookHandler) {
+      return;
+    }
+    try {
+      hookHandler(span, info);
+    } catch (e) {
+      this._diag.error("Error running span customization hook due to exception in handler", { triggerName }, e);
+    }
+  }
+};
+__name(_InstrumentationAbstract, "InstrumentationAbstract");
+let InstrumentationAbstract = _InstrumentationAbstract;
+const _InstrumentationBase = class _InstrumentationBase extends InstrumentationAbstract {
+  constructor(instrumentationName, instrumentationVersion, config) {
+    super(instrumentationName, instrumentationVersion, config);
+    if (this._config.enabled) {
+      this.enable();
+    }
+  }
+};
+__name(_InstrumentationBase, "InstrumentationBase");
+let InstrumentationBase = _InstrumentationBase;
+function safeExecuteInTheMiddle(execute, onFinish, preventThrowingError) {
+  let error;
+  let result;
+  try {
+    result = execute();
+  } catch (e) {
+    error = e;
+  } finally {
+    onFinish(error, result);
+    return result;
+  }
+}
+__name(safeExecuteInTheMiddle, "safeExecuteInTheMiddle");
+var SemconvStability;
+(function(SemconvStability2) {
+  SemconvStability2[SemconvStability2["STABLE"] = 1] = "STABLE";
+  SemconvStability2[SemconvStability2["OLD"] = 2] = "OLD";
+  SemconvStability2[SemconvStability2["DUPLICATE"] = 3] = "DUPLICATE";
+})(SemconvStability || (SemconvStability = {}));
+function semconvStabilityFromStr(namespace, str) {
+  let semconvStability = SemconvStability.OLD;
+  const entries = str == null ? void 0 : str.split(",").map((v) => v.trim()).filter((s) => s !== "");
+  for (const entry of entries ?? []) {
+    if (entry.toLowerCase() === namespace + "/dup") {
+      semconvStability = SemconvStability.DUPLICATE;
+      break;
+    } else if (entry.toLowerCase() === namespace) {
+      semconvStability = SemconvStability.STABLE;
+    }
+  }
+  return semconvStability;
+}
+__name(semconvStabilityFromStr, "semconvStabilityFromStr");
 var AttributeNames$1;
 (function(AttributeNames2) {
   AttributeNames2["COMPONENT"] = "component";
@@ -5002,233 +5864,12 @@ const _XMLHttpRequestInstrumentation = class _XMLHttpRequestInstrumentation exte
 };
 __name(_XMLHttpRequestInstrumentation, "XMLHttpRequestInstrumentation");
 let XMLHttpRequestInstrumentation = _XMLHttpRequestInstrumentation;
-function registerAutoInstrumentations(opts) {
-  const { tracerProvider, propagateTraceHeaderCorsUrls } = opts;
-  const instrumentations = [
-    new FetchInstrumentation({ propagateTraceHeaderCorsUrls }),
-    // Covers axios calls without touching axiosInstance.ts.
-    new XMLHttpRequestInstrumentation({ propagateTraceHeaderCorsUrls })
-  ];
-  registerInstrumentations({ tracerProvider, instrumentations });
-  return instrumentations;
-}
-__name(registerAutoInstrumentations, "registerAutoInstrumentations");
-function buildPropagateUrls(apiUrl) {
-  if (!apiUrl) return [];
-  let origin;
-  try {
-    origin = new URL(apiUrl).origin;
-  } catch {
-    return [];
-  }
-  const escaped = origin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return [new RegExp(`^${escaped}(?:[/?#]|$)`)];
-}
-__name(buildPropagateUrls, "buildPropagateUrls");
-const TRACER_NAME = "expenses-mfe.errors";
-const UNCAUGHT_SPAN_NAME = "uncaught_error";
-const REJECTION_SPAN_NAME = "unhandled_promise_rejection";
-function registerGlobalErrorHandlers(opts) {
-  const tracer = opts.tracerProvider.getTracer(TRACER_NAME);
-  const errorListener = /* @__PURE__ */ __name((event) => {
-    const error = event.error instanceof Error ? event.error : null;
-    const spanName = (error == null ? void 0 : error.name) || UNCAUGHT_SPAN_NAME;
-    const span = tracer.startSpan(spanName);
-    span.setStatus({ code: SpanStatusCode.ERROR, message: event.message });
-    if (error) {
-      span.recordException(error);
-      span.setAttribute("error.type", error.name || "unknown");
-    } else {
-      span.setAttribute("error.type", "unknown");
-    }
-    span.setAttribute("error.source", "window.onerror");
-    if (event.filename) span.setAttribute("error.filename", event.filename);
-    if (event.lineno) span.setAttribute("error.lineno", event.lineno);
-    if (event.colno) span.setAttribute("error.colno", event.colno);
-    span.end();
-  }, "errorListener");
-  const rejectionListener = /* @__PURE__ */ __name((event) => {
-    const error = event.reason instanceof Error ? event.reason : new Error(String(event.reason ?? "unhandled rejection"));
-    const span = tracer.startSpan(error.name || REJECTION_SPAN_NAME);
-    span.setStatus({ code: SpanStatusCode.ERROR, message: error.message });
-    span.recordException(error);
-    span.setAttribute("error.type", error.name || "unknown");
-    span.setAttribute("error.source", "unhandledrejection");
-    span.end();
-  }, "rejectionListener");
-  window.addEventListener("error", errorListener);
-  window.addEventListener("unhandledrejection", rejectionListener);
-  return { error: errorListener, rejection: rejectionListener };
-}
-__name(registerGlobalErrorHandlers, "registerGlobalErrorHandlers");
-function unregisterGlobalErrorHandlers(refs) {
-  window.removeEventListener("error", refs.error);
-  window.removeEventListener("unhandledrejection", refs.rejection);
-}
-__name(unregisterGlobalErrorHandlers, "unregisterGlobalErrorHandlers");
-const SERVICE_NAME = "expenses-mfe";
-const ATTR_SERVICE_ENVIRONMENT = "service.environment";
-const ATTR_SERVICE_INSTANCE_ID = "service.instance.id";
-const ATTR_HOST_NAME = "host.name";
-const ENVIRONMENT_MAP = {
-  development: "dev",
-  localdev: "local",
-  sit: "sit",
-  stage: "stage",
-  production: "prod"
-};
-const UNKNOWN_VALUE = "unknown";
-function mapEnvironment(viteMode) {
-  return ENVIRONMENT_MAP[viteMode];
-}
-__name(mapEnvironment, "mapEnvironment");
-const SERVICE_INSTANCE_ID = generateInstanceId();
-function generateInstanceId() {
-  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
-    return crypto.randomUUID();
-  }
-  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
-}
-__name(generateInstanceId, "generateInstanceId");
-function getHostname() {
-  if (typeof window !== "undefined" && window.location && window.location.hostname) {
-    return window.location.hostname;
-  }
-  return UNKNOWN_VALUE;
-}
-__name(getHostname, "getHostname");
-function buildResource() {
-  return resourceFromAttributes({
-    [ATTR_SERVICE_NAME]: SERVICE_NAME,
-    [ATTR_SERVICE_VERSION]: "0.1.0-dev.164",
-    // The build's own mode, not a separate env var: a second source of truth for
-    // this drifts silently and mislabels every span with nothing else breaking.
-    [ATTR_SERVICE_ENVIRONMENT]: mapEnvironment("development"),
-    [ATTR_SERVICE_INSTANCE_ID]: SERVICE_INSTANCE_ID,
-    [ATTR_HOST_NAME]: getHostname()
-  });
-}
-__name(buildResource, "buildResource");
-const DEFAULT_URL_TEMPLATES = [];
-function templatePath(pathname, templates = DEFAULT_URL_TEMPLATES) {
-  const normalized = stripTrailingSlash(pathname);
-  for (const t of templates) {
-    if (t.pattern.test(normalized)) return t.template;
-  }
-  return normalized.replace(/\/\d+(?=\/|$)/g, "/{id}");
-}
-__name(templatePath, "templatePath");
-function stripTrailingSlash(pathname) {
-  if (pathname.length > 1 && pathname.endsWith("/")) return pathname.slice(0, -1);
-  return pathname;
-}
-__name(stripTrailingSlash, "stripTrailingSlash");
-function deriveSpanName(method, url, templates) {
-  const methodPart = (method ?? "").trim().toUpperCase();
-  const pathname = extractPathname(url);
-  const templated = templatePath(pathname, templates);
-  return methodPart ? `${methodPart} ${templated}` : templated;
-}
-__name(deriveSpanName, "deriveSpanName");
-function extractPathname(url) {
-  const cleaned = url.split(/[?#]/, 1)[0] ?? "";
-  if (cleaned.startsWith("/")) return cleaned;
-  try {
-    return new URL(cleaned).pathname;
-  } catch {
-    return cleaned || "/";
-  }
-}
-__name(extractPathname, "extractPathname");
-const REDACTED_MARKER = "[REDACTED]";
-const DEFAULT_ATTRIBUTE_ALLOWLIST = /* @__PURE__ */ new Set([
-  // `http.url`, `http.target`, `http.route`, `url.path`, `url.query` are
-  // allowed because their values are templated / redacted in place below.
-  // `http.host` is intentionally NOT on the default allowlist: after origin
-  // is stripped from `http.url`, `http.host` would be the last place a
-  // backend IP / hostname appears. Consumers who need it must opt in
-  // explicitly AND configure `hostnameReplacements` to avoid leaking infra
-  // identifiers.
-  "http.method",
-  "http.status_code",
-  "http.status_text",
-  "http.scheme",
-  "http.url",
-  "http.target",
-  "http.route",
-  "http.response_content_length",
-  "http.request_content_length",
-  "url.path",
-  "url.query",
-  "error.type",
-  "error.source",
-  "error.filename",
-  "error.lineno",
-  "error.colno",
-  "error.componentStack",
-  // Caller controls `exception.message`; throw sites must not embed user
-  // input. `exception.stacktrace` in prod is minified bundle paths.
-  "exception.type",
-  "exception.message",
-  "exception.stacktrace",
-  "expense.id",
-  "expense.draft_id",
-  "approval.action"
-]);
-const DEFAULT_HIGH_RISK_QUERY_KEYS = /* @__PURE__ */ new Set([
-  "email",
-  "token",
-  "password",
-  "api_key",
-  "apikey",
-  "authorization",
-  "access_token",
-  "refresh_token",
-  "ssn",
-  "secret",
-  "name",
-  "first_name",
-  "last_name",
-  "phone",
-  // Free-form user input.
-  "search",
-  "query"
-]);
-const DEFAULT_ALLOWED_QUERY_KEYS = /* @__PURE__ */ new Set([
-  "page",
-  "pageNumber",
-  "limit",
-  "pageSize",
-  "offset",
-  "sort",
-  "sortBy",
-  "order",
-  "sortOrder",
-  "status",
-  "scope",
-  "show_inactive",
-  "document_type",
-  "form_type_ids",
-  "expense_type_id",
-  "company_id",
-  "logical_company_short_name",
-  "period_id",
-  "statement_id",
-  "mileage_rate_id"
-]);
-const DEFAULT_SANITIZER_CONFIG = {
-  attributeAllowlist: DEFAULT_ATTRIBUTE_ALLOWLIST,
-  highRiskQueryKeys: DEFAULT_HIGH_RISK_QUERY_KEYS,
-  allowedQueryKeys: DEFAULT_ALLOWED_QUERY_KEYS,
-  hostnameReplacements: [],
-  redactedMarker: REDACTED_MARKER
-};
 function sanitizeUrl(rawUrl, config) {
   let parsed;
   try {
     parsed = new URL(rawUrl);
   } catch {
-    return rawUrl;
+    return sanitizeTarget(rawUrl, config);
   }
   const path = templatePath(parsed.pathname, config.urlTemplates);
   const query = sanitizeSearchParams(parsed.searchParams, config);
@@ -5239,23 +5880,14 @@ function sanitizeSearchParams(params, config) {
   const out = [];
   for (const [key, value] of params.entries()) {
     const lower = key.toLowerCase();
-    if (config.highRiskQueryKeys.has(lower)) {
-      out.push(`${encodeURIComponent(key)}=${encodeURIComponent(config.redactedMarker)}`);
-      continue;
-    }
-    if (config.allowedQueryKeys.has(lower)) {
-      out.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
-      continue;
-    }
-    out.push(`${encodeURIComponent(key)}=${encodeURIComponent(config.redactedMarker)}`);
+    const emitted = !config.highRiskQueryKeys.has(lower) && config.allowedQueryKeys.has(lower) ? value : config.redactedMarker;
+    out.push(`${encodeURIComponent(key)}=${encodeURIComponent(emitted)}`);
   }
   return out.join("&");
 }
 __name(sanitizeSearchParams, "sanitizeSearchParams");
 function applyHostnameReplacements(host, config) {
-  for (const { pattern, replacement } of config.hostnameReplacements) {
-    if (pattern.test(host)) return replacement;
-  }
+  for (const { pattern, replacement } of config.hostnameReplacements) if (pattern.test(host)) return replacement;
   return host;
 }
 __name(applyHostnameReplacements, "applyHostnameReplacements");
@@ -5267,9 +5899,9 @@ __name(sanitizeQueryString, "sanitizeQueryString");
 function sanitizeUrlQueryAttr(value, config) {
   if (!value) return value;
   const hadPrefix = value.startsWith("?");
-  const sanitised = sanitizeQueryString(hadPrefix ? value.slice(1) : value, config);
-  if (!sanitised) return "";
-  return hadPrefix ? `?${sanitised}` : sanitised;
+  const sanitized = sanitizeQueryString(hadPrefix ? value.slice(1) : value, config);
+  if (!sanitized) return "";
+  return hadPrefix ? `?${sanitized}` : sanitized;
 }
 __name(sanitizeUrlQueryAttr, "sanitizeUrlQueryAttr");
 function sanitizeTarget(target, config) {
@@ -5278,48 +5910,98 @@ function sanitizeTarget(target, config) {
   const path = queryIdx === -1 ? target : target.slice(0, queryIdx);
   const rawQuery = queryIdx === -1 ? "" : target.slice(queryIdx + 1);
   const templated = templatePath(path, config.urlTemplates);
-  const sanitised = sanitizeQueryString(rawQuery, config);
-  return sanitised ? `${templated}?${sanitised}` : templated;
+  const sanitized = sanitizeQueryString(rawQuery, config);
+  return sanitized ? `${templated}?${sanitized}` : templated;
 }
 __name(sanitizeTarget, "sanitizeTarget");
-function sanitizeAttributes(attrs, config) {
+function isPrimitive(value) {
+  const t = typeof value;
+  return t === "string" || t === "number" || t === "boolean";
+}
+__name(isPrimitive, "isPrimitive");
+function isEmittable(value) {
+  if (isPrimitive(value)) return true;
+  return Array.isArray(value) && value.every((item) => item === null || isPrimitive(item));
+}
+__name(isEmittable, "isEmittable");
+function sanitizeAttributeMap(attrs, config) {
+  var _a2, _b2;
   const out = {};
   for (const [key, value] of Object.entries(attrs)) {
-    if (!config.attributeAllowlist.has(key)) continue;
+    if (!config.attributeAllowlist.has(key)) {
+      (_a2 = config.onAttributeDropped) == null ? void 0 : _a2.call(config, key);
+      continue;
+    }
     if (value === void 0 || value === null) continue;
-    if (key === "http.url" && typeof value === "string") {
-      out[key] = sanitizeUrl(value, config);
+    if (!isEmittable(value)) {
+      (_b2 = config.onAttributeDropped) == null ? void 0 : _b2.call(config, key);
       continue;
     }
-    if (key === "http.host" && typeof value === "string") {
-      out[key] = applyHostnameReplacements(value, config);
-      continue;
-    }
-    if (key === "http.target" && typeof value === "string") {
-      out[key] = sanitizeTarget(value, config);
-      continue;
-    }
-    if ((key === "http.route" || key === "url.path") && typeof value === "string") {
-      out[key] = templatePath(value, config.urlTemplates);
-      continue;
-    }
-    if (key === "url.query" && typeof value === "string") {
-      out[key] = sanitizeUrlQueryAttr(value, config);
+    if (typeof value === "string") {
+      out[key] = sanitizeStringAttribute(key, value, config);
       continue;
     }
     out[key] = value;
   }
   return out;
 }
-__name(sanitizeAttributes, "sanitizeAttributes");
+__name(sanitizeAttributeMap, "sanitizeAttributeMap");
+function sanitizeStringAttribute(key, value, config) {
+  switch (key) {
+    case "http.url":
+      return sanitizeUrl(value, config);
+    case "http.host":
+      return applyHostnameReplacements(value, config);
+    case "http.target":
+      return sanitizeTarget(value, config);
+    case "http.route":
+    case "url.path":
+      return templatePath(value, config.urlTemplates);
+    case "url.query":
+      return sanitizeUrlQueryAttr(value, config);
+    default:
+      return value;
+  }
+}
+__name(sanitizeStringAttribute, "sanitizeStringAttribute");
+function sanitizeSpanAttributes(attrs, config) {
+  return sanitizeAttributeMap(attrs, config);
+}
+__name(sanitizeSpanAttributes, "sanitizeSpanAttributes");
+function sanitizeLogAttributes(attrs, config) {
+  return sanitizeAttributeMap(attrs, config);
+}
+__name(sanitizeLogAttributes, "sanitizeLogAttributes");
 function sanitizeEvents(events, config) {
-  return events.map((event) => ({
+  return events.map((event) => event.attributes ? {
     ...event,
-    attributes: event.attributes ? sanitizeAttributes(event.attributes, config) : event.attributes
-  }));
+    attributes: sanitizeSpanAttributes(event.attributes, config)
+  } : { ...event });
 }
 __name(sanitizeEvents, "sanitizeEvents");
-const BARE_HTTP_METHODS = /* @__PURE__ */ new Set([
+function sanitizeLinks(links, config) {
+  return links.map((link) => link.attributes ? {
+    ...link,
+    attributes: sanitizeSpanAttributes(link.attributes, config)
+  } : { ...link });
+}
+__name(sanitizeLinks, "sanitizeLinks");
+var TRUNCATION_MARKER = "...";
+function capped(value, config) {
+  const limit = config.maxValueLength;
+  if (value.length <= limit) return value;
+  return `${value.slice(0, limit - 3)}${TRUNCATION_MARKER}`;
+}
+__name(capped, "capped");
+function sanitizeStatus(status, config) {
+  if (status.message === void 0) return status;
+  return {
+    ...status,
+    message: capped(status.message, config)
+  };
+}
+__name(sanitizeStatus, "sanitizeStatus");
+var HTTP_METHODS = /* @__PURE__ */ new Set([
   "GET",
   "POST",
   "PUT",
@@ -5330,48 +6012,69 @@ const BARE_HTTP_METHODS = /* @__PURE__ */ new Set([
   "CONNECT",
   "TRACE"
 ]);
-function normalizeSpanName(name, sanitisedAttrs, urlTemplates) {
-  if (!BARE_HTTP_METHODS.has(name.toUpperCase())) return name;
-  const method = typeof sanitisedAttrs["http.method"] === "string" ? sanitisedAttrs["http.method"] : name;
-  const url = typeof sanitisedAttrs["http.url"] === "string" ? sanitisedAttrs["http.url"] : "";
+var HTTP_CLIENT_SPAN_NAME = /^(?:HTTP\s+)?([A-Za-z]+)$/;
+function normalizeSpanName(name, sanitizedAttrs) {
+  var _a2;
+  const named = (_a2 = HTTP_CLIENT_SPAN_NAME.exec(name)) == null ? void 0 : _a2[1];
+  if (!named || !HTTP_METHODS.has(named.toUpperCase())) return name;
+  const method = typeof sanitizedAttrs["http.method"] === "string" ? sanitizedAttrs["http.method"] : named;
+  const url = typeof sanitizedAttrs["http.url"] === "string" ? sanitizedAttrs["http.url"] : "";
   if (!url) return name;
-  return deriveSpanName(method, url, urlTemplates);
+  return `${method.trim().toUpperCase()} ${extractPathname(url)}`;
 }
 __name(normalizeSpanName, "normalizeSpanName");
 function sanitizeSpan(span, config) {
-  const sanitisedAttrs = sanitizeAttributes(span.attributes, config);
-  const sanitisedEvents = sanitizeEvents(span.events, config);
-  const sanitisedName = normalizeSpanName(span.name, sanitisedAttrs, config.urlTemplates);
+  const attributes = sanitizeSpanAttributes(span.attributes, config);
+  const events = sanitizeEvents(span.events, config);
+  const links = sanitizeLinks(span.links, config);
+  const name = normalizeSpanName(span.name, attributes);
   return Object.create(span, {
-    name: { value: sanitisedName, enumerable: true, writable: false, configurable: false },
-    attributes: {
-      value: sanitisedAttrs,
-      enumerable: true,
-      writable: false,
-      configurable: false
-    },
-    events: {
-      value: sanitisedEvents,
-      enumerable: true,
-      writable: false,
-      configurable: false
-    }
+    name: readonlyValue(name),
+    attributes: readonlyValue(attributes),
+    events: readonlyValue(events),
+    links: readonlyValue(links),
+    status: readonlyValue(sanitizeStatus(span.status, config))
   });
 }
 __name(sanitizeSpan, "sanitizeSpan");
-const _SanitizingSpanExporter = class _SanitizingSpanExporter {
+function readonlyValue(value) {
+  return {
+    value,
+    enumerable: true,
+    writable: false,
+    configurable: false
+  };
+}
+__name(readonlyValue, "readonlyValue");
+function sanitizeBody(body, config) {
+  if (body === void 0 || body === null) return body;
+  return capped(toText(body), config);
+}
+__name(sanitizeBody, "sanitizeBody");
+function sanitizeLogRecord(record, config) {
+  return Object.create(record, {
+    attributes: readonlyValue(sanitizeLogAttributes(record.attributes, config)),
+    body: readonlyValue(sanitizeBody(record.body, config))
+  });
+}
+__name(sanitizeLogRecord, "sanitizeLogRecord");
+var SanitizingSpanExporter = (_c = class {
+  inner;
+  config;
   constructor(inner, config = DEFAULT_SANITIZER_CONFIG) {
     this.inner = inner;
     this.config = config;
   }
-  inner;
-  config;
   export(spans, resultCallback) {
     var _a2, _b2;
     const out = [];
     for (const span of spans) {
-      if ((_b2 = (_a2 = this.config).dropPredicate) == null ? void 0 : _b2.call(_a2, span)) continue;
+      if ((_b2 = (_a2 = this.config).dropSpan) == null ? void 0 : _b2.call(_a2, span)) continue;
       out.push(sanitizeSpan(span, this.config));
+    }
+    if (out.length === 0) {
+      resultCallback({ code: ExportResultCode.SUCCESS });
+      return;
     }
     this.inner.export(out, resultCallback);
   }
@@ -5382,66 +6085,154 @@ const _SanitizingSpanExporter = class _SanitizingSpanExporter {
     var _a2, _b2;
     return ((_b2 = (_a2 = this.inner).forceFlush) == null ? void 0 : _b2.call(_a2)) ?? Promise.resolve();
   }
-};
-__name(_SanitizingSpanExporter, "SanitizingSpanExporter");
-let SanitizingSpanExporter = _SanitizingSpanExporter;
+}, __name(_c, "SanitizingSpanExporter"), _c);
+var SanitizingLogRecordExporter = (_d = class {
+  inner;
+  config;
+  constructor(inner, config = DEFAULT_SANITIZER_CONFIG) {
+    this.inner = inner;
+    this.config = config;
+  }
+  export(records, resultCallback) {
+    var _a2, _b2;
+    const out = [];
+    for (const record of records) {
+      if ((_b2 = (_a2 = this.config).dropLog) == null ? void 0 : _b2.call(_a2, record)) continue;
+      out.push(sanitizeLogRecord(record, this.config));
+    }
+    if (out.length === 0) {
+      resultCallback({ code: ExportResultCode.SUCCESS });
+      return;
+    }
+    this.inner.export(out, resultCallback);
+  }
+  shutdown() {
+    return this.inner.shutdown();
+  }
+  forceFlush() {
+    return this.inner.forceFlush();
+  }
+}, __name(_d, "SanitizingLogRecordExporter"), _d);
+function registerAutoInstrumentations(opts) {
+  const { tracerProvider, propagateTraceHeaderCorsUrls, ignoreUrls } = opts;
+  const instrumentations = [new FetchInstrumentation({
+    propagateTraceHeaderCorsUrls,
+    ignoreUrls
+  }), new XMLHttpRequestInstrumentation({
+    propagateTraceHeaderCorsUrls,
+    ignoreUrls
+  })];
+  registerInstrumentations({
+    tracerProvider,
+    instrumentations
+  });
+  return instrumentations;
+}
+__name(registerAutoInstrumentations, "registerAutoInstrumentations");
+var ATTR_SERVICE_ENVIRONMENT = "service.environment";
+var ATTR_SERVICE_INSTANCE_ID = "service.instance.id";
+var ATTR_HOST_NAME = "host.name";
+var ATTR_SESSION_ID = "session.id";
+var UNKNOWN_VALUE = "unknown";
+var SERVICE_INSTANCE_ID = generateInstanceId();
+function generateInstanceId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") return crypto.randomUUID();
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+__name(generateInstanceId, "generateInstanceId");
+function getHostname() {
+  var _a2;
+  if (typeof window !== "undefined" && ((_a2 = window.location) == null ? void 0 : _a2.hostname)) return window.location.hostname;
+  return UNKNOWN_VALUE;
+}
+__name(getHostname, "getHostname");
+function buildResource(config) {
+  return resourceFromAttributes({
+    [ATTR_SERVICE_NAME]: config.serviceName,
+    [ATTR_SERVICE_VERSION]: config.serviceVersion,
+    [ATTR_SERVICE_ENVIRONMENT]: config.environment,
+    [ATTR_SERVICE_INSTANCE_ID]: SERVICE_INSTANCE_ID,
+    [ATTR_HOST_NAME]: getHostname(),
+    ...config.sessionId ? { [ATTR_SESSION_ID]: config.sessionId } : {}
+  });
+}
+__name(buildResource, "buildResource");
+function buildTracesUrl(collectorUrl) {
+  return `${collectorUrl.replace(/\/$/, "")}/v1/traces`;
+}
+__name(buildTracesUrl, "buildTracesUrl");
+function buildLogsUrl(collectorUrl) {
+  return `${collectorUrl.replace(/\/$/, "")}/v1/logs`;
+}
+__name(buildLogsUrl, "buildLogsUrl");
 function buildSpanProcessor(exporter, isDev) {
   return isDev ? new SimpleSpanProcessor(exporter) : new BatchSpanProcessor(exporter);
 }
 __name(buildSpanProcessor, "buildSpanProcessor");
-function buildExporterUrl(collectorUrl) {
-  return `${collectorUrl.replace(/\/$/, "")}/v1/traces`;
+function buildLogProcessor(exporter, isDev) {
+  return isDev ? new SimpleLogRecordProcessor({ exporter }) : new BatchLogRecordProcessor({ exporter });
 }
-__name(buildExporterUrl, "buildExporterUrl");
-function buildExporter(collectorUrl, sanitizerConfig) {
-  const otlp = new OTLPTraceExporter({ url: buildExporterUrl(collectorUrl) });
-  return new SanitizingSpanExporter(otlp, sanitizerConfig);
+__name(buildLogProcessor, "buildLogProcessor");
+function buildSpanExporter(config) {
+  return new SanitizingSpanExporter(new OTLPTraceExporter({ url: buildTracesUrl(config.collectorUrl) }), config.sanitizerConfig);
 }
-__name(buildExporter, "buildExporter");
-function makeTeardown(provider, instrumentations, errorHandlers) {
+__name(buildSpanExporter, "buildSpanExporter");
+function buildLogExporter(config) {
+  return new SanitizingLogRecordExporter(new OTLPLogExporter({ url: buildLogsUrl(config.collectorUrl) }), config.sanitizerConfig);
+}
+__name(buildLogExporter, "buildLogExporter");
+function makeTeardown(providers, instrumentations) {
   return async () => {
-    for (const instrumentation of instrumentations) {
-      instrumentation.disable();
-    }
-    unregisterGlobalErrorHandlers(errorHandlers);
-    try {
-      await provider.forceFlush();
-    } catch {
-    }
-    await provider.shutdown();
+    var _a2, _b2;
+    for (const instrumentation of instrumentations) instrumentation.disable();
+    await Promise.allSettled([providers.tracer.forceFlush(), ((_a2 = providers.logger) == null ? void 0 : _a2.forceFlush()) ?? Promise.resolve()]);
+    await Promise.allSettled([providers.tracer.shutdown(), ((_b2 = providers.logger) == null ? void 0 : _b2.shutdown()) ?? Promise.resolve()]);
   };
 }
 __name(makeTeardown, "makeTeardown");
 function initializeObservability(config) {
-  const isDev = config.isDev ?? false;
-  const sanitizerConfig = config.sanitizerConfig ?? (config.urlTemplates ? { ...DEFAULT_SANITIZER_CONFIG, urlTemplates: config.urlTemplates } : DEFAULT_SANITIZER_CONFIG);
-  const exporter = buildExporter(config.collectorUrl, sanitizerConfig);
-  const provider = new WebTracerProvider({
-    resource: buildResource(),
-    spanProcessors: [buildSpanProcessor(exporter, isDev)]
+  getState().config = config;
+  const resource = buildResource(config);
+  const valueLimit = config.sanitizerConfig.maxValueLength;
+  const tracerProvider = new WebTracerProvider({
+    resource,
+    spanLimits: { attributeValueLengthLimit: valueLimit },
+    spanProcessors: [buildSpanProcessor(buildSpanExporter(config), config.isDev)]
   });
-  provider.register();
+  tracerProvider.register(config.contextManager ? { contextManager: config.contextManager } : void 0);
+  let loggerProvider = null;
   let instrumentations;
   try {
-    instrumentations = registerAutoInstrumentations({
-      tracerProvider: provider,
-      propagateTraceHeaderCorsUrls: buildPropagateUrls(config.apiUrl)
-    });
-    const errorHandlers = registerGlobalErrorHandlers({ tracerProvider: provider });
-    return { teardown: makeTeardown(provider, instrumentations, errorHandlers) };
-  } catch (error) {
-    if (instrumentations) {
-      for (const i of instrumentations) i.disable();
+    if (config.logsEnabled) {
+      loggerProvider = new LoggerProvider({
+        resource,
+        logRecordLimits: { attributeValueLengthLimit: valueLimit },
+        processors: [buildLogProcessor(buildLogExporter(config), config.isDev)]
+      });
+      logs.setGlobalLoggerProvider(loggerProvider);
     }
-    provider.shutdown().catch(() => {
+    instrumentations = registerAutoInstrumentations({
+      tracerProvider,
+      propagateTraceHeaderCorsUrls: config.propagateTraceHeaderCorsUrls,
+      ignoreUrls: config.ignoreUrls
     });
+    installErrorCapture();
+    activateErrorCapture();
+    return { teardown: makeTeardown({
+      tracer: tracerProvider,
+      logger: loggerProvider
+    }, instrumentations) };
+  } catch (error) {
+    if (instrumentations) for (const instrumentation of instrumentations) instrumentation.disable();
+    loggerProvider == null ? void 0 : loggerProvider.shutdown().catch(() => {
+    });
+    tracerProvider.shutdown().catch(() => {
+    });
+    releaseOtelGlobals();
     throw error;
   }
 }
 __name(initializeObservability, "initializeObservability");
 export {
-  buildExporter,
-  buildExporterUrl,
-  buildSpanProcessor,
   initializeObservability
 };

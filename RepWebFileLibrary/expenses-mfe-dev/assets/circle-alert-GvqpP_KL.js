@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./queryClient-haQ_5IC4.js";
+import { c as createLucideIcon } from "./queryClient-B-8ibG67.js";
 const __iconNode = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],

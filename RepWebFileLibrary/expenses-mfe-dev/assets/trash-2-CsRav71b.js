@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./queryClient-haQ_5IC4.js";
+import { c as createLucideIcon } from "./queryClient-B-8ibG67.js";
 const __iconNode$1 = [
   [
     "path",
