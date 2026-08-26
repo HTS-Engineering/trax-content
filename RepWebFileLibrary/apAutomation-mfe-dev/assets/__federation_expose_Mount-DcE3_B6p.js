@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-Bybj2ZUK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-DLwPe-No.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-DgkMaaNt.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-Cn6DbZKI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -18,7 +18,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
 });
 var _a, _b, _c, _d, _e, _mutations, _scopes, _mutationId, _f, _queries, _g, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _h;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, a as devError, b as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, c as noop, h as hashQueryKeyByOptions, Q as Query, e as matchQuery, f as focusManager, o as onlineManager, r as resolveStaleTime, g as functionalUpdate, i as hashKey, p as partialMatchKey, s as skipToken, t as toErrorText, k as di, l as interpretError, q as getQueryClaimState, u as getDisplacedClaimFallback, v as forgetQueryClaims, w as classifyError, A as ApDocumentType, x as ApReviewStatus, y as Mt, E as Et, I as Icon, z as kt, W as Wr, B as ys, C as h, U as Ur, D as useUpdateApEventReviewStatus, V as Vt, F as bt, Z as Zn, H as wt, J as yt, O as Oa, K as hn, L as ls, N as useApEvents, P as useErrorSurface, R as mi, T as DataLoadError, X as EmptyState, Y as QueryClientProvider, _ as ui, $ as Tr, a0 as SCOPE_CLASS, a1 as CONTAINER_ID, a2 as apiClient, a3 as ensureJWTInitialized, a4 as SERVICE_NAME, a5 as devLog } from "./DataLoadError-DLwPe-No.js";
+import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, a as devError, b as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, c as noop, h as hashQueryKeyByOptions, Q as Query, e as matchQuery, f as focusManager, o as onlineManager, r as resolveStaleTime, g as functionalUpdate, i as hashKey, p as partialMatchKey, s as skipToken, t as toErrorText, k as di, l as interpretError, q as getQueryClaimState, u as getDisplacedClaimFallback, v as forgetQueryClaims, w as classifyError, A as ApDocumentType, x as ApReviewStatus, y as Mt, E as Et, I as Icon, z as kt, W as Wr, B as ys, C as h, U as Ur, D as useUpdateApEventReviewStatus, V as Vt, F as bt, Z as Zn, H as wt, J as yt, O as Oa, K as hn, L as ls, N as useApEvents, P as useErrorSurface, R as mi, T as DataLoadError, X as EmptyState, Y as QueryClientProvider, _ as ui, $ as Tr, a0 as SCOPE_CLASS, a1 as CONTAINER_ID, a2 as apiClient, a3 as ensureJWTInitialized, a4 as SERVICE_NAME, a5 as devLog } from "./DataLoadError-Cn6DbZKI.js";
 import { r as requireReact } from "./index-BB5LXT6C.js";
 import { r as requireReactDom } from "./index-BH4teOuT.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -20737,8 +20737,8 @@ function isOpenableDocument(reference) {
   }
 }
 __name(isOpenableDocument, "isOpenableDocument");
-const DocumentLinkCell = /* @__PURE__ */ __name(({ documentId }) => {
-  if (!isOpenableDocument(documentId)) {
+const DocumentLinkCell = /* @__PURE__ */ __name(({ reference }) => {
+  if (!isOpenableDocument(reference)) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { delayDuration: TOOLTIP_DELAY_QUICK, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Et,
@@ -20755,7 +20755,7 @@ const DocumentLinkCell = /* @__PURE__ */ __name(({ documentId }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "a",
     {
-      href: documentId,
+      href: reference,
       target: "_blank",
       rel: "noopener noreferrer",
       "aria-label": "Open the document in a new tab",
@@ -20978,10 +20978,12 @@ const useApExceptionColumns = /* @__PURE__ */ __name(({
     },
     {
       id: ApExceptionColumn.Document,
-      accessorKey: "documentId",
+      accessorKey: "fileUrl",
       enableSorting: false,
       header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Oa, { column, title: "Documents", styles: HEADER_STYLES }), "header"),
-      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(DocumentLinkCell, { documentId: row.original.documentId }), "cell")
+      // Records older than `fileUrl` put the link in `documentId`, so dropping
+      // the fallback would take the link off every row already on the board.
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(DocumentLinkCell, { reference: row.original.fileUrl ?? row.original.documentId }), "cell")
     },
     {
       id: ApExceptionColumn.ReviewStatus,
@@ -21409,7 +21411,7 @@ function ApExceptionsPage() {
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-Bybj2ZUK.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-DgkMaaNt.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21688,7 +21690,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.5", commit: "caba26e", branch: "dev", timestamp: "2026-08-26T14:42:27.059Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.6", commit: "b6338d4", branch: "dev", timestamp: "2026-08-26T16:33:43.329Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {

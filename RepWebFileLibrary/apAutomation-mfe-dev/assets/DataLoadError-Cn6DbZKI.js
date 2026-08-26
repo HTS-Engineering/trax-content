@@ -29585,6 +29585,7 @@ function toApEvent(dto) {
     issues: readList(dto.issues, "issues").map(toIssue),
     senderEmail: text(dto.sender_email),
     documentId: text(dto.document_id),
+    fileUrl: text(dto.file_url),
     poId: text(dto.po_id),
     logicalCompanies: readCompanyNames(readList(dto.logical_companies, "logical_companies")),
     requestStatus: toRequestStatus(text(dto.request_status) ?? text(dto.status)),
