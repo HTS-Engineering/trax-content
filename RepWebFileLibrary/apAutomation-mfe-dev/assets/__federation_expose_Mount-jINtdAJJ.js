@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-CuPj46u8.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-Cn6DbZKI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-C__-zkCF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-Cn6DbZKI.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -21180,6 +21180,8 @@ function sortRows(rows, sorting) {
   const keyed = rows.map((row) => ({ row, at: receivedAt(row) }));
   keyed.sort((left, right) => {
     if (left.at === right.at) return 0;
+    if (!Number.isFinite(left.at)) return 1;
+    if (!Number.isFinite(right.at)) return -1;
     return left.at < right.at ? -direction : direction;
   });
   return keyed.map(({ row }) => row);
@@ -21411,7 +21413,7 @@ function ApExceptionsPage() {
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-CuPj46u8.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-C__-zkCF.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21690,7 +21692,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.7", commit: "b6338d4", branch: "dev", timestamp: "2026-08-26T16:47:28.524Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.8", commit: "84828cf", branch: "dev", timestamp: "2026-08-26T19:10:17.225Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {
