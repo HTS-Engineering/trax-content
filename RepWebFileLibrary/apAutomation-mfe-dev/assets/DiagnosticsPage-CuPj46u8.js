@@ -37,7 +37,7 @@ function decodeJwtPayload(token) {
   }
 }
 __name(decodeJwtPayload, "decodeJwtPayload");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.6", commit: "b6338d4", branch: "dev", timestamp: "2026-08-26T16:33:43.329Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.7", commit: "b6338d4", branch: "dev", timestamp: "2026-08-26T16:47:28.524Z", environment: "apAutomation-mfe-dev" };
 function DiagnosticsPage() {
   const { hasToken, isInitialized, token } = useAuth();
   const identity = [
