@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { a6 as useJWTStore, a7 as jwtSelectors, a3 as ensureJWTInitialized, j as jsxRuntimeExports, a1 as CONTAINER_ID, a0 as SCOPE_CLASS, a8 as JWT_STORAGE_KEY, G as Ge, a9 as API_BASE_URL, N as useApEvents, P as useErrorSurface, Z as Zn, T as DataLoadError } from "./DataLoadError-BFXY3szA.js";
+import { a6 as useJWTStore, a7 as jwtSelectors, a3 as ensureJWTInitialized, j as jsxRuntimeExports, a1 as CONTAINER_ID, a0 as SCOPE_CLASS, a8 as JWT_STORAGE_KEY, G as Ge, a9 as API_BASE_URL, N as useApEvents, P as useErrorSurface, Z as Zn, T as DataLoadError } from "./DataLoadError-DLwPe-No.js";
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
 const { useEffect } = await importShared("react");
 const useAuth = /* @__PURE__ */ __name(() => {
@@ -37,7 +37,7 @@ function decodeJwtPayload(token) {
   }
 }
 __name(decodeJwtPayload, "decodeJwtPayload");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1787162135009", commit: "dfd3cbe", branch: "feat/AI-191-document-status-management", timestamp: "2026-08-19T17:55:35.030Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.5", commit: "caba26e", branch: "dev", timestamp: "2026-08-26T14:42:27.059Z", environment: "apAutomation-mfe-dev" };
 function DiagnosticsPage() {
   const { hasToken, isInitialized, token } = useAuth();
   const identity = [

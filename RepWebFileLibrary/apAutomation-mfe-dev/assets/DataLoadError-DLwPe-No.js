@@ -24365,20 +24365,27 @@ function isHttpApiError(error) {
   return error instanceof Error && "response" in error;
 }
 __name(isHttpApiError, "isHttpApiError");
-const TIMEOUT_CODES = /* @__PURE__ */ new Set(["ECONNABORTED", "ETIMEDOUT"]);
-const RETRYABLE_KINDS = /* @__PURE__ */ new Set(["offline", "timeout", "server"]);
-function getResponseStatus$1(error) {
+function getResponseBody(error) {
+  var _a3;
+  if (!isHttpApiError(error)) return void 0;
+  const data = (_a3 = error.response) == null ? void 0 : _a3.data;
+  return data && typeof data === "object" ? data : void 0;
+}
+__name(getResponseBody, "getResponseBody");
+function getResponseStatus(error) {
   var _a3;
   if (!isHttpApiError(error)) return void 0;
   const status = (_a3 = error.response) == null ? void 0 : _a3.status;
   return typeof status === "number" ? status : void 0;
 }
-__name(getResponseStatus$1, "getResponseStatus$1");
-function getAxiosCode(error) {
+__name(getResponseStatus, "getResponseStatus");
+function getErrorCode(error) {
   const code = error == null ? void 0 : error.code;
   return typeof code === "string" ? code : void 0;
 }
-__name(getAxiosCode, "getAxiosCode");
+__name(getErrorCode, "getErrorCode");
+const TIMEOUT_CODES = /* @__PURE__ */ new Set(["ECONNABORTED", "ETIMEDOUT"]);
+const RETRYABLE_KINDS = /* @__PURE__ */ new Set(["offline", "timeout", "server"]);
 function statusToKind(status) {
   if (status >= 500) return "server";
   switch (status) {
@@ -24398,9 +24405,9 @@ function statusToKind(status) {
 }
 __name(statusToKind, "statusToKind");
 function classifyError(error) {
-  const status = getResponseStatus$1(error);
+  const status = getResponseStatus(error);
   if (status !== void 0) return { kind: statusToKind(status), status };
-  const code = getAxiosCode(error);
+  const code = getErrorCode(error);
   if (code === "ERR_CANCELED") return { kind: "canceled" };
   if (code && TIMEOUT_CODES.has(code)) return { kind: "timeout" };
   if (code) return { kind: "offline" };
@@ -24413,20 +24420,6 @@ function isRetryableError(error) {
 }
 __name(isRetryableError, "isRetryableError");
 const EMPTY = { messages: [], fieldErrors: [], source: null };
-function getResponseBody(error) {
-  var _a3;
-  if (!isHttpApiError(error)) return void 0;
-  const data = (_a3 = error.response) == null ? void 0 : _a3.data;
-  return data && typeof data === "object" ? data : void 0;
-}
-__name(getResponseBody, "getResponseBody");
-function getResponseStatus(error) {
-  var _a3;
-  if (!isHttpApiError(error)) return void 0;
-  const status = (_a3 = error.response) == null ? void 0 : _a3.status;
-  return typeof status === "number" ? status : void 0;
-}
-__name(getResponseStatus, "getResponseStatus");
 const REASON_PHRASES = {
   400: "Bad Request",
   401: "Unauthorized",
@@ -24494,10 +24487,6 @@ function extractError(error) {
     return isFrameworkDefault(message2, status) ? EMPTY : { messages: [message2], fieldErrors: [], source: "business" };
   }
   if (Array.isArray(detail)) return extractFromArray(detail);
-  if (typeof body.message === "string" && body.message.trim()) {
-    const message2 = body.message.trim();
-    return isFrameworkDefault(message2, status) ? EMPTY : { messages: [message2], fieldErrors: [], source: "business" };
-  }
   return EMPTY;
 }
 __name(extractError, "extractError");
@@ -28035,7 +28024,7 @@ const createImpl = /* @__PURE__ */ __name((createState) => {
   return useBoundStore;
 }, "createImpl");
 const create = /* @__PURE__ */ __name(((createState) => createState ? createImpl(createState) : createImpl), "create");
-const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8009", "VITE_APP_ENV": "development", "VITE_DEV_AUTH_CLIENT_ID": "182c65d4-1c6c-462a-96b4-8fdf5f7850eb", "VITE_DEV_AUTH_ENABLED": "true", "VITE_DEV_AUTH_SCOPES": "182c65d4-1c6c-462a-96b4-8fdf5f7850eb/.default", "VITE_DEV_AUTH_TENANT_ID": "b6e23382-0ff7-45c9-88c7-662fdeaff4f4" };
+const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8009", "VITE_APP_ENV": "development" };
 const shouldDispatchFromDevtools = /* @__PURE__ */ __name((api) => !!api.dispatchFromDevtools && typeof api.dispatch === "function", "shouldDispatchFromDevtools");
 const trackedConnections = /* @__PURE__ */ new Map();
 const getTrackedConnectionState = /* @__PURE__ */ __name((name) => {
@@ -29478,6 +29467,10 @@ var QueryKeyOperation = /* @__PURE__ */ ((QueryKeyOperation2) => {
   QueryKeyOperation2["LIST"] = "list";
   return QueryKeyOperation2;
 })(QueryKeyOperation || {});
+var MutationKeyOperation = /* @__PURE__ */ ((MutationKeyOperation2) => {
+  MutationKeyOperation2["UPDATE_REVIEW_STATUS"] = "updateReviewStatus";
+  return MutationKeyOperation2;
+})(MutationKeyOperation || {});
 const queryKeys = {
   apEvents: {
     all: /* @__PURE__ */ __name(() => [QueryKeyScope.ApEvents], "all"),
@@ -29486,6 +29479,11 @@ const queryKeys = {
     // object appended here would turn every tab click into a refetch of the
     // same rows.
     list: /* @__PURE__ */ __name(() => [QueryKeyScope.ApEvents, QueryKeyOperation.LIST], "list")
+  }
+};
+const mutationKeys = {
+  apEvents: {
+    updateReviewStatus: /* @__PURE__ */ __name(() => [QueryKeyScope.ApEvents, MutationKeyOperation.UPDATE_REVIEW_STATUS], "updateReviewStatus")
   }
 };
 function isRecord(value) {
@@ -29609,25 +29607,46 @@ const useApEvents = /* @__PURE__ */ __name(() => useAppQuery({
     }
   }
 }), "useApEvents");
+const REVIEW_STATUS_CONFLICT_MESSAGE = "Someone else changed the status first, so your change was not saved.";
+const _ReviewStatusConflictError = class _ReviewStatusConflictError extends AppError {
+  // Or the central log reports it as a plain AppError.
+  name = "ReviewStatusConflictError";
+};
+__name(_ReviewStatusConflictError, "ReviewStatusConflictError");
+let ReviewStatusConflictError = _ReviewStatusConflictError;
 const useUpdateApEventReviewStatus = /* @__PURE__ */ __name(() => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: /* @__PURE__ */ __name(async ({ id, status }) => {
-      await apiClient.patch(
-        AP_AUTOMATION_ENDPOINTS.UPDATE_EVENT_REVIEW_STATUS.build({ recordId: id }),
-        { event_status: toReviewStatusWireName(status) }
-      );
+    // Nothing keys off this; it names the write in the cache-level error log.
+    mutationKey: mutationKeys.apEvents.updateReviewStatus(),
+    mutationFn: /* @__PURE__ */ __name(async ({ id, from, to: to2 }) => {
+      try {
+        await apiClient.patch(
+          AP_AUTOMATION_ENDPOINTS.UPDATE_EVENT_REVIEW_STATUS.build({ recordId: id }),
+          { prev_status: toReviewStatusWireName(from), new_status: toReviewStatusWireName(to2) }
+        );
+      } catch (error) {
+        if (classifyError(error).kind !== "conflict") throw error;
+        throw new ReviewStatusConflictError(REVIEW_STATUS_CONFLICT_MESSAGE);
+      }
     }, "mutationFn"),
     // Written in rather than invalidated: a refetch would pull every row the
     // reader is already looking at to learn one field.
-    onSuccess: /* @__PURE__ */ __name((_result, { id, status }) => {
+    onSuccess: /* @__PURE__ */ __name((_result, { id, to: to2 }) => {
       queryClient.setQueryData(
         queryKeys.apEvents.list(),
         (documents) => documents == null ? void 0 : documents.map(
-          (document2) => document2.id === id ? { ...document2, reviewStatus: status } : document2
+          (document2) => document2.id === id ? { ...document2, reviewStatus: to2 } : document2
         )
       );
     }, "onSuccess"),
+    // A conflict is the one failure that means the list itself is wrong, so the
+    // row is fetched back to whatever it really is now. Every other failure
+    // leaves it alone.
+    onError: /* @__PURE__ */ __name((error) => {
+      if (!(error instanceof ReviewStatusConflictError)) return;
+      void queryClient.invalidateQueries({ queryKey: queryKeys.apEvents.list() });
+    }, "onError"),
     meta: {
       errorCopy: {
         fallback: "Unable to update the status. Try again or contact support if the issue persists."

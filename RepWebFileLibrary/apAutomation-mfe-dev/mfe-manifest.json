@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.local-1787162135009",
-  "commit": "dfd3cbe",
-  "branch": "feat/AI-191-document-status-management",
-  "timestamp": "2026-08-19T17:55:35.030Z",
+  "version": "0.1.0-dev.5",
+  "commit": "caba26e",
+  "branch": "dev",
+  "timestamp": "2026-08-26T14:42:27.059Z",
   "environment": "apAutomation-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-KoKtlICW.js",
+  "bootstrap": "__federation_expose_Mount-DKgzGY73.js",
   "css": "style-DAezIp3N.css"
 }

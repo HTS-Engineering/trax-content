@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-D79PdDXQ.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-BFXY3szA.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-Bybj2ZUK.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-DLwPe-No.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -18,7 +18,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
 });
 var _a, _b, _c, _d, _e, _mutations, _scopes, _mutationId, _f, _queries, _g, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _h;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, a as devError, b as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, c as noop, h as hashQueryKeyByOptions, Q as Query, e as matchQuery, f as focusManager, o as onlineManager, r as resolveStaleTime, g as functionalUpdate, i as hashKey, p as partialMatchKey, s as skipToken, t as toErrorText, k as di, l as interpretError, q as getQueryClaimState, u as getDisplacedClaimFallback, v as forgetQueryClaims, w as classifyError, A as ApDocumentType, x as ApReviewStatus, y as Mt, E as Et, I as Icon, z as kt, W as Wr, B as ys, C as h, U as Ur, D as useUpdateApEventReviewStatus, V as Vt, F as bt, Z as Zn, H as wt, J as yt, O as Oa, K as hn, L as ls, N as useApEvents, P as useErrorSurface, R as mi, T as DataLoadError, X as EmptyState, Y as QueryClientProvider, _ as ui, $ as Tr, a0 as SCOPE_CLASS, a1 as CONTAINER_ID, a2 as apiClient, a3 as ensureJWTInitialized, a4 as SERVICE_NAME, a5 as devLog } from "./DataLoadError-BFXY3szA.js";
+import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, a as devError, b as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, c as noop, h as hashQueryKeyByOptions, Q as Query, e as matchQuery, f as focusManager, o as onlineManager, r as resolveStaleTime, g as functionalUpdate, i as hashKey, p as partialMatchKey, s as skipToken, t as toErrorText, k as di, l as interpretError, q as getQueryClaimState, u as getDisplacedClaimFallback, v as forgetQueryClaims, w as classifyError, A as ApDocumentType, x as ApReviewStatus, y as Mt, E as Et, I as Icon, z as kt, W as Wr, B as ys, C as h, U as Ur, D as useUpdateApEventReviewStatus, V as Vt, F as bt, Z as Zn, H as wt, J as yt, O as Oa, K as hn, L as ls, N as useApEvents, P as useErrorSurface, R as mi, T as DataLoadError, X as EmptyState, Y as QueryClientProvider, _ as ui, $ as Tr, a0 as SCOPE_CLASS, a1 as CONTAINER_ID, a2 as apiClient, a3 as ensureJWTInitialized, a4 as SERVICE_NAME, a5 as devLog } from "./DataLoadError-DLwPe-No.js";
 import { r as requireReact } from "./index-BB5LXT6C.js";
 import { r as requireReactDom } from "./index-BH4teOuT.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -20904,7 +20904,7 @@ const ReviewStatusCell = /* @__PURE__ */ __name(({ document: document2, pinRow }
     if (isPending) return;
     pinRow(document2.id);
     mutate(
-      { id: document2.id, status },
+      { id: document2.id, from: document2.reviewStatus, to: status },
       { onSuccess: /* @__PURE__ */ __name(() => di.success(REVIEW_STATUS_SAVED_MESSAGE[status]), "onSuccess") }
     );
   }, "handleValueChange");
@@ -21409,7 +21409,7 @@ function ApExceptionsPage() {
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-D79PdDXQ.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-Bybj2ZUK.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21688,7 +21688,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.local-1787162135009", commit: "dfd3cbe", branch: "feat/AI-191-document-status-management", timestamp: "2026-08-19T17:55:35.030Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.5", commit: "caba26e", branch: "dev", timestamp: "2026-08-26T14:42:27.059Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 function resolveTargetElement(element) {
