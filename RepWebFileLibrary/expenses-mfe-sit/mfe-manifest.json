@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.171",
-  "commit": "0929ec0",
-  "branch": "dev",
-  "timestamp": "2026-08-26T18:29:36.053Z",
+  "version": "0.1.0-dev.173",
+  "commit": "92c7502",
+  "branch": "feat/TRX-931-mileage-unit-from-response",
+  "timestamp": "2026-08-27T16:19:44.283Z",
   "outDir": "expenses-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-CwJOQ0Pq.js",
+  "bootstrap": "__federation_expose_Mount-BZzEwGi8.js",
   "css": "style-3FDM2u_-.css"
 }
