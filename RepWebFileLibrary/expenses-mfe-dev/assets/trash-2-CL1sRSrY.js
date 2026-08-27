@@ -1,4 +1,4 @@
-import { c as createLucideIcon } from "./queryClient-3qLEUwRX.js";
+import { c as createLucideIcon } from "./queryClient-DMsl-lYG.js";
 const __iconNode$1 = [
   [
     "path",

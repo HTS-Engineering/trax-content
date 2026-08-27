@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { ae as useParams, x as useLocation, af as useNavigateBack, a as RoutePaths, j as jsxRuntimeExports } from "./queryClient-3qLEUwRX.js";
-import { a as CardholderTransactionsView } from "./TransactionsList-BQoICJA_.js";
+import { ae as useParams, x as useLocation, af as useNavigateBack, a as RoutePaths, j as jsxRuntimeExports } from "./queryClient-DMsl-lYG.js";
+import { a as CardholderTransactionsView } from "./TransactionsList-BhIPeOT6.js";
 const CardholderReconciliationDetailPage = /* @__PURE__ */ __name(() => {
   const { id } = useParams();
   const { state } = useLocation();

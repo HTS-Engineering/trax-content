@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { j as jsxRuntimeExports, v as jr } from "./queryClient-3qLEUwRX.js";
+import { j as jsxRuntimeExports, v as jr } from "./queryClient-DMsl-lYG.js";
 const STATUS_BADGE_CONFIG = {
   draft: {
     bgColor: "bg-exp-yellow-200",

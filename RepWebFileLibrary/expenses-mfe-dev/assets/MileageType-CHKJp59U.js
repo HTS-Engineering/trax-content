@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { j as jsxRuntimeExports, I as Icon } from "./queryClient-3qLEUwRX.js";
-import { M as MILEAGE_TYPE_MESSAGES, b as MileageTypeTable } from "./MileageTypeTable-cuvxXru7.js";
+import { j as jsxRuntimeExports, I as Icon } from "./queryClient-DMsl-lYG.js";
+import { M as MILEAGE_TYPE_MESSAGES, b as MileageTypeTable } from "./MileageTypeTable-DDVyUxlu.js";
 const MileageType = /* @__PURE__ */ __name(() => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-full flex flex-col p-6 pt-0!", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-4 mb-4 shrink-0", children: [

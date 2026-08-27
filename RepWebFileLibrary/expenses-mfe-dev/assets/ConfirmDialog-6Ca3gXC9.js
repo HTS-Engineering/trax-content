@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { c as createLucideIcon, j as jsxRuntimeExports, c5 as Ds, c6 as Ms, c7 as Es, c8 as ks, c9 as Vs, ca as Ps, V as Ue, Y as Yn } from "./queryClient-3qLEUwRX.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, c5 as Ds, c6 as Ms, c7 as Es, c8 as ks, c9 as Vs, ca as Ps, V as Ue, Y as Yn } from "./queryClient-DMsl-lYG.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 const __iconNode = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],

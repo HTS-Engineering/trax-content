@@ -40153,6 +40153,16 @@ function stringifyEntityId(id) {
   return id ? String(id) : "";
 }
 __name(stringifyEntityId, "stringifyEntityId");
+function resolveRateUnit(response, expenseTypes) {
+  if (response.unitOfMeasurement) return response.unitOfMeasurement;
+  const { expenseTypeId } = response;
+  if (expenseTypeId == null) return "";
+  const found = expenseTypes == null ? void 0 : expenseTypes.find(
+    (et) => parseInt(et.id, 10) === expenseTypeId
+  );
+  return (found == null ? void 0 : found.unitOfMeasurement) ?? "";
+}
+__name(resolveRateUnit, "resolveRateUnit");
 function inferFormTypeId(expenseTypeId, expenseTypes) {
   var _a3;
   if (expenseTypeId == null) return null;
@@ -40164,14 +40174,6 @@ function inferTotalCurrencyCode(response) {
   return ((_a3 = response.paymentMethod) == null ? void 0 : _a3.currencyCode) ?? ((_b2 = response.country) == null ? void 0 : _b2.defaultCurrencyIso) ?? DEFAULT_CURRENCY_CODE;
 }
 __name(inferTotalCurrencyCode, "inferTotalCurrencyCode");
-function resolveRateUnit(expenseTypeId, expenseTypes) {
-  if (expenseTypeId == null) return "";
-  const found = expenseTypes == null ? void 0 : expenseTypes.find(
-    (et) => parseInt(et.id, 10) === expenseTypeId
-  );
-  return (found == null ? void 0 : found.unitOfMeasurement) ?? "";
-}
-__name(resolveRateUnit, "resolveRateUnit");
 function mapFileMetadataToAttachment(file) {
   var _a3;
   return {
@@ -40389,7 +40391,7 @@ function mapToMileageTripFormData(response, isDraft2, context) {
     isRoundTrip: response.roundTrip ?? false,
     totalDistance: ((_a3 = response.totalDistance) == null ? void 0 : _a3.toString()) ?? "",
     ratePerUnit: ((_b2 = response.effectiveRate) == null ? void 0 : _b2.toString()) ?? "",
-    rateUnit: resolveRateUnit(response.expenseTypeId, context.expenseTypes),
+    rateUnit: resolveRateUnit(response, context.expenseTypes),
     reimbursableAmount: ((_c2 = response.totalAmount) == null ? void 0 : _c2.toString()) ?? "",
     businessPurpose: isDraft2 ? shouldClearBusinessPurpose ? "" : stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
     expenseDescription: response.description ?? "",
@@ -40421,7 +40423,7 @@ function mapToMileagePeriodFormData(response, isDraft2, context) {
     },
     totalDistance: ((_a3 = response.totalDistance) == null ? void 0 : _a3.toString()) ?? "",
     ratePerUnit: ((_b2 = response.effectiveRate) == null ? void 0 : _b2.toString()) ?? "",
-    rateUnit: resolveRateUnit(response.expenseTypeId, context.expenseTypes),
+    rateUnit: resolveRateUnit(response, context.expenseTypes),
     reimbursableAmount: ((_c2 = response.totalAmount) == null ? void 0 : _c2.toString()) ?? "",
     businessPurpose: isDraft2 ? shouldClearBusinessPurpose ? "" : stringifyEntityId(response.businessPurposeId) : response.businessPurpose ?? "",
     expenseDescription: response.description ?? "",
