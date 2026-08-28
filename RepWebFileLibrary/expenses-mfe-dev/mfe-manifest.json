@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.176",
-  "commit": "b782bc5",
-  "branch": "dev",
-  "timestamp": "2026-08-28T16:03:38.570Z",
+  "version": "0.1.0-dev.178",
+  "commit": "febd608",
+  "branch": "feat/TRX-941-ap-review-own-screen",
+  "timestamp": "2026-08-28T17:43:48.235Z",
   "outDir": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-C07OaYaz.js",
+  "bootstrap": "__federation_expose_Mount-8MKNSeMn.js",
   "css": "style-DbOnAIGC.css"
 }
