@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.175",
-  "commit": "8605e56",
+  "version": "0.1.0-dev.177",
+  "commit": "b782bc5",
   "branch": "dev",
-  "timestamp": "2026-08-28T14:03:52.343Z",
+  "timestamp": "2026-08-28T16:24:09.713Z",
   "outDir": "expenses-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-BUbrsJLQ.js",
+  "bootstrap": "__federation_expose_Mount-BNhl7gOW.js",
   "css": "style-3FDM2u_-.css"
 }
