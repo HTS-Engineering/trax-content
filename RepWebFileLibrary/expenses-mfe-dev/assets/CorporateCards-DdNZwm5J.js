@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { j as jsxRuntimeExports, I as Icon } from "./queryClient-DMsl-lYG.js";
-import { C as CORPORATE_CARDS_MESSAGES, d as MasterAccountTable } from "./MileageTypeTable-DDVyUxlu.js";
+import { C as CORPORATE_CARDS_MESSAGES, d as MasterAccountTable } from "./MileageTypeTable-WnJjvvCK.js";
 const CorporateCards = /* @__PURE__ */ __name(() => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "h-full flex flex-col p-6 pt-0!", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-4 mb-4 shrink-0", children: [

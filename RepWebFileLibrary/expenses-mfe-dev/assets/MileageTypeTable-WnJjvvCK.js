@@ -1068,81 +1068,6 @@ const useUpdateMasterAccount = /* @__PURE__ */ __name(() => {
     }, "onSuccess")
   });
 }, "useUpdateMasterAccount");
-const { useCallback: useCallback$j } = await importShared("react");
-const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onSuccess) => {
-  var _a;
-  const createMasterAccountMutation = useCreateMasterAccount();
-  const updateMasterAccountMutation = useUpdateMasterAccount();
-  const handleCreateMasterAccount = useCallback$j(async (data) => {
-    if (!companyShortName) return;
-    try {
-      const masterAccountData = {
-        name: data.name,
-        currencyCode: data.currencyCode,
-        statementEndDate: data.statementEndDate,
-        reconciliationDueDate: data.reconciliationDueDate,
-        active: true
-      };
-      await createMasterAccountMutation.mutateAsync({
-        companyShortName,
-        data: masterAccountData
-      });
-      onSuccess == null ? void 0 : onSuccess();
-    } catch (error) {
-      devError("Failed to create master account:", error);
-      throw error;
-    }
-  }, [companyShortName, createMasterAccountMutation, onSuccess]);
-  const handleUpdateMasterAccount = useCallback$j(async (id, data, originalData) => {
-    if (!companyShortName) return;
-    try {
-      const masterAccountData = {};
-      let hasChange = false;
-      if (!originalData || data.name !== originalData.name) {
-        masterAccountData.name = data.name;
-        hasChange = true;
-      }
-      if (!originalData || data.statementEndDate !== originalData.statementEndDate) {
-        masterAccountData.statementEndDate = data.statementEndDate;
-        hasChange = true;
-      }
-      if (!originalData || data.reconciliationDueDate !== originalData.reconciliationDueDate) {
-        masterAccountData.reconciliationDueDate = data.reconciliationDueDate;
-        hasChange = true;
-      }
-      if (hasChange) {
-        await updateMasterAccountMutation.mutateAsync({
-          companyShortName,
-          id,
-          data: masterAccountData
-        });
-        onSuccess == null ? void 0 : onSuccess();
-      }
-    } catch (error) {
-      devError("Failed to update master account:", error);
-      throw error;
-    }
-  }, [companyShortName, updateMasterAccountMutation, onSuccess]);
-  const toggleActiveMasterAccount = useCallback$j(async (id, active) => {
-    if (!companyShortName || updateMasterAccountMutation.isPending) return;
-    try {
-      await updateMasterAccountMutation.mutateAsync({ companyShortName, id, data: { active: !active } });
-      onSuccess == null ? void 0 : onSuccess();
-    } catch (error) {
-      devError("Failed to toggle master account status:", error);
-      throw error;
-    }
-  }, [companyShortName, updateMasterAccountMutation, onSuccess]);
-  return {
-    handleCreateMasterAccount,
-    handleUpdateMasterAccount,
-    toggleActiveMasterAccount,
-    isCreating: createMasterAccountMutation.isPending,
-    isUpdating: updateMasterAccountMutation.isPending,
-    isOperating: createMasterAccountMutation.isPending || updateMasterAccountMutation.isPending,
-    togglingRowId: updateMasterAccountMutation.isPending ? (_a = updateMasterAccountMutation.variables) == null ? void 0 : _a.id : void 0
-  };
-}, "useMasterAccountOperations");
 const checkNameUniqueness$2 = /* @__PURE__ */ __name((name, existingData, currentId) => {
   return !existingData.some(
     (item) => item.name.toLowerCase() === name.toLowerCase() && item.id !== currentId
@@ -1171,6 +1096,87 @@ const getDefaultValues$3 = /* @__PURE__ */ __name((initialData) => ({
   statementEndDate: (initialData == null ? void 0 : initialData.statementEndDate.toString().padStart(2, "0")) ?? "",
   reconciliationDueDate: (initialData == null ? void 0 : initialData.reconciliationDueDate.toString()) ?? ""
 }), "getDefaultValues$3");
+const { useCallback: useCallback$j } = await importShared("react");
+const useMasterAccountOperations = /* @__PURE__ */ __name((companyShortName, onSuccess) => {
+  const { mutateAsync: createMasterAccount, isPending: isCreating } = useCreateMasterAccount();
+  const {
+    mutateAsync: updateMasterAccount,
+    isPending: isUpdating,
+    variables: updateVariables
+  } = useUpdateMasterAccount();
+  const handleCreateMasterAccount = useCallback$j(async (data) => {
+    if (!companyShortName) return;
+    try {
+      const masterAccountData = {
+        name: data.name,
+        currencyCode: data.currencyCode,
+        statementEndDate: data.statementEndDate,
+        reconciliationDueDate: data.reconciliationDueDate,
+        active: true
+      };
+      await createMasterAccount({
+        companyShortName,
+        data: masterAccountData
+      });
+      onSuccess == null ? void 0 : onSuccess();
+    } catch (error) {
+      devError("Failed to create master account:", error);
+      throw error;
+    }
+  }, [companyShortName, createMasterAccount, onSuccess]);
+  const handleUpdateMasterAccount = useCallback$j(async (id, data, originalData) => {
+    if (!companyShortName) return;
+    try {
+      const stored = originalData && getDefaultValues$3(originalData);
+      const masterAccountData = {};
+      let hasChange = false;
+      if (!stored || data.name !== stored.name) {
+        masterAccountData.name = data.name;
+        hasChange = true;
+      }
+      if (!stored || data.statementEndDate !== stored.statementEndDate) {
+        masterAccountData.statementEndDate = data.statementEndDate;
+        hasChange = true;
+      }
+      if (!stored || data.reconciliationDueDate !== stored.reconciliationDueDate) {
+        masterAccountData.reconciliationDueDate = data.reconciliationDueDate;
+        hasChange = true;
+      }
+      if (!hasChange) {
+        onSuccess == null ? void 0 : onSuccess();
+        return;
+      }
+      await updateMasterAccount({
+        companyShortName,
+        id,
+        data: masterAccountData
+      });
+      onSuccess == null ? void 0 : onSuccess();
+    } catch (error) {
+      devError("Failed to update master account:", error);
+      throw error;
+    }
+  }, [companyShortName, updateMasterAccount, onSuccess]);
+  const toggleActiveMasterAccount = useCallback$j(async (id, active) => {
+    if (!companyShortName || isUpdating) return;
+    try {
+      await updateMasterAccount({ companyShortName, id, data: { active: !active } });
+      onSuccess == null ? void 0 : onSuccess();
+    } catch (error) {
+      devError("Failed to toggle master account status:", error);
+      throw error;
+    }
+  }, [companyShortName, updateMasterAccount, isUpdating, onSuccess]);
+  return {
+    handleCreateMasterAccount,
+    handleUpdateMasterAccount,
+    toggleActiveMasterAccount,
+    isCreating,
+    isUpdating,
+    isOperating: isCreating || isUpdating,
+    togglingRowId: isUpdating ? updateVariables == null ? void 0 : updateVariables.id : void 0
+  };
+}, "useMasterAccountOperations");
 const { useCallback: useCallback$i, useEffect: useEffect$7, useMemo: useMemo$c } = await importShared("react");
 const useMasterAccountForm = /* @__PURE__ */ __name(({
   initialData,
@@ -1227,6 +1233,10 @@ const useMasterAccountForm = /* @__PURE__ */ __name(({
     },
     [onSubmit, reset]
   );
+  const submit = useMemo$c(
+    () => handleSubmit(handleFormSubmit),
+    [handleSubmit, handleFormSubmit]
+  );
   const handleCancel = useCallback$i(() => {
     reset();
     onCancel == null ? void 0 : onCancel();
@@ -1235,7 +1245,7 @@ const useMasterAccountForm = /* @__PURE__ */ __name(({
   return {
     form,
     register,
-    handleSubmit: handleSubmit(handleFormSubmit),
+    handleSubmit: submit,
     setValue,
     control,
     watch,
@@ -3170,7 +3180,7 @@ const MasterAccountTable = /* @__PURE__ */ __name(({ className }) => {
     }),
     [editingRowId, handleRowEdit, formHook.handleSubmit, formHook.handleCancel, formHook.canSubmit, formHook.isFormLoading, toggleActiveMasterAccount, handleSetAsInactive, handleManageCardholders, togglingRowId]
   );
-  const columns = [...baseColumns, actionsColumn];
+  const columns = useMemo$8(() => [...baseColumns, actionsColumn], [baseColumns, actionsColumn]);
   const emptyState = /* @__PURE__ */ jsxRuntimeExports.jsx(
     EmptyState,
     {

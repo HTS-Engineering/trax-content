@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 var _a, _b, _c, _d;
-import { D as DiagAPI, r as registerGlobal, g as getGlobal, u as unregisterGlobal, c as createContextKey, b as baggageEntryMetadataFromString, p as propagation, t as trace, i as isSpanContextValid, T as TraceFlags, a as context, S as SeverityNumber, d as createNoopLogger, e as SpanStatusCode, I as INVALID_SPAN_CONTEXT, f as isValidTraceId, R as ROOT_CONTEXT, l as logs, h as getState, j as installErrorCapture, k as activateErrorCapture, m as releaseOtelGlobals, n as DEFAULT_SANITIZER_CONFIG, o as extractPathname, q as toText, s as templatePath } from "./__federation_expose_Mount-sNPbFOYN.js";
+import { D as DiagAPI, r as registerGlobal, g as getGlobal, u as unregisterGlobal, c as createContextKey, b as baggageEntryMetadataFromString, p as propagation, t as trace, i as isSpanContextValid, T as TraceFlags, a as context, S as SeverityNumber, d as createNoopLogger, e as SpanStatusCode, I as INVALID_SPAN_CONTEXT, f as isValidTraceId, R as ROOT_CONTEXT, l as logs, h as getState, j as installErrorCapture, k as activateErrorCapture, m as releaseOtelGlobals, n as DEFAULT_SANITIZER_CONFIG, o as extractPathname, q as toText, s as templatePath } from "./__federation_expose_Mount-C07OaYaz.js";
 const _NoopMeter = class _NoopMeter {
   constructor() {
   }

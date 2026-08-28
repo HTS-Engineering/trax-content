@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.174",
-  "commit": "8605e56",
+  "version": "0.1.0-dev.176",
+  "commit": "b782bc5",
   "branch": "dev",
-  "timestamp": "2026-08-28T13:37:57.083Z",
+  "timestamp": "2026-08-28T16:03:38.570Z",
   "outDir": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-sNPbFOYN.js",
+  "bootstrap": "__federation_expose_Mount-C07OaYaz.js",
   "css": "style-DbOnAIGC.css"
 }
