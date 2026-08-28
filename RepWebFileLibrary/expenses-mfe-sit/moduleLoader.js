@@ -14,12 +14,12 @@
   // Replaced at build by mfe-post-build. Stays null under `npm run dev`,
   // where this loader is not used.
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.177",
-  "commit": "b782bc5",
-  "branch": "dev",
-  "timestamp": "2026-08-28T16:24:09.713Z",
+  "version": "0.1.0-dev.179",
+  "commit": "febd608",
+  "branch": "feat/TRX-941-ap-review-own-screen",
+  "timestamp": "2026-08-28T18:00:01.821Z",
   "outDir": "expenses-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-BNhl7gOW.js",
+  "bootstrap": "__federation_expose_Mount-D51foOif.js",
   "css": "style-3FDM2u_-.css"
 };
 
