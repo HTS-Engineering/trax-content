@@ -1,0 +1,1 @@
+var a=Object.defineProperty;var o=(r,t)=>a(r,"name",{value:t,configurable:!0});import{j as e,bc as i}from"./queryClient-CNnNnGPN.js";const c=o(()=>e.jsx(i,{}),"CardholderReconciliationPage");export{c as default};
