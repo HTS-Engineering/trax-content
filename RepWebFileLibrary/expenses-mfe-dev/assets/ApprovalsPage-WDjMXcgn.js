@@ -2,8 +2,8 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { ae as useParams, x as useLocation, C as useNavigate, a as RoutePaths, j as jsxRuntimeExports } from "./queryClient-DTIev6b5.js";
-import { v as useExpenseSwapStore, A as ApprovalsList } from "./__federation_expose_Mount-2XJfcb1B.js";
-import { A as ApproverExpenseDetail } from "./ApproverExpenseDetail-BnaTgTG-.js";
+import { v as useExpenseSwapStore, A as ApprovalsList } from "./__federation_expose_Mount-dRNSQKAq.js";
+import { A as ApproverExpenseDetail } from "./ApproverExpenseDetail-D1Nk6Agz.js";
 const { useCallback } = await importShared("react");
 const ApprovalsPage = /* @__PURE__ */ __name(() => {
   const { id: selectedExpenseId } = useParams();
