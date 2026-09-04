@@ -1,1 +1,0 @@
-var s=Object.defineProperty;var t=(i,o)=>s(i,"name",{value:o,configurable:!0});import{j as a,bf as e}from"./queryClient-CYRiLV2v.js";const c=t(()=>a.jsx(e,{}),"ReconciliationPage");export{c as default};

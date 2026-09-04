@@ -1,1 +1,0 @@
-var r=Object.defineProperty;var s=(e,t)=>r(e,"name",{value:t,configurable:!0});import{j as o}from"./queryClient-CYRiLV2v.js";import{E as p}from"./ExpensesList-D_GH-rY0.js";const n=s(()=>o.jsx(p,{}),"ExpensesPage");export{n as default};

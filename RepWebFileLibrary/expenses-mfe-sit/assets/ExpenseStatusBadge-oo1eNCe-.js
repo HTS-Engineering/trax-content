@@ -1,0 +1,1 @@
+var r=Object.defineProperty;var e=(o,s)=>r(o,"name",{value:s,configurable:!0});import{j as a,v as n,by as l}from"./queryClient-CwAu78Id.js";const c=e(({status:o,className:s=""})=>{const t=l[o];return a.jsx(n,{variant:"outline",className:`rounded-20! ${t.bgColor} ${t.textColor} ${s}`,children:t.label})},"ExpenseStatusBadge");export{c as E};
