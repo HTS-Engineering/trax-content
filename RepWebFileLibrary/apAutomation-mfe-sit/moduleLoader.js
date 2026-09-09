@@ -24,12 +24,12 @@
   const BUNDLE_DIR = "apAutomation-mfe-sit";
   const FILE_NAME = "moduleLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.local-1787162142088",
-  "commit": "dfd3cbe",
-  "branch": "feat/AI-191-document-status-management",
-  "timestamp": "2026-08-19T17:55:42.109Z",
+  "version": "0.1.0-dev.10",
+  "commit": "e07e17d",
+  "branch": "dev",
+  "timestamp": "2026-09-09T20:01:32.283Z",
   "environment": "apAutomation-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-BCuzk_Xi.js",
+  "bootstrap": "__federation_expose_Mount-DN2lGTh9.js",
   "css": "style-BdPZMGMt.css"
 };
 
