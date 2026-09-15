@@ -24,12 +24,12 @@
   const BUNDLE_DIR = "apAutomation-mfe-sit";
   const FILE_NAME = "apAutomationMfeSitLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.10",
+  "version": "0.1.0-dev.12",
   "commit": "e07e17d",
   "branch": "dev",
-  "timestamp": "2026-09-09T20:01:32.283Z",
+  "timestamp": "2026-09-15T11:14:14.968Z",
   "environment": "apAutomation-mfe-sit",
-  "bootstrap": "__federation_expose_Mount-DN2lGTh9.js",
+  "bootstrap": "__federation_expose_Mount-DAfxlpPL.js",
   "css": "style-BdPZMGMt.css"
 };
 
