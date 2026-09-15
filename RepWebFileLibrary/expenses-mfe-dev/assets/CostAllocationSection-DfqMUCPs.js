@@ -1,7 +1,7 @@
 const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/core-B6fVcA1e.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/_commonjsHelpers-DRoQK5uS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { c as createLucideIcon, g as formatDate, bB as Decimal, D as devWarn, bC as getCadTaxBaseAmount, j as jsxRuntimeExports, I as Icon, s as ETL_ERROR_MESSAGE, p as apiClient, bD as FILE_ENDPOINTS, ao as devError, bE as Ss, bF as Cs, aB as gr, bG as _s, Y as Yn, n as notifyMessage, bH as getErrorMessage, V as Ue, a8 as RefreshCw, bn as isConvertedExpense, k as useCompanyStore, bg as useTaxTypesDisplay, i as formatExpenseDate, bw as formatCurrency, aH as ExpenseFormType, ag as EMPTY_CURRENCY_SYMBOL, bb as ys, v as jr, bI as ECostAllocation, au as us, aV as notifyError, bp as useDefaultCurrency, bJ as formatDistance, bv as formatRate, bA as formatExpensePeriod, E as ERROR_MESSAGES, y as create, z as devtools, bK as DEFAULT_CURRENCY_CODE, b1 as formatToISODate, ah as useQueryClient, ai as useMutation, q as queryKeys, aj as Qs, Z as devLog, o as EXPENSE_ENDPOINTS, bL as ItemCategory, b0 as useQuery, F as FormTypeId, bM as MILEAGE_RATES_STALE_TIME, bN as fetchEffectiveMileageRate, bO as extractError, b2 as parseDateOnlyAsLocal, bo as useCountries, bP as useDefaultCountry, a5 as queryClient, bQ as AllowedMimeType, bR as FILE_SIZE_LIMITS, bS as MIME_TYPE_CONFIG, bT as useDebouncedCallback, br as useDefaultCompany, aa as useExpenseTypes, bu as useEffectiveMileageRate, bs as useFormTypeId, aA as getExpenseBaseAmount, bU as FilePreviewType, bV as isHttpApiError, al as AppError, at as isRegularExpense, an as isMileageExpense, ap as isExpenseItemSubmitted, bx as isExpenseItemDraft, bW as ActionType, bX as useExpenseFormHistory, bY as findLastSentBack, aD as useExpenseItem, X as Ba, bt as Ga, az as Oa, bZ as isNotFoundError, b_ as useNumericDisplay, b$ as Qt, aW as gn, b3 as ts, c0 as getCurrencySymbol, M as Mt, r as Et, P as Pt, c1 as Ws, c2 as Ks, c3 as Xs, c4 as cr, c5 as oi, c6 as Ye, c7 as qa } from "./queryClient-0Aid_vzr.js";
+import { c as createLucideIcon, g as formatDate, bB as Decimal, D as devWarn, bC as getCadTaxBaseAmount, j as jsxRuntimeExports, I as Icon, s as ETL_ERROR_MESSAGE, p as apiClient, bD as FILE_ENDPOINTS, ao as devError, bE as Ss, bF as Cs, aB as gr, bG as _s, Y as Yn, n as notifyMessage, bH as getErrorMessage, V as Ue, a8 as RefreshCw, bn as isConvertedExpense, k as useCompanyStore, bg as useTaxTypesDisplay, i as formatExpenseDate, bw as formatCurrency, aH as ExpenseFormType, ag as EMPTY_CURRENCY_SYMBOL, bb as ys, v as jr, bI as ECostAllocation, au as us, aV as notifyError, bp as useDefaultCurrency, bJ as formatDistance, bv as formatRate, bA as formatExpensePeriod, E as ERROR_MESSAGES, y as create, z as devtools, bK as DEFAULT_CURRENCY_CODE, b1 as formatToISODate, ah as useQueryClient, ai as useMutation, q as queryKeys, aj as Qs, Z as devLog, o as EXPENSE_ENDPOINTS, bL as ItemCategory, b0 as useQuery, F as FormTypeId, bM as MILEAGE_RATES_STALE_TIME, bN as fetchEffectiveMileageRate, bO as extractError, b2 as parseDateOnlyAsLocal, bo as useCountries, bP as useDefaultCountry, a5 as queryClient, bQ as AllowedMimeType, bR as FILE_SIZE_LIMITS, bS as MIME_TYPE_CONFIG, bT as useDebouncedCallback, br as useDefaultCompany, aa as useExpenseTypes, bu as useEffectiveMileageRate, aT as useCurrencies, bs as useFormTypeId, aA as getExpenseBaseAmount, bU as FilePreviewType, bV as isHttpApiError, al as AppError, at as isRegularExpense, an as isMileageExpense, ap as isExpenseItemSubmitted, bx as isExpenseItemDraft, bW as ActionType, bX as useExpenseFormHistory, bY as findLastSentBack, aD as useExpenseItem, X as Ba, bt as Ga, az as Oa, bZ as isNotFoundError, b_ as useNumericDisplay, b$ as Qt, aW as gn, b3 as ts, c0 as getCurrencySymbol, M as Mt, r as Et, P as Pt, c1 as Ws, c2 as Ks, c3 as Xs, c4 as cr, c5 as oi, c6 as Ye, c7 as qa } from "./queryClient-0Aid_vzr.js";
 import { S as SIGNED_DECIMAL_FORMAT_REGEX, m as TAX_RATE_FORMAT_REGEX, u as useForm, a as u, f as useWatch, s as string, o as object, d as custom, c as boolean, b as array, D as DECIMAL_FORMAT_REGEX, g as date, p as unknown, n as number, _ as _enum, l as literal, e as Controller, C as ConfirmDialog, i as useFormState, q as TOOLTIP_DELAY_QUICK, h as createDecimalChangeHandler, T as TOOLTIP_DELAY_TRUNCATED_TEXT } from "./ConfirmDialog-BLOGNtCh.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -191,7 +191,7 @@ function isApiFileUrl(url) {
   return !!url && url.startsWith("/api/");
 }
 __name(isApiFileUrl, "isApiFileUrl");
-const { useCallback: useCallback$p, useEffect: useEffect$l, useRef: useRef$i, useState: useState$9 } = await importShared("react");
+const { useCallback: useCallback$p, useEffect: useEffect$m, useRef: useRef$i, useState: useState$9 } = await importShared("react");
 const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill = false }) => {
   var _a;
   const [imageError, setImageError] = useState$9(false);
@@ -206,7 +206,7 @@ const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill =
   const isImage = (_a = receipt == null ? void 0 : receipt.mimeType) == null ? void 0 : _a.startsWith("image/");
   const isPdf = (receipt == null ? void 0 : receipt.mimeType) === "application/pdf";
   const needsDownload = !receiptBlobUrl && isApiFileUrl(receiptUrl);
-  useEffect$l(() => {
+  useEffect$m(() => {
     if (!receiptId || !needsDownload) return;
     if (!isImage && !isPdf) return;
     const controller = new AbortController();
@@ -229,14 +229,14 @@ const PreviewReceiptSection = /* @__PURE__ */ __name(({ receipt, stretchToFill =
       controller.abort();
     };
   }, [receiptId, needsDownload, isImage, isPdf, retryCount]);
-  useEffect$l(() => {
+  useEffect$m(() => {
     return () => {
       if (loadedBlobUrl) {
         URL.revokeObjectURL(loadedBlobUrl);
       }
     };
   }, [loadedBlobUrl]);
-  useEffect$l(() => {
+  useEffect$m(() => {
     setImageError(false);
     setLoadedBlobUrl(void 0);
     setLoadError(null);
@@ -603,7 +603,7 @@ const PreviewCostAllocationSection = /* @__PURE__ */ __name(({
     }) }) })
   ] });
 }, "PreviewCostAllocationSection");
-const { useEffect: useEffect$k, useRef: useRef$h, useState: useState$8 } = await importShared("react");
+const { useEffect: useEffect$l, useRef: useRef$h, useState: useState$8 } = await importShared("react");
 const getFileIcon = /* @__PURE__ */ __name((mimeType) => {
   if (mimeType === "application/pdf") {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "icon-file-pdf", className: "size-5" });
@@ -619,7 +619,7 @@ const PreviewSupportingFilesSection = /* @__PURE__ */ __name(({
   const [loadingFileIds, setLoadingFileIds] = useState$8(/* @__PURE__ */ new Set());
   const [cachedBlobUrls, setCachedBlobUrls] = useState$8(/* @__PURE__ */ new Map());
   const controllersRef = useRef$h(/* @__PURE__ */ new Map());
-  useEffect$k(() => {
+  useEffect$l(() => {
     return () => {
       controllersRef.current.forEach((c) => c.abort());
       cachedBlobUrls.forEach((url) => URL.revokeObjectURL(url));
@@ -707,8 +707,9 @@ const PreviewAdditionalCommentsSection = /* @__PURE__ */ __name(({
   ] });
 }, "PreviewAdditionalCommentsSection");
 const PreviewMileageTripDetailsSection = /* @__PURE__ */ __name(({ data }) => {
+  var _a;
   const { defaultCurrencyCode, defaultCurrencySymbol } = useDefaultCurrency();
-  const currency = { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
+  const currency = ((_a = data.totalCurrency) == null ? void 0 : _a.code) ? data.totalCurrency : { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Ss, { className: "shadow-none border-0 bg-transparent p-0", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Cs, { className: "p-0 flex items-center justify-between", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -768,8 +769,9 @@ const PreviewMileageTripDetailsSection = /* @__PURE__ */ __name(({ data }) => {
   ] });
 }, "PreviewMileageTripDetailsSection");
 const PreviewMileagePeriodDetailsSection = /* @__PURE__ */ __name(({ data }) => {
+  var _a;
   const { defaultCurrencyCode, defaultCurrencySymbol } = useDefaultCurrency();
-  const currency = { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
+  const currency = ((_a = data.totalCurrency) == null ? void 0 : _a.code) ? data.totalCurrency : { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(Ss, { className: "shadow-none border-0 bg-transparent p-0", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Cs, { className: "p-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       gr,
@@ -1338,6 +1340,7 @@ function resolveMileageTypeFields(mileageType, expenseTypes) {
 }
 __name(resolveMileageTypeFields, "resolveMileageTypeFields");
 function mapCommonMileageFields(data, expenseTypes, effectiveMileageRateId) {
+  var _a;
   const { typeId, formTypeId } = resolveMileageTypeFields(data.mileageType, expenseTypes);
   return {
     typeId,
@@ -1347,7 +1350,7 @@ function mapCommonMileageFields(data, expenseTypes, effectiveMileageRateId) {
     paymentMethodId: parseInt(DEFAULT_PAYMENT_METHOD.id, 10),
     totalDistance: parseOptionalDecimal(data.totalDistance),
     totalAmount: parseOptionalDecimal(data.reimbursableAmount),
-    totalCurrencyCode: DEFAULT_CURRENCY_CODE,
+    totalCurrencyCode: ((_a = data.totalCurrency) == null ? void 0 : _a.code) || null,
     businessPurposeId: parseOptionalInt(data.businessPurpose),
     description: data.expenseDescription || null,
     additionalComments: data.additionalComments || null,
@@ -1565,7 +1568,7 @@ const useDeleteMileageDraft = /* @__PURE__ */ __name((options) => {
     }, "onSuccess")
   });
 }, "useDeleteMileageDraft");
-const { useEffect: useEffect$j, useRef: useRef$g } = await importShared("react");
+const { useEffect: useEffect$k, useRef: useRef$g } = await importShared("react");
 const useSetDefaultCurrency = /* @__PURE__ */ __name(({
   setValue,
   netCurrency,
@@ -1577,7 +1580,7 @@ const useSetDefaultCurrency = /* @__PURE__ */ __name(({
   const totalCode = totalCurrency.code;
   const totalSymbol = totalCurrency.symbol;
   const hasSeeded = useRef$g(false);
-  useEffect$j(() => {
+  useEffect$k(() => {
     if (hasSeeded.current || !canSeed) return;
     setValue(
       "netCurrency",
@@ -1627,7 +1630,7 @@ function applyBeFieldErrors(error, setError, fieldMap) {
   }
 }
 __name(applyBeFieldErrors, "applyBeFieldErrors");
-const { useCallback: useCallback$o, useEffect: useEffect$i, useMemo: useMemo$k, useRef: useRef$f } = await importShared("react");
+const { useCallback: useCallback$o, useEffect: useEffect$j, useMemo: useMemo$l, useRef: useRef$f } = await importShared("react");
 const SUBMIT_BLOCKED_MESSAGE = "This expense cannot be submitted yet. Please review the highlighted fields.";
 const DRAFT_BLOCKED_MESSAGE = "This expense cannot be saved yet. Please review the highlighted fields.";
 function firstIssueMessage(error) {
@@ -1668,7 +1671,7 @@ function useBaseExpenseForm(config, props) {
     reset
   } = form;
   const prevIsDraftingRef = useRef$f(isDrafting);
-  useEffect$i(() => {
+  useEffect$j(() => {
     if (prevIsDraftingRef.current === true && isDrafting === false && !draftSaveError) {
       const currentValues = getValues();
       const receipt = currentValues.receiptAttachment;
@@ -1696,7 +1699,7 @@ function useBaseExpenseForm(config, props) {
     }
     prevIsDraftingRef.current = isDrafting;
   }, [isDrafting, draftSaveError, getValues, reset, onDraftSaved]);
-  const fieldsForValidation = useMemo$k(() => {
+  const fieldsForValidation = useMemo$l(() => {
     const draftFields = config.fieldsForDraftCheck || [];
     return draftFields.length > 0 ? [...draftFields] : void 0;
   }, [config.fieldsForDraftCheck]);
@@ -1706,7 +1709,7 @@ function useBaseExpenseForm(config, props) {
     disabled: !fieldsForValidation
   });
   const allFormData = useWatch({ control, disabled: !!fieldsForValidation });
-  const formDataForValidation = useMemo$k(() => {
+  const formDataForValidation = useMemo$l(() => {
     if (!fieldsForValidation) {
       return allFormData;
     }
@@ -1718,7 +1721,7 @@ function useBaseExpenseForm(config, props) {
       return acc;
     }, {});
   }, [fieldsForValidation, watchedFieldValues, allFormData]);
-  const validationErrors = useMemo$k(() => {
+  const validationErrors = useMemo$l(() => {
     const errorMessages = [];
     Object.entries(errors).forEach(([, error]) => {
       if (error == null ? void 0 : error.message) {
@@ -1732,13 +1735,13 @@ function useBaseExpenseForm(config, props) {
     return errorMessages;
   }, [errors, Object.keys(errors).length]);
   const hasErrors = validationErrors.length > 0;
-  const canSave = useMemo$k(
+  const canSave = useMemo$l(
     () => config.canSaveDraft(formDataForValidation),
     [formDataForValidation, config]
   );
   const canSubmit = isValid && !isSubmitting;
   const watchedCostAllocations = useWatch({ control, name: "costAllocations" });
-  const costAllocationsDirty = useMemo$k(() => {
+  const costAllocationsDirty = useMemo$l(() => {
     const baseline = rhfDefaultValues == null ? void 0 : rhfDefaultValues.costAllocations;
     return JSON.stringify(watchedCostAllocations ?? []) !== JSON.stringify(baseline ?? []);
   }, [watchedCostAllocations, rhfDefaultValues]);
@@ -1750,7 +1753,7 @@ function useBaseExpenseForm(config, props) {
     control,
     name: ExpenseFormField.SupportingFiles
   });
-  const filesDirty = useMemo$k(() => {
+  const filesDirty = useMemo$l(() => {
     const baseline = rhfDefaultValues;
     const baselineReceipt = baseline == null ? void 0 : baseline[ExpenseFormField.ReceiptAttachment];
     const baselineSupporting = baseline == null ? void 0 : baseline[ExpenseFormField.SupportingFiles];
@@ -2029,16 +2032,16 @@ const distributeEquallyAmongValid = /* @__PURE__ */ __name((allocations, totalAm
     return dist ?? { ...a, amount: 0, percentage: 0 };
   });
 }, "distributeEquallyAmongValid");
-const { useMemo: useMemo$j } = await importShared("react");
+const { useMemo: useMemo$k } = await importShared("react");
 const useCostAllocation = /* @__PURE__ */ __name(({
   allocations,
   totalAmount
 }) => {
-  const isEnabled = useMemo$j(
+  const isEnabled = useMemo$k(
     () => allocations.length > 0 || totalAmount > 0,
     [allocations.length, totalAmount]
   );
-  const allocatedPercentage = useMemo$j(() => {
+  const allocatedPercentage = useMemo$k(() => {
     const validAllocations = allocations.filter(isValidAllocation);
     const totalPercentageDecimal = validAllocations.reduce(
       (sum, validAllocation) => sum.plus(validAllocation.percentage ?? 0),
@@ -2046,13 +2049,13 @@ const useCostAllocation = /* @__PURE__ */ __name(({
     );
     return totalPercentageDecimal.toNumber();
   }, [allocations]);
-  const remainingPercentage = useMemo$j(() => {
+  const remainingPercentage = useMemo$k(() => {
     return Math.max(0, 100 - allocatedPercentage);
   }, [allocatedPercentage]);
-  const progressValue = useMemo$j(() => {
+  const progressValue = useMemo$k(() => {
     return parseFloat(allocatedPercentage.toFixed(2));
   }, [allocatedPercentage]);
-  const progressError = useMemo$j(() => {
+  const progressError = useMemo$k(() => {
     const roundedPercentage = parseFloat(allocatedPercentage.toFixed(2));
     if (roundedPercentage > 100) {
       return "Total allocation cannot exceed 100%";
@@ -2075,7 +2078,7 @@ const generateId = /* @__PURE__ */ __name(() => {
   fallbackCounter += 1;
   return `id-${Date.now().toString(36)}-${fallbackCounter}`;
 }, "generateId");
-const { useCallback: useCallback$n, useMemo: useMemo$i } = await importShared("react");
+const { useCallback: useCallback$n, useMemo: useMemo$j } = await importShared("react");
 const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger, costAllocationsField, isEqualSplitField, getBaseAmount) => {
   const commitAllocations = useCallback$n(
     (next) => {
@@ -2156,7 +2159,7 @@ const useCostAllocationHandlers = /* @__PURE__ */ __name((setValue, getValues, t
     },
     []
   );
-  return useMemo$i(() => ({
+  return useMemo$j(() => ({
     actions: {
       addAllocation,
       updateAllocationEntity,
@@ -2254,7 +2257,7 @@ const useAllocationSync = /* @__PURE__ */ __name(({
     setPercentageEditing
   };
 }, "useAllocationSync");
-const { useCallback: useCallback$k, useEffect: useEffect$h, useMemo: useMemo$h } = await importShared("react");
+const { useCallback: useCallback$k, useEffect: useEffect$i, useMemo: useMemo$i } = await importShared("react");
 const useEqualSplit = /* @__PURE__ */ __name(({
   allocations,
   isEqualSplit,
@@ -2266,11 +2269,11 @@ const useEqualSplit = /* @__PURE__ */ __name(({
   costAllocationsField,
   isEqualSplitField
 }) => {
-  const canEnableEqualSplit = useMemo$h(() => {
+  const canEnableEqualSplit = useMemo$i(() => {
     const validAllocations = allocations.filter(isValidAllocation);
     return allocations.length > 1 && validAllocations.length > 0;
   }, [allocations]);
-  const isCurrentlyEqual = useMemo$h(() => {
+  const isCurrentlyEqual = useMemo$i(() => {
     return areAllocationsEqual(allocations, totalAmount);
   }, [allocations, totalAmount]);
   const distributeEqually = useCallback$k(() => {
@@ -2313,7 +2316,7 @@ const useEqualSplit = /* @__PURE__ */ __name(({
     }
   }, [isEqualSplit, canEnableEqualSplit, distributeEqually, setValue, isEqualSplitField]);
   const shouldDisableEqualSplit = isEqualSplit && !canEnableEqualSplit;
-  useEffect$h(() => {
+  useEffect$i(() => {
     if (shouldDisableEqualSplit) {
       const currentAllocations = getValues(costAllocationsField) || [];
       if (currentAllocations.length === 1) {
@@ -2360,7 +2363,7 @@ const useEqualSplit = /* @__PURE__ */ __name(({
     distributeEqually
   };
 }, "useEqualSplit");
-const { useEffect: useEffect$g, useRef: useRef$d } = await importShared("react");
+const { useEffect: useEffect$h, useRef: useRef$d } = await importShared("react");
 const useAmountAllocationSync = /* @__PURE__ */ __name(({
   amount,
   setValue,
@@ -2373,12 +2376,12 @@ const useAmountAllocationSync = /* @__PURE__ */ __name(({
   const setValueRef = useRef$d(setValue);
   const getValuesRef = useRef$d(getValues);
   const triggerRef = useRef$d(trigger);
-  useEffect$g(() => {
+  useEffect$h(() => {
     setValueRef.current = setValue;
     getValuesRef.current = getValues;
     triggerRef.current = trigger;
   }, [setValue, getValues, trigger]);
-  useEffect$g(() => {
+  useEffect$h(() => {
     const amountChanged = prevAmountRef.current !== amount;
     prevAmountRef.current = amount;
     if (!amountChanged) {
@@ -2723,7 +2726,7 @@ const receiptSchema = object({
 const receiptWithSupportingFilesSchema = receiptSchema.safeExtend({
   supportingFiles: supportingFilesField
 });
-const { useMemo: useMemo$g } = await importShared("react");
+const { useMemo: useMemo$h } = await importShared("react");
 const CANADA_ISO_CODE = "CAN";
 function checkTaxFieldVisibility(countries, userDefaultCountryIso, expenseLocationId) {
   if (!countries || countries.length === 0) {
@@ -2744,7 +2747,7 @@ const useTaxFieldVisibility = /* @__PURE__ */ __name((expenseLocationId) => {
   const { data: countriesResponse } = useCountries();
   const countries = countriesResponse == null ? void 0 : countriesResponse.items;
   const { userDefaultCountryIso } = useDefaultCountry();
-  return useMemo$g(() => {
+  return useMemo$h(() => {
     const result = checkTaxFieldVisibility(countries, userDefaultCountryIso ?? void 0, expenseLocationId);
     return result;
   }, [countries, userDefaultCountryIso, expenseLocationId]);
@@ -2992,9 +2995,9 @@ const fullExpenseValidationStrategy = createValidationStrategy(
     fieldsForDraftCheck: FIELDS_FOR_DRAFT_CHECK
   }
 );
-const { useEffect: useEffect$f } = await importShared("react");
+const { useEffect: useEffect$g } = await importShared("react");
 const useValidatePrefilledFields = /* @__PURE__ */ __name((form, initialData) => {
-  useEffect$f(() => {
+  useEffect$g(() => {
     if (!initialData) return;
     const timeout = setTimeout(() => {
       const values = form.getValues();
@@ -3027,7 +3030,7 @@ const useValidatePrefilledFields = /* @__PURE__ */ __name((form, initialData) =>
     return () => clearTimeout(timeout);
   }, []);
 }, "useValidatePrefilledFields");
-const { useCallback: useCallback$j, useMemo: useMemo$f } = await importShared("react");
+const { useCallback: useCallback$j, useMemo: useMemo$g } = await importShared("react");
 let fileTypeModule = null;
 const loadFileTypeModule = /* @__PURE__ */ __name(async () => {
   if (!fileTypeModule) {
@@ -3139,8 +3142,8 @@ function useFormFieldValues(control, fields) {
   }, {});
 }
 __name(useFormFieldValues, "useFormFieldValues");
-const { useCallback: useCallback$i, useEffect: useEffect$e, useMemo: useMemo$e, useRef: useRef$c } = await importShared("react");
-const { useCallback: useCallback$h, useEffect: useEffect$d, useImperativeHandle, useRef: useRef$b } = await importShared("react");
+const { useCallback: useCallback$i, useEffect: useEffect$f, useMemo: useMemo$f, useRef: useRef$c } = await importShared("react");
+const { useCallback: useCallback$h, useEffect: useEffect$e, useImperativeHandle, useRef: useRef$b } = await importShared("react");
 const useFormImperativeHandle = /* @__PURE__ */ __name(({
   ref,
   form,
@@ -3148,7 +3151,7 @@ const useFormImperativeHandle = /* @__PURE__ */ __name(({
 }) => {
   const formRef = useRef$b(form);
   const onFormErrorsRef = useRef$b(onFormErrors);
-  useEffect$d(() => {
+  useEffect$e(() => {
     formRef.current = form;
     onFormErrorsRef.current = onFormErrors;
   });
@@ -3188,18 +3191,18 @@ const useFormImperativeHandle = /* @__PURE__ */ __name(({
     handleDraftSave
   };
 }, "useFormImperativeHandle");
-const { useEffect: useEffect$c, useRef: useRef$a } = await importShared("react");
+const { useEffect: useEffect$d, useRef: useRef$a } = await importShared("react");
 const useFormButtonStateSync = /* @__PURE__ */ __name(({
   form,
   onButtonStateChange
 }) => {
   const formRef = useRef$a(form);
   const onButtonStateChangeRef = useRef$a(onButtonStateChange);
-  useEffect$c(() => {
+  useEffect$d(() => {
     formRef.current = form;
     onButtonStateChangeRef.current = onButtonStateChange;
   });
-  useEffect$c(() => {
+  useEffect$d(() => {
     if (!onButtonStateChangeRef.current) return;
     const submitState = formRef.current.getSubmitButtonState();
     const draftState = formRef.current.getSaveDraftButtonState();
@@ -3261,7 +3264,7 @@ const useAutoSave = /* @__PURE__ */ __name((options) => {
   const triggerAutoSave = useDebouncedCallback(performAutoSave, debounceMs);
   return { triggerAutoSave };
 }, "useAutoSave");
-const { useEffect: useEffect$b } = await importShared("react");
+const { useEffect: useEffect$c } = await importShared("react");
 const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
   const {
     watch,
@@ -3272,7 +3275,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
   } = options;
   const isReceiptUnavailable = watch(isReceiptUnavailableField2);
   const receiptAttachment = watch(receiptAttachmentField2);
-  useEffect$b(() => {
+  useEffect$c(() => {
     if (isReceiptUnavailable) {
       setValue(
         receiptAttachmentField2,
@@ -3297,7 +3300,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
       );
     }
   }, [isReceiptUnavailable, setValue, receiptAttachmentField2, affidavitField2]);
-  useEffect$b(() => {
+  useEffect$c(() => {
     if (receiptAttachment && isReceiptUnavailable) {
       setValue(
         isReceiptUnavailableField2,
@@ -3314,7 +3317,7 @@ const useReceiptCheckboxEffects = /* @__PURE__ */ __name((options) => {
     }
   }, [receiptAttachment, isReceiptUnavailable, setValue, isReceiptUnavailableField2, affidavitField2]);
 }, "useReceiptCheckboxEffects");
-const { useEffect: useEffect$a, useMemo: useMemo$d } = await importShared("react");
+const { useEffect: useEffect$b, useMemo: useMemo$e } = await importShared("react");
 const useReimbursableAmountSync = /* @__PURE__ */ __name(({
   totalDistance,
   ratePerUnit,
@@ -3322,7 +3325,7 @@ const useReimbursableAmountSync = /* @__PURE__ */ __name(({
   getValues,
   reimbursableAmountField: reimbursableAmountField2
 }) => {
-  const calculatedAmount = useMemo$d(() => {
+  const calculatedAmount = useMemo$e(() => {
     try {
       const distanceDecimal = new Decimal(totalDistance || 0);
       const rateDecimal = new Decimal(ratePerUnit || 0);
@@ -3335,7 +3338,7 @@ const useReimbursableAmountSync = /* @__PURE__ */ __name(({
       return "0.00";
     }
   }, [totalDistance, ratePerUnit]);
-  useEffect$a(() => {
+  useEffect$b(() => {
     const currentValue = getValues(reimbursableAmountField2);
     if (currentValue !== calculatedAmount) {
       setValue(
@@ -3371,6 +3374,7 @@ var MileageTripFormField = /* @__PURE__ */ ((MileageTripFormField2) => {
 })(MileageTripFormField || {});
 const NO_MILEAGE_RATE_FOR_DATE_MESSAGE = "No mileage rate available for selected date";
 const ZERO_REIMBURSABLE_AMOUNT_MESSAGE = "Reimbursable amount cannot be zero";
+const MILEAGE_CURRENCY_UNAVAILABLE_MESSAGE = "Could not load your currency. Please reload the page or try again later.";
 const tripRatePerUnitField = string().refine((val) => !val || DECIMAL_FORMAT_REGEX.test(val), "Invalid rate format");
 const tripRateUnitField = string();
 const mileageTripFormSchema = object({
@@ -3392,13 +3396,20 @@ const mileageTripFormSchema = object({
   [MileageTripFormField.DeferToApprover]: boolean().optional(),
   [MileageTripFormField.AdditionalComments]: additionalCommentsFieldOptional
 }).superRefine((data, ctx) => {
-  var _a;
+  var _a, _b;
+  if (!((_a = data.totalCurrency) == null ? void 0 : _a.code)) {
+    ctx.addIssue({
+      code: "custom",
+      message: MILEAGE_CURRENCY_UNAVAILABLE_MESSAGE,
+      path: [MileageTripFormField.TotalCurrency]
+    });
+  }
   validateCostAllocation(
     ctx,
     data.costAllocations,
     data.reimbursableAmount,
     data.deferToApprover,
-    (_a = data.totalCurrency) == null ? void 0 : _a.code
+    (_b = data.totalCurrency) == null ? void 0 : _b.code
   );
   if (data.mileageType && data.expenseDate && parseFloat(data.ratePerUnit || "0") <= 0) {
     ctx.addIssue({
@@ -3464,7 +3475,7 @@ const mileageTripValidationStrategy = createValidationStrategy(mileageTripFormSc
   canSaveDraft: canSaveDraft$1,
   getValidationErrors: getFormValidationErrors$1
 });
-const { useCallback: useCallback$e, useMemo: useMemo$c } = await importShared("react");
+const { useCallback: useCallback$e, useMemo: useMemo$d } = await importShared("react");
 const mapMileageTripToDefaultValues = /* @__PURE__ */ __name((data) => {
   return {
     formType: MileageFormType.Trip,
@@ -3523,13 +3534,20 @@ const mileagePeriodFormSchema = object({
   [MileagePeriodFormField.SupportingFiles]: mileagePeriodSupportingFilesField,
   [MileagePeriodFormField.AdditionalComments]: additionalCommentsFieldOptional
 }).superRefine((data, ctx) => {
-  var _a;
+  var _a, _b;
+  if (!((_a = data.totalCurrency) == null ? void 0 : _a.code)) {
+    ctx.addIssue({
+      code: "custom",
+      message: MILEAGE_CURRENCY_UNAVAILABLE_MESSAGE,
+      path: [MileagePeriodFormField.TotalCurrency]
+    });
+  }
   validateCostAllocation(
     ctx,
     data.costAllocations,
     data.reimbursableAmount,
     data.deferToApprover,
-    (_a = data.totalCurrency) == null ? void 0 : _a.code
+    (_b = data.totalCurrency) == null ? void 0 : _b.code
   );
   const { from, to } = data.expensePeriod ?? {};
   if (from && to && !isSameCalendarMonth(from, to)) {
@@ -3601,7 +3619,7 @@ const mileagePeriodValidationStrategy = createValidationStrategy(mileagePeriodFo
   canSaveDraft,
   getValidationErrors: getFormValidationErrors
 });
-const { useCallback: useCallback$d, useMemo: useMemo$b } = await importShared("react");
+const { useCallback: useCallback$d, useMemo: useMemo$c } = await importShared("react");
 const ensureDate = /* @__PURE__ */ __name((value) => {
   if (!value) return void 0;
   if (value instanceof Date) return value;
@@ -3645,7 +3663,7 @@ var FormSectionType = /* @__PURE__ */ ((FormSectionType2) => {
   FormSectionType2["MileageJustification"] = "mileage-justification";
   return FormSectionType2;
 })(FormSectionType || {});
-const { useCallback: useCallback$c, useMemo: useMemo$a } = await importShared("react");
+const { useCallback: useCallback$c, useMemo: useMemo$b } = await importShared("react");
 const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues, trigger, context) => {
   const getBaseAmount = useCallback$c(
     () => parseFloat(getValues(MileagePeriodFormField.ReimbursableAmount) || "0"),
@@ -3666,7 +3684,7 @@ const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues
     const formData = getValues();
     return context.onSaveDraftForUpload(formData);
   }, [getValues, context == null ? void 0 : context.onSaveDraftForUpload]);
-  return useMemo$a(
+  return useMemo$b(
     () => ({
       [FormSectionType.CostAllocation]: costAllocationHandlers,
       [FormSectionType.SupportingFiles]: {
@@ -3677,7 +3695,7 @@ const useMileagePeriodFormHandlers = /* @__PURE__ */ __name((setValue, getValues
     [costAllocationHandlers, context == null ? void 0 : context.draftId, context == null ? void 0 : context.onSaveDraftForUpload, handleSaveDraftForUpload]
   );
 }, "useMileagePeriodFormHandlers");
-const { useEffect: useEffect$9, useMemo: useMemo$9 } = await importShared("react");
+const { useEffect: useEffect$a, useMemo: useMemo$a } = await importShared("react");
 const DATE_FIELDS_TO_REVALIDATE = [
   MileageTripFormField.ExpenseDate,
   MileagePeriodFormField.ExpensePeriod
@@ -3694,7 +3712,7 @@ const useMileageRateSync = /* @__PURE__ */ __name(({
   const { data: expenseTypes } = useExpenseTypes(companyShortName, {
     formTypeIds: [FormTypeId.MILEAGE]
   });
-  const selectedType = useMemo$9(
+  const selectedType = useMemo$a(
     () => findActiveSelectedMileageType(expenseTypes, mileageType),
     [mileageType, expenseTypes]
   );
@@ -3706,7 +3724,7 @@ const useMileageRateSync = /* @__PURE__ */ __name(({
     enabled: canResolve
   });
   const hasNoRateForDate = canResolve && !isFetching && effectiveRate === null;
-  useEffect$9(() => {
+  useEffect$a(() => {
     if (!mileageType) return;
     if (!expenseTypes) return;
     const rateField = MileageTripFormField.RatePerUnit;
@@ -3774,6 +3792,42 @@ function clearRateFields({
   if (cleared) revalidateDateFields(trigger);
 }
 __name(clearRateFields, "clearRateFields");
+const { useMemo: useMemo$9 } = await importShared("react");
+const PENDING = { status: "pending" };
+const UNAVAILABLE = { status: "unavailable" };
+const useHomeCurrency = /* @__PURE__ */ __name(() => {
+  const { data: currencies, isError: currenciesFailed } = useCurrencies();
+  const { data: countries, isError: countriesFailed } = useCountries();
+  const { userDefaultCountryIso } = useDefaultCountry();
+  const { defaultCurrencyCode, defaultCurrencySymbol } = useDefaultCurrency();
+  const homeCountryHasCurrency = useMemo$9(
+    () => {
+      var _a;
+      return !!((_a = countries == null ? void 0 : countries.items.find((country) => country.isoCode === userDefaultCountryIso)) == null ? void 0 : _a.defaultCurrencyIso);
+    },
+    [countries, userDefaultCountryIso]
+  );
+  const resolved = useMemo$9(
+    () => ({ status: "resolved", currency: { code: defaultCurrencyCode, symbol: defaultCurrencySymbol } }),
+    [defaultCurrencyCode, defaultCurrencySymbol]
+  );
+  if (currencies && countries) return homeCountryHasCurrency ? resolved : UNAVAILABLE;
+  return currenciesFailed || countriesFailed ? UNAVAILABLE : PENDING;
+}, "useHomeCurrency");
+const { useEffect: useEffect$9 } = await importShared("react");
+const useMileageCurrencySync = /* @__PURE__ */ __name(({ totalCurrency, setValue }) => {
+  const homeCurrency = useHomeCurrency();
+  const target = homeCurrency.status === "resolved" ? homeCurrency.currency : null;
+  const heldCode = totalCurrency == null ? void 0 : totalCurrency.code;
+  useEffect$9(() => {
+    if (!target || heldCode === target.code) return;
+    setValue(
+      "totalCurrency",
+      { code: target.code, symbol: target.symbol },
+      { shouldValidate: true, shouldDirty: !!heldCode }
+    );
+  }, [target, heldCode, setValue]);
+}, "useMileageCurrencySync");
 const { useEffect: useEffect$8, useRef: useRef$8 } = await importShared("react");
 const useExpenseFormSync = /* @__PURE__ */ __name(({
   control,
@@ -5130,7 +5184,7 @@ function useExpenseItemForm(options) {
     error: itemError,
     isLoading: isQueryLoading
   } = useExpenseItem(itemId, { companyShortName, enabled: !isDeleteFlowActive });
-  const isLoading = !isNewItem && (isQueryLoading || !expenseItem && !itemError);
+  const isItemLoading = !isNewItem && (isQueryLoading || !expenseItem && !itemError);
   const dataItemType = useMemo$3(() => determineItemType(expenseItem), [expenseItem]);
   const itemType = isNewItem ? defaultItemType : dataItemType ?? defaultItemType;
   const mode = useMemo$3(() => {
@@ -5139,6 +5193,9 @@ function useExpenseItemForm(options) {
     if (expenseItem && isExpenseItemSubmitted(expenseItem)) return "preview";
     return "new";
   }, [isNewItem, expenseItem]);
+  const homeCurrency = useHomeCurrency();
+  const isAwaitingHomeCurrency = mode !== "preview" && (itemType === ExpenseItemType.MileageTrip || itemType === ExpenseItemType.MileagePeriod) && homeCurrency.status === "pending";
+  const isLoading = isItemLoading || isAwaitingHomeCurrency;
   const currentDraftId = itemId ?? void 0;
   const sentBackFrom = useDraftConversion({ itemId, isDraft: mode === "draft", companyShortName });
   const [savedItemId, setSavedItemId] = useState$5(null);
@@ -7531,39 +7588,42 @@ const MemoizedCostAllocationSection = memo(CostAllocationSectionComponent);
 const CostAllocationSection = MemoizedCostAllocationSection;
 MemoizedCostAllocationSection.displayName = "CostAllocationSection";
 export {
-  mileageTripValidationStrategy as $,
-  ExpenseTypeSelect as A,
-  allowsNegativeAmounts as B,
+  ExpenseFormLeftColumn as $,
+  useSetDefaultCurrency as A,
+  ExpenseTypeSelect as B,
   CostAllocationHeaderActions as C,
   DEFAULT_PAYMENT_METHOD as D,
   ExpenseItemType as E,
-  getTaxAmountWarning as F,
-  MileagePeriodFormField as G,
-  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as H,
-  isSameCalendarMonth as I,
-  FormSectionType as J,
-  MileageTripFormField as K,
-  useBaseExpenseForm as L,
+  allowsNegativeAmounts as F,
+  getTaxAmountWarning as G,
+  MileagePeriodFormField as H,
+  MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD as I,
+  isSameCalendarMonth as J,
+  useHomeCurrency as K,
+  MILEAGE_CURRENCY_UNAVAILABLE_MESSAGE as L,
   MileageTripPreview as M,
   NO_MILEAGE_RATE_FOR_DATE_MESSAGE as N,
-  useValidatePrefilledFields as O,
+  FormSectionType as O,
   PreviewLoadError as P,
-  useAutoSave as Q,
-  useFormButtonStateSync as R,
+  MileageTripFormField as Q,
+  useBaseExpenseForm as R,
   SupportingFiles as S,
-  useFormImperativeHandle as T,
-  BaseExpenseFormRenderer as U,
-  useExpenseFormHandlers as V,
-  useExpenseFormSync as W,
-  fullExpenseValidationStrategy as X,
-  ExpenseFormLeftColumn as Y,
-  useMileageTripFormHandlers as Z,
-  mapMileageTripToDefaultValues as _,
+  useValidatePrefilledFields as T,
+  useAutoSave as U,
+  useFormButtonStateSync as V,
+  useFormImperativeHandle as W,
+  BaseExpenseFormRenderer as X,
+  useExpenseFormHandlers as Y,
+  useExpenseFormSync as Z,
+  fullExpenseValidationStrategy as _,
   EtlErrorBanner as a,
-  useMileagePeriodFormHandlers as a0,
-  mapMileagePeriodToDefaultValues as a1,
-  mileagePeriodValidationStrategy as a2,
-  getExpenseActionSubtitle as a3,
+  useMileageTripFormHandlers as a0,
+  mapMileageTripToDefaultValues as a1,
+  mileageTripValidationStrategy as a2,
+  useMileagePeriodFormHandlers as a3,
+  mapMileagePeriodToDefaultValues as a4,
+  mileagePeriodValidationStrategy as a5,
+  getExpenseActionSubtitle as a6,
   ExpensePreview as b,
   clearDraftEdited as c,
   isMileagePeriodData as d,
@@ -7580,13 +7640,13 @@ export {
   useMileageRateSync as o,
   useReimbursableAmountSync as p,
   useAmountAllocationSync as q,
-  affidavitSchema as r,
-  basicDetailsSchema as s,
-  createValidationStrategy as t,
+  useMileageCurrencySync as r,
+  affidavitSchema as s,
+  basicDetailsSchema as t,
   useExpenseItemForm as u,
   validateCostAllocation as v,
-  createDraftSaveChecker as w,
-  useTaxFieldVisibility as x,
-  usePaymentMethods as y,
-  useSetDefaultCurrency as z
+  createValidationStrategy as w,
+  createDraftSaveChecker as x,
+  useTaxFieldVisibility as y,
+  usePaymentMethods as z
 };

@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { a3 as getExpenseActionSubtitle, i as isMileageTripData, d as isMileagePeriodData } from "./CostAllocationSection-9v3dHwyF.js";
+import { a6 as getExpenseActionSubtitle, i as isMileageTripData, d as isMileagePeriodData } from "./CostAllocationSection-DfqMUCPs.js";
 import { an as isMileageExpense, f as formatAmountWithCurrency, bz as getExpenseItemAmount, ap as isExpenseItemSubmitted, bA as formatExpensePeriod, at as isRegularExpense, j as jsxRuntimeExports, a_ as as, a$ as is, au as us, Y as Yn } from "./queryClient-0Aid_vzr.js";
 const MISSING_VALUE_INDICATOR = "-";
 function buildTitleSuffix(expenseItem) {

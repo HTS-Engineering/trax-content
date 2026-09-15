@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { D as DEFAULT_PAYMENT_METHOD, j as ExpenseFormField, k as isValidFileAttachment, l as useFormFieldValues, n as computeMileageEffectiveOn, o as useMileageRateSync, p as useReimbursableAmountSync, q as useAmountAllocationSync, E as ExpenseItemType, r as affidavitSchema, s as basicDetailsSchema, t as createValidationStrategy, w as createDraftSaveChecker, x as useTaxFieldVisibility, y as usePaymentMethods, z as useSetDefaultCurrency, A as ExpenseTypeSelect, B as allowsNegativeAmounts, F as getTaxAmountWarning, G as MileagePeriodFormField, S as SupportingFiles, H as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, I as isSameCalendarMonth, N as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, J as FormSectionType, C as CostAllocationHeaderActions, g as CostAllocationSection, K as MileageTripFormField, L as useBaseExpenseForm, O as useValidatePrefilledFields, Q as useAutoSave, R as useFormButtonStateSync, T as useFormImperativeHandle, U as BaseExpenseFormRenderer, V as useExpenseFormHandlers, W as useExpenseFormSync, X as fullExpenseValidationStrategy, Y as ExpenseFormLeftColumn, Z as useMileageTripFormHandlers, _ as mapMileageTripToDefaultValues, $ as mileageTripValidationStrategy, a0 as useMileagePeriodFormHandlers, a1 as mapMileagePeriodToDefaultValues, a2 as mileagePeriodValidationStrategy, i as isMileageTripData, d as isMileagePeriodData } from "./CostAllocationSection-9v3dHwyF.js";
+import { D as DEFAULT_PAYMENT_METHOD, j as ExpenseFormField, k as isValidFileAttachment, l as useFormFieldValues, n as computeMileageEffectiveOn, o as useMileageRateSync, p as useReimbursableAmountSync, q as useAmountAllocationSync, r as useMileageCurrencySync, E as ExpenseItemType, s as affidavitSchema, t as basicDetailsSchema, w as createValidationStrategy, x as createDraftSaveChecker, y as useTaxFieldVisibility, z as usePaymentMethods, A as useSetDefaultCurrency, B as ExpenseTypeSelect, F as allowsNegativeAmounts, G as getTaxAmountWarning, H as MileagePeriodFormField, S as SupportingFiles, I as MAX_SUPPORTING_FILES_FOR_MILEAGE_PERIOD, J as isSameCalendarMonth, K as useHomeCurrency, L as MILEAGE_CURRENCY_UNAVAILABLE_MESSAGE, N as NO_MILEAGE_RATE_FOR_DATE_MESSAGE, O as FormSectionType, C as CostAllocationHeaderActions, g as CostAllocationSection, Q as MileageTripFormField, R as useBaseExpenseForm, T as useValidatePrefilledFields, U as useAutoSave, V as useFormButtonStateSync, W as useFormImperativeHandle, X as BaseExpenseFormRenderer, Y as useExpenseFormHandlers, Z as useExpenseFormSync, _ as fullExpenseValidationStrategy, $ as ExpenseFormLeftColumn, a0 as useMileageTripFormHandlers, a1 as mapMileageTripToDefaultValues, a2 as mileageTripValidationStrategy, a3 as useMileagePeriodFormHandlers, a4 as mapMileagePeriodToDefaultValues, a5 as mileagePeriodValidationStrategy, i as isMileageTripData, d as isMileagePeriodData } from "./CostAllocationSection-DfqMUCPs.js";
 import { o as object, s as string, c as boolean, d as custom, e as Controller, h as createDecimalChangeHandler, f as useWatch, C as ConfirmDialog } from "./ConfirmDialog-BLOGNtCh.js";
 import { c as createLucideIcon, k as useCompanyStore, bn as isConvertedExpense, aT as useCurrencies, bo as useCountries, bg as useTaxTypesDisplay, bp as useDefaultCurrency, j as jsxRuntimeExports, az as Oa, bq as ja, b1 as formatToISODate, b2 as parseDateOnlyAsLocal, aW as gn, X as Ba, b3 as ts, bd as TaxTypeSearchSelect, br as useDefaultCompany, bs as useFormTypeId, aH as ExpenseFormType, bt as Ga, aa as useExpenseTypes, F as FormTypeId, b7 as useMileageRates, bu as useEffectiveMileageRate, bb as ys, bv as formatRate, bw as formatCurrency, I as Icon, aA as getExpenseBaseAmount, Z as devLog, an as isMileageExpense, bx as isExpenseItemDraft, at as isRegularExpense, aE as ai, aF as os, a_ as as, a$ as is, au as us, Y as Yn, ay as ss, V as Ue, M as Mt, r as Et, P as Pt } from "./queryClient-0Aid_vzr.js";
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
@@ -60,7 +60,7 @@ function useMileageFormSync({
   getValues,
   trigger
 }) {
-  const { mileageType, expenseDate, expensePeriod, totalDistance, ratePerUnit, reimbursableAmount } = useFormFieldValues(
+  const { mileageType, expenseDate, expensePeriod, totalDistance, ratePerUnit, reimbursableAmount, totalCurrency } = useFormFieldValues(
     control,
     [
       "mileageType",
@@ -68,7 +68,8 @@ function useMileageFormSync({
       "expensePeriod",
       "totalDistance",
       "ratePerUnit",
-      "reimbursableAmount"
+      "reimbursableAmount",
+      "totalCurrency"
     ]
   );
   const effectiveOn = computeMileageEffectiveOn(
@@ -97,6 +98,7 @@ function useMileageFormSync({
     costAllocationsField: "costAllocations",
     isEqualSplitField: "isEqualSplit"
   });
+  useMileageCurrencySync({ totalCurrency, setValue });
 }
 __name(useMileageFormSync, "useMileageFormSync");
 const deleteDescription = /* @__PURE__ */ __name((itemType) => itemType === ExpenseItemType.Expense ? "Are you sure you want to delete this expense draft? This action cannot be undone." : "Are you sure you want to delete this mileage draft? This action cannot be undone.", "deleteDescription");
@@ -855,9 +857,10 @@ const MileageDetailsSection = /* @__PURE__ */ __name(({
     "reimbursableAmount",
     "totalCurrency"
   ]);
-  const { data: currencies } = useCurrencies();
   const { defaultCurrencyCode, defaultCurrencySymbol } = useDefaultCurrency();
-  const currency = { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
+  const homeCurrency = useHomeCurrency();
+  const currency = (totalCurrency == null ? void 0 : totalCurrency.code) ? totalCurrency : { code: defaultCurrencyCode, symbol: defaultCurrencySymbol };
+  const currencyUnavailableMessage = homeCurrency.status === "unavailable" && !(totalCurrency == null ? void 0 : totalCurrency.code) ? MILEAGE_CURRENCY_UNAVAILABLE_MESSAGE : void 0;
   const setMileageValue = setValue;
   const { company } = useDefaultCompany();
   const companyShortName = (company == null ? void 0 : company.shortName) || null;
@@ -880,22 +883,6 @@ const MileageDetailsSection = /* @__PURE__ */ __name(({
       shouldDirty: false
     });
   }, [activeTypes, mileageType, setMileageValue]);
-  useEffect(() => {
-    const canSetDefaultCurrency = !!currencies && !(totalCurrency == null ? void 0 : totalCurrency.code) && !(totalCurrency == null ? void 0 : totalCurrency.symbol);
-    if (!canSetDefaultCurrency) return;
-    setMileageValue(
-      "totalCurrency",
-      { code: defaultCurrencyCode, symbol: defaultCurrencySymbol },
-      { shouldValidate: false, shouldDirty: false }
-    );
-  }, [
-    currencies,
-    defaultCurrencyCode,
-    defaultCurrencySymbol,
-    setMileageValue,
-    totalCurrency == null ? void 0 : totalCurrency.code,
-    totalCurrency == null ? void 0 : totalCurrency.symbol
-  ]);
   const { minEffectiveDate } = useMileageEffectiveRange({
     companyShortName,
     mileageRateId: (selectedType == null ? void 0 : selectedType.mileageRateId) ?? null
@@ -1141,7 +1128,7 @@ const MileageDetailsSection = /* @__PURE__ */ __name(({
               {
                 label: "Reimbursable amount",
                 value: formatCurrency(reimbursableAmount || "0", { currency }),
-                error: (_a = fieldState.error) == null ? void 0 : _a.message,
+                error: ((_a = fieldState.error) == null ? void 0 : _a.message) ?? currencyUnavailableMessage,
                 disabled: true,
                 readOnly: true
               }
