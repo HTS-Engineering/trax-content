@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0-dev.11",
-  "commit": "e07e17d",
+  "version": "0.1.0-dev.15",
+  "commit": "3fe1e35",
   "branch": "dev",
-  "timestamp": "2026-09-15T11:06:37.694Z",
+  "timestamp": "2026-09-16T18:50:15.471Z",
   "environment": "apAutomation-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-DOn3cYtI.js",
-  "css": "style-DAezIp3N.css"
+  "bootstrap": "__federation_expose_Mount-DXKf7mjr.js",
+  "css": "style-Cc8V60M0.css"
 }

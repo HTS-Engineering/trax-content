@@ -1,6 +1,6 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-import { a6 as useJWTStore, a7 as jwtSelectors, a3 as ensureJWTInitialized, j as jsxRuntimeExports, a1 as CONTAINER_ID, a0 as SCOPE_CLASS, a8 as JWT_STORAGE_KEY, G as Ge, a9 as API_BASE_URL, N as useApEvents, P as useErrorSurface, Z as Zn, T as DataLoadError } from "./DataLoadError-Cn6DbZKI.js";
+import { a7 as useJWTStore, a8 as jwtSelectors, a4 as ensureJWTInitialized, j as jsxRuntimeExports, a2 as CONTAINER_ID, a1 as SCOPE_CLASS, a9 as JWT_STORAGE_KEY, G as Ge, aa as API_BASE_URL, R as useApEvents, T as useErrorSurface, H as Qn, X as DataLoadError } from "./DataLoadError-BGfFNt_N.js";
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
 const { useEffect } = await importShared("react");
 const useAuth = /* @__PURE__ */ __name(() => {
@@ -37,7 +37,7 @@ function decodeJwtPayload(token) {
   }
 }
 __name(decodeJwtPayload, "decodeJwtPayload");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.11", commit: "e07e17d", branch: "dev", timestamp: "2026-09-15T11:06:37.694Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.15", commit: "3fe1e35", branch: "dev", timestamp: "2026-09-16T18:50:15.471Z", environment: "apAutomation-mfe-dev" };
 function DiagnosticsPage() {
   const { hasToken, isInitialized, token } = useAuth();
   const identity = [
@@ -88,7 +88,7 @@ function ApEventsProbe() {
   });
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "mt-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-sm font-semibold text-trax-grey-900", children: "AP documents endpoint" }),
-    query.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 flex items-center gap-2 text-sm text-trax-grey-600", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zn, {}) }) : surface.shouldRenderInPlace ? /* @__PURE__ */ jsxRuntimeExports.jsx(DataLoadError, { surface }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("dl", { className: "mt-2 grid max-w-2xl grid-cols-[10rem_1fr] gap-x-4 gap-y-2 text-sm", children: [
+    query.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 flex items-center gap-2 text-sm text-trax-grey-600", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Qn, {}) }) : surface.shouldRenderInPlace ? /* @__PURE__ */ jsxRuntimeExports.jsx(DataLoadError, { surface }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("dl", { className: "mt-2 grid max-w-2xl grid-cols-[10rem_1fr] gap-x-4 gap-y-2 text-sm", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("dt", { className: "text-trax-grey-600", children: "Documents returned" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("dd", { className: "font-mono text-trax-grey-900", children: ((_b = query.data) == null ? void 0 : _b.length) ?? 0 })
     ] })

@@ -2075,20 +2075,12 @@
     color: var(--color-trax-grey-400) !important;
   }
 
-.apAutomation-mfe-scope .text-trax-grey-500, .trax-ui-component .text-trax-grey-500, .apAutomation-mfe-scope.text-trax-grey-500, .trax-ui-component.text-trax-grey-500 {
-    color: var(--color-trax-grey-500) !important;
-  }
-
 .apAutomation-mfe-scope .text-trax-neutral-0, .trax-ui-component .text-trax-neutral-0, .apAutomation-mfe-scope.text-trax-neutral-0, .trax-ui-component.text-trax-neutral-0 {
     color: var(--color-trax-neutral-0) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-80, .trax-ui-component .text-trax-neutral-80, .apAutomation-mfe-scope.text-trax-neutral-80, .trax-ui-component.text-trax-neutral-80 {
     color: var(--color-trax-neutral-80) !important;
-  }
-
-.apAutomation-mfe-scope .text-trax-neutral-200, .trax-ui-component .text-trax-neutral-200, .apAutomation-mfe-scope.text-trax-neutral-200, .trax-ui-component.text-trax-neutral-200 {
-    color: var(--color-trax-neutral-200) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-300, .trax-ui-component .text-trax-neutral-300, .apAutomation-mfe-scope.text-trax-neutral-300, .trax-ui-component.text-trax-neutral-300 {
@@ -4310,6 +4302,10 @@
     color: var(--color-trax-green-800) !important;
   }
 
+.apAutomation-mfe-scope .text-trax-grey-500, .trax-ui-component .text-trax-grey-500, .apAutomation-mfe-scope.text-trax-grey-500, .trax-ui-component.text-trax-grey-500 {
+    color: var(--color-trax-grey-500) !important;
+  }
+
 .apAutomation-mfe-scope .text-trax-grey-600, .trax-ui-component .text-trax-grey-600, .apAutomation-mfe-scope.text-trax-grey-600, .trax-ui-component.text-trax-grey-600 {
     color: var(--color-trax-grey-600) !important;
   }
@@ -4328,6 +4324,10 @@
 
 .apAutomation-mfe-scope .text-trax-neutral-100, .trax-ui-component .text-trax-neutral-100, .apAutomation-mfe-scope.text-trax-neutral-100, .trax-ui-component.text-trax-neutral-100 {
     color: var(--color-trax-neutral-100) !important;
+  }
+
+.apAutomation-mfe-scope .text-trax-neutral-200, .trax-ui-component .text-trax-neutral-200, .apAutomation-mfe-scope.text-trax-neutral-200, .trax-ui-component.text-trax-neutral-200 {
+    color: var(--color-trax-neutral-200) !important;
   }
 
 .apAutomation-mfe-scope .text-trax-neutral-400, .trax-ui-component .text-trax-neutral-400, .apAutomation-mfe-scope.text-trax-neutral-400, .trax-ui-component.text-trax-neutral-400 {
