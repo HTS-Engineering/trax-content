@@ -5,7 +5,7 @@ const exportSet = /* @__PURE__ */ new Set(["Module", "__esModule", "default", "_
 let moduleMap = {
   "./mount": /* @__PURE__ */ __name(() => {
     dynamicLoadingCss(["style-DOQrV026.css"], false, "./mount");
-    return __federation_import("./assets/__federation_expose_Mount-Bh3t9sWs.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
+    return __federation_import("./assets/__federation_expose_Mount-DUSJi3I1.js").then((module) => Object.keys(module).every((item) => exportSet.has(item)) ? () => module.default : () => module);
   }, "./mount")
 };
 const seen = {};
