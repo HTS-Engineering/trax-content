@@ -2,7 +2,7 @@ var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 import { importShared } from "./__federation_fn_import-CZ2UOLBn.js";
 import { c as createLucideIcon, cj as DOMEventNames, S as SessionStorageKeys, j as jsxRuntimeExports, bE as Ss, v as jr, ck as ht, cl as TokenPlaceholders, V as Ue, cm as jn, a8 as RefreshCw, cn as sn, p as apiClient, aS as CONFIGURATION_ENDPOINTS, co as axios } from "./queryClient-Bsr6pvoP.js";
-import { B as useAuth, C as useJWT, F as useUser, G as usePermissions, H as useTokenExpiration, J as useJWTStatus, K as useJWTPayload, L as Shield } from "./__federation_expose_Mount-DxIdY0rn.js";
+import { B as useAuth, C as useJWT, F as useUser, G as usePermissions, H as useTokenExpiration, J as useJWTStatus, K as useJWTPayload, L as Shield } from "./__federation_expose_Mount-CMxyq-b4.js";
 import { C as CircleAlert } from "./circle-alert-D1gJBTom.js";
 import { T as Trash2, S as Send } from "./trash-2-B3EW6ouQ.js";
 const __iconNode$5 = [
