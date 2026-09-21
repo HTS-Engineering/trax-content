@@ -1,1 +1,0 @@
-var s=Object.defineProperty;var i=(t,o)=>s(t,"name",{value:o,configurable:!0});import{j as a,bi as e}from"./queryClient-CwAu78Id.js";const c=i(()=>a.jsx(e,{}),"ReconciliationPage");export{c as default};
