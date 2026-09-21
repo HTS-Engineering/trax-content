@@ -1,10 +1,10 @@
 {
-  "version": "0.2.0-dev.199",
-  "commit": "72e953c",
+  "version": "0.2.0-dev.202",
+  "commit": "81561f7",
   "branch": "dev",
   "tag": null,
-  "timestamp": "2026-09-21T19:08:21.137Z",
+  "timestamp": "2026-09-21T20:04:19.581Z",
   "outDir": "expenses-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-BD7p8edG.js",
+  "bootstrap": "__federation_expose_Mount-BeWvGWv5.js",
   "css": "style-DOQrV026.css"
 }
