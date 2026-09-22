@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-pSNbH7ro.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-BGfFNt_N.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-P6OmuGCc.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-a__xALQW.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -16,9 +16,9 @@ var __privateWrapper = (obj, member, setter, getter) => ({
     return __privateGet(obj, member, getter);
   }
 });
-var _a, _b, _c, _d, _e, _mutations, _scopes, _mutationId, _f, _queries, _g, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _h;
+var _a, _b, _c, _d, _e, _f, _mutations, _scopes, _mutationId, _g, _queries, _h, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _i;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-import { S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, a as devError, b as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, c as noop, h as hashQueryKeyByOptions, Q as Query, e as matchQuery, f as focusManager, o as onlineManager, r as resolveStaleTime, g as functionalUpdate, i as hashKey, p as partialMatchKey, s as skipToken, t as toErrorText, k as ci, l as interpretError, q as getQueryClaimState, u as getDisplacedClaimFallback, v as forgetQueryClaims, w as classifyError, A as ApDocumentType, x as ApReviewStatus, y as Mt, E as Et, I as Icon, z as kt, Y as Yr, B as Ss, C as h, W as Wr, D as useUpdateApEventReviewStatus, V as Vt, F as bt, H as Qn, J as wt, K as yt, L as Ha, N as hn, O as preloadIcon, P as us, R as useApEvents, T as useErrorSurface, U as hi, X as DataLoadError, Z as EmptyState, _ as QueryClientProvider, $ as di, a0 as zr, a1 as SCOPE_CLASS, a2 as CONTAINER_ID, a3 as apiClient, a4 as ensureJWTInitialized, a5 as SERVICE_NAME, a6 as devLog } from "./DataLoadError-BGfFNt_N.js";
+import { i as installErrorCapture, r as recordRouteChange, a as reportRenderError, S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, b as devError, c as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, e as noop, h as hashQueryKeyByOptions, Q as Query, f as matchQuery, g as focusManager, o as onlineManager, k as resolveStaleTime, l as functionalUpdate, p as hashKey, q as partialMatchKey, s as skipToken, t as toErrorText, u as ci, v as interpretError, w as getQueryClaimState, x as getDisplacedClaimFallback, y as forgetQueryClaims, z as classifyError, A as ApDocumentType, B as ApReviewStatus, C as Mt, E as Et, I as Icon, D as kt, F as recordDocumentOpened, Y as Yr, H as Ss, J as h, W as Wr, K as useUpdateApEventReviewStatus, V as Vt, L as bt, N as Qn, O as wt, P as yt, R as Ha, T as hn, U as preloadIcon, X as us, Z as useApEvents, _ as useErrorSurface, $ as hi, a0 as DataLoadError, a1 as EmptyState, a2 as recordDashboardAccessed, a3 as QueryClientProvider, a4 as di, a5 as zr, a6 as SCOPE_CLASS, a7 as CONTAINER_ID, a8 as apiClient, a9 as setupObservability, aa as SERVICE_NAME, ab as ensureJWTInitialized, ac as devLog, ad as observabilityConfig, ae as shutdownObservability } from "./DataLoadError-a__xALQW.js";
 import { r as requireReact } from "./index-BB5LXT6C.js";
 import { r as requireReactDom } from "./index-BH4teOuT.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -38,6 +38,7 @@ if (typeof window !== "undefined" && typeof performance !== "undefined") {
     }
   }
 }
+installErrorCapture();
 var client = { exports: {} };
 var reactDomClient_production = {};
 var scheduler = { exports: {} };
@@ -12372,6 +12373,64 @@ function requireClient() {
 }
 __name(requireClient, "requireClient");
 var clientExports = requireClient();
+const { useEffect: useEffect$8 } = await importShared("react");
+function useTraceRouteFor(location) {
+  const { pathname, search } = location;
+  useEffect$8(() => {
+    recordRouteChange({
+      pathname,
+      search
+    });
+  }, [pathname]);
+}
+__name(useTraceRouteFor, "useTraceRouteFor");
+const { Component } = await importShared("react");
+var LAYER = "react";
+var ObservabilityErrorBoundary = (_a = class extends Component {
+  state = {
+    hasError: false,
+    resetKeySnapshot: this.props.resetKeys ?? []
+  };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  static getDerivedStateFromProps(props, state) {
+    const next = props.resetKeys ?? [];
+    const changed = !shallowEqual(state.resetKeySnapshot, next);
+    if (state.hasError && changed) return {
+      hasError: false,
+      resetKeySnapshot: next
+    };
+    if (changed) return { resetKeySnapshot: next };
+    return null;
+  }
+  componentDidCatch(error, info) {
+    var _a2, _b2;
+    reportRenderError(error, {
+      layer: LAYER,
+      ...info.componentStack ? { componentStack: info.componentStack } : {}
+    });
+    (_b2 = (_a2 = this.props).onError) == null ? void 0 : _b2.call(_a2, error, info);
+  }
+  reset = /* @__PURE__ */ __name(() => {
+    this.setState({ hasError: false });
+  }, "reset");
+  render() {
+    if (this.state.hasError) {
+      const { fallback } = this.props;
+      if (typeof fallback === "function") return fallback(this.reset);
+      return fallback ?? null;
+    }
+    return this.props.children;
+  }
+}, __name(_a, "ObservabilityErrorBoundary"), _a);
+function shallowEqual(a, b) {
+  if (a === b) return true;
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) if (!Object.is(a[i], b[i])) return false;
+  return true;
+}
+__name(shallowEqual, "shallowEqual");
 var __typeError2 = /* @__PURE__ */ __name((msg) => {
   throw TypeError(msg);
 }, "__typeError");
@@ -12635,7 +12694,7 @@ function createBrowserURLImpl(windowImpl, to, isAbsolute = false) {
 }
 __name(createBrowserURLImpl, "createBrowserURLImpl");
 var _map;
-var RouterContextProvider = (_a = class {
+var RouterContextProvider = (_b = class {
   /**
    * Create a new `RouterContextProvider` instance
    * @param init An optional initial context map to populate the provider with
@@ -12676,7 +12735,7 @@ var RouterContextProvider = (_a = class {
   set(context, value) {
     __privateGet2(this, _map).set(context, value);
   }
-}, __name(_a, "RouterContextProvider"), _a);
+}, __name(_b, "RouterContextProvider"), _b);
 _map = /* @__PURE__ */ new WeakMap();
 var unsupportedLazyRouteObjectKeys = /* @__PURE__ */ new Set([
   "lazy",
@@ -13224,7 +13283,7 @@ var SUPPORTED_ERROR_TYPES = [
   "TypeError",
   "URIError"
 ];
-var ErrorResponseImpl = (_b = class {
+var ErrorResponseImpl = (_c = class {
   constructor(status, statusText, data2, internal = false) {
     this.status = status;
     this.statusText = statusText || "";
@@ -13236,7 +13295,7 @@ var ErrorResponseImpl = (_b = class {
       this.data = data2;
     }
   }
-}, __name(_b, "ErrorResponseImpl"), _b);
+}, __name(_c, "ErrorResponseImpl"), _c);
 function isRouteErrorResponse(error) {
   return error != null && typeof error.status === "number" && typeof error.statusText === "string" && typeof error.internal === "boolean" && "data" in error;
 }
@@ -13582,7 +13641,7 @@ var defaultMapRouteProperties = /* @__PURE__ */ __name((route) => ({
 var TRANSITIONS_STORAGE_KEY = "remix-router-transitions";
 var ResetLoaderDataSymbol = /* @__PURE__ */ Symbol("ResetLoaderData");
 var _routes, _branches, _hmrRoutes, _hmrBranches;
-var DataRoutes = (_c = class {
+var DataRoutes = (_d = class {
   constructor(routes) {
     __privateAdd2(this, _routes);
     __privateAdd2(this, _branches);
@@ -13625,7 +13684,7 @@ var DataRoutes = (_c = class {
       __privateSet2(this, _hmrBranches, void 0);
     }
   }
-}, __name(_c, "DataRoutes"), _c);
+}, __name(_d, "DataRoutes"), _d);
 _routes = /* @__PURE__ */ new WeakMap();
 _branches = /* @__PURE__ */ new WeakMap();
 _hmrRoutes = /* @__PURE__ */ new WeakMap();
@@ -17671,7 +17730,7 @@ function DefaultErrorComponent() {
 }
 __name(DefaultErrorComponent, "DefaultErrorComponent");
 var defaultErrorElement = /* @__PURE__ */ React2.createElement(DefaultErrorComponent, null);
-var RenderErrorBoundary = (_d = class extends React2.Component {
+var RenderErrorBoundary = (_e = class extends React2.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17725,7 +17784,7 @@ var RenderErrorBoundary = (_d = class extends React2.Component {
     }
     return result;
   }
-}, __name(_d, "RenderErrorBoundary"), _d);
+}, __name(_e, "RenderErrorBoundary"), _e);
 RenderErrorBoundary.contextType = RSCRouterContext;
 var errorRedirectHandledMap = /* @__PURE__ */ new WeakMap();
 function RSCErrorHandler({
@@ -18072,7 +18131,7 @@ var hydrationRouteProperties = [
   "HydrateFallback",
   "hydrateFallbackElement"
 ];
-var Deferred = (_e = class {
+var Deferred = (_f = class {
   constructor() {
     this.status = "pending";
     this.promise = new Promise((resolve, reject) => {
@@ -18090,7 +18149,7 @@ var Deferred = (_e = class {
       };
     });
   }
-}, __name(_e, "Deferred"), _e);
+}, __name(_f, "Deferred"), _f);
 function RouterProvider$1({
   router: router2,
   flushSync: reactDomFlushSyncImpl,
@@ -19984,14 +20043,22 @@ function lazyRoute(loader) {
   });
 }
 __name(lazyRoute, "lazyRoute");
-const { useCallback: useCallback$9, useEffect: useEffect$6, useRef: useRef$3 } = await importShared("react");
-const { useEffect: useEffect$5 } = await importShared("react");
+function useTraceRoute() {
+  const location = useLocation();
+  useTraceRouteFor({
+    pathname: location.pathname,
+    search: location.search
+  });
+}
+__name(useTraceRoute, "useTraceRoute");
+const { useCallback: useCallback$9, useEffect: useEffect$7, useRef: useRef$3 } = await importShared("react");
+const { useEffect: useEffect$6 } = await importShared("react");
 const { useCallback: useCallback$8, useState: useState$2 } = await importShared("react");
 const { useCallback: useCallback$7 } = await importShared("react");
-const { useCallback: useCallback$6, useEffect: useEffect$4, useRef: useRef$2, useState: useState$1 } = await importShared("react");
-const { useEffect: useEffect$3 } = await importShared("react");
+const { useCallback: useCallback$6, useEffect: useEffect$5, useRef: useRef$2, useState: useState$1 } = await importShared("react");
+const { useEffect: useEffect$4 } = await importShared("react");
 const usePreventPageReload = /* @__PURE__ */ __name(() => {
-  useEffect$3(() => {
+  useEffect$4(() => {
     const handleSubmit = /* @__PURE__ */ __name((e) => {
       e.preventDefault();
       devWarn("Form submission prevented to avoid page reload");
@@ -20037,56 +20104,12 @@ const AppErrorFallback = /* @__PURE__ */ __name(({ reset }) => {
     }
   );
 }, "AppErrorFallback");
-const { Component } = await importShared("react");
-const _ErrorBoundary = class _ErrorBoundary extends Component {
-  state = { hasError: false, resetKeySnapshot: this.props.resetKeys ?? [] };
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-  static getDerivedStateFromProps(props, state) {
-    const next = props.resetKeys ?? [];
-    const changed = !shallowEqual(state.resetKeySnapshot, next);
-    if (state.hasError && changed) {
-      return { hasError: false, resetKeySnapshot: next };
-    }
-    if (changed) {
-      return { resetKeySnapshot: next };
-    }
-    return null;
-  }
-  componentDidCatch(error, info) {
-    var _a2, _b2;
-    devError("Render error caught by ErrorBoundary:", error, info.componentStack);
-    (_b2 = (_a2 = this.props).onError) == null ? void 0 : _b2.call(_a2, error, info);
-  }
-  reset = /* @__PURE__ */ __name(() => {
-    this.setState({ hasError: false });
-  }, "reset");
-  render() {
-    if (this.state.hasError) {
-      const { fallback } = this.props;
-      if (typeof fallback === "function") return fallback(this.reset);
-      return fallback ?? null;
-    }
-    return this.props.children;
-  }
-};
-__name(_ErrorBoundary, "ErrorBoundary");
-let ErrorBoundary = _ErrorBoundary;
-function shallowEqual(a, b) {
-  if (a === b) return true;
-  if (a.length !== b.length) return false;
-  for (let i = 0; i < a.length; i++) {
-    if (!Object.is(a[i], b[i])) return false;
-  }
-  return true;
-}
-__name(shallowEqual, "shallowEqual");
 const FullscreenLayout = /* @__PURE__ */ __name(() => {
   const location = useLocation();
   usePreventPageReload();
+  useTraceRoute();
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex h-full flex-col", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-    ErrorBoundary,
+    ObservabilityErrorBoundary,
     {
       resetKeys: [location.pathname],
       fallback: /* @__PURE__ */ __name((reset) => /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, { reset }), "fallback"),
@@ -20094,16 +20117,17 @@ const FullscreenLayout = /* @__PURE__ */ __name(() => {
     }
   ) });
 }, "FullscreenLayout");
-const { useEffect: useEffect$2 } = await importShared("react");
+const { useEffect: useEffect$3 } = await importShared("react");
 function RouteError() {
   const error = useRouteError();
-  useEffect$2(() => {
+  useEffect$3(() => {
     devError("Route render error", error);
+    reportRenderError(error, { layer: "react-router" });
   }, [error]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, {});
 }
 __name(RouteError, "RouteError");
-var MutationCache = (_f = class extends Subscribable {
+var MutationCache = (_g = class extends Subscribable {
   constructor(config = {}) {
     super();
     __privateAdd(this, _mutations);
@@ -20215,13 +20239,13 @@ var MutationCache = (_f = class extends Subscribable {
       )
     );
   }
-}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), __name(_f, "MutationCache"), _f);
+}, _mutations = new WeakMap(), _scopes = new WeakMap(), _mutationId = new WeakMap(), __name(_g, "MutationCache"), _g);
 function scopeFor(mutation) {
   var _a2;
   return (_a2 = mutation.options.scope) == null ? void 0 : _a2.id;
 }
 __name(scopeFor, "scopeFor");
-var QueryCache = (_g = class extends Subscribable {
+var QueryCache = (_h = class extends Subscribable {
   constructor(config = {}) {
     super();
     __privateAdd(this, _queries);
@@ -20308,8 +20332,8 @@ var QueryCache = (_g = class extends Subscribable {
       });
     });
   }
-}, _queries = new WeakMap(), __name(_g, "QueryCache"), _g);
-var QueryClient = (_h = class {
+}, _queries = new WeakMap(), __name(_h, "QueryCache"), _h);
+var QueryClient = (_i = class {
   constructor(config = {}) {
     __privateAdd(this, _queryCache);
     __privateAdd(this, _mutationCache);
@@ -20596,7 +20620,7 @@ var QueryClient = (_h = class {
     __privateGet(this, _queryCache).clear();
     __privateGet(this, _mutationCache).clear();
   }
-}, _queryCache = new WeakMap(), _mutationCache = new WeakMap(), _defaultOptions = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), __name(_h, "QueryClient"), _h);
+}, _queryCache = new WeakMap(), _mutationCache = new WeakMap(), _defaultOptions = new WeakMap(), _queryDefaults = new WeakMap(), _mutationDefaults = new WeakMap(), _mountCount = new WeakMap(), _unsubscribeFocus = new WeakMap(), _unsubscribeOnline = new WeakMap(), __name(_i, "QueryClient"), _i);
 const TOAST_DURATION_MS = 5e3;
 const DEDUPE_WINDOW_MS = 6e3;
 const TOAST_CLASS_NAME = "max-w-md whitespace-pre-line";
@@ -20737,7 +20761,8 @@ function isOpenableDocument(reference) {
   }
 }
 __name(isOpenableDocument, "isOpenableDocument");
-const DocumentLinkCell = /* @__PURE__ */ __name(({ reference }) => {
+const MIDDLE_BUTTON = 1;
+const DocumentLinkCell = /* @__PURE__ */ __name(({ reference, recordId }) => {
   if (!isOpenableDocument(reference)) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(Mt, { delayDuration: TOOLTIP_DELAY_QUICK, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -20752,12 +20777,18 @@ const DocumentLinkCell = /* @__PURE__ */ __name(({ reference }) => {
       /* @__PURE__ */ jsxRuntimeExports.jsx(kt, { variant: "light", size: "sm", side: "bottom", align: "start", showArrow: false, children: MISSING_DOCUMENT_MESSAGE })
     ] });
   }
+  const recordOpened = /* @__PURE__ */ __name(() => recordDocumentOpened(recordId), "recordOpened");
+  const recordMiddleClick = /* @__PURE__ */ __name((event) => {
+    if (event.button === MIDDLE_BUTTON) recordOpened();
+  }, "recordMiddleClick");
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "a",
     {
       href: reference,
       target: "_blank",
       rel: "noopener noreferrer",
+      onClick: recordOpened,
+      onAuxClick: recordMiddleClick,
       "aria-label": "Open the document in a new tab",
       className: "inline-flex rounded text-trax-neutral-100 transition-colors hover:text-trax-primary-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-trax-primary-blue-300",
       children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "open-in-new", className: "size-5" })
@@ -20979,7 +21010,13 @@ const useApExceptionColumns = /* @__PURE__ */ __name(({
       header: /* @__PURE__ */ __name(({ column }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Ha, { column, title: "Documents", styles: HEADER_STYLES }), "header"),
       // Records older than `fileUrl` put the link in `documentId`, so dropping
       // the fallback would take the link off every row already on the board.
-      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(DocumentLinkCell, { reference: row.original.fileUrl ?? row.original.documentId }), "cell")
+      cell: /* @__PURE__ */ __name(({ row }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        DocumentLinkCell,
+        {
+          reference: row.original.fileUrl ?? row.original.documentId,
+          recordId: row.original.id
+        }
+      ), "cell")
     },
     {
       id: ApExceptionColumn.ReviewStatus,
@@ -21021,7 +21058,7 @@ function pageParam() {
   };
 }
 __name(pageParam, "pageParam");
-const { useCallback: useCallback$4, useEffect: useEffect$1, useMemo: useMemo$2, useRef } = await importShared("react");
+const { useCallback: useCallback$4, useEffect: useEffect$2, useMemo: useMemo$2, useRef } = await importShared("react");
 function useUrlState(spec) {
   const [searchParams, setSearchParams] = useSearchParams();
   const { state } = useLocation();
@@ -21035,7 +21072,7 @@ function useUrlState(spec) {
     return read;
   }, [spec, searchParams]);
   const pending = useRef(null);
-  useEffect$1(() => {
+  useEffect$2(() => {
     pending.current = null;
   }, [searchParams]);
   const setValues = useCallback$4((next) => {
@@ -21242,7 +21279,7 @@ function emptyTableCopy({
   return EMPTY_STATE_COPY[tab];
 }
 __name(emptyTableCopy, "emptyTableCopy");
-const { useCallback: useCallback$1, useEffect } = await importShared("react");
+const { useCallback: useCallback$1, useEffect: useEffect$1 } = await importShared("react");
 const FIELD_ICON_COLOR = "text-trax-grey-500";
 const CLEAR_ICON_NAME = "close";
 const FILTER_ICON = /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "filter-alt", className: "size-5" });
@@ -21272,7 +21309,7 @@ const ApExceptionSearchFields = /* @__PURE__ */ __name(({
   terms,
   onSearch
 }) => {
-  useEffect(() => {
+  useEffect$1(() => {
     void preloadIcon(CLEAR_ICON_NAME);
   }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap items-center gap-2", children: AP_EXCEPTION_SEARCH_FIELDS.map((field) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -21408,7 +21445,11 @@ const ApExceptionsDashboard = /* @__PURE__ */ __name(() => {
     }
   );
 }, "ApExceptionsDashboard");
+const { useEffect } = await importShared("react");
 function ApExceptionsPage() {
+  useEffect(() => {
+    recordDashboardAccessed();
+  }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "flex h-full flex-col gap-4 p-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-nowrap items-center gap-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex size-11.5 items-center justify-center rounded-lg bg-trax-primary-blue-50", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon, { name: "file-dollar", className: "size-6 shrink-0 text-trax-primary-blue-800" }) }),
@@ -21422,7 +21463,7 @@ function ApExceptionsPage() {
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-pSNbH7ro.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-P6OmuGCc.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21701,9 +21742,14 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.15", commit: "3fe1e35", branch: "dev", timestamp: "2026-09-16T18:50:15.471Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.17", commit: "7ea9437", branch: "dev", timestamp: "2026-09-22T18:00:30.207Z", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
+const releaseObservability = /* @__PURE__ */ __name(() => {
+  void shutdownObservability().catch((error) => {
+    devError(`[${SERVICE_NAME}] Error during observability shutdown`, error);
+  });
+}, "releaseObservability");
 function resolveTargetElement(element) {
   if (typeof element !== "string") {
     return element;
@@ -21714,29 +21760,39 @@ function resolveTargetElement(element) {
 __name(resolveTargetElement, "resolveTargetElement");
 const mount = /* @__PURE__ */ __name(async (element) => {
   apiClient.ensureInterceptors();
-  await initDevAuthIfEnabled();
-  await ensureJWTInitialized();
-  const targetElement = resolveTargetElement(element);
-  if (!(targetElement instanceof HTMLElement)) {
-    console.error(`[${SERVICE_NAME}] Target element not found or not an HTMLElement`);
-    return null;
-  }
-  if (mountedInstances.has(targetElement)) {
-    devWarn(`[${SERVICE_NAME}] Already mounted to this element`);
-    return mountedInstances.get(targetElement) ?? null;
-  }
+  const observabilityReady = setupObservability(observabilityConfig).catch((error) => {
+    console.error(`[${SERVICE_NAME}] Telemetry failed to start, continuing without it`, error);
+  });
+  let registered = false;
   try {
-    targetElement.classList.add(SCOPE_CLASS);
-    const root = clientExports.createRoot(targetElement);
-    root.render(
-      /* @__PURE__ */ jsxRuntimeExports.jsx(StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(ErrorBoundary, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) }) })
-    );
-    mountedInstances.set(targetElement, root);
-    devLog(`[${SERVICE_NAME}] Mounted with CSS scoping`);
-    return root;
-  } catch (error) {
-    console.error(`[${SERVICE_NAME}] Error during mount`, error);
-    return null;
+    await initDevAuthIfEnabled();
+    await ensureJWTInitialized();
+    await observabilityReady;
+    const targetElement = resolveTargetElement(element);
+    if (!(targetElement instanceof HTMLElement)) {
+      console.error(`[${SERVICE_NAME}] Target element not found or not an HTMLElement`);
+      return null;
+    }
+    if (mountedInstances.has(targetElement)) {
+      devWarn(`[${SERVICE_NAME}] Already mounted to this element`);
+      return mountedInstances.get(targetElement) ?? null;
+    }
+    try {
+      targetElement.classList.add(SCOPE_CLASS);
+      const root = clientExports.createRoot(targetElement);
+      root.render(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(ObservabilityErrorBoundary, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(AppErrorFallback, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) }) })
+      );
+      mountedInstances.set(targetElement, root);
+      registered = true;
+      devLog(`[${SERVICE_NAME}] Mounted with CSS scoping`);
+      return root;
+    } catch (error) {
+      console.error(`[${SERVICE_NAME}] Error during mount`, error);
+      return null;
+    }
+  } finally {
+    if (!registered) releaseObservability();
   }
 }, "mount");
 const unmount = /* @__PURE__ */ __name(async (root) => {
@@ -21746,11 +21802,13 @@ const unmount = /* @__PURE__ */ __name(async (root) => {
   } catch (error) {
     devError(`[${SERVICE_NAME}] Error during React unmount`, error);
   }
+  let wasRegistered = false;
   try {
     for (const [element, registeredRoot] of mountedInstances.entries()) {
       if (registeredRoot === root) {
         element.classList.remove(SCOPE_CLASS);
         mountedInstances.delete(element);
+        wasRegistered = true;
         break;
       }
     }
@@ -21764,10 +21822,18 @@ const unmount = /* @__PURE__ */ __name(async (root) => {
       devError(`[${SERVICE_NAME}] Error during API client cleanup`, error);
     }
   }
+  if (wasRegistered) {
+    try {
+      await shutdownObservability();
+    } catch (error) {
+      devError(`[${SERVICE_NAME}] Error during observability shutdown`, error);
+    }
+  }
   devLog(`[${SERVICE_NAME}] Unmount complete`);
 }, "unmount");
 const cleanupAll = /* @__PURE__ */ __name(() => {
   devLog(`[${SERVICE_NAME}] Cleaning up all instances`);
+  const count = mountedInstances.size;
   for (const [element, root] of mountedInstances.entries()) {
     try {
       if (root && typeof root.unmount === "function") {
@@ -21785,6 +21851,7 @@ const cleanupAll = /* @__PURE__ */ __name(() => {
   } catch (error) {
     devError(`[${SERVICE_NAME}] Error during API client cleanup`, error);
   }
+  for (let i = 0; i < count; i++) releaseObservability();
 }, "cleanupAll");
 let devAuthInitPromise = null;
 function initDevAuthIfEnabled() {
@@ -21817,6 +21884,7 @@ const setupCleanupListeners = /* @__PURE__ */ __name(() => {
       } catch (error) {
         devError(`[${SERVICE_NAME}] Error during cleanup`, error);
       }
+      releaseObservability();
     }
     if (mountedInstances.size === 0) apiClient.cleanup();
   });

@@ -54,6 +54,1728 @@ function requireJsxRuntime() {
 }
 __name(requireJsxRuntime, "requireJsxRuntime");
 var jsxRuntimeExports = requireJsxRuntime();
+const VERSION$2 = "1.9.1";
+const re$1 = /^(\d+)\.(\d+)\.(\d+)(-(.+))?$/;
+function _makeCompatibilityCheck(ownVersion) {
+  const acceptedVersions = /* @__PURE__ */ new Set([ownVersion]);
+  const rejectedVersions = /* @__PURE__ */ new Set();
+  const myVersionMatch = ownVersion.match(re$1);
+  if (!myVersionMatch) {
+    return () => false;
+  }
+  const ownVersionParsed = {
+    major: +myVersionMatch[1],
+    minor: +myVersionMatch[2],
+    patch: +myVersionMatch[3],
+    prerelease: myVersionMatch[4]
+  };
+  if (ownVersionParsed.prerelease != null) {
+    return /* @__PURE__ */ __name(function isExactmatch(globalVersion) {
+      return globalVersion === ownVersion;
+    }, "isExactmatch");
+  }
+  function _reject(v) {
+    rejectedVersions.add(v);
+    return false;
+  }
+  __name(_reject, "_reject");
+  function _accept(v) {
+    acceptedVersions.add(v);
+    return true;
+  }
+  __name(_accept, "_accept");
+  return /* @__PURE__ */ __name(function isCompatible2(globalVersion) {
+    if (acceptedVersions.has(globalVersion)) {
+      return true;
+    }
+    if (rejectedVersions.has(globalVersion)) {
+      return false;
+    }
+    const globalVersionMatch = globalVersion.match(re$1);
+    if (!globalVersionMatch) {
+      return _reject(globalVersion);
+    }
+    const globalVersionParsed = {
+      major: +globalVersionMatch[1],
+      minor: +globalVersionMatch[2],
+      patch: +globalVersionMatch[3],
+      prerelease: globalVersionMatch[4]
+    };
+    if (globalVersionParsed.prerelease != null) {
+      return _reject(globalVersion);
+    }
+    if (ownVersionParsed.major !== globalVersionParsed.major) {
+      return _reject(globalVersion);
+    }
+    if (ownVersionParsed.major === 0) {
+      if (ownVersionParsed.minor === globalVersionParsed.minor && ownVersionParsed.patch <= globalVersionParsed.patch) {
+        return _accept(globalVersion);
+      }
+      return _reject(globalVersion);
+    }
+    if (ownVersionParsed.minor <= globalVersionParsed.minor) {
+      return _accept(globalVersion);
+    }
+    return _reject(globalVersion);
+  }, "isCompatible");
+}
+__name(_makeCompatibilityCheck, "_makeCompatibilityCheck");
+const isCompatible = _makeCompatibilityCheck(VERSION$2);
+const major = VERSION$2.split(".")[0];
+const GLOBAL_OPENTELEMETRY_API_KEY = /* @__PURE__ */ Symbol.for(`opentelemetry.js.api.${major}`);
+const _global$2 = typeof globalThis === "object" ? globalThis : typeof self === "object" ? self : typeof window === "object" ? window : typeof global === "object" ? global : {};
+function registerGlobal(type, instance, diag2, allowOverride = false) {
+  var _a3;
+  const api = _global$2[GLOBAL_OPENTELEMETRY_API_KEY] = (_a3 = _global$2[GLOBAL_OPENTELEMETRY_API_KEY]) !== null && _a3 !== void 0 ? _a3 : {
+    version: VERSION$2
+  };
+  if (!allowOverride && api[type]) {
+    const err = new Error(`@opentelemetry/api: Attempted duplicate registration of API: ${type}`);
+    diag2.error(err.stack || err.message);
+    return false;
+  }
+  if (api.version !== VERSION$2) {
+    const err = new Error(`@opentelemetry/api: Registration of version v${api.version} for ${type} does not match previously registered API v${VERSION$2}`);
+    diag2.error(err.stack || err.message);
+    return false;
+  }
+  api[type] = instance;
+  diag2.debug(`@opentelemetry/api: Registered a global for ${type} v${VERSION$2}.`);
+  return true;
+}
+__name(registerGlobal, "registerGlobal");
+function getGlobal$1(type) {
+  var _a3, _b2;
+  const globalVersion = (_a3 = _global$2[GLOBAL_OPENTELEMETRY_API_KEY]) === null || _a3 === void 0 ? void 0 : _a3.version;
+  if (!globalVersion || !isCompatible(globalVersion)) {
+    return;
+  }
+  return (_b2 = _global$2[GLOBAL_OPENTELEMETRY_API_KEY]) === null || _b2 === void 0 ? void 0 : _b2[type];
+}
+__name(getGlobal$1, "getGlobal$1");
+function unregisterGlobal(type, diag2) {
+  diag2.debug(`@opentelemetry/api: Unregistering a global for ${type} v${VERSION$2}.`);
+  const api = _global$2[GLOBAL_OPENTELEMETRY_API_KEY];
+  if (api) {
+    delete api[type];
+  }
+}
+__name(unregisterGlobal, "unregisterGlobal");
+const _DiagComponentLogger = class _DiagComponentLogger {
+  constructor(props) {
+    this._namespace = props.namespace || "DiagComponentLogger";
+  }
+  debug(...args) {
+    return logProxy("debug", this._namespace, args);
+  }
+  error(...args) {
+    return logProxy("error", this._namespace, args);
+  }
+  info(...args) {
+    return logProxy("info", this._namespace, args);
+  }
+  warn(...args) {
+    return logProxy("warn", this._namespace, args);
+  }
+  verbose(...args) {
+    return logProxy("verbose", this._namespace, args);
+  }
+};
+__name(_DiagComponentLogger, "DiagComponentLogger");
+let DiagComponentLogger = _DiagComponentLogger;
+function logProxy(funcName, namespace, args) {
+  const logger = getGlobal$1("diag");
+  if (!logger) {
+    return;
+  }
+  return logger[funcName](namespace, ...args);
+}
+__name(logProxy, "logProxy");
+var DiagLogLevel;
+(function(DiagLogLevel2) {
+  DiagLogLevel2[DiagLogLevel2["NONE"] = 0] = "NONE";
+  DiagLogLevel2[DiagLogLevel2["ERROR"] = 30] = "ERROR";
+  DiagLogLevel2[DiagLogLevel2["WARN"] = 50] = "WARN";
+  DiagLogLevel2[DiagLogLevel2["INFO"] = 60] = "INFO";
+  DiagLogLevel2[DiagLogLevel2["DEBUG"] = 70] = "DEBUG";
+  DiagLogLevel2[DiagLogLevel2["VERBOSE"] = 80] = "VERBOSE";
+  DiagLogLevel2[DiagLogLevel2["ALL"] = 9999] = "ALL";
+})(DiagLogLevel || (DiagLogLevel = {}));
+function createLogLevelDiagLogger(maxLevel, logger) {
+  if (maxLevel < DiagLogLevel.NONE) {
+    maxLevel = DiagLogLevel.NONE;
+  } else if (maxLevel > DiagLogLevel.ALL) {
+    maxLevel = DiagLogLevel.ALL;
+  }
+  logger = logger || {};
+  function _filterFunc(funcName, theLevel) {
+    const theFunc = logger[funcName];
+    if (typeof theFunc === "function" && maxLevel >= theLevel) {
+      return theFunc.bind(logger);
+    }
+    return function() {
+    };
+  }
+  __name(_filterFunc, "_filterFunc");
+  return {
+    error: _filterFunc("error", DiagLogLevel.ERROR),
+    warn: _filterFunc("warn", DiagLogLevel.WARN),
+    info: _filterFunc("info", DiagLogLevel.INFO),
+    debug: _filterFunc("debug", DiagLogLevel.DEBUG),
+    verbose: _filterFunc("verbose", DiagLogLevel.VERBOSE)
+  };
+}
+__name(createLogLevelDiagLogger, "createLogLevelDiagLogger");
+const API_NAME$3 = "diag";
+const _DiagAPI = class _DiagAPI {
+  /** Get the singleton instance of the DiagAPI API */
+  static instance() {
+    if (!this._instance) {
+      this._instance = new _DiagAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Private internal constructor
+   * @private
+   */
+  constructor() {
+    function _logProxy(funcName) {
+      return function(...args) {
+        const logger = getGlobal$1("diag");
+        if (!logger)
+          return;
+        return logger[funcName](...args);
+      };
+    }
+    __name(_logProxy, "_logProxy");
+    const self2 = this;
+    const setLogger = /* @__PURE__ */ __name((logger, optionsOrLogLevel = { logLevel: DiagLogLevel.INFO }) => {
+      var _a3, _b2, _c2;
+      if (logger === self2) {
+        const err = new Error("Cannot use diag as the logger for itself. Please use a DiagLogger implementation like ConsoleDiagLogger or a custom implementation");
+        self2.error((_a3 = err.stack) !== null && _a3 !== void 0 ? _a3 : err.message);
+        return false;
+      }
+      if (typeof optionsOrLogLevel === "number") {
+        optionsOrLogLevel = {
+          logLevel: optionsOrLogLevel
+        };
+      }
+      const oldLogger = getGlobal$1("diag");
+      const newLogger = createLogLevelDiagLogger((_b2 = optionsOrLogLevel.logLevel) !== null && _b2 !== void 0 ? _b2 : DiagLogLevel.INFO, logger);
+      if (oldLogger && !optionsOrLogLevel.suppressOverrideMessage) {
+        const stack = (_c2 = new Error().stack) !== null && _c2 !== void 0 ? _c2 : "<failed to generate stacktrace>";
+        oldLogger.warn(`Current logger will be overwritten from ${stack}`);
+        newLogger.warn(`Current logger will overwrite one already registered from ${stack}`);
+      }
+      return registerGlobal("diag", newLogger, self2, true);
+    }, "setLogger");
+    self2.setLogger = setLogger;
+    self2.disable = () => {
+      unregisterGlobal(API_NAME$3, self2);
+    };
+    self2.createComponentLogger = (options2) => {
+      return new DiagComponentLogger(options2);
+    };
+    self2.verbose = _logProxy("verbose");
+    self2.debug = _logProxy("debug");
+    self2.info = _logProxy("info");
+    self2.warn = _logProxy("warn");
+    self2.error = _logProxy("error");
+  }
+};
+__name(_DiagAPI, "DiagAPI");
+let DiagAPI = _DiagAPI;
+const _BaggageImpl = class _BaggageImpl {
+  constructor(entries) {
+    this._entries = entries ? new Map(entries) : /* @__PURE__ */ new Map();
+  }
+  getEntry(key) {
+    const entry = this._entries.get(key);
+    if (!entry) {
+      return void 0;
+    }
+    return Object.assign({}, entry);
+  }
+  getAllEntries() {
+    return Array.from(this._entries.entries());
+  }
+  setEntry(key, entry) {
+    const newBaggage = new _BaggageImpl(this._entries);
+    newBaggage._entries.set(key, entry);
+    return newBaggage;
+  }
+  removeEntry(key) {
+    const newBaggage = new _BaggageImpl(this._entries);
+    newBaggage._entries.delete(key);
+    return newBaggage;
+  }
+  removeEntries(...keys) {
+    const newBaggage = new _BaggageImpl(this._entries);
+    for (const key of keys) {
+      newBaggage._entries.delete(key);
+    }
+    return newBaggage;
+  }
+  clear() {
+    return new _BaggageImpl();
+  }
+};
+__name(_BaggageImpl, "BaggageImpl");
+let BaggageImpl = _BaggageImpl;
+const baggageEntryMetadataSymbol = /* @__PURE__ */ Symbol("BaggageEntryMetadata");
+const diag = DiagAPI.instance();
+function createBaggage(entries = {}) {
+  return new BaggageImpl(new Map(Object.entries(entries)));
+}
+__name(createBaggage, "createBaggage");
+function baggageEntryMetadataFromString(str) {
+  if (typeof str !== "string") {
+    diag.error(`Cannot create baggage metadata from unknown type: ${typeof str}`);
+    str = "";
+  }
+  return {
+    __TYPE__: baggageEntryMetadataSymbol,
+    toString() {
+      return str;
+    }
+  };
+}
+__name(baggageEntryMetadataFromString, "baggageEntryMetadataFromString");
+function createContextKey(description) {
+  return Symbol.for(description);
+}
+__name(createContextKey, "createContextKey");
+const _BaseContext = class _BaseContext {
+  /**
+   * Construct a new context which inherits values from an optional parent context.
+   *
+   * @param parentContext a context from which to inherit values
+   */
+  constructor(parentContext) {
+    const self2 = this;
+    self2._currentContext = parentContext ? new Map(parentContext) : /* @__PURE__ */ new Map();
+    self2.getValue = (key) => self2._currentContext.get(key);
+    self2.setValue = (key, value) => {
+      const context2 = new _BaseContext(self2._currentContext);
+      context2._currentContext.set(key, value);
+      return context2;
+    };
+    self2.deleteValue = (key) => {
+      const context2 = new _BaseContext(self2._currentContext);
+      context2._currentContext.delete(key);
+      return context2;
+    };
+  }
+};
+__name(_BaseContext, "BaseContext");
+let BaseContext = _BaseContext;
+const ROOT_CONTEXT = new BaseContext();
+const defaultTextMapGetter = {
+  get(carrier, key) {
+    if (carrier == null) {
+      return void 0;
+    }
+    return carrier[key];
+  },
+  keys(carrier) {
+    if (carrier == null) {
+      return [];
+    }
+    return Object.keys(carrier);
+  }
+};
+const defaultTextMapSetter = {
+  set(carrier, key, value) {
+    if (carrier == null) {
+      return;
+    }
+    carrier[key] = value;
+  }
+};
+const _NoopContextManager = class _NoopContextManager {
+  active() {
+    return ROOT_CONTEXT;
+  }
+  with(_context, fn2, thisArg, ...args) {
+    return fn2.call(thisArg, ...args);
+  }
+  bind(_context, target) {
+    return target;
+  }
+  enable() {
+    return this;
+  }
+  disable() {
+    return this;
+  }
+};
+__name(_NoopContextManager, "NoopContextManager");
+let NoopContextManager = _NoopContextManager;
+const API_NAME$2 = "context";
+const NOOP_CONTEXT_MANAGER = new NoopContextManager();
+const _ContextAPI = class _ContextAPI {
+  /** Empty private constructor prevents end users from constructing a new instance of the API */
+  constructor() {
+  }
+  /** Get the singleton instance of the Context API */
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _ContextAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Set the current context manager.
+   *
+   * @returns true if the context manager was successfully registered, else false
+   */
+  setGlobalContextManager(contextManager) {
+    return registerGlobal(API_NAME$2, contextManager, DiagAPI.instance());
+  }
+  /**
+   * Get the currently active context
+   */
+  active() {
+    return this._getContextManager().active();
+  }
+  /**
+   * Execute a function with an active context
+   *
+   * @param context context to be active during function execution
+   * @param fn function to execute in a context
+   * @param thisArg optional receiver to be used for calling fn
+   * @param args optional arguments forwarded to fn
+   */
+  with(context2, fn2, thisArg, ...args) {
+    return this._getContextManager().with(context2, fn2, thisArg, ...args);
+  }
+  /**
+   * Bind a context to a target function or event emitter
+   *
+   * @param context context to bind to the event emitter or function. Defaults to the currently active context
+   * @param target function or event emitter to bind
+   */
+  bind(context2, target) {
+    return this._getContextManager().bind(context2, target);
+  }
+  _getContextManager() {
+    return getGlobal$1(API_NAME$2) || NOOP_CONTEXT_MANAGER;
+  }
+  /** Disable and remove the global context manager */
+  disable() {
+    this._getContextManager().disable();
+    unregisterGlobal(API_NAME$2, DiagAPI.instance());
+  }
+};
+__name(_ContextAPI, "ContextAPI");
+let ContextAPI = _ContextAPI;
+var TraceFlags;
+(function(TraceFlags2) {
+  TraceFlags2[TraceFlags2["NONE"] = 0] = "NONE";
+  TraceFlags2[TraceFlags2["SAMPLED"] = 1] = "SAMPLED";
+})(TraceFlags || (TraceFlags = {}));
+const INVALID_SPANID = "0000000000000000";
+const INVALID_TRACEID = "00000000000000000000000000000000";
+const INVALID_SPAN_CONTEXT = {
+  traceId: INVALID_TRACEID,
+  spanId: INVALID_SPANID,
+  traceFlags: TraceFlags.NONE
+};
+const _NonRecordingSpan = class _NonRecordingSpan {
+  constructor(spanContext = INVALID_SPAN_CONTEXT) {
+    this._spanContext = spanContext;
+  }
+  // Returns a SpanContext.
+  spanContext() {
+    return this._spanContext;
+  }
+  // By default does nothing
+  setAttribute(_key, _value) {
+    return this;
+  }
+  // By default does nothing
+  setAttributes(_attributes) {
+    return this;
+  }
+  // By default does nothing
+  addEvent(_name, _attributes) {
+    return this;
+  }
+  addLink(_link) {
+    return this;
+  }
+  addLinks(_links) {
+    return this;
+  }
+  // By default does nothing
+  setStatus(_status) {
+    return this;
+  }
+  // By default does nothing
+  updateName(_name) {
+    return this;
+  }
+  // By default does nothing
+  end(_endTime) {
+  }
+  // isRecording always returns false for NonRecordingSpan.
+  isRecording() {
+    return false;
+  }
+  // By default does nothing
+  recordException(_exception, _time) {
+  }
+};
+__name(_NonRecordingSpan, "NonRecordingSpan");
+let NonRecordingSpan = _NonRecordingSpan;
+const SPAN_KEY = createContextKey("OpenTelemetry Context Key SPAN");
+function getSpan(context2) {
+  return context2.getValue(SPAN_KEY) || void 0;
+}
+__name(getSpan, "getSpan");
+function getActiveSpan() {
+  return getSpan(ContextAPI.getInstance().active());
+}
+__name(getActiveSpan, "getActiveSpan");
+function setSpan(context2, span) {
+  return context2.setValue(SPAN_KEY, span);
+}
+__name(setSpan, "setSpan");
+function deleteSpan(context2) {
+  return context2.deleteValue(SPAN_KEY);
+}
+__name(deleteSpan, "deleteSpan");
+function setSpanContext(context2, spanContext) {
+  return setSpan(context2, new NonRecordingSpan(spanContext));
+}
+__name(setSpanContext, "setSpanContext");
+function getSpanContext(context2) {
+  var _a3;
+  return (_a3 = getSpan(context2)) === null || _a3 === void 0 ? void 0 : _a3.spanContext();
+}
+__name(getSpanContext, "getSpanContext");
+const isHex = new Uint8Array([
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+]);
+function isValidHex(id, length) {
+  if (typeof id !== "string" || id.length !== length)
+    return false;
+  let r2 = 0;
+  for (let i = 0; i < id.length; i += 4) {
+    r2 += (isHex[id.charCodeAt(i)] | 0) + (isHex[id.charCodeAt(i + 1)] | 0) + (isHex[id.charCodeAt(i + 2)] | 0) + (isHex[id.charCodeAt(i + 3)] | 0);
+  }
+  return r2 === length;
+}
+__name(isValidHex, "isValidHex");
+function isValidTraceId(traceId) {
+  return isValidHex(traceId, 32) && traceId !== INVALID_TRACEID;
+}
+__name(isValidTraceId, "isValidTraceId");
+function isValidSpanId(spanId) {
+  return isValidHex(spanId, 16) && spanId !== INVALID_SPANID;
+}
+__name(isValidSpanId, "isValidSpanId");
+function isSpanContextValid(spanContext) {
+  return isValidTraceId(spanContext.traceId) && isValidSpanId(spanContext.spanId);
+}
+__name(isSpanContextValid, "isSpanContextValid");
+function wrapSpanContext(spanContext) {
+  return new NonRecordingSpan(spanContext);
+}
+__name(wrapSpanContext, "wrapSpanContext");
+const contextApi = ContextAPI.getInstance();
+const _NoopTracer = class _NoopTracer {
+  // startSpan starts a noop span.
+  startSpan(name, options2, context2 = contextApi.active()) {
+    const root = Boolean(options2 === null || options2 === void 0 ? void 0 : options2.root);
+    if (root) {
+      return new NonRecordingSpan();
+    }
+    const parentFromContext = context2 && getSpanContext(context2);
+    if (isSpanContext(parentFromContext) && isSpanContextValid(parentFromContext)) {
+      return new NonRecordingSpan(parentFromContext);
+    } else {
+      return new NonRecordingSpan();
+    }
+  }
+  startActiveSpan(name, arg2, arg3, arg4) {
+    let opts;
+    let ctx;
+    let fn2;
+    if (arguments.length < 2) {
+      return;
+    } else if (arguments.length === 2) {
+      fn2 = arg2;
+    } else if (arguments.length === 3) {
+      opts = arg2;
+      fn2 = arg3;
+    } else {
+      opts = arg2;
+      ctx = arg3;
+      fn2 = arg4;
+    }
+    const parentContext = ctx !== null && ctx !== void 0 ? ctx : contextApi.active();
+    const span = this.startSpan(name, opts, parentContext);
+    const contextWithSpanSet = setSpan(parentContext, span);
+    return contextApi.with(contextWithSpanSet, fn2, void 0, span);
+  }
+};
+__name(_NoopTracer, "NoopTracer");
+let NoopTracer = _NoopTracer;
+function isSpanContext(spanContext) {
+  return spanContext !== null && typeof spanContext === "object" && "spanId" in spanContext && typeof spanContext["spanId"] === "string" && "traceId" in spanContext && typeof spanContext["traceId"] === "string" && "traceFlags" in spanContext && typeof spanContext["traceFlags"] === "number";
+}
+__name(isSpanContext, "isSpanContext");
+const NOOP_TRACER = new NoopTracer();
+const _ProxyTracer = class _ProxyTracer {
+  constructor(provider, name, version, options2) {
+    this._provider = provider;
+    this.name = name;
+    this.version = version;
+    this.options = options2;
+  }
+  startSpan(name, options2, context2) {
+    return this._getTracer().startSpan(name, options2, context2);
+  }
+  startActiveSpan(_name, _options, _context, _fn) {
+    const tracer = this._getTracer();
+    return Reflect.apply(tracer.startActiveSpan, tracer, arguments);
+  }
+  /**
+   * Try to get a tracer from the proxy tracer provider.
+   * If the proxy tracer provider has no delegate, return a noop tracer.
+   */
+  _getTracer() {
+    if (this._delegate) {
+      return this._delegate;
+    }
+    const tracer = this._provider.getDelegateTracer(this.name, this.version, this.options);
+    if (!tracer) {
+      return NOOP_TRACER;
+    }
+    this._delegate = tracer;
+    return this._delegate;
+  }
+};
+__name(_ProxyTracer, "ProxyTracer");
+let ProxyTracer = _ProxyTracer;
+const _NoopTracerProvider = class _NoopTracerProvider {
+  getTracer(_name, _version, _options) {
+    return new NoopTracer();
+  }
+};
+__name(_NoopTracerProvider, "NoopTracerProvider");
+let NoopTracerProvider = _NoopTracerProvider;
+const NOOP_TRACER_PROVIDER = new NoopTracerProvider();
+const _ProxyTracerProvider = class _ProxyTracerProvider {
+  /**
+   * Get a {@link ProxyTracer}
+   */
+  getTracer(name, version, options2) {
+    var _a3;
+    return (_a3 = this.getDelegateTracer(name, version, options2)) !== null && _a3 !== void 0 ? _a3 : new ProxyTracer(this, name, version, options2);
+  }
+  getDelegate() {
+    var _a3;
+    return (_a3 = this._delegate) !== null && _a3 !== void 0 ? _a3 : NOOP_TRACER_PROVIDER;
+  }
+  /**
+   * Set the delegate tracer provider
+   */
+  setDelegate(delegate) {
+    this._delegate = delegate;
+  }
+  getDelegateTracer(name, version, options2) {
+    var _a3;
+    return (_a3 = this._delegate) === null || _a3 === void 0 ? void 0 : _a3.getTracer(name, version, options2);
+  }
+};
+__name(_ProxyTracerProvider, "ProxyTracerProvider");
+let ProxyTracerProvider = _ProxyTracerProvider;
+var SpanStatusCode;
+(function(SpanStatusCode2) {
+  SpanStatusCode2[SpanStatusCode2["UNSET"] = 0] = "UNSET";
+  SpanStatusCode2[SpanStatusCode2["OK"] = 1] = "OK";
+  SpanStatusCode2[SpanStatusCode2["ERROR"] = 2] = "ERROR";
+})(SpanStatusCode || (SpanStatusCode = {}));
+const context = ContextAPI.getInstance();
+const _NoopTextMapPropagator = class _NoopTextMapPropagator {
+  /** Noop inject function does nothing */
+  inject(_context, _carrier) {
+  }
+  /** Noop extract function does nothing and returns the input context */
+  extract(context2, _carrier) {
+    return context2;
+  }
+  fields() {
+    return [];
+  }
+};
+__name(_NoopTextMapPropagator, "NoopTextMapPropagator");
+let NoopTextMapPropagator = _NoopTextMapPropagator;
+const BAGGAGE_KEY = createContextKey("OpenTelemetry Baggage Key");
+function getBaggage(context2) {
+  return context2.getValue(BAGGAGE_KEY) || void 0;
+}
+__name(getBaggage, "getBaggage");
+function getActiveBaggage() {
+  return getBaggage(ContextAPI.getInstance().active());
+}
+__name(getActiveBaggage, "getActiveBaggage");
+function setBaggage(context2, baggage) {
+  return context2.setValue(BAGGAGE_KEY, baggage);
+}
+__name(setBaggage, "setBaggage");
+function deleteBaggage(context2) {
+  return context2.deleteValue(BAGGAGE_KEY);
+}
+__name(deleteBaggage, "deleteBaggage");
+const API_NAME$1 = "propagation";
+const NOOP_TEXT_MAP_PROPAGATOR = new NoopTextMapPropagator();
+const _PropagationAPI = class _PropagationAPI {
+  /** Empty private constructor prevents end users from constructing a new instance of the API */
+  constructor() {
+    this.createBaggage = createBaggage;
+    this.getBaggage = getBaggage;
+    this.getActiveBaggage = getActiveBaggage;
+    this.setBaggage = setBaggage;
+    this.deleteBaggage = deleteBaggage;
+  }
+  /** Get the singleton instance of the Propagator API */
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _PropagationAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Set the current propagator.
+   *
+   * @returns true if the propagator was successfully registered, else false
+   */
+  setGlobalPropagator(propagator) {
+    return registerGlobal(API_NAME$1, propagator, DiagAPI.instance());
+  }
+  /**
+   * Inject context into a carrier to be propagated inter-process
+   *
+   * @param context Context carrying tracing data to inject
+   * @param carrier carrier to inject context into
+   * @param setter Function used to set values on the carrier
+   */
+  inject(context2, carrier, setter = defaultTextMapSetter) {
+    return this._getGlobalPropagator().inject(context2, carrier, setter);
+  }
+  /**
+   * Extract context from a carrier
+   *
+   * @param context Context which the newly created context will inherit from
+   * @param carrier Carrier to extract context from
+   * @param getter Function used to extract keys from a carrier
+   */
+  extract(context2, carrier, getter = defaultTextMapGetter) {
+    return this._getGlobalPropagator().extract(context2, carrier, getter);
+  }
+  /**
+   * Return a list of all fields which may be used by the propagator.
+   */
+  fields() {
+    return this._getGlobalPropagator().fields();
+  }
+  /** Remove the global propagator */
+  disable() {
+    unregisterGlobal(API_NAME$1, DiagAPI.instance());
+  }
+  _getGlobalPropagator() {
+    return getGlobal$1(API_NAME$1) || NOOP_TEXT_MAP_PROPAGATOR;
+  }
+};
+__name(_PropagationAPI, "PropagationAPI");
+let PropagationAPI = _PropagationAPI;
+const propagation = PropagationAPI.getInstance();
+const API_NAME = "trace";
+const _TraceAPI = class _TraceAPI {
+  /** Empty private constructor prevents end users from constructing a new instance of the API */
+  constructor() {
+    this._proxyTracerProvider = new ProxyTracerProvider();
+    this.wrapSpanContext = wrapSpanContext;
+    this.isSpanContextValid = isSpanContextValid;
+    this.deleteSpan = deleteSpan;
+    this.getSpan = getSpan;
+    this.getActiveSpan = getActiveSpan;
+    this.getSpanContext = getSpanContext;
+    this.setSpan = setSpan;
+    this.setSpanContext = setSpanContext;
+  }
+  /** Get the singleton instance of the Trace API */
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _TraceAPI();
+    }
+    return this._instance;
+  }
+  /**
+   * Set the current global tracer.
+   *
+   * @returns true if the tracer provider was successfully registered, else false
+   */
+  setGlobalTracerProvider(provider) {
+    const success = registerGlobal(API_NAME, this._proxyTracerProvider, DiagAPI.instance());
+    if (success) {
+      this._proxyTracerProvider.setDelegate(provider);
+    }
+    return success;
+  }
+  /**
+   * Returns the global tracer provider.
+   */
+  getTracerProvider() {
+    return getGlobal$1(API_NAME) || this._proxyTracerProvider;
+  }
+  /**
+   * Returns a tracer from the global tracer provider.
+   */
+  getTracer(name, version) {
+    return this.getTracerProvider().getTracer(name, version);
+  }
+  /** Remove the global tracer provider */
+  disable() {
+    unregisterGlobal(API_NAME, DiagAPI.instance());
+    this._proxyTracerProvider = new ProxyTracerProvider();
+  }
+};
+__name(_TraceAPI, "TraceAPI");
+let TraceAPI = _TraceAPI;
+const trace = TraceAPI.getInstance();
+var PREFIX$1 = "[kore-web-observability]";
+var consoleDiagnostics = {
+  info(message2) {
+    console.info(`${PREFIX$1} ${message2}`);
+  },
+  warn(message2) {
+    console.warn(`${PREFIX$1} ${message2}`);
+  },
+  error(message2, error) {
+    if (error === void 0) console.error(`${PREFIX$1} ${message2}`);
+    else console.error(`${PREFIX$1} ${message2}`, error);
+  }
+};
+var STATE_SYMBOL = /* @__PURE__ */ Symbol.for("@kore/web-observability/state/1");
+function createState() {
+  return {
+    active: null,
+    pendingInit: null,
+    refCount: 0,
+    config: null,
+    userId: null,
+    signals: {
+      listeners: null,
+      held: [],
+      live: false
+    },
+    disabledWarned: false
+  };
+}
+__name(createState, "createState");
+function getState$2() {
+  const g = globalThis;
+  let state = g[STATE_SYMBOL];
+  if (!state) {
+    state = createState();
+    g[STATE_SYMBOL] = state;
+  }
+  return state;
+}
+__name(getState$2, "getState$2");
+function getDiagnostics() {
+  var _a3;
+  return ((_a3 = getState$2().config) == null ? void 0 : _a3.diagnostics) ?? consoleDiagnostics;
+}
+__name(getDiagnostics, "getDiagnostics");
+var FALLBACK_SCOPE_PREFIX = "kore-web-observability";
+function scopeName(suffix) {
+  var _a3;
+  return `${((_a3 = getState$2().config) == null ? void 0 : _a3.serviceName) ?? FALLBACK_SCOPE_PREFIX}.${suffix}`;
+}
+__name(scopeName, "scopeName");
+var SCOPE = "router";
+var SPAN_NAME = "route_change";
+function recordRouteChange(location) {
+  const span = trace.getTracer(scopeName(SCOPE)).startSpan(SPAN_NAME);
+  span.setAttribute("http.route", location.pathname);
+  span.setAttribute("url.path", location.pathname);
+  if (location.search) span.setAttribute("url.query", location.search);
+  span.end();
+}
+__name(recordRouteChange, "recordRouteChange");
+var SeverityNumber;
+(function(SeverityNumber2) {
+  SeverityNumber2[SeverityNumber2["UNSPECIFIED"] = 0] = "UNSPECIFIED";
+  SeverityNumber2[SeverityNumber2["TRACE"] = 1] = "TRACE";
+  SeverityNumber2[SeverityNumber2["TRACE2"] = 2] = "TRACE2";
+  SeverityNumber2[SeverityNumber2["TRACE3"] = 3] = "TRACE3";
+  SeverityNumber2[SeverityNumber2["TRACE4"] = 4] = "TRACE4";
+  SeverityNumber2[SeverityNumber2["DEBUG"] = 5] = "DEBUG";
+  SeverityNumber2[SeverityNumber2["DEBUG2"] = 6] = "DEBUG2";
+  SeverityNumber2[SeverityNumber2["DEBUG3"] = 7] = "DEBUG3";
+  SeverityNumber2[SeverityNumber2["DEBUG4"] = 8] = "DEBUG4";
+  SeverityNumber2[SeverityNumber2["INFO"] = 9] = "INFO";
+  SeverityNumber2[SeverityNumber2["INFO2"] = 10] = "INFO2";
+  SeverityNumber2[SeverityNumber2["INFO3"] = 11] = "INFO3";
+  SeverityNumber2[SeverityNumber2["INFO4"] = 12] = "INFO4";
+  SeverityNumber2[SeverityNumber2["WARN"] = 13] = "WARN";
+  SeverityNumber2[SeverityNumber2["WARN2"] = 14] = "WARN2";
+  SeverityNumber2[SeverityNumber2["WARN3"] = 15] = "WARN3";
+  SeverityNumber2[SeverityNumber2["WARN4"] = 16] = "WARN4";
+  SeverityNumber2[SeverityNumber2["ERROR"] = 17] = "ERROR";
+  SeverityNumber2[SeverityNumber2["ERROR2"] = 18] = "ERROR2";
+  SeverityNumber2[SeverityNumber2["ERROR3"] = 19] = "ERROR3";
+  SeverityNumber2[SeverityNumber2["ERROR4"] = 20] = "ERROR4";
+  SeverityNumber2[SeverityNumber2["FATAL"] = 21] = "FATAL";
+  SeverityNumber2[SeverityNumber2["FATAL2"] = 22] = "FATAL2";
+  SeverityNumber2[SeverityNumber2["FATAL3"] = 23] = "FATAL3";
+  SeverityNumber2[SeverityNumber2["FATAL4"] = 24] = "FATAL4";
+})(SeverityNumber || (SeverityNumber = {}));
+const _NoopLogger = class _NoopLogger {
+  emit(_logRecord) {
+  }
+  enabled() {
+    return false;
+  }
+};
+__name(_NoopLogger, "NoopLogger");
+let NoopLogger = _NoopLogger;
+const NOOP_LOGGER = new NoopLogger();
+function createNoopLogger() {
+  return NOOP_LOGGER;
+}
+__name(createNoopLogger, "createNoopLogger");
+const GLOBAL_LOGS_API_KEY = /* @__PURE__ */ Symbol.for("io.opentelemetry.js.api.logs");
+const _global$1 = globalThis;
+function makeGetter(requiredVersion, instance, fallback) {
+  return (version) => version === requiredVersion ? instance : fallback;
+}
+__name(makeGetter, "makeGetter");
+const API_BACKWARDS_COMPATIBILITY_VERSION = 1;
+const _NoopLoggerProvider = class _NoopLoggerProvider {
+  getLogger(_name, _version, _options) {
+    return new NoopLogger();
+  }
+};
+__name(_NoopLoggerProvider, "NoopLoggerProvider");
+let NoopLoggerProvider = _NoopLoggerProvider;
+const NOOP_LOGGER_PROVIDER = new NoopLoggerProvider();
+const _ProxyLogger = class _ProxyLogger {
+  constructor(provider, name, version, options2) {
+    this._provider = provider;
+    this.name = name;
+    this.version = version;
+    this.options = options2;
+  }
+  /**
+   * Emit a log record. This method should only be used by log appenders.
+   *
+   * @param logRecord
+   */
+  emit(logRecord) {
+    this._getLogger().emit(logRecord);
+  }
+  enabled(options2) {
+    return this._getLogger().enabled(options2);
+  }
+  /**
+   * Try to get a logger from the proxy logger provider.
+   * If the proxy logger provider has no delegate, return a noop logger.
+   */
+  _getLogger() {
+    if (this._delegate) {
+      return this._delegate;
+    }
+    const logger = this._provider._getDelegateLogger(this.name, this.version, this.options);
+    if (!logger) {
+      return NOOP_LOGGER;
+    }
+    this._delegate = logger;
+    return this._delegate;
+  }
+};
+__name(_ProxyLogger, "ProxyLogger");
+let ProxyLogger = _ProxyLogger;
+const _ProxyLoggerProvider = class _ProxyLoggerProvider {
+  getLogger(name, version, options2) {
+    var _a3;
+    return (_a3 = this._getDelegateLogger(name, version, options2)) !== null && _a3 !== void 0 ? _a3 : new ProxyLogger(this, name, version, options2);
+  }
+  /**
+   * Get the delegate logger provider.
+   * Used by tests only.
+   * @internal
+   */
+  _getDelegate() {
+    var _a3;
+    return (_a3 = this._delegate) !== null && _a3 !== void 0 ? _a3 : NOOP_LOGGER_PROVIDER;
+  }
+  /**
+   * Set the delegate logger provider
+   * @internal
+   */
+  _setDelegate(delegate) {
+    this._delegate = delegate;
+  }
+  /**
+   * @internal
+   */
+  _getDelegateLogger(name, version, options2) {
+    var _a3;
+    return (_a3 = this._delegate) === null || _a3 === void 0 ? void 0 : _a3.getLogger(name, version, options2);
+  }
+};
+__name(_ProxyLoggerProvider, "ProxyLoggerProvider");
+let ProxyLoggerProvider = _ProxyLoggerProvider;
+const _LogsAPI = class _LogsAPI {
+  constructor() {
+    this._proxyLoggerProvider = new ProxyLoggerProvider();
+  }
+  static getInstance() {
+    if (!this._instance) {
+      this._instance = new _LogsAPI();
+    }
+    return this._instance;
+  }
+  setGlobalLoggerProvider(provider) {
+    if (_global$1[GLOBAL_LOGS_API_KEY]) {
+      return this.getLoggerProvider();
+    }
+    _global$1[GLOBAL_LOGS_API_KEY] = makeGetter(API_BACKWARDS_COMPATIBILITY_VERSION, provider, NOOP_LOGGER_PROVIDER);
+    this._proxyLoggerProvider._setDelegate(provider);
+    return provider;
+  }
+  /**
+   * Returns the global logger provider.
+   *
+   * @returns LoggerProvider
+   */
+  getLoggerProvider() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = _global$1[GLOBAL_LOGS_API_KEY]) === null || _a3 === void 0 ? void 0 : _a3.call(_global$1, API_BACKWARDS_COMPATIBILITY_VERSION)) !== null && _b2 !== void 0 ? _b2 : this._proxyLoggerProvider;
+  }
+  /**
+   * Returns a Logger, creating one if one with the given name, version,
+   * schemaUrl, and attributes is not already created.
+   *
+   * Getting a Logger may be expensive, especially when `attributes` are
+   * provided. Reuse Logger instances where possible instead of calling
+   * `getLogger()` on hot paths.
+   *
+   * @param name The name of the logger or instrumentation library.
+   * @param version The version of the logger or instrumentation library.
+   * @param options The options of the logger or instrumentation library.
+   * @returns {@link Logger}
+   */
+  getLogger(name, version, options2) {
+    return this.getLoggerProvider().getLogger(name, version, options2);
+  }
+  /** Remove the global logger provider */
+  disable() {
+    delete _global$1[GLOBAL_LOGS_API_KEY];
+    this._proxyLoggerProvider = new ProxyLoggerProvider();
+  }
+};
+__name(_LogsAPI, "LogsAPI");
+let LogsAPI = _LogsAPI;
+const logs = LogsAPI.getInstance();
+function toText(value) {
+  if (typeof value === "string") return value;
+  if (value === null || value === void 0) return "";
+  if (typeof value === "number" || typeof value === "boolean" || typeof value === "bigint") return String(value);
+  if (typeof value === "symbol") return value.toString();
+  return Object.prototype.toString.call(value);
+}
+__name(toText, "toText");
+function identityAttributes() {
+  const userId = getState$2().userId;
+  return userId ? { "user.id": userId } : {};
+}
+__name(identityAttributes, "identityAttributes");
+var SEVERITY_NUMBERS = {
+  DEBUG: SeverityNumber.DEBUG,
+  INFO: SeverityNumber.INFO,
+  WARN: SeverityNumber.WARN,
+  ERROR: SeverityNumber.ERROR
+};
+function emitLog(input) {
+  var _a3;
+  if (((_a3 = getState$2().config) == null ? void 0 : _a3.logsEnabled) === false) return;
+  logs.getLogger(scopeName(input.scope)).emit({
+    severityNumber: SEVERITY_NUMBERS[input.severity],
+    severityText: input.severity,
+    body: input.body,
+    ...input.eventName ? { eventName: input.eventName } : {},
+    ...input.timestamp !== void 0 ? { timestamp: input.timestamp } : {},
+    attributes: {
+      ...input.attributes,
+      ...identityAttributes()
+    }
+  });
+}
+__name(emitLog, "emitLog");
+var MAX_HELD = 50;
+function shouldHold(state) {
+  return !state.signals.live && state.signals.listeners !== null;
+}
+__name(shouldHold, "shouldHold");
+function emitOrHold(emit) {
+  const state = getState$2();
+  if (!shouldHold(state)) {
+    emit();
+    return;
+  }
+  if (state.signals.held.length < MAX_HELD) state.signals.held.push(emit);
+}
+__name(emitOrHold, "emitOrHold");
+function releaseHeldSignals() {
+  const signals = getState$2().signals;
+  signals.live = true;
+  const held = signals.held;
+  signals.held = [];
+  for (const emit of held) try {
+    emit();
+  } catch (error) {
+    getDiagnostics().error("a failure held during startup could not be sent", error);
+  }
+}
+__name(releaseHeldSignals, "releaseHeldSignals");
+function discardHeldSignals() {
+  const signals = getState$2().signals;
+  signals.held = [];
+  signals.live = false;
+}
+__name(discardHeldSignals, "discardHeldSignals");
+var ERROR_SCOPE = "errors";
+function toError(value) {
+  if (value instanceof Error) return value;
+  return new Error(toText(value) || "unknown error");
+}
+__name(toError, "toError");
+function withSpan(span, fn2) {
+  return context.with(trace.setSpan(context.active(), span), fn2);
+}
+__name(withSpan, "withSpan");
+function errorAttributes(error, extra) {
+  return {
+    "error.type": error.name || "Error",
+    ...extra
+  };
+}
+__name(errorAttributes, "errorAttributes");
+function exceptionAttributes(error) {
+  return {
+    "exception.type": error.name || "Error",
+    "exception.message": error.message,
+    ...error.stack ? { "exception.stacktrace": error.stack } : {}
+  };
+}
+__name(exceptionAttributes, "exceptionAttributes");
+function emitErrorSignals(input) {
+  const { scope, spanName, severity, error, message: message2, attributes, timestamp } = input;
+  const span = trace.getTracer(scopeName(scope)).startSpan(spanName, {
+    attributes,
+    startTime: timestamp
+  });
+  span.recordException(error, timestamp);
+  span.setStatus({
+    code: SpanStatusCode.ERROR,
+    message: message2
+  });
+  withSpan(span, () => {
+    emitLog({
+      scope,
+      severity,
+      body: message2,
+      timestamp,
+      attributes: {
+        ...attributes,
+        ...exceptionAttributes(error)
+      }
+    });
+  });
+  span.end(timestamp);
+}
+__name(emitErrorSignals, "emitErrorSignals");
+function reportRenderError(error, options2 = {}) {
+  const timestamp = Date.now();
+  const layer = options2.layer ?? "ui";
+  const normalized = toError(error);
+  const attributes = errorAttributes(normalized, {
+    "error.source": layer,
+    "error.handled": true,
+    ...options2.componentStack !== void 0 ? { "error.componentStack": options2.componentStack } : {},
+    ...options2.attributes
+  });
+  emitOrHold(() => emitErrorSignals({
+    scope: layer,
+    spanName: `${layer}_render_error`,
+    severity: "ERROR",
+    error: normalized,
+    message: normalized.message,
+    attributes,
+    timestamp
+  }));
+}
+__name(reportRenderError, "reportRenderError");
+var NO_TEMPLATES = [];
+function toStatelessPattern(pattern) {
+  if (!pattern.global && !pattern.sticky) return pattern;
+  return new RegExp(pattern.source, pattern.flags.replace(/[gy]/g, ""));
+}
+__name(toStatelessPattern, "toStatelessPattern");
+function templatePath(pathname, templates = NO_TEMPLATES) {
+  const normalized = stripTrailingSlash(pathname);
+  for (const t of templates) if (t.pattern.test(normalized)) return t.template;
+  return normalized.replace(/\/\d+(?=\/|$)/g, "/{id}");
+}
+__name(templatePath, "templatePath");
+function stripTrailingSlash(pathname) {
+  if (pathname.length > 1 && pathname.endsWith("/")) return pathname.slice(0, -1);
+  return pathname;
+}
+__name(stripTrailingSlash, "stripTrailingSlash");
+function extractPathname(url) {
+  const cleaned = url.split(/[?#]/, 1)[0] ?? "";
+  if (cleaned.startsWith("/")) return cleaned;
+  try {
+    return new URL(cleaned).pathname;
+  } catch {
+    return cleaned || "/";
+  }
+}
+__name(extractPathname, "extractPathname");
+var REDACTED_MARKER = "[REDACTED]";
+var DEFAULT_MAX_VALUE_LENGTH = 4096;
+var MIN_MAX_VALUE_LENGTH = 4;
+var DEFAULT_ATTRIBUTE_ALLOWLIST = /* @__PURE__ */ new Set([
+  "http.method",
+  "http.status_code",
+  "http.status_text",
+  "http.scheme",
+  "http.url",
+  "http.target",
+  "http.route",
+  "http.response_content_length",
+  "http.request_content_length",
+  "url.path",
+  "url.query",
+  "error.type",
+  "error.source",
+  "error.filename",
+  "error.lineno",
+  "error.colno",
+  "error.componentStack",
+  "error.kind",
+  "error.handled",
+  "exception.type",
+  "exception.message",
+  "exception.stacktrace",
+  "event.name",
+  "event.category",
+  "event.duration",
+  "event.outcome",
+  "user.id",
+  "session.id"
+]);
+var DEFAULT_HIGH_RISK_QUERY_KEYS = /* @__PURE__ */ new Set([
+  "email",
+  "token",
+  "password",
+  "api_key",
+  "apikey",
+  "authorization",
+  "access_token",
+  "refresh_token",
+  "ssn",
+  "secret",
+  "name",
+  "first_name",
+  "last_name",
+  "phone",
+  "search",
+  "query"
+]);
+var DEFAULT_ALLOWED_QUERY_KEYS = /* @__PURE__ */ new Set([
+  "page",
+  "pagenumber",
+  "limit",
+  "pagesize",
+  "offset",
+  "sort",
+  "sortby",
+  "order",
+  "sortorder"
+]);
+function union(base, extra) {
+  if (!extra || extra.length === 0) return base;
+  return /* @__PURE__ */ new Set([...base, ...extra]);
+}
+__name(union, "union");
+function lowercased(keys) {
+  return keys == null ? void 0 : keys.map((key) => key.toLowerCase());
+}
+__name(lowercased, "lowercased");
+function resolveMaxValueLength(value) {
+  if (value === void 0) return DEFAULT_MAX_VALUE_LENGTH;
+  if (!Number.isInteger(value) || value < MIN_MAX_VALUE_LENGTH) throw new Error(`setupObservability: "sanitizer.maxValueLength" must be a whole number of at least ${MIN_MAX_VALUE_LENGTH}, received ${String(value)}`);
+  return value;
+}
+__name(resolveMaxValueLength, "resolveMaxValueLength");
+function buildSanitizerConfig(input = {}) {
+  const { overrides, urlTemplates = [], onAttributeDropped } = input;
+  return {
+    attributeAllowlist: union(DEFAULT_ATTRIBUTE_ALLOWLIST, overrides == null ? void 0 : overrides.allowAttributes),
+    highRiskQueryKeys: union(DEFAULT_HIGH_RISK_QUERY_KEYS, lowercased(overrides == null ? void 0 : overrides.highRiskQueryKeys)),
+    allowedQueryKeys: union(DEFAULT_ALLOWED_QUERY_KEYS, lowercased(overrides == null ? void 0 : overrides.allowQueryKeys)),
+    hostnameReplacements: ((overrides == null ? void 0 : overrides.hostnameReplacements) ?? []).map((replacement) => ({
+      ...replacement,
+      pattern: toStatelessPattern(replacement.pattern)
+    })),
+    urlTemplates: urlTemplates.map((template) => ({
+      ...template,
+      pattern: toStatelessPattern(template.pattern)
+    })),
+    redactedMarker: REDACTED_MARKER,
+    maxValueLength: resolveMaxValueLength(overrides == null ? void 0 : overrides.maxValueLength),
+    ...(overrides == null ? void 0 : overrides.dropSpan) ? { dropSpan: overrides.dropSpan } : {},
+    ...(overrides == null ? void 0 : overrides.dropLog) ? { dropLog: overrides.dropLog } : {},
+    ...onAttributeDropped ? { onAttributeDropped } : {}
+  };
+}
+__name(buildSanitizerConfig, "buildSanitizerConfig");
+var DEFAULT_SANITIZER_CONFIG = buildSanitizerConfig();
+function releaseOtelGlobals() {
+  trace.disable();
+  context.disable();
+  propagation.disable();
+  logs.disable();
+}
+__name(releaseOtelGlobals, "releaseOtelGlobals");
+function installErrorCapture() {
+  const state = getState$2();
+  if (state.signals.listeners || typeof window === "undefined") return;
+  const onError = /* @__PURE__ */ __name((event) => {
+    const error = event.error instanceof Error ? event.error : toError(event.message);
+    record(error, event.message || error.message, "window.onerror", {
+      ...event.filename ? { "error.filename": event.filename } : {},
+      ...event.lineno ? { "error.lineno": event.lineno } : {},
+      ...event.colno ? { "error.colno": event.colno } : {}
+    });
+  }, "onError");
+  const onRejection = /* @__PURE__ */ __name((event) => {
+    const error = toError(event.reason ?? "unhandled rejection");
+    record(error, error.message, "unhandledrejection", {});
+  }, "onRejection");
+  window.addEventListener("error", onError);
+  window.addEventListener("unhandledrejection", onRejection);
+  state.signals.listeners = {
+    error: onError,
+    rejection: onRejection
+  };
+}
+__name(installErrorCapture, "installErrorCapture");
+function activateErrorCapture() {
+  releaseHeldSignals();
+}
+__name(activateErrorCapture, "activateErrorCapture");
+function uninstallErrorCapture() {
+  const state = getState$2();
+  const listeners = state.signals.listeners;
+  if (listeners && typeof window !== "undefined") {
+    window.removeEventListener("error", listeners.error);
+    window.removeEventListener("unhandledrejection", listeners.rejection);
+  }
+  state.signals.listeners = null;
+  discardHeldSignals();
+}
+__name(uninstallErrorCapture, "uninstallErrorCapture");
+function record(error, message2, source, extra) {
+  const timestamp = Date.now();
+  const attributes = errorAttributes(error, {
+    "error.source": source,
+    "error.handled": false,
+    ...extra
+  });
+  emitOrHold(() => emitErrorSignals({
+    scope: ERROR_SCOPE,
+    spanName: error.name || "uncaught_error",
+    severity: "ERROR",
+    error,
+    message: message2,
+    attributes,
+    timestamp
+  }));
+}
+__name(record, "record");
+var REGEX_META$1 = /[.*+?^${}()|[\]\\]/g;
+function escapeForRegExp$1(value) {
+  return value.replace(REGEX_META$1, "\\$&");
+}
+__name(escapeForRegExp$1, "escapeForRegExp$1");
+function originOf(url) {
+  if (!url) return void 0;
+  try {
+    return new URL(url).origin;
+  } catch {
+    return;
+  }
+}
+__name(originOf, "originOf");
+function originsSource(origins) {
+  return `(?:${origins.map(escapeForRegExp$1).join("|")})(?:[/?#]|$)`;
+}
+__name(originsSource, "originsSource");
+function buildPropagateUrls(apiUrl) {
+  const origin2 = originOf(apiUrl);
+  if (!origin2) return [];
+  return [new RegExp(`^${originsSource([origin2])}`)];
+}
+__name(buildPropagateUrls, "buildPropagateUrls");
+function buildIgnoreUrls(origins) {
+  if (origins.length === 0) return [];
+  return [new RegExp(`^(?!${originsSource(origins)})`)];
+}
+__name(buildIgnoreUrls, "buildIgnoreUrls");
+var DEFAULT_STORAGE_KEY = "kore.observability.sessionId";
+function generateId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") return crypto.randomUUID();
+  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+__name(generateId, "generateId");
+function resolveSessionId(storageKey = DEFAULT_STORAGE_KEY) {
+  if (typeof sessionStorage === "undefined") return generateId();
+  try {
+    const existing = sessionStorage.getItem(storageKey);
+    if (existing) return existing;
+    const created = generateId();
+    sessionStorage.setItem(storageKey, created);
+    return created;
+  } catch {
+    return generateId();
+  }
+}
+__name(resolveSessionId, "resolveSessionId");
+var KORE_ENVIRONMENTS = [
+  "local",
+  "dev",
+  "sit",
+  "stage",
+  "prod"
+];
+function requireNonEmpty(value, field) {
+  if (typeof value !== "string" || value.trim() === "") throw new Error(`setupObservability: "${field}" is required and must be a non-empty string`);
+  return value.trim();
+}
+__name(requireNonEmpty, "requireNonEmpty");
+function requireEnvironment(value) {
+  const trimmed = requireNonEmpty(value, "environment");
+  if (!KORE_ENVIRONMENTS.includes(trimmed)) throw new Error(`setupObservability: "environment" must be one of ${KORE_ENVIRONMENTS.join(", ")}, got "${trimmed}"`);
+  return trimmed;
+}
+__name(requireEnvironment, "requireEnvironment");
+function resolveConfig$1(config) {
+  var _a3, _b2, _c2;
+  const serviceName = requireNonEmpty(config.serviceName, "serviceName");
+  const environment = requireEnvironment(config.environment);
+  const serviceVersion = requireNonEmpty(config.serviceVersion, "serviceVersion");
+  const diagnostics = config.diagnostics ?? consoleDiagnostics;
+  const isDev = config.isDev ?? false;
+  const sanitizerConfig = buildSanitizerConfig({
+    ...config.sanitizer ? { overrides: config.sanitizer } : {},
+    urlTemplates: config.urlTemplates ?? [],
+    ...isDev ? { onAttributeDropped: makeDropReporter(diagnostics) } : {}
+  });
+  const collectorUrl = (config.collectorUrl ?? "").trim().replace(/\/$/, "");
+  const sessionEnabled = collectorUrl !== "" && (((_a3 = config.session) == null ? void 0 : _a3.enabled) ?? true);
+  return {
+    serviceName,
+    serviceVersion,
+    environment,
+    collectorUrl,
+    propagateTraceHeaderCorsUrls: buildPropagateUrls(config.apiUrl),
+    ignoreUrls: buildIgnoreUrls(resolveTraceOrigins(config.traceOrigins, diagnostics)),
+    sessionId: sessionEnabled ? resolveSessionId(((_b2 = config.session) == null ? void 0 : _b2.storageKey) ?? "kore.observability.sessionId") : void 0,
+    logsEnabled: ((_c2 = config.logs) == null ? void 0 : _c2.enabled) ?? true,
+    isDev,
+    diagnostics,
+    sanitizerConfig,
+    contextManager: config.contextManager
+  };
+}
+__name(resolveConfig$1, "resolveConfig$1");
+function resolveTraceOrigins(values, diagnostics) {
+  if (!values || values.length === 0) return [];
+  const origins = [];
+  for (const value of values) {
+    const origin2 = originOf(value);
+    if (origin2) origins.push(origin2);
+    else diagnostics.warn(`traceOrigins: "${value}" is not a URL and was skipped`);
+  }
+  if (origins.length === 0) throw new Error('setupObservability: "traceOrigins" was given but held no usable URL');
+  return origins;
+}
+__name(resolveTraceOrigins, "resolveTraceOrigins");
+function makeDropReporter(diagnostics) {
+  const reported = /* @__PURE__ */ new Set();
+  return (key) => {
+    if (reported.has(key)) return;
+    reported.add(key);
+    diagnostics.warn(`attribute "${key}" was dropped by the PII filter. Add it to sanitizer.allowAttributes if it is safe to send.`);
+  };
+}
+__name(makeDropReporter, "makeDropReporter");
+var BUSINESS_SCOPE = "business";
+var EVENT_DURATION_ATTRIBUTE = "event.duration";
+var EVENT_OUTCOME_ATTRIBUTE = "event.outcome";
+var NANOSECONDS_PER_MILLISECOND = 1e6;
+function elapsedNanoseconds(startedAt) {
+  return Math.round((performance.now() - startedAt) * NANOSECONDS_PER_MILLISECOND);
+}
+__name(elapsedNanoseconds, "elapsedNanoseconds");
+function startBusinessSpan(name, attributes) {
+  return trace.getTracer(scopeName(BUSINESS_SCOPE)).startSpan(name, attributes ? { attributes } : void 0);
+}
+__name(startBusinessSpan, "startBusinessSpan");
+function emitBusinessLog(span, name, severity, body, attributes) {
+  withSpan(span, () => {
+    emitLog({
+      scope: BUSINESS_SCOPE,
+      severity,
+      body,
+      eventName: name,
+      attributes: {
+        ...attributes,
+        "event.name": name
+      }
+    });
+  });
+}
+__name(emitBusinessLog, "emitBusinessLog");
+function recordBusinessEvent(name, attributes) {
+  const span = startBusinessSpan(name, attributes);
+  emitBusinessLog(span, name, "INFO", name, attributes);
+  span.end();
+}
+__name(recordBusinessEvent, "recordBusinessEvent");
+async function traceBusinessAction(name, attributes, fn2) {
+  const span = startBusinessSpan(name, attributes);
+  const startedAt = performance.now();
+  try {
+    const result = await context.with(trace.setSpan(context.active(), span), fn2);
+    emitBusinessLog(span, name, "INFO", name, {
+      ...attributes,
+      [EVENT_DURATION_ATTRIBUTE]: elapsedNanoseconds(startedAt),
+      [EVENT_OUTCOME_ATTRIBUTE]: "success"
+    });
+    return result;
+  } catch (err) {
+    const duration = elapsedNanoseconds(startedAt);
+    const error = toError(err);
+    span.recordException(error);
+    span.setStatus({
+      code: SpanStatusCode.ERROR,
+      message: error.message
+    });
+    emitBusinessLog(span, name, "ERROR", error.message, {
+      ...attributes,
+      ...errorAttributes(error, { "error.source": "business_action" }),
+      ...exceptionAttributes(error),
+      [EVENT_DURATION_ATTRIBUTE]: duration,
+      [EVENT_OUTCOME_ATTRIBUTE]: "failure"
+    });
+    throw err;
+  } finally {
+    span.end();
+  }
+}
+__name(traceBusinessAction, "traceBusinessAction");
+async function setupObservability(config) {
+  const state = getState$2();
+  if (state.active || state.pendingInit) {
+    warnOnIdentityChange(state.config, config);
+    state.refCount += 1;
+    return state.active ? void 0 : state.pendingInit ?? void 0;
+  }
+  let resolved;
+  try {
+    resolved = resolveConfig$1(config);
+  } catch (error) {
+    uninstallErrorCapture();
+    throw error;
+  }
+  state.refCount += 1;
+  state.config = resolved;
+  if (!resolved.collectorUrl) {
+    if (!state.disabledWarned) {
+      state.disabledWarned = true;
+      resolved.diagnostics.warn("disabled: no collectorUrl was supplied, so nothing will be sent. Set the collector URL in this environment to enable it.");
+    }
+    uninstallErrorCapture();
+    state.pendingInit = Promise.resolve();
+    return state.pendingInit;
+  }
+  installErrorCapture();
+  state.pendingInit = (async () => {
+    var _a3, _b2;
+    try {
+      const { initializeObservability } = await __vitePreload(async () => {
+        const { initializeObservability: initializeObservability2 } = await import("./setup-C3t6B_iH.js");
+        return { initializeObservability: initializeObservability2 };
+      }, true ? [] : void 0, import.meta.url);
+      state.active = initializeObservability(resolved);
+      if (resolved.isDev) (_b2 = (_a3 = resolved.diagnostics).info) == null ? void 0 : _b2.call(_a3, `started as "${resolved.serviceName}" in "${resolved.environment}", sending to ${resolved.collectorUrl}`);
+    } catch (error) {
+      resolved.diagnostics.error("setup failed; telemetry is off for this session", error);
+      state.pendingInit = null;
+    }
+  })();
+  return state.pendingInit;
+}
+__name(setupObservability, "setupObservability");
+function warnOnIdentityChange(running, incoming) {
+  if (!running || running.serviceName === incoming.serviceName) return;
+  (incoming.diagnostics ?? consoleDiagnostics).warn(`already running as "${running.serviceName}"; the call from "${incoming.serviceName}" joined it instead of starting a second one. Telemetry from both will be reported as "${running.serviceName}".`);
+}
+__name(warnOnIdentityChange, "warnOnIdentityChange");
+async function shutdownObservability() {
+  var _a3;
+  const state = getState$2();
+  if (state.refCount > 0) state.refCount -= 1;
+  if (state.refCount > 0) return;
+  if (state.pendingInit) {
+    try {
+      await state.pendingInit;
+    } catch {
+    }
+    if (state.refCount > 0) return;
+  }
+  const active = state.active;
+  state.active = null;
+  state.pendingInit = null;
+  uninstallErrorCapture();
+  try {
+    await (active == null ? void 0 : active.teardown());
+  } catch (error) {
+    (_a3 = state.config) == null ? void 0 : _a3.diagnostics.error("teardown failed", error);
+  } finally {
+    if (state.refCount === 0 && !state.active) {
+      if (active) releaseOtelGlobals();
+      state.config = null;
+      state.userId = null;
+    }
+  }
+}
+__name(shutdownObservability, "shutdownObservability");
 var __defProp$w = Object.defineProperty;
 var __name$w = /* @__PURE__ */ __name((target, value) => __defProp$w(target, "name", { value, configurable: true }), "__name$w");
 const React$19 = await importShared("react");
@@ -2830,15 +4552,15 @@ function createContext2(rootComponentName, defaultContext) {
   const Context = React$15.createContext(defaultContext);
   Context.displayName = rootComponentName + "Context";
   const Provider2 = /* @__PURE__ */ __name$s((props) => {
-    const { children, ...context } = props;
-    const value = React$15.useMemo(() => context, Object.values(context));
+    const { children, ...context2 } = props;
+    const value = React$15.useMemo(() => context2, Object.values(context2));
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Context.Provider, { value, children });
   }, "Provider");
   Provider2.displayName = rootComponentName + "Provider";
   function useContext2(consumerName, options2 = {}) {
     const { optional = false } = options2;
-    const context = React$15.useContext(Context);
-    if (context) return context;
+    const context2 = React$15.useContext(Context);
+    if (context2) return context2;
     if (defaultContext !== void 0) return defaultContext;
     if (optional) return void 0;
     throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
@@ -2850,27 +4572,27 @@ function createContext2(rootComponentName, defaultContext) {
 __name(createContext2, "createContext2");
 __name$s(createContext2, "createContext");
 // @__NO_SIDE_EFFECTS__
-function createContextScope(scopeName, createContextScopeDeps = []) {
+function createContextScope(scopeName2, createContextScopeDeps = []) {
   let defaultContexts = [];
   function createContext3(rootComponentName, defaultContext) {
-    const BaseContext = React$15.createContext(defaultContext);
-    BaseContext.displayName = rootComponentName + "Context";
+    const BaseContext2 = React$15.createContext(defaultContext);
+    BaseContext2.displayName = rootComponentName + "Context";
     const index2 = defaultContexts.length;
     defaultContexts = [...defaultContexts, defaultContext];
     const Provider2 = /* @__PURE__ */ __name$s((props) => {
       var _a3;
-      const { scope, children, ...context } = props;
-      const Context = ((_a3 = scope == null ? void 0 : scope[scopeName]) == null ? void 0 : _a3[index2]) || BaseContext;
-      const value = React$15.useMemo(() => context, Object.values(context));
+      const { scope, children, ...context2 } = props;
+      const Context = ((_a3 = scope == null ? void 0 : scope[scopeName2]) == null ? void 0 : _a3[index2]) || BaseContext2;
+      const value = React$15.useMemo(() => context2, Object.values(context2));
       return /* @__PURE__ */ jsxRuntimeExports.jsx(Context.Provider, { value, children });
     }, "Provider");
     Provider2.displayName = rootComponentName + "Provider";
     function useContext2(consumerName, scope, options2 = {}) {
       var _a3;
       const { optional = false } = options2;
-      const Context = ((_a3 = scope == null ? void 0 : scope[scopeName]) == null ? void 0 : _a3[index2]) || BaseContext;
-      const context = React$15.useContext(Context);
-      if (context) return context;
+      const Context = ((_a3 = scope == null ? void 0 : scope[scopeName2]) == null ? void 0 : _a3[index2]) || BaseContext2;
+      const context2 = React$15.useContext(Context);
+      if (context2) return context2;
       if (defaultContext !== void 0) return defaultContext;
       if (optional) return void 0;
       throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
@@ -2886,14 +4608,14 @@ function createContextScope(scopeName, createContextScopeDeps = []) {
       return React$15.createContext(defaultContext);
     });
     return /* @__PURE__ */ __name$s(/* @__PURE__ */ __name(function useScope(scope) {
-      const contexts = (scope == null ? void 0 : scope[scopeName]) || scopeContexts;
+      const contexts = (scope == null ? void 0 : scope[scopeName2]) || scopeContexts;
       return React$15.useMemo(
-        () => ({ [`__scope${scopeName}`]: { ...scope, [scopeName]: contexts } }),
+        () => ({ [`__scope${scopeName2}`]: { ...scope, [scopeName2]: contexts } }),
         [scope, contexts]
       );
     }, "useScope"), "useScope");
   }, "createScope");
-  createScope2.scopeName = scopeName;
+  createScope2.scopeName = scopeName2;
   return [createContext3, composeContextScopes(createScope2, ...createContextScopeDeps)];
 }
 __name(createContextScope, "createContextScope");
@@ -2907,9 +4629,9 @@ function composeContextScopes(...scopes) {
       scopeName: createScope22.scopeName
     }));
     return /* @__PURE__ */ __name$s(/* @__PURE__ */ __name(function useComposedScopes(overrideScopes) {
-      const nextScopes = scopeHooks.reduce((nextScopes2, { useScope, scopeName }) => {
+      const nextScopes = scopeHooks.reduce((nextScopes2, { useScope, scopeName: scopeName2 }) => {
         const scopeProps = useScope(overrideScopes);
-        const currentScope2 = scopeProps[`__scope${scopeName}`];
+        const currentScope2 = scopeProps[`__scope${scopeName2}`];
         return { ...nextScopes2, ...currentScope2 };
       }, {});
       return React$15.useMemo(() => ({ [`__scope${baseScope.scopeName}`]: nextScopes }), [nextScopes]);
@@ -3543,18 +5265,18 @@ var DismissableLayer = /* @__PURE__ */ React$Z.forwardRef(
       onDismiss,
       ...layerProps
     } = props;
-    const context = React$Z.useContext(DismissableLayerContext);
+    const context2 = React$Z.useContext(DismissableLayerContext);
     const [node, setNode] = React$Z.useState(null);
     const ownerDocument = (node == null ? void 0 : node.ownerDocument) ?? (globalThis == null ? void 0 : globalThis.document);
     const [, force] = React$Z.useState({});
     const composedRefs = useComposedRefs(forwardedRef, setNode);
-    const layers = Array.from(context.layers);
+    const layers = Array.from(context2.layers);
     const [highestLayerWithOutsidePointerEventsDisabled] = [
-      ...context.layersWithOutsidePointerEventsDisabled
+      ...context2.layersWithOutsidePointerEventsDisabled
     ].slice(-1);
     const highestLayerWithOutsidePointerEventsDisabledIndex = highestLayerWithOutsidePointerEventsDisabled ? layers.indexOf(highestLayerWithOutsidePointerEventsDisabled) : -1;
     const index2 = node ? layers.indexOf(node) : -1;
-    const isBodyPointerEventsDisabled = context.layersWithOutsidePointerEventsDisabled.size > 0;
+    const isBodyPointerEventsDisabled = context2.layersWithOutsidePointerEventsDisabled.size > 0;
     const isPointerEventsEnabled = index2 >= highestLayerWithOutsidePointerEventsDisabledIndex;
     const isDeferredPointerDownOutsideRef = React$Z.useRef(false);
     const pointerDownOutside = usePointerDownOutside(
@@ -3567,18 +5289,18 @@ var DismissableLayer = /* @__PURE__ */ React$Z.forwardRef(
         ownerDocument,
         deferPointerDownOutside,
         isDeferredPointerDownOutsideRef,
-        dismissableSurfaces: context.dismissableSurfaces,
+        dismissableSurfaces: context2.dismissableSurfaces,
         shouldHandlePointerDownOutside: React$Z.useCallback(
           (target) => {
             if (!(target instanceof Node)) {
               return false;
             }
-            const isPointerDownOnBranch = [...context.branches].some(
+            const isPointerDownOnBranch = [...context2.branches].some(
               (branch) => branch.contains(target)
             );
             return isPointerEventsEnabled && !isPointerDownOnBranch;
           },
-          [context.branches, isPointerEventsEnabled]
+          [context2.branches, isPointerEventsEnabled]
         )
       }
     );
@@ -3587,7 +5309,7 @@ var DismissableLayer = /* @__PURE__ */ React$Z.forwardRef(
         return;
       }
       const target = event.target;
-      const isFocusInBranch = [...context.branches].some((branch) => branch.contains(target));
+      const isFocusInBranch = [...context2.branches].some((branch) => branch.contains(target));
       if (isFocusInBranch) return;
       onFocusOutside == null ? void 0 : onFocusOutside(event);
       onInteractOutside == null ? void 0 : onInteractOutside(event);
@@ -3614,31 +5336,31 @@ var DismissableLayer = /* @__PURE__ */ React$Z.forwardRef(
     React$Z.useEffect(() => {
       if (!node) return;
       if (disableOutsidePointerEvents) {
-        if (context.layersWithOutsidePointerEventsDisabled.size === 0) {
+        if (context2.layersWithOutsidePointerEventsDisabled.size === 0) {
           originalBodyPointerEvents = ownerDocument.body.style.pointerEvents;
           ownerDocument.body.style.pointerEvents = "none";
         }
-        context.layersWithOutsidePointerEventsDisabled.add(node);
+        context2.layersWithOutsidePointerEventsDisabled.add(node);
       }
-      context.layers.add(node);
+      context2.layers.add(node);
       dispatchUpdate();
       return () => {
         if (disableOutsidePointerEvents) {
-          context.layersWithOutsidePointerEventsDisabled.delete(node);
-          if (context.layersWithOutsidePointerEventsDisabled.size === 0) {
+          context2.layersWithOutsidePointerEventsDisabled.delete(node);
+          if (context2.layersWithOutsidePointerEventsDisabled.size === 0) {
             ownerDocument.body.style.pointerEvents = originalBodyPointerEvents;
           }
         }
       };
-    }, [node, ownerDocument, disableOutsidePointerEvents, context]);
+    }, [node, ownerDocument, disableOutsidePointerEvents, context2]);
     React$Z.useEffect(() => {
       return () => {
         if (!node) return;
-        context.layers.delete(node);
-        context.layersWithOutsidePointerEventsDisabled.delete(node);
+        context2.layers.delete(node);
+        context2.layersWithOutsidePointerEventsDisabled.delete(node);
         dispatchUpdate();
       };
-    }, [node, context]);
+    }, [node, context2]);
     React$Z.useEffect(() => {
       const handleUpdate = /* @__PURE__ */ __name$k(() => force({}), "handleUpdate");
       document.addEventListener(CONTEXT_UPDATE, handleUpdate);
@@ -3664,17 +5386,17 @@ var DismissableLayer = /* @__PURE__ */ React$Z.forwardRef(
   }, "DismissableLayer2"), "DismissableLayer")
 );
 function useDismissableLayerSurface() {
-  const context = React$Z.useContext(DismissableLayerContext);
+  const context2 = React$Z.useContext(DismissableLayerContext);
   const [node, setNode] = React$Z.useState(null);
   React$Z.useEffect(() => {
     if (!node) {
       return;
     }
-    context.dismissableSurfaces.add(node);
+    context2.dismissableSurfaces.add(node);
     return () => {
-      context.dismissableSurfaces.delete(node);
+      context2.dismissableSurfaces.delete(node);
     };
-  }, [node, context.dismissableSurfaces]);
+  }, [node, context2.dismissableSurfaces]);
   return setNode;
 }
 __name(useDismissableLayerSurface, "useDismissableLayerSurface");
@@ -4956,16 +6678,16 @@ var [PortalProvider$4, usePortalContext$4] = createDialogContext(PORTAL_NAME$4, 
 });
 var DialogPortal = /* @__PURE__ */ __name$g((props) => {
   const { __scopeDialog, forceMount, children, container } = props;
-  const context = useDialogContext(PORTAL_NAME$4, __scopeDialog);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$4, { scope: __scopeDialog, forceMount, children: React$O.Children.map(children, (child) => /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children: child }) })) });
+  const context2 = useDialogContext(PORTAL_NAME$4, __scopeDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$4, { scope: __scopeDialog, forceMount, children: React$O.Children.map(children, (child) => /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children: child }) })) });
 }, "DialogPortal");
 var OVERLAY_NAME = "DialogOverlay";
 var DialogOverlay = /* @__PURE__ */ React$O.forwardRef(
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogOverlay2(props, forwardedRef) {
     const portalContext = usePortalContext$4(OVERLAY_NAME, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...overlayProps } = props;
-    const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
-    return context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
+    const context2 = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
+    return context2.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
   }, "DialogOverlay2"), "DialogOverlay")
 );
 var Slot$3 = /* @__PURE__ */ createSlot("DialogOverlay.RemoveScroll");
@@ -4973,16 +6695,16 @@ var DialogOverlayImpl = /* @__PURE__ */ React$O.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogOverlayImpl2(props, forwardedRef) {
     const { __scopeDialog, ...overlayProps } = props;
-    const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
+    const context2 = useDialogContext(OVERLAY_NAME, __scopeDialog);
     const registerDismissableSurface = useDismissableLayerSurface();
     const composedRefs = useComposedRefs(forwardedRef, registerDismissableSurface);
     return (
       // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
       // ie. when `Overlay` and `Content` are siblings
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ReactRemoveScroll, { as: Slot$3, allowPinchZoom: true, shards: [context.contentRef], children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ReactRemoveScroll, { as: Slot$3, allowPinchZoom: true, shards: [context2.contentRef], children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Primitive.div,
         {
-          "data-state": getState$1(context.open),
+          "data-state": getState$1(context2.open),
           ...overlayProps,
           ref: composedRefs,
           style: { pointerEvents: "auto", ...overlayProps.style }
@@ -4996,16 +6718,16 @@ var DialogContent = /* @__PURE__ */ React$O.forwardRef(
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogContent2(props, forwardedRef) {
     const portalContext = usePortalContext$4(CONTENT_NAME$6, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context = useDialogContext(CONTENT_NAME$6, props.__scopeDialog);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
+    const context2 = useDialogContext(CONTENT_NAME$6, props.__scopeDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: context2.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
   }, "DialogContent2"), "DialogContent")
 );
 var DialogContentModal = /* @__PURE__ */ React$O.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogContentModal2(props, forwardedRef) {
-    const context = useDialogContext(CONTENT_NAME$6, props.__scopeDialog);
+    const context2 = useDialogContext(CONTENT_NAME$6, props.__scopeDialog);
     const contentRef = React$O.useRef(null);
-    const composedRefs = useComposedRefs(forwardedRef, context.contentRef, contentRef);
+    const composedRefs = useComposedRefs(forwardedRef, context2.contentRef, contentRef);
     React$O.useEffect(() => {
       const content = contentRef.current;
       if (content) return hideOthers(content);
@@ -5015,12 +6737,12 @@ var DialogContentModal = /* @__PURE__ */ React$O.forwardRef(
       {
         ...props,
         ref: composedRefs,
-        trapFocus: context.open,
-        disableOutsidePointerEvents: context.open,
+        trapFocus: context2.open,
+        disableOutsidePointerEvents: context2.open,
         onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
           var _a3;
           event.preventDefault();
-          (_a3 = context.triggerRef.current) == null ? void 0 : _a3.focus();
+          (_a3 = context2.triggerRef.current) == null ? void 0 : _a3.focus();
         }),
         onPointerDownOutside: composeEventHandlers(props.onPointerDownOutside, (event) => {
           const originalEvent = event.detail.originalEvent;
@@ -5039,7 +6761,7 @@ var DialogContentModal = /* @__PURE__ */ React$O.forwardRef(
 var DialogContentNonModal = /* @__PURE__ */ React$O.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogContentNonModal2(props, forwardedRef) {
-    const context = useDialogContext(CONTENT_NAME$6, props.__scopeDialog);
+    const context2 = useDialogContext(CONTENT_NAME$6, props.__scopeDialog);
     const hasInteractedOutsideRef = React$O.useRef(false);
     const hasPointerDownOutsideRef = React$O.useRef(false);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -5053,7 +6775,7 @@ var DialogContentNonModal = /* @__PURE__ */ React$O.forwardRef(
           var _a3, _b2;
           (_a3 = props.onCloseAutoFocus) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented) {
-            if (!hasInteractedOutsideRef.current) (_b2 = context.triggerRef.current) == null ? void 0 : _b2.focus();
+            if (!hasInteractedOutsideRef.current) (_b2 = context2.triggerRef.current) == null ? void 0 : _b2.focus();
             event.preventDefault();
           }
           hasInteractedOutsideRef.current = false;
@@ -5069,7 +6791,7 @@ var DialogContentNonModal = /* @__PURE__ */ React$O.forwardRef(
             }
           }
           const target = event.target;
-          const targetIsTrigger = (_b2 = context.triggerRef.current) == null ? void 0 : _b2.contains(target);
+          const targetIsTrigger = (_b2 = context2.triggerRef.current) == null ? void 0 : _b2.contains(target);
           if (targetIsTrigger) event.preventDefault();
           if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) {
             event.preventDefault();
@@ -5083,7 +6805,7 @@ var DialogContentImpl = /* @__PURE__ */ React$O.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogContentImpl2(props, forwardedRef) {
     const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
-    const context = useDialogContext(CONTENT_NAME$6, __scopeDialog);
+    const context2 = useDialogContext(CONTENT_NAME$6, __scopeDialog);
     useFocusGuards();
     return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       FocusScope,
@@ -5097,14 +6819,14 @@ var DialogContentImpl = /* @__PURE__ */ React$O.forwardRef(
           DismissableLayer,
           {
             role: "dialog",
-            id: context.contentId,
-            "aria-describedby": context.descriptionPresent ? context.descriptionId : void 0,
-            "aria-labelledby": context.titlePresent ? context.titleId : void 0,
-            "data-state": getState$1(context.open),
+            id: context2.contentId,
+            "aria-describedby": context2.descriptionPresent ? context2.descriptionId : void 0,
+            "aria-labelledby": context2.titlePresent ? context2.titleId : void 0,
+            "data-state": getState$1(context2.open),
             ...contentProps,
             ref: forwardedRef,
             deferPointerDownOutside: true,
-            onDismiss: /* @__PURE__ */ __name(() => context.onOpenChange(false), "onDismiss")
+            onDismiss: /* @__PURE__ */ __name(() => context2.onOpenChange(false), "onDismiss")
           }
         )
       }
@@ -5115,13 +6837,13 @@ var TITLE_NAME = "DialogTitle";
 var DialogTitle = /* @__PURE__ */ React$O.forwardRef(
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogTitle2(props, forwardedRef) {
     const { __scopeDialog, ...titleProps } = props;
-    const context = useDialogContext(TITLE_NAME, __scopeDialog);
-    const { setTitleCount } = context;
+    const context2 = useDialogContext(TITLE_NAME, __scopeDialog);
+    const { setTitleCount } = context2;
     useLayoutEffect2(() => {
       setTitleCount((count2) => count2 + 1);
       return () => setTitleCount((count2) => count2 - 1);
     }, [setTitleCount]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.h2, { id: context2.titleId, ...titleProps, ref: forwardedRef });
   }, "DialogTitle2"), "DialogTitle")
 );
 var DESCRIPTION_NAME = "DialogDescription";
@@ -5129,27 +6851,27 @@ var DialogDescription = /* @__PURE__ */ React$O.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogDescription2(props, forwardedRef) {
     const { __scopeDialog, ...descriptionProps } = props;
-    const context = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
-    const { setDescriptionCount } = context;
+    const context2 = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
+    const { setDescriptionCount } = context2;
     useLayoutEffect2(() => {
       setDescriptionCount((count2) => count2 + 1);
       return () => setDescriptionCount((count2) => count2 - 1);
     }, [setDescriptionCount]);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.p, { id: context2.descriptionId, ...descriptionProps, ref: forwardedRef });
   }, "DialogDescription2"), "DialogDescription")
 );
 var CLOSE_NAME = "DialogClose";
 var DialogClose = /* @__PURE__ */ React$O.forwardRef(
   /* @__PURE__ */ __name$g(/* @__PURE__ */ __name(function DialogClose2(props, forwardedRef) {
     const { __scopeDialog, ...closeProps } = props;
-    const context = useDialogContext(CLOSE_NAME, __scopeDialog);
+    const context2 = useDialogContext(CLOSE_NAME, __scopeDialog);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.button,
       {
         type: "button",
         ...closeProps,
         ref: forwardedRef,
-        onClick: composeEventHandlers(props.onClick, () => context.onOpenChange(false))
+        onClick: composeEventHandlers(props.onClick, () => context2.onOpenChange(false))
       }
     );
   }, "DialogClose2"), "DialogClose")
@@ -5182,8 +6904,8 @@ function createCollection(name) {
   const CollectionSlot = React$N.forwardRef(
     (props, forwardedRef) => {
       const { scope, children } = props;
-      const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
-      const composedRefs = useComposedRefs(forwardedRef, context.collectionRef);
+      const context2 = useCollectionContext(COLLECTION_SLOT_NAME, scope);
+      const composedRefs = useComposedRefs(forwardedRef, context2.collectionRef);
       return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionSlotImpl, { ref: composedRefs, children });
     }
   );
@@ -5196,27 +6918,27 @@ function createCollection(name) {
       const { scope, children, ...itemData } = props;
       const ref = React$N.useRef(null);
       const composedRefs = useComposedRefs(forwardedRef, ref);
-      const context = useCollectionContext(ITEM_SLOT_NAME, scope);
+      const context2 = useCollectionContext(ITEM_SLOT_NAME, scope);
       React$N.useEffect(() => {
-        context.itemMap.set(ref, { ref, ...itemData });
-        return () => void context.itemMap.delete(ref);
+        context2.itemMap.set(ref, { ref, ...itemData });
+        return () => void context2.itemMap.delete(ref);
       });
       return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionItemSlotImpl, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
     }
   );
   CollectionItemSlot.displayName = ITEM_SLOT_NAME;
   function useCollection2(scope) {
-    const context = useCollectionContext(name + "CollectionConsumer", scope);
+    const context2 = useCollectionContext(name + "CollectionConsumer", scope);
     const getItems = React$N.useCallback(() => {
-      const collectionNode = context.collectionRef.current;
+      const collectionNode = context2.collectionRef.current;
       if (!collectionNode) return [];
       const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
-      const items = Array.from(context.itemMap.values());
+      const items = Array.from(context2.itemMap.values());
       const orderedItems = items.sort(
         (a, b) => orderedNodes.indexOf(a.ref.current) - orderedNodes.indexOf(b.ref.current)
       );
       return orderedItems;
-    }, [context.collectionRef, context.itemMap]);
+    }, [context2.collectionRef, context2.itemMap]);
     return getItems;
   }
   __name(useCollection2, "useCollection");
@@ -5601,8 +7323,8 @@ function createCollection2(name) {
   const CollectionSlot = React2$1.forwardRef(
     (props, forwardedRef) => {
       const { scope, children } = props;
-      const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
-      const composedRefs = useComposedRefs(forwardedRef, context.collectionRef);
+      const context2 = useCollectionContext(COLLECTION_SLOT_NAME, scope);
+      const composedRefs = useComposedRefs(forwardedRef, context2.collectionRef);
       return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionSlotImpl, { ref: composedRefs, children });
     }
   );
@@ -5616,8 +7338,8 @@ function createCollection2(name) {
       const ref = React2$1.useRef(null);
       const [element, setElement] = React2$1.useState(null);
       const composedRefs = useComposedRefs(forwardedRef, ref, setElement);
-      const context = useCollectionContext(ITEM_SLOT_NAME, scope);
-      const { setItemMap } = context;
+      const context2 = useCollectionContext(ITEM_SLOT_NAME, scope);
+      const { setItemMap } = context2;
       const itemDataRef = React2$1.useRef(itemData);
       if (!shallowEqual(itemDataRef.current, itemData)) {
         itemDataRef.current = itemData;
@@ -7738,9 +9460,9 @@ var ANCHOR_NAME$1 = "PopperAnchor";
 var PopperAnchor = /* @__PURE__ */ React$J.forwardRef(
   /* @__PURE__ */ __name$c(/* @__PURE__ */ __name(function PopperAnchor2(props, forwardedRef) {
     const { __scopePopper, virtualRef, ...anchorProps } = props;
-    const context = usePopperContext(ANCHOR_NAME$1, __scopePopper);
+    const context2 = usePopperContext(ANCHOR_NAME$1, __scopePopper);
     const ref = React$J.useRef(null);
-    const onAnchorChange = context.onAnchorChange;
+    const onAnchorChange = context2.onAnchorChange;
     const callbackRef = React$J.useCallback(
       (node) => {
         ref.current = node;
@@ -7762,7 +9484,7 @@ var PopperAnchor = /* @__PURE__ */ React$J.forwardRef(
         onAnchorChange(anchorRef.current);
       }
     });
-    const sideAndAlign = context.placementState && getSideAndAlignFromPlacement(context.placementState);
+    const sideAndAlign = context2.placementState && getSideAndAlignFromPlacement(context2.placementState);
     const placedSide = sideAndAlign == null ? void 0 : sideAndAlign[0];
     const placedAlign = sideAndAlign == null ? void 0 : sideAndAlign[1];
     return virtualRef ? null : /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -7797,7 +9519,7 @@ var PopperContent = /* @__PURE__ */ React$J.forwardRef(
       onPlaced,
       ...contentProps
     } = props;
-    const context = usePopperContext(CONTENT_NAME$5, __scopePopper);
+    const context2 = usePopperContext(CONTENT_NAME$5, __scopePopper);
     const [content, setContent] = React$J.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, setContent);
     const [arrow$12, setArrow] = React$J.useState(null);
@@ -7825,7 +9547,7 @@ var PopperContent = /* @__PURE__ */ React$J.forwardRef(
         return cleanup;
       }, "whileElementsMounted"),
       elements: {
-        reference: context.anchor
+        reference: context2.anchor
       },
       middleware: [
         offset({ mainAxis: sideOffset + arrowHeight, alignmentAxis: alignOffset }),
@@ -7863,7 +9585,7 @@ var PopperContent = /* @__PURE__ */ React$J.forwardRef(
         })
       ]
     });
-    const setPlacementState = context.setPlacementState;
+    const setPlacementState = context2.setPlacementState;
     useLayoutEffect2(() => {
       setPlacementState(placement);
       return () => {
@@ -8199,10 +9921,10 @@ var RovingFocusGroupItem = /* @__PURE__ */ React$H.forwardRef(
     } = props;
     const autoId = useId$1();
     const id = tabStopId || autoId;
-    const context = useRovingFocusContext(ITEM_NAME$2, __scopeRovingFocusGroup);
-    const isCurrentTabStop = context.currentTabStopId === id;
+    const context2 = useRovingFocusContext(ITEM_NAME$2, __scopeRovingFocusGroup);
+    const isCurrentTabStop = context2.currentTabStopId === id;
     const getItems = useCollection$2(__scopeRovingFocusGroup);
-    const { onFocusableItemAdd, onFocusableItemRemove, currentTabStopId } = context;
+    const { onFocusableItemAdd, onFocusableItemRemove, currentTabStopId } = context2;
     const isHydrated = useIsHydrated2();
     useLayoutEffect2(() => {
       if (!isHydrated || !focusable) {
@@ -8229,21 +9951,21 @@ var RovingFocusGroupItem = /* @__PURE__ */ React$H.forwardRef(
           Primitive.span,
           {
             tabIndex: isCurrentTabStop ? 0 : -1,
-            "data-orientation": context.orientation,
+            "data-orientation": context2.orientation,
             ...itemProps,
             ref: forwardedRef,
             onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
               if (!focusable) event.preventDefault();
-              else context.onItemFocus(id);
+              else context2.onItemFocus(id);
             }),
-            onFocus: composeEventHandlers(props.onFocus, () => context.onItemFocus(id)),
+            onFocus: composeEventHandlers(props.onFocus, () => context2.onItemFocus(id)),
             onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
               if (event.key === "Tab" && event.shiftKey) {
-                context.onItemShiftTab();
+                context2.onItemShiftTab();
                 return;
               }
               if (event.target !== event.currentTarget) return;
-              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
+              const focusIntent = getFocusIntent(event, context2.orientation, context2.dir);
               if (focusIntent !== void 0) {
                 if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
                 event.preventDefault();
@@ -8253,7 +9975,7 @@ var RovingFocusGroupItem = /* @__PURE__ */ React$H.forwardRef(
                 else if (focusIntent === "prev" || focusIntent === "next") {
                   if (focusIntent === "prev") candidateNodes.reverse();
                   const currentIndex = candidateNodes.indexOf(event.currentTarget);
-                  candidateNodes = context.loop ? wrapArray$2(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
+                  candidateNodes = context2.loop ? wrapArray$2(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
                 }
                 setTimeout(() => focusFirst$1(candidateNodes));
               }
@@ -8388,8 +10110,8 @@ var [PortalProvider$3, usePortalContext$3] = createMenuContext(PORTAL_NAME$3, {
 });
 var MenuPortal = /* @__PURE__ */ __name$9((props) => {
   const { __scopeMenu, forceMount, children, container } = props;
-  const context = useMenuContext(PORTAL_NAME$3, __scopeMenu);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$3, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children }) }) });
+  const context2 = useMenuContext(PORTAL_NAME$3, __scopeMenu);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$3, { scope: __scopeMenu, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children }) }) });
 }, "MenuPortal");
 var CONTENT_NAME$4 = "MenuContent";
 var [MenuContentProvider, useMenuContentContext] = createMenuContext(CONTENT_NAME$4);
@@ -8397,15 +10119,15 @@ var MenuContent = /* @__PURE__ */ React$G.forwardRef(
   /* @__PURE__ */ __name$9(/* @__PURE__ */ __name(function MenuContent2(props, forwardedRef) {
     const portalContext = usePortalContext$3(CONTENT_NAME$4, props.__scopeMenu);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context = useMenuContext(CONTENT_NAME$4, props.__scopeMenu);
+    const context2 = useMenuContext(CONTENT_NAME$4, props.__scopeMenu);
     const rootContext = useMenuRootContext(CONTENT_NAME$4, props.__scopeMenu);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Slot, { scope: props.__scopeMenu, children: rootContext.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(MenuRootContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MenuRootContentNonModal, { ...contentProps, ref: forwardedRef }) }) }) });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Provider, { scope: props.__scopeMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection$1.Slot, { scope: props.__scopeMenu, children: rootContext.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(MenuRootContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(MenuRootContentNonModal, { ...contentProps, ref: forwardedRef }) }) }) });
   }, "MenuContent2"), "MenuContent")
 );
 var MenuRootContentModal = /* @__PURE__ */ React$G.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$9(/* @__PURE__ */ __name(function MenuRootContentModal2(props, forwardedRef) {
-    const context = useMenuContext(CONTENT_NAME$4, props.__scopeMenu);
+    const context2 = useMenuContext(CONTENT_NAME$4, props.__scopeMenu);
     const ref = React$G.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
     React$G.useEffect(() => {
@@ -8417,21 +10139,21 @@ var MenuRootContentModal = /* @__PURE__ */ React$G.forwardRef(
       {
         ...props,
         ref: composedRefs,
-        trapFocus: context.open,
-        disableOutsidePointerEvents: context.open,
+        trapFocus: context2.open,
+        disableOutsidePointerEvents: context2.open,
         disableOutsideScroll: true,
         onFocusOutside: composeEventHandlers(
           props.onFocusOutside,
           (event) => event.preventDefault(),
           { checkForDefaultPrevented: false }
         ),
-        onDismiss: /* @__PURE__ */ __name(() => context.onOpenChange(false), "onDismiss")
+        onDismiss: /* @__PURE__ */ __name(() => context2.onOpenChange(false), "onDismiss")
       }
     );
   }, "MenuRootContentModal2"), "MenuRootContentModal")
 );
 var MenuRootContentNonModal = /* @__PURE__ */ React$G.forwardRef(/* @__PURE__ */ __name$9(/* @__PURE__ */ __name(function MenuRootContentNonModal2(props, forwardedRef) {
-  const context = useMenuContext(CONTENT_NAME$4, props.__scopeMenu);
+  const context2 = useMenuContext(CONTENT_NAME$4, props.__scopeMenu);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     MenuContentImpl,
     {
@@ -8440,7 +10162,7 @@ var MenuRootContentNonModal = /* @__PURE__ */ React$G.forwardRef(/* @__PURE__ */
       trapFocus: false,
       disableOutsidePointerEvents: false,
       disableOutsideScroll: false,
-      onDismiss: /* @__PURE__ */ __name(() => context.onOpenChange(false), "onDismiss")
+      onDismiss: /* @__PURE__ */ __name(() => context2.onOpenChange(false), "onDismiss")
     }
   );
 }, "MenuRootContentNonModal2"), "MenuRootContentNonModal"));
@@ -8464,14 +10186,14 @@ var MenuContentImpl = /* @__PURE__ */ React$G.forwardRef(
       disableOutsideScroll,
       ...contentProps
     } = props;
-    const context = useMenuContext(CONTENT_NAME$4, __scopeMenu);
+    const context2 = useMenuContext(CONTENT_NAME$4, __scopeMenu);
     const rootContext = useMenuRootContext(CONTENT_NAME$4, __scopeMenu);
     const popperScope = usePopperScope$3(__scopeMenu);
     const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeMenu);
     const getItems = useCollection$1(__scopeMenu);
     const [currentItemId, setCurrentItemId] = React$G.useState(null);
     const contentRef = React$G.useRef(null);
-    const composedRefs = useComposedRefs(forwardedRef, contentRef, context.onContentChange);
+    const composedRefs = useComposedRefs(forwardedRef, contentRef, context2.onContentChange);
     const timerRef = React$G.useRef(0);
     const searchRef = React$G.useRef("");
     const pointerGraceTimerRef = React$G.useRef(0);
@@ -8577,7 +10299,7 @@ var MenuContentImpl = /* @__PURE__ */ React$G.forwardRef(
                       {
                         role: "menu",
                         "aria-orientation": "vertical",
-                        "data-state": getOpenState(context.open),
+                        "data-state": getOpenState(context2.open),
                         "data-radix-menu-content": "",
                         dir: rootContext.dir,
                         ...popperScope,
@@ -8884,32 +10606,32 @@ var DropdownMenuTrigger = /* @__PURE__ */ React$F.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$8(/* @__PURE__ */ __name(function DropdownMenuTrigger2(props, forwardedRef) {
     const { __scopeDropdownMenu, disabled = false, ...triggerProps } = props;
-    const context = useDropdownMenuContext(TRIGGER_NAME$3, __scopeDropdownMenu);
+    const context2 = useDropdownMenuContext(TRIGGER_NAME$3, __scopeDropdownMenu);
     const menuScope = useMenuScope(__scopeDropdownMenu);
-    const composedRefs = useComposedRefs(forwardedRef, context.triggerRef);
+    const composedRefs = useComposedRefs(forwardedRef, context2.triggerRef);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor2$1, { asChild: true, ...menuScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.button,
       {
         type: "button",
-        id: context.triggerId,
+        id: context2.triggerId,
         "aria-haspopup": "menu",
-        "aria-expanded": context.open,
-        "aria-controls": context.open ? context.contentId : void 0,
-        "data-state": context.open ? "open" : "closed",
+        "aria-expanded": context2.open,
+        "aria-controls": context2.open ? context2.contentId : void 0,
+        "data-state": context2.open ? "open" : "closed",
         "data-disabled": disabled ? "" : void 0,
         disabled,
         ...triggerProps,
         ref: composedRefs,
         onPointerDown: composeEventHandlers(props.onPointerDown, (event) => {
           if (!disabled && event.button === 0 && event.ctrlKey === false) {
-            context.onOpenToggle();
-            if (!context.open) event.preventDefault();
+            context2.onOpenToggle();
+            if (!context2.open) event.preventDefault();
           }
         }),
         onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
           if (disabled) return;
-          if (["Enter", " "].includes(event.key)) context.onOpenToggle();
-          if (event.key === "ArrowDown") context.onOpenChange(true);
+          if (["Enter", " "].includes(event.key)) context2.onOpenToggle();
+          if (event.key === "ArrowDown") context2.onOpenChange(true);
           if (["Enter", " ", "ArrowDown"].includes(event.key)) event.preventDefault();
         })
       }
@@ -8926,20 +10648,20 @@ var DropdownMenuContent = /* @__PURE__ */ React$F.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$8(/* @__PURE__ */ __name(function DropdownMenuContent2(props, forwardedRef) {
     const { __scopeDropdownMenu, ...contentProps } = props;
-    const context = useDropdownMenuContext(CONTENT_NAME$3, __scopeDropdownMenu);
+    const context2 = useDropdownMenuContext(CONTENT_NAME$3, __scopeDropdownMenu);
     const menuScope = useMenuScope(__scopeDropdownMenu);
     const hasInteractedOutsideRef = React$F.useRef(false);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Content2$3,
       {
-        id: context.contentId,
-        "aria-labelledby": context.triggerId,
+        id: context2.contentId,
+        "aria-labelledby": context2.triggerId,
         ...menuScope,
         ...contentProps,
         ref: forwardedRef,
         onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
           var _a3;
-          if (!hasInteractedOutsideRef.current) (_a3 = context.triggerRef.current) == null ? void 0 : _a3.focus();
+          if (!hasInteractedOutsideRef.current) (_a3 = context2.triggerRef.current) == null ? void 0 : _a3.focus();
           hasInteractedOutsideRef.current = false;
           event.preventDefault();
         }),
@@ -8947,7 +10669,7 @@ var DropdownMenuContent = /* @__PURE__ */ React$F.forwardRef(
           const originalEvent = event.detail.originalEvent;
           const ctrlLeftClick = originalEvent.button === 0 && originalEvent.ctrlKey === true;
           const isRightClick = originalEvent.button === 2 || ctrlLeftClick;
-          if (!context.modal || isRightClick) hasInteractedOutsideRef.current = true;
+          if (!context2.modal || isRightClick) hasInteractedOutsideRef.current = true;
         }),
         style: {
           ...props.style,
@@ -9103,7 +10825,7 @@ function SelectProvider(props) {
       return optionsSet;
     });
   }, []);
-  const context = {
+  const context2 = {
     required,
     trigger,
     onTriggerChange: setTrigger,
@@ -9126,13 +10848,13 @@ function SelectProvider(props) {
     nativeSelectKey,
     isFormControl
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2$2, { ...popperScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SelectProviderImpl, { scope: __scopeSelect, ...context, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2$2, { ...popperScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SelectProviderImpl, { scope: __scopeSelect, ...context2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Provider, { scope: __scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
     SelectNativeOptionsProvider,
     {
       scope: __scopeSelect,
       onNativeOptionAdd: handleNativeOptionAdd,
       onNativeOptionRemove: handleNativeOptionRemove,
-      children: isFunction$2(internal_do_not_use_render) ? internal_do_not_use_render(context) : children
+      children: isFunction$2(internal_do_not_use_render) ? internal_do_not_use_render(context2) : children
     }
   ) }) }) });
 }
@@ -9162,26 +10884,26 @@ var SelectTrigger = /* @__PURE__ */ React$C.forwardRef(
   /* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectTrigger2(props, forwardedRef) {
     const { __scopeSelect, disabled = false, ...triggerProps } = props;
     const popperScope = usePopperScope$2(__scopeSelect);
-    const context = useSelectContext(TRIGGER_NAME$2, __scopeSelect);
-    const isDisabled = context.disabled || disabled;
-    const composedRefs = useComposedRefs(forwardedRef, context.onTriggerChange);
+    const context2 = useSelectContext(TRIGGER_NAME$2, __scopeSelect);
+    const isDisabled = context2.disabled || disabled;
+    const composedRefs = useComposedRefs(forwardedRef, context2.onTriggerChange);
     const getItems = useCollection(__scopeSelect);
     const pointerTypeRef = React$C.useRef("touch");
     const [searchRef, handleTypeaheadSearch, resetTypeahead] = useTypeaheadSearch((search) => {
       const enabledItems = getItems().filter((item) => !item.disabled);
-      const currentItem = enabledItems.find((item) => item.value === context.value);
+      const currentItem = enabledItems.find((item) => item.value === context2.value);
       const nextItem = findNextItem(enabledItems, search, currentItem);
       if (nextItem !== void 0) {
-        context.onValueChange(nextItem.value);
+        context2.onValueChange(nextItem.value);
       }
     });
     const handleOpen = /* @__PURE__ */ __name$4((pointerEvent) => {
       if (!isDisabled) {
-        context.onOpenChange(true);
+        context2.onOpenChange(true);
         resetTypeahead();
       }
       if (pointerEvent) {
-        context.triggerPointerDownPosRef.current = {
+        context2.triggerPointerDownPosRef.current = {
           x: Math.round(pointerEvent.pageX),
           y: Math.round(pointerEvent.pageY)
         };
@@ -9192,15 +10914,15 @@ var SelectTrigger = /* @__PURE__ */ React$C.forwardRef(
       {
         type: "button",
         role: "combobox",
-        "aria-controls": context.open ? context.contentId : void 0,
-        "aria-expanded": context.open,
-        "aria-required": context.required,
+        "aria-controls": context2.open ? context2.contentId : void 0,
+        "aria-expanded": context2.open,
+        "aria-required": context2.required,
         "aria-autocomplete": "none",
-        dir: context.dir,
-        "data-state": context.open ? "open" : "closed",
+        dir: context2.dir,
+        "data-state": context2.open ? "open" : "closed",
         disabled: isDisabled,
         "data-disabled": isDisabled ? "" : void 0,
-        "data-placeholder": shouldShowPlaceholder(context.value) ? "" : void 0,
+        "data-placeholder": shouldShowPlaceholder(context2.value) ? "" : void 0,
         ...triggerProps,
         ref: composedRefs,
         onClick: composeEventHandlers(triggerProps.onClick, (event) => {
@@ -9238,14 +10960,14 @@ var VALUE_NAME = "SelectValue";
 var SelectValue = /* @__PURE__ */ React$C.forwardRef(
   /* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectValue2(props, forwardedRef) {
     const { __scopeSelect, className, style, children, placeholder = "", ...valueProps } = props;
-    const context = useSelectContext(VALUE_NAME, __scopeSelect);
-    const { onValueNodeHasChildrenChange } = context;
+    const context2 = useSelectContext(VALUE_NAME, __scopeSelect);
+    const { onValueNodeHasChildrenChange } = context2;
     const hasChildren = children !== void 0;
-    const composedRefs = useComposedRefs(forwardedRef, context.onValueNodeChange);
+    const composedRefs = useComposedRefs(forwardedRef, context2.onValueNodeChange);
     useLayoutEffect2(() => {
       onValueNodeHasChildrenChange(hasChildren);
     }, [onValueNodeHasChildrenChange, hasChildren]);
-    const showPlaceholder = shouldShowPlaceholder(context.value);
+    const showPlaceholder = shouldShowPlaceholder(context2.value);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.span,
       {
@@ -9277,12 +10999,12 @@ var SelectContent = /* @__PURE__ */ React$C.forwardRef(
   /* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectContent2(props, forwardedRef) {
     const portalContext = usePortalContext$2(CONTENT_NAME$2, props.__scopeSelect);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context = useSelectContext(CONTENT_NAME$2, props.__scopeSelect);
+    const context2 = useSelectContext(CONTENT_NAME$2, props.__scopeSelect);
     const [fragment, setFragment] = React$C.useState();
     useLayoutEffect2(() => {
       setFragment(new DocumentFragment());
     }, []);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ __name(({ present }) => present ? /* @__PURE__ */ jsxRuntimeExports.jsx(SelectContentImpl, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SelectContentFragment, { ...contentProps, fragment }), "children") });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ __name(({ present }) => present ? /* @__PURE__ */ jsxRuntimeExports.jsx(SelectContentImpl, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(SelectContentFragment, { ...contentProps, fragment }), "children") });
   }, "SelectContent2"), "SelectContent")
 );
 var SelectContentFragment = /* @__PURE__ */ React$C.forwardRef(/* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectContentFragment2(props, forwardedRef) {
@@ -9320,7 +11042,7 @@ var SelectContentImpl = /* @__PURE__ */ React$C.forwardRef(
       //
       ...contentProps
     } = props;
-    const context = useSelectContext(CONTENT_NAME$2, __scopeSelect);
+    const context2 = useSelectContext(CONTENT_NAME$2, __scopeSelect);
     const [content, setContent] = React$C.useState(null);
     const [viewport, setViewport] = React$C.useState(null);
     const composedRefs = useComposedRefs(forwardedRef, setContent);
@@ -9360,7 +11082,7 @@ var SelectContentImpl = /* @__PURE__ */ React$C.forwardRef(
         focusSelectedItem();
       }
     }, [isPositioned, focusSelectedItem]);
-    const { onOpenChange, triggerPointerDownPosRef } = context;
+    const { onOpenChange, triggerPointerDownPosRef } = context2;
     React$C.useEffect(() => {
       if (content) {
         let pointerMoveDelta = { x: 0, y: 0 };
@@ -9415,24 +11137,24 @@ var SelectContentImpl = /* @__PURE__ */ React$C.forwardRef(
     const itemRefCallback = React$C.useCallback(
       (node, value, disabled) => {
         const isFirstValidItem = !firstValidItemFoundRef.current && !disabled;
-        const isSelectedItem = context.value !== void 0 && context.value === value;
+        const isSelectedItem = context2.value !== void 0 && context2.value === value;
         if (isSelectedItem || isFirstValidItem) {
           setSelectedItem(node);
           if (isFirstValidItem) firstValidItemFoundRef.current = true;
         }
       },
-      [context.value]
+      [context2.value]
     );
     const handleItemLeave = React$C.useCallback(() => content == null ? void 0 : content.focus(), [content]);
     const itemTextRefCallback = React$C.useCallback(
       (node, value, disabled) => {
         const isFirstValidItem = !firstValidItemFoundRef.current && !disabled;
-        const isSelectedItem = context.value !== void 0 && context.value === value;
+        const isSelectedItem = context2.value !== void 0 && context2.value === value;
         if (isSelectedItem || isFirstValidItem) {
           setSelectedItemText(node);
         }
       },
-      [context.value]
+      [context2.value]
     );
     const SelectPosition = position === "popper" ? SelectPopperPosition : SelectItemAlignedPosition;
     const popperContentProps = SelectPosition === SelectPopperPosition ? {
@@ -9467,13 +11189,13 @@ var SelectContentImpl = /* @__PURE__ */ React$C.forwardRef(
           FocusScope,
           {
             asChild: true,
-            trapped: context.open,
+            trapped: context2.open,
             onMountAutoFocus: /* @__PURE__ */ __name((event) => {
               event.preventDefault();
             }, "onMountAutoFocus"),
             onUnmountAutoFocus: composeEventHandlers(onCloseAutoFocus, (event) => {
               var _a3;
-              (_a3 = context.trigger) == null ? void 0 : _a3.focus({ preventScroll: true });
+              (_a3 = context2.trigger) == null ? void 0 : _a3.focus({ preventScroll: true });
               event.preventDefault();
             }),
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -9484,14 +11206,14 @@ var SelectContentImpl = /* @__PURE__ */ React$C.forwardRef(
                 onEscapeKeyDown,
                 onPointerDownOutside,
                 onFocusOutside: /* @__PURE__ */ __name((event) => event.preventDefault(), "onFocusOutside"),
-                onDismiss: /* @__PURE__ */ __name(() => context.onOpenChange(false), "onDismiss"),
+                onDismiss: /* @__PURE__ */ __name(() => context2.onOpenChange(false), "onDismiss"),
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                   SelectPosition,
                   {
                     role: "listbox",
-                    id: context.contentId,
-                    "data-state": context.open ? "open" : "closed",
-                    dir: context.dir,
+                    id: context2.contentId,
+                    "data-state": context2.open ? "open" : "closed",
+                    dir: context2.dir,
                     onContextMenu: /* @__PURE__ */ __name((event) => event.preventDefault(), "onContextMenu"),
                     ...contentProps,
                     ...popperContentProps,
@@ -9536,7 +11258,7 @@ var SelectContentImpl = /* @__PURE__ */ React$C.forwardRef(
 );
 var SelectItemAlignedPosition = /* @__PURE__ */ React$C.forwardRef(/* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectItemAlignedPosition2(props, forwardedRef) {
   const { __scopeSelect, onPlaced, ...popperProps } = props;
-  const context = useSelectContext(CONTENT_NAME$2, __scopeSelect);
+  const context2 = useSelectContext(CONTENT_NAME$2, __scopeSelect);
   const contentContext = useSelectContentContext(CONTENT_NAME$2, __scopeSelect);
   const [contentWrapper, setContentWrapper] = React$C.useState(null);
   const [content, setContent] = React$C.useState(null);
@@ -9546,12 +11268,12 @@ var SelectItemAlignedPosition = /* @__PURE__ */ React$C.forwardRef(/* @__PURE__ 
   const shouldRepositionRef = React$C.useRef(true);
   const { viewport, selectedItem, selectedItemText, focusSelectedItem } = contentContext;
   const position = React$C.useCallback(() => {
-    if (context.trigger && context.valueNode && contentWrapper && content && viewport && selectedItem && selectedItemText) {
-      const triggerRect = context.trigger.getBoundingClientRect();
+    if (context2.trigger && context2.valueNode && contentWrapper && content && viewport && selectedItem && selectedItemText) {
+      const triggerRect = context2.trigger.getBoundingClientRect();
       const contentRect = content.getBoundingClientRect();
-      const valueNodeRect = context.valueNode.getBoundingClientRect();
+      const valueNodeRect = context2.valueNode.getBoundingClientRect();
       const itemTextRect = selectedItemText.getBoundingClientRect();
-      if (context.dir !== "rtl") {
+      if (context2.dir !== "rtl") {
         const itemTextOffset = itemTextRect.left - contentRect.left;
         const left = valueNodeRect.left - itemTextOffset;
         const leftDelta = triggerRect.left - left;
@@ -9634,14 +11356,14 @@ var SelectItemAlignedPosition = /* @__PURE__ */ React$C.forwardRef(/* @__PURE__ 
     }
   }, [
     getItems,
-    context.trigger,
-    context.valueNode,
+    context2.trigger,
+    context2.valueNode,
     contentWrapper,
     content,
     viewport,
     selectedItem,
     selectedItemText,
-    context.dir,
+    context2.dir,
     onPlaced
   ]);
   useLayoutEffect2(() => position(), [position]);
@@ -9817,9 +11539,9 @@ var SelectItem = /* @__PURE__ */ React$C.forwardRef(
       textValue: textValueProp,
       ...itemProps
     } = props;
-    const context = useSelectContext(ITEM_NAME, __scopeSelect);
+    const context2 = useSelectContext(ITEM_NAME, __scopeSelect);
     const contentContext = useSelectContentContext(ITEM_NAME, __scopeSelect);
-    const isSelected = context.value === value;
+    const isSelected = context2.value === value;
     const [textValue, setTextValue] = React$C.useState(textValueProp ?? "");
     const [isFocused, setIsFocused] = React$C.useState(false);
     const handleItemRefCallback = useCallbackRef$1(
@@ -9833,8 +11555,8 @@ var SelectItem = /* @__PURE__ */ React$C.forwardRef(
     const pointerTypeRef = React$C.useRef("touch");
     const handleSelect = /* @__PURE__ */ __name$4(() => {
       if (!disabled) {
-        context.onValueChange(value);
-        context.onOpenChange(false);
+        context2.onValueChange(value);
+        context2.onOpenChange(false);
       }
     }, "handleSelect");
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -9922,7 +11644,7 @@ var ITEM_TEXT_NAME = "SelectItemText";
 var SelectItemText = /* @__PURE__ */ React$C.forwardRef(
   /* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectItemText2(props, forwardedRef) {
     const { __scopeSelect, className, style, ...itemTextProps } = props;
-    const context = useSelectContext(ITEM_TEXT_NAME, __scopeSelect);
+    const context2 = useSelectContext(ITEM_TEXT_NAME, __scopeSelect);
     const contentContext = useSelectContentContext(ITEM_TEXT_NAME, __scopeSelect);
     const itemContext = useSelectItemContext(ITEM_TEXT_NAME, __scopeSelect);
     const nativeOptionsContext = useSelectNativeOptionsContext(ITEM_TEXT_NAME, __scopeSelect);
@@ -9951,7 +11673,7 @@ var SelectItemText = /* @__PURE__ */ React$C.forwardRef(
     }, [onNativeOptionAdd, onNativeOptionRemove, nativeOption]);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.span, { id: itemContext.textId, ...itemTextProps, ref: composedRefs }),
-      itemContext.isSelected && context.valueNode && !context.valueNodeHasChildren && !shouldShowPlaceholder(context.value) ? ReactDOM.createPortal(itemTextProps.children, context.valueNode) : null
+      itemContext.isSelected && context2.valueNode && !context2.valueNodeHasChildren && !shouldShowPlaceholder(context2.value) ? ReactDOM.createPortal(itemTextProps.children, context2.valueNode) : null
     ] });
   }, "SelectItemText2"), "SelectItemText")
 );
@@ -10086,9 +11808,9 @@ var BUBBLE_INPUT_NAME = "SelectBubbleInput";
 var SelectBubbleInput = /* @__PURE__ */ React$C.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$4(/* @__PURE__ */ __name(function SelectBubbleInput2({ __scopeSelect, ...props }, forwardedRef) {
-    const context = useSelectContext(BUBBLE_INPUT_NAME, __scopeSelect);
-    const { value, onValueChange, required, disabled, name, autoComplete, form } = context;
-    const { nativeOptions, nativeSelectKey } = context;
+    const context2 = useSelectContext(BUBBLE_INPUT_NAME, __scopeSelect);
+    const { value, onValueChange, required, disabled, name, autoComplete, form } = context2;
+    const { nativeOptions, nativeSelectKey } = context2;
     const ref = React$C.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, ref);
     const selectValue = value ?? "";
@@ -10239,9 +11961,9 @@ var ANCHOR_NAME = "PopoverAnchor";
 var PopoverAnchor = /* @__PURE__ */ React$B.forwardRef(
   /* @__PURE__ */ __name$3(/* @__PURE__ */ __name(function PopoverAnchor2(props, forwardedRef) {
     const { __scopePopover, ...anchorProps } = props;
-    const context = usePopoverContext(ANCHOR_NAME, __scopePopover);
+    const context2 = usePopoverContext(ANCHOR_NAME, __scopePopover);
     const popperScope = usePopperScope$1(__scopePopover);
-    const { onCustomAnchorAdd, onCustomAnchorRemove } = context;
+    const { onCustomAnchorAdd, onCustomAnchorRemove } = context2;
     React$B.useEffect(() => {
       onCustomAnchorAdd();
       return () => onCustomAnchorRemove();
@@ -10253,23 +11975,23 @@ var TRIGGER_NAME$1 = "PopoverTrigger";
 var PopoverTrigger = /* @__PURE__ */ React$B.forwardRef(
   /* @__PURE__ */ __name$3(/* @__PURE__ */ __name(function PopoverTrigger2(props, forwardedRef) {
     const { __scopePopover, ...triggerProps } = props;
-    const context = usePopoverContext(TRIGGER_NAME$1, __scopePopover);
+    const context2 = usePopoverContext(TRIGGER_NAME$1, __scopePopover);
     const popperScope = usePopperScope$1(__scopePopover);
-    const composedTriggerRef = useComposedRefs(forwardedRef, context.triggerRef);
+    const composedTriggerRef = useComposedRefs(forwardedRef, context2.triggerRef);
     const trigger = /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.button,
       {
         type: "button",
         "aria-haspopup": "dialog",
-        "aria-expanded": context.open,
-        "aria-controls": context.open ? context.contentId : void 0,
-        "data-state": getState(context.open),
+        "aria-expanded": context2.open,
+        "aria-controls": context2.open ? context2.contentId : void 0,
+        "data-state": getState(context2.open),
         ...triggerProps,
         ref: composedTriggerRef,
-        onClick: composeEventHandlers(props.onClick, context.onOpenToggle)
+        onClick: composeEventHandlers(props.onClick, context2.onOpenToggle)
       }
     );
-    return context.hasCustomAnchor ? trigger : /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { asChild: true, ...popperScope, children: trigger });
+    return context2.hasCustomAnchor ? trigger : /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { asChild: true, ...popperScope, children: trigger });
   }, "PopoverTrigger2"), "PopoverTrigger")
 );
 var PORTAL_NAME$1 = "PopoverPortal";
@@ -10278,8 +12000,8 @@ var [PortalProvider$1, usePortalContext$1] = createPopoverContext(PORTAL_NAME$1,
 });
 var PopoverPortal = /* @__PURE__ */ __name$3((props) => {
   const { __scopePopover, forceMount, children, container } = props;
-  const context = usePopoverContext(PORTAL_NAME$1, __scopePopover);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$1, { scope: __scopePopover, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children }) }) });
+  const context2 = usePopoverContext(PORTAL_NAME$1, __scopePopover);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider$1, { scope: __scopePopover, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children }) }) });
 }, "PopoverPortal");
 var CONTENT_NAME$1 = "PopoverContent";
 var PopoverContent = /* @__PURE__ */ React$B.forwardRef(
@@ -10287,15 +12009,15 @@ var PopoverContent = /* @__PURE__ */ React$B.forwardRef(
   /* @__PURE__ */ __name$3(/* @__PURE__ */ __name(function PopoverContent2(props, forwardedRef) {
     const portalContext = usePortalContext$1(CONTENT_NAME$1, props.__scopePopover);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context = usePopoverContext(CONTENT_NAME$1, props.__scopePopover);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(PopoverContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(PopoverContentNonModal, { ...contentProps, ref: forwardedRef }) });
+    const context2 = usePopoverContext(CONTENT_NAME$1, props.__scopePopover);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: context2.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(PopoverContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(PopoverContentNonModal, { ...contentProps, ref: forwardedRef }) });
   }, "PopoverContent2"), "PopoverContent")
 );
 var Slot = /* @__PURE__ */ createSlot("PopoverContent.RemoveScroll");
 var PopoverContentModal = /* @__PURE__ */ React$B.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$3(/* @__PURE__ */ __name(function PopoverContentModal2(props, forwardedRef) {
-    const context = usePopoverContext(CONTENT_NAME$1, props.__scopePopover);
+    const context2 = usePopoverContext(CONTENT_NAME$1, props.__scopePopover);
     const contentRef = React$B.useRef(null);
     const composedRefs = useComposedRefs(forwardedRef, contentRef);
     const isRightClickOutsideRef = React$B.useRef(false);
@@ -10308,12 +12030,12 @@ var PopoverContentModal = /* @__PURE__ */ React$B.forwardRef(
       {
         ...props,
         ref: composedRefs,
-        trapFocus: context.open,
+        trapFocus: context2.open,
         disableOutsidePointerEvents: true,
         onCloseAutoFocus: composeEventHandlers(props.onCloseAutoFocus, (event) => {
           var _a3;
           event.preventDefault();
-          if (!isRightClickOutsideRef.current) (_a3 = context.triggerRef.current) == null ? void 0 : _a3.focus();
+          if (!isRightClickOutsideRef.current) (_a3 = context2.triggerRef.current) == null ? void 0 : _a3.focus();
         }),
         onPointerDownOutside: composeEventHandlers(
           props.onPointerDownOutside,
@@ -10337,7 +12059,7 @@ var PopoverContentModal = /* @__PURE__ */ React$B.forwardRef(
 var PopoverContentNonModal = /* @__PURE__ */ React$B.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$3(/* @__PURE__ */ __name(function PopoverContentNonModal2(props, forwardedRef) {
-    const context = usePopoverContext(CONTENT_NAME$1, props.__scopePopover);
+    const context2 = usePopoverContext(CONTENT_NAME$1, props.__scopePopover);
     const hasInteractedOutsideRef = React$B.useRef(false);
     const hasPointerDownOutsideRef = React$B.useRef(false);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10351,7 +12073,7 @@ var PopoverContentNonModal = /* @__PURE__ */ React$B.forwardRef(
           var _a3, _b2;
           (_a3 = props.onCloseAutoFocus) == null ? void 0 : _a3.call(props, event);
           if (!event.defaultPrevented) {
-            if (!hasInteractedOutsideRef.current) (_b2 = context.triggerRef.current) == null ? void 0 : _b2.focus();
+            if (!hasInteractedOutsideRef.current) (_b2 = context2.triggerRef.current) == null ? void 0 : _b2.focus();
             event.preventDefault();
           }
           hasInteractedOutsideRef.current = false;
@@ -10367,7 +12089,7 @@ var PopoverContentNonModal = /* @__PURE__ */ React$B.forwardRef(
             }
           }
           const target = event.target;
-          const targetIsTrigger = (_b2 = context.triggerRef.current) == null ? void 0 : _b2.contains(target);
+          const targetIsTrigger = (_b2 = context2.triggerRef.current) == null ? void 0 : _b2.contains(target);
           if (targetIsTrigger) event.preventDefault();
           if (event.detail.originalEvent.type === "focusin" && hasPointerDownOutsideRef.current) {
             event.preventDefault();
@@ -10392,7 +12114,7 @@ var PopoverContentImpl = /* @__PURE__ */ React$B.forwardRef(
       onInteractOutside,
       ...contentProps
     } = props;
-    const context = usePopoverContext(CONTENT_NAME$1, __scopePopover);
+    const context2 = usePopoverContext(CONTENT_NAME$1, __scopePopover);
     const popperScope = usePopperScope$1(__scopePopover);
     useFocusGuards();
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10412,14 +12134,14 @@ var PopoverContentImpl = /* @__PURE__ */ React$B.forwardRef(
             onEscapeKeyDown,
             onPointerDownOutside,
             onFocusOutside,
-            onDismiss: /* @__PURE__ */ __name(() => context.onOpenChange(false), "onDismiss"),
+            onDismiss: /* @__PURE__ */ __name(() => context2.onOpenChange(false), "onDismiss"),
             deferPointerDownOutside: true,
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(
               Content,
               {
-                "data-state": getState(context.open),
+                "data-state": getState(context2.open),
                 role: "dialog",
-                id: context.contentId,
+                id: context2.contentId,
                 ...popperScope,
                 ...contentProps,
                 ref: forwardedRef,
@@ -10718,8 +12440,8 @@ function constructFrom(date, value) {
   return new Date(value);
 }
 __name(constructFrom, "constructFrom");
-function toDate(argument, context) {
-  return constructFrom(context || argument, argument);
+function toDate(argument, context2) {
+  return constructFrom(context2 || argument, argument);
 }
 __name(toDate, "toDate");
 function addDays(date, amount, options2) {
@@ -10810,7 +12532,7 @@ function getTimezoneOffsetInMilliseconds(date) {
   return +date - +utcDate;
 }
 __name(getTimezoneOffsetInMilliseconds, "getTimezoneOffsetInMilliseconds");
-function normalizeDates(context, ...dates) {
+function normalizeDates(context2, ...dates) {
   const normalize = constructFrom.bind(
     null,
     dates.find((date) => typeof date === "object")
@@ -10855,26 +12577,26 @@ function addYears(date, amount, options2) {
 __name(addYears, "addYears");
 function max(dates, options2) {
   let result;
-  let context = options2 == null ? void 0 : options2.in;
+  let context2 = options2 == null ? void 0 : options2.in;
   dates.forEach((date) => {
-    if (!context && typeof date === "object")
-      context = constructFrom.bind(null, date);
-    const date_ = toDate(date, context);
+    if (!context2 && typeof date === "object")
+      context2 = constructFrom.bind(null, date);
+    const date_ = toDate(date, context2);
     if (!result || result < date_ || isNaN(+date_)) result = date_;
   });
-  return constructFrom(context, result || NaN);
+  return constructFrom(context2, result || NaN);
 }
 __name(max, "max");
 function min(dates, options2) {
   let result;
-  let context = options2 == null ? void 0 : options2.in;
+  let context2 = options2 == null ? void 0 : options2.in;
   dates.forEach((date) => {
-    if (!context && typeof date === "object")
-      context = constructFrom.bind(null, date);
-    const date_ = toDate(date, context);
+    if (!context2 && typeof date === "object")
+      context2 = constructFrom.bind(null, date);
+    const date_ = toDate(date, context2);
     if (!result || result > date_ || isNaN(+date_)) result = date_;
   });
-  return constructFrom(context, result || NaN);
+  return constructFrom(context2, result || NaN);
 }
 __name(min, "min");
 function isSameDay(laterDate, earlierDate, options2) {
@@ -10913,8 +12635,8 @@ function endOfMonth(date, options2) {
   return _date;
 }
 __name(endOfMonth, "endOfMonth");
-function normalizeInterval(context, interval) {
-  const [start, end] = normalizeDates(context, interval.start, interval.end);
+function normalizeInterval(context2, interval) {
+  const [start, end] = normalizeDates(context2, interval.start, interval.end);
   return { start, end };
 }
 __name(normalizeInterval, "normalizeInterval");
@@ -11121,9 +12843,9 @@ const formatRelativeLocale = {
 const formatRelative = /* @__PURE__ */ __name((token, _date, _baseDate, _options) => formatRelativeLocale[token], "formatRelative");
 function buildLocalizeFn(args) {
   return (value, options2) => {
-    const context = (options2 == null ? void 0 : options2.context) ? String(options2.context) : "standalone";
+    const context2 = (options2 == null ? void 0 : options2.context) ? String(options2.context) : "standalone";
     let valuesArray;
-    if (context === "formatting" && args.formattingValues) {
+    if (context2 === "formatting" && args.formattingValues) {
       const defaultWidth = args.defaultFormattingWidth || args.defaultWidth;
       const width = (options2 == null ? void 0 : options2.width) ? String(options2.width) : defaultWidth;
       valuesArray = args.formattingValues[width] || args.formattingValues[defaultWidth];
@@ -13008,11 +14730,11 @@ __name(Months, "Months");
 const { createContext, useContext } = await importShared("react");
 const dayPickerContext = createContext(void 0);
 function useDayPicker() {
-  const context = useContext(dayPickerContext);
-  if (context === void 0) {
+  const context2 = useContext(dayPickerContext);
+  if (context2 === void 0) {
     throw new Error("useDayPicker() must be used within a custom component.");
   }
-  return context;
+  return context2;
 }
 __name(useDayPicker, "useDayPicker");
 const React$o = await importShared("react");
@@ -14894,13 +16616,13 @@ var ProgressIndicator = /* @__PURE__ */ React$9.forwardRef(
   // blank line to reduce diff noise
   /* @__PURE__ */ __name$2(/* @__PURE__ */ __name(function ProgressIndicator2(props, forwardedRef) {
     const { __scopeProgress, ...indicatorProps } = props;
-    const context = useProgressContext(INDICATOR_NAME, __scopeProgress);
+    const context2 = useProgressContext(INDICATOR_NAME, __scopeProgress);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.div,
       {
-        "data-state": getProgressState(context.value, context.max),
-        "data-value": context.value ?? void 0,
-        "data-max": context.max,
+        "data-state": getProgressState(context2.value, context2.max),
+        "data-value": context2.value ?? void 0,
+        "data-max": context2.max,
         ...indicatorProps,
         ref: forwardedRef
       }
@@ -15134,11 +16856,11 @@ var TRIGGER_NAME = "TooltipTrigger";
 var TooltipTrigger = /* @__PURE__ */ React$7.forwardRef(
   /* @__PURE__ */ __name2(/* @__PURE__ */ __name(function TooltipTrigger2(props, forwardedRef) {
     const { __scopeTooltip, ...triggerProps } = props;
-    const context = useTooltipContext(TRIGGER_NAME, __scopeTooltip);
+    const context2 = useTooltipContext(TRIGGER_NAME, __scopeTooltip);
     const providerContext = useTooltipProviderContext(TRIGGER_NAME, __scopeTooltip);
     const popperScope = usePopperScope(__scopeTooltip);
     const ref = React$7.useRef(null);
-    const composedRefs = useComposedRefs(forwardedRef, ref, context.onTriggerChange);
+    const composedRefs = useComposedRefs(forwardedRef, ref, context2.onTriggerChange);
     const isPointerDownRef = React$7.useRef(false);
     const hasPointerMoveOpenedRef = React$7.useRef(false);
     const handlePointerUp = React$7.useCallback(() => isPointerDownRef.current = false, []);
@@ -15148,33 +16870,33 @@ var TooltipTrigger = /* @__PURE__ */ React$7.forwardRef(
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { asChild: true, ...popperScope, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.button,
       {
-        "aria-describedby": context.open ? context.contentId : void 0,
-        "data-state": context.stateAttribute,
+        "aria-describedby": context2.open ? context2.contentId : void 0,
+        "data-state": context2.stateAttribute,
         ...triggerProps,
         ref: composedRefs,
         onPointerMove: composeEventHandlers(props.onPointerMove, (event) => {
           if (event.pointerType === "touch") return;
           if (!hasPointerMoveOpenedRef.current && !providerContext.isPointerInTransitRef.current) {
-            context.onTriggerEnter();
+            context2.onTriggerEnter();
             hasPointerMoveOpenedRef.current = true;
           }
         }),
         onPointerLeave: composeEventHandlers(props.onPointerLeave, () => {
-          context.onTriggerLeave();
+          context2.onTriggerLeave();
           hasPointerMoveOpenedRef.current = false;
         }),
         onPointerDown: composeEventHandlers(props.onPointerDown, () => {
-          if (context.open) {
-            context.onClose();
+          if (context2.open) {
+            context2.onClose();
           }
           isPointerDownRef.current = true;
           document.addEventListener("pointerup", handlePointerUp, { once: true });
         }),
         onFocus: composeEventHandlers(props.onFocus, () => {
-          if (!isPointerDownRef.current) context.onOpen();
+          if (!isPointerDownRef.current) context2.onOpen();
         }),
-        onBlur: composeEventHandlers(props.onBlur, context.onClose),
-        onClick: composeEventHandlers(props.onClick, context.onClose)
+        onBlur: composeEventHandlers(props.onBlur, context2.onClose),
+        onClick: composeEventHandlers(props.onClick, context2.onClose)
       }
     ) });
   }, "TooltipTrigger2"), "TooltipTrigger")
@@ -15185,25 +16907,25 @@ var [PortalProvider, usePortalContext] = createTooltipContext(PORTAL_NAME, {
 });
 var TooltipPortal = /* @__PURE__ */ __name2((props) => {
   const { __scopeTooltip, forceMount, children, container } = props;
-  const context = useTooltipContext(PORTAL_NAME, __scopeTooltip);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider, { scope: __scopeTooltip, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children }) }) });
+  const context2 = useTooltipContext(PORTAL_NAME, __scopeTooltip);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider, { scope: __scopeTooltip, forceMount, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$3, { asChild: true, container, children }) }) });
 }, "TooltipPortal");
 var CONTENT_NAME = "TooltipContent";
 var TooltipContent = /* @__PURE__ */ React$7.forwardRef(
   /* @__PURE__ */ __name2(/* @__PURE__ */ __name(function TooltipContent2(props, forwardedRef) {
     const portalContext = usePortalContext(CONTENT_NAME, props.__scopeTooltip);
     const { forceMount = portalContext.forceMount, side = "top", ...contentProps } = props;
-    const context = useTooltipContext(CONTENT_NAME, props.__scopeTooltip);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: context.disableHoverableContent ? /* @__PURE__ */ jsxRuntimeExports.jsx(TooltipContentImpl, { side, ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(TooltipContentHoverable, { side, ...contentProps, ref: forwardedRef }) });
+    const context2 = useTooltipContext(CONTENT_NAME, props.__scopeTooltip);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context2.open, children: context2.disableHoverableContent ? /* @__PURE__ */ jsxRuntimeExports.jsx(TooltipContentImpl, { side, ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(TooltipContentHoverable, { side, ...contentProps, ref: forwardedRef }) });
   }, "TooltipContent2"), "TooltipContent")
 );
 var TooltipContentHoverable = /* @__PURE__ */ React$7.forwardRef(/* @__PURE__ */ __name2(/* @__PURE__ */ __name(function TooltipContentHoverable2(props, forwardedRef) {
-  const context = useTooltipContext(CONTENT_NAME, props.__scopeTooltip);
+  const context2 = useTooltipContext(CONTENT_NAME, props.__scopeTooltip);
   const providerContext = useTooltipProviderContext(CONTENT_NAME, props.__scopeTooltip);
   const ref = React$7.useRef(null);
   const composedRefs = useComposedRefs(forwardedRef, ref);
   const [pointerGraceArea, setPointerGraceArea] = React$7.useState(null);
-  const { trigger, onClose } = context;
+  const { trigger, onClose } = context2;
   const content = ref.current;
   const { onPointerInTransitChange } = providerContext;
   const handleRemoveGraceArea = React$7.useCallback(() => {
@@ -15271,25 +16993,25 @@ var TooltipContentImpl = /* @__PURE__ */ React$7.forwardRef(
       onPointerDownOutside,
       ...contentProps
     } = props;
-    const context = useTooltipContext(CONTENT_NAME, __scopeTooltip);
+    const context2 = useTooltipContext(CONTENT_NAME, __scopeTooltip);
     const popperScope = usePopperScope(__scopeTooltip);
-    const { onClose } = context;
+    const { onClose } = context2;
     React$7.useEffect(() => {
       document.addEventListener(TOOLTIP_OPEN, onClose);
       return () => document.removeEventListener(TOOLTIP_OPEN, onClose);
     }, [onClose]);
     React$7.useEffect(() => {
-      if (context.trigger) {
+      if (context2.trigger) {
         const handleScroll2 = /* @__PURE__ */ __name2((event) => {
-          if (event.target instanceof Node && event.target.contains(context.trigger)) {
+          if (event.target instanceof Node && event.target.contains(context2.trigger)) {
             onClose();
           }
         }, "handleScroll");
         window.addEventListener("scroll", handleScroll2, { capture: true });
         return () => window.removeEventListener("scroll", handleScroll2, { capture: true });
       }
-    }, [context.trigger, onClose]);
-    const { setContentId } = context;
+    }, [context2.trigger, onClose]);
+    const { setContentId } = context2;
     useLayoutEffect2(() => {
       setContentId(idProp);
       return () => {
@@ -15308,9 +17030,9 @@ var TooltipContentImpl = /* @__PURE__ */ React$7.forwardRef(
         children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           Content,
           {
-            "data-state": context.stateAttribute,
+            "data-state": context2.stateAttribute,
             role: ariaLabel ? void 0 : "tooltip",
-            id: ariaLabel ? void 0 : context.contentId,
+            id: ariaLabel ? void 0 : context2.contentId,
             ...popperScope,
             ...contentProps,
             ref: forwardedRef,
@@ -15327,7 +17049,7 @@ var TooltipContentImpl = /* @__PURE__ */ React$7.forwardRef(
             },
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(Slottable, { children }),
-              ariaLabel ? /* @__PURE__ */ jsxRuntimeExports.jsx(Root$3, { id: context.contentId, role: "tooltip", children: ariaLabel }) : null
+              ariaLabel ? /* @__PURE__ */ jsxRuntimeExports.jsx(Root$3, { id: context2.contentId, role: "tooltip", children: ariaLabel }) : null
             ]
           }
         )
@@ -22787,12 +24509,12 @@ var Removable = (_g = class {
 }, _gcTimeout = new WeakMap(), __name(_g, "Removable"), _g);
 function infiniteQueryBehavior(pages) {
   return {
-    onFetch: /* @__PURE__ */ __name((context, query) => {
+    onFetch: /* @__PURE__ */ __name((context2, query) => {
       var _a3, _b2, _c2, _d2, _e2;
-      const options2 = context.options;
-      const direction = (_c2 = (_b2 = (_a3 = context.fetchOptions) == null ? void 0 : _a3.meta) == null ? void 0 : _b2.fetchMore) == null ? void 0 : _c2.direction;
-      const oldPages = ((_d2 = context.state.data) == null ? void 0 : _d2.pages) || [];
-      const oldPageParams = ((_e2 = context.state.data) == null ? void 0 : _e2.pageParams) || [];
+      const options2 = context2.options;
+      const direction = (_c2 = (_b2 = (_a3 = context2.fetchOptions) == null ? void 0 : _a3.meta) == null ? void 0 : _b2.fetchMore) == null ? void 0 : _c2.direction;
+      const oldPages = ((_d2 = context2.state.data) == null ? void 0 : _d2.pages) || [];
+      const oldPageParams = ((_e2 = context2.state.data) == null ? void 0 : _e2.pageParams) || [];
       let result = { pages: [], pageParams: [] };
       let currentPage = 0;
       const fetchFn = /* @__PURE__ */ __name(async () => {
@@ -22800,32 +24522,32 @@ function infiniteQueryBehavior(pages) {
         const addSignalProperty = /* @__PURE__ */ __name((object) => {
           addConsumeAwareSignal(
             object,
-            () => context.signal,
+            () => context2.signal,
             () => cancelled = true
           );
         }, "addSignalProperty");
-        const queryFn = ensureQueryFn(context.options, context.fetchOptions);
+        const queryFn = ensureQueryFn(context2.options, context2.fetchOptions);
         const fetchPage = /* @__PURE__ */ __name(async (data, param, previous) => {
           if (cancelled) {
-            return Promise.reject(context.signal.reason);
+            return Promise.reject(context2.signal.reason);
           }
           if (param == null && data.pages.length) {
             return Promise.resolve(data);
           }
           const createQueryFnContext = /* @__PURE__ */ __name(() => {
             const queryFnContext2 = {
-              client: context.client,
-              queryKey: context.queryKey,
+              client: context2.client,
+              queryKey: context2.queryKey,
               pageParam: param,
               direction: previous ? "backward" : "forward",
-              meta: context.options.meta
+              meta: context2.options.meta
             };
             addSignalProperty(queryFnContext2);
             return queryFnContext2;
           }, "createQueryFnContext");
           const queryFnContext = createQueryFnContext();
           const page = await queryFn(queryFnContext);
-          const { maxPages } = context.options;
+          const { maxPages } = context2.options;
           const addTo = previous ? addToStart : addToEnd;
           return {
             pages: addTo(data.pages, page, maxPages),
@@ -22854,23 +24576,23 @@ function infiniteQueryBehavior(pages) {
         }
         return result;
       }, "fetchFn");
-      if (context.options.persister) {
-        context.fetchFn = () => {
+      if (context2.options.persister) {
+        context2.fetchFn = () => {
           var _a4, _b3;
-          return (_b3 = (_a4 = context.options).persister) == null ? void 0 : _b3.call(
+          return (_b3 = (_a4 = context2.options).persister) == null ? void 0 : _b3.call(
             _a4,
             fetchFn,
             {
-              client: context.client,
-              queryKey: context.queryKey,
-              meta: context.options.meta,
-              signal: context.signal
+              client: context2.client,
+              queryKey: context2.queryKey,
+              meta: context2.options.meta,
+              signal: context2.signal
             },
             query
           );
         };
       } else {
-        context.fetchFn = fetchFn;
+        context2.fetchFn = fetchFn;
       }
     }, "onFetch")
   };
@@ -23116,7 +24838,7 @@ var Query = (_h = class extends Removable {
       return queryFn(queryFnContext);
     }, "fetchFn");
     const createFetchContext = /* @__PURE__ */ __name(() => {
-      const context2 = {
+      const context22 = {
         fetchOptions,
         options: this.options,
         queryKey: this.queryKey,
@@ -23124,21 +24846,21 @@ var Query = (_h = class extends Removable {
         state: this.state,
         fetchFn
       };
-      addSignalProperty(context2);
-      return context2;
+      addSignalProperty(context22);
+      return context22;
     }, "createFetchContext");
-    const context = createFetchContext();
+    const context2 = createFetchContext();
     const behavior = __privateGet(this, _queryType) === "infinite" ? infiniteQueryBehavior(
       this.options.pages
     ) : this.options.behavior;
-    behavior == null ? void 0 : behavior.onFetch(context, this);
+    behavior == null ? void 0 : behavior.onFetch(context2, this);
     __privateSet(this, _revertState, this.state);
-    if (this.state.fetchStatus === "idle" || this.state.fetchMeta !== ((_b2 = context.fetchOptions) == null ? void 0 : _b2.meta)) {
-      __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "fetch", meta: (_c2 = context.fetchOptions) == null ? void 0 : _c2.meta });
+    if (this.state.fetchStatus === "idle" || this.state.fetchMeta !== ((_b2 = context2.fetchOptions) == null ? void 0 : _b2.meta)) {
+      __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "fetch", meta: (_c2 = context2.fetchOptions) == null ? void 0 : _c2.meta });
     }
     __privateSet(this, _retryer, createRetryer({
       initialPromise: fetchOptions == null ? void 0 : fetchOptions.initialPromise,
-      fn: context.fetchFn,
+      fn: context2.fetchFn,
       onCancel: /* @__PURE__ */ __name((error) => {
         if (error instanceof CancelledError && error.revert) {
           this.setState({
@@ -23157,9 +24879,9 @@ var Query = (_h = class extends Removable {
       onContinue: /* @__PURE__ */ __name(() => {
         __privateMethod(this, __this_instances, dispatch_fn).call(this, { type: "continue" });
       }, "onContinue"),
-      retry: context.options.retry,
-      retryDelay: context.options.retryDelay,
-      networkMode: context.options.networkMode,
+      retry: context2.options.retry,
+      retryDelay: context2.options.retryDelay,
+      networkMode: context2.options.networkMode,
       canRun: /* @__PURE__ */ __name(() => true, "canRun")
     }));
     try {
@@ -23875,15 +25597,15 @@ var Mutation = (_j = class extends Removable {
             mutationFnContext
           );
         }
-        const context = await ((_b2 = (_a3 = this.options).onMutate) == null ? void 0 : _b2.call(
+        const context2 = await ((_b2 = (_a3 = this.options).onMutate) == null ? void 0 : _b2.call(
           _a3,
           variables,
           mutationFnContext
         ));
-        if (context !== this.state.context) {
+        if (context2 !== this.state.context) {
           __privateMethod(this, __this_instances3, dispatch_fn2).call(this, {
             type: "pending",
-            context,
+            context: context2,
             variables,
             isPaused
           });
@@ -24139,7 +25861,7 @@ var MutationObserver$1 = (_k = class extends Subscribable {
     if (__privateGet(this, _mutateOptions) && this.hasListeners()) {
       const variables = __privateGet(this, _currentResult2).variables;
       const onMutateResult = __privateGet(this, _currentResult2).context;
-      const context = {
+      const context2 = {
         client: __privateGet(this, _client4),
         meta: this.options.meta,
         mutationKey: this.options.mutationKey
@@ -24151,7 +25873,7 @@ var MutationObserver$1 = (_k = class extends Subscribable {
             action.data,
             variables,
             onMutateResult,
-            context
+            context2
           );
         } catch (e) {
           void Promise.reject(e);
@@ -24163,7 +25885,7 @@ var MutationObserver$1 = (_k = class extends Subscribable {
             null,
             variables,
             onMutateResult,
-            context
+            context2
           );
         } catch (e) {
           void Promise.reject(e);
@@ -24175,7 +25897,7 @@ var MutationObserver$1 = (_k = class extends Subscribable {
             action.error,
             variables,
             onMutateResult,
-            context
+            context2
           );
         } catch (e) {
           void Promise.reject(e);
@@ -24187,7 +25909,7 @@ var MutationObserver$1 = (_k = class extends Subscribable {
             action.error,
             variables,
             onMutateResult,
-            context
+            context2
           );
         } catch (e) {
           void Promise.reject(e);
@@ -24501,15 +26223,15 @@ function extractFromArray(detail) {
   const fieldErrors = [];
   for (const item of detail) {
     if (!item || typeof item !== "object") continue;
-    const record = item;
-    if (typeof record.field === "string" && typeof record.message === "string") {
-      fieldErrors.push({ field: record.field, message: record.message, source: "business" });
+    const record2 = item;
+    if (typeof record2.field === "string" && typeof record2.message === "string") {
+      fieldErrors.push({ field: record2.field, message: record2.message, source: "business" });
       continue;
     }
-    if (typeof record.msg === "string") {
+    if (typeof record2.msg === "string") {
       fieldErrors.push({
-        field: locToField(record.loc) ?? "",
-        message: record.msg,
+        field: locToField(record2.loc) ?? "",
+        message: record2.msg,
         source: "schema"
       });
     }
@@ -24588,13 +26310,13 @@ function mayShowBackendMessage(kind) {
   return RULES[kind].showBackendMessage;
 }
 __name(mayShowBackendMessage, "mayShowBackendMessage");
-function getCopyOverride(kind, context) {
+function getCopyOverride(kind, context2) {
   var _a3;
-  return (_a3 = RULES[kind].override) == null ? void 0 : _a3[context];
+  return (_a3 = RULES[kind].override) == null ? void 0 : _a3[context2];
 }
 __name(getCopyOverride, "getCopyOverride");
-function getContextFallback(context) {
-  return CONTEXT_FALLBACK[context];
+function getContextFallback(context2) {
+  return CONTEXT_FALLBACK[context2];
 }
 __name(getContextFallback, "getContextFallback");
 function buildDedupeKey(kind, message2, isSessionEvent, isConnectivity) {
@@ -24605,7 +26327,7 @@ function buildDedupeKey(kind, message2, isSessionEvent, isConnectivity) {
 __name(buildDedupeKey, "buildDedupeKey");
 function interpretError(error, options2 = {}) {
   var _a3, _b2, _c2;
-  const context = options2.context ?? "load";
+  const context2 = options2.context ?? "load";
   const { kind, status } = classifyError(error);
   const extracted = extractError(error);
   if (isAppError(error)) {
@@ -24626,7 +26348,7 @@ function interpretError(error, options2 = {}) {
   const isSessionEvent = kind === "unauthorized";
   const isConnectivity = kind === "offline" || kind === "timeout";
   const backendMessages = mayShowBackendMessage(kind) && extracted.source === "business" ? extracted.messages : [];
-  const override = ((_b2 = options2.copy) == null ? void 0 : _b2.override) ?? getCopyOverride(kind, context);
+  const override = ((_b2 = options2.copy) == null ? void 0 : _b2.override) ?? getCopyOverride(kind, context2);
   let message2;
   let details;
   if (override) {
@@ -24635,7 +26357,7 @@ function interpretError(error, options2 = {}) {
   } else if (backendMessages.length) {
     [message2, ...details] = backendMessages;
   } else {
-    message2 = ((_c2 = options2.copy) == null ? void 0 : _c2.fallback) ?? getContextFallback(context);
+    message2 = ((_c2 = options2.copy) == null ? void 0 : _c2.fallback) ?? getContextFallback(context2);
     details = [];
   }
   return {
@@ -24889,7 +26611,7 @@ const _global = (() => {
   if (typeof globalThis !== "undefined") return globalThis;
   return typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : global;
 })();
-const isContextDefined = /* @__PURE__ */ __name((context) => !isUndefined(context) && context !== _global, "isContextDefined");
+const isContextDefined = /* @__PURE__ */ __name((context2) => !isUndefined(context2) && context2 !== _global, "isContextDefined");
 function merge(...objs) {
   const { caseless, skipUndefined } = isContextDefined(this) && this || {};
   const result = {};
@@ -25318,7 +27040,7 @@ function parseTokens(str) {
 }
 __name(parseTokens, "parseTokens");
 const isValidHeaderName = /* @__PURE__ */ __name((str) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(str.trim()), "isValidHeaderName");
-function matchHeaderValue(context, value, header, filter2, isHeaderNameFilter) {
+function matchHeaderValue(context2, value, header, filter2, isHeaderNameFilter) {
   if (utils$1.isFunction(filter2)) {
     return filter2.call(this, value, header);
   }
@@ -26209,9 +27931,9 @@ utils$1.forEach(["delete", "get", "head", "post", "put", "patch", "query"], (met
 });
 function transformData(fns, response) {
   const config = this || defaults;
-  const context = response || config;
-  const headers = AxiosHeaders$1.from(context.headers);
-  let data = context.data;
+  const context2 = response || config;
+  const headers = AxiosHeaders$1.from(context2.headers);
+  let data = context2.data;
   utils$1.forEach(fns, /* @__PURE__ */ __name(function transform(fn2) {
     data = fn2.call(config, data, headers.normalize(), response ? response.status : void 0);
   }, "transform"));
@@ -26943,8 +28665,8 @@ function estimateDataURLDecodedBytes(url) {
       if (body.charCodeAt(i) === 37 && i + 2 < len) {
         const a = body.charCodeAt(i + 1);
         const b = body.charCodeAt(i + 2);
-        const isHex = isHexDigit(a) && isHexDigit(b);
-        if (isHex) {
+        const isHex2 = isHexDigit(a) && isHexDigit(b);
+        if (isHex2) {
           effectiveLen -= 2;
           i += 2;
         }
@@ -27980,10 +29702,10 @@ Object.entries(HttpStatusCode$1).forEach(([key, value]) => {
   HttpStatusCode$1[value] = key;
 });
 function createInstance(defaultConfig) {
-  const context = new Axios$1(defaultConfig);
-  const instance = bind(Axios$1.prototype.request, context);
-  utils$1.extend(instance, Axios$1.prototype, context, { allOwnKeys: true });
-  utils$1.extend(instance, context, null, { allOwnKeys: true });
+  const context2 = new Axios$1(defaultConfig);
+  const instance = bind(Axios$1.prototype.request, context2);
+  utils$1.extend(instance, Axios$1.prototype, context2, { allOwnKeys: true });
+  utils$1.extend(instance, context2, null, { allOwnKeys: true });
   instance.create = /* @__PURE__ */ __name(function create2(instanceConfig) {
     return createInstance(mergeConfig$1(defaultConfig, instanceConfig));
   }, "create");
@@ -28029,7 +29751,7 @@ const {
   mergeConfig,
   create: create$1
 } = axios;
-const createStoreImpl = /* @__PURE__ */ __name((createState) => {
+const createStoreImpl = /* @__PURE__ */ __name((createState2) => {
   let state;
   const listeners = /* @__PURE__ */ new Set();
   const setState = /* @__PURE__ */ __name((partial, replace) => {
@@ -28047,10 +29769,10 @@ const createStoreImpl = /* @__PURE__ */ __name((createState) => {
     return () => listeners.delete(listener);
   }, "subscribe");
   const api = { setState, getState: getState2, getInitialState, subscribe: subscribe2 };
-  const initialState = state = createState(setState, getState2, api);
+  const initialState = state = createState2(setState, getState2, api);
   return api;
 }, "createStoreImpl");
-const createStore = /* @__PURE__ */ __name(((createState) => createState ? createStoreImpl(createState) : createStoreImpl), "createStore");
+const createStore = /* @__PURE__ */ __name(((createState2) => createState2 ? createStoreImpl(createState2) : createStoreImpl), "createStore");
 const React = await importShared("react");
 const identity = /* @__PURE__ */ __name((arg) => arg, "identity");
 function useStore(api, selector = identity) {
@@ -28063,14 +29785,14 @@ function useStore(api, selector = identity) {
   return slice;
 }
 __name(useStore, "useStore");
-const createImpl = /* @__PURE__ */ __name((createState) => {
-  const api = createStore(createState);
+const createImpl = /* @__PURE__ */ __name((createState2) => {
+  const api = createStore(createState2);
   const useBoundStore = /* @__PURE__ */ __name((selector) => useStore(api, selector), "useBoundStore");
   Object.assign(useBoundStore, api);
   return useBoundStore;
 }, "createImpl");
-const create = /* @__PURE__ */ __name(((createState) => createState ? createImpl(createState) : createImpl), "create");
-const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8009", "VITE_APP_ENV": "development" };
+const create = /* @__PURE__ */ __name(((createState2) => createState2 ? createImpl(createState2) : createImpl), "create");
+const __vite_import_meta_env__ = { "BASE_URL": "./", "DEV": false, "MODE": "development", "PROD": true, "SSR": false, "VITE_API_URL": "http://172.16.30.75:8009", "VITE_APP_ENV": "development", "VITE_OTEL_COLLECTOR_URL": "https://nor-clobs-t04.kore.solutions:24318" };
 const shouldDispatchFromDevtools = /* @__PURE__ */ __name((api) => !!api.dispatchFromDevtools && typeof api.dispatch === "function", "shouldDispatchFromDevtools");
 const trackedConnections = /* @__PURE__ */ new Map();
 const getTrackedConnectionState = /* @__PURE__ */ __name((name) => {
@@ -29504,7 +31226,74 @@ const AP_AUTOMATION_ENDPOINTS = {
    */
   UPDATE_EVENT_REVIEW_STATUS: endpoint("/api/v1/ap/automation/event/:recordId")
 };
-collectEndpointTemplates(AP_AUTOMATION_ENDPOINTS);
+const ALL_ENDPOINT_TEMPLATES = collectEndpointTemplates(AP_AUTOMATION_ENDPOINTS);
+const AP_RECORD_ID_ATTRIBUTE = "ap.record_id";
+function recordDashboardAccessed() {
+  recordBusinessEvent(
+    "dashboard_accessed"
+    /* DashboardAccessed */
+  );
+}
+__name(recordDashboardAccessed, "recordDashboardAccessed");
+function recordDocumentOpened(recordId) {
+  recordBusinessEvent("document_opened", { [AP_RECORD_ID_ATTRIBUTE]: recordId });
+}
+__name(recordDocumentOpened, "recordDocumentOpened");
+function traceReviewStatusChange(recordId, save) {
+  return traceBusinessAction(
+    "review_status_changed",
+    { [AP_RECORD_ID_ATTRIBUTE]: recordId },
+    save
+  );
+}
+__name(traceReviewStatusChange, "traceReviewStatusChange");
+const API_URL = "http://172.16.30.75:8009";
+function toTelemetryServiceName(mfeName) {
+  return mfeName.toLowerCase();
+}
+__name(toTelemetryServiceName, "toTelemetryServiceName");
+const TELEMETRY_SERVICE_NAME = toTelemetryServiceName(SERVICE_NAME);
+const LOCAL_ENVIRONMENT = "local";
+const ENVIRONMENT_BY_MODE = {
+  development: "dev",
+  localdev: LOCAL_ENVIRONMENT,
+  sit: "sit",
+  stage: "stage",
+  production: "prod"
+};
+function resolveEnvironment(viteMode, isDevServer) {
+  const environment = ENVIRONMENT_BY_MODE[viteMode];
+  return environment;
+}
+__name(resolveEnvironment, "resolveEnvironment");
+const SEARCH_QUERY_KEYS = ["billTo", "logicalCompany", "supplierEmail"];
+const observabilityConfig = {
+  serviceName: TELEMETRY_SERVICE_NAME,
+  serviceVersion: "0.1.0-dev.17",
+  environment: resolveEnvironment("development"),
+  collectorUrl: "https://nor-clobs-t04.kore.solutions:24318",
+  apiUrl: API_URL,
+  // The host embeds us in its own page and the instrumentation patches that
+  // page's fetch and XHR wholesale, so without this the Base System's own
+  // requests are reported as ours.
+  traceOrigins: [API_URL],
+  urlTemplates: ALL_ENDPOINT_TEMPLATES,
+  sanitizer: {
+    allowAttributes: [AP_RECORD_ID_ATTRIBUTE],
+    highRiskQueryKeys: SEARCH_QUERY_KEYS
+  },
+  isDev: false,
+  diagnostics: {
+    // Same channel as the rest of the app's development output, which compiles
+    // to nothing in stage and prod.
+    info: devLog,
+    warn: devWarn,
+    // Not this one: it fires when telemetry itself failed to start, which
+    // nobody can reproduce locally, so it has to reach the console of the build
+    // it happened in.
+    error: consoleDiagnostics.error.bind(consoleDiagnostics)
+  }
+};
 var QueryKeyScope = /* @__PURE__ */ ((QueryKeyScope2) => {
   QueryKeyScope2["ApEvents"] = "apEvents";
   return QueryKeyScope2;
@@ -29668,9 +31457,12 @@ const useUpdateApEventReviewStatus = /* @__PURE__ */ __name(() => {
     mutationKey: mutationKeys.apEvents.updateReviewStatus(),
     mutationFn: /* @__PURE__ */ __name(async ({ id, from, to: to2 }) => {
       try {
-        await apiClient.patch(
-          AP_AUTOMATION_ENDPOINTS.UPDATE_EVENT_REVIEW_STATUS.build({ recordId: id }),
-          { prev_status: toReviewStatusWireName(from), new_status: toReviewStatusWireName(to2) }
+        await traceReviewStatusChange(
+          id,
+          () => apiClient.patch(
+            AP_AUTOMATION_ENDPOINTS.UPDATE_EVENT_REVIEW_STATUS.build({ recordId: id }),
+            { prev_status: toReviewStatusWireName(from), new_status: toReviewStatusWireName(to2) }
+          )
         );
       } catch (error) {
         if (classifyError(error).kind !== "conflict") throw error;
@@ -29909,69 +31701,102 @@ const DataLoadError = /* @__PURE__ */ __name(({
   );
 }, "DataLoadError");
 export {
-  di as $,
+  hi as $,
   ApDocumentType as A,
-  Ss as B,
-  h as C,
-  useUpdateApEventReviewStatus as D,
+  ApReviewStatus as B,
+  Mt as C,
+  kt as D,
   Et as E,
-  bt as F,
+  recordDocumentOpened as F,
   Ge as G,
-  Qn as H,
+  Ss as H,
   Icon as I,
-  wt as J,
-  yt as K,
-  Ha as L,
+  h as J,
+  useUpdateApEventReviewStatus as K,
+  bt as L,
   Mutation as M,
-  hn as N,
-  preloadIcon as O,
-  us as P,
+  Qn as N,
+  wt as O,
+  yt as P,
   Query as Q,
-  useApEvents as R,
+  Ha as R,
   STORAGE_PREFIX as S,
-  useErrorSurface as T,
-  hi as U,
+  hn as T,
+  preloadIcon as U,
   Vt as V,
   Wr as W,
-  DataLoadError as X,
+  us as X,
   Yr as Y,
-  EmptyState as Z,
-  QueryClientProvider as _,
-  devError as a,
-  zr as a0,
-  SCOPE_CLASS as a1,
-  CONTAINER_ID as a2,
-  apiClient as a3,
-  ensureJWTInitialized as a4,
-  SERVICE_NAME as a5,
-  devLog as a6,
-  useJWTStore as a7,
-  jwtSelectors as a8,
-  JWT_STORAGE_KEY as a9,
-  API_BASE_URL as aa,
-  Subscribable as b,
-  noop$1 as c,
+  useApEvents as Z,
+  useErrorSurface as _,
+  reportRenderError as a,
+  DataLoadError as a0,
+  EmptyState as a1,
+  recordDashboardAccessed as a2,
+  QueryClientProvider as a3,
+  di as a4,
+  zr as a5,
+  SCOPE_CLASS as a6,
+  CONTAINER_ID as a7,
+  apiClient as a8,
+  setupObservability as a9,
+  DEFAULT_SANITIZER_CONFIG as aA,
+  extractPathname as aB,
+  toText as aC,
+  templatePath as aD,
+  useJWTStore as aE,
+  jwtSelectors as aF,
+  JWT_STORAGE_KEY as aG,
+  API_BASE_URL as aH,
+  SERVICE_NAME as aa,
+  ensureJWTInitialized as ab,
+  devLog as ac,
+  observabilityConfig as ad,
+  shutdownObservability as ae,
+  DiagAPI as af,
+  registerGlobal as ag,
+  getGlobal$1 as ah,
+  unregisterGlobal as ai,
+  createContextKey as aj,
+  baggageEntryMetadataFromString as ak,
+  propagation as al,
+  trace as am,
+  isSpanContextValid as an,
+  TraceFlags as ao,
+  context as ap,
+  SeverityNumber as aq,
+  createNoopLogger as ar,
+  SpanStatusCode as as,
+  INVALID_SPAN_CONTEXT as at,
+  isValidTraceId as au,
+  ROOT_CONTEXT as av,
+  logs as aw,
+  getState$2 as ax,
+  activateErrorCapture as ay,
+  releaseOtelGlobals as az,
+  devError as b,
+  Subscribable as c,
   devWarn as d,
-  matchQuery as e,
-  focusManager as f,
-  functionalUpdate as g,
+  noop$1 as e,
+  matchQuery as f,
+  focusManager as g,
   hashQueryKeyByOptions as h,
-  hashKey as i,
+  installErrorCapture as i,
   jsxRuntimeExports as j,
-  ci as k,
-  interpretError as l,
+  resolveStaleTime as k,
+  functionalUpdate as l,
   matchMutation as m,
   notifyManager as n,
   onlineManager as o,
-  partialMatchKey as p,
-  getQueryClaimState as q,
-  resolveStaleTime as r,
+  hashKey as p,
+  partialMatchKey as q,
+  recordRouteChange as r,
   skipToken as s,
   toErrorText as t,
-  getDisplacedClaimFallback as u,
-  forgetQueryClaims as v,
-  classifyError as w,
-  ApReviewStatus as x,
-  Mt as y,
-  kt as z
+  ci as u,
+  interpretError as v,
+  getQueryClaimState as w,
+  getDisplacedClaimFallback as x,
+  forgetQueryClaims as y,
+  classifyError as z
 };
