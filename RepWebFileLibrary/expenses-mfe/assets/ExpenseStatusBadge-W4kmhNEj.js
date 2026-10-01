@@ -1,0 +1,1 @@
+var e=Object.defineProperty;var a=(o,s)=>e(o,"name",{value:s,configurable:!0});import{v as r,a7 as n,bO as l}from"./__federation_expose_Mount-DF8lQ-pn.js";const c=a(({status:o,className:s=""})=>{const t=l[o];return r.jsx(n,{variant:"outline",className:`rounded-20! ${t.bgColor} ${t.textColor} ${s}`,children:t.label})},"ExpenseStatusBadge");export{c as E};
