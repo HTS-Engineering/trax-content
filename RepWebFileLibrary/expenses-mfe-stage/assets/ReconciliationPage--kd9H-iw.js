@@ -1,1 +1,0 @@
-var s=Object.defineProperty;var t=(i,o)=>s(i,"name",{value:o,configurable:!0});import{v as a,bm as e}from"./__federation_expose_Mount-C-gOV3p7.js";const c=t(()=>a.jsx(e,{}),"ReconciliationPage");export{c as default};

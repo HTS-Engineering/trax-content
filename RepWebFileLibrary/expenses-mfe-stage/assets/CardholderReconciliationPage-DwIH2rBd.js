@@ -1,0 +1,1 @@
+var a=Object.defineProperty;var o=(r,t)=>a(r,"name",{value:t,configurable:!0});import{v as e,bp as i}from"./__federation_expose_Mount-BCApv_4c.js";const c=o(()=>e.jsx(i,{}),"CardholderReconciliationPage");export{c as default};
