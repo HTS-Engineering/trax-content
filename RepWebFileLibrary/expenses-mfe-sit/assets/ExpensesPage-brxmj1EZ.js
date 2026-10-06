@@ -1,1 +1,0 @@
-var r=Object.defineProperty;var s=(e,t)=>r(e,"name",{value:t,configurable:!0});import{v as o}from"./__federation_expose_Mount-BX-0yW4c.js";import{E as p}from"./ExpensesList-DEk94rL8.js";const n=s(()=>o.jsx(p,{}),"ExpensesPage");export{n as default};
