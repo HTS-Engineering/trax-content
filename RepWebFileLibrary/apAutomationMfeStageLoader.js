@@ -24,12 +24,13 @@
   const BUNDLE_DIR = "apAutomation-mfe-stage";
   const FILE_NAME = "apAutomationMfeStageLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.20",
-  "commit": "cf0a1d1",
+  "version": "0.1.0-dev.22",
+  "commit": "2c1e7b0",
   "branch": "HEAD",
-  "timestamp": "2026-10-09T16:28:49.452Z",
+  "tag": "v0.1.0-rc.2",
+  "timestamp": "2026-10-09T18:16:09.520Z",
   "environment": "apAutomation-mfe-stage",
-  "bootstrap": "__federation_expose_Mount-1Ma6alFN.js",
+  "bootstrap": "__federation_expose_Mount-C7wznBup.js",
   "css": "style-B6ugr7yh.css"
 };
 
@@ -306,7 +307,8 @@
         unmount,
       });
 
-      console.info(LOG_PREFIX, `mounted (v${manifest.version || 'unknown'}, ${manifest.commit || 'unknown'})`);
+      const tag = manifest.tag ? `${manifest.tag}, ` : '';
+      console.info(LOG_PREFIX, `mounted (v${manifest.version || 'unknown'}, ${tag}${manifest.commit || 'unknown'})`);
 
       window.dispatchEvent(
         new CustomEvent('mfe:loaded', {
