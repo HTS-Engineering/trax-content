@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-B1c7Hg3U.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-DJbHZaXG.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=[(()=>{const f="assets/DiagnosticsPage-C66zKTbP.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/DataLoadError-DV1PatGF.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/__federation_fn_import-BLt6jPdS.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})(),(()=>{const f="assets/preload-helper-Bsq79q8M.js";const rel=f.startsWith('assets/')?f.slice(7):f;return new URL(rel, import.meta.url).href;})()])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -18,7 +18,7 @@ var __privateWrapper = (obj, member, setter, getter) => ({
 });
 var _a, _b, _c, _d, _e, _f, _mutations, _scopes, _mutationId, _g, _queries, _h, _queryCache, _mutationCache, _defaultOptions, _queryDefaults, _mutationDefaults, _mountCount, _unsubscribeFocus, _unsubscribeOnline, _i;
 import { importShared } from "./__federation_fn_import-BLt6jPdS.js";
-import { i as installErrorCapture, r as recordRouteChange, a as reportRenderError, S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, b as devError, c as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, e as noop, h as hashQueryKeyByOptions, Q as Query, f as matchQuery, g as focusManager, o as onlineManager, k as resolveStaleTime, l as functionalUpdate, p as hashKey, q as partialMatchKey, s as skipToken, t as toErrorText, u as ci, v as interpretError, w as getQueryClaimState, x as getDisplacedClaimFallback, y as forgetQueryClaims, z as classifyError, A as ApDocumentType, B as ApReviewStatus, C as Mt, E as Et, I as Icon, D as kt, F as recordDocumentOpened, Y as Yr, H as Ss, J as h, W as Wr, K as useUpdateApEventReviewStatus, V as Vt, L as bt, N as Qn, O as wt, P as yt, R as Ha, T as hn, U as preloadIcon, X as us, Z as useApEvents, _ as useErrorSurface, $ as hi, a0 as DataLoadError, a1 as EmptyState, a2 as recordDashboardAccessed, a3 as QueryClientProvider, a4 as di, a5 as zr, a6 as SCOPE_CLASS, a7 as CONTAINER_ID, a8 as apiClient, a9 as setupObservability, aa as SERVICE_NAME, ab as ensureJWTInitialized, ac as devLog, ad as observabilityConfig, ae as shutdownObservability } from "./DataLoadError-DJbHZaXG.js";
+import { i as installErrorCapture, r as recordRouteChange, a as reportRenderError, S as STORAGE_PREFIX, d as devWarn, j as jsxRuntimeExports, G as Ge, b as devError, c as Subscribable, M as Mutation, n as notifyManager, m as matchMutation, e as noop, h as hashQueryKeyByOptions, Q as Query, f as matchQuery, g as focusManager, o as onlineManager, k as resolveStaleTime, l as functionalUpdate, p as hashKey, q as partialMatchKey, s as skipToken, t as toErrorText, u as ci, v as interpretError, w as getQueryClaimState, x as getDisplacedClaimFallback, y as forgetQueryClaims, z as classifyError, A as ApDocumentType, B as ApReviewStatus, C as Mt, E as Et, I as Icon, D as kt, F as recordDocumentOpened, Y as Yr, H as Ss, J as h, W as Wr, K as useUpdateApEventReviewStatus, V as Vt, L as bt, N as Qn, O as wt, P as yt, R as Ha, T as hn, U as preloadIcon, X as us, Z as useApEvents, _ as useErrorSurface, $ as hi, a0 as DataLoadError, a1 as EmptyState, a2 as recordDashboardAccessed, a3 as QueryClientProvider, a4 as di, a5 as zr, a6 as SCOPE_CLASS, a7 as CONTAINER_ID, a8 as apiClient, a9 as setupObservability, aa as SERVICE_NAME, ab as ensureJWTInitialized, ac as devLog, ad as observabilityConfig, ae as shutdownObservability } from "./DataLoadError-DV1PatGF.js";
 import { r as requireReact } from "./index-BB5LXT6C.js";
 import { r as requireReactDom } from "./index-BH4teOuT.js";
 import { _ as __vitePreload } from "./preload-helper-Bsq79q8M.js";
@@ -21463,7 +21463,7 @@ function ApExceptionsPage() {
 }
 __name(ApExceptionsPage, "ApExceptionsPage");
 const { Suspense } = await importShared("react");
-const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-B1c7Hg3U.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
+const DiagnosticsPage = lazyRoute(() => __vitePreload(() => import("./DiagnosticsPage-C66zKTbP.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0, import.meta.url));
 const router = createHashRouter([
   {
     path: RoutePaths.Root,
@@ -21742,7 +21742,7 @@ function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(AppProviders, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(RouterProvider, {}) });
 }
 __name(App, "App");
-var define_MFE_BUILD_default = { version: "0.1.0-dev.19", commit: "cf0a1d1", branch: "dev", timestamp: "2026-10-09T16:20:19.172Z", environment: "apAutomation-mfe-dev" };
+var define_MFE_BUILD_default = { version: "0.1.0-dev.21", commit: "2c1e7b0", branch: "dev", timestamp: "2026-10-09T18:08:33.859Z", tag: "v0.1.0-rc.2", environment: "apAutomation-mfe-dev" };
 const { StrictMode } = await importShared("react");
 const mountedInstances = /* @__PURE__ */ new Map();
 const releaseObservability = /* @__PURE__ */ __name(() => {
@@ -21892,8 +21892,9 @@ const setupCleanupListeners = /* @__PURE__ */ __name(() => {
 if (typeof window !== "undefined") {
   const w = window;
   w.__TRAX_MFE__ = { ...w.__TRAX_MFE__, [SERVICE_NAME]: define_MFE_BUILD_default };
+  const tagLabel = define_MFE_BUILD_default.tag ? `${define_MFE_BUILD_default.tag}, ` : "";
   console.info(
-    `[${SERVICE_NAME}] v${define_MFE_BUILD_default.version} (${define_MFE_BUILD_default.commit}, ${define_MFE_BUILD_default.environment}, ${define_MFE_BUILD_default.timestamp})`
+    `[${SERVICE_NAME}] v${define_MFE_BUILD_default.version} (${tagLabel}${define_MFE_BUILD_default.commit}, ${define_MFE_BUILD_default.environment}, ${define_MFE_BUILD_default.timestamp})`
   );
 }
 if (typeof window !== "undefined") {
