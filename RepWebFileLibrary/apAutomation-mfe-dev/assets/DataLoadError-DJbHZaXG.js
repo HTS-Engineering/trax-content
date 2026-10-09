@@ -1729,7 +1729,7 @@ async function setupObservability(config) {
     var _a3, _b2;
     try {
       const { initializeObservability } = await __vitePreload(async () => {
-        const { initializeObservability: initializeObservability2 } = await import("./setup-C3t6B_iH.js");
+        const { initializeObservability: initializeObservability2 } = await import("./setup-CDBpCbnW.js");
         return { initializeObservability: initializeObservability2 };
       }, true ? [] : void 0, import.meta.url);
       state.active = initializeObservability(resolved);
@@ -31269,7 +31269,7 @@ __name(resolveEnvironment, "resolveEnvironment");
 const SEARCH_QUERY_KEYS = ["billTo", "logicalCompany", "supplierEmail"];
 const observabilityConfig = {
   serviceName: TELEMETRY_SERVICE_NAME,
-  serviceVersion: "0.1.0-dev.17",
+  serviceVersion: "0.1.0-dev.19",
   environment: resolveEnvironment("development"),
   collectorUrl: "https://nor-clobs-t04.kore.solutions:24318",
   apiUrl: API_URL,

@@ -24,12 +24,12 @@
   const BUNDLE_DIR = "apAutomation-mfe-dev";
   const FILE_NAME = "moduleLoader.js";
   const INLINED_MANIFEST = {
-  "version": "0.1.0-dev.17",
-  "commit": "7ea9437",
+  "version": "0.1.0-dev.19",
+  "commit": "cf0a1d1",
   "branch": "dev",
-  "timestamp": "2026-09-22T18:00:30.207Z",
+  "timestamp": "2026-10-09T16:20:19.172Z",
   "environment": "apAutomation-mfe-dev",
-  "bootstrap": "__federation_expose_Mount-CyPokxJJ.js",
+  "bootstrap": "__federation_expose_Mount-DGafRM_J.js",
   "css": "style-Cc8V60M0.css"
 };
 
