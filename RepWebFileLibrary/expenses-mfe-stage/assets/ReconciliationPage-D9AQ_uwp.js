@@ -1,0 +1,1 @@
+var o=Object.defineProperty;var s=(t,i)=>o(t,"name",{value:i,configurable:!0});import{v as a,bs as e}from"./__federation_expose_Mount-BroeHJ4E.js";const c=s(()=>a.jsx(e,{}),"ReconciliationPage");export{c as default};
